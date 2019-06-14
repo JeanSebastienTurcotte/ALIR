@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue le fichier principal du livre                     -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Copyright (C) 2019  Jean-Sébastien Turcotte, Philémon Turcotte         -->
+<!-- Licence à venir                                                        -->
+
+<exercises xml:id="exo-vec">
+        <title>Exercices</title>
+        <exercise xml:id="exo-vecgeoab">
+          <statement>
+            <p>Considérer les vecteurs <m>\vec{u}=(2,5)</m> et <m>\vec{v}=(-3,1)</m>. 
+                Calculer algébriquement les vecteurs suivants, les représenter dans un plan cartésien et en calculer la direction et la longueur.</p>
+              <p><ol><li><m>\vec{u}+\vec{v}</m></li>
+                  <li><m>\vec{u}-\vec{v}</m></li>
+                  <li><m>\vec{v}-\vec{u}</m></li>
+                  <li><m>-2\vec{u}</m></li>
+                  <li><m>3\vec{u}+\vec{v}</m></li>
+                  <li><m>\vec{u}-3\vec{v}</m></li>
+                  <li><m>\frac{\vec{u}}{\norm{\vec{u}}}</m></li>
+                  <li><m>\frac{\vec{u}+\vec{v}}{\norm{\vec{u}+\vec{v}}}</m></li>
+              </ol></p>
+          </statement>
+          <answer>
+            <ol>
+                <li>
+                    <p><m>\vec{u}+\vec{v}=(-1,6)</m></p>
+                    <p><md>
+                        <mrow> \theta &amp; \approx 99.46^{\circ}</mrow>
+                    </md></p>
+                    <p>
+                        <md>
+                            <mrow>\norm{\vec{u}+\vec{v}} &amp; =\sqrt{37}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>\vec{u}-\vec{v}=(5,4)</m></p>
+                    <p><md>
+                        <mrow> \theta &amp; \approx 38.66^{\circ}</mrow>
+                    </md></p>
+                    <p>
+                        <md>
+                            <mrow>\norm{\vec{u}-\vec{v}} &amp; =\sqrt{37}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>\vec{v}-\vec{u}=(-5,-4)</m></p>
+                    <p><md>
+                        <mrow> \theta &amp; \approx 218.66^{\circ}</mrow>
+                    </md></p>
+                    <p>
+                        <md>
+                            <mrow>\norm{\vec{v}-\vec{u}} &amp; =\sqrt{37}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>-2\vec{u}=(-4,-10)</m></p>
+                    <p><md>
+                        <mrow> \theta &amp; \approx 248.20^{\circ}</mrow>
+                    </md></p>
+                    <p>
+                        <md>
+                            <mrow>\norm{-2\vec{u}} &amp; =2\sqrt{29}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>3\vec{u}+\vec{v}=(3,16)</m></p>
+                    <p><md>
+                        <mrow> \theta &amp; \approx 79.38^{\circ}</mrow>
+                    </md></p>
+                    <p> 
+                        <md>
+                            <mrow>\norm{3\vec{u}+\vec{v}} &amp; =\sqrt{265}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>\vec{u}-3\vec{v}=(11,2)</m></p>
+                    <p><md>
+                        <mrow> \theta &amp; \approx 10.3^{\circ}</mrow>
+                    </md></p>
+                    <p>
+                        <md>
+                            <mrow>\norm{\vec{u}-3\vec{v}} &amp; =5\sqrt{5}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>\frac{\vec{u}}{\norm{\vec{u}}}=\left(\frac{2}{\sqrt{29}},\frac{5}{\sqrt{29}}\right)</m></p>
+                   <p><md>
+                        <mrow> \theta &amp; \approx 68.2^{\circ}</mrow>
+                    </md></p>
+                    <p>
+                        <md>
+                            <mrow>\norm{\frac{\vec{u}}{\norm{\vec{u}}}} &amp; =1</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><md>
+                      <mrow>\frac{\vec{u}+\vec{v}}{\norm{\vec{u}+\vec{v}}} &amp; = \left(\frac{-1}{\sqrt{37}},\frac{6}{\sqrt{37}}\right)</mrow>
+                    </md></p>
+                    <p><md>
+                        <mrow> \theta &amp; \approx 99.46^{\circ}</mrow>
+                    </md></p>
+                    <p>
+                        <md>
+                            <mrow>\norm{\frac{\vec{u}+\vec{v}}{\norm{\vec{u}+\vec{v}}}} &amp; =1</mrow>
+                        </md>
+                    </p>
+                    
+                </li>
+              </ol>
+          </answer>
+          <solution>
+            <ol>
+                <li>
+                    <p><m>\vec{u}+\vec{v}=(2,5)+(-3,1)=(2+(-3),5+1)=(-1,6)</m></p>
+                    <p>On trace le vecteur <m>\vec{u}+\vec{v}=(-1,6)</m> à l'origine pour savoir environ dans quelle direction il pointe. On voit qu'il est dans le 
+                    deuxième quadrant. On trouvera donc l'angle aïgu (<m>\alpha</m>) avec la trigonométrie et on lui additionnera l'angle droit. 
+                    On utilise toujours <m>\arctan</m> puisqu'on connaît les côtés adjacent et opposé à l'angle <m>\alpha</m>.</p>
+                    <figure xml:id="fig-exo-vecgeoab-a">
+                        <caption> </caption>
+                        <image source="img/exo-vecgeoab-a.svg" width="80%">
+                            <description>Le vecteur partant de l'origine et allant au point (-1,6) ainsi que son angle polaire donnant sa direction.</description>
+                        </image>
+                    </figure>
+                    <p><md>
+                        <mrow> \theta &amp; = \alpha+90^{\circ}</mrow>
+                        <mrow> &amp; = \arctan\left(\frac{1}{6}\right)+90^{\circ}</mrow>
+                        <mrow> &amp; \approx 9.46^{\circ}+90^{\circ}</mrow>
+                        <mrow> &amp; \approx 99.46^{\circ}</mrow>
+                    </md></p>
+                    <p>La longueur est calculée ainsi: 
+                        <md>
+                            <mrow>\norm{\vec{u}+\vec{v}} &amp; =\norm{(-1,6)}</mrow>
+                            <mrow> &amp; =\sqrt{(-1)^2+6^2}</mrow>
+                            <mrow> &amp; =\sqrt{37}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>\vec{u}-\vec{v}=(2,5)-(-3,1)=(2-(-3),5-1)=(5,4)</m></p>
+                    <p>On trace le vecteur <m>\vec{u}-\vec{v}=(5,4)</m> et on voit qu'il se trouve dans le premier quadrant. 
+                    On trouve donc l'angle directement avec la trigonométrie.</p>
+                    <figure xml:id="fig-exo-vecgeoab-b">
+                        <caption> </caption>
+                        <image source="img/exo-vecgeoab-b.svg" width="80%">
+                            <description>Le vecteur partant de l'origine et allant au point (5,4) ainsi que son angle polaire donnant sa direction.</description>
+                        </image>
+                    </figure>
+                    <p><md>
+                        <mrow> \theta &amp; = \arctan\left(\frac{4}{5}\right)</mrow>
+                        <mrow> &amp; \approx 38.66^{\circ}</mrow>
+                    </md></p>
+                    <p>La longueur est calculée ainsi : 
+                        <md>
+                            <mrow>\norm{\vec{u}-\vec{v}} &amp; =\norm{(5,4)}</mrow>
+                            <mrow>&amp; =\sqrt{(-1)^2+6^2}</mrow>
+                            <mrow>&amp; =\sqrt{37}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li><p><m>\vec{v}-\vec{u}=(-3,1)-(2,5)=(-3-2,1-5)=(-5,-4)</m></p>
+                    <p>On trace le vecteur <m>\vec{v}-\vec{u}=(-5,-4)</m>. On remarque qu'il s'agit du vecteur opposé à celui de la question précédente. 
+                        On va utiliser ce fait pour gagner du temps. Sa longueur est identique et sa direction est de <m>180^{\circ}</m> de plus (ou moins!).</p>
+                    <figure xml:id="fig-exo-vecgeoab-c">
+                        <caption> </caption>
+                        <image source="img/exo-vecgeoab-c.svg" width="80%">
+                            <description>Le vecteur partant de l'origine et allant au point (-5,-4) ainsi que son angle polaire donnant sa direction.</description>
+                        </image>
+                    </figure>
+                    <p><md>
+                        <mrow> \theta &amp; \approx 38.66^{\circ}+180^{\circ}</mrow>
+                        <mrow> &amp; \approx 218.66^{\circ}</mrow>
+                    </md></p>
+                    <p>La longueur est donc: 
+                        <md>
+                            <mrow>\norm{\vec{v}-\vec{u}} &amp; =\norm{\vec{u}-\vec{v}}</mrow>
+                            <mrow>&amp; =\sqrt{37}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>-2\vec{u}=-2(2,5)=(-2(2),-2(5))=(-4,-10)</m></p>
+                    <p>On trace le vecteur <m>-2\vec{u}=(-4,-10)</m> à l'origine pour savoir environ dans quelle direction il pointe. On voit qu'il est dans le 
+                    troisième quadrant. On trouvera donc l'angle aïgu (<m>\alpha</m>) avec la trigonométrie et on lui additionnera les <m>180^{\circ}</m> manquants.</p>
+                    <figure xml:id="fig-exo-vecgeoab-d">
+                        <caption> </caption>
+                        <image source="img/exo-vecgeoab-d.svg" width="80%">
+                            <description>Le vecteur partant de l'origine et allant au point (-4,-10) ainsi que son angle polaire donnant sa direction.</description>
+                        </image>
+                    </figure>
+                    <p><md>
+                        <mrow> \theta &amp; = \alpha+180^{\circ}</mrow>
+                        <mrow> &amp; = \arctan\left(\frac{10}{4}\right)+90^{\circ}</mrow>
+                        <mrow> &amp; \approx 68.20^{\circ}+180^{\circ}</mrow>
+                        <mrow> &amp; \approx 248.20^{\circ}</mrow>
+                    </md></p>
+                    <p>La longueur est calculée ainsi: 
+                        <md>
+                            <mrow>\norm{-2\vec{u}} &amp; =\norm{(-4,-10)}</mrow>
+                            <mrow>&amp; =\sqrt{(-4)^2+(-10)^2}</mrow>
+                            <mrow>&amp; =\sqrt{16+100}</mrow>
+                            <mrow>&amp; =\sqrt{116}</mrow>
+                            <mrow>&amp; =2\sqrt{29}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>3\vec{u}+\vec{v}=3(2,5)+(-3,1)=(6,15)+(-3,1)=(3,16)</m></p>
+                    <p>On trace le vecteur <m>3\vec{u}+\vec{v}=(3,16)</m> et on voit qu'il se trouve dans le premier quadrant.</p>
+                    <figure xml:id="fig-exo-vecgeoab-e">
+                        <caption> </caption>
+                        <image source="img/exo-vecgeoab-e.svg" width="80%">
+                            <description>Le vecteur partant de l'origine et allant au point (3,16) ainsi que son angle polaire donnant sa direction.</description>
+                        </image>
+                    </figure>
+                    <p><md>
+                        <mrow> \theta &amp; = \arctan\left(\frac{16}{3}\right)</mrow>
+                        <mrow> &amp; \approx 79.38^{\circ}</mrow>
+                    </md></p>
+                    <p>La longueur est calculée ainsi : 
+                        <md>
+                            <mrow>\norm{3\vec{u}+\vec{v}} &amp; =\norm{(3,16)}</mrow>
+                            <mrow>&amp; =\sqrt{3^2+16^2}</mrow>
+                            <mrow>&amp; =\sqrt{265}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>\vec{u}-3\vec{v}=(2,5)-3(-3,1)=(2,5)+(9,-3)=(11,2)</m></p>
+                    <p>On trace le vecteur <m>\vec{u}-3\vec{v}=(11,2)</m> et on voit qu'il se trouve dans le premier quadrant.</p>
+                    <figure xml:id="fig-exo-vecgeoab-f">
+                        <caption> </caption>
+                        <image source="img/exo-vecgeoab-f.svg" width="80%">
+                            <description>Le vecteur partant de l'origine et allant au point (11,2) ainsi que son angle polaire donnant sa direction.</description>
+                        </image>
+                    </figure>
+                    <p><md>
+                        <mrow> \theta &amp; = \arctan\left(\frac{2}{11}\right)</mrow>
+                        <mrow> &amp; \approx 10.3^{\circ}</mrow>
+                    </md></p>
+                    <p>La longueur est calculée ainsi : 
+                        <md>
+                            <mrow>\norm{\vec{u}-3\vec{v}} &amp; =\norm{(11,2)}</mrow>
+                            <mrow>&amp; =\sqrt{11^2+2^2}</mrow>
+                            <mrow>&amp; =\sqrt{125}</mrow>
+                            <mrow>&amp; =5\sqrt{5}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><m>\frac{\vec{u}}{\norm{\vec{u}}}=\frac{1}{\norm{(2,5)}}(2,5)=\frac{1}{\sqrt{2^2+5^2}}(2,5)=\frac{1}{\sqrt{29}}(2,5)=\left(\frac{2}{\sqrt{29}},\frac{5}{\sqrt{29}}\right)</m></p>
+                    <p>On trace le vecteur <m>\frac{\vec{u}}{\norm{\vec{u}}}=\left(\frac{2}{\sqrt{29}},\frac{5}{\sqrt{29}}\right)</m> 
+                        et on voit qu'il se trouve dans le premier quadrant. Remarquons que ce vecteur correspond au vecteur <m>\vec{u}=(2,5)</m> que l'on a 
+                        multiplité par le scalaire <m>1</m> sur sa norme. C'est ainsi qu'on \emph{unitarise} un vecteur. Sa direction sera la même que le vecteur 
+                        <m>\vec{u}</m> qu'on a tracé plus pâle pour les visualiser ensemble. 
+                    </p>
+                    <figure xml:id="fig-exo-vecgeoab-g">
+                        <caption> </caption>
+                        <image source="img/exo-vecgeoab-g.svg" width="80%">
+                            <description>
+                                Le vecteur unitaire partant de l'origine dans la direction du vecteur (2,5) ainsi que son angle polaire donnant sa direction.
+                                Le vecteur (2,5) est tracé derrière plus pâle.
+                            </description>
+                        </image>
+                    </figure>
+                    <p><md>
+                        <mrow> \theta &amp; = \arctan\left(\frac{5}{2}\right)</mrow>
+                        <mrow> &amp; \approx 68.2^{\circ}</mrow>
+                    </md></p>
+                    <p>La longueur est automatiquement de <m>1</m> puisque c'est un vecteur unitaire. Calculons-la, pour vérifier : 
+                        <md>
+                            <mrow>\norm{\frac{\vec{u}}{\norm{\vec{u}}}} &amp; =\norm{\left(\frac{2}{\sqrt{29}},\frac{5}{\sqrt{29}}\right)}</mrow>
+                            <mrow>&amp; =\sqrt{\frac{2}{\sqrt{29}}^2+\frac{5}{\sqrt{29}}^2}</mrow>
+                            <mrow>&amp; =\sqrt{\frac{4}{29}+\frac{25}{29}}</mrow>
+                            <mrow>&amp; =\sqrt{\frac{29}{29}}</mrow>
+                            <mrow>&amp; =\sqrt{1}</mrow>
+                            <mrow>&amp; =1</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p><md>
+                      <mrow>\frac{\vec{u}+\vec{v}}{\norm{\vec{u}+\vec{v}}}&amp; = \frac{(2,5)+(-3,1)}{\norm{(2,5)+(-3,1)}}</mrow>
+                      <mrow> &amp; = \frac{(-1,6)}{\norm{(-1,6)}}</mrow>
+                      <mrow> &amp; = \frac{1}{\sqrt{(-1)^2+6^2}}(-1,6)</mrow>
+                      <mrow> &amp; = \frac{1}{\sqrt{37}}(-1,6)</mrow>
+                      <mrow> &amp; = \left(\frac{-1}{\sqrt{37}},\frac{6}{\sqrt{37}}\right)</mrow>
+                    </md></p>
+                    <p>On trace le vecteur <m>\frac{\vec{u}+\vec{v}}{\norm{\vec{u}+\vec{v}}}=\left(\frac{-1}{\sqrt{37}},\frac{6}{\sqrt{37}}\right)</m> 
+                        et on voit qu'il se trouve dans le deuxième quadrant. Il s'agit encore une fois d'un vecteur unitaire. 
+                        C'est celui du premier exercice de ce numéro. Nous connaissons donc déjà la direction et la longueur.
+                    </p>
+                    <figure xml:id="fig-exo-vecgeoab-h">
+                        <caption> </caption>
+                        <image source="img/exo-vecgeoab-h.svg" width="80%">
+                            <description>
+                                Le vecteur unitaire partant de l'origine dans la direction du vecteur (-1,6) ainsi que son angle polaire donnant sa direction.
+                                Le vecteur (-1,6) est tracé derrière plus pâle.
+                            </description>
+                        </image>
+                    </figure>
+                    <p><md>
+                        <mrow> \theta &amp; \approx 99.46^{\circ}</mrow>
+                    </md></p>
+                    <p>La longueur est automatiquement de <m>1</m> puisque c'est un vecteur unitaire : 
+                        <md>
+                            <mrow>\norm{\frac{\vec{u}+\vec{v}}{\norm{\vec{u}+\vec{v}}}} &amp; =1</mrow>
+                        </md>
+                    </p>
+                    
+                </li>
+              </ol>
+          </solution>
+        </exercise>
+        <exercise xml:id="exo-norm3">
+            <statement>
+                La question.
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse.
+            </answer>
+            <solution>
+                La solution.
+            </solution>
+        </exercise>
+        <exercise xml:id="exo-cosdir">
+            <statement>
+                Faire un sous exercice pour montrer que les cosinus directeurs existent dans R^2 aussi.
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse.
+            </answer>
+            <solution>
+                La solution.
+            </solution>
+        </exercise>
+        
+        <exercise xml:id="exo-">
+            <statement>
+                La question.
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse.
+            </answer>
+            <solution>
+                La solution.
+            </solution>
+        </exercise>
+    </exercises>
