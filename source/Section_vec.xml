@@ -22,14 +22,14 @@
         <p> Lorsqu'on parle d'un endroit sur le plan cartésien, on dit souvent le mot point. Un point fait référence à un système de référence spécifique, comprenant notamment un origine et des axes. La position du point est donné en lien avec la distance parcourue selon chaque axe en partant de l'origine pour se rendre au point.</p>
         <!-- figure illustrant un point dans R2-->
         <!-- figure illustrant le point avec la flèche -->
-       <p> Ce déplacement suggère une autre manière de voir la notion de point, soit en traçant une flèche entre l'origine et le point. Cette flèche est ce qui est communément appelé un vecteur. En fait, la notion de vecteur est plus large que cela et c'est ce que nous allons découvrir au fil du texte. En particulier, un vecteur n'a pas de localisation particulière.
+       <p> Ce déplacement suggère une autre manière de voir la notion de point, soit en traçant une flèche entre l'origine et le point. Cette flèche est ce qui est communément appelé un vecteur. En fait, la notion de vecteur est plus large que cela et c'est ce que nous allons découvrir au fil du texte. En particulier, un vecteur n'a pas de localisation particulière. Pour cela, on associe souvent à un point <m>P</m> le vecteur <m>\overrightarrow{OP}</m> où <m>O</m> représente l'origine. La différence entre un point et un vecteur est très minime dépend souvent seulement du contexte. Algébriquement, les deux ne sont qu'une liste de nombres. On ne s'attarde pas davantage à cette différence.
         </p>
         <!-- Ajouter origine du mot vecteur (en aside?) -->
         <definition xml:id="def-vecgeo">
         <statement>
          Intuitivement, un vecteur géométrique est une flèche possédant:
             <ul>
-            <li> Une longueur;</li>
+            <li> Une longueur, aussi appelée la norme du vecteur;</li>
             <li> Une direction. <fn>Certains auteurs vont aussi définir le sens d'un vecteur. Dans ce cas, la direction de leurs vecteurs n'est pas équivalente à la définition de direction qui est donnée ici.</fn> La direction correspond intuitivement à la droite obtenue lorsqu'on prolonge le vecteur à l'infini translatée à l'origine.</li>
             </ul>
             Un vecteur sera souvent représenté par une lettre minuscule surmontée d'une flèche, typiquement comme <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m>. On accepte aussi la demi-flèche <m>\overset{\rightharpoonup} u </m>.
@@ -43,6 +43,8 @@
         </ul>
         </remark>
         <p> Comme les vecteurs sont souvent utilisés pour représenter un déplacement, on notera le vecteur reliant le point <m>P</m> au point <m>Q</m> par <m>\overrightarrow{PQ}</m>.</p>
+        
+        <p> Géométriquement, deux vecteurs sont égaux s'ils ont la même longueur et la même direction. L'image interactive de l'exemple <xref ref="ex-vecgeo" /> permet de manipuler trois vecteurs, dont deux sont toujours égaux. </p>
         <example xml:id="ex-vecgeo">
         <title>Des vecteurs géométriques</title>
             <figure>
@@ -58,8 +60,25 @@
                     </interactive>
                 </figure>
         </example>
+<!--   Ajouter exemple de vecteurs géométrique dans ue figure 3D  -->
+        <p>Algébriquement maitenant, il est possible de décrire un vecteur à l'aide de composantes. Ces composantes font référence au concepts d'origine et de base, qui seront définies dans la section <xref provisional="Section sur les base"/>. L'idée est d'associer à un vecteur <m>\vec{u}</m> les nombres correspondants au point à son extrémité lorsque le vecteur est placé à l'origine. Ainsi, un vecteur de longueur <m>1</m> parallèle à l'axe des abscisse serait décrit comme <m>\vec{u}=(1,0)</m>.</p>
+        <aside>
+            <title>En passant</title>
+            <p>Plusieurs notations sont utilisées pour les vecteurs algébriques. On peut avoir <m>(u_1,u_2), [u_1,u_2]</m> et même <m>[u_1 \, u_2]</m> sans les virgules. Dans ce texte, on utilise la première notation, mais la seconde sera utile lors de l'utilisation du programme informatique Sage. </p></aside>
+        <p> Si <m>\vec{u}=(u_1,u_2)</m> est un vecteur de <m>\R^2</m>, alors <m>\norm{\vec{u}}=\sqrt{u_1^2+u_2^2}</m>. C'est une conséquence immédiate du théorème de Pythagore, comme l'illustre la figure <xref ref="fig-unvec"/>. Pour les vecteurs de <m>\R^3</m>, on peut montrer qu'une formule similaire s'applique (voir <xref provisional="exo-norm3"/><!--, text="type-global" /> -->), c'est-à-dire que <m>\norm{\vec{u}}=\sqrt{u_1^2+u_2^2+u_3^2}</m>. </p>
+        
+        <p> Il est plus diffile de caractériser la direction d'un vecteur algébriquement. Toutefois, dans <m>\R^2</m>, il suffit d'un angle. Par convention on choisit l'angle que fait le vecteur avec l'horizontal. On appelle souvent cet angle l'angle polaire. Il est aussi illustré à la figure <xref ref="fig-unvec"/>.</p> 
+        <p> Pour les vecteurs dans <m>\R^3</m>, on définit la notion de cosinus directeurs (voir l'exercice <xref provisional="exo-cosdir"/>). </p>
+        <figure xml:id="fig-unvec">
+                        <caption> Un vecteur algébrique </caption>
+                        <image source="img/unvec.svg" width="80%">
+                            <description>Un vecteur algébrique quelconque. Ses coordonnées <m>u_1</m> et <m>u_2</m> sont illustrées de même que l'angle polaire.</description>
+                        </image>
+                    </figure>
+        <p> Algébriquement, deux vecteurs sont égaux s'ils ont les mêmes composantes.</p>
     </subsection>
     <subsection xml:id="sssec-opvec">
+        <!-- <p>Lorsque deux points <m>P(p_1,p_2)</m> et <m>Q(q_1,q_2)</m> sont donnés, on peut définir algébriquement le vecteur <m>\overrightarrow{PQ}</m> comme étant <md>\overrightarrow{PQ}=\overrightarrow{OQ}-\overrightarrow{OP}=(q_1-p_1,q_2-p_2)</md>.</p> -->
     </subsection>
     <subsection xml:id="sssec-utvec">
     
