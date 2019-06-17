@@ -279,7 +279,7 @@
                     <p>La longueur est automatiquement de <m>1</m> puisque c'est un vecteur unitaire. Calculons-la, pour vérifier : 
                         <md>
                             <mrow>\norm{\frac{\vec{u}}{\norm{\vec{u}}}} &amp; =\norm{\left(\frac{2}{\sqrt{29}},\frac{5}{\sqrt{29}}\right)}</mrow>
-                            <mrow>&amp; =\sqrt{\frac{2}{\sqrt{29}}^2+\frac{5}{\sqrt{29}}^2}</mrow>
+                            <mrow>&amp; =\sqrt{\pfrac{2}{\sqrt{29}}^2+\pfrac{5}{\sqrt{29}}^2}</mrow>
                             <mrow>&amp; =\sqrt{\frac{4}{29}+\frac{25}{29}}</mrow>
                             <mrow>&amp; =\sqrt{\frac{29}{29}}</mrow>
                             <mrow>&amp; =\sqrt{1}</mrow>
@@ -321,9 +321,9 @@
               </ol>
           </solution>
         </exercise>
-        <exercise xml:id="exo-norm3">
+        <exercise xml:id="exo-">
             <statement>
-                La question.
+                
             </statement>
             <hint>
                 Un indice.
@@ -335,9 +335,47 @@
                 La solution.
             </solution>
         </exercise>
+        <exercise xml:id="exo-norm3">
+            <statement>
+                <p>
+                    Soit un vecteur <m>\vec{u}=(a,b,c)\in\R^3</m> allant de l'origine jusqu'au point <m>B(a,b,c)</m>. 
+                    Démontrer que la longueur de ce vecteur est donnée par: <m>\norm{\vec{u}}=\sqrt{a^2+b^2+c^2}</m>.
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    Pour vous aider, voici une représentation graphique de ce vecteur dans l'espace cartésien.
+                </p>
+                <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-norm3" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="vecgeo3d" surface="geogebra" source="code/geogebra/exo-norm3.ggb" aspect="1:1">
+                            setCoordSystem(-5, 10, -5, 10, -5, 10);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Déplacer le vecteur et cliquer sur l'indice pour plus d'aide.
+                        </instructions>
+                    </interactive>
+                </figure>
+            </hint>
+            <solution>
+                <p>
+                    Le théorème de Pythagore et le concept de projection nous suffisent pour démontrer cette formule. Considérer tout d'abord le vecteur 
+                    <m>\vec{u}_{XY}</m>, la projection de <m>\vec{u}</m> sur le plan <m>XY</m>. Il est évident que <m>\vec{u}_{XY}=(a,b,0)</m>. Ainsi, par Pythagore,
+                    la longueur de ce vecteur est: <md><mrow>\norm{\vec{u}_{XY}} &amp; =\sqrt{a^2+b^2}</mrow></md>.
+                    La longueur de <m>\vec{u}</m> est maintenant calculable en utilisant de nouveau le théorème avec le triangle à la verticale dont la première
+                    cathète est la longueur de <m>\vec{u}_{XY}</m> et la seconde est la composante en <m>z</m> de <m>\vec{u}</m>:
+                    <md>
+                        <mrow>\norm{\vec{u}} &amp; =\sqrt{\sqrt{a^2+b^2}^2+c^2}</mrow>
+                        <mrow> &amp; =\sqrt{a^2+b^2+c^2}</mrow>
+                    </md>
+                </p>
+            </solution>
+        </exercise>
         <exercise xml:id="exo-cosdir">
             <statement>
-                Faire un sous exercice pour montrer que les cosinus directeurs existent dans R^2 aussi.
+                <!--Faire un sous exercice pour montrer que les cosinus directeurs existent dans R^2 aussi.-->
             </statement>
             <hint>
                 Un indice.
@@ -350,18 +388,123 @@
             </solution>
         </exercise>
         
-        <exercise xml:id="exo-">
+        <exercise xml:id="exo-VFvecpara">
             <statement>
-                La question.
+                <p>Observer le parallélipipède suivant et dire si les énoncés ci-dessous sont vrais ou faux.</p>
+                <figure xml:id="fig-exo-VFvecpara">
+                        <caption> </caption>
+                        <image source="img/exo-VFvecpara.png" width="70%">
+                            <description>
+                                Un parallélipipède ayant comme base le parallélogramme ABCD.
+                            </description>
+                        </image>
+                </figure>
+                <ol>
+                    <li><m>\vecl{AH}=\vecl{BG}</m></li>
+                    <li><m>\vecl{EC}+\vecl{DF}=\vec{0}</m></li>
+                    <li><m>\vecl{AD}=-\vecl{CB}</m></li>
+                    <li><m>\vecl{AD}+\vecl{AB}=\vecl{EG}</m></li>
+                    <li><m>\vecl{AC}+\vecl{DG}=\vecl{AG}</m></li>
+                    <li><m>\vecl{AB}+\vecl{CG}+\vecl{CA}=\vecl{DH}</m></li>
+                    <li><m>\frac{1}{2}\big(\vecl{AG}+\vecl{FD}\big)=\vecl{AD}</m></li>
+                    <li><m>\vecl{AF}+\vecl{ED}+\vecl{HF}=\vecl{AB}</m></li>
+                </ol>
             </statement>
-            <hint>
-                Un indice.
-            </hint>
             <answer>
-                La réponse.
+                <ol>
+                    <li><p>Vrai</p></li>
+                    <li><p>Faux</p></li>
+                    <li><p>Vrai</p></li>
+                    <li><p>Vrai</p></li>
+                    <li><p>Faux</p></li>
+                    <li><p>Faux</p></li>
+                    <li><p>Vrai</p></li>
+                    <li><p>Faux</p></li>
+                </ol>
             </answer>
             <solution>
-                La solution.
+                <p>
+                    Il y a plusieurs façons de raisonner pour déterminer si les vecteurs de ces énoncés sont égaux.
+                    Avant de débuter, nous donnons quelques principes importants pour structurer notre raisonnement 
+                    à l'écrit. D'abord, on veut souvent exprimer un vecteur de façon équivalente avec d'autres points. 
+                    Ensuite, on veut exprimer l'addition de vecteurs de façon équivalente avec un seul vecteur 
+                    <xref provisional = "Loi de Chasles"/>. Finalement, il peut arriver que l'on veuille effectuer les
+                    étapes précédentes à l'inverse et ainsi exprimer un vecteur comme l'addition de deux ou trois 
+                    vecteurs afin d'expliciter comment il s'annule avec d'autres vecteurs. Noter qu'il est utile de 
+                    réorganiser l'ordre de l'addition des vecteurs pour mieux communiquer ce qu'on simplifie.
+                </p>
+                <ol>
+                    <li><m>\vecl{AH}=\vecl{BG}</m><p>Ces vecteurs sont clairement parallèles et de même longueur. 
+                        C'est donc vrai qu'ils sont égaux.</p></li>
+                    <li><md>
+                            <mrow>\vecl{EC}+\vecl{DF} &amp;
+                            =\vecl{EH}+\vecl{HG}+\vecl{GC}+\vecl{DC}+\vecl{CG}+\vecl{GF}</mrow>
+                            <mrow> &amp; =\vecl{EH}+\vecl{GF}+\vecl{HG}+\vecl{DC}+\vecl{GC}+\vecl{CG}</mrow>
+                            <mrow> &amp; =\vecl{EH}+\vecl{HE}+\vecl{HG}+\vecl{HG}+\vecl{GC}+\vecl{CG}</mrow>
+                            <mrow> &amp; =\vec{0}+2\vecl{HG}+\vec{0}</mrow>
+                            <mrow> &amp; =2\vecl{HG}</mrow>
+                            <mrow> &amp; \neq \vec{0}</mrow>
+                        </md>
+                        <p>C'est donc faux.</p>
+                    </li>
+                    <li>
+                        <md>
+                            <mrow>\vecl{AD} &amp; =\vecl{BC}</mrow>
+                            <mrow> &amp; =-\vecl{CB}</mrow>
+                        </md>
+                        <p>C'est donc vrai.</p>
+                    </li>
+                    <li>
+                        <md>
+                            <mrow> \vecl{AD}+\vecl{AB} &amp; =\vec{EH}+\vecl{EF}</mrow>
+                            <mrow> &amp; =\vec{EH}+\vecl{HG}</mrow>
+                            <mrow> &amp; =\vec{EG}</mrow>
+                        </md>
+                        <p>C'est donc vrai.</p>
+                    </li>
+                    <li>
+                        <md>
+                            <mrow>\vecl{AC}+\vecl{DG} &amp; =\vecl{AD}+\vecl{DC}+\vecl{DH}+\vecl{HG}</mrow>
+                            <mrow>&amp; =\vecl{AD}+\vecl{DH}+\vecl{HG}+\vecl{DC}</mrow>
+                            <mrow>&amp; =\vecl{AG}+\vecl{DC}</mrow>
+                            <mrow>&amp; \neq \vecl{AG}</mrow>
+                        </md>
+                        <p>C'est donc faux.</p>
+                    </li>
+                    <li>
+                        <md>
+                            <mrow>\vecl{AB}+\vecl{CG}+\vecl{CA} &amp; =\vecl{AB}+\vecl{CG}+\vecl{CB}+\vecl{BA}</mrow>
+                            <mrow> &amp; =\vecl{AB}+\vecl{BA}+\vecl{CG}+\vecl{CB}</mrow>
+                            <mrow> &amp; =\vec{0}+\vecl{CG}+\vecl{GF}</mrow>
+                            <mrow> &amp; \neq \vecl{CG}</mrow>
+                            <mrow> &amp; = \vecl{DH}</mrow>
+                        </md>
+                        <p>C'est donc faux.</p>
+                    </li>
+                    <li>
+                        <md>
+                            <mrow>\frac{1}{2}\big(\vecl{AG}+\vecl{FD}\big) &amp; =
+                                \frac{1}{2}\big(\vecl{AD}+\vecl{DH}+\vecl{HG}+\vecl{FG}+\vecl{GH}+\vecl{HD}\big)</mrow>
+                            <mrow> &amp; = \frac{1}{2}\big(\vecl{AD}+\vecl{FG}+\vecl{DH}+\vecl{HD}+\vecl{HG}+\vecl{GH}\big)</mrow>
+                            <mrow> &amp; = \frac{1}{2}\big(\vecl{AD}+\vecl{AD}+\vec{0}+\vec{0}\big)</mrow>
+                            <mrow> &amp; = \frac{1}{2}\big(2\vecl{AD}\big)</mrow>
+                            <mrow> &amp; = \vecl{AD}</mrow>
+                        </md>
+                        <p>C'est donc vrai.</p>
+                    </li>
+                    <li>
+                        <md>
+                            <mrow>\vecl{AF}+\vecl{ED}+\vecl{HF} &amp; =\vecl{AE}+\vecl{EF}+\vecl{EA}+\vecl{AD}+\vecl{HE}+\vecl{EF}</mrow>
+                            <mrow> &amp; =\vecl{AE}+\vecl{EA}+\vecl{EF}+\vecl{EF}+\vecl{AD}+\vecl{HE}</mrow>
+                            <mrow> &amp; =\vec{0}+2\vecl{EF}+\vec{0}</mrow>
+                            <mrow> &amp; =2\vecl{EF}</mrow>
+                            <mrow> &amp; =2\vecl{AB}</mrow>
+                            <mrow> &amp; \neq \vecl{AB}</mrow>
+                        </md>
+                        <p>C'est donc faux.</p>
+                    </li>
+                </ol>
+                
             </solution>
         </exercise>
     </exercises>
