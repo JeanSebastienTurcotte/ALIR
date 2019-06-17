@@ -41,6 +41,7 @@
 \newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
 \newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
 \newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
 % Swap the definition of \abs* and \abs, so that \abs
 %  resizes the size of the brackets, and the 
 % starred version does not.
@@ -86,10 +87,12 @@ $\Box$
         Inserted in the preamble to each standalone latex-based image for HMTL SVG output.
         -->
         <latex-image-preamble>
-        \usepackage{pgfplots}               % loads tikz package
+        \usepackage{pgf,tikz,pgfplots}              % loads tikz package
         \usepackage{smartdiagram}           % for a circular diagram
         \pgfplotsset{axis x line = middle,
                      axis y line = middle}
+        \usepackage{mathrsfs}
+        \usetikzlibrary{arrows}
         </latex-image-preamble>
         <!--
         The Sage Notebook has its own interface and worksheet list.
