@@ -20,7 +20,7 @@
         Les packages LaTeX qui sont aussi implémentés dans MathJaX sont inclus ici.
         -->
         <latex-preamble>
-            <package>sagetex</package>  <!-- à titre d'exemple -->
+            <package>cancel</package>  <!-- à titre d'exemple -->
         </latex-preamble>
         <!--
         Il es possible de définir ses propres macros qui seront ensuite utilisées dans le reste du texte. 
@@ -41,19 +41,9 @@
 \newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
 \newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
 \newcommand{\norm}[1]{\left\|#1\right\|}
+\renewcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\vecl}[1]{\overrightarrow{#1}}
-% Swap the definition of \abs* and \abs, so that \abs
-%  resizes the size of the brackets, and the 
-% starred version does not.
-\makeatletter
-\let\oldabs\abs
-\def\abs{\@ifstar{\oldabs}{\oldabs*}}
-\makeatletter
-\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%      %Commande pour ajouter une colonne "`augmentée"' dans une matrice
-  \hskip -\arraycolsep
-  \let\@ifnextchar\new@ifnextchar
-  \array{#1}}
-\makeatother
+%%%%%
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator{\sech}{sech}
@@ -197,7 +187,6 @@ $\Box$
             <!-- standalone worksheets, uncomment to test -->
             <!-- <worksheet top="3cm" left="4cm" margin="12cm"/> -->
       <!--  </latex-output>  -->
-
     </docinfo>
 
     <!-- <xi:include href="./bookinfo.xml" />     À inclure éventuellement, voir les autres projets MBK pour info -->  

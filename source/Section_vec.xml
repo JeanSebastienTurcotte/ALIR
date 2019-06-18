@@ -70,13 +70,15 @@
           <m>(0,0)</m>et 
           <m>(1,1)</m>est le même vecteur que celui qui relie le point 
           <m>(3,5)</m>au point 
-          <m>(4,6)</m>.</p>
+          <m>(4,6)</m>. puisqu'en les considérant comme des déplacements, ils sont équivalents.</p>
         </li>
         <li>Par défaut, on place un vecteur à l'origine, sauf s'il y a une
         utilité à le placer à un autre endroit.</li>
         <li>
           <p>Tous les vecteurs ont une grandeur, noté 
-          <m>\norm{u}</m>. Il existe un seul vecteur qui n'a pas de direction.
+          <m>\norm{u}</m>. Un vecteur dont la norme vaut <m>1</m> est appelé un vecteur unitaire. </p>
+          </li>
+         <li> <p> Il existe un seul vecteur qui n'a pas de direction.
           C'est le vecteur nul, noté 
           <m>\vec{0}</m>. L'importance de ce vecteur deviendra évidente sous
           peu.</p>
@@ -138,8 +140,8 @@
         10, -5, 10); showResetIcon(true);</slate>
         <instructions>
           <p>Il est possible de déplacer les points 
-          <m>A,B</m>et 
-          <m>C</m>afin de changer les vecteurs. Pour se faire, maintenir la
+          <m>A,B</m> et 
+          <m>C</m> afin de changer les vecteurs. Pour se faire, maintenir la
           souris au-dessus d'une lettre. Des flèches devraient apparaitre. Un
           clic simple sur la lettre permet de changer la direction du mouvement
           alors que clic maintenu et un déplacement permettent de bouger la
@@ -301,6 +303,19 @@
     <!-- principe de base le temps d'en avoir en diff/int -->
   </subsection>
   <subsection xml:id="sssec-opvec">
+      <title>Opérations sur les vecteurs</title>
+      <p>Considérons un vecteur <m>\vec{u}</m> quelconque et un nombre réel <m>c</m>. On s'intéresse à définir la multiplication de <m>\vec{u}</m> par <m>c</m>. Intuitivement, on peut voir cette multiplication comme un étirement ou une compression du vecteur original. Il semble donc logique de vouloir que sa direction soit inchangée. Quelle devrait-être sa longueur? À priori, on est tenté de dire que la longueur devrait être <m>c</m> fois la longueur de <m>\vec{u}</m>, mais cela pose un problème si <m>c&lt;0</m>.  </p>
+      
+      <p> Avant d'aller plus loin, on essaie de donner un sens à la multiplication par un nombre négatif. Pour cela, on considère une valeur positive de <m>c</m> et on la laisse s'approcher de <m>0</m>. L'activité <xref provisional="geogebra multi scal"/> permet de voir ce concept.</p>
+      <p>L'intuition semble dire que la multiplication par un nombre négatif renverserait l'orientation du vecteur afin de continuer le comportement. Cela nous amène donc à la définition suivante.</p>
+      <definition xml:id="def-multscal">
+      <title>Multiplication par un scalaire</title>
+          <p>Soit <m>\vec{u}</m> un vecteur et <m>c</m> un nombre réel<fn>Puisque la multiplication par un scalaire engendre un changement d'échelle (étirement ou compression) du vecteur original, un nombre réel  est souvent appelé un <emp>scalaire</emp> dans un contexte vectoriel, de l'anglais <sq>scale</sq>, échelle.</fn>. On définit la multiplication par un scalaire de <m>\vec{u}</m> par <m>c</m>, notée simplement <m>\vecl{cu}</m>, comme étant le vecteur tel que</p>
+          <ul>
+          <li><p> les <m>\norm{\vecl{cu}}=\abs{c}\norm{\vec{u}}</m></p></li>
+          <li><p>la direction de <m>\vecl{cu}</m> est la même que cele de <m>\vec{u}</m>.</p></li>
+          </ul>
+      </definition>
     <!-- Addition de vecteurs comme une suite de mouvements, notation verticale se prête bien à l'addition -->
     <!-- <p>Lorsque deux points <m>P(p_1,p_2)</m> et <m>Q(q_1,q_2)</m> sont donnés, on peut définir algébriquement le vecteur <m>\overrightarrow{PQ}</m> comme étant <md>\overrightarrow{PQ}=\overrightarrow{OQ}-\overrightarrow{OP}=(q_1-p_1,q_2-p_2)</md>. En particulier, si <m>A(a_1,a_2),B(b_1,b_2),C(c_1,c_2)</m> et <m>D(d_1,d_2)</m> sont quatre points de <m>\R^2</m>, les vecteurs <m>\vecl{AB}</m> et <m>\vecl{CD}</m> sont égaux si <m>(b_1-a_1,b_2-a_2)=(d_1-c_1,d_2-c_2)</m>.</p> -->
     <!--Geogebra: deux vecteurs dans R2 et certaines combinaisons linéaires affichées comme des points, possibilité de cliquer sur une combinaison pour faire apparaitre la loi du triangle ou parallélogramme (toggle maybe?) -->
