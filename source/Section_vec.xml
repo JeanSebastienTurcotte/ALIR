@@ -413,8 +413,8 @@
   <xref ref="def-multscal" />, la norme de 
   <m>c\vecl{v}</m> est 
   <m>\abs{c}\norm{\vec{v}}</m>. En fixant 
-  <m>c=\frac{1}{\norm{\vec{v}}}</m>, on obtient un vecteur unitaire.</p>
-  <me>\hat{v}=\norm{v}\vec{v}</me>. 
+  <m>c=\frac{1}{\norm{\vec{v}}}</m>, on obtient un vecteur unitaire</p>
+  <me>\hat{v}=\frac{1}{\norm{\vec{v}}}\vec{v}</me>. 
   <p>Le concept d'unitariser des vecteurs joue un rôle important en algèbre
   linéaire. Il simplifie souvent les problèmes où la longueur d'un vecteur
   n'est pas importante, seulement sa direction.</p>
@@ -489,9 +489,9 @@
   logique de vouloir combiner l'effet de deux ou plusieurs vecteurs, comme une
   suite de déplacements successifs. Géométriquement, cela revient à placer les
   flèches les une à la suite des autres. L'activité 
-  <xref provisional="somme de vecteurs" />permet de jouer avec ce concept.</p>
+  <xref provisional="somme de vecteurs" /> permet de jouer avec ce concept.</p>
   <example xml:id="ex-geoaddvec">
-    <title>L'addition de vecteur: dynamique</title>
+    <title>L'addition de vecteurs: dynamique</title>
     <p>Dans la figure, les vecteurs 
     <m>\vec{u}</m> et 
     <m>\vec{v}</m> sont donnés. Il est possible de changer les vecteurs en les
@@ -503,7 +503,8 @@
       <interactive aspect="1:1" platform="geogebra" width="100%"
       xml:id="geog-addvec">
         <slate aspect="1:1" source="code/geogebra/addvec.ggb"
-        surface="geogebra" xml:id="slate-addvec">setCoordSystem(-1, 16, -1,6);
+        surface="geogebra" xml:id="slate-addvec">
+        setCoordSystem(-1, 16, -1,6);
         showResetIcon(true);</slate>
         <instructions>
           <p>Déplacer les vecteurs 
@@ -521,8 +522,8 @@
   formé lorsque l'on considère la somme 
   <m>\vec{v}+\vec{u}</m> et ensemble, ces triangles forment un parallélogramme.
   En fait, dès que deux vecteurs sont non parallèles, ils engendrent un
-  parallélogramme. Ce simple fait permet de comprendre beaucoup de résultat en
-  géométrie vectorielle.</p>
+  parallélogramme. L'addition des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> est l'une des diagonales de ce parallélogramme. Ce simple fait permet de comprendre beaucoup de résultat en
+  géométrie vectorielle. En particulier, l'addition de vecteurs est commutative, tout comme l'addition régulière de nombres réels.</p>
   <p>Il est important de rappeler encore une fois que l'endroit où se trouve un
   vecteur n'a pas d'importance. C'est ce que le vecteur représente, le
   déplacement, qui compte. En se référant à la figure 
@@ -536,11 +537,105 @@
   manières. Par exemple, l'addition 
   <m>\vec{w}+\vec{r}</m> est égale à l'addition 
   <m>\vec{u}+\vec{v}</m> ou encore 
-  <m>\vec{u}+\vec{t}</m></p>
-  <!--notation verticale se prête bien à l'addition -->
-  <!-- <p>Lorsque deux points <m>P(p_1,p_2)</m> et <m>Q(q_1,q_2)</m> sont donnés, on peut définir algébriquement le vecteur <m>\overrightarrow{PQ}</m> comme étant <md>\overrightarrow{PQ}=\overrightarrow{OQ}-\overrightarrow{OP}=(q_1-p_1,q_2-p_2)</md>. En particulier, si <m>A(a_1,a_2),B(b_1,b_2),C(c_1,c_2)</m> et <m>D(d_1,d_2)</m> sont quatre points de <m>\R^2</m>, les vecteurs <m>\vecl{AB}</m> et <m>\vecl{CD}</m> sont égaux si <m>(b_1-a_1,b_2-a_2)=(d_1-c_1,d_2-c_2)</m>.</p> -->
-  <!--Geogebra: deux vecteurs dans R2 et certaines combinaisons linéaires affichées comme des points, possibilité de cliquer sur une combinaison pour faire apparaitre la loi du triangle ou parallélogramme (toggle maybe?) --></subsection>
-  <subsection xml:id="sssec-utvec"></subsection>
+  <m>\vec{u}+\vec{t}</m>.</p>
+  <p>Algébriquement, pour additionner deux vecteurs, il suffit d'additionner les composantes correspondantes. Pour comprendre, on s'imagine que le vecteur <m>\vec{u}=(u_1,u_2)</m> est lui-même une somme des vecteurs <m>(u_1,0)</m> et <m>(0,u_2)</m>. Si on a un deuxième vecteur <m>\vec{v}=(v_1,v_2)</m> décomposé de la même manière, il est possible de voir que la somme <m>\vec{u}+\vec{v}</m> correspond à une suite de déplacements horizontaux et verticaux. La figure <xref ref="fig-addvecalg"/> permet de visualiser le concept.</p>
+      <figure xml:id="fig-addvecalg">
+      <caption>L'addition de vecteurs algébriques</caption>
+          <image source="img/addvecalg.svg" width="90%"/>
+          <description>Les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sont illustrés en triangle ainsi que le vecteur somme. Chacun des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> est décomposé selon l'horizontal et la verticale. Le vecteur somme correspond à l'addition des composantes horizontales et verticales</description>
+                 </figure>
+      <p> L'addition de deux vecteurs algébriques est donc
+      <me>
+      \vec{u}+\vec{v}=(u_1,u_2)+(v_1,v_2)=(u_1+u_2,v_1+v_2)
+      </me>.
+      La notation verticale est particulièrement utile pour illustrer l'addition de vecteur algébrique:
+          <me>
+      \vec{u}+\vec{v}=\begin{pmatrix} u_1\\ u_2 \end{pmatrix}+\begin{pmatrix} v_1\\ v_2 \end{pmatrix}=\begin{pmatrix} u_1+v_1\\ u_2+v_2 \end{pmatrix}
+      </me>.
+      </p>
+      <p>La commutativité de l'addition vectorielle, de même que plusieurs autres propriétés (voir l'exercice <xref provisional="exo-propvec2"/>), se déduisent immédiatement des propriétés équivalentes pour l'addition de nombres réels. L'image interactive de l'exemple <xref ref="ex-geoaddvecasso"/> permet de visualiser géométriquement l'associativité de l'addition vectorielle. </p>
+      
+      <example xml:id="ex-geoaddvecasso">
+    <title>L'associativité de l'addition vectorielle: dynamique</title>
+    <p>Dans la figure, les vecteurs 
+    <m>\vec{u},\vec{v}</m> et 
+    <m>\vec{w}</m> sont donnés. Il est possible de changer les vecteurs en les
+    manipulant. En cliquant sur les différentes boites, on peut visualiser
+    l'associativité de l'addition vectorielle.</p>
+    <figure>
+      <caption>L'associativité de l'addition vectorielle </caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-addvecasso">
+        <slate aspect="1:1" source="code/geogebra/addvecasso.ggb"
+        surface="geogebra" xml:id="slate-addvecasso">
+        setCoordSystem(-5, 5, -1,5);
+        showResetIcon(true);</slate>
+        <instructions>
+          <p>Déplacer les vecteurs 
+          <m>\vec{u},\vec{v}</m> et<m>\vec{w}</m> jusqu'à l'obtention d'une configuration
+          souhaitée et cliquer sur les boites pour faire apparaitre les autres vecteurs.</p>
+        </instructions>
+      </interactive>
+    </figure>
+      </example>
+      <p>Quand est-il de la soustraction de vecteurs? Algébriquement, il est intuitif de définir la soustraction <m>\vec{u}-\vec{v}</m> comme étant l'addition de <m>\vec{u}+(-\vec{v})</m>. Cela revient donc à soustraire aux composantes de <m>\vec{u}</m> les composantes correspondantes de <m>\vec{v}</m>.</p>
+      
+      <p>Géométriquement, où se situe cette soustraction de vecteurs? À l'exemple <xref ref="ex-geoaddvec"/>, on a observé que l'addition de vecteurs peut être représentée par la diagonale d'un parallélogramme. Dans l'exemple <xref ref="ex-geosousvec"/>, on constate que la soustraction de vecteurs correspond à l'autre diagonale. Le sens de la flèche dépend de l'ordre de la soustraction.</p>
+      
+      <example xml:id="ex-geosousvec">
+    <title>Soustraction de vecteurs: dynamique</title>
+    <p>Dans la figure, les vecteurs 
+    <m>\vec{u}</m> et 
+    <m>\vec{v}</m> sont donnés, ainsi que leur addition. Il est possible de changer les vecteurs en les
+    manipulant. En cliquant sur les différentes boites, on peut visualiser
+    les soustraction de deux vecteurs dans 
+    <m>\R^2</m>.</p>
+    <figure>
+      <caption>Soustraction de deux vecteurs géométriques</caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-sousvec">
+        <slate aspect="1:1" source="code/geogebra/sousvec.ggb"
+        surface="geogebra" xml:id="slate-sousvec">
+        setCoordSystem(-4, 10, -1,5);
+        showResetIcon(true);
+        showAlgebraInput(false);
+          </slate>
+        <instructions>
+          <p>Déplacer les vecteurs 
+          <m>\vec{u},\vec{v}</m> jusqu'à l'obtention d'une configuration
+          souhaitée et cliquer sur les boites pour faire apparaitre les vecteurs
+          soustraction.</p>
+        </instructions>
+      </interactive>
+    </figure>
+  </example>
+      <p>Lorsque deux points <m>P(p_1,p_2)</m> et <m>Q(q_1,q_2)</m> sont donnés, on peut définir algébriquement le vecteur <m>\overrightarrow{PQ}</m> comme étant <me>\overrightarrow{PQ}=\overrightarrow{OQ}-\overrightarrow{OP}=(q_1-p_1,q_2-p_2)</me>. En particulier, si <m>A(a_1,a_2),B(b_1,b_2),C(c_1,c_2)</m> et <m>D(d_1,d_2)</m> sont quatre points de <m>\R^2</m>, les vecteurs <m>\vecl{AB}</m> et <m>\vecl{CD}</m> sont égaux si <m>(b_1-a_1,b_2-a_2)=(d_1-c_1,d_2-c_2)</m>.</p>
+      <p>Regardons maintenant quelques exemples concrets d'addition de vecteurs.</p>
+      <example xml:id="ex-addsousvec">
+          <title>Additions et soustractions de vecteurs</title>
+          <p> Considérons les vecteurs <m>\vec{u}=\begin{pmatrix} 4\\-3\\2\end{pmatrix}</m> et <m>\vec{u}=\begin{pmatrix}1\\ -2\\-1\end{pmatrix}</m>. Calculons <m>\vec{u}+\vec{v}</m> et <m>2\vec{u}-\vec{v}</m>.</p>
+         
+         <p> Il suffit de calculer directement en utilisant la multiplication par un scalaire et l'addition/soustraction composante par composante. Pour  <m>\vec{u}+\vec{v}</m>, on a
+          <md>
+             <mrow>\vec{u}+\vec{v}&amp;=\begin{pmatrix}4\\-3\\2\end{pmatrix}+\begin{pmatrix}1\\-2\\-1\end{pmatrix}</mrow>
+              <mrow>&amp;=\begin{pmatrix}4+1\\-3+(-2)\\2+(-1)\end{pmatrix}</mrow>
+              <mrow>&amp;=\begin{pmatrix}5\\-5\\1\end{pmatrix}</mrow>
+             </md>
+          De même, pour <m>2\vec{u}-\vec{v}</m>, on a
+<md>
+             <mrow>2\vec{u}-\vec{v}&amp;=2\begin{pmatrix}4\\-3\\2\end{pmatrix}-\begin{pmatrix}1\\-2\\-1\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}2*4\\2*(-3)\\2*(2)\end{pmatrix}-\begin{pmatrix}1\\-2\\-1\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}8\\-6\\4\end{pmatrix}-\begin{pmatrix}1\\-2\\-1\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}8-1\\-6-(-2)\\4-(-1)\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}7\\-4\\5\end{pmatrix}</mrow>
+             </md>
+          </p>
+      </example>
+  <!--Geogebra: deux vecteurs dans R2 et certaines combinaisons linéaires affichées comme des points, possibilité de cliquer sur une combinaison pour faire apparaitre la loi du triangle ou parallélogramme (toggle maybe?) -->
+ </subsection>
+  <subsection xml:id="sssec-utvec">
+    <!-- inspirée de tout le chapitre 1 de Shifrin -->
+    </subsection>
   <conclusion xml:id="concl-vec">
     <!-- Ajouter le même identifiant de la section après le - du xml:id -->
   </conclusion>
