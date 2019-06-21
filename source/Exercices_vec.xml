@@ -376,7 +376,7 @@
     <exercise xml:id="exo-vecgeopoint">
             <statement>
                 <p>
-                    Soient le point <m>P</m> et le vecteur <m>\vec{u}</m> suivants. 
+                    Soit le point <m>P</m> et le vecteur <m>\vec{u}</m> suivants. 
                     Déplacer les points <m>P_1</m> à <m>P_5</m> afin qu'ils correspondent aux descriptions suivantes.
                     Noter qu'il peut y avoir plusieurs réponses valides.
                 </p>
@@ -434,7 +434,7 @@
         </exercise>
         <exercise xml:id="exo-cosdir">
             <statement>
-                <!--Faire un sous exercice pour montrer que les cosinus directeurs existent dans R^2 aussi.-->
+                <!--Faire un sous exercice pour introduire les cosinus directeurs dans R^3 et montrer qu'existent dans R^2 aussi.-->
             </statement>
             <hint>
                 Un indice.
@@ -444,6 +444,94 @@
             </answer>
             <solution>
                 La solution.
+            </solution>
+        </exercise>
+    
+     <exercise xml:id="exo-propvec2">
+            <statement>
+                <p>
+                    Les propriétés suivantes sur les vecteurs découlent naturellement de leur interprétation géométrique. 
+                    Nous avons déjà vérifié certaines d'entre elles intuitivement. Dans cet exercice, démontrer algébriquement leur validité 
+                    en utilisant les définitions algébriques de l'addition vectorielle <m>\big((u_1,u_2)+(v_1+v_2)=(u_1+v_1, u_2+v_2)\big)</m> et de 
+                    la multiplication par un scalaire <m>\big(c(u_1,u_2)=(cu_1,cu_2)\big)</m>.
+                </p>
+                <p>Soient <m>\vec{u}=(u_1,u_2)</m>, <m>\vec{v}=(v_1,v_2)</m> et <m>\vec{w}=(w_1,w_2)\in\R^2</m> et <m>r</m> et <m>s\in\R</m>. Alors,</p>
+                <ol>
+                    <li><m>\vec{u}+\vec{v}=\vec{v}+\vec{u}</m> (commutativité de l'addition vectorielle)</li>
+                    <li><m>\vec{u}+(\vec{v}+\vec{w})=(\vec{u}+\vec{v})+\vec{w}</m> (associativité de l'addition vectorielle)</li>
+                    <li><m>\vec{u}+\vec{0}=\vec{u}</m> (neutre additif)</li>
+                    <li><m>\vec{u}+(-\vec{u})=\vec{0}</m> (inverse additif)</li>
+                    <li><m>(rs)\vec{u}=r(s\vec{u})</m> (associativité de la multiplication par un scalaire)</li>
+                    <li><m>r(\vec{u}+\vec{v})=r\vec{u}+r\vec{v}</m> (distributivité sur l'addition vectorielle)</li>
+                    <li><m>(r+s)\vec{u}=r\vec{u}+s\vec{u}</m> (distributivité de l'addition des scalaires)</li>
+                    <li><m>1\vec{u}=\vec{u}</m> (neutre multiplicatif)</li>
+                </ol>
+            </statement>
+            <solution>
+                <ol>
+                    <li><md>
+                        <mrow>\vec{u}+\vec{v} &amp; =(u_1,u_2)+(v_1,v_2)</mrow>
+                        <mrow>&amp; =(u_1+v_1,u_2+v_2)</mrow>
+                        <mrow>&amp; =(v_1+u_1,v_2+u_2)</mrow>
+                        <mrow>&amp; =(v_1,v_2)+(u_1,u_2)</mrow>
+                        <mrow>&amp; =\vec{v}+\vec{u}</mrow>
+                    </md></li>
+                    <li><md>
+                        <mrow>\vec{u}+(\vec{v}+\vec{w}) &amp; = (u_1,u_2)+\big((v_1,v_2)+(w_1,w_2)\big)</mrow>
+                        <mrow>&amp; = (u_1,u_2)+\big(v_1+w_1,v_2+w_2\big)</mrow>
+                        <mrow>&amp; = \big(u_1+(v_1+w_1),u_2+(v_2+w_2)\big)</mrow>
+                        <mrow>&amp; = \big(u_1+v_1+w_1,u_2+v_2+w_2\big)</mrow>
+                        <mrow>&amp; = \big((u_1+v_1)+w_1,(u_2+v_2)+w_2\big)</mrow>
+                        <mrow>&amp; = \big(u_1+v_1,u_2+v_2\big)+(w_1,w_2)</mrow>
+                        <mrow>&amp; = +\big((u_1,u_2)+(v_1,v_2)\big)+(w_1,w_2)</mrow>
+                        <mrow>&amp; =(\vec{u}+\vec{v})+\vec{w}</mrow>
+                    </md></li>
+                    <li><md>
+                        <mrow>\vec{u}+\vec{0} &amp; =(u_1,u_2)+(0,0)</mrow>
+                        <mrow>&amp;=(u_1+0,u_2+0)</mrow>
+                        <mrow>&amp;=(u_1,u_2)</mrow>
+                        <mrow>&amp;=\vec{u}</mrow>
+                    </md></li>
+                    <li><md>
+                        <mrow>\vec{u}+(-\vec{u}) &amp; =(u_1,u_2)+(-u_1,-u_2)</mrow>
+                        <mrow>&amp; =\big(u_1+(-u_1),u_2+(-u_2)\big)</mrow>
+                        <mrow>&amp; =(u_1-u_1,u_2-u_2)</mrow>
+                        <mrow>&amp; =(0,0)</mrow>
+                        <mrow>&amp; =\vec{0}</mrow>
+                    </md></li>
+                    <li><md>
+                        <mrow>(rs)\vec{u} &amp; =(rs)(u_1,u_2)</mrow>
+                        <mrow>&amp; =((rs)u_1,(rs)u_2)</mrow>
+                        <mrow>&amp; =(rsu_1,rsu_2)</mrow>
+                        <mrow>&amp; =(r(su_1),r(su_2))</mrow>
+                        <mrow>&amp; =r(su_1,su_2)</mrow>
+                        <mrow>&amp; =r\big(s(u_1,u_2)\big)</mrow>
+                        <mrow>&amp; =r(s\vec{u})</mrow>
+                    </md></li>
+                    <li><md>
+                        <mrow>r(\vec{u}+\vec{v}) &amp;=r\big((u_1,u_2)+(v_1,v_2)\big)</mrow>
+                        <mrow> &amp;=r\big(u_1+v_1,u_2+v_2)\big)</mrow>
+                        <mrow> &amp;=\big(r(u_1+v_1),r(u_2+v_2)\big)</mrow>
+                        <mrow> &amp;=\big(ru_1+rv_1,ru_2+rv_2\big)</mrow>
+                        <mrow> &amp;=(ru_1,ru_2)+(rv_1,rv_2)</mrow>
+                        <mrow> &amp;=r(u_1,u_2)+r(v_1,v_2)</mrow>
+                        <mrow> &amp;=r\vec{u}+r\vec{v}</mrow>
+                    </md></li>
+                    <li><md>
+                        <mrow>(r+s)\vec{u} &amp;=(r+s)(u_1,u_2)</mrow>
+                        <mrow> &amp;=\big((r+s)u_1,(r+s)u_2\big)</mrow>
+                        <mrow> &amp;=\big(ru_1+su_1,ru_2+su_2\big)</mrow>
+                        <mrow> &amp;=(ru_1,ru_2)+(su_1,su_2)</mrow>
+                        <mrow> &amp;=r(u_1,u_2)+s(u_1,u_2)</mrow>
+                        <mrow> &amp;=r\vec{u}+s\vec{u}</mrow>
+                    </md></li>
+                    <li><md>
+                        <mrow>1\vec{u}&amp;=1(u_1,u_2)</mrow>
+                        <mrow> &amp;=(1u_1,1u_2)</mrow>
+                        <mrow> &amp;=(u_1,u_2)</mrow>
+                        <mrow> &amp;=\vec{u}</mrow>
+                    </md></li>
+                </ol>
             </solution>
         </exercise>
     
