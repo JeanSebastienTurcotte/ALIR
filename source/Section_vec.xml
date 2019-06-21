@@ -26,7 +26,7 @@
     <m>\R^2</m> et 
     <m>\R^3</m></title>
     <p>Lorsqu'on parle d'un endroit sur le plan cartésien, on dit souvent le
-    mot point. La notion de point fait alluasion à un système de référence
+    mot point. La notion de point fait allusion à un système de référence
     spécifique, comprenant notamment une origine et des axes. La position du
     point est donnée en lien avec la distance parcourue selon chaque axe en
     partant de l'origine pour se rendre au point.</p>
@@ -271,24 +271,28 @@
         </li>
       </ol>
     </example>
-    <computation xml:id="sageex-defvec-1">
+      <p> On termine  avec des commandes Sage en lien avec la sous-section.</p>
+    <computation xml:id="sageex-defvec">
       <title>Définition de vecteurs sur Sage</title>
       <p>Avec Sage, il est possible de définir des vecteurs, pour ensuite
       effectuer des calculs avec. On commence par nommer un vecteur en le
       définissant avec la commande 
       <c>vector</c>. À noter que pour faire la distinction entre les arguments
-      de la commande et le vecteur, on utilise les crochet 
+      de la commande et le vecteur, on utilise les crochets 
       <c>[ ]</c>pour les vecteurs dans Sage. En cliquant sur évaluer, on peut
       voir afficher le résultat de la cellule.</p>
-      <sage xml:id="sagecell-defvec">
-        <input>u=vector([1,4]) u</input>
+      <sage xml:id="sagecell-defvec-1">
+        <input>
+        u=vector([1,4]) 
+        u
+        </input>
         <output>(1,4)</output>
       </sage>
       <p>On rappelle ici, tel que mentionné à 
       <xref provisional="Annexesage" />, qu'il est possible de faire un
       affichage plus conventionnel avec la commande 
       <c>show</c>.</p>
-      <sage xml:id="defvec-2">
+      <sage xml:id="sagecell-defvec-2">
         <input>show(u)</input>
         <output>show((1,4))</output>
       </sage>
@@ -297,12 +301,14 @@
       définition simultanée de deux vecteurs. On utiliser aussi le fait que
       pour Sage, les graphiques peuvent s'additionner afin d'afficher plusieurs
       graphiques sur une seule sortie.</p>
-      <sage xml:id="defvec-3">
-        <input>u,v=vector([1,1]),vector([-2,3])
-        plot(u,color="red")+plot(v,color="blue")</input>
+      <sage xml:id="sagecell-defvec-3">
+        <input>
+        u,v=vector([1,1]),vector([-2,3])
+        plot(u,color="red")+plot(v,color="blue")
+          </input>
         <output>plot(u,color="red")+plot(v,color="blue")</output>
       </sage>
-      <p>On remarque que les vecteurs sont par défaut tracés à l'origine, ce
+      <p>On remarque que les vecteurs sont par défaut tracé à l'origine, ce
       qui est cohérent avec notre 
       <xref ref="rem-vecloca" text="type-global" />. Si on veut faire commencer
       le vecteur à un autre endroit, disons 
@@ -311,9 +317,11 @@
       <c>start</c>. Cette option sera particulièrement pratique lors de
       l'addition de vecteur de la sous-section 
       <xref ref="sssec-opvec" />.</p>
-      <sage xml:id="defvec-4">
-        <input>u,v=vector([1,1]),vector([-2,3])
-        plot(u,color="red")+plot(v,color="blue",start=u)</input>
+      <sage xml:id="sagecell-defvec-4">
+        <input>
+        u,v=vector([1,1]),vector([-2,3])
+        plot(u,color="red")+plot(v,color="blue",start=u)
+        </input>
         <output>plot(u,color="red")+plot(v,color="blue",start=u)</output>
         <p>Il est possible de calculer la norme d'un vecteur à l'aide de la
         commande 
@@ -395,7 +403,7 @@
       </li>
       <li>
         <p>la direction de 
-        <m>c\vecl{u}</m> est la même que cele de 
+        <m>c\vecl{u}</m> est la même que celle de 
         <m>\vec{u}</m>.</p>
       </li>
     </ul>
@@ -454,7 +462,7 @@
     <m>\hat{u}=\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)</m>.</p>
   </example>
   <p>Le vecteur unitaire obtenu à l'exemple 
-  <xref ref="ex-multscal" />peut sembler familier à ceux et celles qui
+  <xref ref="ex-multscal" /> peut sembler familier à ceux et celles qui
   connaissent leur cercle trigonométrique. En effet, ce vecteur correspond au
   point du cercle pour un angle de 
   <m>\frac{\pi}{3}</m>. Puisque dans 
@@ -522,7 +530,7 @@
   formé lorsque l'on considère la somme 
   <m>\vec{v}+\vec{u}</m> et ensemble, ces triangles forment un parallélogramme.
   En fait, dès que deux vecteurs sont non parallèles, ils engendrent un
-  parallélogramme. L'addition des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> est l'une des diagonales de ce parallélogramme. Ce simple fait permet de comprendre beaucoup de résultat en
+  parallélogramme. L'addition des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> est l'une des diagonales de ce parallélogramme. Ce simple fait permet de comprendre beaucoup de résultats en
   géométrie vectorielle. En particulier, l'addition de vecteurs est commutative, tout comme l'addition régulière de nombres réels.</p>
   <p>Il est important de rappeler encore une fois que l'endroit où se trouve un
   vecteur n'a pas d'importance. C'est ce que le vecteur représente, le
@@ -541,9 +549,10 @@
   <p>Algébriquement, pour additionner deux vecteurs, il suffit d'additionner les composantes correspondantes. Pour comprendre, on s'imagine que le vecteur <m>\vec{u}=(u_1,u_2)</m> est lui-même une somme des vecteurs <m>(u_1,0)</m> et <m>(0,u_2)</m>. Si on a un deuxième vecteur <m>\vec{v}=(v_1,v_2)</m> décomposé de la même manière, il est possible de voir que la somme <m>\vec{u}+\vec{v}</m> correspond à une suite de déplacements horizontaux et verticaux. La figure <xref ref="fig-addvecalg"/> permet de visualiser le concept.</p>
       <figure xml:id="fig-addvecalg">
       <caption>L'addition de vecteurs algébriques</caption>
-          <image source="img/addvecalg.svg" width="90%"/>
+          <image source="img/addvecalg.svg" width="90%">
           <description>Les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sont illustrés en triangle ainsi que le vecteur somme. Chacun des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> est décomposé selon l'horizontal et la verticale. Le vecteur somme correspond à l'addition des composantes horizontales et verticales</description>
-                 </figure>
+          </image>   
+              </figure>
       <p> L'addition de deux vecteurs algébriques est donc
       <me>
       \vec{u}+\vec{v}=(u_1,u_2)+(v_1,v_2)=(u_1+u_2,v_1+v_2)
@@ -553,7 +562,7 @@
       \vec{u}+\vec{v}=\begin{pmatrix} u_1\\ u_2 \end{pmatrix}+\begin{pmatrix} v_1\\ v_2 \end{pmatrix}=\begin{pmatrix} u_1+v_1\\ u_2+v_2 \end{pmatrix}
       </me>.
       </p>
-      <p>La commutativité de l'addition vectorielle, de même que plusieurs autres propriétés (voir l'exercice <xref provisional="exo-propvec2"/>), se déduisent immédiatement des propriétés équivalentes pour l'addition de nombres réels. L'image interactive de l'exemple <xref ref="ex-geoaddvecasso"/> permet de visualiser géométriquement l'associativité de l'addition vectorielle. </p>
+      <p>La commutativité de l'addition vectorielle, de même que plusieurs autres propriétés (voir l'exercice <xref provisional="exo-propvec2"/>), se déduit immédiatement des propriétés équivalentes pour l'addition de nombres réels. L'image interactive de l'exemple <xref ref="ex-geoaddvecasso"/> permet de visualiser géométriquement l'associativité de l'addition vectorielle. </p>
       
       <example xml:id="ex-geoaddvecasso">
     <title>L'associativité de l'addition vectorielle: dynamique</title>
@@ -588,7 +597,7 @@
     <m>\vec{u}</m> et 
     <m>\vec{v}</m> sont donnés, ainsi que leur addition. Il est possible de changer les vecteurs en les
     manipulant. En cliquant sur les différentes boites, on peut visualiser
-    les soustraction de deux vecteurs dans 
+    les soustractions de deux vecteurs dans 
     <m>\R^2</m>.</p>
     <figure>
       <caption>Soustraction de deux vecteurs géométriques</caption>
@@ -609,11 +618,12 @@
       </interactive>
     </figure>
   </example>
-      <p>Lorsque deux points <m>P(p_1,p_2)</m> et <m>Q(q_1,q_2)</m> sont donnés, on peut définir algébriquement le vecteur <m>\overrightarrow{PQ}</m> comme étant <me>\overrightarrow{PQ}=\overrightarrow{OQ}-\overrightarrow{OP}=(q_1-p_1,q_2-p_2)</me>. En particulier, si <m>A(a_1,a_2),B(b_1,b_2),C(c_1,c_2)</m> et <m>D(d_1,d_2)</m> sont quatre points de <m>\R^2</m>, les vecteurs <m>\vecl{AB}</m> et <m>\vecl{CD}</m> sont égaux si <m>(b_1-a_1,b_2-a_2)=(d_1-c_1,d_2-c_2)</m>.</p>
-      <p>Regardons maintenant quelques exemples concrets d'addition de vecteurs.</p>
+      <p>On remarque que le vecteur correspondant à <m>\vec{u}-\vec{v}</m> est le vecteur tel que <m>\vec{v}+(\vec{u}-\vec{v}=\vec{v})</m>. Le parallélogramme illustre bien cette interprétation.</p>
+      <p>Lorsque deux points <m>P(p_1,p_2)</m> et <m>Q(q_1,q_2)</m> sont donnés, on peut définir algébriquement le vecteur <m>\overrightarrow{PQ}</m> comme étant <men xml:id="eq-vecPQ">\overrightarrow{PQ}=\overrightarrow{OQ}-\overrightarrow{OP}=(q_1-p_1,q_2-p_2)</men>. En particulier, si <m>A(a_1,a_2),B(b_1,b_2),C(c_1,c_2)</m> et <m>D(d_1,d_2)</m> sont quatre points de <m>\R^2</m>, les vecteurs <m>\vecl{AB}</m> et <m>\vecl{CD}</m> sont égaux si <m>(b_1-a_1,b_2-a_2)=(d_1-c_1,d_2-c_2)</m>.</p>
+      <p>Regardons maintenant un exemple algébrique d'addition et de soustraction de vecteurs.</p>
       <example xml:id="ex-addsousvec">
           <title>Additions et soustractions de vecteurs</title>
-          <p> Considérons les vecteurs <m>\vec{u}=\begin{pmatrix} 4\\-3\\2\end{pmatrix}</m> et <m>\vec{u}=\begin{pmatrix}1\\ -2\\-1\end{pmatrix}</m>. Calculons <m>\vec{u}+\vec{v}</m> et <m>2\vec{u}-\vec{v}</m>.</p>
+          <p> Soit <m>\vec{u}=\begin{pmatrix} 4\\-3\\2\end{pmatrix}</m> et <m>\vec{u}=\begin{pmatrix}1\\ -2\\-1\end{pmatrix}</m> des vecteurs. On calcule <m>\vec{u}+\vec{v}</m> et <m>2\vec{u}-\vec{v}</m>.</p>
          
          <p> Il suffit de calculer directement en utilisant la multiplication par un scalaire et l'addition/soustraction composante par composante. Pour  <m>\vec{u}+\vec{v}</m>, on a
           <md>
@@ -631,10 +641,144 @@
              </md>
           </p>
       </example>
+      
+      <p>Il est possible de considérer les vecteurs comme étant une opération de translation agissant sur les points. Par exemple, le vecteur <m>\vec{u}=\vecl{PQ}</m> peut être interprété comme la translation du point <m>P</m> jusqu'au point <m>Q</m> le long d'une droite. On écrira alors parfois <me>Q=P+\vec{u}</me>, qui est en fait une manière abrégée, mais somme toute équivalente, à l'équation purement vectorielle <m>\vecl{OQ}=\vec{OP}+\vec{PQ}</m>. Cette dernière est simplement une réécriture de l'équation <xref ref="eq-vecPQ"/>. </p>
+      
+    <p>En utilisant cette équivalence entre points et vecteurs, on en arrive à poser quatre postulats, qui forment les axiomes initiaux de la géométrie:
+      <ol>
+     <li> <p>Étant donné deux points <m>P,Q</m>, il existe un seul vecteur <m>\vec{u}</m> tel que <m>\vec{u}=\vecl{PQ}</m>.</p></li>   
+     <li><p>Si <m>\vecl{PQ}=\vecl{PR}</m>, alors nécessairement <m>Q=R</m>.</p> </li>
+     <li><p>De même, si <m>\vecl{PQ}=\vecl{RQ}</m>, alors nécessairement <m>P=R</m>.</p></li>
+     <li><m>\vecl{PQ}+\vecl{QR}=\vecl{PR}</m>.</li>
+     </ol>
+      </p>
+      
+      <p> À partir de ces axiomes, on peut déduire d'autres résultats élémentaires (voir l'exercice <xref provisional="ex-axiomegeo"/>). Deux particulièrement importants sont <m>\vecl{PP}=\vec{0}</m> et <m>\vecl{QP}=-\vecl{PQ}</m>.</p>
+      
+      <p>On termine  avec des commandes Sage en lien avec la sous-section.</p>
+    <computation xml:id="sageex-opvec">
+        <title>Opérations sur les vecteurs avec Sage</title>
+        Il est possible de multiplier un vecteur par un scalaire et d'additionner et soustraire des vecteurs de la manière intuitive avec Sage
+        <sage xml:id="sagecell-opvec-1">
+        <input>
+        u=vector([-1,3,5])
+        v=vector([3,-2,5])
+        c=4
+        show(u+v)
+        show(c*u)
+        show(-v)
+        show(2*v-3*u)
+        </input>
+        <output>
+        show("u=vector([-1,3,5])")
+        show("v=vector([3,-2,5])")
+        show("c=4")
+        show(u+v)
+        show(c*u)
+        show(-v)
+        show(2*v-3*u) 
+        </output>
+        </sage>
+        Visuellement, il est possible d'illustrer l'addition et la soustraction avec les commandes apprises à l'exemple <xref ref="sageex-defvec"/>.
+        <sage xml:id="sagecell-opvec-2">
+        <input>
+        plot(u,color="blue")+plot(v,color="red",start=u)+plot(u+v,color="black")    
+        </input>
+            <output>
+            plot(u,color="blue")+plot(v,color="red",start=u)+plot(u+v,color="black")
+            </output>
+        </sage>
+      </computation>
   <!--Geogebra: deux vecteurs dans R2 et certaines combinaisons linéaires affichées comme des points, possibilité de cliquer sur une combinaison pour faire apparaitre la loi du triangle ou parallélogramme (toggle maybe?) -->
  </subsection>
   <subsection xml:id="sssec-utvec">
-    <!-- inspirée de tout le chapitre 1 de Shifrin -->
+      <title>Utilisation de méthodes vectorielles en géométrie</title>
+      <p>Les vecteurs permettent de traduire des résultats de la géométrie en concepts algébriques. Souvent, les méthodes vectorielles simplifient la démonstration de ces résultats. Dans beaucoup des exemples et exercices, il sera utile de suivre le conseil <xref ref="con-probcadre"/>.  </p>
+      <insight xml:id="con-probcadre">
+          <title>Établir son propre cadre</title>
+      Dans les problèmes géométriques, il sera souvent utile de considérer les points suivants:
+          <ul>
+          <li><p>Souvent, l'endroit spécifique où l'origine se trouve n'est pas important. Si une origine n'est pas fixée, déterminer un endroit approprié pour le placer si cela peut être utile. </p></li>
+           <li>Déterminer un certain nombre de vecteurs importants et exprimer les autres vecteurs en fonction de ceux-ci est parfois utile</li>
+           <li> Dans un dessin, l'horizontal et la verticale n'auront peut-être pas la signification usuelle (celle d'un plan cartésien par exemple). Afin d'illustrer cela, considérer la figure <xref ref="fig-3d2d"/>.</li>
+          </ul>
+         <sidebyside xml:id="fig-3d2d">
+        <figure xml:id="fig-3d2d-1">
+        <caption>Un vecteur à trois dimensions</caption>
+         <image source="img/3d2d-1.svg">
+            <description> La figure montre les points <m>P</m> et <m>Q</m> qui sont reliés par un vecteur. Le point milieu entre <m>P</m> et <m>Q</m> est aussi illustré. La figure est dans une perspective à trois dimensions.</description>
+            </image>
+        </figure>  
+        <figure xml:id="fig-3d2d-2">
+        <caption>Un vecteur à trois dimensions dessiné en deux dimensions</caption>
+         <image source="img/3d2d-2.svg">
+            <description> La figure montre les points <m>P</m> et <m>Q</m> qui sont reliés par un vecteur. Le point milieu entre <m>P</m> et <m>Q</m> est aussi illustré. La figure est dans une perspective à deux dimensions</description>
+            </image>
+        </figure>  
+       </sidebyside>
+      </insight>
+     <p>Les prochains exemples donnent quelques-unes des applications vectorielles à la géométrie. D'autres sont aussi donnés dans les exercices.</p>
+      <example xml:id="ex-dist2p">
+      <title>La distance entre deux points</title>
+          <p>Soit deux points <m>P</m> et <m>Q</m>. Comment calculer la distance entre ces deux points?</p>
+          
+          <p>En considérant le vecteur reliant <m>P</m> à <m>Q</m>, on constate que sa norme donne la distance entre les points. Ainsi
+          <me>d(P,Q)=\norm{\vecl{PQ}}</me>.
+          </p>
+          <aside>
+          <title>En passant</title>
+              <p> Dans le reste du texte, on utilise la notation <m>d(\text{objet}_1,\text{objet}_2)</m> pour dénoter la distance entre <m>\text{objet}_1</m> et <m>\text{objet}_2</m>. Ces objets peuvent être des points, des droites, des plans, etc. </p>
+          </aside>
+          <p>En particulier, si <m>P(1,4)</m> et <m>Q(-2,2)</m>, la distance entre <m>P</m> et <m>Q</m> est 
+              <md>
+              <mrow> d(P,Q)&amp;=\norm{\vecl{PQ}}</mrow>
+              <mrow>&amp;=\norm{\vecl{OQ}-\vecl{OP}}</mrow>
+              <mrow>&amp;=\norm{(1,4)-(-2,2)}</mrow>
+              <mrow>&amp;=\norm{(3,2)}</mrow>
+              <mrow>&amp;=\sqrt{3^2+2^2}</mrow>
+              <mrow>&amp;=\sqrt{13}</mrow>
+              </md>
+              </p>
+      </example>
+      <p>Dans le prochain exemple, on utilise une stratégie particulièrement utile en algèbre linéaire. Celle-ci est détaillée avant l'exemple.</p>
+      <insight xml:id="con-3dplanaire">
+      <title> Le 3D n'est pas toujours en trois dimensions</title>
+          <p>Dans beaucoup de problèmes, on fera affaire avec des vecteurs à trois dimensions (et même plus, voir la section <xref ref="sec-vecndim"/>). Par contre, cet aspect multidimensionnel n'est pas toujours nécessaire pour répondre à la question. Si on cherche la distance entre deux points, qu'ils soient en deux ou trois dimensions, on peut toujours les relier par des droites. Ceci signifie donc que pour la question, on peut illustrer tous les éléments importants du problème sur un plan à deux dimensions.</p>
+      </insight>
+      <example xml:id="ex-segpart">
+      <title>Partage d'un segment</title>
+      <p>On souhaite partager le segment <m>PQ</m> en deux parties congrues en trouvant le point milieu. Pour cela, il suffit de réaliser que le point <m>M</m> peut être obtenu à partir de <m>P</m> en lui ajoutant la moitié du vecteur <m>\vecl{PQ}</m>. Ainsi
+          <md>
+              <mrow>\vecl{OM}&amp;=\vecl{OP}+\frac{1}{2}\vecl{PQ}</mrow>
+              <mrow>&amp;\vecl{OP}+\frac{1}{2}(\vecl{OP}-\vec{OQ})</mrow>
+              <mrow>&amp;=(-1,3,-5)+\frac{1}{2}(3,-6,9)</mrow>   
+              <mrow>&amp;=\left(\frac{1}{2},0,-\frac{1}{2}\right)</mrow>
+                  </md>.
+          </p>
+          <p> En général, on peut toujours se rendre à un point <m>X</m> entre <m>P</m> et <m>Q</m>, située à <m>x\in [0,1]</m> fois la longueur  de <m>\vecl{PQ}</m> à l'aide de la formule
+          <men xml:id="eq-propvec">
+          \vecl{OX} =\vecl{OP}+x\vec{PQ}   
+          </men>.
+          </p>
+          <p> L'interaction ci-dessous permet de visualiser.</p>
+          <figure>
+      <caption>Proportion d'un segment</caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-segpart">
+        <slate aspect="1:1" source="code/geogebra/segpart.ggb"
+        surface="geogebra" xml:id="slate-segpart">
+        setCoordSystem(-3,5, -2,5);
+        showResetIcon(true);
+        enableShiftDragZoom(false);
+          </slate>
+        <instructions>
+          <p>Déplacer le curseur pour obtenir le point situé à une proportion <m>x</m> du segment <m>PQ</m>.</p>
+        </instructions>
+      </interactive>
+    </figure>
+      </example>
+      <!--  point milieu et barycentre -->
+      <!--lieux géométriques -->
     </subsection>
   <conclusion xml:id="concl-vec">
     <!-- Ajouter le même identifiant de la section après le - du xml:id -->
