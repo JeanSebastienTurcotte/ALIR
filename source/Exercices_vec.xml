@@ -9,6 +9,20 @@
 
 <exercises xml:id="exo-vec">
         <title>Exercices</title>
+        <exercise xml:id="exo-">
+            <statement>
+                La question.
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse.
+            </answer>
+            <solution>
+                La solution.
+            </solution>
+        </exercise>
         <exercise xml:id="exo-vecgeoab">
           <statement>
             <p>Considérer les vecteurs <m>\vec{u}=(2,5)</m> et <m>\vec{v}=(-3,1)</m>. 
@@ -321,20 +335,7 @@
               </ol>
           </solution>
         </exercise>
-        <exercise xml:id="exo-">
-            <statement>
-                
-            </statement>
-            <hint>
-                Un indice.
-            </hint>
-            <answer>
-                La réponse.
-            </answer>
-            <solution>
-                La solution.
-            </solution>
-        </exercise>
+        
         <exercise xml:id="exo-norm3">
             <statement>
                 <p>
@@ -430,6 +431,92 @@
                         On doit partir de <m>P</m> et effectuer un déplacement correspondant à 3 fois <m>\vec{u}</m> dans le sens opposé pour arriver à <m>P_5</m>.
                     </p></li>
                 </ol>
+            </solution>
+        </exercise>
+        <exercise xml:id="exo-decrirelieux">
+            <statement>
+                <p>
+                    Soit le point <m>P</m> et le vecteur <m>\vec{u}</m> tels qu'illustré. On indique que <m>\vec{u}=1</m>. 
+                    Décrire le lieu géométrique de l'ensemble des points <m>Q</m> répondant à chaque expression.
+                </p>
+                <ol>
+                    <li><m>\norm{\vecl{PQ}}=\norm{u}</m></li>
+                    <li><m>\norm{\vecl{PQ}}\leq 2</m></li>
+                    <li><m>1\leq\norm{\vecl{PQ}}\leq 3</m></li>
+                    <li><m>\vecl{PQ}=c\vec{u}, c\in\R</m></li>
+                    <li><p><m>\vecl{PQ}</m> a la même direction que <m>\vec{u}</m></p></li>
+                    <li><m>\vecl{PQ}=c\vec{u}, c\in\Z</m></li>
+                </ol>
+                <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-decrirelieux" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="decrirelieux" surface="geogebra" source="code/geogebra/exo-decrirelieux.ggb" aspect="1:1">
+                            setCoordSystem(-3, 3, -3, 3);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Utiliser les outils pour manipuler le vecteur u' et visualiser les lieux décrits. 
+                        </instructions>
+                    </interactive>
+                </figure>
+            </statement>
+            <answer>
+                <ol>
+                    <li><p>Le cercle de centre <m>P</m> et de rayon 1.</p></li>
+                    <li><p>Le disque de centre <m>P</m> et de rayon 2.</p></li>
+                    <li><p>L'anneau de centre <m>P</m> et de rayon extérieur 3 et de rayon intérieur 1.</p></li>
+                    <li><p>La droite parallèle à <m>\vec{u}</m> et passant par <m>P</m>.</p></li>
+                    <li><p>La demi-droite issue de <m>P</m> dans la direction de <m>\vec{u}</m> excluant <m>P</m>.</p></li>
+                    <li><p>L'ensemble des points sur la droite parallèle à <m>\vec{u}</m> et passant par <m>P</m> qui sont à une distance entière de <m>P</m>.
+                        Cela inclut le point <m>P</m>.</p></li>
+                </ol>
+            </answer>
+        </exercise>
+        <exercise xml:id="exo-trouverpoints">
+            <statement>
+                <p>
+                    Soit <m>A</m> et <m>B</m>, deux points distincts dans l'espace (<m>\R^3</m>). 
+                    Décrire le lieu géométrique de l'ensemble des points <m>P</m> répondant à chaque expression.
+                </p>
+                <ol>
+                    <li><m>\vecl{AP}=\vecl{PB}</m></li>
+                    <li><m>\vecl{AP}=\vecl{BP}</m></li>
+                    <li><m>\norm{\vecl{AP}}=\norm{\vecl{PB}}</m></li>
+                </ol>
+            </statement>
+            <hint>
+                <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-trouverpoints" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="trouverpoints" surface="geogebra" source="code/geogebra/exo-trouverpoints.ggb" aspect="1:1">
+                            setCoordSystem(-3, 3, -3, 3);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Déplacer le point P en cliquant dessus pour aller du mode horizontal à vertical. 
+                            Cliquer sur les boites pour afficher les différents vecteurs et segments. 
+                        </instructions>
+                    </interactive>
+                </figure>
+            </hint>
+            <answer>
+                <ol>
+                    <li><p>Le point <m>P</m> doit être le point milieu du segment <m>\overline{AB}</m>.</p></li>
+                    <li><p>Aucun point <m>P</m> ne satisfait à cette condition.</p></li>
+                    <li><p>Tous les points se situant sur le plan perpendiculaire à <m>\overline{AB}</m>, passant par le point milieu de ce même segment.</p></li>
+                </ol>
+            </answer>
+        </exercise>
+        <exercise xml:id="exo-axiomesgeo">
+            <statement>
+                <p>En utilisant les quatre axiomes initiaux de la géométrie vectorielle (<xref ref="li-axiomesgeo" />), 
+                    démontrer les trois propriétés suivantes.</p>
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <solution>
+                Trump.
             </solution>
         </exercise>
         <exercise xml:id="exo-cosdir">
@@ -655,4 +742,52 @@
                 
             </solution>
         </exercise>
+    <exercisegroup xml:id="exosage-vec">
+    <introduction>
+    <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
+    </introduction>
+        <exercise>
+         
+            <statement> 
+        Soit <m>\vec{u}=(-1,2)</m> et <m>\vec{v}=(2,1)</m> deux vecteurs de <m>\R^2</m>.
+           
+            <ol>
+           <li>
+               
+            <p>Définir et tracer les vecteurs <m>\vec{u</m> et <m>\vec{v}</m> sur un même graphique, le vecteur <m>\vec{u}</m> en rouge et le vecteur <m>\vec{v}</m> en bleu. Les deux vecteurs partent de l'origine.</p>
+             <sage>
+             <input>
+                 
+                 
+             </input>
+              </sage>
+               
+              
+                </li>
+                </ol>
+                </statement>
+                 <answer>
+              <figure xml:id="fig-sageplot-exosage-vec-1">
+                  <caption>Les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m></caption>
+                  <image xml:id="sageplot-exosage-vec-1">
+                  <description>Les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sont tracés tel que demandé, respectivement en rouge et en bleu.</description>
+               <sageplot>
+                plot(vector([-1,2]),color="red")+plot(vector([2,1]),color="blue")   
+                </sageplot>
+                  </image>
+                  </figure>
+               </answer>
+               <solution>
+               <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+                u=vector([-1,2])
+                v=vector([2,1])
+                plot(u,color="red")+plot(v,color="blue")   
+                </input>
+                   </program>
+                   </listing>
+            </solution> </exercise>
+    </exercisegroup>
     </exercises>
