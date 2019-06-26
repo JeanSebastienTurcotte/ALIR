@@ -444,7 +444,7 @@
                     <li><m>\norm{\vecl{PQ}}\leq 2</m></li>
                     <li><m>1\leq\norm{\vecl{PQ}}\leq 3</m></li>
                     <li><m>\vecl{PQ}=c\vec{u}, c\in\R</m></li>
-                    <li><p><m>\vecl{PQ}</m> a la même direction que <m>\vec{u}</m></p></li>
+                    <li><m>\vecl{PQ}</m> a la même direction que <m>\vec{u}</m></li>
                     <li><m>\vecl{PQ}=c\vec{u}, c\in\Z</m></li>
                 </ol>
                 <figure>
@@ -511,12 +511,79 @@
             <statement>
                 <p>En utilisant les quatre axiomes initiaux de la géométrie vectorielle (<xref ref="li-axiomesgeo" />), 
                     démontrer les trois propriétés suivantes.</p>
+                <ol>
+                    <li><m>\vecl{AA}=\vec{0}</m></li>
+                    <li><m>\vecl{AB}=-\vecl{BA}</m></li>
+                    <li>Si <m>\vecl{AB}=\vecl{CD}</m>, alors <m>\vecl{AC}=\vecl{BD}</m>.</li>
+                </ol>
             </statement>
-            <hint>
-                Un indice.
-            </hint>
             <solution>
-                Trump.
+                <ol>
+                    <li>
+                        <p>L'axiome 4 appliqué au vecteur <m>\vecl{AA}</m> permet d'écrire <m>\vecl{AA}=\vecl{AA}+\vecl{AA}</m>. 
+                        De ce qu'on connait de l'addition vectorielle, on peut additionner de chaque côté de l'égalité par le vecteur 
+                        <m>-\vecl{AA}</m>. Ainsi,</p>
+                        <md>
+                            <mrow>\vecl{AA}&amp; =\vecl{AA}+\vecl{AA}</mrow>
+                            <mrow>\vecl{AA}+(-\vecl{AA})&amp; =\vecl{AA}+\vecl{AA}+(-\vecl{AA})</mrow>
+                            <mrow>\vec{0}&amp; =\vecl{AA}+\vec{0}</mrow>
+                            <mrow>\vec{0}&amp; =\vecl{AA}</mrow>
+                        </md>
+                    </li>
+                    <li>
+                        <p>On va démontrer ceci en montrant que le vecteur <m>\vecl{AB}</m> est effectivement l'inverse additif de <m>\vecl{BA}</m>.
+                        Pour ce faire, on les additionne et on montre que ça donne le vecteur nul. Ainsi, <m>\vecl{AB}+\vecl{BA}=\vecl{AA}=\vec{0}</m>, 
+                        d'après l'axiome 4 et la propriété que l'on vient de démontrer.</p>
+                    </li>
+                    <li>
+                        <p>Sachant que <m>\vecl{AB}=\vecl{CD}</m>, alors,</p>
+                        <md>
+                            <mrow>\vecl{AC}&amp; =\vecl{AB}+\vecl{BC}</mrow>
+                            <mrow>&amp; =\vecl{CD}+\vecl{BC}</mrow>
+                            <mrow>&amp; =\vecl{BC}+\vecl{CD}</mrow>
+                            <mrow>&amp; =\vecl{BD}</mrow>
+                        </md>
+                    </li>
+                </ol>
+            </solution>
+        </exercise>
+        <exercise xml:id="exo-inegaltriangle">
+            <statement>
+                <p>Déplacer les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> afin que les égalités ou inégalités suivantes soient vérifiées, une à la fois. 
+                   Ensuite, énoncer en mots pour chacune les conditions nécessaires à leur vérification.</p> 
+                <ol>
+                    <li><m>\norm{\vec{u}+\vec{v}}\leq\norm{\vec{u}}+\norm{\vec{v}}</m> (l'inégalité du triangle)</li>
+                    <li><m>\norm{\vec{u}+\vec{v}}\neq\norm{\vec{u}}+\norm{\vec{v}}</m></li>
+                    <li><m>\norm{\vec{u}+\vec{v}}=\norm{\vec{u}}+\norm{\vec{v}}\neq 0</m></li>
+                    <li><m>\norm{\vec{u}+\vec{v}}=\norm{\vec{u}}+\norm{\vec{v}}, \vec{u}\neq \vec{0}, \vec{v}\neq \vec{0}</m></li>
+                    <li><m>\norm{\vec{u}}=\norm{\vec{v}}=\norm{\vec{u}+\vec{v}}, \vec{u}\neq \vec{0}</m></li>
+                </ol>
+                <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-inegaltriangle" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="inegaltriangle" surface="geogebra" source="code/geogebra/exo-inegaltriangle.ggb" aspect="1:1">
+                            setCoordSystem(-3, 3, -3, 3);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Déplacer les vecteurs en bougeant leur extrémité. 
+                            Cliquer sur les boites pour afficher le vecteur somme et les longueurs. 
+                        </instructions>
+                    </interactive>
+                </figure>
+            </statement>
+            <answer>
+                <ol>
+                    <li><p>La position initiale vérifie l'inégalité du triangle. Bref, comme son nom l'indique, elle est vérifiée dès que les vecteurs 
+                        additionnés forment un triangle. L'égalité se produira dans différentes situations décrites plus bas.</p></li>
+                    <li><p>De façon semblable, cette équation est vérifiée dès que les conditions d'égalité ... BLABLABLA.</p></li>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                </ol>
+            </answer>
+            <solution>
+                La solution.
             </solution>
         </exercise>
         <exercise xml:id="exo-cosdir">
@@ -754,7 +821,7 @@
             <ol>
            <li>
                
-            <p>Définir et tracer les vecteurs <m>\vec{u</m> et <m>\vec{v}</m> sur un même graphique, le vecteur <m>\vec{u}</m> en rouge et le vecteur <m>\vec{v}</m> en bleu. Les deux vecteurs partent de l'origine.</p>
+            <p>Définir et tracer les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sur un même graphique, le vecteur <m>\vec{u}</m> en rouge et le vecteur <m>\vec{v}</m> en bleu. Les deux vecteurs partent de l'origine.</p>
              <sage>
              <input>
                  
@@ -770,7 +837,7 @@
               <figure xml:id="fig-sageplot-exosage-vec-1">
                   <caption>Les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m></caption>
                   <image xml:id="sageplot-exosage-vec-1">
-                  <description>Les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sont tracés tel que demandé, respectivement en rouge et en bleu.</description>
+                  <description><p>Les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sont tracés tel que demandé, respectivement en rouge et en bleu.</p>                       </description>
                <sageplot>
                 plot(vector([-1,2]),color="red")+plot(vector([2,1]),color="blue")   
                 </sageplot>
