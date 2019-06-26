@@ -41,7 +41,7 @@
     <m>P</m> le vecteur 
     <m>\overrightarrow{OP}</m> où 
     <m>O</m> représente l'origine. La différence entre un point et un vecteur
-    est très minime dépend souvent seulement du contexte. Algébriquement, les
+    est très minime et dépend souvent seulement du contexte. Algébriquement, les
     deux ne sont qu'une liste de nombres. On ne s'attarde pas davantage à cette
     différence.</p>
     <!-- Ajouter origine du mot vecteur (en aside?) -->
@@ -76,7 +76,7 @@
         <li>Par défaut, on place un vecteur à l'origine, sauf s'il y a une
         utilité à le placer à un autre endroit.</li>
         <li>
-          <p>Tous les vecteurs ont une grandeur, noté 
+          <p>Tous les vecteurs ont une grandeur, notée 
           <m>\norm{u}</m>. Un vecteur dont la norme vaut 
           <m>1</m> est appelé un vecteur unitaire.</p>
         </li>
@@ -191,7 +191,7 @@
     <p>Il est plus difficile de caractériser la direction d'un vecteur
     algébriquement. Toutefois, dans 
     <m>\R^2</m>, il suffit d'un angle. Par convention on choisit l'angle que
-    fait le vecteur avec l'horizontal. On appelle souvent cet angle l'angle
+    fait le vecteur avec l'horizontale, mesuré dans le sens antihoraire. On appelle souvent cet angle l'angle
     polaire. Il est aussi illustré à la figure 
     <xref ref="fig-unvec" />. C'est un exercice simple de trigonométrie de
     calculer l'angle d'un vecteur dans 
@@ -215,7 +215,7 @@
           <p>Considérons le vecteur 
           <m>\vec{u}=(4,5)</m>, illustré à la figure 
           <xref ref="fig-vec2dangle-1" />. Comme on cherche l'angle que fait le
-          vecteur avec l'horizontal, il suffit de faire une fonction 
+          vecteur avec l'horizontale, il suffit de faire une fonction 
           <m>\arctan</m> pour y arriver:</p>
           <md>
             <mrow>\theta=\arctan\pfrac{5}{4}\approx 51.34 \text{ degrés}</mrow>
@@ -323,10 +323,18 @@
         plot(u,color="red")+plot(v,color="blue",start=u)
         </input>
         <output>plot(u,color="red")+plot(v,color="blue",start=u)</output>
+      </sage>
         <p>Il est possible de calculer la norme d'un vecteur à l'aide de la
         commande 
         <c>norm</c>.</p>
-      </sage>
+        <sage xml:id="sagecell-defvec-5">
+        <input>
+        show(norm(u))    
+        </input>
+        <output>
+        show(norm(u))    
+        </output>
+        </sage>
     </computation>
     <!--principe de base sage et  def de vecteurs  -->
     <!-- principe de base le temps d'en avoir en diff/int -->
@@ -587,7 +595,7 @@
       </interactive>
     </figure>
       </example>
-      <p>Quand est-il de la soustraction de vecteurs? Algébriquement, il est intuitif de définir la soustraction <m>\vec{u}-\vec{v}</m> comme étant l'addition de <m>\vec{u}+(-\vec{v})</m>. Cela revient donc à soustraire aux composantes de <m>\vec{u}</m> les composantes correspondantes de <m>\vec{v}</m>.</p>
+      <p>Qu'en est-il de la soustraction de vecteurs? Algébriquement, il est intuitif de définir la soustraction <m>\vec{u}-\vec{v}</m> comme étant l'addition de <m>\vec{u}+(-\vec{v})</m>. Cela revient donc à soustraire aux composantes de <m>\vec{u}</m> les composantes correspondantes de <m>\vec{v}</m>.</p>
       
       <p>Géométriquement, où se situe cette soustraction de vecteurs? À l'exemple <xref ref="ex-geoaddvec"/>, on a observé que l'addition de vecteurs peut être représentée par la diagonale d'un parallélogramme. Dans l'exemple <xref ref="ex-geosousvec"/>, on constate que la soustraction de vecteurs correspond à l'autre diagonale. Le sens de la flèche dépend de l'ordre de la soustraction.</p>
       
@@ -618,7 +626,7 @@
       </interactive>
     </figure>
   </example>
-      <p>On remarque que le vecteur correspondant à <m>\vec{u}-\vec{v}</m> est le vecteur tel que <m>\vec{v}+(\vec{u}-\vec{v}=\vec{v})</m>. Le parallélogramme illustre bien cette interprétation.</p>
+      <p>On remarque que le vecteur correspondant à <m>\vec{u}-\vec{v}</m> est le vecteur tel que <m>\vec{v}+(\vec{u}-\vec{v})=\vec{v}</m>. Le parallélogramme illustre bien cette interprétation.</p>
       <p>Lorsque deux points <m>P(p_1,p_2)</m> et <m>Q(q_1,q_2)</m> sont donnés, on peut définir algébriquement le vecteur <m>\overrightarrow{PQ}</m> comme étant <men xml:id="eq-vecPQ">\overrightarrow{PQ}=\overrightarrow{OQ}-\overrightarrow{OP}=(q_1-p_1,q_2-p_2)</men>. En particulier, si <m>A(a_1,a_2),B(b_1,b_2),C(c_1,c_2)</m> et <m>D(d_1,d_2)</m> sont quatre points de <m>\R^2</m>, les vecteurs <m>\vecl{AB}</m> et <m>\vecl{CD}</m> sont égaux si <m>(b_1-a_1,b_2-a_2)=(d_1-c_1,d_2-c_2)</m>.</p>
       <p>Regardons maintenant un exemple algébrique d'addition et de soustraction de vecteurs.</p>
       <example xml:id="ex-addsousvec">
@@ -645,7 +653,7 @@
       <p>Il est possible de considérer les vecteurs comme étant une opération de translation agissant sur les points. Par exemple, le vecteur <m>\vec{u}=\vecl{PQ}</m> peut être interprété comme la translation du point <m>P</m> jusqu'au point <m>Q</m> le long d'une droite. On écrira alors parfois <me>Q=P+\vec{u}</me>, qui est en fait une manière abrégée, mais somme toute équivalente, à l'équation purement vectorielle <m>\vecl{OQ}=\vec{OP}+\vec{PQ}</m>. Cette dernière est simplement une réécriture de l'équation <xref ref="eq-vecPQ"/>. </p>
       
     <p>En utilisant cette équivalence entre points et vecteurs, on en arrive à poser quatre postulats, qui forment les axiomes initiaux de la géométrie:
-      <ol>
+      <ol xml:id="li-axiomesgeo">
      <li> <p>Étant donné deux points <m>P,Q</m>, il existe un seul vecteur <m>\vec{u}</m> tel que <m>\vec{u}=\vecl{PQ}</m>.</p></li>   
      <li><p>Si <m>\vecl{PQ}=\vecl{PR}</m>, alors nécessairement <m>Q=R</m>.</p> </li>
      <li><p>De même, si <m>\vecl{PQ}=\vecl{RQ}</m>, alors nécessairement <m>P=R</m>.</p></li>
@@ -653,7 +661,7 @@
      </ol>
       </p>
       
-      <p> À partir de ces axiomes, on peut déduire d'autres résultats élémentaires (voir l'exercice <xref provisional="ex-axiomegeo"/>). Deux particulièrement importants sont <m>\vecl{PP}=\vec{0}</m> et <m>\vecl{QP}=-\vecl{PQ}</m>.</p>
+      <p> À partir de ces axiomes, on peut déduire d'autres résultats élémentaires (voir l'exercice <xref ref="ex-axiomesgeo"/>). Deux particulièrement importants sont <m>\vecl{PP}=\vec{0}</m> et <m>\vecl{QP}=-\vecl{PQ}</m>.</p>
       
       <p>On termine  avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-opvec">
@@ -700,9 +708,9 @@
           <ul>
           <li><p>Souvent, l'endroit spécifique où l'origine se trouve n'est pas important. Si une origine n'est pas fixée, déterminer un endroit approprié pour le placer si cela peut être utile. </p></li>
            <li>Déterminer un certain nombre de vecteurs importants et exprimer les autres vecteurs en fonction de ceux-ci est parfois utile</li>
-           <li> Dans un dessin, l'horizontal et la verticale n'auront peut-être pas la signification usuelle (celle d'un plan cartésien par exemple). Afin d'illustrer cela, considérer la figure <xref ref="fig-3d2d"/>.</li>
+           <li> Dans un dessin, l'horizontal et la verticale n'auront peut-être pas la signification usuelle (celle d'un plan cartésien par exemple). Afin d'illustrer cela, considérer la figure <xref ref="fig-3d2d-2"/>.</li>
           </ul>
-         <sidebyside xml:id="fig-3d2d">
+         <sidebyside>
         <figure xml:id="fig-3d2d-1">
         <caption>Un vecteur à trois dimensions</caption>
          <image source="img/3d2d-1.svg">
@@ -777,11 +785,35 @@
       </interactive>
     </figure>
       </example>
-      <!--  point milieu et barycentre -->
-      <!--lieux géométriques -->
+      <definition xml:id="def-lieu">
+      Un lieu géométrique  est un ensemble de points
+possédant une propriété commune., Un cercle, une ellipse, une parabole, etc. sont des exempes de lieux géométriques. La plupart du temps, ces lieux sont caractérisés par une équation algébrique.
+      </definition>
+      On peut aussi caractériser vectoriellement certains lieux géométriques.
+      <example xml:id="ex-veccercle">
+      <title>Le cercle, vu vectoriellement</title>
+          <p>Il est possible de définir algébriquement un cercle de rayon <m>r</m> centré à l'origine par l'équation <me>x^2+y^2=r^2</me>. Plus généralement, un cercle centré au point <m>C(a,b)</m>, toujours de rayon <m>r</m> aura pour équation <me>(x-a)^2+(y-b)^2=r^2</me>.  On peut également caractériser un tel cercle vectoriellement. Un cercle constitue l'ensemble des points qui sont à une distance <m>r</m> d'un centre <m>C</m>. Vectoriellement, on peut traduire cette phrase par une équation avec la norme. Ainsi, le un cercle centré en <m>C(a,b)</m> est formé de l'ensemble des points <m>P</m> pour lesquels <me>\norm{CP}=r</me>.</p>
+          
+          <p>On peut visualiser le lieu avec l'interaction <xref provisional="cerclevectorielAFAIRE"/>.</p>
+      </example>
     </subsection>
   <conclusion xml:id="concl-vec">
-    <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les éléments importants de cette section sont:
+      <ul>
+      <li> <p>Un vecteur est un objet composé d'une longueur et d'une direction;</p></li>
+      <li> <p>Algébriquement, la norme d'un vecteur est donnée par la racine carrée de la somme des ces composantes au carré, c'est-à-dire <me> \norm{\vec{u}}=\sqrt{u_1^2+u_2^2}</me>, où l'équivalent dans <m>\R^3</m>;</p></li>
+      <li> <p>Dans <m>\R^2</m>, la direction peut être caractérisée par l'angle <m>\theta</m> que fait le vecteur avec l'horizontale, mesuré dans le sens antihoraire;</p></li>
+      <li><p>Les opérations de multiplication d'un vecteur par un scalaire et d'addition/soustraction de vecteurs.</p></li>
+      </ul>
+        De plus, avec Sage:
+        <ul>
+        <li><p>Pour définir un vecteur, on utilise <c>vector([u1,u2])</c>, ou quelque chose de similaire pour <m>\R^3</m>. En particulier, le vecteur doit être mis entre une paire de crochet dans la commande <c>vector()</c>;</p></li>
+            <li><p>Il est possible de définir le point de départ du vecteur avec l'option <c>start</c> de la commande <c>vector([u1,u2],start=pointdedepart)</c>;</p></li>
+            <li><p>On peut calculer la norme d'un vecteur à l'aide de la commande <c>norm()</c>;</p></li>
+            <li><p>On peut illustrer graphiquement un vecteur de dimensions <m>2</m> ou <m>3</m> avec une commande <c>plot()</c>.</p></li>
+        <li><p>Les opérations sur les vecteurs sur Sage se font de manières naturelles, en utilisant <c>+,-,*</c>.</p></li>
+        </ul>
+      </p>
   </conclusion>
   <!--Inclure les exercices de la section ci-dessous-->
   <xi:include href="Exercices_vec.xml" />
