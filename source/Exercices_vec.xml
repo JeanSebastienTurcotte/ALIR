@@ -507,6 +507,52 @@
                 </ol>
             </answer>
         </exercise>
+        <exercise xml:id="exo-trouvercoordo2D">
+            <statement>
+                <p>Dans le parallélogramme suivant, trouver les coordonnées du point <m>D</m>.</p>
+                <figure xml:id="fig-exo-trouvercoordo2D">
+                        <caption> </caption>
+                        <image source="images/exo-trouvercoordo2D.svg" width="80%">
+                            <description>
+                                Un parallélogramme formé des points (-3,2), (3,-1), (0,-3) et du point D dont les coordonnées sont inconnues.
+                            </description>
+                        </image>
+                    </figure>
+            </statement>
+            <hint>
+                <p>Il est conseillé d'identifier chaque point connu par une lettre et de calculer les composantes des différents vecteurs reliant ces points.
+                Choisir un point de départ dont les coordonnées sont connues et se déplacer selon un vecteur en additionnant ses composantes pour aller au 
+                    point dont les coordonnées sont inconnues.</p>
+            </hint>
+            <answer>
+                <p>Les coordonnées du point <m>D</m> sont <m>D(-6,0)</m>.</p>
+            </answer>
+            <solution>
+                <p>Identifions les points suivants: <m>A(-3,2)</m>, <m>B(3,-1)</m> et <m>C(0,-3)</m> sur le dessin.</p>
+                <p>Alors, le vecteurs suivant se calcule facilement.</p>
+                <me>\vecl{BC}=\vecl{OC}-\vecl{OB}=(0,-3)-(3,-1)=(-3,-2)</me>
+                <p>Finalement, on part du point <m>A</m> et on arrive à <m>D</m> en se déplaçant selon <m>\vecl{BC}</m> puisque <m>\vecl{BC}=\vecl{AD}</m>.</p>
+                <md>
+                    <mrow>\vecl{OD} &amp; =\vecl{OA}+\vecl{AD}</mrow>
+                    <mrow> &amp; =\vecl{OA}+\vecl{BC}</mrow>
+                    <mrow> &amp; =(-3,2)+(-3,-2)</mrow>
+                    <mrow> &amp; =(-6,0)</mrow>
+                </md>
+                Ainsi, on a calculé les coordonnées du point <m>D(-6,0)</m>.
+            </solution>
+        </exercise>
+        <exercise xml:id="exo-pointpartage">
+            <statement>
+                <p>Calculer les coordonnées du point <m>P</m> se situant aux <m>3/8</m> du segment <m>\overline{AB}</m> à partir du point <m>A</m>.
+                Les coordonnées des points sont <m>A(2,1,0)</m> et <m>B(10, 25,16)</m>.</p>
+            </statement>
+            <answer>
+                <p>Les coordonnées de ce point sont <m>P(5, 10, 6)</m>.</p>
+            </answer>
+            <solution>
+                <p>La solution est à venir.</p>
+            </solution>
+        </exercise>
         <exercise xml:id="exo-axiomesgeo">
             <statement>
                 <p>En utilisant les quatre axiomes initiaux de la géométrie vectorielle (<xref ref="li-axiomesgeo" />), 
@@ -600,8 +646,62 @@
                 La solution.
             </solution>
         </exercise>
-    
-     <exercise xml:id="exo-propvec2">
+        <exercise xml:id="exo-preuve-ptsmilieux">
+            <statement>
+                <p>Soit le triangle <m>ABC</m> et les points <m>M</m> et <m>N</m> se trouvant respectivement au milieu des segments 
+                    <m>\overline{AB}</m> et <m>\overline{AC}</m>. Montrer que <m>\vecl{MN}=\frac{1}{2}\vecl{BC}</m>.</p>
+                <figure xml:id="fig-exo-preuve-ptsmilieux">
+                        <caption> </caption>
+                        <image source="images/exo-preuve-ptsmilieux.svg" width="80%">
+                            <description>
+                                Le triangle ABC ainsi que les points M et N respectivement milieux des segments AB et AC.
+                            </description>
+                        </image>
+                    </figure>
+            </statement>
+            <hint>
+                <p>Utiliser les axiomes de la géométrie vectorielle (<xref ref="li-axiomesgeo" />) et le conseil suivant: 
+                    passer par un détour pour exprimer le vecteur <m>\vecl{MN}</m>.</p>
+            </hint>
+            <solution>
+                <p>On va exprimer le vecteur <m>\vecl{MN}</m> en termes d'autres vecteurs et utiliser le fait que <m>M</m> et <m>N</m> sont des points milieux.</p>
+                <md>
+                    <mrow>\vecl{MN} &amp;=\vecl{MA}+\vecl{AN}</mrow>
+                    <mrow> &amp;=\vecl{MA}+\vecl{AN}</mrow>
+                    <mrow> &amp;=\frac{1}{2}\vecl{BA}+\frac{1}{2}\vecl{AC}</mrow>
+                    <mrow> &amp;=\frac{1}{2}\big(\vecl{BA}+\vecl{AC}\big)</mrow>
+                    <mrow> &amp;=\frac{1}{2}\vecl{BC}</mrow>
+                </md>
+            </solution>
+        </exercise>
+        <exercise xml:id="exo-preuve-ptspartages">
+            <statement>
+                <p>Soit le triangle <m>ABC</m>. Le point <m>D</m> se situe au <m>3/4</m> du segment <m>\overline{AB}</m> et le point <m>E</m> se situe 
+                au milieu du segment <m>\overline{BC}</m>. Montrer que le point <m>P</m>, intersection des segments <m>\overline{DC}</m> et <m>\overline{AE}</m>
+                se situe aux <m>4/7</m> du segment <m>\overline{CD}</m> en partant du point <m>C</m>.</p>
+                <figure xml:id="fig-exo-preuve-ptspartages">
+                        <caption> </caption>
+                        <image source="images/exo-preuve-ptspartages.svg" width="80%">
+                            <description>
+                                Le triangle ABC ainsi que le point D, situé aux 3/4 du segment AB et le point E situé au milieu du segment BC. 
+                                Le point P est l'intersection des segments DC et AE.
+                            </description>
+                        </image>
+                    </figure>
+            </statement>
+            <hint>
+                <p>Comme à l'exercice précédent, on doit utiliser les axiomes de la géométrie vectorielle (<xref ref="li-axiomesgeo" />) et des 
+                stratégies vectorielles en exprimant des vecteurs différemment en fonction d'autres vecteurs.</p>
+            </hint>
+            <solution>
+                <p>Nous allons commencer par le vecteur <m>\vecl{CP}</m> et tenter de montrer qu'il est égal à <m>\frac{4}{7}\vecl{CD}</m>.</p>
+                <md>
+                    <mrow>\vecl{CP}&amp;\vecl{CE}+\vecl{EP}</mrow>
+                    <mrow>&amp;À compléter.</mrow>
+                </md>
+            </solution>
+        </exercise>
+        <exercise xml:id="exo-propvec2">
             <statement>
                 <p>
                     Les propriétés suivantes sur les vecteurs découlent naturellement de leur interprétation géométrique. 
@@ -690,10 +790,9 @@
         </exercise>
     
         <!--Faire un exercice pour montrer que l'angle dans le 3e quadrant est Pi+l'angle du premier quadrant. -->
-    <exercise xml:id="exo-vecprisme">
+        <exercise xml:id="exo-vecprisme">
             <statement>
-                <p>Observer le prisme à base triangulaire suivant. Pour chaque vecteur suivant, donner un vecteur exprimé uniquement à l'aide de deux points 
-                    (ex: <m>\vecl{AB}</m>) qui permet de représenter le même déplacement. </p>
+                <p>Observer le prisme suivant et donner un seul vecteur reliant deux points qui exprime les déplacements suivants.</p>
                 <figure xml:id="fig-exo-vecprisme">
                         <caption> </caption>
                         <image source="images/exo-vecprisme.png" width="70%">
@@ -703,24 +802,36 @@
                         </image>
                 </figure>
                 <ol>
-                    <li><m>\vecl{AH}</m></li>
+                    <li><m>\vecl{AC}+\vecl{AE}</m></li>
                     <li><m>\vecl{EC}+\vecl{DF}</m></li>
-                    <li><m>\vecl{AD}</m></li>
-                    <li><m>\vecl{AD}+\vecl{AB}</m></li>
-                    <li><m>\vecl{AC}+\vecl{DG}</m></li>
-                    <li><m>\vecl{AB}+\vecl{CG}+\vecl{CA}</m></li>
-                    <li><m>\vecl{AG}+\vecl{FD}</m></li>
-                    <li><m>\vecl{AF}+\vecl{ED}+\vecl{HF}</m></li>
+                    <li><m>\vecl{AD}+\vecl{CB}+\vecl{BA}</m></li>
+                    <li><m>\vecl{AC}+\vecl{DC}</m></li>
+                    <li><m>\vecl{AB}+\vecl{FC}+\vecl{CA}</m></li>
+                    <li><m>\vecl{AB}+\vecl{FD}</m></li>
+                    <li><m>\vecl{AF}+\vecl{ED}+\vecl{FE}+\vecl{CB}</m></li>
                 </ol>
             </statement>
             <hint>
-                Un indice.
+                <p>Puisque l'on spécifie qu'il s'agit d'un prisme, on peut considérer que <m>\vecl{AE}=\vecl{CD}=\vecl{BF}</m>. 
+                De même, les deux triangles formant les bases du prisme sont parallèles et donc les vecteurs parallèles sont égaux.
+                Par exemple, <m>\vecl{AC}=\vecl{ED}</m>.</p>
+                <p>Donc, pour exprimer le déplacement correspondant à <m>\vecl{AC}+\vecl{AE}</m>, il faut considérer que <m>\vecl{AE}=\vecl{CD}</m>  et donc 
+                que <m>\vecl{AC}+\vecl{AE}=\vecl{AC}+\vecl{CD}=\vecl{AD}</m>, en utilisant la Loi de Chasles <xref provisional = "Loi de Chasles"/>. </p>
+                <p>Finalement, remarquer qu'il y a parfois plusieurs réponses possibles.</p>
             </hint>
             <answer>
-                La réponse.
+                <ol>
+                    <li><m>\vecl{AD}</m></li>
+                    <li><m>\vecl{EB}</m></li>
+                    <li><m>\vecl{AE}</m> ou <m>\vecl{BF}</m> ou <m>\vecl{CD}</m></li>
+                    <li><m>\vecl{EC}</m></li>
+                    <li><m>\vecl{DC}</m> ou <m>\vecl{EA}</m> ou <m>\vecl{FB}</m></li>
+                    <li><m>\vecl{ED}</m> ou <m>\vecl{AC}</m></li>
+                    <li><m>\vecl{AF}</m></li>
+                </ol>
             </answer>
             <solution>
-                La solution.
+                Solutions à venir.
             </solution>
         </exercise>
     
