@@ -12,18 +12,161 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-prodscal">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Produit scalaire et calcul d'angles </title>
     <introduction xml:id= "intro-prodscal">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    
+    <p>Dans la section <xref ref="sec-vec"/>, on a défini le concept d'angle polaire pour un vecteur de <m>\R^2</m> et plus généralement, le concept de cosinus directeurs. Pour l'angle polaire, on peut imagine que c'est l'angle que fait le vecteur <m>\vec{u}</m> avec tout vecteur de la forme <m>(x,0)</m> où <m>x>0</m>.</p>
+        
+        <p>Dans cette section, on vise à définir le concept d'angle entre deux vecteurs quelconques dans <m>\R^2</m> et <m>\R^3</m>. Ceci nous mènera à la définition du produit scalaire, une opération vectorielle qui a de nombreuses applications.</p>
     </introduction>
     
     <!-- Sous-sections à écrire, à même ce fichier -->
-    <subsection xml:id="sssec-angle2d">
+    <subsection xml:id="sssec-angle2vec">
     <title> L'angle entre deux vecteurs de <m>\R^2</m></title>
-    </subsection>
-    <subsection xml:id="sssec-angle3d">
-    <title>L'angle entre deux vecteurs de <m>\R^3</m></title>
+        <p>Considérons deux vecteurs non nuls <m>\vec{u}</m> et <m>\vec{v}</m> de <m>\R^2</m> et dénotons par <m>\theta_{\vec{u}\vec{v}}</m> le plus petit angle entre ces vecteurs<fn>S'il n'y a pas d'ambiguité et que le contexte est clair, on laissera tomber l'indice <m>\vec{u}\vec{v}</m> au profit de seulement <m>\theta</m>.</fn>. On cherche à trouver un moyen de déterminer cet angle à partir des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. L'image interactive <xref ref="fig-angle2d"/> permet de manipuler des vecteurs et de découvrir l'intuition derrière la formule qui suivra.</p>
+        <example xml:id="ex-angle2d">
+    <title>L'angle entre deux vecteurs de <m>\R^2: dynamique</m></title>
+            <p>L'angle entre deux vecteurs peut être obtenu à l'aide d'un résultat bien connu sur les triangles.</p>
+    <figure xml:id="fig-angle2d">
+      <caption>L'angle entre deux vecteurs</caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-angle2d">
+        <slate aspect="1:1" source="code/geogebra/angle2d.ggb"
+        surface="geogebra" xml:id="slate-angle2d">
+            setCoordSystem(-18, 10,-10,10,);
+            showResetIcon(true);
+          </slate>
+        <instructions>
+          <p>Il est possible de déplacer les vecteurs 
+          <m>\vec{u},\vec{v}</m>. Une fois satisfait de la configuration, un clic sur la boite fera apparaitre une question. La bonne réponse à cette question dévoilera comment trouver l'angle entre les vecteurs.</p>
+        </instructions>
+        </interactive>
+    </figure></example>
+    <p> Algébriquement, on peut développer le numérateur de la formule obtenue pour simplifier. Il est bon de rappeler que le vecteur <m>\vec{w}=\vec{u}-\vec{v}</m>, voir la figure <xref ref="fig-sousvec"/>. On a donc 
+        <md>
+        <mrow>\cos(\theta)&amp;= \frac{\|\vec{u}\|^2+\|\vec{v}\|^2-\|\vec{w}\|^2}{2\|\vec{u}\|\|\vec{v}\|} </mrow>
+        <mrow> &amp;= \frac{u_1^2+u_2^2+v_1^2+v_2^2-(u_1-v_1)^2-(u_2-v_2)^2}{2\|\vec{u}\|\|\vec{v}\|}</mrow>
+        <mrow>&amp;= \frac{u_1^2+u_2^2+v_1^2+v_2^2-(u_1^2-2u_1v_1+v_1^2)-(u_2^2-2u_2v_2+v_2^2)}{2\|\vec{u}\|\|\vec{v}\|}</mrow>
+        <mrow> &amp;=\frac{u_1v_1+u_2v_2}{\|\vec{u}\|\|\vec{v}\|}</mrow>
+        </md>.</p>
+       <p>De cette équation, on peut tirer quelques remarques. On peut dans un premier temps vérifier que si <m>\vec{u}</m> et <m>\vec{v}</m> sont parallèles, alors l'angle <m>\theta</m> sera <m>0</m> ou <m>\pi</m> (<m>0</m> ou <m>180^\circ</m>). En effet, si <m>\vec{v}=k\vec{u}</m>, on a
+        <md>
+           <mrow>\cos(\theta)&amp;=\frac{u_1(k u_1)+u_2(ku_2)}{\|\vec{u}\|\|k\vec{u}\|}</mrow>
+            <mrow>&amp;=\frac{ku_1^2+ku_2^2}{\abs{k}\|\vec{u}\|^2}</mrow>
+            <mrow>&amp;=\frac{k\|\vec{u}\|^2}{\abs{k}\|\vec{u}\|}</mrow>
+            <mrow>&amp;=\frac{k}{\abs{k}}</mrow>
+            <mrow>&amp;=\begin{cases} 1 &amp; \text{ si } k&gt;0 \\  -1 &amp; \text{ si } k&lt;0 \end{cases} </mrow>
+           </md>.</p>
+        
+        <p>Comme le cosinus donne <m>1</m> ou <m>-1</m>, on conclut que l'angle doit être de <m>0</m> ou <m>\pi</m>.</p>
+        <p>Une autre valeur particulière pour l'angle est  <m>\theta=\frac{\pi}{2}</m>(<m>90^\circ</m>). Ceci correspond à des vecteurs qui sont perpendiculaires. Puisque  <m>\cos\pfrac{\pi}{2}=0</m>, on conclut que <m>u_1v_1+u_2v_2=0</m> lorsque deux vecteurs sont perpendiculaires.</p>
+        <example xml:id="ex-calculangle2d">
+        <p>On considère les vecteurs <m>\vec{u}=(1,2)</m> et <m>\vec{v}=(-3,4)</m>. Le cosinus de l'angle entre ces vecteurs est 
+            <md>
+            <mrow> \cos(\theta)&amp;=\frac{u_1v_1+u_2v_2}{\norm{u}\norm{v}}</mrow>
+            <mrow> &amp;= \frac{1*(-3)+2*4}{\sqrt{1^2+2^2}\sqrt{(-3)^2+4^2}}</mrow>
+            <mrow> &amp;= \frac{5}{\sqrt{5}\sqrt{25}}</mrow>
+            <mrow>  &amp; \frac{1}{\sqrt{5}}</mrow>
+            </md>.</p>
+            <p>L'angle entre les vecteurs est donc <m>\theta=\arccos\pfrac{1}{\sqrt{5}}\approx 1.11</m> radians ou encore <m>63.43</m> degrés.</p>
+        </example>
+        <p>La situation dans <m>\R^3</m> est similaire. Puisque deux vecteurs non nuls peuvent toujours être vus comme étant sur un plan ou une droite (s'ils sont parallèles), un argument similaire permet d'obtenir l'équation suivante pour l'angle entre des vecteurs <m>\vec{u},\vec{v}\in\R^3</m>:
+        <me>
+        \cos(\theta)=\frac{u_1v_1+u_2v_2+u_3v_3}{\norm{\vec{u}}\norm{\vec{v}}}
+        </me>, voir l'exercice <xref provisional="loicospourR3"/>.
+        </p>
+        
+        <p>À voir ces deux équations, on peut remarquer que l'addition du produit des composantes correspondantes de deux vecteurs semble être une quantité importante. Elle sera définie dans la sous-section <xref ref="sssec-prodscal"/></p>
     </subsection>
     <subsection xml:id="sssec-prodscal">
     <title>Le produit scalaire</title>
+        Motivé par les calculs de la sous-section <xref ref="sssec-angle2vec"/>, on définit algébriquement le produit scalaire, pour ensuite regarder ses propriétés, autant algébriques que géométriques.
+        <definition xml:id="def-prodscal">
+        <title> Le produit scalaire</title>
+         <p>Soit <m>\vec{u},\vec{v}</m> deux vecteurs de <m>\R^2</m> ou <m>\R^3</m>. On définit le <emph> produit scalaire </emph> de ces vecteurs, noté <m>\vec{u}\cdot \vec{v}</m>, comme étant la somme du produit des composantes correspondantes, c'est-à-dire 
+            <md>
+            <mrow>\vec{u}\cdot \vec{v}&amp;= u_1v_1+u_2v_2 &amp;&amp;\text{ si } \vec{u},\vec{v}\in \R^2</mrow>
+                <mrow>\vec{u}\cdot \vec{v}&amp;= u_1v_1+u_2v_2+u_3v_3 &amp;&amp;\text{ si } \vec{u},\vec{v}\in \R^3</mrow>
+            </md>.
+            </p>
+        </definition>
+        <p>Le produit scalaire, comme son nom l'indique, donne un nombre réel (un scalaire) et non un vecteur. En reprenant l'équation pour l'angle entre deux vecteurs, on peut écrire 
+        <men xml:id="eq-prodscalgeo">\vec{u}\cdot \vec{v}=\|\vec{u}\|\|\vec{v}\|\cos(\theta)</men>.
+        Comme les normes sont toujours positives et que le cosinus varie entre <m>-1</m> et <m>1</m>, le produit scalaire peut être positif ou négatif, selon l'angle,  et de n'importe quelle grandeur, selon les normes.
+        </p>
+        <p> On a déjà observé que si l'angle entre deux vecteurs est <m>90^\circ</m>, le produit scalaire vaut <m>0</m>. Le signe du produit scalaire correspond alors au type d'angle (aigu ou obtus) qu'il y a entre les deux vecteurs.</p>
+        <p>Voici maintenant quelques propriétés du produit scalaire.</p>
+        <proposition xml:id="prop-propprodscal">
+        <statement><p>Le produit scalaire entre deux vecteurs quelconque possèdent les propriétés suivantes:</p>
+            <ol>
+            <li><p> <m>\pscal{u}{v}=\pscal{v}{u}</m> (commutativité du produit scalaire)</p></li>
+            <li><p><m>(c\vec{u})\cdot \vec{v}=\vec{u}\cdot (c\vec{v})=c(\pscal{u}{v})</m> pour tout <m>c\in\R</m>.</p></li>
+            <li><p><m>\vec{u}\cdot(\vec{v}+\vec{w})=\pscal{u}{v}+\pscal{u}{w}</m> (distributivité du produit scalaire)</p></li>
+            <li><p><m>\pscal{u}{u}=\|\vec{u}\|^2</m></p></li>
+            </ol>
+            </statement>
+            <proof>
+           <p> La plupart des propriétés découlent directement des propriétés de l'addition et de la multiplication de nombres réels. Par exemple, pour deux vecteurs de <m>\R^2</m>, on a
+                <md>
+               <mrow>\pscal{u}{v}&amp;= u_1v_1+u_2v_2 &amp;</mrow>
+                    <mrow>&amp;= v_1u_1+v_2u_2 &amp; \text{ commutativité de l'addition de nombres réels}</mrow>
+                    <mrow> &amp;= \pscal{v}{u}</mrow>
+               </md></p>
+                <p>Géométriquement, l'équation <xref ref="eq-prodscalgeo"/> permet aussi de voir que la propriété tient en général, en particulier parce que <m>\theta_{\vec{u}\vec{v}}=\theta_{\vec{v}\vec{u}}</m>.</p>
+                
+                <p>La seconde propriété est aussi algébriquement simple à démontrer. Il est toutefois intéressant de constater l'effet géométrique de la multiplication par un scalaire d'un vecteur sur le produit scalaire. Dans un premier temps, si <m>c&gt;0</m>, on a
+                <md>
+                <mrow>(c\vec{u})\cdot \vec{v}&amp;= \norm{c\vec{u}}\norm{\vec{v}}\cos(\theta_{c\vec{u}\vec{v}})&amp;&amp;</mrow>
+                <mrow> &amp;=c\norm{\vec{u}}\norm{\vec{v}}\cos(\theta_{\vec{u}\vec{v}})&amp;&amp;\text{ car l'angle entre } c\vec{u} \text{ et }\vec{v} \text{ est aussi } \theta_{\vec{u}\vec{v}}</mrow> 
+                </md>.
+                </p>
+                
+                <p>Et si <m>c&lt;0</m>, alors
+                <md>
+                <mrow>(c\vec{u})\cdot \vec{v}&amp;= \norm{c\vec{u}}\norm{\vec{v}}\cos(\theta_{c\vec{u}\vec{v}})&amp;&amp;</mrow>
+                <mrow> &amp;=\abs{c}\norm{\vec{u}}\norm{\vec{v}}\cos(\theta_{-\vec{u}\vec{v}})&amp;&amp;\text{ car l'angle entre } c\vec{u} \text{ et }\vec{v} \text{ est équivalent } \theta_{-\vec{u}\vec{v}}</mrow> 
+                 <mrow>&amp;=\abs{c}\norm{\vec{u}}\norm{\vec{v}}\cos(180-\theta_{\vec{u}\vec{v}})&amp;&amp; \text{ voir l'image } <xref ref="fig-anglemuv"/></mrow>
+                  <mrow>&amp;=-\abs{c}\norm{\vec{u}}\norm{\vec{v}}\cos(\theta_{\vec{u}\vec{v}}) &amp;&amp; \text{ car } \cos(180-\theta)=-\cos(\theta)</mrow>
+                    <mrow>&amp;=c\norm{\vec{u}}\norm{\vec{v}}\cos(\theta_{\vec{u}\vec{v}}) &amp;&amp; \text{ car } -\abs{c}=c \text{ si } c&lt;0</mrow>
+                </md>.
+                </p>
+                <figure xml:id="fig-anglemuv">
+                <caption>L'angle entre les vecteurs <m>-\vec{u}</m> et <m>\vec{v}</m>.</caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-anglemuv">
+        <slate aspect="1:1" source="code/geogebra/anglemuv.ggb"
+        surface="geogebra" xml:id="slate-anglemuv">
+            setCoordSystem(-2, 2,-2,2,);
+            showResetIcon(true);
+          </slate>
+        <instructions>
+          <p>Déplacer les vecteurs pour constater que l'angle entre <m>-\vec{u}</m> et <m>\vec{v}</m> est toujours égal à <m>180-\theta_{\vec{u}\vec{v}}</m>. </p>
+        </instructions>
+      </interactive>
+                </figure>
+                <p>Finalement, le cas <m>c=0</m> découle simplement du fait que <m>c\vec{u}=\vec{0}</m>.</p>
+                
+                <p>La troisième propriété n'est qu'une simple manipulation algébrique. Dans le cas de vecteurs dans <m>\R^2</m>, on a
+                <md>
+                    <mrow> \vec{u}\cdot(\vec{v}+\vec{w})&amp;=u_1(v_1+w_1)+u_2(v_2+w_2)</mrow>
+                    <mrow> &amp;= u_1v_1+u_1w_1+u_2v_2+u_2w_2</mrow>
+                    <mrow>  &amp;= u_1v_1+u_2v_2+u_1w_1+u_2w_2</mrow>
+                    <mrow> &amp;= \pscal{u}{v}+\pscal{u}{w}</mrow>
+                </md>.
+                    Une démonstration géométrique sera donné à l'exercice <xref provisional="preuvegeo distributivité du prodscal"/>
+                </p>
+                <p>Finalement, autant géométriquement qu'algébriquement, la démonstration de la dernière propriété est simple. Par exemple, avec l'équation <xref ref="eq-prodscalgeo"/>, on a 
+                <md>
+                    <mrow>\pscal{u}{u}&amp;=\norm{\vec{u}}\norm{\vec{u}}\cos(\theta_{\vec{u}\vec{u}})</mrow>
+                    <mrow>&amp;= \norm{\vec{u}}^2</mrow>
+                 </md>.
+                </p>
+            </proof>
+        </proposition>
+ <p>Les vecteurs perpendiculaires seront d'une grande importance. Deux vecteurs perpendiculaires sont aussi dit orthogonaux.</p>
+        <aside>
+            <p>Lorsqu'on généralise les concepts d'algèbre linéaire à des structure plus abstraites, la notion de perpendiculaire est difficile à imaginer. Toutefois, le concept de produit scalaire nul reste important. C'est pourquoi les mathématiciens ont introduits le terme orthogonal, du grec <emph>orthos</emph>, droit, et du grec <emph>g\={o}nia</emph>, angle.</p>
+        </aside>
+        <example>
+        <title>Les diagonales d'un losange</title>
+        </example>
     </subsection>
     <conclusion xml:id="concl-prodscal">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     
