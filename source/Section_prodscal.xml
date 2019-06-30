@@ -95,11 +95,11 @@
         <p>Voici maintenant quelques propriétés du produit scalaire.</p>
         <proposition xml:id="prop-propprodscal">
         <statement><p>Le produit scalaire entre deux vecteurs quelconque possèdent les propriétés suivantes:</p>
-            <ol>
-            <li><p> <m>\pscal{u}{v}=\pscal{v}{u}</m> (commutativité du produit scalaire)</p></li>
-            <li><p><m>(c\vec{u})\cdot \vec{v}=\vec{u}\cdot (c\vec{v})=c(\pscal{u}{v})</m> pour tout <m>c\in\R</m>.</p></li>
-            <li><p><m>\vec{u}\cdot(\vec{v}+\vec{w})=\pscal{u}{v}+\pscal{u}{w}</m> (distributivité du produit scalaire)</p></li>
-            <li><p><m>\pscal{u}{u}=\|\vec{u}\|^2</m></p></li>
+            <ol xml:id="li-propprodscal">
+            <li xml:id="li-propprodscal-comm"><p> <m>\pscal{u}{v}=\pscal{v}{u}</m> (commutativité du produit scalaire)</p></li>
+            <li xml:id="li-propprodscal-multscal"><p><m>(c\vec{u})\cdot \vec{v}=\vec{u}\cdot (c\vec{v})=c(\pscal{u}{v})</m> pour tout <m>c\in\R</m>.</p></li>
+            <li xml:id="li-propprodscal-dist"><p><m>\vec{u}\cdot(\vec{v}+\vec{w})=\pscal{u}{v}+\pscal{u}{w}</m> (distributivité du produit scalaire)</p></li>
+            <li xml:id="li-propprodscal-norm"><p><m>\pscal{u}{u}=\|\vec{u}\|^2</m></p></li>
             </ol>
             </statement>
             <proof>
@@ -162,11 +162,103 @@
         </proposition>
  <p>Les vecteurs perpendiculaires seront d'une grande importance. Deux vecteurs perpendiculaires sont aussi dit orthogonaux.</p>
         <aside>
-            <p>Lorsqu'on généralise les concepts d'algèbre linéaire à des structure plus abstraites, la notion de perpendiculaire est difficile à imaginer. Toutefois, le concept de produit scalaire nul reste important. C'est pourquoi les mathématiciens ont introduits le terme orthogonal, du grec <emph>orthos</emph>, droit, et du grec <emph>g\={o}nia</emph>, angle.</p>
+            <p>Lorsqu'on généralise les concepts d'algèbre linéaire à des structure plus abstraites, la notion de perpendiculaire est difficile à imaginer. Toutefois, le concept de produit scalaire nul reste important. C'est pourquoi les mathématiciens ont introduits le terme orthogonal, du grec <emph>orthos</emph>, droit, et du grec <emph>g<span>&#333;</span>nia</emph>, angle.</p>
         </aside>
         <example>
         <title>Les diagonales d'un losange</title>
+            <p>On sait que deux vecteurs non parallèles engendrent un parallélogramme. Dans l'exercice <xref provisional="exo-diagpara"/>, on peut montrer que les diagonales se coupent en leur milieu. Lorsque les deux vecteurs ont la même longueur, on obtient en fait un losange. On montre algébriquement que les diagonales d'un losange se coupent à angle droit. La figure interactive <xref ref="fig-diaglos"/> permet de manipuler un losange et servira de support pour la preuve qui suit.</p>
+            <figure xml:id="fig-diaglos">
+             <caption> Les diagonales d'un losange</caption>
+                <interactive aspect="1:1" platform="geogebra" width="100%" xml:id="geog-diaglos">
+                <slate aspect="1:1" source="code/geogebra/diaglos.ggb" surface="geogebra" xml:id="slate-diaglos">
+                    setCoordSystem(-2, 2,-2,2,);
+                    showResetIcon(true);
+                    </slate>
+                    <intructions>
+                    <p> Déplacer les vecteur afin de modifier le losange. On peut également modifier la longueur des vecteurs.</p>
+                    </intructions>
+                </interactive>
+            </figure>
+            Pour commencer, il est utile de se fixer un repère. En cliquant sur la case "repère", on choisit de fixer l'origine à l'un des quatre sommets du losange et de nommer les autres sommets <m>A,B</m> et <m>C</m>. On veut montrer que <m>\vecl{OC}</m> est perpendiculaire à <m>\vecl{BA}</m> ou, de manière équivalente, que <m>\pscal{OC}{BA}=0</m>. On a comme hypothèse que <m>\|\vecl{OA}\|=\|\vecl{OA}\|</m> et donc qu'en fait les quatres côtés sont égaux. En réécrivant les diagonales comme étant respectivement la somme et la différence des vecteurs <m>\vec{OA},\vecl{OB}</m>, on a
+            <md>
+            <mrow>\pscal{OC}{BA}&amp;=(\vecl{OA}+\vecl{AC})\cdot(\vecl{OA}-\vecl{OB})&amp;&amp;</mrow>
+                <mrow>&amp;=(\vecl{OA}+\vecl{OB})\cdot(\vecl{OA}-\vecl{OB})&amp;&amp; \text{ car  } \vecl{AC}=\vecl{OB}</mrow>
+                <mrow>&amp;=\vecl{OA}\cdot\vecl{OA}-\vecl{OA}\cdot\vecl{OB}+\vecl{OB}\cdot\vecl{OA} -\vecl{OB}\cdot\vecl{OB}&amp;&amp; \text{ propriété } <xref ref="li-propprodscal-dist"/></mrow>
+                <mrow>&amp;=\norm{\vecl{OA}}^2-\norm{\vecl{OB}}^2 &amp;&amp; \text{ propriété } <xref ref="li-propprodscal-norm"/></mrow>
+                <mrow>&amp;=\norm{\vecl{OA}}^2-\norm{\vecl{OA}}^2 &amp;&amp; \text{ hypothèse }</mrow>
+                <mrow>&amp;=0&amp;&amp;</mrow>.
+            </md>
+            Ainsi, les diagonales sont perpendiculaires car le produit scalaire donne <m>0</m>.
         </example>
+        <p>Dans l'exerice <xref provisional="normsommecarree"/>, on montre que similairement à la somme de nombres réels, le carré de la norme d'une somme introduit un facteur croisé dans la réponse: 
+        <me>
+        \norm{\vec{u}+\vec{v}}^2=\norm{\vec{u}}^2+2\pdscal{u}{v}+\norm{\vec{v}}^2
+        </me>.
+            On peut aussi borner les valeurs possibles du produit scalaire. On appelle l'inégalité de Cauchy-Schwarz la proposition qui suit. On donne plusieurs démonstrations de cette proposition, afin de montrer qu'il peut souvent y avoir plusieurs manières possibles d'arriver à une solution à un problème.          
+            <!-- note historique sur CS? -->
+        </p>
+        <proposition xml:id="prop-ineqCS">
+        <title>L'inégalité de Cauchy-Schwarz</title>
+         <statement>
+         <p>Soit <m>\vec{u},\vec{v}</m> des vecteurs. Alors
+             <men xml:id="eq-ineqCS">
+             \abs{\pscal{u}{v}}\leq \norm{\vec{u}}\norm{\vec{v}}
+             </men>.</p>   
+         </statement>
+            <proof>
+                <p> Une manière simple de procéder est à partir de la définition par le calcul d'angle. Puisque
+                    <md>
+                    <mrow>\pscal{u}{v}&amp;=\norm{\vec{u}}\norm{\vec{v}}\cos(\theta)</mrow>
+                        <mrow>\abs{\pscal{u}{v}}&amp;=\norm{\vec{u}}\norm{\vec{v}}\abs{\cos(\theta)}</mrow>
+                        <mrow>\abs{\pscal{u}{v}}&amp;\leq\norm{\vec{u}}\norm{\vec{v}}</mrow>
+                    </md>,
+                    l'inégalité découlant du fait que <m>\abs{\cos(\theta)}\leq 1</m>.
+                </p>
+            </proof>
+            <proof>
+            <p>Une autre manière est de procéder avec une combinaison d'arguments géométriques et algébriques. Dans un temps, remarquons que si l'un des vecteurs est <m>0</m>, alors l'inégalité est vraie car <m>\pscal{u}{v}=0</m> et <m>\norm{\vec{u}}\norm{\vec{v}}=0</m>. 
+                </p>
+                <p>On suppose donc que les vecteurs sont non nuls. En ayant en tête l'image du parallélogramme engendré par les vecteurs et ses diagonales, reproduite à la figure <xref ref="vecparrallelo"/>, on constate que </p>
+                
+                <figure xml:id="vecparallelo">
+                <caption>Le parallélogramme engendré par les vecteurs, et ses diagonales</caption>
+                    <image source="images/vecparallelo">
+                    <description> Les vecteurs u et v sont illustrés, ainsi que le parallélogramme qu'ils engendrent. De plus, on voit les diagonales formées par u plus v et u moins v.</description>
+                    </image>
+                </figure>
+                <p>
+                    Regardons ce qui se passe das un premier temps avec les vecteurs unitaires <m>\hat{u}=\frac{\vec{u}}{\norm{\vec{u}}}</m> et <m>\hat{v}=\frac{\vec{v}}{\norm{\vec{v}}}</m>. On s'intéresse au longueur des diagonales du parallélogramme engendré par ces vecteurs unitaires. On a 
+                    <md>
+                    <mrow>\|\hat{u}+\hat{v}\|^2&amp;=\|\hat{u}\|^2+2\hat{u}\cdot\hat{v}+\|\hat{v}\|^2 &amp;&amp; \text{ voir } <xref provisional="normsommecarree"/> </mrow>
+                        <mrow>\|\hat{u}-\hat{v}\|^2&amp;=\|\hat{u}\|^2-2\hat{u}\cdot\hat{v}+\|\hat{v}\|^2 &amp;&amp;  </mrow>
+                    </md>.
+                </p>
+                
+                <p>Parce que les vecteurs sont unitaires, les deux équations se réduisent à 
+                <md>
+                    <mrow>\|\hat{u}+\hat{v}\|^2&amp;= 2\hat{u}\cdot\hat{v}+2</mrow>
+                    <mrow>\|\hat{u}+\hat{v}\|^2&amp;= -2\hat{u}\cdot\hat{v}+2</mrow>
+                </md>,
+                    et comme ce sont des longueurs, elles sont plus grandes ou égales à <m>0</m> d'où
+                    <md>
+                     <mrow>   \hat{u}\cdot\hat{v}&amp;\geq -1</mrow>
+                      <mrow> \hat{u}\cdot\hat{v}&amp;\leq 1 </mrow>
+                    </md>,
+                    ce qui revient à dire <m>\abs{\hat{u}\cdot\hat{v}}\leq 1</m>.
+                </p>
+                <p>En reprenant la définition des vecteurs unitaires, on obtient
+                <md>
+                <mrow>\abs{\hat{u}\cdot\hat{v}}&amp;\leq 1</mrow>    
+                     <mrow>\abs{\frac{\vec{u}}{\norm{\vec{u}}}\cdot\frac{\vec{v}}{\norm{\vec{v}}}}&amp;\leq 1</mrow>
+                    <mrow>\abs{\vec{u}\cdot\vec{v}}&amp;\leq \norm{\vec{u}}\norm{\vec{v}}</mrow>
+                </md>.
+                </p>
+            </proof>
+            <proof><p>Voir l'exercice <xref provisional="exo-ineqCSpara"/> pour une preuve utilisant les zéros d'une parabole.</p></proof>
+        </proposition>
+    </subsection>
+    <subsection xml:id="ssec-projortho">
+    <title>La projection orthogonale</title>
     </subsection>
     <conclusion xml:id="concl-prodscal">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     
