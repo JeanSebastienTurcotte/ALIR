@@ -22,7 +22,7 @@
     <title> L'angle entre deux vecteurs de <m>\R^2</m></title>
         <p>Considérons deux vecteurs non nuls <m>\vec{u}</m> et <m>\vec{v}</m> de <m>\R^2</m> et dénotons par <m>\theta_{\vec{u}\vec{v}}</m> le plus petit angle entre ces vecteurs<fn>S'il n'y a pas d'ambiguité et que le contexte est clair, on laissera tomber l'indice <m>\vec{u}\vec{v}</m> au profit de seulement <m>\theta</m>.</fn>. On cherche à trouver un moyen de déterminer cet angle à partir des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. L'image interactive <xref ref="fig-angle2d"/> permet de manipuler des vecteurs et de découvrir l'intuition derrière la formule qui suivra.</p>
         <example xml:id="ex-angle2d">
-    <title>L'angle entre deux vecteurs de <m>\R^2: dynamique</m></title>
+    <title>L'angle entre deux vecteurs de <m>\R^2</m>: dynamique</title>
             <p>L'angle entre deux vecteurs peut être obtenu à l'aide d'un résultat bien connu sur les triangles.</p>
     <figure xml:id="fig-angle2d">
       <caption>L'angle entre deux vecteurs</caption>
@@ -44,13 +44,13 @@
         <mrow>\cos(\theta)&amp;= \frac{\|\vec{u}\|^2+\|\vec{v}\|^2-\|\vec{w}\|^2}{2\|\vec{u}\|\|\vec{v}\|} </mrow>
         <mrow> &amp;= \frac{u_1^2+u_2^2+v_1^2+v_2^2-(u_1-v_1)^2-(u_2-v_2)^2}{2\|\vec{u}\|\|\vec{v}\|}</mrow>
         <mrow>&amp;= \frac{u_1^2+u_2^2+v_1^2+v_2^2-(u_1^2-2u_1v_1+v_1^2)-(u_2^2-2u_2v_2+v_2^2)}{2\|\vec{u}\|\|\vec{v}\|}</mrow>
-        <mrow> &amp;=\frac{u_1v_1+u_2v_2}{\|\vec{u}\|\|\vec{v}\|}</mrow>
+        <mrow number="yes" xml:id="eq-angle2vec"> \cos(\theta)&amp;=\frac{u_1v_1+u_2v_2}{\|\vec{u}\|\|\vec{v}\|}</mrow>
         </md>.</p>
        <p>De cette équation, on peut tirer quelques remarques. On peut dans un premier temps vérifier que si <m>\vec{u}</m> et <m>\vec{v}</m> sont parallèles, alors l'angle <m>\theta</m> sera <m>0</m> ou <m>\pi</m> (<m>0</m> ou <m>180^\circ</m>). En effet, si <m>\vec{v}=k\vec{u}</m>, on a
         <md>
            <mrow>\cos(\theta)&amp;=\frac{u_1(k u_1)+u_2(ku_2)}{\|\vec{u}\|\|k\vec{u}\|}</mrow>
             <mrow>&amp;=\frac{ku_1^2+ku_2^2}{\abs{k}\|\vec{u}\|^2}</mrow>
-            <mrow>&amp;=\frac{k\|\vec{u}\|^2}{\abs{k}\|\vec{u}\|}</mrow>
+            <mrow>&amp;=\frac{k\|\vec{u}\|^2}{\abs{k}\|\vec{u}\|^2}</mrow>
             <mrow>&amp;=\frac{k}{\abs{k}}</mrow>
             <mrow>&amp;=\begin{cases} 1 &amp; \text{ si } k&gt;0 \\  -1 &amp; \text{ si } k&lt;0 \end{cases} </mrow>
            </md>.</p>
@@ -58,6 +58,7 @@
         <p>Comme le cosinus donne <m>1</m> ou <m>-1</m>, on conclut que l'angle doit être de <m>0</m> ou <m>\pi</m>.</p>
         <p>Une autre valeur particulière pour l'angle est  <m>\theta=\frac{\pi}{2}</m>(<m>90^\circ</m>). Ceci correspond à des vecteurs qui sont perpendiculaires. Puisque  <m>\cos\pfrac{\pi}{2}=0</m>, on conclut que <m>u_1v_1+u_2v_2=0</m> lorsque deux vecteurs sont perpendiculaires.</p>
         <example xml:id="ex-calculangle2d">
+            <title>Un calcul d'angle</title>
         <p>On considère les vecteurs <m>\vec{u}=(1,2)</m> et <m>\vec{v}=(-3,4)</m>. Le cosinus de l'angle entre ces vecteurs est 
             <md>
             <mrow> \cos(\theta)&amp;=\frac{u_1v_1+u_2v_2}{\norm{u}\norm{v}}</mrow>
@@ -192,7 +193,7 @@
         </example>
         <p>Dans l'exerice <xref provisional="normsommecarree"/>, on montre que similairement à la somme de nombres réels, le carré de la norme d'une somme introduit un facteur croisé dans la réponse: 
         <me>
-        \norm{\vec{u}+\vec{v}}^2=\norm{\vec{u}}^2+2\pdscal{u}{v}+\norm{\vec{v}}^2
+        \norm{\vec{u}+\vec{v}}^2=\norm{\vec{u}}^2+2\pscal{u}{v}+\norm{\vec{v}}^2
         </me>.
             On peut aussi borner les valeurs possibles du produit scalaire. On appelle l'inégalité de Cauchy-Schwarz la proposition qui suit. On donne plusieurs démonstrations de cette proposition, afin de montrer qu'il peut souvent y avoir plusieurs manières possibles d'arriver à une solution à un problème.          
             <!-- note historique sur CS? -->
@@ -218,7 +219,7 @@
             <proof>
             <p>Une autre manière est de procéder avec une combinaison d'arguments géométriques et algébriques. Dans un temps, remarquons que si l'un des vecteurs est <m>0</m>, alors l'inégalité est vraie car <m>\pscal{u}{v}=0</m> et <m>\norm{\vec{u}}\norm{\vec{v}}=0</m>. 
                 </p>
-                <p>On suppose donc que les vecteurs sont non nuls. En ayant en tête l'image du parallélogramme engendré par les vecteurs et ses diagonales, reproduite à la figure <xref ref="vecparrallelo"/>, on constate que </p>
+                <p>On suppose donc que les vecteurs sont non nuls. En ayant en tête l'image du parallélogramme engendré par les vecteurs et ses diagonales, reproduite à la figure <xref ref="vecparallelo"/>, on constate que </p>
                 
                 <figure xml:id="vecparallelo">
                 <caption>Le parallélogramme engendré par les vecteurs, et ses diagonales</caption>
@@ -256,12 +257,134 @@
             </proof>
             <proof><p>Voir l'exercice <xref provisional="exo-ineqCSpara"/> pour une preuve utilisant les zéros d'une parabole.</p></proof>
         </proposition>
+        <p> Le produit scalaire est utilisé dans beaucoup de domaines et contextes différents. En physique, il permet de calculer le travail effectuée par une force. Dans un contexte administratif, par exemple une école, le produit scalaire peut être utilisé pour calculer la note d'un étudiant à un cours. Si ses résultats aux évaluations sont par exemple de <m>R=(80,75,85)</m> et que la pondération des évaluations est <m>P=(0.3,0.3,0.4)</m>, alors la note de l'étudiant sera <m>80*0.3+75*0.3+85*0.4=80.5</m>, qui n'est rien d'autre que le produit scalaire entre <m>R</m> et <m>P</m>.</p>
+        
+        <p>Une fois qu'on comprend que le produit scalaire n'est qu'une somme de produits, les possibilités sont illimitées.</p>
+        
+        <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
+        <computation xml:id="sageex-prodscal">
+        <title>Le produit scalaire avec Sage</title>
+        <p>Il est possible de calculer le produit scalaire entre <m>\vec{u}</m> et <m>\vec{v}</m> avec la commande <c>u.dot_product(v)</c>. Il est également possible d'utiliser plus simplement <c>u*v</c>.</p>
+            <sage xml:id="sagecell-prodscal-1">
+            <input>
+                u,v=vector([-1,1,1]),vector([1,0,3])
+                show(u.dot_product(v))
+                show(u*v)
+            </input>
+            <output>
+                2    
+            </output>
+            </sage>
+            <p>Pour calculer l'angle entre deux vecteurs, on utilise la formule <xref ref="eq-prodscalgeo"/>.</p>
+            <sage xml:id="sagecell-prodscal-2">
+            <input>
+                u,v=vector([-1,1,1]),vector([1,0,3])
+                pscal=u*v
+                pnormes=norm(u)*norm(v)
+                costheta=pscal/pnormes
+                angle=arccos(costheta)  # en radians
+                show(angle.n())
+                show(angle*360/(2*pi).n()) #en degrés
+            </input>
+            <output>
+                   
+            </output>
+            </sage>
+        </computation>
     </subsection>
     <subsection xml:id="ssec-projortho">
     <title>La projection orthogonale</title>
+        <p>Considérons deux vecteurs non nuls <m>\vec{u},\vec{v}</m> et considérons la droite de même direction que <m>\vec{u}</m>. On aimerait trouver le point sur cette droite qui est le plus près de l'extrémité de <m>\vec{v}</m>. L'intuition nous dit qu'il faut aller vers <m>\vec{u}</m> en partant de <m>\vec{v}</m>, dans une direction perpendiculaire à <m>\vec{u}</m>. On crée de cette façon un vecteur parallèle à <m>\vec{u}</m>. On cherche à déterminer mathématiquement ce vecteur, noté <m>\vec{v}_{\vec{u}}</m>.</p>
+     <figure xml:id="fig-projortho">
+      <caption>La projection orthogonale</caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-projortho">
+        <slate aspect="1:1" source="code/geogebra/projortho.ggb"
+        surface="geogebra" xml:id="slate-projortho">
+            setCoordSystem(-3, 3,-3,3);
+            showResetIcon(true);
+          </slate>
+        <instructions>
+          <p>Il est possible de déplacer les vecteurs 
+          <m>\vec{u},\vec{v}</m>. Le vecteur rouge donne la position du point sur <m>\vec{u}</m> qui est le plus près de <m>\vec{v}</m>.</p>
+        </instructions>
+        </interactive>
+    </figure>
+        <p>Par définition, le vecteur allant de <m>\vec{v}_{\vec{u}}</m> à l'extrémité de <m>\vec{v}</m> est perpendiculaire à <m>\vec{u}</m>. Ce vecteur n'est rien d'autre que <m>\vec{v}-\vec{v}_{\vec{u}}</m>. De plus, le vecteur <m>\vec{v}_{\vec{u}}</m> étant parallèle à <m>\vec{u}</m> donc (<m>\vec{v}_{\vec{u}}=c\vec{u}</m>), il est possible de déterminer le bon scalaire <m>c</m>:</p>
+        <md>
+        <mrow>0&amp;=(\vec{v}-\vec{v}_{\vec{u}})\cdot \vec{u}</mrow>
+            <mrow>&amp;=(v-c\vec{u})\cdot \vec{u}</mrow>
+            <mrow>&amp;=\pscal{v}{u}-c\pscal{u}{u}</mrow>
+        </md>.
+        <p>En réarrangeant la dernière égalité, on obtient le scalaire <m>c</m> menant à  la définition mathématique du vecteur <m>\vec{v}_{\vec{u}}</m>:</p>
+        <definition>
+        <title>La projection orthogonale</title>
+            <p>Soit deux vecteurs non nuls <m>\vec{u},\vec{v}</m>. La projection de <m>\vec{v}</m> sur <m>\vec{u}</m>, notée <m>\vec{v}_{\vec{u}}</m>, est l'unique vecteur pour lequel
+            <ol>
+            <li><p> <m>\vec{v}_{\vec{u}}</m> est parallèle à <m>\vec{u}</m>; </p></li>
+            <li><p><m>\vec{v}-\vec{v}_{\vec{u}}</m> est perpendiculaire à <m>\vec{u}</m>.</p></li>
+            </ol>
+            Si l'un des vecteurs est nul, on définit <m>\vec{v}_{\vec{u}}=\vec{0}</m>.</p>
+            
+            <p>La projection orthogonale est donnée par la formule suivante :
+            <men xml:id="eq-projortho">
+                \vec{v}_{\vec{u}}=\frac{\pscal{v}{u}}{\pscal{u}{u}}\vec{u}
+            </men>.</p>
+            </definition>
+            <p> Algébriquement, on voit que si les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sont perpendiculaires, la projection sera nulle. La figure interactive <xref ref="fig-projortho"/> permet aussi de voir géométriquement cet aspect.</p>
+        <example xml:id="ex-piedhauteur">
+            <title>Le pied de la hauteur</title>
+            <statement>
+            <p>Un triangle est formé des points <m>A(1,-1,2),B(2,3,1)</m> et <m>C(1,1,-2)</m>. On cherche les coordonnées du point <m>H</m> correspondant au pied de la hauteur issue de <m>C</m>. </p></statement>
+            <solution><p>On trace  le triangle dans un repère quelconque.
+                <figure xml:id="fig-piedhauteur">
+                <caption>Le pied de la hauteur</caption>
+                <image source="images/piedhauteur">
+                <description> Le triangle ABC est illustré, ainsi que la hauteur issue de C menant au point H.</description>
+                    </image>
+                </figure>
+                Le point cherché <m>H</m> peut être obtenu en additionnant au point <m>A</m> le vecteur correspondant à la projection de <m>\vecl{AC}</m> sur <m>\vecl{AB}</m>, ou de manière équivalente en ajoutant à <m>B</m> le vecteur correspondant à la projection de <m>\vecl{BC}</m> sur <m>\vecl{BA}</m>. On choisit la première option:</p>
+                <md>
+                <mrow>\vecl{OH}&amp;=\vecl{OA}+\vecl{AH}</mrow>
+                <mrow>&amp;=\vecl{OA}+\vecl{AC}_{\vecl{AB}}</mrow>
+                <mrow>&amp;=\vecl{OA}+\frac{\pscal{AC}{AB}}{\pscal{AB}{AB}}\vecl{AB}</mrow>
+                <mrow>&amp;=(1,-1,2)+\frac{(0,2,-4)\cdot(1,4,-1)}{(1,4,-1)\cdot(1,4,-1)}(1,4,-1)</mrow>
+                <mrow>&amp;=(1,-1,2)+\frac{4}{18}(1,4,-1)</mrow>
+                <mrow>&amp;=\frac{1}{9}(9,-9,18)+\frac{1}{9}(2,8,-2)</mrow>
+                <mrow>&amp;=\frac{1}{9}(1,-1,16)</mrow>
+                </md>.
+            </solution>
+        </example>
+       <p>On termine avec des commandes Sage en lien avec la sous-section.</p> 
+        <computation xml:id="sageex-projortho" >
+        <title>La projection orthogonale sur Sage</title>
+            <p>Avec les commandes apprises jusqu'à maintenat, on peut calculer la projection orthogonale d'un vecteur sur un autre grâce à la formule <xref ref="eq-projortho"/>.</p>
+            <sage xml:id="sagecell-projortho1">
+            <input>
+            u=vector([3,3])
+            v=vector([2,1])
+            vu=(u*v/(u*u))*u
+            show(vu)
+            </input>
+            </sage>
+            <p>On illustre les vecteurs afin de visualiser le résultat.</p>
+            <sage xml:id="sagecell-projortho2">
+            <input>
+            show((plot(u,color="red")+plot(v,color="blue")+plot(vu,color="green")+plot(v-vu,start=vu,color="black")))
+            </input>
+            </sage>
+        </computation>
     </subsection>
     <conclusion xml:id="concl-prodscal">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    
+    <p> Les éléments importants de cette section sont:
+        <ul>
+        <li><p>L'angle entre deux vecteurs, donnés par les formules <xref ref="eq-angle2vec"/> et <xref ref="eq-prodscalgeo"/>. </p></li>
+        <li><p>Le produit scalaire de deux vecteurs, dont le signe donne une idée de l'orientation relative des vecteurs.</p></li>
+        <li><p> L'inégalité de Cauchy-Schwarz <xref ref="prop-ineqCS"/>.</p></li>
+        <li><p>La notion de projection orthogonale, donnée par la formule <xref ref="eq-projortho"/>.</p></li>
+        </ul>
+        </p>
+        <p>De plus, avec Sage, on peut utiliser l'opération <c>*</c> sur deux vecteurs pour avoir le produit scalaire. Les opérations algébriques usuelles permettent de calculer l'angle entre deux vecteurs ou la projection orthogonale.</p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
 </section>
