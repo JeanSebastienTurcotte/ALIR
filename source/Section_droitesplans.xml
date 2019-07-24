@@ -12,10 +12,193 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-droitesplans">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Droites et plans </title>
     <introduction xml:id= "intro-droitesplans">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    
+    <p>Lorsqu'on multiplie un vecteur par un scalaire, le vecteur garde la même direction. En observant la trace que fait l'extrémité du vecteur <m>c\vec{u}</m> lorsque <m>c</m> parcourt l'ensemble des nombres réels, on remarque que la trace parcourt une droite. De même, si on a deux vecteurs non nuls et non parallèles <m>\vec{u},\vec{v}</m> et que l'on considère les vecteurs <m>a\vec{u}+b\vec{v}</m> lorsque <m>a,b\in \R</m>, on remarque que les vecteurs se retrouvent toujours sur un plan.</p>
+        <p>Dans cette section, on introduit la notion de combinaison linéaire de vecteurs et on définit vectoriellement la notion de droite et de plan. On effectue aussi certains calculs, par exemple de distance, à l'aide des outils développés jusqu'à maintenant.</p>
     </introduction>
     
     <!-- Sous-sections à écrire, à même ce fichier -->
+    <subsection xml:id="sssec-droites">
+    <p>Lorsque deux ou plusieurs vecteurs qui sont multipliés par un scalaire sont  additionnés, on parle alors de <emph>combinaison linéaire</emph>. Si on a <m>n</m> vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n</m>, une combinaison linéaire de ces vecteurs est typiquement écrite
+        <me>
+        a_1\vec{u}_1+a_2\vec{u}_2+\cdots +a_n\vec{u}_n, \, a_i\in \R \, \forall i=1,2,\ldots , n
+        </me>.
+        Les coefficients <m>a_1,a_2,\ldots, a_n</m> sont parfois appelés les poids de la combinaison linéaire.</p>
+        <p>La multiplication par un scalaire est un cas limite d'une combinaison linéaire et sera aussi considérée comme une combinaison linéaire, d'un seul vecteur. À l'aide d'un certain nombre de vecteurs et des combinaisons linéaires, il est possible de générer (ou engedrer) d'autres vecteurs. Par exemple, un vecteur seul peut générer tout autre vecteur parallèle par la bonne combinaison linéaire, alors que deux vecteurs non parallèles de <m>\R^2</m> pourront engendrer n'importe quel vecteur de <m>\R^2</m>. La figure de l'exemple interactif <xref ref="ex-comblin"/> permet de voir intuitivement ce fait, alors que les technicalités seront abordés avec le concept de base d'un espace au chapitre <xref provisional="chap-base"/>. </p>
+        <example xml:id="ex-comblin">
+            <title>Combinaison linéaire : dynamique</title>
+        <p>Dans cet exemple, on considère pour des vecteurs <m>\vec{u},\vec{v}</m> de <m>\R^2</m> les combinaisons de la forme <m>a\vec{u}</m> et <m>a\vec{u}+b\vec{v}</m>. En se référant à la figure <xref ref="fig-comblin"/>, sans toucher aux vecteurs de départ, on s'intéresse aux questions suivantes:
+            <ol>
+            <li><p>Au départ, les poids de la combinaison linéaire sont <m>0</m>. En laissant l'un des paramètre nul et en faisant varier l'autre, on observe que la combinaison linéaire, qui n'est qu'une multiplication par un scalaire dans ce cas, se déplace sur une droite. Ceci est cohérent avec les observations faites lors de l'exemple <xref ref="ex-geomultscal"/>.</p></li>
+            <li><p>En cliquant sur "grille" et en prenant des valeurs entières de <m>a</m> et <m>b</m>, on observe que les multiplications par un scalaire respectie de <m>\vec{u}</m> et <m>\vec{v}</m> se retrouve à une intersection de la grille. Si en plus on fait afficher la combinaison linéaire, on peut voir géométriquement l'addition des vecteurs <m>a\vec{u}</m> et <m>b\vec{v}</m>.  </p></li>
+             <li><p>On fixe une valeur de <m>b</m> quelconque, entière ou non et on laisse varier <m>a</m>. Qu'observe-t-on?</p></li>
+             <li><p>Est-il possible de décrire n'importe quel vecteur de <m>\R^2</m> comme une combinaison linéaire de <m>\vec{u}</m> et <m>\vec{v}</m>? Cette question revient à dire, étant donné un vecteur <m>\vec{w}=(w_1,w_2)</m>, peut-on trouver des coefficients <m>a,b</m> tels que
+                 <me>
+                 a\begin{pmatrix}u_1\\u_2 \end{pmatrix}+b\begin{pmatrix}v_1\\v_2 \end{pmatrix}=\begin{pmatrix}w_1\\w_2 \end{pmatrix}
+                 </me>.
+                 Puisque deux vecteurs sont égaux si leur composante respective le sont, on obtient les deux équations suivates:
+                 <md>
+                     <mrow> au_1+bv_1&amp;=w_1</mrow>
+                     <mrow> au_2+bv_2&amp;=w_2</mrow>
+                 </md>.
+                 Ce genre de paire d'équations à résoudre est appelé un système d'équations linéaires et sera l'objet d'étude du chapitre <xref provisional="chap-SEL"/>.</p>
+                <p>Il est assez simple de voir intuitivement que dès que deux vecteurs sont non parallèles dans <m>\R^2</m>, on peut écrire n'importe quel autre vecteur en fonction de ceux-ci. Un clic sur "Cible" fera apparaitre un point (plutôt qu'un vecteur, pour ne pas encombrer davantage la figure). À l'aide des curseurs, il devrait être possible de trouver une combinaison linéaire dont l'extrémité sera le point "Cible".</p>
+                </li>
+                <li>On observe ce qui se passe lorsque les vecteurs initiaux sont changés, en particulier si <m>\vec{u}</m> et <m>\vec{v}</m> sont parallèles. </li>
+            </ol>
+            </p>
+            <figure xml:id="fig-comblin">
+            <caption>Combinaison linéaire dans <m>\R^2</m></caption>
+                <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-comblin">
+        <slate aspect="1:1" source="code/geogebra/comblin.ggb"
+        surface="geogebra" xml:id="slate-comblin">
+            setCoordSystem(-8, 8,-8,8);
+            showResetIcon(true);
+          </slate>
+        <instructions>
+          <p>Il est possible de déplacer les vecteurs 
+          <m>\vec{u},\vec{v}</m>. En cliquant sur "combinaison linéaire", on fait apparaitre le vecteur <m>a\vec{u}+b\vec{v}</m>. Les coefficients <m>a</m> et <m>b</m> peuvent être changés à l'aide des curseurs. Si souhaité, on peut faire s'afficher une grille suivant les multiples entiers des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>.</p>
+        </instructions>
+        </interactive>
+            </figure>
+        </example>
+        <p>Les observations de l'exemple <xref ref="ex-comblin"/> permettent de voir que les vecteurs et les droites sont des notions étroitement liées. On est tous capable de déterminer l'équation d'une droite, souvent de la forme <m>y=ax+b</m>, à l'aide d'information comme deux points appartenant à la droite ou encore d'un point et de la pente. Pourquoi alors, développer une théorie pour un objet aussi bien connu? </p>
+        
+        <p>La réponse à cette question se trouve en particulier dans <m>\R^3</m>. En effet, l'équation <m>y=ax+b</m> vue dans <m>\R^3</m> ne décrit non pas une droite, mais un plan (plus sur les plan un peu plus loin). Pour comprendre cela, on rappelle qu'un point dans <m>\R^3</m> est composé d'une valeur <m>x,y</m> et <m>z</m>. Comme l'équation <m>y=ax+b</m> lie ensemble les variables <m>x</m> et <m>y</m>, mais laisse <m>z</m> libre, pour chaque couple <m>x,y</m> satisfaisant l'équation <m>y=ax+b</m>, il existe une infinité de valeur <m>z</m> la satisfaisant aussi, d'où le plan plutôt que la droite.  Une approche vectorielle permettra de surmonter cette difficulté.</p>
+        
+        <p>Une droite <m>d_0</m> dans <m>\R^2</m> ou <m>\R^3</m> peut toujours être décrite comme l'ensemble des points <m>P(x,y)</m> ou <m>P(x,y,z)</m> atteints par la multiplication d'un certain vecteur <m>\vec{v}</m> par un scalaire réel. Le vecteur <m>\vec{v}</m> est appelé le vecteur directeur de la droite <m>d</m>. On donne alors l'équation vectorielle de la droite comme étant l'ensemble des points <m>P</m> tels que <me>\vecl{OP}=c\vec{v} \, c\in \R</me>.</p>
+        
+        <p>Évidemment, toute droite ne passe pas par l'origine. Si une droite <m>d</m> ne passant pas par l'origine passe par un point <m>A</m> quelconque, mais est parallèle à une droite <m>d_0</m> qui elle passe par l'origine, on peut obtenir une équation vectorielle pour <m>d</m> en translatant les points de la droite <m>d_0</m> le long du vecteur <m>\vecl{OA}</m>. On obtient alors l'équation <me>\vecl{OP}=c\vec{v}+\vecl{OA}</me>, où <m>\vec{v}</m> est le vecteur directeur de la droite <m>d_0</m>. Le vecteur directeur est l'équivalent de la pente <m>a</m> et le point <m>A</m> est l'équivalent de l'ordonnée à l'origine <m>b</m> dans l'équation <m>y=ax+b</m>. </p>
+        
+        <p> Connaitre le vecteur directeur est un peu l'équivalent de connaitre la pente de la droite. Parfois, on connait deux points <m>A,B</m> et on veut trouver l'équation de la droite passant par ces points. On peut créer un vecteur directeur en déterminant le vecteur reliant <m>A</m> et <m>B</m>.</p>
+        <example xml:id="ex-eqdroite-1">
+        <title>L'équation de droites</title>
+            <statement>Considérons le point <m> A(3,-2)</m> de <m>\R^2</m> et les points <m>B(1,1,-2)</m> et <m>C(-3,2,1)</m>. On cherche l'équation de la droite dans <m>\R^2</m> qui passe par le point <m>A</m> et qui a la même direction que la droite <m>d_0: \vecl{OP}=c (1,-5)</m> et l'équation de la droite dans <m>\R^3</m> qui passe par <m>B</m> et <m>C</m>.</statement>
+            <proof>
+            La première partie est assez simple, puisque toute l'information nous est donnée. On connait un point de la droite et la direction. L'équation est donc
+                <me>
+                d_1: \vecl{OP}=c(1,-5)+(3,-2)
+                </me>.
+            </proof>
+            <proof>Pour la seconde partie, on doit d'abord trouver un vecteur directeur pour la droite. Le vecteur <m>\vecl{BC}=(-3,2,1)-(1,1,-2)=(-4,1,3)</m> fera l'affaire. Pour un point, on a le choix entre <m>B</m> ou <m>C</m>, n'importe lequel fera l'affaire. On obtient au final
+            <me>
+            d_2: \vecl{OP}=c(-4,1,3)+(1,1,-2)    
+            </me>.
+            </proof>
+        </example>
+        <p>Pour une droite dans <m>\R^2</m>, il n'y a qu'une seule paire de nombres <m>a,b\in \R</m> décrivant la droite sous la forme <m>y=ax+b</m>. Par contre, cette équation peut être multiplié par n'importe quelle constante <m>c\neq 0</m> et la nouvelle équation <m>cy=cax+cb</m> décrit toujours la même droite, sous une forme moins conventionnelle. L'équation vectorielle d'une droite n'est pas unique. En effet, n'importe quel point <m>A</m> sur la droite peut être utilisé comme point de départ et n'importe quel multiple non nul du vecteur directeur peut être utilisé.
+            
+            En fait, on devrait parler d'une équation vectorielle de la droite plutôt que de l'équation vectorielle, mais on accepte cet abus de langage. </p>
+        <example xml:id="ex-eqdroite-2">
+        <title>L'équation vectorielle n'est pas unique</title>
+            <p>On reprend l'équation de la droite dans <m>\R^3</m> de l'exemple <xref ref="eq-droite-1"/> <me>\vecl{OP}=c(-4,1,3)+(1,1,-2)</me>.
+           En utilisant le point <m>C</m> plutôt que le point <m>B</m> et un vecteur parallèle à <m>\vecl{BC}=(-4,1,3)</m>, disons en le multipliant par <m>-2</m>, on obtient une nouvelle représentation pour la droite <m>d_2</m>:
+                <me>
+                d_2: \vecl{OP}=k(8,-2,-6)+(-3,2,1)
+                </me>.
+           On remarque l'utilisation du scalaire <m>k</m> plutôt que <m>c</m> afin d'évoquer la différence entre les deux équations. On aurait pu utiliser <m>c</m> également, en gardant en tête qu'une valeur de <m>c</m> dans la première représentation de la droite ne donnera pas nécessairement le même point que cette même valeur de <m>c</m> dans la nouvelle représentation.</p>
+            
+            <p>Comment s'assurer que ces deux équations décrivent la même droite? Une manière simple est de partir de l'une des équations et de montrer que l'on peut arriver à l'autre par une suite de manipulations algébriques. Dans notre cas, on a
+            <md>
+            <mrow>\vecl{OP}&amp;=c(-4,1,3)+(1,1,-2)</mrow>
+                      <mrow>&amp;=c(-4,1,3)+(1,1,-2)+(-4,1,3)-(-4,1,3)</mrow>
+                <mrow>&amp;=(c-1)(-4,1,3)+(-3,2,1)</mrow>
+                <mrow>&amp;=\frac{c-1}{2}(8,-2,-6)+(-3,2,1)</mrow>
+                      <mrow>&amp;=k(8,-2,-6)+(-3,2,1)</mrow>
+            </md>,
+            où <m>k=\frac{c-1}{2}</m>. Comme on peut faire les opérations dans l'ordre inverse, les deux représentations sont équivalentes.</p>
+        </example>
+        <p>On va maintenant s'intéresser à réconcilier la forme vectorielle d'une droite à la forme standard <m>y=ax+b</m>, pour les droites de <m>\R^2</m>.</p>
+        
+        <example xml:id="ex-stdavec">
+        <title>De la forme standard à la forme vectorielle</title>
+            <p>Considérons une droite dans <m>\R^2</m>, par exemple <m>y=3x-4</m>. Sous forme vectorielle, on cherche à exprimer l'ensemble de points <m>P</m> sur la droite. Ces points sont de la forme <m>(x,y)=(x,3x-4)</m>. On peut décomposer cette forme afin d'obtenir la forme vectorielle.
+            <md>
+            <mrow> \vecl{OP}&amp;=(x,y)</mrow>
+            <mrow> &amp;=(x,3x-4)</mrow>
+            <mrow>&amp;=(x,3x)+(0,-4)</mrow>
+            <mrow>&amp;=x(1,3)+(0,-4)</mrow>
+            </md>.
+            On trouve donc une droite de vecteur directeur <m>(1,3)</m> passant par le point <m>(0,-4)</m>. Remarquons qu'en suivant cette démarche, la première composante du vecteur directeur sera toujours <m>1</m> et la seconde, correspondra à la pente de la droite.
+            </p>
+            <p>Évidemment, ce n'est pas la seule forme valide pour décrire la droite vectoriellement.</p>
+        </example>
+        <example xml:id="ex-vecastd">
+        <title>De la forme vectorielle à la forme standard</title>
+            <p>Considérons une droite dans <m>\R^2</m>, par exemple <m>\vecl{OP}=c(3,2)+(2,-1)</m>. On cherche la forme <m>y=ax+b</m> de cette droite. Plusieurs options sont possibles. On peut facilement trouver deux points en utilisant deux scalaires différents dans la forme vectorielle. Par la suite, la démarche usuelle mènera à l'équation de la droite.</p>
+            <p>On peut aussi y aller avec l'interprétation géométrique du vecteur directeur. Le vecteur <m>(3,2)</m> correspond à un déplacement horizontal de <m>3</m> unités et un déplacement vertical de <m>2</m> unités. Ceci nous donne la pente <m>a=\frac{2}{3}</m>. Pour trouver l'ordonnée à l'origine, il suffit de mettre la première composante de la forme vectorielle à <m>0</m>, en prenant ici <m>c=\frac{-2}{3}</m>. On trouve donc l'ordonnée à l'origine <m>b=-1-\frac{2}{3}*2=-\frac{7}{3}</m>. La droite est donc aussi décrite par l'équation
+            <me>y=\frac{2}{3}x-\frac{7}{3}</me>.
+            </p>
+        </example>
+        <p>En regardant de manière plus détaillée l'équation vectorielle d'une droite <m>d</m>, particulièrement avec la notation verticale pour les vecteurs, on découvre une autre manière de décrire la droite, composante par composante.
+        <md>
+        <mrow>d&amp;: &amp;\vecl{OP}&amp;c\vec{v}+\vecl{OA}</mrow>
+        <mrow>d&amp;: &amp;\begin{pmatrix}x\\y\\z\end{pmatrix}&amp;=c \begin{pmatrix}v_1\\v_2\\v_3\end{pmatrix}+\begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix}</mrow>
+        <mrow>d&amp;: &amp; &amp; \begin{cases} x= cv_1+a_1\\ y=cv_2+a_2 \\ z=cv_3+a_3\end{cases}</mrow>
+        </md>.
+          Cette dernière manière de décrire la droite <m>d</m> est appelée la forme paramétrique d'une droite, ou encore les équations paramétriques d'une droite. On y voit d'ailleur que chaque composante <m>x,y</m> et <m>z</m> est en quelque sorte elle-même l'équation d'une droite,  <m>x=cv_1+a_1, y=cv_2+a_2</m> et <m>z=cv_3+a_3</m>. La variable indépendante ici est <m>c</m> et chaque composante du vecteur <m>v</m> est associée à la "pente", alors que les composantes du vecteur <m>\vecl{OA}</m> sont associées aux "ordonnées à l'origine".
+        </p>
+        <p>Les équations paramétriques se généralisent à des courbes quelconques dans le plan ou l'espace, où une courbe <m>C(t)</m> est décrite composante par composante par des équations
+        <me>C(t)=\begin{cases} x=f(t)\\ y=g(t)
+        \end{cases}    
+        </me>.
+        Par exemple, une spirale peut être décrit par la courbe <m>C(t)=(t\cos(t),t\sin(t))</m>, illustrée à la figure <xref ref="fig-spiral"/> pour <m>t\in [0,4\pi]</m>.</p>
+        <figure xml:id="fig-spiral">
+        <caption>Une spirale décrite par des équations paramétriques</caption>
+            <image xml:id="sageplot-spiral">
+            <description>Une spirale est illustrée, pour t allant de 0 à 4 pi</description>
+                <sageplot>
+                var("t")
+                parametric_plot([t*cos(t),t*sin(t)],(t,0,4*pi))
+                </sageplot>
+            </image>
+        </figure>
+        <p>On termine  avec des commandes Sage en lien avec la sous-section.</p>
+        <computation xml:id="sageex-droites">
+        <title>Les droites avec Sage</title>
+         <p>Pour tracer une droite dans <m>\R^2</m> ou dans <m>\R^3</m>, deux options sont possibles. La première option est simple et nécessite deux points sur la droite. Il suffit alors d'utiliser la commande <c>line</c>.</p>
+            <sage xml:id="sagecell-droites-1">
+            <input>
+            line([(2,1),(-3,-1)])    
+            </input>
+                <output>
+            line([(2,1),(-3,-1)])    
+            </output>
+            </sage>
+            
+            <p>Une autre option, plus flexible, utilise les équations paramétriques. Elle est plus flexible dans le sens où elle permet de décrire des courbes quelconques comme celle de la figure <xref ref="fig-spiral"/>. La commande est <c>parametric_plot</c> ou <c>parametric_plot3d</c>, selon le cas.</p>
+            <p>On illustre les deux droites solutions de l'exemple <xref ref="ex-eqdroite-1"/>.</p>
+            <sage xml:id="sagecell-droites-2">
+            <input>
+            var("c")
+            parametric_plot([c+3,-5*c-2],(c,-5,5))    
+            </input>
+            </sage>
+            <sage xml:id="sagecell-droites-3">
+            <input>
+            var("c")
+            parametric_plot3d([-4*c+1,c+1,3*c-2],(c,-5,5))    
+            </input>
+            </sage>
+            <p>Les options habituelles de couleur, épaisseur, etc. sont aussi disponible.</p>
+            
+            <p>Si l'équation de la droite est donnée vectoriellement, il est aussi possible de la tracer avec la commande <c>parametric_plot</c> ou son équivalent <m>3D</m>. </p>
+            <sage xml:id="sagecell-droites-4">
+            <input>
+            var("t")
+            d=vector([1,2])+t*vector([1,3])
+            parametric_plot(d,(t,-5,5))
+            </input>
+            </sage>
+        </computation>   
+    </subsection>
+    <subsection xml:id="sssec-plans">
+    
+        <!-- Lieu des points tels que OP*n=o dans R^2 et R^3 -->
+    </subsection>
+    <subsection xml:id="sssec-distances">
+    
+    </subsection>
     
     <conclusion xml:id="concl-droitesplans">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     
