@@ -95,12 +95,12 @@
         <p> On a déjà observé que si l'angle entre deux vecteurs est <m>90^\circ</m>, le produit scalaire vaut <m>0</m>. Le signe du produit scalaire correspond alors au type d'angle (aigu ou obtus) qu'il y a entre les deux vecteurs.</p>
         <p>Voici maintenant quelques propriétés du produit scalaire.</p>
         <proposition xml:id="prop-propprodscal">
-        <statement><p>Le produit scalaire entre deux vecteurs quelconque possèdent les propriétés suivantes:</p>
+        <statement><p>Le produit scalaire entre deux vecteurs quelconques possède les propriétés suivantes:</p>
             <ol xml:id="li-propprodscal">
-            <li xml:id="li-propprodscal-comm"><p> <m>\pscal{u}{v}=\pscal{v}{u}</m> (commutativité du produit scalaire)</p></li>
-            <li xml:id="li-propprodscal-multscal"><p><m>(c\vec{u})\cdot \vec{v}=\vec{u}\cdot (c\vec{v})=c(\pscal{u}{v})</m> pour tout <m>c\in\R</m>.</p></li>
-            <li xml:id="li-propprodscal-dist"><p><m>\vec{u}\cdot(\vec{v}+\vec{w})=\pscal{u}{v}+\pscal{u}{w}</m> (distributivité du produit scalaire)</p></li>
-            <li xml:id="li-propprodscal-norm"><p><m>\pscal{u}{u}=\|\vec{u}\|^2</m></p></li>
+            <li xml:id="li-propprodscal-comm"><p> <m>\vec{u}\cdot\vec{v}=\vec{v}\cdot\vec{u}</m> (commutativité du produit scalaire)</p></li>
+            <li xml:id="li-propprodscal-multscal"><p><m>(c\vec{u})\cdot \vec{v}=\vec{u}\cdot (c\vec{v})=c(\vec{u}\cdot\vec{v})</m> pour tout <m>c\in\R</m>.</p></li>
+            <li xml:id="li-propprodscal-dist"><p><m>\vec{u}\cdot(\vec{v}+\vec{w})=\vec{u}\cdot\vec{v}+\vec{u}\cdot\vec{w}</m> (distributivité du produit scalaire)</p></li>
+            <li xml:id="li-propprodscal-norm"><p><m>\vec{u}\cdot\vec{u}=\|\vec{u}\|^2</m></p></li>
             </ol>
             </statement>
             <proof>
@@ -165,7 +165,7 @@
         <aside>
             <p>Lorsqu'on généralise les concepts d'algèbre linéaire à des structure plus abstraites, la notion de perpendiculaire est difficile à imaginer. Toutefois, le concept de produit scalaire nul reste important. C'est pourquoi les mathématiciens ont introduits le terme orthogonal, du grec <emph>orthos</emph>, droit, et du grec <emph>g<span>&#333;</span>nia</emph>, angle.</p>
         </aside>
-        <example>
+        <example xml:id="ex-diaglos">
         <title>Les diagonales d'un losange</title>
             <p>On sait que deux vecteurs non parallèles engendrent un parallélogramme. Dans l'exercice <xref provisional="exo-diagpara"/>, on peut montrer que les diagonales se coupent en leur milieu. Lorsque les deux vecteurs ont la même longueur, on obtient en fait un losange. On montre algébriquement que les diagonales d'un losange se coupent à angle droit. La figure interactive <xref ref="fig-diaglos"/> permet de manipuler un losange et servira de support pour la preuve qui suit.</p>
             <figure xml:id="fig-diaglos">
@@ -180,7 +180,7 @@
                     </intructions>
                 </interactive>
             </figure>
-            Pour commencer, il est utile de se fixer un repère. En cliquant sur la case "repère", on choisit de fixer l'origine à l'un des quatre sommets du losange et de nommer les autres sommets <m>A,B</m> et <m>C</m>. On veut montrer que <m>\vecl{OC}</m> est perpendiculaire à <m>\vecl{BA}</m> ou, de manière équivalente, que <m>\pscal{OC}{BA}=0</m>. On a comme hypothèse que <m>\|\vecl{OA}\|=\|\vecl{OA}\|</m> et donc qu'en fait les quatres côtés sont égaux. En réécrivant les diagonales comme étant respectivement la somme et la différence des vecteurs <m>\vec{OA},\vecl{OB}</m>, on a
+            Pour commencer, il est utile de se fixer un repère. En cliquant sur la case "repère", on choisit de fixer l'origine à l'un des quatre sommets du losange et de nommer les autres sommets <m>A,B</m> et <m>C</m>. On veut montrer que <m>\vecl{OC}</m> est perpendiculaire à <m>\vecl{BA}</m> ou, de manière équivalente, que <m>\pscal{OC}{BA}=0</m>. On a comme hypothèse que <m>\|\vecl{OA}\|=\|\vecl{OB}\|</m> et donc qu'en fait les quatres côtés sont égaux. En réécrivant les diagonales comme étant respectivement la somme et la différence des vecteurs <m>\vecl{OA},\vecl{OB}</m>, on a
             <md>
             <mrow>\pscal{OC}{BA}&amp;=(\vecl{OA}+\vecl{AC})\cdot(\vecl{OA}-\vecl{OB})&amp;&amp;</mrow>
                 <mrow>&amp;=(\vecl{OA}+\vecl{OB})\cdot(\vecl{OA}-\vecl{OB})&amp;&amp; \text{ car  } \vecl{AC}=\vecl{OB}</mrow>
@@ -203,7 +203,7 @@
          <statement>
          <p>Soit <m>\vec{u},\vec{v}</m> des vecteurs. Alors
              <men xml:id="eq-ineqCS">
-             \abs{\pscal{u}{v}}\leq \norm{\vec{u}}\norm{\vec{v}}
+             \abs{\vec{u}\cdot\vec{v}}\leq \norm{\vec{u}}\norm{\vec{v}}
              </men>.</p>   
          </statement>
             <proof>
