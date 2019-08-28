@@ -12,9 +12,143 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-vecndim">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Vecteurs de dimension <m>n</m></title>
     <introduction xml:id= "intro-vecndim">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    
+    <p>Bien que notre conception de la géométrie se limite aux objets dans <m>\R^2</m> ou <m>\R^3</m>, il y a de l'intérêt à considérer les objets de dimension supérieure.
+    Dans le chapitre <xref provisional="chap-SEL"/>, on s'intéresse à résoudre un ensemble d'équations de la forme
+    <me>
+    a_1x_1+a_2x_2+\cdots +a_nx_n=b_1
+    </me>,
+    appelées équations linéaires. Ces équations comportant un nombre <m>n</m> variables apparaissent dans plusieurs domaines. On a qu'à penser à la quantité sans cesse grandissante
+    de données disponibles pour les compagnies, gouvernements, etc. Une approche vectorielle des problèmes liés à l'interprétation de ces données facilite grandement la chose,
+    en particulier grâce à la puissance des ordinateurs d'aujourd'hui. Dans cette section, on généralise les concepts du présent chapitre afin de les étendre, lorsque possible
+    à des vecteurs à <m>n</m> composantes.
+    </p>
     </introduction>
-    
+    <subsection xml:id="sssec-defopvecn">
+    <title> Définition et opérations sur les vecteurs</title>
+    <p>
+    Un vecteur dans <m>\R^n</m> possède les mêmes caractéristiques qu'un vecteur dans <m>\R^2</m> ou <m>\R^3</m>, données dans la définition <xref ref="def-vecgeo"/>. Il est toujours
+    possible de représenter le vecteur comme une flèche, mais on ne pourra pas le réprésenter dans l'espace au complet. Algébriquement, on décrit un vecteur à l'aide d'une suite
+    de nombres, entre parenthèses et séparés par des virgules. Par exemple,
+    <md>
+    <mrow> \vec{u}&amp;=(1,2,-3,4)</mrow>
+    <mrow> \vec{v}&amp;=\left(-1,0,0,2,3,4,\frac{1}{2},\pi\right)</mrow>
+    </md>
+    sont deux vecteurs, respectivement de <m>\R^4</m> et <m>\R^8</m>.
+    L'espace <m>\R^n</m> est donc défini comme l'ensemble des points ou vecteurs de la forme
+    <me>
+    \vec{u}=(u_1,u_2,\ldtos , u_n)
+    </me>
+    où <m>u_1,u_2,\ldtos , u_n\in \R</m>.
+    Le vecteur nul est toujours noté <m>\vec{0}=(0,0,\cdots , 0)</m> et possède les mêmes propriétés que dans <m>\R^2</m> ou <m>\R^3</m>.</p>
+    <p>
+    Si deux points <m>A</m>  et <m>B</m> de <m>\R^n</m> sont donnés, il est possible de créer le vecteur <m>\vecl{AB}</m> les reliant à l'aide de l'équation vectorielle
+    <me>
+    \vecl{AB}=\vec{OB}-\vecl{OA}=(b_1-a_1,b_2-a_1,\ldots , b_n-a_n)
+    </me>.
+    </p>
+    <p>
+    La longueur d'un vecteur est définie comme étant <m>\norm{\vec{u}}=\sqrt{u_1^2+u_2^2+\cdots + u_n^2}</m>. De plus, on définit la multiplication par un scalaire et l'addition 
+    vectorielle composante par composante, de sorte que
+    <md>
+    <mrow> c\vec{u}&amp;=(cu_1,cu_2,\cdots , cu_n)</mrow>
+    <mrow>\vec{u}+\vec{v}&amp;(u_1+v_1,u_2+v_2,\cdots, u_n+v_n)</mrow>
+    </md>.
+    Les propriétés de la multiplication par un scalaire et de l'addition, en particulier celle données à l'exercice <xref ref="exo-propvec2"/> demeurent valide dans
+    <m>\R^n</m> puisqu'une simple adaption de la solution à l'exercice permettrait d'avoir l'équivalent dans <m>\R^n</m>.</p>
+    <p>
+    Même sans la géométrie, on garde la notion de vecteurs parallèles lorsque <m>\vec{v}=c\vec{u}</m>. Par convention, on considère toujours que le vecteur nul n'est parallèle à aucun vecteur.
+    </p>
+    <p>Sage est capable de travailler avec les vecteurs de dimensions <m>n</m>, à l'aide des mêmes commandes algébriques que celles définies tout au long du chapitre.</p>
+    <computation xml:id="sageex-vecndim">
+    <title>Les vecteurs de dimension <m>n</m> avec Sage</title>
+    <p>On peut définir des vecteurs à l'aide de la commande <c>vector</c>, les multiplier par un scalaire, les additionner, etc.</p>
+    <sage xml:id="sagecell-vecndim-1">
+    <input>
+    u,v=vector([1,-3,4,5]),vector([-1,0,1,-2])
+    show(u)
+    show(v)
+    show(3*u)
+    show(2*u-4*v)
+    </input>
+    </sage>
+    </computation>
+    </subsection>
+    <subsection xml:id="sssec-prodscalndim">
+    <title>
+    Le produit scalaire et le calcul d'angle dans <m>\R^n</m>
+    </title>
+    <p>À la section <xref ref="sec-prodscal"/>, on a défini de manière algébrique le produit scalaire de deux vecteurs, à la définition <xref ref="def-prodscal"/>. Cette définition
+    se généralise donc facilement aux vecteurs à <m>n</m> composantes:
+    <men xml:id="eq-prodscal">
+    \vec{u}\cdot\vec{v}=u_1v_1+u_2v_2+\cdots+u_nv_n
+    </men>.
+    </p>
+    <p>On a également, à partir entre autre de la loi des cosinus, obtenu une formule pour l'angle entre deux vecteurs. La notion d'angle entre deux vecteurs de <m>\R^n</m> peut sembler
+    inutile sans la géométrie pour l'appuyer, or le concept de vecteurs orthogonaux est primordial dans toutes les dimensions. Comme il est possible d'exprimer le cosinus de
+    l'angle entre deux vecteurs d'une manière purement algébrique, on définit pour tout vecteurs de <m>\R^n</m> l'unique valeur de <m>\theta\in [0,\pi]</m> telle que
+    <men xml:id="eq-anglevec">
+    \cos(\theta)=\frac{\vec{u}\cdot\vec{v}}{\norm{\vec{u}}\norm{\vec{v}}}
+    </men>.
+    Deux vecteurs non nuls sont dits orthogonaux si cet angle vaut <m>\frac{\pi}{2}</m> ou <m>90^\circ</m>. Notons encore une fois que le vecteur nul n'est orthogonal à aucun
+    vecteur.</p>
+    <p>Les propriétés du produit scalaire, notamment celle de la proposition <xref ref="prop-propprodscal"/>, sont aussi vraies et un coup d'oeil à la démonstration
+    permet de voir que nul part on a utilisé le fait que les vecteurs étaient dans <m>\R^2</m> ou <m>\R^3</m> spécifiquement, et qu'une généralisaton des démonstrations s'obtient
+    facilement en modifiant celle de la proposition. L'inégalité de Cauchy-Schwarz <xref ref="prop-ineqCS"/> est aussi valide dans <m>\R^n</m>.
+    </p>
+    <p>Finalement, la notion de projection orthogonale définie par l'équation <xref ref="eq-projortho"/> est aussi un concept qui se généralise, et comme deux vecteurs peuvent
+    toujours être représentés dans un même plan, l'image est la même (figure <xref ref="fig-projortho"/>).
+    </p>
+    <p>
+    <example xml:id="ex-vecndimproj">
+    <title>Exemple de calculs avec les vecteurs de <m>\R^n</m></title>
+    <statement><p>On considère les vecteurs <m>\vec{u}=(1,1,1,1)</m> et <m>\vec{v}=(-2,3,-4,1)</m>. On cherche à calculer
+    <ol>
+    <li><p>L'angle entre les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>.</p></li>
+    <li><p>La projection <m>\vec{u}_{\vec{v}}</m>.</p></li>
+    <li><p>La projection <m>\vec{v}_{\vec{u}}</m>.</p></li>
+    </ol>
+    </p></statement>
+    <solution>
+    <p> On sait selon la formule <xref ref="eq-anglevec"/> que le cosinus de l'angle doit être égal à
+        <md>
+        <mrow>\cos(\theta)&amp;=\frac{\vec{u}\cdot\vec{v}}{\norm{\vec{u}}\norm{\vec{v}}}</mrow>
+        <mrow>&amp;=\frac{-2+3-4+1}{2*\sqrt{30}}</mrow>
+        <mrow>&amp;=\frac{-2}{2\sqrt{30}}</mrow>
+        <mrow>&amp;=-\frac{1}{\sqrt{30}}</mrow>
+        </md>.
+    En prenant la fonction cosinus inverse, on trouve
+    <me>
+    \theta=\arccos\left(-\frac{1}{\sqrt{30}}\right)\approx 1.75440033707382
+    </me>.
+    </p>
+    </solution>
+    <solution>
+    <p>Pour la projection, on utilise la formule <xref ref="eq-projortho"/> (les rôles de <m>\vec{u},\vec{v}</m> sont inversés ici). On obtient donc
+    <md>
+    <mrow>\vec{u}_{\vec{v}}&amp;=\frac{\vec{u}\cdot\vec{v}}{\norm{\vec{v}}^2}\vec{v}</mrow>
+    <mrow>&ampl;=\frac{-2}{30}(-2,3,-4,1)</mrow>
+    <mrow>&amp;=\left(\frac{2}{15},-\frac{1}{5},\frac{4}{15},-\frac{1}{15}\right)</mrow>
+    </md>.
+    </p>
+    </solution>
+    <solution>
+    <p>Toujours en utilisant la formule <xref ref="eq-projortho"/>. On obtient donc
+    <md>
+    <mrow>\vec{v}_{\vec{u}}&amp;=\frac{\vec{v}\cdot\vec{u}}{\norm{\vec{u}}^2}\vec{u}</mrow>
+    <mrow>&ampl;=\frac{-2}{4}(1,1,1,1)</mrow>
+    <mrow>&amp;=\left(-\frac{1}{2},-\frac{1}{2},-\frac{1}{2},-\frac{1}{2}\right)</mrow>
+    </md>.
+    </p>
+    </solution>
+    </example>
+    </p>
+    </subsection>
+    <subsection xml:id="sssec-droitesplanrn">
+    <title>Droites et plans dans <m>\R^n</m></title>
+    <p>
+    <!-- definir le span ici -->
+    </p>
+    </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
     
     <conclusion xml:id="concl-vecndim">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
