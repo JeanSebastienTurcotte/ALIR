@@ -57,8 +57,7 @@
     au chapitre 
     <xref provisional="chap-base" />.</p>
     <example xml:id="ex-comblin">
-      <title>Combinaison linéaire dans 
-      <m>\R^2</m>: dynamique</title>
+      <title>Combinaison linéaire de deux vecteurs: dynamique</title>
       <p>Dans cet exemple, on considère pour des vecteurs 
       <m>\vec{u},\vec{v}</m>de 
       <m>\R^2</m> les combinaisons de la forme 
@@ -350,22 +349,7 @@
     <m>v</m>est associée à la "pente", alors que les composantes du vecteur 
     <m>\vecl{OA}</m>sont associées aux "ordonnées à l'origine".</p>
     <p>Les équations paramétriques se généralisent à des courbes quelconques
-    dans le plan ou l'espace, où une courbe 
-    <m>C(t)</m>est décrite composante par composante par des équations 
-    <me>C(t)=\begin{cases} x=f(t)\\ y=g(t) \end{cases}</me>. Par exemple, une
-    spirale peut être décrite par la courbe 
-    <m>C(t)=(t\cos(t),t\sin(t))</m>, illustrée à la figure 
-    <xref ref="fig-spiral" />pour 
-    <m>t\in [0,4\pi]</m>.</p>
-    <figure xml:id="fig-spiral">
-      <caption>Une spirale décrite par des équations paramétriques</caption>
-      <image xml:id="sageplot-spiral">
-        <description>Une spirale est illustrée, pour t allant de 0 à 4
-        pi</description>
-        <sageplot>var("t")
-        parametric_plot([t*cos(t),t*sin(t)],(t,0,4*pi))</sageplot>
-      </image>
-    </figure>
+    dans le plan ou l'espace. Ce sujet est exploré dans la section <xref ref="sec-upplvec"/>.</p>
     <p>On regarde une autre manipulation de l'équation d'une droite. Celle-ci
     ne sera valide que pour une droite dans 
     <m>\R^2</m>, mais reste toutefois importante. On considère à nouveau les
@@ -474,8 +458,7 @@
       </sage>
       <p>Une autre option, plus flexible, utilise les équations paramétriques.
       Elle est plus flexible dans le sens où elle permet de décrire des courbes
-      quelconques comme celle de la figure 
-      <xref ref="fig-spiral" />. La commande est 
+      quelconques comme celles explorées dans la section <xref ref="sec-upplvec"/>. La commande est 
       <c>parametric_plot</c>ou 
       <c>parametric_plot3d</c>, selon le cas.</p>
       <p>On illustre les deux droites solutions de l'exemple 
@@ -525,8 +508,7 @@
     illustré à l'exemple 
     <xref ref="ex-comblinplan" />.</p>
     <example xml:id="ex-comblinplan">
-      <title>Combinaison linéaire dans 
-      <m>\R^3</m>: dynamique</title>
+      <title>Combinaison linéaire en trois dimensions: dynamique</title>
       <p>Cet exemple est similaire à l'exemple 
       <xref ref="ex-comblin" />, mais avec des vecteurs 
       <m>\vec{u},\vec{v}</m>de 
@@ -665,20 +647,7 @@
     plan. 
     <me>\mathcal{P}: \quad \begin{cases} x= au_1+bv_1+a_1\\ y= au_2+bv_2+a_2\\
     z= au_3+bv_3+a_3\\ \end{cases}</me>. Plus généralement, ce type d'équations
-    est pratique pour décrire des surfaces dans l'espace, sous la forme 
-    <me>\mathcal{P}: \quad \begin{cases} x= f(u,v)\\ y= g(u,v)\\ z= h(u,v)\\
-    \end{cases}</me>. La figure 
-    <xref ref="fig-exsurface" />illustre une telle surface avec 
-    <m>f(u,v)=\cos(u),g(u,v)=\sin(u)+\cos(v)</m>et 
-    <m>h(u,v)=\sin(v)</m>. 
-    <figure xml:id="fig-exsurface">
-      <caption>Une surface</caption>
-      <image width="70%" xml:id="sageplot-exsurface">
-        <description>Une surface de l'espace</description>
-        <sageplot>u, v = var('u,v') parametric_plot3d((cos(u), sin(u)+cos(v),
-        sin(v)), (u,0,2*pi), (v,-pi,pi),color="red")</sageplot>
-      </image>
-    </figure></p>
+    est pratique pour décrire des surfaces dans l'espace, aussi explorées à la section <xref ref="sec-upplvec"/>.</p>
     <p>Lorsque trois points qui ne sont pas alignés sont donnés, on peut
     toujours trouver l'équation d'un plan passant par ces trois points.</p>
     <example xml:id="ex-eqplan3p">
@@ -868,8 +837,8 @@
     </example>
     <p>Une équation de la forme 
     <me>ax+by+cz=d</me>est appelé une équation normale d'un plan dans 
-    <m>\R^3</m>. À noter que le vecteur 
-    <m>\vec{n}=(a,b,c)</m>est perpendiculaires à tous les vecteurs du plan.
+    <m>\R^3</m>. On peut aussi la réécrire sous la forme <m>\vec{n}\vec{AP}=0</m>, où
+    <m>\vec{n}=(a,b,c)</m> est perpendiculaire à tous les vecteurs du plan.
     L'exemple 
     <xref ref="ex-eqnormplan" />montre comment passer de l'équation vectorielle
     à l'équation normale. On regarde maintenant la situation inverse.</p>

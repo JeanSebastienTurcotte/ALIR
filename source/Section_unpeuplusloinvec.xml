@@ -9,12 +9,50 @@
 
 <!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
 
-<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-upplvec">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> </title>
-    <introduction xml:id= "intro-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    
+    <introduction xml:id= "intro-upplvec">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Dans cette section, on explore le concept d'équations paramétriques donnant des courbes ou des surfaces dans le plan ou l'espace. Ce type d'objet est normalement
+    étudié dans un cours de calcul à plusieurs variables.</p>
     </introduction>
-    <!-- parler des courbes et surfaces générales -->
+    <!-- À faire -->
+    <subsection xml:id="sssec-courbes">
+    <title>Les courbes du plan et de l'espace</title>
+    <p> où une courbe 
+    <m>C(t)</m>est décrite composante par composante par des équations 
+    <me>C(t)=\begin{cases} x=f(t)\\ y=g(t) \end{cases}</me>. Par exemple, une
+    spirale peut être décrite par la courbe 
+    <m>C(t)=(t\cos(t),t\sin(t))</m>, illustrée à la figure 
+    <xref ref="fig-spiral" />pour 
+    <m>t\in [0,4\pi]</m>.
+    <figure xml:id="fig-spiral">
+      <caption>Une spirale décrite par des équations paramétriques</caption>
+      <image xml:id="sageplot-spiral">
+        <description>Une spirale est illustrée, pour t allant de 0 à 4
+        pi</description>
+        <sageplot>var("t")
+        parametric_plot([t*cos(t),t*sin(t)],(t,0,4*pi))</sageplot>
+      </image>
+    </figure>
+    </p>
+    </subsection>
+    <subsection xml:id="surfaces">
+    <title>Les surfaces</title>
+    <p> sous la forme 
+    <me>\mathcal{P}: \quad \begin{cases} x= f(u,v)\\ y= g(u,v)\\ z= h(u,v)\\
+    \end{cases}</me>. La figure 
+    <xref ref="fig-exsurface" />illustre une telle surface avec 
+    <m>f(u,v)=\cos(u),g(u,v)=\sin(u)+\cos(v)</m>et 
+    <m>h(u,v)=\sin(v)</m>. 
+    <figure xml:id="fig-exsurface">
+      <caption>Une surface</caption>
+      <image width="70%" xml:id="sageplot-exsurface">
+        <description>Une surface de l'espace</description>
+        <sageplot>u, v = var('u,v') parametric_plot3d((cos(u), sin(u)+cos(v),
+        sin(v)), (u,0,2*pi), (v,-pi,pi),color="red")</sageplot>
+      </image>
+    </figure> </p>
+    </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
     
     <conclusion xml:id="concl-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
