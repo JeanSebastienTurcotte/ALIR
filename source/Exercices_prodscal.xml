@@ -9,11 +9,7 @@
 
 <exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-prodscal">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>
-    <!-- Montrer que norme(u+v)^2 +- norm (u-v)^2=...  3.5, 3.6 http://immersivemath.com/ila/ch03_dotproduct/ch03.html#fig_dp_ray_tracer -->
     <!-- Preuve inégalité de CS par les paraboles, avec l'équation ||u+xv||^2 et l'exercice normsommecarree xml:id="exo-ineqCSpara" --> <!-- Voir vidéo mathemaTIC au besoin -->
-    <!-- exercices sur les propriétés du vecteurs perpendiculaire de R2, en particulier, que c'est le vecteur de v par antihoraire -->
-    <!-- pages 29-30 de Shifrin équation normale ne depend pas du point -->
-    <!-- droite et plan parallèle, distance point droite ne fonctionne pas -->
     <exercise xml:id="exo-">
             <statement>
                 La question.
@@ -66,9 +62,167 @@
                 La solution suivra.
             </solution>
     </exercise>
+    <exercise xml:id="exo-vecperp">
+            <statement>
+                <p>Dans la proposition <xref ref="pro-vecperp"/>, nous avons introduit le vecteur perpendiculaire <m>\vec{v}_{\perp}</m>. 
+                Pour chacune des propositions suivantes, en développer d'abord une compréhension géométrique et ensuite la démontrer algébriquement.</p>
+                <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-vecperp" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="diagpara" surface="geogebra" source="code/geogebra/exo-vecperp.ggb" aspect="1:1">
+                            setCoordSystem(-3, 3, -3, 3);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Utiliser les outils de cette figure interactive pour vous aider.  
+                        </instructions>
+                    </interactive>
+                </figure>   
+                <ol>
+                   <li><p>On obtient le vecteur <m>\vec{v}_\perp</m> à partir de <m>\vec{v}</m> en lui faisant faire une rotation de <m>90</m> degrés dans le sens anti-horaire. </p></li>
+                   <li><p><m>\norm{\vec{v}}=\norm{\vec{v}_{\perp}}</m></p></li>
+                   <li><p><m>\vec{v}\cdot\vec{v}_{\perp}=0</m></p></li>
+                   <li><p><m>(k\vec{v})_{\perp}=k(\vec{v}_{\perp})</m> quel que soit le scalaire <m>k</m></p></li>
+                   <li><p><m>(\vec{u}+\vec{v})_{\perp}=\vec{u}_{\perp}+\vec{v}_{\perp}</m></p></li>
+                </ol>
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse suivra.
+            </answer>
+            <solution>
+                La solution suivra.
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-reduireprodscal">
+            <statement>
+                <p>Soient deux vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> et <m>c\in\R</m>. Simplifier les expressions suivantes en vous servant des propriétés de
+                la proposition <xref ref="prop-propprodscal"/>. Dire si la réponse est un scalaire ou un vecteur.</p>
+                <ol>
+                   <li><m>\vec{v}\cdot\left(\frac{\vec{u}\cdot\vec{v}}{\norm{\vec{v}}}\vec{v}-\norm{\vec{v}}\vec{u}\right)</m></li>
+                   <li><m>\left(\frac{c\vec{u}}{\norm{\vec{u}}}\right)\cdot\big(\vec{u}+\norm{\vec{u}}\vec{v}\big)\vec{v}</m></li>
+                </ol>
+            </statement>
+            <answer>
+                La réponse suivra.
+            </answer>
+            <solution>
+                La solution suivra.
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-normeaddvec">
+            <statement>
+                <p>Soient deux vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. Démontrer algébriquement les deux énoncés suivants en vous servant des propriétés de
+                la proposition <xref ref="prop-propprodscal"/>.</p>
+                <ol>
+                   <li><m>\norm{\vec{u}+\vec{v}}^2+\norm{\vec{u}-\vec{v}}^2=2\norm{u}^2+2\norm{v}^2</m></li>
+                   <li><m>\norm{\vec{u}+\vec{v}}^2-\norm{\vec{u}-\vec{v}}^2=4\vec{u}\cdot\vec{v}</m></li>
+                </ol>
+            </statement>
+            <answer>
+                La réponse suivra.
+            </answer>
+            <solution>
+                La solution suivra.
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-anglecube">
+            <statement>
+                <p>À l'aide de vecteurs, calculer l'angle entre la plus longue diagonale d'un cube et la diagonale adjacente d'une de ses faces, 
+                tel que représenté dans la figure.</p>
+                <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-anglecube" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="geo-exo-anglecube1" surface="geogebra" source="code/geogebra/exo-anglecube.ggb" aspect="1:1">
+                            setCoordSystem(-3, 3, -3, 3);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Utiliser cette figure pour bien visualiser le cube.
+                        </instructions>
+                    </interactive>
+                </figure>
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse suivra.
+            </answer>
+            <solution>
+                La solution suivra.
+            </solution>
+    </exercise>
+     <exercise xml:id="exo-tetrachimie">
+            <statement>
+                <p>Une molécule de méthane a quatre atomes d'hydrogène aux points indiqués sur la figure ci-dessous et un atome de carbone à l'origine. 
+                Trouver l'angle du lien H-C-H.</p>
+                <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-tetra" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="diagpara" surface="geogebra" source="code/geogebra/exo-tetra.ggb" aspect="1:1">
+                            setCoordSystem(-3, 3, -3, 3);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Utiliser cette figure pour bien visualiser la molécule.
+                        </instructions>
+                    </interactive>
+                </figure>  
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse suivra.
+            </answer>
+            <solution>
+                La solution suivra.
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-cosdir">
+            <statement>
+                <p>L'orientation d'un vecteur de <m>\R^2</m> est complètement déterminée par l'angle que fait le vecteur avec l'horizontale. Dans <m>\R^3</m>, un angle
+                ne suffit plus. Il est toutefois possible de caractériser l'orientation à l'aide de trois angles. Soit  <m>\vec{u}</m> un vecteur non nul. On note <m>\alpha</m>
+                 l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des abscisses, <m>\beta</m> l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des ordonnées et <m>\gamma</m>
+                 l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des cotes (<m>z</m>).</p>
+                 <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-cosdir" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="geo-exo-cosdir1" surface="geogebra" source="code/geogebra/exo-cosdir.ggb" aspect="1:1">
+                            setCoordSystem(-3, 3, -3, 3);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Utiliser cette figure pour bien visualiser les cosinus directeurs et répondre aux questions.
+                        </instructions>
+                    </interactive>
+                </figure>  
+                 <p>Démontrer les affirmations suivantes:
+                 <ol>
+                 <li><p>Le vecteur <m>\vec{u}\in \R^3</m> s'écrit comme <m>\vec{u}=\norm{\vec{u}}(\cos(\theta),\cos(\alpha),\cos(\phi))</m>. On appelle le triplet
+                 <m>(\cos(\theta),\cos(\alpha),\cos(\phi))</m> les cosinus directeurs du vecteur <m>\vec{u}</m>.</p></li>
+                 <li><p>Le produit scalaire du triplet des cosinus directeurs avec lui-même donne toujours 1. </p></li>
+                 <li><p> Dans <m>\R^2</m>, la notion de cosinus directeur existe aussi et un vecteur <m>\vec{v}\in\R^2</m> s'écrit aussi <m>\vec{v}=\norm{\vec{v}}(\cos(\theta),\cos(\alpha))</m>.</p></li>
+                 <li><p>Montrer qu'un vecteur non nul de <m>\R^3</m> peut aussi s'écrire à l'aide de deux angles, <m>\theta </m>  et <m>\phi</m> (remarquer le
+                 parallèle avec <m>\R^2</m> où seul <m>\theta</m> était nécessaire).</p></li>
+                 </ol></p>
+            </statement>
+            <hint>
+                À venir.
+            </hint>
+            <answer>
+                À venir.
+            </answer>
+            <solution>
+                À venir.
+            </solution>
+    </exercise>
     <exercise xml:id="exo-normsommecarree">
             <statement>
-                <p>Soient deux vecteurs <m>\vec{u}, \vec{u} \in \R^2</m> ou <m>\R^3</m>. 
+                <p>Soient deux vecteurs <m>\vec{u}, \vec{v} \in \R^2</m> ou <m>\R^3</m>. 
                 En utilisant les propriétés de la proposition <xref ref="prop-propprodscal"/>, démontrer l'égalité suivante: </p>
                 <me>
                 \norm{\vec{u}+\vec{v}}^2=\norm{\vec{u}}^2+2\pscal{u}{v}+\norm{\vec{v}}^2
@@ -88,7 +242,7 @@
     <exercise xml:id="exo-vecperpproj">
             <statement>
                <p>Dans la figure <xref ref="fig-projortho"/>, on peut comprendre, en déplaçant les vecteurs, que la projection orthogonale d'un vecteur sur un autre vecteur 
-               perpendiculaire donne le vecteur nul. Montrer cela algébriquement pour deux vecteurs orthogonaux <m>\vec{u}</m> et <m>\vec{u}</m>.</p> 
+               perpendiculaire donne le vecteur nul. Montrer cela algébriquement pour deux vecteurs orthogonaux <m>\vec{u}</m> et <m>\vec{v}</m>.</p> 
             </statement>
             <hint>
                 Puisque ces deux vecteurs sont orthogonaux, on sait déjà que leur produit scalaire est nul. 
@@ -109,9 +263,40 @@
                <p>« Les diagonales d'un losange sont de même longueur si et seulement si ce losange est un carré. »</p>
             </statement>
             <hint>
-                Pour structurer une preuve de ce type (équivalence), il est possible de montrer l'énoncé en deux étapes. 
+                <p>Pour structurer une preuve de ce type (équivalence), il est possible de montrer l'énoncé en deux étapes. 
                 Dans ce cas-ci, il est conseillé de procéder en développant l'expression de la norme au carré des deux diagonales exprimées comme l'addition et la soustraction des vecteurs formant le losange.
-                On verra allors que ces deux expressions seront égales si et seulement si le produit scalaire des deux vecteurs est nul.
+                On verra allors que ces deux expressions seront égales si et seulement si le produit scalaire des deux vecteurs est nul.</p>
+            </hint>
+            <answer>
+                La réponse suivra.
+            </answer>
+            <solution>
+                La solution suivra.
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-accelradtan">
+            <statement>
+                <p>Pour décrire tout mouvement circulaire ou même toute trajectoire courbe, on dessine le vecteur vitesse (instantannée) <m>\vec{v}</m> et le vecteur accélération
+                <m>\vec{a}</m> qui agit sur un mobile pour lui occasionner son changement de direction. Dans un mouvement circulaire, ce vecteur accélération est constant.
+                Dans la figure ci-dessous, on observe qu'il est possible de décomposer le vecteur <m>\vec{a}</m> en sa composante radiale (<m>\vec{a}_r</m>)
+                et sa composante tangentielle (<m>\vec{a}_t</m>). Cette dernière est calculable en faisant la projection de <m>\vec{a}</m> sur <m>\vec{v}</m> et les deux composantes sont perpendiculaires.</p>
+                <p>En utilisant cela et la définition de la projection orthogonale (<xref ref="eq-projortho"/>), déterminer l'accélération tangentielle et l'accélération
+                radiale d'une particule en mouvement, au moment où sa vitesse est donnée par le vecteur <m>\vec{v}=(1,2,-2)</m> et son accélération est <m>\vec{a}=(3,2,4)</m>.</p>
+                <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-accelradtan" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="geo-exo-accelradtan1" surface="geogebra" source="code/geogebra/exo-accelradtan.ggb" aspect="1:1">
+                            setCoordSystem(-3, 3, -3, 3);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Utiliser cette figure pour bien visualiser les composantes radiale et tangentielle du vecteur accélération.
+                        </instructions>
+                    </interactive>
+                </figure> 
+            </statement>
+            <hint>
+                Un indice.
             </hint>
             <answer>
                 La réponse suivra.
