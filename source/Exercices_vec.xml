@@ -1085,5 +1085,117 @@
             <p>Remarquer que pour placer certains vecteurs au bon endroit, il a fallu convertir le point <m>P(1,3)</m> en vecteur afin de pouvoir lui additionner un vecteur. Sage ne veut pas additionner un vecteur à un point. Votre texte est aussi probablement plus simple que la réponse donnée. Sage est capable d'utiliser un langage de traitement de texte appelé <latex /> et la bonne syntaxe a été utilisée pour avoir l'effet voulu. Ce n'est pas nécessaire pour l'exercice.</p>
          </solution>
         </exercise> 
+        <exercise xml:id="exosage-vec-4">
+    <title>
+    Automatisation de la conversion entre degrés et radians
+    </title>
+    <statement><p>
+    Le but de cet exercice est de créer deux fonctions Sage. La première, étant donné un angle <m>\theta</m> en degrés, va calculer la valeur de l'angle en radians. La seconde, étant donné un angle <m>\theta</m> en radians,
+     va calculer la valeur de l'angle en degrés. </p>
+     <p><ol>
+        <li><p> Plus précisemment, créer une fonction nommée <c>radians</c> qui va prendre comme argument un nombre réel correspondant à une valeur d'angle en degrés et la convertir en radians. Ensuite, créer une fonction
+         nommée <c>degres</c> qui va prendre comme argument un nombre réel correspondant à une valeur d'angle en radians et la convertir en degrés.
+         <sage>
+         <input>
+         </input>
+         </sage>
+         <sage>
+         <input>
+         </input>
+         </sage>
+         </p></li>
+         <li><p>On aimerait maintenant modifier les fonctions afin qu'elle retourne toujours une valeur entre <m>0</m> et <m>2\pi</m> pour la fonction <c>radians</c> et une valeur
+         entre <m>0 </m> et <m>360</m> pour la fonction <c>degres</c>.</p>
+         <p>On pourrait procéder de plusieurs manières. On choisit de créer deux fonctions, <c>radians2pi</c> et <c>degres360</c> qui prennent chacune respectivement un valeur en radians et en degrés et la
+         convertisse dans l'intervalle restreint d'une période. Par la suite, on appellera les fonctions créées ci-dessus pour faire la conversion.</p>
+         
+         <p>Tester les fonctions en vérifiant que <ul>
+         <li><p><m>\frac{-2020\pi}{3}</m> radians est équivalent à <m>240</m> degrés;</p></li>
+         <li><p><m>\frac{-109\pi}{5}</m> radians est équivalent à <m>36</m> degrés;</p></li>
+         <li><p><m>2020</m> degrés est équivalent à <m>\frac{11\pi}{9}</m> radians;</p></li>
+         <li><p><m>-1988</m> degrés est équivalent à <m>\frac{43\pi}{45}</m> radians.</p></li>
+         </ul> </p>
+         <p>
+         <sage>
+         <input>
+         </input>
+         </sage>
+         <sage>
+         <input>
+         </input>
+         </sage>
+         </p></li>
+    </ol></p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+    <li><p>
+    <listing>
+        <caption>La conversion d'un angle de degrés à radians</caption>
+        <program language="sage">
+            <input>
+                def radians(theta):
+                    theta=theta*2*pi/360
+                    return theta
+            </input>
+        </program>
+        </listing></p></li>
+        <li><p>
+    <listing>
+        <caption>La conversion d'un angle de radians à degrés</caption>
+        <program language="sage">
+            <input>
+                def degres(theta):
+                    theta=theta*360/(2*pi)
+                    return theta
+            </input>
+        </program>
+        </listing></p></li>
+        <li><p>
+    <listing>
+        <caption>La conversion d'un angle en degrés à l'intervalle <m>[0,360[</m></caption>
+        <program language="sage">
+            <input>
+              def degres360(theta):
+                  if theta&gt;=0 and theta&lt; 360:
+                      return theta
+                  else:
+                      if theta&gt;=360:
+                          while theta&gt;=360:
+                              theta=theta-360
+                          return theta
+                      else:
+                          while theta&lt;0:
+                                  theta=theta+360
+                          return theta  
+            </input>
+        </program>
+        </listing></p></li>
+        <li><p>
+    <listing>
+        <caption>La conversion d'un angle en radians à l'intervalle <m>[0,2\pi[</m></caption>
+        <program language="sage">
+            <input>
+                def radians2pi(theta):
+                    if theta &gt;=0 and theta &lt;2*pi:
+                        return theta
+                    else:
+                        if theta &gt;=2*pi:
+                            while theta &gt;=2*pi:
+                                theta=theta-2*pi
+                            return theta
+                        else:
+                            while theta &lt;0:
+                                    theta=theta+2*pi
+                            return theta 
+                            
+            </input>
+        </program>
+        </listing></p></li>
+        </ol>
+    </p>
+    </solution>
+    </exercise>
     </exercisegroup>
     </exercises>

@@ -202,12 +202,12 @@
                 </figure>  
                  <p>Démontrer les affirmations suivantes:
                  <ol>
-                 <li><p>Le vecteur <m>\vec{u}\in \R^3</m> s'écrit comme <m>\vec{u}=\norm{\vec{u}}(\cos(\theta),\cos(\alpha),\cos(\phi))</m>. On appelle le triplet
-                 <m>(\cos(\theta),\cos(\alpha),\cos(\phi))</m> les cosinus directeurs du vecteur <m>\vec{u}</m>.</p></li>
-                 <li><p>Le produit scalaire du triplet des cosinus directeurs avec lui-même donne toujours 1. </p></li>
+                 <li><p>Le vecteur <m>\vec{u}\in \R^3</m> s'écrit comme <m>\vec{u}=\norm{\vec{u}}(\cos(\alpha),\cos(\beta),\cos(\gamma))</m>. On appelle le triplet
+                 <m>(\cos(\alpha),\cos(\beta),\cos(\gamma))</m> les cosinus directeurs du vecteur <m>\vec{u}</m>.</p></li>
+                 <li><p><m>\cos^2(\alpha)+\cos^2(\beta)+\cos^2(\gamma)=1</m> </p></li>
                  <li><p> Dans <m>\R^2</m>, la notion de cosinus directeur existe aussi et un vecteur <m>\vec{v}\in\R^2</m> s'écrit aussi <m>\vec{v}=\norm{\vec{v}}(\cos(\theta),\cos(\alpha))</m>.</p></li>
-                 <li><p>Montrer qu'un vecteur non nul de <m>\R^3</m> peut aussi s'écrire à l'aide de deux angles, <m>\theta </m>  et <m>\phi</m> (remarquer le
-                 parallèle avec <m>\R^2</m> où seul <m>\theta</m> était nécessaire).</p></li>
+                 <li><p>Montrer qu'un vecteur non nul de <m>\R^3</m> peut aussi être entièrement déterminé  à l'aide de deux angles, <m>\theta </m>  et <m>\phi</m> et sa longueur. (Remarquer le
+                 parallèle avec <m>\R^2</m> où seul <m>\theta</m> était nécessaire dans la forme polaire.)</p></li>
                  </ol></p>
             </statement>
             <hint>
@@ -305,4 +305,173 @@
                 La solution suivra.
             </solution>
     </exercise>
+    <exercisegroup xml:id="exosage-prodscal">
+    <title>Exercices Sage</title>
+    <introduction>
+    <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
+    </introduction>
+    <exercise xml:id="exo-sage-prodscal-1">
+    <statement>
+    <p> Considérer les vecteurs <m>\vec{u}=(-1,2,4),\vec{v}=(2,4,-1)</m> et <m>\vec{w}=(5,-3,2)</m>. Calculer
+    <ol>
+    <li><m>\vec{u}\cdot v</m></li>
+    <li><m>\vec{u}\cdot \vec{w}</m></li>
+    <li><p>L'angle entre <m>\vec{u}</m> et <m>\vec{v}</m> </p></li>
+    <li><p>L'angle entre <m>\vec{v}</m> et <m>\vec{w}</m> </p></li>
+    <li><p>La projection orthogonale du vecteur <m>\vec{v}</m> sur le vecteur <m>\vec{u}</m>.</p></li>
+    </ol>
+    </p>
+    <p>
+    <sage>
+    <input>
+    </input>
+    </sage>
+    </p>
+    </statement>
+    <answer>
+    <p>
+    <ol>
+    <li><m>2 </m></li>
+    <li><m>-3 </m></li>
+    <li><m>arccos(\frac{2}{21})\approx 1.47541366778669 \text{rad}\approx 84.5349762000941^{\circ} </m></li>
+    <li><m> arccos(-\frac{2}{399}sqrt(798))\approx 1.71287229063541 \text{rad}\approx 98.1403530983148^{\circ}</m></li>
+    <li><m>\vec{v}_{\vec{u}}=\left(-\frac{2}{21}, \frac{4}{21}, \frac{8}{21}\right) </m></li>
+    </ol>
+    </p>
+    </answer>
+    <solution>
+    <p>
+    <listing>
+        <caption>Le code solution pour l'exercice</caption>
+        <program language="sage">
+            <input>
+                u=vector([-1,2,4])
+                v=vector([2,4,-1])
+                w=vector([5,-3,2])
+                show(u*v)
+                show(u*w)
+                show(arccos(u*v/(norm(u)*norm(v))))
+                show(arccos(w*v/(norm(w)*norm(v))))
+                show(v*u/(u*u)*u)
+            </input>
+        </program>
+    </listing>
+    </p>
+    </solution>
+    </exercise>
+    <exercise xml:id="exo-sage-prodscal-2">
+    <title>
+    Automatisation du calcul de l'angle entre deux vecteurs
+    </title>
+    <statement><p>
+    Le but de cet exercice est de créer une fonction Sage qui, étant donné deux vecteurs <m>\vec{u},\vec{v}\in\R^n</m>, va calculer l'angle entre les vecteurs <m>\vec{v}</m> sur <m>\vec{u}</m>. Plus
+    précisemment, créer une fonction nommée <c>angle_entre_vec</c> qui prendre comme arguments deux vecteurs et qui va retourner la valeur de l'angle entre ces vecteurs. Une fois créer, vérifier la fonction avec les données de
+    l'exercice <xref ref="exo-sage-prodscal-1"/>.
+    </p>
+    <p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <listing>
+        <caption>L'angle entre deux vecteurs</caption>
+        <program language="sage">
+            <input>
+                def angle_entre_vec(u,v):
+                    return arccos(u*v/(norm(u)*norm(v)))
+                u=vector([-1,2,4])
+                v=vector([2,4,-1])
+                w=vector([5,-3,2])
+                show(angle_entre_vec(u,v))
+                show(angle_entre_vec(v,w))
+            </input>
+        </program>
+    </listing>
+    </p>
+    </solution>
+    </exercise>
+    <exercise xml:id="exo-sage-prodscal-3">
+    <title>
+    Automatisation de la projection orthogonale
+    </title>
+    <statement><p>
+    Le but de cet exercice est de créer une fonction Sage qui, étant donné deux vecteurs <m>\vec{u},\vec{v}\in\R^n</m>, va calculer la projection orthogonale de <m>\vec{v}</m> sur <m>\vec{u}</m>. Plus
+    précisemment, créer une fonction nommée <c>proj_v_sur_u</c> qui va prendre comme arguments deux vecteurs et qui va retourner la projection orthogonale du premier vecteur sur le second.
+    </p>
+    <p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <listing>
+        <caption>La fonction projection orthogonale</caption>
+        <program language="sage">
+            <input>
+                def proj_v_sur_u(u,v):
+                    return u*v/(u*u)*u
+                u=vector([-1,2,4])
+                v=vector([2,4,-1])
+                show(proj_v_sur_u(u,v))
+            </input>
+        </program>
+    </listing>
+    </p>
+    </solution>
+    </exercise>
+    <!-- À finir, voir comment régler le problème du vecteur nul, ou d'un point (0,0,z)... convention à établir  <exercise xml:id="exo-sage-prodscal-4">
+    <title>
+    Automatisation du passage entre coordonnées cartésiennes et sphériques
+    </title>
+    <statement>
+    <p>
+    Dans l'exercice <xref ref="exo-cosdir"/>, on a défini le concept de coordonnées sphériques d'un vecteur. Plutôt que de caractériser le vecteur <m>\vec{u}</m> par une composante en <m>x,y</m> et <m>z</m>, le vecteur est
+    entièrement déterminé par sa longueur <m>\rho=\norm{\vec{u}}</m>, son angle dans le plan <m>XoY</m> et l'angle que fait le vecteur avec l'axe des <m>z</m>. 
+    </p>
+    <p>
+    Le but de cet exercice est de créer deux  fonctions Sage. La première, étant donné un vecteur de <m>\R^3</m> en coordonnées cartésiennes, va retourner le vecteur en coordonnées sphériques. La deuxième, étant donné
+    un vecteur de <m>\R^3</m> en coordonnées sphériques, va retourner le vecteur en coordonnées cartésiennes. Plus précisemment, créer une fonction <c>cart_a_spher</c> qui va prendre comme argument un vecteur non nul 
+    de <m>\R^3</m> sous forme cartésienne et va retourner la forme sphérique de ce vecteur. Puis définir une fonction <c>spher_a_cart</c> qui va prendre comme argument un vecteur de <m>\R^3</m> sous forme
+    sphérique et va retourner la forme cartésienne de ce vecteur.
+    </p>
+    <p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+     <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <listing>
+        <caption>Le passage de cartésien à sphérique</caption>
+        <program language="sage">
+            <input>
+                def proj_v_sur_u(u,v):
+                    return u*v/(u*u)*u
+                u=vector([-1,2,4])
+                v=vector([2,4,-1])
+                show(proj_v_sur_u(u,v))
+            </input>
+        </program>
+    </listing>
+    </p>
+    </solution>
+    </exercise> -->
+    </exercisegroup> 
 </exercises>
