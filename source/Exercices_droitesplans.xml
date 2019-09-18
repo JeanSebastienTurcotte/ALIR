@@ -311,7 +311,19 @@
                 À venir.
             </solution>
     </exercise>
-    
+    <exercise xml:id="exo-parabole">
+    <statement>
+    <p>Soit <m>P(1,3)</m> et <m>\mathcal{D}: (x,y)=c(1,2)+(-1,1)</m> un point et une droite dans <m>\R^2</m>. On cherche l'équation de l'ensemble des points qui sont à distance égale de <m>P</m> et <m>\mathcal{D}</m>.
+    Il est bien connu que l'ensemble des points à distance égale d'un point et d'une droite forme une parabole.
+    </p>
+    </statement>
+    <answer>
+    <m>x^2 + 4x y + 4y^2 - 22x - 24y = -41</m>
+    </answer>
+    <solution>
+    À venir
+    </solution>
+    </exercise>
     <exercisegroup xml:id="exosage-droitesplans">
     <title>Exercices Sage</title>
     <introduction>
@@ -528,6 +540,34 @@
                    </listing>
                    </p></li>
                    </ol></p>
+    </solution>
+    </exercise>
+    <exercise xml:id="exo-parabolesage">
+    <title>Automatisation de l'équation d'une parabole</title>
+    <statement>
+    <p>Dans l'exercice <xref ref="exo-parabole"/>, on a déterminer une équation implicite d'une parabole à distance égale d'un point <m>F</m> et d'une droite <m>\mathcal{D}</m>. Le but de cet exercice
+    est de créer un programme qui, étant donné les coordonnées d'un point <m>F</m>, d'un point <m>A</m> et d'un vecteur <m>\vec{v}</m>, déterminera l'équation de la parabole de foyer <m>F</m> et de droite directrice 
+    <m>c\vec{v}+\vecl{OA}</m>.  À Finir  (Tracer graphique, tester avec celle de l'exercice)
+    </p>
+    <sage>
+    <input>
+    </input>
+    </sage>
+    </statement>
+    <solution>
+    <listing>
+                   <caption>L'équation d'une parabole</caption>
+               <program language="sage">
+               <input>
+                def eqpara(v,A,F):
+                    var("x","y",domain="real")
+                    P=vector([x,y])
+                    AP=P-A
+                    PF=F-P
+                    return (expand(norm(PF)^2-norm(AP-AP*v/(v*v)*v)^2)==0)
+                </input>
+                   </program>
+                   </listing>
     </solution>
     </exercise>
     </exercisegroup>
