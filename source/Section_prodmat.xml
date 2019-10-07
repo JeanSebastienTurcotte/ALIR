@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Copyright (C) 2019  Jean-Sébastien Turcotte, Philémon Turcotte         -->
+<!-- Licence à venir                                                        -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-prodmat">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> La composition et le produit matriciel</title>
+    <introduction xml:id= "intro-prodmat">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+   <p> La composition de transformations linéaires est un procédé important et le produit matriciel qu'elle implique l'est encore plus. Dans cette section, on étudie la composition et le produit matriciel, les propriétés
+   de ces opérations et quelques applications.</p>
+    </introduction>
+    <subsection xml:id="prodmatdef">
+    <title>Le produit matriciel</title>
+    <p>Soit <m>A,B</m> deux matrices,  dont le format n'est pas spécifié pour le moment. Si <m>T_A,T_B</m> sont les transformations linéaires associées aux matrices, on s'intéresse à la transformation <m>(T_A\circ T_B)(\vec{u})=T_A(T_B(\vec{u}))</m>,
+    et aux conditions qui font que cette transformation est bien définie.</p>
+    <p>
+    Selon le théorème <xref ref="thm-transfocompo"/>, la composition est elle-même une transformation linéaire, en autant que l'image de <m>T_B</m> soit dans le domaine de <m>T_A</m>. Selon la sous-section <xref ref="sssec-transfomatrice"/>,
+    cette transformation devrait elle aussi avoir une matrice la représentant.</p>
+    
+    <p>On suppose que la matrice <m>B</m> contient <m>p</m> lignes et <m>n</m> colonnes. Puisque <m>(T_A\circ T_B)(\vec{u})=T_A(T_B(\vec{u}))=T_A(B\vec{u})=A(B\vec{u})</m>, on doit dans un premier temps avoir que <m>\vec{u}\in \R^n</m>,
+    et le résultat de <m>B\vec{u}</m> sera un vecteur de <m>\vec{v}\in\R^p</m>. Pour que la multiplication <m>A\vec{v}</m> soit compatible, il faut que la matrice <m>A</m> possède <m>p</m> colonnes. Le nombre de lignes de <m>A</m> ne
+    semble pas jouer un rôle autre que de donner la dimension du vecteur <m>A\vec{v}</m>, on suppose ainsi que <m>A\in\mathcal{M}_{m\times p}</m>.</p>
+    
+    <p>La composition de deux transformations linéaires <m>(T_A\circ T_B)\vec{u}=T_A(T_B(\vec{u}))</m> n'est donc définie que si le nombre de lignes de <m>B</m> correspond au nombre de colonnes de <m>A</m>. Si <m>A</m> possède
+    <m>m</m> lignes et <m>B</m> possède <m>n </m> colonnes, la transformation <m>(T_A\circ T_B)(\vec{u})</m> est une transformation linéaire de <m>\R^n</m> vers <m>\R^m</m> et il devrait donc exister une matrice dans <m>\mathcal{M}_{m\times n}</m> la
+    représentant.</p>
+    
+    <p>Comment déterminer la matrice de la composition? Il suffit de regarder où vont les vecteurs <m>\vec{e}_1=(1,0,\ldots,0),\ldots, \vec{e}_n(0,\ldots,0,1)</m>! Posons <m>\vec{b}_1,\vec{b}_2,\ldots ,\vec{b}_n</m> les colonnes de <m>B</m>. Alors on a
+    <md>
+    <mrow>(T_A\circ T_B)(\vec{e}_1) &amp;=T_A(T_B(\vec{e}_1))</mrow>
+    <mrow>&amp;=A(B\vec{e}_1)</mrow>
+    <mrow>&amp;=A(\vec{b}_1)</mrow>
+    </md>
+    et ainsi de suite jusqu'à 
+     <md>
+    <mrow>(T_A\circ T_B)(\vec{e}_n) &amp;=T_A(T_B(\vec{e}_n))</mrow>
+    <mrow>&amp;=A(B\vec{e}_n)</mrow>
+    <mrow>&amp;=A(\vec{b}_n)</mrow>
+    </md>.
+    </p>
+    <p> On obtient alors la définition suivante.
+    <definition xml:id="def-matmatprod">
+    <title>Le produit matriciel</title>
+    <p>Soit <m>A\in \mathcal{M}_{m\times p}</m> et <m>B\in\mathcal{M}_{p\times n}</m> deux matrices. La matrice de la compostion <m>(T_A\circ T_B)\vec{u}=T_A(T_B(\vec{u}))</m>, notée <m>AB</m>, est la matrice dont la colonne
+     <m>j</m> correspond au vecteur <m>A\vec{b}_j</m>, pour <m>j=1,2,\ldots, n</m>. On peut donc écrire
+     <men xml:id="eq-matmatproddef">
+     AB=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\vec{b}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}
+     </men>.</p>
+    </definition>
+    </p>
+    <p>
+    <example xml:id="ex-matmatprod1">
+    <title>Un produit de deux matrices</title>
+    <p>On poursuit l'exemple <xref ref="ex-transfocomp"/> et l'exercice <xref provisional="exo-transfocomp-RP"/> pour calculer les matrices des transformations <m>P\circ R_{\frac{\pi}{2}} </m>et <m>R_{\frac{\pi}{2}}\circ P</m>.</p>
+    <solution>
+    <p>Puisque
+    <me>
+    R_{\frac{\pi}{2}}=\begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}
+    </me>
+    et 
+    <me>
+    P=\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}
+    </me>,
+    (voir l'exemple <xref ref="ex-mattransfor2"/>) on a
+    <md>
+    <mrow>PR_{\frac{\pi}{2}}&amp;=\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}\begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}</mrow>
+<mrow>
+&amp;=\begin{pmatrix}
+\vert &amp; \vert \\
+\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}\vecd{0}{1} &amp; \begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}\vecd{-1}{0} \\
+\vert &amp; \vert
+\end{pmatrix}
+</mrow>
+<mrow>&amp;=\begin{pmatrix}
+1&amp;0\\
+0&amp;-1
+\end{pmatrix}</mrow>
+    </md>.
+    </p>
+    </solution>
+    <solution>
+    <p>Puisque
+    <me>
+    R_{\frac{\pi}{2}}=\begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}
+    </me>
+    et 
+    <me>
+    P=\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}
+    </me>,
+    (voir l'exemple <xref ref="ex-mattransfor2"/>) on a
+    <md>
+    <mrow>R_{\frac{\pi}{2}}P&amp;=\begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}</mrow>
+<mrow>
+&amp;=\begin{pmatrix}
+\vert &amp; \vert \\
+\begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}\vecd{0}{1} &amp; \begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}\vecd{1}{0} \\
+\vert &amp; \vert
+\end{pmatrix}
+</mrow>
+<mrow>&amp;=\begin{pmatrix}
+-1&amp;0\\
+0&amp;1
+\end{pmatrix}</mrow>
+    </md>.
+    </p>
+    </solution>
+    </example>
+    Cet exemple montre en particulier que la multiplication de matrice, contrairement à la multiplication de nombres réels, n'est pas commutative. On pouvait s'y attendre étant donnée la définition de la multiplication, il y a souvent
+    même des cas où <m>AB</m> est bien défini, mais pas <m>BA</m>. On étudie les propriétés de la multiplication et de la composition dans la sous-section <xref ref="sssec-prodmatprop"/>.
+    </p>
+    <p>On regarde maintenant un exemple dynamique, de nature géométrique.
+    <example xml:id='ex-prodmatgeo'>
+    <title>Le produit matriciel: dynamique</title>
+    <statement><p>
+    On considère deux transformations linéaires <m>T_1(x,y),T_2(x,y)</m> et la composition <m>T_1(T_2(x,y))</m>. Dans la figure ci-dessous, on illustre un vecteur <m>\vec{u}</m>, sa transformation
+    par <m>T_2</m> et par la composition <m>T_1\circ T_2</m>. Sans faire de calculs algébriques, quelle est la matrice <m>T_1</m>, sachant que toutes les entrées des matrices sont des entiers?
+    <figure xml:id='fig-prodmatgeo'>
+    <caption>Un facteur manquant dans la composition</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-prodmatgeo">
+        <slate aspect="1:1" source="code/geogebra/prodmatgeo.ggb"
+        surface="geogebra" xml:id="slate-prodmatgeo">
+            setCoordSystem(-7, 5,-5,5);
+            showResetIcon(true);
+          </slate>
+        <instructions>
+          <p>Déplacer le point <m>B</m> afin de voir l'effet de <m>T_2</m> et de <m>T_1(T_2(x,y))</m> sur le vecteur <m>\vec{u}</m>. Dans les champs de texte <m>a,b,c,d</m>, entrer les valeurs pour
+          <me>
+          T_1=\begin{pmatrix} a&amp;c\\ b&amp;d \end{pmatrix}
+          </me> et appuyer sur "Vérifier la réponse" pour valider. Si désiré, un nouveau problème peut être généré en cliquant sur "Nouveau problème".</p>
+        </instructions>
+        </interactive>
+    </figure>
+    </p></statement>
+    </example>
+    </p>
+    <p>
+    Le produit de deux matrices a été défini comme la composition de deux transformations linéaires, mais une autre approche offre une persecptive intéressante. Soit <m>\vec{u}_1,\vec{u}_2,\ldots \vec{u}_n</m> des vecteurs de
+    <m>\R^p</m> et soit <m>A</m> une transformation linéaire de <m>\R^p</m> vers <m>\R^m</m> (Combien de lignes et combien de colonnes <m>A</m> possède-t-elle?). Pour calculer l'image des vecteurs par <m>A</m>, on peut construire
+    une matrice <m>U</m> dont les colonnes sont les vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots \vec{u}_n</m>. Puisque le produit 
+    <me>
+    AU=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A\vec{u}_1 &amp; A\vec{u}_2 &amp;\cdots &amp; A\vec{u}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}
+    </me>,
+    chaque colonne du produit représente l'image d'un vecteur par la matrice <m>A</m>. On obtient donc une manière rapide de calculer l'effet d'une transformation linéaire sur plusieurs points.
+    </p>
+    
+    <p>Si la matrice <m>C</m> est le produit des matrices <m>A</m> et <m>B</m>, que vaut <m>c_{i,j}</m>, l'entrée de la ligne <m>i</m> et de la colonne <m>j</m> de la matrice <m>C</m>? La proposition suivante donne la réponse, 
+    procurant par le fait même une autre manière de calculer le produit de deux matrices.
+    <proposition xml:id="prop-matmatprod">
+    <title>Le produit matriciel, entrée par entrée</title>
+    <statement>Soit <m>A\in\mathcal{M}_{m\times p}, B\in\mathcal{M}_{p\times n}</m> et  <m>C=AB</m> le produit de deux matrices. Alors l'entrée de la ligne <m>i</m> et de la colonne <m>j</m> de la matrice <m>C</m> est donnée par
+    <men xml:id="eq-matmatprodentree">
+    c_{i,j}=\vec{a}_i\cdot\vec{b}_j
+    </men>
+    où <m>\vec{a}_i</m> est la <em>ligne </em>  <m> i</m> de la matrice <m>A</m> et <m>\vec{b}_j</m> est la <em>colonne </em> <m> j</m> de la matrice <m>B</m>. En plus visuel, on a
+  <figure xml:id="fig-matmatprodentree">
+  <caption>Le produit matriciel, entrée par entrée</caption>
+  <image source="code/LaTeX/fig-matmatprodentree.svg">
+    
+  <description>Le produit de deux matrices, avec la ligne i de la première matrice mise en évidence, tout comme la colonne j. Ensemble, le produit scalaire de ces vecteurs donne l'entrée i,j de la matrice produit.</description>
+  </image>
+  </figure>
+    </statement>
+    <proof>
+    <p>
+    Soit <m>c_{i,j}</m> une entrée de la matrice <m>AB</m>. Alors on a
+    <md>
+    <mrow>
+    c_{i,j}&amp;= \left(A\vec{b}_j\right)_i &amp; &amp;\text{ selon la définition } <xref ref="def-matmatprod"/>
+    </mrow>
+    <mrow>&amp;=\vec{a}_i\cdot \vec{b}_j &amp; &amp;\text{ selon l'exercice } <xref provisional="exo-matvecprodscal"/></mrow>
+    </md>
+    </p>
+    </proof>
+    </proposition>
+    </p>
+    <p>Dans l'exercice <xref ref="ex-transfor2"/>, on a définit la transformation identité, dont la matrice <m>I</m> (pour le cas <m>\R^2\to \R^2</m>) est donnée par l'équation <xref ref="eq-id2x2"/>. Le nom identité est choisi puisque toute 
+    matrice <m>A</m> multipliée par <m>I</m> donne <m>A</m>, que la multiplication soit faite à gauche ou à droite. Par exemple, pour la multiplication à droite, on a
+    <md>
+    <mrow>IA&amp;=\begin{pmatrix}1&amp;0\\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix}a &amp;c \\ b&amp; d \end{pmatrix}</mrow>
+    <mrow>&amp;\begin{pmatrix} 1*a+0*b &amp; 1*c+0*d \\ 0*a+1*b &amp; a*c+1*d \end{pmatrix} &amp; &amp; \text{ en utilisant  } <xref ref="eq-matmatprodentree"/></mrow>
+    <mrow>&amp;=\begin{pmatrix}a &amp;c \\ b&amp; d \end{pmatrix}</mrow>
+    </md>
+    Évidemment, si on réfléchit géométriquement, ceci devient évident (voir l'exercice <xref provisional="exo-prodid"/>). On définit maintenant la matrice identité pour les transformations <m>\R^n\to \R^n</m>.
+    <definition xml:id="def-matid">
+    <title>La matrice identité</title>
+    <p>Soit la matrice dont les entrées valent <m>1</m> si le numéro de la ligne correspond à celui de la colonne et <m>0</m> sinon. Ceci correspond à une transformation qui envoie les vecteurs
+    <m>(1,0,\ldots , 0),(0,1,0,\ldots , 0),\ldtos (0,\ldots ,0,1)</m> sur eux-mêmes et donc, la transformation qui ne fait rien. On apelle cette matrice l'identité et on la note <m>I_n</m>, ou tout simplement <m>I</m> lorsque
+    la dimension est évidente par le contexte ou simplement pas importante.</p>
+    </definition>
+    </p>
+    <p>On termine avec des commandes Sage en lien avec la sous-section.
+    <computation xml:id="sageex-prodmatdef">
+    <title>
+    Le produit matriciel sur Sage
+    </title>
+    <p>Si on a deux matrices <m>A,B</m> sur Sage, on peut facilement les multiplier en utilisant l'opération <c>*</c>. Il faut bien entendu que les dimensions soient compatibles. La deuxième cellulle produit volontairement une erreur.
+    <sage xml:id="sagecell-prodmatdef-">
+    <input>
+    A=column_matrix([[1,-3],[4,5]])
+    B=column_matrix([[0,-3],[2,1],[-1,3]])
+    show(A*B)
+    </input>
+    <input>
+    A=column_matrix([[1,-3],[4,5]])
+    B=column_matrix([[0,-3],[2,1],[-1,3]])
+    show(B*A)
+    </input>
+    </sage>
+    </p>
+    <p>
+    <!-- A cleaner
+    u=vector([sqrt(2)/2,sqrt(2)/2])
+v=vector([-sqrt(2)/2,sqrt(2)/2])
+A=matrix(RDF,[u,v])
+L = [[6*cos(pi*i/100)+5*cos((6/2)*pi*i/100),6*sin(pi*i/100)-5*sin((6/2)*pi*i/100)] for i in range(200)]
+ML=column_matrix(RDF,L)
+AML=A*ML
+#polygon(L)+polygon(A*ML,color="red")
+polygon(list(AML.column(i) for i in range(200)),color="red")+polygon(L)
+
+-->
+    </p>
+    </computation>
+    </p>
+     </subsection>
+     <subsection xml:id="sssec-prodmatprop">
+     
+     </subsection>
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-prodmat">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les points importants de cette section sont
+    <ul>
+    <li><p> La multiplication matricielle, par la <xref ref="def-matmatprod"> définition par ses colonnes</xref> ou <xref provisional="thm-matmatprod">entrée par entrée</xref>.</p></li>
+    <li><p>Le fait que la multiplication n'est pas commutative</p></li>
+    </ul> 
+    De plus avec Sage, on peut 
+    </p>
+    </conclusion>
+   <!--Inclure les exercices de la section ci-dessous--> 
+</section>
+<!--Exercice montrer que AI=A pour 2x2 (on a montré IA=A dans le texte) -->
+<!-- Exercice en référence à <xref ref="ex-prodmatgeo"/> où cette fois on connait T1 et on cherche T2. Demander en mot la différence et pourquoi c'est plus difficile -->
+
+

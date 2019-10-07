@@ -329,9 +329,10 @@
    La composition de deux transformations linéaires
     </title> 
     <statement>
-    <p>On considère la transformation linéaire qui, dans un premier temps effectue la rotation de <m>90^\circ</m> définie au point <xref ref="li-transfor2-rot90"/>
+    <p>On considère la transformation linéaire <m>T</m> qui, dans un premier temps effectue la rotation de <m>90^\circ</m> définie au point <xref ref="li-transfor2-rot90"/>
     de la liste <xref ref="liste-transfor2"/>, suivie de la permutation des composantes du vecteur donnée par la transformation du point <xref ref="li-transfor2-P"/>.
-    On cherche la fonction <m>T(x,y)=P\circ R_{\frac{\pi}{2}} (x,y)</m>.
+    On cherche la fonction <m>T(x,y)=P\circ R_{\frac{\pi}{2}} (x,y)</m>. <!-- Dans un exercice On cherche par la suite la transformation <m>S</m> qui, dans un premier temps permute les composantes du vecteur donné pour ensuite effectuer la 
+    rotation de <m>90^{\circ}</m>. -->
     </p>
     </statement>
     <solution>
@@ -342,7 +343,7 @@
     <mrow>&amp;=P(-y,x)  &amp;&amp; \text{selon la définition de } R_{\frac{\pi}{2}} \text{ au point } <xref ref="li-transfor2-rot90"/> </mrow>
     <mrow>&amp;=(x,-y)  &amp;&amp; \text{selon la définition de } P\text{ au point } <xref ref="li-transfor2-P"/></mrow>
     </md>.
-    La composition des deux transformations est donc une nouvelle transformation <m>T(x,-y)</m>. Concrètement, la transformation  correspond à la réflexion par 
+    La composition des deux transformations est donc une nouvelle transformation <m>T(x,y)=(x,-y)</m>. Concrètement, la transformation  correspond à la réflexion par 
     rapport à l'axe des abcisses, définie au point <xref ref="li-transfor2-refx"/>.
     </p>
     </solution>
@@ -439,7 +440,7 @@ A=\begin{pmatrix}
 </men>.
 
 De même, si <m>\vec{r}_1,\vec{r}_2,\ldots, \vec{r}_m</m> sont des vecteurs de <m>\R^n</m>, on note la matrice dont les lignes sont formées des vecteurs 
-<m>\vec{r}_1,\vec{r}_2,\ldots, \vec{r}_m</m> comme étant  </p>
+<m>\vec{r}_1,\vec{r}_2,\ldots, \vec{r}_m</m> comme étant  
 <me>
 \begin{pmatrix}
     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
@@ -447,7 +448,9 @@ De même, si <m>\vec{r}_1,\vec{r}_2,\ldots, \vec{r}_m</m> sont des vecteurs de <
     \vdots &amp; \vdots &amp; \vdots \\
      \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_m &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} 
 \end{pmatrix}
-</me>.
+</me>.</p>
+<p>L'ensemble de toutes les matrices de <m>m</m> lignes et <m>n</m> colonnes est notée <m>\mathcal{M}_{m\times n}</m>. Si <m>m=n</m>, la matrice est dite carrée et l'ensemble des matrices carrées de dimension <m>n</m>, aussi
+dites d'ordre <m>n</m>, est simplement notée <m>\mathcal{M}_n</m>.</p>
 </definition>
 <aside>
 <title>En passant</title>
@@ -745,8 +748,86 @@ Toute matrice correspond donc à une transformation linéaire.
  la transformation ou sa matrice associée.</p>
  </remark>
  </p>
-<!-- équivalence entre matrice et transfo -->
-<!-- remarque sur l'écriture T pour transfo et T pour matrice. Comme on a équivalence, on se permet -->
+<p>
+On termine avec des commandes Sage en lien avec la sous-section.
+<computation xml:id="sageex-transfomat">
+<title>Les matrices avec Sage</title>
+<p>Íl est possible de définir des matrices dans Sage avec la commande <c>matrix</c>. À noter toutefois que Sage a une préférence pour les lignes plutôt que les colonnes, et que si on veut
+définir la matrice selon ses colonnes, on doit utiliser la commande <c>column_matrix</c>.
+<sage xml:id="sagecell-transfomat-1">
+<input>
+u=vector([1,3])
+v=vector([2,5])
+A=matrix([u,v])
+B=column_matrix([u,v])
+show('A=',A)
+show('B=',B)
+</input>
+</sage>
+Il n'est pas nécessaire de définir au préalable les vecteurs. C'est par contre pratique dans le contexte des transformations linéaires où l'on définit les matrices en fonction des images des vecteurs
+<m>(1,0,\ldots,0),(0,1,0,\ldots , 0),\ldots (0,\ldots, 0,1)</m>. Si on choisit de ne pas mettre des vecteurs, il faut procéder avec une paire de crochets contenant les lignes ou colonnes, chacune elle-même
+dans une paire de crochet.
+<sage xml:id="sagecell-transfomat-2">
+<input>
+A=matrix([[1,3],[2,5]])
+B=column_matrix([[1,3],[2,5]])
+show('A=',A)
+show('B=',B)
+</input>
+</sage>
+</p>
+<p>
+On peut accéder aux différentes entrées d'une matrice à l'aide de la commande <c>A[i][j]</c>, qui retourne l'entrée sur la ligne <m>i+1</m> et la colonne <m>j+1</m>. (Il convient de rappeler ici <xref provisional="Les entrées commencent à 0"/>.)
+<sage xml:id="sagecell-transfomat-3">
+<input>
+show('A[0][0]=',A[0][0])
+show('A[1][0]=',A[1][0])
+show('A[0][1]=',A[0][1])
+show('A[1][1]=',A[1][1])
+</input>
+</sage></p>
+<p>Si on omet une paire de crochet, par exemple <m>A[i]</m> alors Sage retourne un vecteur contenant ligne <m>i+1</m>. Il est également possible d'obtenir cette ligne avec 
+la commande <m>A.row(i)</m>. Pour obtenir la colonne <m>j+1</m>, on devra utiliser la commande <c>A.column(j)</c>.
+<sage xml:id="sagecell-transfomat-4">
+<input>
+show('A[0]=',A[0])
+show('La deuxième ligne de A est ' A.row(1))
+show('La première colonne de A est ' A.column(0))
+</input>
+</sage>
+</p>
+<p>Avec une matrice et un vecteur, il est possible de faire la multiplication matrice vecteur, tel que définie à l'équation (<xref ref="eq-matvecprodgen" />), en autant que les dimensions soient compatibles.
+La deuxième cellule ci-dessous produit volontairement une erreur, car le vecteur ne peut être multiplié par la matrice <m>A</m>.
+<sage xml:id="sagecell-transfomat-5">
+<input>
+#Calcul direct de la multiplication
+show(A*u)
+#calcul "manuel" en prenant les combinaisons linéaires des colonnes de A
+show(u[0]*A.column(0)+u[1]*A.column(1))
+</input>
+<input>
+w=vector([1,3,-1])
+show('Aw='A*w)
+</input>
+</sage>
+</p>
+<p>Pour une matrice donnée, on peut déterminer la transformation linéaire associée en multipliant par le vecteur <m>(x_1,x_2,\ldots , x_n)</m> approprié.
+<sage xml:id="sagecell-transfomat-6">
+<input>
+var("x,y")
+show('T(x,y)=', A*vector([x,y]))
+</input>
+</sage>
+</p>
+<p>On peut aussi tracer graphiquement un graphique et sa transformation, à l'aide des commandes <c>plot</c>.
+<sage xml:id="sagecell-transfomat-7">
+<input>
+plot(u,color="blue")+plot(A*u,color="red")
+</input>
+</sage>
+</p>
+</computation>
+</p>
     </subsection>
     <conclusion xml:id="concl-transfodef">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont
@@ -756,10 +837,25 @@ Toute matrice correspond donc à une transformation linéaire.
     <li>Le fait que dans une matrice, les colonnes représentent l'image des vecteurs  <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>.</li>
     <li> L'équivalence entre une matrice et une transformation linéaire.</li>
     </ul> 
+    De plus avec Sage, on peut définir une matrice avec la commande <c>matrix</c>. Par défaut, Sage définit les matrices selon les lignes. La commande <c>column_matrix()</c> permet
+    de le faire selon les colonnes. Lorsque compatible, on peut multiplier une matrice par un vecteur avec l'opération <c>*</c>. On peut accéder aux lignes et colonnes d'une matrice avec les commandes
+    <c>A.row(i)</c> et <c>A.column(j)</c>.
     </p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
-   <!-- Exercice en référence à ex-transfocomp pour calculer P(R), pas commutatif -->
+   <!-- Exercice en référence à ex-transfocomp pour calculer R(P), pas commutatif  xml:id="exo-transfocomp-RP"
+   <solution>
+    <p>Soit <m>(x,y)</m> un vecteur de <m>\R^2</m>. On a
+    <md>
+    <mrow>S(x,y)&amp;=R_{\frac{\pi}{2}}\circ P (x,y)</mrow>
+    <mrow>&amp;=R_{\frac{\pi}{2}}(P(x,y))</mrow>
+    <mrow>&amp;=R_{\frac{\pi}{2}}(y,x)  &amp;&amp; \text{selon la définition de } P\text{ au point } <xref ref="li-transfor2-P"/> </mrow>
+    <mrow>&amp;=(-x,y)  &amp;&amp; \text{selon la définition de } R_{\frac{\pi}{2}} \text{ au point } <xref ref="li-transfor2-rot90"/></mrow>
+    </md>.
+    La composition des deux transformations est donc une nouvelle transformation <m>S(x,y)=(-x,y)</m>. Concrètement, la transformation  correspond à la réflexion par 
+    rapport à l'axe des ordonnées, voir l'exercice <xref provisional="exo-transfor2-refy"/>.</p></solution> -->
    <!-- exercice sur la somme de deux transformations -->
    <!-- unicité de la représentation d'une transfo par une matrice -->
+   <!-- Si Au=Bu pour tout les u, alors A=B -->
+   <!-- Exercice en lien avec l'équation  <xref ref="eq-matvecprodgen"/>, le produit matrice vecteur est aussi un vecteur ou chaque composante est un produit scalaire. -->
 </section>

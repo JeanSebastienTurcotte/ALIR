@@ -21,6 +21,7 @@
         -->
         <latex-preamble>
             <package>cancel</package>  <!-- à titre d'exemple -->
+            <package>[customcolors]{hf-tikz} </package>
         </latex-preamble>
         <!--
         Il es possible de définir ses propres macros qui seront ensuite utilisées dans le reste du texte. 
@@ -75,6 +76,30 @@ $\blacksquare$
 \newcommand{\cqfd}{\begin{flushright}
 $\Box$
 \end{flushright}}
+
+\tikzset{style green/.style={
+    set fill color=green!50!lime!60,
+    set border color=white,
+  },
+  style cyan/.style={
+    set fill color=cyan!90!blue!60,
+    set border color=white,
+  },
+  style orange/.style={
+    set fill color=orange!80!red!60,
+    set border color=white,
+  },
+  hor/.style={
+    above left offset={-0.15,0.31},
+    below right offset={0.15,-0.125},
+    #1
+  },
+  ver/.style={
+    above left offset={-0.1,0.3},
+    below right offset={0.15,-0.15},
+    #1
+  }
+}
         </macros>
         <!-- L'affichange par défaut des xréférence. Voir la section du sample article pour tester et décider sur une version finale         -->
         <cross-references text="global" />
@@ -90,6 +115,10 @@ $\Box$
                      axis y line = middle}
         \usepackage{mathrsfs}
         \usetikzlibrary{arrows}
+        \usetikzlibrary{matrix}
+        \usetikzlibrary{matrix.skeleton}
+        \usetikzlibrary{fit}
+        \usetikzlibrary{backgrounds}
         </latex-image-preamble>
         <!--
         The Sage Notebook has its own interface and worksheet list.
