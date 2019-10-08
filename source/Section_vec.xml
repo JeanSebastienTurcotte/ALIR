@@ -846,6 +846,113 @@ possédant une propriété commune. Un cercle, une ellipse, une parabole, etc. s
       <title>Le cercle, vu vectoriellement</title>
           <p>Il est possible de définir algébriquement un cercle de rayon <m>r</m> centré à l'origine par l'équation <me>x^2+y^2=r^2</me>. Plus généralement, un cercle centré au point <m>C(a,b)</m>, toujours de rayon <m>r</m> aura pour équation <me>(x-a)^2+(y-b)^2=r^2</me>.  On peut également caractériser un tel cercle vectoriellement. Un cercle constitue l'ensemble des points qui sont à une distance <m>r</m> d'un centre <m>C</m>. Vectoriellement, on peut traduire cette phrase par une équation avec la norme. Ainsi, un cercle centré en <m>C(a,b)</m> est formé de l'ensemble des points <m>P</m> pour lesquels <me>\norm{CP}=r</me>.</p>
       </example>
+      <p>On termine avec l'utilisation de Sage pour résoudre des problèmes géométriques.
+      <computation xml:id="sageex-utvec">
+      <title>Utilisation de Sage dans la résolution de problèmes de géométrie vectorielle</title>
+      <p>On considère le problème suivant: Soit <m>ABCD</m> un quadrilatère quelconque et <m>MNPQ</m> le quadrilatère obtenu en joignant les points milieux des segments de <m>ABCD</m>. Montrer que <m>MNPQ</m> est un 
+      parallélogramme.</p>
+      
+      <p>Afin de développer l'intuition nécessaire pour résoudre le problème, il est utile de dessiner certain cas pour voir comment procéder. À travers cet exemple, on explore la commande <c>polygon</c> qui permet de tracer
+       un polygone étant donner une liste de points ou de vecteurs.</p>
+       <p>Une première idée serait de vérifier l'énoncé pour un quadrilatère simple, comme un rectangle. On définit donc les points <m>A,B,C,D</m> et on calcule à partir de ceux-ci les points <m>M,N,P,Q</m>. Par la suite,
+       on trace les deux quadrilatères à l'aide de la commande <c>polygon</c>.
+       <sage xml:id="sagecell-utvec-1">
+       <input>
+       #Définition des points du quadrilatère ABCD
+       A=vector([0,0])
+       B=vector([3,0])
+       C=vector([3,2])
+       D=vector([0,2])
+       #Définition des points milieux
+       M=A+(B-A)/2
+       N=B+(C-B)/2
+       P=C+(D-C)/2
+       Q=D+(A-D)/2
+       #Illustration des polygones
+       polygon([A,B,C,D])+polygon([M,N,P,Q],color="red")
+       #À remarquer que l'ordre de l'addition des figures est important. Essayer la commande ci-dessous pour comparer en enlevant la marque de commentaire #
+       #polygon([M,N,P,Q],color="red")+polygon([A,B,C,D])
+       </input>
+       </sage></p>
+       <p>On essaie maintenant avec un quadrilatère moins régulier. Le code est le même, sauf pour la définition des points <m>A,B,C,D</m> initiaux.
+       <sage xml:id="sagecell-utvec-2">
+       <input>
+       #Définition des points du quadrilatère ABCD
+       A=vector([0,0])
+       B=vector([3,0])
+       C=vector([5,4])
+       D=vector([2,2])
+       #Définition des points milieux
+       M=A+(B-A)/2
+       N=B+(C-B)/2
+       P=C+(D-C)/2
+       Q=D+(A-D)/2
+       #Illustration des polygones
+       polygon([A,B,C,D])+polygon([M,N,P,Q],color="red")
+       </input>
+       </sage>
+       </p>
+       <p>A-t-on été chanceux avec ces exemples? Pour se convaincre que non, on propose de créer un quadrilatère aléatoire, 
+       qu'il sera  possible de tester autant de fois que souhaité. La commande <c>ZZ.random_element(a,b)</c> permet de générer un entier (<c>ZZ</c> dans Sage) dans l'intervalle <m>(a,b)</m>. À certaines exécution, le quadrilatère
+    sera dégénéré (un triangle ou même une ligne) ou encore il y a un croisement de deux de ses côtés (dans ce cas, le résultat pourrait être faux). Si cela se produit, ignorer et exécuter à nouveau la cellule. L'exercice 
+    <xref provisional="exercice sage assurer quadrilatère"/> s'intéresse à peaufiner le code afin que le quadrilatère formé soit toujours valide.
+    <sage xml:id="sagecell-utvec-3">
+       <input>
+#Définition des points du quadrilatère ABCD
+A=vector([ZZ.random_element(-8,8),ZZ.random_element(-8,8)])
+B=vector([ZZ.random_element(-8,8),ZZ.random_element(-8,8)])
+C=vector([ZZ.random_element(-8,8),ZZ.random_element(-8,8)])
+D=vector([ZZ.random_element(-8,8),ZZ.random_element(-8,8)])
+#Définition des points milieux
+M=A+(B-A)/2
+N=B+(C-B)/2
+P=C+(D-C)/2
+Q=D+(A-D)/2
+#Illustration des polygones
+polygon([A,B,C,D])+polygon([M,N,P,Q],color="red")
+       </input>
+       </sage>
+    </p>
+    <p>On est maintenant prêt à démontrer le résultat, s'appuyant sur l'intuition géométrique offerte par les graphiques Sage. On veut montrer que <m>\vecl{MN}=\vecl{QP}</m> et <m>\vecl{MQ}=\vecl{NP}</m>.
+    Puisque
+    <sidebyside widths="50% 50%" valigns="top middle">
+    <p>
+    <md>
+    <mrow>\vecl{OM}&amp;=\vecl{OA}+\frac{1}{2}\vecl{AB}=\frac{1}{2}(\vecl{OA}+\vecl{OB})</mrow>
+    <mrow>\vecl{ON}&amp;=\vecl{OB}+\frac{1}{2}\vecl{BC}=\frac{1}{2}(\vecl{OB}+\vecl{OC})</mrow>
+    </md></p>
+    <p>
+    <mdn >
+   <mrow xml:id="eq-vecMN" tag="star"> \vecl{MN}=\vecl{ON}-\vecl{OM}=\frac{1}{2}\vecl{AC}</mrow>
+    </mdn></p>
+    </sidebyside>
+    et 
+     <sidebyside widths="50% 50%" valigns="top middle">
+    <p>
+    <md>
+    <mrow>\vecl{OQ}&amp;=\vecl{OA}+\frac{1}{2}\vecl{AD}=\frac{1}{2}(\vecl{OA}+\vecl{OD})</mrow>
+    <mrow>\vecl{OP}&amp;=\vecl{OD}+\frac{1}{2}\vecl{DC}=\frac{1}{2}(\vecl{OD}+\vecl{OC})</mrow>
+    </md></p>
+    <p>
+    <mdn >
+    <mrow xml:id="eq-vecQP" tag="dstar">\vecl{QP}&amp;=\vecl{OP}-\vecl{OQ}=\frac{1}{2}\vecl{AC}</mrow>
+    </mdn></p>
+    </sidebyside>,
+   les vecteurs <m>\vecl{MN}</m> et <m>\vecl{QP}</m> sont égaux, car le côté droit des équations <xref ref="eq-vecMN"/> et <xref ref="eq-vecQP"/> sont égaux.</p>
+   
+   <p>
+   De même, en se servant des équations ci-dessus, on a
+   <mdn >
+   <mrow xml:id="eq-vecNP" tag="dagger">\vecl{NP}&amp;=\vecl{OP}-\vecl{ON}=\frac{1}{2}\vecl{BD}</mrow>
+   </mdn>
+   et 
+    <mdn >
+   <mrow xml:id="eq-vecMQ" tag="ddagger">\vecl{MQ}&amp;=\vecl{OQ}-\vecl{OM}=\frac{1}{2}\vecl{BD}</mrow>
+   </mdn>.
+   Puisque les côtés droits des équations <xref ref="eq-vecNP"/> et <xref ref="eq-vecMQ"/> sont égaux, les vecteurs <m>\vecl{NP}</m> et <m>\vecl{MQ}</m> sont égaux.
+   </p>
+      </computation>
+      </p>
     </subsection>
   <conclusion xml:id="concl-vec">
     <p>Les éléments importants de cette section sont:
