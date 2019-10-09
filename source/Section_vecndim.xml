@@ -17,7 +17,7 @@
     <me>
     a_1x_1+a_2x_2+\cdots +a_nx_n=b_1
     </me>,
-    appelées équations linéaires. Ces équations comportant un nombre <m>n</m> variables apparaissent dans plusieurs domaines. On a qu'à penser à la quantité sans cesse grandissante
+    appelées équations linéaires. Ces équations comportant <m>n</m> variables apparaissent dans plusieurs domaines. On n'a qu'à penser à la quantité sans cesse grandissante
     de données disponibles pour les compagnies, gouvernements, etc. Une approche vectorielle des problèmes liés à l'interprétation de ces données facilite grandement la chose,
     en particulier grâce à la puissance des ordinateurs d'aujourd'hui. Dans cette section, on généralise les concepts du présent chapitre afin de les étendre, lorsque possible
     à des vecteurs à <m>n</m> composantes.
@@ -43,7 +43,7 @@
     <p>
     Si deux points <m>A</m>  et <m>B</m> de <m>\R^n</m> sont donnés, il est possible de créer le vecteur <m>\vecl{AB}</m> les reliant à l'aide de l'équation vectorielle
     <me>
-    \vecl{AB}=\vec{OB}-\vecl{OA}=(b_1-a_1,b_2-a_1,\ldots , b_n-a_n)
+    \vecl{AB}=\vecl{OB}-\vecl{OA}=(b_1-a_1,b_2-a_1,\ldots , b_n-a_n)
     </me>.
     </p>
     <p>
@@ -51,14 +51,14 @@
     vectorielle composante par composante, de sorte que
     <md>
     <mrow> c\vec{u}&amp;=(cu_1,cu_2,\cdots , cu_n)</mrow>
-    <mrow>\vec{u}+\vec{v}&amp;(u_1+v_1,u_2+v_2,\cdots, u_n+v_n)</mrow>
+    <mrow>\vec{u}+\vec{v}&amp;=(u_1+v_1,u_2+v_2,\cdots, u_n+v_n)</mrow>
     </md>.
-    Les propriétés de la multiplication par un scalaire et de l'addition, en particulier celle données à l'exercice <xref ref="exo-propvec2"/> demeurent valide dans
+    Les propriétés de la multiplication par un scalaire et de l'addition, en particulier celles données à l'exercice <xref ref="exo-propvec2"/> demeurent valide dans
     <m>\R^n</m> puisqu'une simple adaption de la solution à l'exercice permettrait d'avoir l'équivalent dans <m>\R^n</m>.</p>
     <p>
     Même sans la géométrie, on garde la notion de vecteurs parallèles lorsque <m>\vec{v}=c\vec{u}</m>. Par convention, on considère toujours que le vecteur nul n'est parallèle à aucun vecteur.
     </p>
-    <p>Sage est capable de travailler avec les vecteurs de dimensions <m>n</m>, à l'aide des mêmes commandes algébriques que celles définies tout au long du chapitre.</p>
+    <p>Sage est capable de travailler avec les vecteurs de dimension <m>n</m>, à l'aide des mêmes commandes algébriques que celles définies tout au long du chapitre.</p>
     <computation xml:id="sageex-vecndim">
     <title>Les vecteurs de dimension supérieure avec Sage</title>
     <p>On peut définir des vecteurs à l'aide de la commande <c>vector</c>, les multiplier par un scalaire, les additionner, etc.</p>
@@ -83,17 +83,17 @@
     \vec{u}\cdot\vec{v}=u_1v_1+u_2v_2+\cdots+u_nv_n
     </men>.
     </p>
-    <p>On a également, à partir entre autre de la loi des cosinus, obtenu une formule pour l'angle entre deux vecteurs. La notion d'angle entre deux vecteurs de <m>\R^n</m> peut sembler
+    <p>On a également, à partir de la loi des cosinus, obtenu une formule pour l'angle entre deux vecteurs. La notion d'angle entre deux vecteurs de <m>\R^n</m> peut sembler
     inutile sans la géométrie pour l'appuyer, or le concept de vecteurs orthogonaux est primordial dans toutes les dimensions. Comme il est possible d'exprimer le cosinus de
-    l'angle entre deux vecteurs d'une manière purement algébrique, on définit pour tout vecteurs de <m>\R^n</m> l'unique valeur de <m>\theta\in [0,\pi]</m> telle que
+    l'angle entre deux vecteurs d'une manière purement algébrique, on définit pour tout vecteur de <m>\R^n</m> l'unique valeur de <m>\theta\in [0,\pi]</m> telle que
     <men xml:id="eq-anglevec">
     \cos(\theta)=\frac{\vec{u}\cdot\vec{v}}{\norm{\vec{u}}\norm{\vec{v}}}
     </men>.
     Deux vecteurs non nuls sont dits orthogonaux si cet angle vaut <m>\frac{\pi}{2}</m> ou <m>90^\circ</m>. Notons encore une fois que le vecteur nul n'est orthogonal à aucun
     vecteur.</p>
-    <p>Les propriétés du produit scalaire, notamment celle de la proposition <xref ref="prop-propprodscal"/>, sont aussi vraies et un coup d'oeil à la démonstration
-    permet de voir que nul part on a utilisé le fait que les vecteurs étaient dans <m>\R^2</m> ou <m>\R^3</m> spécifiquement, et qu'une généralisaton des démonstrations s'obtient
-    facilement en modifiant celle de la proposition. L'inégalité de Cauchy-Schwarz <xref ref="prop-ineqCS"/> est aussi valide dans <m>\R^n</m>.
+    <p>Les propriétés du produit scalaire, notamment celles de la proposition <xref ref="prop-propprodscal"/>, sont aussi vraies et un coup d'oeil à la démonstration
+    permet de voir que nulle part on a utilisé le fait que les vecteurs étaient dans <m>\R^2</m> ou <m>\R^3</m> spécifiquement, et qu'une généralisaton des démonstrations s'obtient
+    facilement en modifiant celles de la proposition. L'inégalité de Cauchy-Schwarz <xref ref="prop-ineqCS"/> est aussi valide dans <m>\R^n</m>.
     </p>
     <p>Finalement, la notion de projection orthogonale définie par l'équation <xref ref="eq-projortho"/> est aussi un concept qui se généralise, et comme deux vecteurs peuvent
     toujours être représentés dans un même plan, l'image est la même (figure <xref ref="fig-projortho"/>).
@@ -151,7 +151,7 @@
     Sans la géométrie, on se contente de définir certains termes analogues à ceux déjà définis et pour le reste, on y va d'une définition plus abstraite.
     </p>
     <p>
-    Soit <m>\vec{v}</m> un vecteur non nul et <m>A</m> un point de <m>R^n</m>. Le lieu des points <m>P</m> tels que
+    Soit <m>\vec{v}</m> un vecteur non nul et <m>A</m> un point de <m>\R^n</m>. Le lieu des points <m>P</m> tels que
     <me>
     \mathcal{D}: \vecl{OP}=c\vec{v}+\vecl{OA}
     </me>
@@ -162,15 +162,15 @@
     </me>
     est appelé un plan, de vecteurs directeurs <m>\vec{u},\vec{v}</m>.
     </p>
-    <p>Dans <m>\R^2</m>, une droite pouvait être caractérisée par une équation normale, de la forme <m>\vec{n}\vecl{AP}=0</m>. Cette
+    <p>Dans <m>\R^2</m>, une droite pouvait être caractérisée par une équation normale, de la forme <m>\vec{n}\cdot\vecl{AP}=0</m>. Cette
     même équation avec des vecteurs de <m>\R^3</m> représente un plan.
     </p>
     <p>Que représente-t-elle dans un espace de dimension <m>n</m>? En la développant, on obtient une équation de la forme
     <me>
-    a_1x_1+a_2x_2+\dots a_{n-1}x_{n-1}=d
+    a_1x_1+a_2x_2+\dots a_{n}x_{n}=d
     </me>,
     où <m>n=(a_1,a_2,\dots , a_n)</m> est appelé un vecteur normal. On définit le lieu des points satisfaisant une telle équation comme un hyperplan de <m>\R^n</m>.
-    On verra éventuellement que cet objet est composé de <m>n-1</m> dimensions et peut donc aussi être décrits à partir d'un ensemble de <m>n-1</m> vecteurs possédant 
+    On verra éventuellement que cet objet est composé de <m>n-1</m> dimensions et peut donc aussi être décrit à partir d'un ensemble de <m>n-1</m> vecteurs possédant 
     une propriété spécifique.
     </p>
     <p>De façon plus générale, on définit l'espace engendré par un ensemble de vecteurs.
@@ -178,7 +178,7 @@
     Soit <m>u_1,u_2,\ldots, u_n</m> un ensemble de vecteur. On définit l'espace engendré par ces vecteurs, noté <m>\vspan</m>, comme étant l'ensemble des combinaisons
     linéaires des vecteurs <m>u_1,u_2,\ldots u_n</m>:
     <me>
-    \vspan{u_1,u_2,\ldots, u_n}=\{a_1u_1+a_2u_2+\ldots +a_nu_n~|~ a_1,a_2,\ldots, a_n\in\R\}
+    \vspan(u_1,u_2,\ldots, u_n)=\{a_1u_1+a_2u_2+\ldots +a_nu_n~|~ a_1,a_2,\ldots, a_n\in\R\}
     </me>.
     </definition>
     À noter qu'on ne donne aucune condition sur les vecteurs engendrant l'espace. Certains pourraient être nuls, parallèles à d'autres vecteurs ou combinaison linéaire des autres 
@@ -213,12 +213,13 @@
     <conclusion xml:id="concl-vecndim">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les éléments importants de cette section sont:
     <ol>
-    <li><p>Les vecteurs à <m>n</m> dimensions se comporte essentiellement comme ceux à <m>2</m> ou <m>3</m> dimensions, en particulier au niveau des opérations. </p></li>
-   <li><p>Le <xref ref="eq-prodscal"> produit scalaire </xref> de deux vecteurs quelconque.</p></li> 
+    <li><p>Les vecteurs à <m>n</m> dimensions se comportent essentiellement comme ceux à <m>2</m> ou <m>3</m> dimensions, en particulier au niveau des opérations. </p></li>
+   <li><p>Le <xref ref="eq-prodscal"> produit scalaire </xref> de deux vecteurs quelconques.</p></li> 
    <li><p><xref ref="eq-anglevec">L'angle</xref> entre deux vecteurs, défini à partir du produit scalaire.</p></li>
    <li><p>La définition du <xref ref="def-span">span</xref>, l'espace engendré par les combinaisons linéaires de vecteurs.</p></li>
     </ol>
     </p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_vecndim.xml" />
 </section>

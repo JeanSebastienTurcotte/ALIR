@@ -14,9 +14,8 @@
     <p>On connait tous l'ensemble des nombres réels 
     <m>\R</m>, souvent illustré par une droite. Le plan cartésien devrait aussi être
     assez familier, puisque grandement utilisé dans le tracer de graphique des
-    cours de calculs. Même l'espace tridimensionnel s'imagine facilement avec les notions d'origine et d'axes similaires à celles du plan. Ces trois espaces sont 
-    illustrés  à la figure 
-    <xref ref="espaceseuclidiens" />. 
+    cours de calcul. Même l'espace tridimensionnel s'imagine facilement avec les notions d'origine et d'axes similaires à celles du plan. Ces trois espaces sont 
+    illustrés  à la figure <xref ref="espaceseuclidiens"/>. 
     </p>
     <figure xml:id="espaceseuclidiens">
          <caption>Les espaces <m>\R</m>,<m>\R^2</m> et <m>\R^3</m></caption>
@@ -81,13 +80,11 @@
       <statement><p>Intuitivement, un vecteur géométrique est une flèche
       possédant: 
       <ul>
-        <li>Une longueur, aussi appelée la norme du vecteur;</li>
-        <li>Une orientation. 
-        <fn>Certains auteurs vont plutôt définir la direction et le sens d'un vecteur. La direction correspond à la droite supportant 
+        <li>une longueur, aussi appelée la norme du vecteur;</li>
+        <li>une orientation,<fn>Certains auteurs vont plutôt définir la direction et le sens d'un vecteur. La direction correspond à la droite supportant 
         le vecteur et le sens au sens de parcours de cette droite.
-        </fn>L'orientation correspond
-        intuitivement à la droite obtenue lorsqu'on prolonge le vecteur à
-        l'infini, translatée à l'origine.</li>
+        </fn> qui correspond aux angles que fait le vecteur avec chacun des axes de coordonnées.
+        </li>
       </ul>
       </p>
       <p>Un vecteur sera souvent représenté par une lettre minuscule
@@ -128,10 +125,9 @@
     <m>Q</m> par 
     <m>\overrightarrow{PQ}</m>.</p>
     <p>Géométriquement, deux vecteurs sont égaux s'ils ont la même longueur et
-    la même orientation. L'image interactive de l'exemple 
-    <xref ref="ex-vecgeo" /> permet de manipuler en deux dimensions trois
+    la même orientation. L'image interactive de l'exemple <xref ref="ex-vecgeo"/> permet de manipuler en deux dimensions trois
     vecteurs, dont deux sont toujours égaux. L'exemple 
-    <xref ref="ex-vecgeo3d" /> quant à lui offre une introduction aux vecteurs
+    <xref ref="ex-vecgeo3d"/> quant à lui offre une introduction aux vecteurs
     en trois dimensions.</p>
     <example xml:id="ex-vecgeo">
       <title>Des vecteurs géométriques: dynamique</title>
@@ -181,7 +177,7 @@
         <instructions>
           <p>Il est possible de déplacer les points 
           <m>A,B</m> et 
-          <m>C</m> afin de changer les vecteurs. Pour se faire, maintenir la
+          <m>C</m> afin de changer les vecteurs. Pour ce faire, maintenir la
           souris au-dessus d'une lettre. Des flèches devraient apparaitre. Un
           clic simple sur la lettre permet de changer la direction du mouvement
           alors qu'un clic maintenu et un déplacement permettent de bouger la
@@ -192,7 +188,7 @@
     <p>Algébriquement maintenant, il est possible de décrire un vecteur à
     l'aide de composantes. Ces composantes font référence aux concepts
     d'origine et de base, qui seront définis dans la section 
-    <xref provisional="Section sur les bases" />. L'idée est d'associer à un
+    <xref provisional="Section sur les bases" text="title"/>. L'idée est d'associer à un
     vecteur 
     <m>\vec{u}</m> les nombres correspondants au point à son extrémité lorsque
     le vecteur est placé à l'origine. Ainsi, un vecteur de longueur 
@@ -214,9 +210,9 @@
     <m>\R^2</m>, alors 
     <m>\norm{\vec{u}}=\sqrt{u_1^2+u_2^2}</m>. C'est une conséquence immédiate
     du théorème de Pythagore, comme l'illustre la figure 
-    <xref ref="fig-unvec" />. Pour les vecteurs de 
-    <m>\R^3</m>, on peut montrer qu'une formule similaire s'applique (voir 
-    <xref provisional="exo-norm3" />
+    <xref ref="fig-unvec"/>. Pour les vecteurs de 
+    <m>\R^3</m>, on peut montrer qu'une formule similaire s'applique (voir exercice 
+    <xref ref="exo-norm3"/>
     <!--, text="type-global" /> -->), c'est-à-dire que 
     <m>\norm{\vec{u}}=\sqrt{u_1^2+u_2^2+u_3^2}</m>.</p>
     <p>Algébriquement, deux vecteurs sont égaux s'ils ont les mêmes
@@ -236,7 +232,7 @@
     faudra parfois ajuster selon le quadrant avec un terme <m>+\pi</m>. </p>
     <p>Pour les vecteurs dans 
     <m>\R^3</m>, on définit la notion de cosinus directeurs (voir l'exercice 
-    <xref provisional="exo-cosdir" />).</p>
+    <xref ref="exo-cosdir"/>).</p>
     <figure xml:id="fig-unvec">
       <caption>Un vecteur algébrique</caption>
       <image source="images/unvec.svg" width="80%">
@@ -345,7 +341,7 @@
       </sage>
       <p>On peut illustrer graphiquement des vecteurs à l'aide d'une commande 
       <c>plot</c>. Ici, remarquer l'utilisation des virgules pour une
-      définition simultanée de deux vecteurs. On utiliser aussi le fait que
+      définition simultanée de deux vecteurs. On utilise aussi le fait que
       pour Sage, les graphiques peuvent s'additionner afin d'afficher plusieurs
       graphiques en une seule sortie.</p>
       <sage xml:id="sagecell-defvec-4">
@@ -355,15 +351,14 @@
           </input>
         <output>plot(u,color="red")+plot(v,color="blue")</output>
       </sage>
-      <p>On remarque que les vecteurs sont par défaut tracé à l'origine, ce
-      qui est cohérent avec notre 
-      <xref ref="rem-vecloca" text="type-global" />. Si on veut faire commencer
+      <p>On remarque que les vecteurs sont par défaut tracés à l'origine, ce
+      qui est cohérent avec la remarque <xref ref="rem-vecloca"/>. Si on veut faire commencer
       le vecteur à un autre endroit, disons 
       <m>\vec{v}</m> qui commencerait à la fin de 
       <m>\vec{u}</m>, il est possible de le faire avec l'option 
       <c>start</c>. Cette option sera particulièrement pratique lors de
       l'addition de vecteur de la sous-section 
-      <xref ref="sssec-opvec" />.</p>
+      <xref ref="sssec-opvec" text="title"/>.</p>
       <sage xml:id="sagecell-defvec-5">
         <input>
         u,v=vector([1,1]),vector([-2,3])
@@ -396,7 +391,7 @@
   <m>\vec{u}</m> par 
   <m>c</m>. Intuitivement, on peut voir cette multiplication comme un étirement
   ou une compression du vecteur original. Il semble donc logique de vouloir que
-  son orientation soit inchangée. Quelle devrait-être sa longueur? À priori, on
+  son orientation soit inchangée. Quelle devrait être sa longueur? À priori, on
   est tenté de dire que la longueur devrait être 
   <m>c</m> fois la longueur de 
   <m>\vec{u}</m>, mais cela pose un problème si 
@@ -404,26 +399,25 @@
   <p>Avant d'aller plus loin, on essaie de donner un sens à la multiplication
   par un nombre négatif. Pour cela, on considère une valeur positive de 
   <m>c</m> et on la laisse s'approcher de 
-  <m>0</m>. L'activité 
-  <xref ref="ex-geomultscal" /> permet de voir ce concept.</p>
+  <m>0</m>. L'exemple <xref ref="ex-geomultscal" /> permet de voir ce concept.</p>
   <p>L'intuition semble dire que la multiplication par un nombre négatif
   renverserait l'orientation du vecteur afin de continuer le comportement.</p>
   <example xml:id="ex-geomultscal">
     <title>La multiplication par un scalaire: dynamique</title>
-    <p>Dans la figure, les vecteurs 
-    <m>\vec{u}</m> et 
-    <m>\vec{v}</m> sont donnés. Il est possible de changer les vecteurs en les
+    <p>Dans la figure, le vecteur <m>\vec{u}</m> est donné. Il est possible de changer le vecteur en le
     manipulant. En cliquant sur les différentes boites, on peut se donner
     l'intuition nécessaire pour la multiplication d'un vecteur par un nombre
     négatif.</p>
     <figure>
       <caption>La multiplication d'un vecteur géométrique par un
       scalaire</caption>
-      <interactive aspect="2:1" platform="geogebra" width="100%"
+      <interactive aspect="1:1" platform="geogebra" width="100%"
       xml:id="geog-multscal">
-        <slate aspect="2:1" source="code/geogebra/multscal.ggb"
-        surface="geogebra" xml:id="slate-multscal">setCoordSystem(-2, 4, -1,2);
-        showResetIcon(true);</slate>
+        <slate aspect="1:1" source="code/geogebra/multscal.ggb"
+        surface="geogebra" xml:id="slate-multscal">
+        setCoordSystem(-1, 2, -1,2);
+        showResetIcon(true);
+        </slate>
         <instructions>
           <p>Déplacer le vecteur 
           <m>\vec{u}</m>  et cliquer sur la boite pour faire
@@ -435,8 +429,7 @@
     </figure>
   </example>
   <p>En comparant une valeur positive et cette même valeur négative
-  dans l'activité 
-  <xref ref="ex-geomultscal" />, on constate que la longueur du
+  dans l'exemple <xref ref="ex-geomultscal" />, on constate que la longueur du
   vecteur reste la même. Cela nous amène donc à la définition suivante.</p>
   <definition xml:id="def-multscal">
     <title>Multiplication par un scalaire</title>
@@ -452,17 +445,20 @@
     de 
     <m>\vec{u}</m> par 
     <m>c</m>, notée simplement 
-    <m>c\vecl{u}</m>, comme étant le vecteur tel que</p>
+    <m>c\vec{u}</m>, comme étant le vecteur tel que :</p>
     <ul>
       <li>
         <p>
-          <m>\norm{c\vecl{u}}=\abs{c}\norm{\vec{u}}</m>
+          <m>\norm{c\vec{u}}=\abs{c}\norm{\vec{u}}</m>;
         </p>
       </li>
       <li>
-        <p>l'orientation de 
-        <m>c\vecl{u}</m> est la même que celle de 
-        <m>\vec{u}</m>.</p>
+        <p>l'orientation de <m>c\vec{u}</m> est :</p>
+        <ul>
+            <li><p>la même que celle de <m>\vec{u}</m> si <m>c>0</m>;</p></li>
+            <li><p>n'existe pas si <m>c=0</m>, car il devient le vecteur nul;</p></li>
+            <li><p>d'angles différents de <m>180^\circ</m> des angles de <m>\vec{u}</m> si <m>c&lt;0</m>.</p></li>
+        </ul>
       </li>
     </ul>
   </definition>
@@ -470,7 +466,7 @@
   <xref ref="rem-vecloca" />, on a défini la notion de vecteur unitaire comme
   étant un vecteur dont la norme vaut 
   <m>1</m>. Or si 
-  <m>\vec{v}</m> est un vecteur non nul quelconque, on peut facilement,à l'aide
+  <m>\vec{v}</m> est un vecteur non nul quelconque, on peut facilement, à l'aide
   de la multiplication par un scalaire, obtenir un vecteur unitaire noté 
   <m>\hat{v}</m>, ayant la même orientation que 
   <m>\vec{v}</m>. En effet, il suffit de trouver 
@@ -503,12 +499,12 @@
   <m>\vec{u}=(u_1,u_2)</m>, on peut montrer facilement que le vecteur 
   <m>c\vecl{u}=c(u_1,u_2)=(cu_1,cu_2)</m> satisfait la définition 
   <xref ref="def-multscal" />.</p>
-  <example xml:id="ex-multscal">
-    <title>La multiplication par un scalaire</title>
-    <p>On considère le vecteur 
+  <example xml:id="ex-unitarisevec">
+    <title>Unitariser un vecteur</title>
+    <statement><p>On considère le vecteur 
     <m>\vec{u}=(1,\sqrt{3})</m>. On cherche le vecteur unitaire 
-    <m>\hat{u}</m>.</p>
-    <p>On commence par calculer la norme du vecteur 
+    <m>\hat{u}</m>.</p></statement>
+    <solution><p>On commence par calculer la norme du vecteur 
     <m>\vec{u}</m>:</p>
     <md>
       <mrow>\norm{\vec{u}}&amp;=\sqrt{1^2+(\sqrt{3})^2}</mrow>
@@ -517,10 +513,10 @@
     </md>
     <p>On obtient le vecteur cherché en divisant 
     <m>\vec{u}</m> par deux: 
-    <m>\hat{u}=\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)</m>.</p>
+    <m>\hat{u}=\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)</m>.</p></solution>
   </example>
   <p>Le vecteur unitaire obtenu à l'exemple 
-  <xref ref="ex-multscal" /> peut sembler familier à ceux et celles qui
+  <xref ref="ex-unitarisevec" /> peut sembler familier à ceux et celles qui
   connaissent leur cercle trigonométrique. En effet, ce vecteur correspond au
   point du cercle lorsque l'angle au centre est de 
   <m>\frac{\pi}{3}</m>. Puisque dans 
@@ -554,8 +550,7 @@
   <p>Si on imagine à nouveau les vecteurs comme générant le mouvement, il est
   logique de vouloir combiner l'effet de deux ou plusieurs vecteurs, comme une
   suite de déplacements successifs. Géométriquement, cela revient à placer les
-  flèches les une à la suite des autres. L'activité 
-  <xref ref="ex-geoaddvec" /> permet de jouer avec ce concept.</p>
+  flèches les unes à la suite des autres. L'exemple <xref ref="ex-geoaddvec" /> permet de jouer avec ce concept.</p>
   <example xml:id="ex-geoaddvec">
     <title>L'addition de vecteurs: dynamique</title>
     <p>Dans la figure, les vecteurs 
@@ -565,13 +560,12 @@
     l'addition de deux vecteurs dans 
     <m>\R^2</m>.</p>
     <figure>
-      <caption>L'addition de deux vecteurs géométriques</caption>
-      <interactive aspect="1:1" platform="geogebra" width="100%"
-      xml:id="geog-addvec">
-        <slate aspect="1:1" source="code/geogebra/addvec.ggb"
-        surface="geogebra" xml:id="slate-addvec">
+      <caption>L'addition de deux vecteurs géométriques </caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%" xml:id="geog-addvec">
+        <slate aspect="1:1" source="code/geogebra/addvec.ggb" surface="geogebra" xml:id="slate-addvec">
         setCoordSystem(-1, 16, -1,6);
-        showResetIcon(true);</slate>
+        showResetIcon(true);
+        </slate>
         <instructions>
           <p>Déplacer les vecteurs 
           <m>\vec{u},\vec{v}</m> jusqu'à l'obtention d'une configuration
@@ -615,12 +609,12 @@
       <me>
       \vec{u}+\vec{v}=(u_1,u_2)+(v_1,v_2)=(u_1+u_2,v_1+v_2)
       </me>.
-      La notation verticale est particulièrement utile pour illustrer l'addition de vecteur algébrique:
+      La notation verticale est particulièrement utile pour illustrer l'addition de vecteurs algébriques:
           <me>
       \vec{u}+\vec{v}=\begin{pmatrix} u_1\\ u_2 \end{pmatrix}+\begin{pmatrix} v_1\\ v_2 \end{pmatrix}=\begin{pmatrix} u_1+v_1\\ u_2+v_2 \end{pmatrix}
       </me>.
       </p>
-      <p>La commutativité de l'addition vectorielle, de même que plusieurs autres propriétés (voir l'exercice <xref provisional="exo-propvec2"/>), se déduisent immédiatement des propriétés équivalentes pour l'addition de nombres réels. L'image interactive de l'exemple <xref ref="ex-geoaddvecasso"/> permet de visualiser géométriquement l'associativité de l'addition vectorielle. </p>
+      <p>La commutativité de l'addition vectorielle, de même que plusieurs autres propriétés (voir l'exercice <xref ref="exo-propvec2"/>), se déduisent immédiatement des propriétés équivalentes pour l'addition de nombres réels. L'image interactive de l'exemple <xref ref="ex-geoaddvecasso"/> permet de visualiser géométriquement l'associativité de l'addition vectorielle. </p>
       
       <example xml:id="ex-geoaddvecasso">
     <title>L'associativité de l'addition vectorielle: dynamique</title>
@@ -680,7 +674,7 @@
       <p>Regardons maintenant un exemple algébrique d'addition et de soustraction de vecteurs.</p>
       <example xml:id="ex-addsousvec">
           <title>Additions et soustractions de vecteurs</title>
-          <statement><p> Soit <m>\vec{u}=\begin{pmatrix} 4\\-3\\2\end{pmatrix}</m> et <m>\vec{u}=\begin{pmatrix}1\\ -2\\-1\end{pmatrix}</m> des vecteurs. On calcule <m>\vec{u}+\vec{v}</m> et <m>2\vec{u}-\vec{v}</m>.</p>
+          <statement><p> Soit <m>\vec{u}=\begin{pmatrix} 4\\-3\\2\end{pmatrix}</m> et <m>\vec{v}=\begin{pmatrix}1\\ -2\\-1\end{pmatrix}</m> des vecteurs. On calcule <m>\vec{u}+\vec{v}</m> et <m>2\vec{u}-\vec{v}</m>.</p>
          </statement>
          <solution><p> Il suffit de calculer directement en utilisant la multiplication par un scalaire et l'addition/soustraction composante par composante. Pour  <m>\vec{u}+\vec{v}</m>, on a
           <md>
@@ -777,25 +771,27 @@
         </figure>  
        </sidebyside>
       </insight>
-     <p>Les prochains exemples donnent quelques-unes des applications vectorielles à la géométrie. D'autres sont aussi donnés dans les exercices.</p>
+     <p>Les prochains exemples donnent quelques-unes des applications vectorielles à la géométrie. D'autres sont aussi données dans les exercices.</p>
       <example xml:id="ex-dist2p">
       <title>La distance entre deux points</title>
-          <p>Soit deux points <m>P</m> et <m>Q</m>. Comment calculer la distance entre ces deux points?</p>
+          <p>Soient deux points <m>P</m> et <m>Q</m>. Comment calculer la distance entre ces deux points?</p>
           
-          <p>En considérant le vecteur reliant <m>P</m> à <m>Q</m>, on constate que sa norme donne la distance entre les points. Ainsi
-          <me>d(P,Q)
-          =\norm{\vecl{PQ}}</me><fn>
-              <p> Dans le reste du texte, on utilise la notation <m>d(\text{objet}_1,\text{objet}_2)</m> pour dénoter la distance entre <m>\text{objet}_1</m> et <m>\text{objet}_2</m>. Ces objets peuvent être des points, des droites, des plans, etc. </p>
-          </fn>.
-          </p>
+          <p>En considérant le vecteur reliant <m>P</m> à <m>Q</m>, on constate que sa norme donne la distance entre les points.
+          <fn>
+              Dans le reste du texte, on utilise la notation <m>d(\text{objet}_1,\text{objet}_2)</m> pour dénoter la distance entre <m>\text{objet}_1</m> et <m>\text{objet}_2</m>. Ces objets peuvent être des points, des droites, des plans, etc.
+          </fn>
+          Ainsi,</p>
+          <p><me>d(P,Q)
+          =\norm{\vecl{PQ}}</me>.</p>
+          
           
           <p>En particulier, si <m>P(1,4)</m> et <m>Q(-2,2)</m>, la distance entre <m>P</m> et <m>Q</m> est 
               <md>
               <mrow> d(P,Q)&amp;=\norm{\vecl{PQ}}</mrow>
               <mrow>&amp;=\norm{\vecl{OQ}-\vecl{OP}}</mrow>
-              <mrow>&amp;=\norm{(1,4)-(-2,2)}</mrow>
-              <mrow>&amp;=\norm{(3,2)}</mrow>
-              <mrow>&amp;=\sqrt{3^2+2^2}</mrow>
+              <mrow>&amp;=\norm{(-2,2)-(1,4)}</mrow>
+              <mrow>&amp;=\norm{(-3,-2)}</mrow>
+              <mrow>&amp;=\sqrt{(-3)^2+(-2)^2}</mrow>
               <mrow>&amp;=\sqrt{13}</mrow>
               </md>
               </p>
@@ -807,17 +803,18 @@
       </insight>
       <example xml:id="ex-segpart">
       <title>Partage d'un segment</title>
+      <p>Soient <m>P(-1,3,-5)</m> et <m>Q(2,-3,4)</m>, deux points dans <m>\R^3</m>.</p>
       <p>On souhaite partager le segment <m>PQ</m> en deux parties congrues en trouvant le point milieu. Pour cela, il suffit de réaliser que le point <m>M</m> peut être obtenu à partir de <m>P</m> en lui ajoutant la moitié du vecteur <m>\vecl{PQ}</m>. Ainsi
           <md>
               <mrow>\vecl{OM}&amp;=\vecl{OP}+\frac{1}{2}\vecl{PQ}</mrow>
-              <mrow>&amp;\vecl{OP}+\frac{1}{2}(\vecl{OP}-\vec{OQ})</mrow>
+              <mrow>&amp;=\vecl{OP}+\frac{1}{2}(\vecl{OQ}-\vecl{OP})</mrow>
               <mrow>&amp;=(-1,3,-5)+\frac{1}{2}(3,-6,9)</mrow>   
               <mrow>&amp;=\left(\frac{1}{2},0,-\frac{1}{2}\right)</mrow>
                   </md>.
           </p>
           <p> En général, on peut toujours se rendre à un point <m>X</m> entre <m>P</m> et <m>Q</m>, située à <m>x\in [0,1]</m> fois la longueur  de <m>\vecl{PQ}</m> à l'aide de la formule
           <men xml:id="eq-propvec">
-          \vecl{OX} =\vecl{OP}+x\vec{PQ}   
+          \vecl{OX} =\vecl{OP}+x\vecl{PQ}   
           </men>.
           </p>
           <p> L'interaction ci-dessous permet de visualiser.</p>
@@ -844,7 +841,11 @@ possédant une propriété commune. Un cercle, une ellipse, une parabole, etc. s
       On peut aussi caractériser vectoriellement certains lieux géométriques.
       <example xml:id="ex-veccercle">
       <title>Le cercle, vu vectoriellement</title>
-          <p>Il est possible de définir algébriquement un cercle de rayon <m>r</m> centré à l'origine par l'équation <me>x^2+y^2=r^2</me>. Plus généralement, un cercle centré au point <m>C(a,b)</m>, toujours de rayon <m>r</m> aura pour équation <me>(x-a)^2+(y-b)^2=r^2</me>.  On peut également caractériser un tel cercle vectoriellement. Un cercle constitue l'ensemble des points qui sont à une distance <m>r</m> d'un centre <m>C</m>. Vectoriellement, on peut traduire cette phrase par une équation avec la norme. Ainsi, un cercle centré en <m>C(a,b)</m> est formé de l'ensemble des points <m>P</m> pour lesquels <me>\norm{CP}=r</me>.</p>
+          <p>Il est possible de définir algébriquement un cercle de rayon <m>r</m> centré à l'origine par l'équation <me>x^2+y^2=r^2</me>. 
+          Plus généralement, un cercle centré au point <m>C(a,b)</m>, toujours de rayon <m>r</m> aura pour équation <me>(x-a)^2+(y-b)^2=r^2</me>.  
+          On peut également caractériser un tel cercle vectoriellement. Un cercle constitue l'ensemble des points qui sont à une distance <m>r</m> d'un centre <m>C</m>. 
+          Vectoriellement, on peut traduire cette phrase par une équation avec la norme. 
+          Ainsi, un cercle centré en <m>C(a,b)</m> est formé de l'ensemble des points <m>P(x,y)</m> pour lesquels <me>\norm{\vecl{CP}}=r</me>.</p>
       </example>
       <p>On termine avec l'utilisation de Sage pour résoudre des problèmes géométriques.
       <computation xml:id="sageex-utvec">
@@ -964,12 +965,12 @@ polygon([A,B,C,D])+polygon([M,N,P,Q],color="red")
       </ul>
         De plus, avec Sage:
         <ul>
-        <li><p>Pour définir un vecteur, on utilise <c>vector([u1,u2])</c>, ou quelque chose de similaire pour <m>\R^3</m>. En particulier, le vecteur doit être mis entre une paire de crochet dans la commande <c>vector()</c>;</p></li>
+        <li><p>Pour définir un vecteur, on utilise <c>vector([u1,u2])</c>, ou quelque chose de similaire pour <m>\R^3</m>. En particulier, le vecteur doit être mis entre une paire de crochets dans la commande <c>vector()</c>;</p></li>
             <li><p>Il est possible de définir le point de départ du vecteur avec l'option <c>start</c> de la commande <c>vector([u1,u2],start=pointdedepart)</c>;</p></li>
            <li><p>Pour accéder aux composantes d'un vecteur, on utilise la notation crochet <c>u[k]</c>, en se rappelant que la première composante a comme indice 0.</p></li>
            <li><p>On peut calculer la norme d'un vecteur à l'aide de la commande <c>norm()</c>;</p></li>
             <li><p>On peut illustrer graphiquement un vecteur de dimensions <m>2</m> ou <m>3</m> avec une commande <c>plot()</c>.</p></li>
-        <li><p>Les opérations sur les vecteurs sur Sage se font de manières naturelles, en utilisant <c>+,-,*</c>.</p></li>
+        <li><p>Les opérations sur les vecteurs sur Sage se font de manière naturelle, en utilisant <c>+,-,*</c>.</p></li>
         </ul>
       </p>
   </conclusion>

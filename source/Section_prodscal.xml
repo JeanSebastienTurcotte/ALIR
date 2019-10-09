@@ -12,7 +12,7 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-prodscal">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Produit scalaire et calcul d'angles </title>
     <introduction xml:id= "intro-prodscal">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    <p>Dans la section <xref ref="sec-vec"/>, on a défini le concept d'angle polaire pour un vecteur de <m>\R^2</m> et plus généralement, le concept de cosinus directeurs. Pour l'angle polaire, on peut imagine que c'est l'angle que fait le vecteur <m>\vec{u}</m> avec tout vecteur de la forme <m>(x,0)</m> où <m>x>0</m>.</p>
+    <p>Dans la section <xref ref="sec-vec"/>, on a défini le concept d'angle polaire pour un vecteur de <m>\R^2</m> et plus généralement, le concept de cosinus directeurs. Pour l'angle polaire, on peut imaginer que c'est l'angle que fait le vecteur <m>\vec{u}</m> avec tout vecteur de la forme <m>(x,0)</m> où <m>x>0</m>.</p>
         
         <p>Dans cette section, on vise à définir le concept d'angle entre deux vecteurs quelconques dans <m>\R^2</m> et <m>\R^3</m>. Ceci nous mènera à la définition du produit scalaire, une opération vectorielle qui a de nombreuses applications.</p>
     </introduction>
@@ -20,9 +20,9 @@
     <!-- Sous-sections à écrire, à même ce fichier -->
     <subsection xml:id="sssec-angle2vec">
     <title> L'angle entre deux vecteurs de dimensions deux</title>
-        <p>Considérons deux vecteurs non nuls <m>\vec{u}</m> et <m>\vec{v}</m> de <m>\R^2</m> et dénotons par <m>\theta_{\vec{u}\vec{v}}</m> le plus petit angle entre ces vecteurs<fn>S'il n'y a pas d'ambiguité et que le contexte est clair, on laissera tomber l'indice <m>\vec{u}\vec{v}</m> au profit de seulement <m>\theta</m>.</fn>. On cherche à trouver un moyen de déterminer cet angle à partir des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. L'image interactive <xref ref="fig-angle2d"/> permet de manipuler des vecteurs et de découvrir l'intuition derrière la formule qui suivra.</p>
+        <p>Considérons deux vecteurs non nuls <m>\vec{u}</m> et <m>\vec{v}</m> de <m>\R^2</m> et dénotons par <m>\theta_{\vec{u}\vec{v}}</m> le plus petit angle entre ces vecteurs<fn>S'il n'y a pas d'ambiguïté et que le contexte est clair, on laissera tomber l'indice <m>\vec{u}\vec{v}</m> au profit de seulement <m>\theta</m>.</fn>. On cherche à trouver un moyen de déterminer cet angle à partir des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. L'image interactive <xref ref="fig-angle2d"/> permet de manipuler des vecteurs et de découvrir l'intuition derrière la formule qui suivra.</p>
         <example xml:id="ex-angle2d">
-    <title>L'angle entre deux vecteurs de de dimensions deux: dynamique</title>
+    <title>L'angle entre deux vecteurs de dimensions deux: dynamique</title>
             <p>L'angle entre deux vecteurs peut être obtenu à l'aide d'un résultat bien connu sur les triangles.</p>
     <figure xml:id="fig-angle2d">
       <caption>L'angle entre deux vecteurs</caption>
@@ -46,7 +46,7 @@
         <mrow>&amp;= \frac{u_1^2+u_2^2+v_1^2+v_2^2-(u_1^2-2u_1v_1+v_1^2)-(u_2^2-2u_2v_2+v_2^2)}{2\|\vec{u}\|\|\vec{v}\|}</mrow>
         <mrow number="yes" xml:id="eq-angle2vec"> \cos(\theta)&amp;=\frac{u_1v_1+u_2v_2}{\|\vec{u}\|\|\vec{v}\|}</mrow>
         </md>.</p>
-       <p>De cette équation, on peut tirer quelques remarques. On peut dans un premier temps vérifier que si <m>\vec{u}</m> et <m>\vec{v}</m> sont parallèles, alors l'angle <m>\theta</m> sera <m>0</m> ou <m>\pi</m> (<m>0</m> ou <m>180^\circ</m>). En effet, si <m>\vec{v}=k\vec{u}</m>, on a
+       <p>De cette équation, on peut tirer quelques remarques. On peut dans un premier temps vérifier que si <m>\vec{u}</m> et <m>\vec{v}</m> sont parallèles, alors l'angle <m>\theta</m> sera <m>0</m> ou <m>\pi</m> (<m>0^\circ</m> ou <m>180^\circ</m>). En effet, si <m>\vec{v}=k\vec{u}</m>, on a
         <md>
            <mrow>\cos(\theta)&amp;=\frac{u_1(k u_1)+u_2(ku_2)}{\|\vec{u}\|\|k\vec{u}\|}</mrow>
             <mrow>&amp;=\frac{ku_1^2+ku_2^2}{\abs{k}\|\vec{u}\|^2}</mrow>
@@ -64,21 +64,21 @@
             <mrow> \cos(\theta)&amp;=\frac{u_1v_1+u_2v_2}{\norm{u}\norm{v}}</mrow>
             <mrow> &amp;= \frac{1*(-3)+2*4}{\sqrt{1^2+2^2}\sqrt{(-3)^2+4^2}}</mrow>
             <mrow> &amp;= \frac{5}{\sqrt{5}\sqrt{25}}</mrow>
-            <mrow>  &amp; \frac{1}{\sqrt{5}}</mrow>
+            <mrow>  &amp;= \frac{1}{\sqrt{5}}</mrow>
             </md>.</p>
             <p>L'angle entre les vecteurs est donc <m>\theta=\arccos\pfrac{1}{\sqrt{5}}\approx 1.11</m> radians ou encore <m>63.43</m> degrés.</p>
         </example>
         <p>La situation dans <m>\R^3</m> est similaire. Puisque deux vecteurs non nuls peuvent toujours être vus comme étant sur un plan ou une droite (s'ils sont parallèles), un argument similaire permet d'obtenir l'équation suivante pour l'angle entre des vecteurs <m>\vec{u},\vec{v}\in\R^3</m>:
-        <me>
+        <men xml:id="eq-angle3vec">
         \cos(\theta)=\frac{u_1v_1+u_2v_2+u_3v_3}{\norm{\vec{u}}\norm{\vec{v}}}
-        </me>, voir l'exercice <xref provisional="loicospourR3"/>.
+        </men>, voir l'exercice <xref ref="exo-loicospourR3"/>.
         </p>
         
         <p>À voir ces deux équations, on peut remarquer que l'addition du produit des composantes correspondantes de deux vecteurs semble être une quantité importante. Elle sera définie dans la sous-section <xref ref="sssec-prodscal"/></p>
     </subsection>
     <subsection xml:id="sssec-prodscal">
     <title>Le produit scalaire</title>
-        Motivé par les calculs de la sous-section <xref ref="sssec-angle2vec"/>, on définit algébriquement le produit scalaire, pour ensuite regarder ses propriétés, autant algébriques que géométriques.
+        <p>Motivé par les calculs de la sous-section <xref ref="sssec-angle2vec"/>, on définit algébriquement le produit scalaire, pour ensuite regarder ses propriétés, autant algébriques que géométriques.</p>
         <definition xml:id="def-prodscal">
         <title> Le produit scalaire</title>
          <p>Soit <m>\vec{u},\vec{v}</m> deux vecteurs de <m>\R^2</m> ou <m>\R^3</m>. On définit le <emph> produit scalaire </emph> de ces vecteurs, noté <m>\vec{u}\cdot \vec{v}</m>, comme étant la somme du produit des composantes correspondantes, c'est-à-dire 
@@ -151,7 +151,7 @@
                     <mrow>  &amp;= u_1v_1+u_2v_2+u_1w_1+u_2w_2</mrow>
                     <mrow> &amp;= \pscal{u}{v}+\pscal{u}{w}</mrow>
                 </md>.
-                    Une démonstration géométrique sera donné à l'exercice <xref provisional="preuvegeo distributivité du prodscal"/>
+                    Une démonstration géométrique sera donnée à l'exercice <xref ref="exo-preuvegeodistriprodscal"/>
                 </p>
                 <p>Finalement, autant géométriquement qu'algébriquement, la démonstration de la dernière propriété est simple. Par exemple, avec l'équation <xref ref="eq-prodscalgeo"/>, on a 
                 <md>
@@ -167,20 +167,20 @@
         </aside>
         <example xml:id="ex-diaglos">
         <title>Les diagonales d'un losange</title>
-            <p>On sait que deux vecteurs non parallèles engendrent un parallélogramme. Dans l'exercice <xref provisional="exo-diagpara"/>, on peut montrer que les diagonales se coupent en leur milieu. Lorsque les deux vecteurs ont la même longueur, on obtient en fait un losange. On montre algébriquement que les diagonales d'un losange se coupent à angle droit. La figure interactive <xref ref="fig-diaglos"/> permet de manipuler un losange et servira de support pour la preuve qui suit.</p>
+            <p>On sait que deux vecteurs non parallèles engendrent un parallélogramme. Dans l'exercice <xref ref="exo-diagpara"/>, on peut montrer que les diagonales se coupent en leur milieu. Lorsque les deux vecteurs ont la même longueur, on obtient en fait un losange. On montre algébriquement que les diagonales d'un losange se coupent à angle droit. La figure interactive <xref ref="fig-diaglos"/> permet de manipuler un losange et servira de support pour la preuve qui suit.</p>
             <figure xml:id="fig-diaglos">
              <caption> Les diagonales d'un losange</caption>
                 <interactive aspect="1:1" platform="geogebra" width="100%" xml:id="geog-diaglos">
                 <slate aspect="1:1" source="code/geogebra/diaglos.ggb" surface="geogebra" xml:id="slate-diaglos">
-                    setCoordSystem(-2, 2,-2,2,);
+                    setCoordSystem(-1, 3,-1,3,);
                     showResetIcon(true);
                     </slate>
                     <intructions>
-                    <p> Déplacer les vecteur afin de modifier le losange. On peut également modifier la longueur des vecteurs.</p>
+                    <p> Déplacer les vecteurs afin de modifier le losange. On peut également modifier la longueur des vecteurs.</p>
                     </intructions>
                 </interactive>
             </figure>
-            Pour commencer, il est utile de se fixer un repère. En cliquant sur la case "repère", on choisit de fixer l'origine à l'un des quatre sommets du losange et de nommer les autres sommets <m>A,B</m> et <m>C</m>. On veut montrer que <m>\vecl{OC}</m> est perpendiculaire à <m>\vecl{BA}</m> ou, de manière équivalente, que <m>\pscal{OC}{BA}=0</m>. On a comme hypothèse que <m>\|\vecl{OA}\|=\|\vecl{OB}\|</m> et donc qu'en fait les quatres côtés sont égaux. En réécrivant les diagonales comme étant respectivement la somme et la différence des vecteurs <m>\vecl{OA},\vecl{OB}</m>, on a
+            Pour commencer, il est utile de se fixer un repère. En cliquant sur la case "repère", on choisit de fixer l'origine à l'un des quatre sommets du losange et de nommer les autres sommets <m>A,B</m> et <m>C</m>. On veut montrer que <m>\vecl{OC}</m> est perpendiculaire à <m>\vecl{BA}</m> ou, de manière équivalente, que <m>\pscal{OC}{BA}=0</m>. On a comme hypothèse que <m>\|\vecl{OA}\|=\|\vecl{OB}\|</m> et donc qu'en fait les quatre côtés sont égaux. En réécrivant les diagonales comme étant respectivement la somme et la différence des vecteurs <m>\vecl{OA},\vecl{OB}</m>, on a
             <md>
             <mrow>\pscal{OC}{BA}&amp;=(\vecl{OA}+\vecl{AC})\cdot(\vecl{OA}-\vecl{OB})&amp;&amp;</mrow>
                 <mrow>&amp;=(\vecl{OA}+\vecl{OB})\cdot(\vecl{OA}-\vecl{OB})&amp;&amp; \text{ car  } \vecl{AC}=\vecl{OB}</mrow>
@@ -189,9 +189,9 @@
                 <mrow>&amp;=\norm{\vecl{OA}}^2-\norm{\vecl{OA}}^2 &amp;&amp; \text{ hypothèse }</mrow>
                 <mrow>&amp;=0&amp;&amp;</mrow>.
             </md>
-            Ainsi, les diagonales sont perpendiculaires car le produit scalaire donne <m>0</m>.
+            Ainsi, les diagonales sont perpendiculaires, car le produit scalaire donne <m>0</m>.
         </example>
-        <p>Dans l'exerice <xref provisional="normsommecarree"/>, on montre que similairement à la somme de nombres réels, le carré de la norme d'une somme introduit un facteur croisé dans la réponse: 
+        <p>Dans l'exercice <xref provisional="normsommecarree"/>, on montre que similairement à la somme de nombres réels, le carré de la norme d'une somme introduit un facteur croisé dans la réponse: 
         <me>
         \norm{\vec{u}+\vec{v}}^2=\norm{\vec{u}}^2+2\pscal{u}{v}+\norm{\vec{v}}^2
         </me>.
@@ -217,7 +217,7 @@
                 </p>
             </proof>
             <proof>
-            <p>Une autre manière est de procéder avec une combinaison d'arguments géométriques et algébriques. Dans un temps, remarquons que si l'un des vecteurs est <m>0</m>, alors l'inégalité est vraie car <m>\pscal{u}{v}=0</m> et <m>\norm{\vec{u}}\norm{\vec{v}}=0</m>. 
+            <p>Une autre manière est de procéder avec une combinaison d'arguments géométriques et algébriques. Dans un temps, remarquons que si l'un des vecteurs est <m>0</m>, alors l'inégalité est vraie, car <m>\pscal{u}{v}=0</m> et <m>\norm{\vec{u}}\norm{\vec{v}}=0</m>. 
                 </p>
                 <p>On suppose donc que les vecteurs sont non nuls. En ayant en tête l'image du parallélogramme engendré par les vecteurs et ses diagonales, reproduite à la figure <xref ref="vecparallelo"/>, on constate que </p>
                 
@@ -228,7 +228,7 @@
                     </image>
                 </figure>
                 <p>
-                    Regardons ce qui se passe das un premier temps avec les vecteurs unitaires <m>\hat{u}=\frac{\vec{u}}{\norm{\vec{u}}}</m> et <m>\hat{v}=\frac{\vec{v}}{\norm{\vec{v}}}</m>. On s'intéresse au longueur des diagonales du parallélogramme engendré par ces vecteurs unitaires. On a 
+                    Regardons ce qui se passe das un premier temps avec les vecteurs unitaires <m>\hat{u}=\frac{\vec{u}}{\norm{\vec{u}}}</m> et <m>\hat{v}=\frac{\vec{v}}{\norm{\vec{v}}}</m>. On s'intéresse aux longueurs des diagonales du parallélogramme engendré par ces vecteurs unitaires. On a 
                     <md>
                     <mrow>\|\hat{u}+\hat{v}\|^2&amp;=\|\hat{u}\|^2+2\hat{u}\cdot\hat{v}+\|\hat{v}\|^2 &amp;&amp; \text{ voir } <xref provisional="normsommecarree"/> </mrow>
                         <mrow>\|\hat{u}-\hat{v}\|^2&amp;=\|\hat{u}\|^2-2\hat{u}\cdot\hat{v}+\|\hat{v}\|^2 &amp;&amp;  </mrow>
@@ -257,7 +257,7 @@
             </proof>
             <proof><p>Voir l'exercice <xref provisional="exo-ineqCSpara"/> pour une preuve utilisant les zéros d'une parabole.</p></proof>
         </proposition>
-        <p> Le produit scalaire est utilisé dans beaucoup de domaines et contextes différents. En physique, il permet de calculer le travail effectuée par une force. Dans un contexte administratif, par exemple une école, le produit scalaire peut être utilisé pour calculer la note d'un étudiant à un cours. Si ses résultats aux évaluations sont par exemple de <m>R=(80,75,85)</m> et que la pondération des évaluations est <m>P=(0.3,0.3,0.4)</m>, alors la note de l'étudiant sera <m>80*0.3+75*0.3+85*0.4=80.5</m>, qui n'est rien d'autre que le produit scalaire entre <m>R</m> et <m>P</m>.</p>
+        <p> Le produit scalaire est utilisé dans beaucoup de domaines et contextes différents. En physique, il permet de calculer le travail effectué par une force. Dans un contexte administratif, par exemple une école, le produit scalaire peut être utilisé pour calculer la note d'un étudiant à un cours. Si ses résultats aux évaluations sont par exemple de <m>R=(80,75,85)</m> et que la pondération des évaluations est <m>P=(0.3,0.3,0.4)</m>, alors la note de l'étudiant sera <m>80*0.3+75*0.3+85*0.4=80.5</m>, qui n'est rien d'autre que le produit scalaire entre <m>R</m> et <m>P</m>.</p>
         
         <p>Une fois qu'on comprend que le produit scalaire n'est qu'une somme de produits, les possibilités sont illimitées.</p>
         
@@ -389,3 +389,4 @@
    <!--Inclure les exercices de la section ci-dessous--> 
    <xi:include href="Exercices_prodscal.xml" />
 </section>
+

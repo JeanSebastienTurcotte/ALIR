@@ -10,6 +10,7 @@
 <exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-prodscal">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>
     <!-- Preuve inégalité de CS par les paraboles, avec l'équation ||u+xv||^2 et l'exercice normsommecarree xml:id="exo-ineqCSpara" --> <!-- Voir vidéo mathemaTIC au besoin -->
+    <!--
     <exercise xml:id="exo-">
             <statement>
                 La question.
@@ -24,6 +25,7 @@
                 La solution suivra.
             </solution>
     </exercise>
+    -->
     <exercise xml:id="exo-prodscal-drill">
             <statement>
                 <p>Pour chacunes des paires de vecteurs suivantes, calculer le produit scalaire ainsi que l'angle entre les vecteurs.</p>
@@ -112,6 +114,43 @@
                 La solution suivra.
             </solution>
     </exercise>
+    <exercise xml:id="exo-loicospourR3">
+            <statement>
+                <p>Soient <m>\vec{u}=(u_1,u_2,u_3)</m> et <m>\vec{v}=(v_1,v_2,v_3)\in\R^3</m>. 
+                Utiliser la loi des cosinus afin de démontrer l'équation <xref ref="eq-angle3vec"/>.
+                Il faudra exprimer la loi en termes des normes des vecteurs <m>\vec{u}</m>, <m>\vec{v}</m> et du vecteur <m>\vec{w}=\vec{u}-\vec{v}</m> avec <m>\theta</m> représentant l'angle entre les deux vecteurs.</p>
+            </statement>
+            <answer>
+                La réponse suivra.
+            </answer>
+            <solution>
+                La solution suivra.
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-preuvegeodistriprodscal">
+            <statement>
+                <p>Démontrer la propriété <xref ref="li-propprodscal-dist" /> (distributivité du produit scalaire) en utilisant la définition géométrique du produit scalaire <xref ref="eq-prodscalgeo"/>.
+                Utiliser les symboles fournis par le dessin pour les angles entre les différents vecteurs. </p>
+                <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-preuvegeodistriprodscal" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="geo-exo-preuvegeodistriprodscal1" surface="geogebra" source="code/geogebra/exo-preuvegeodistriprodscal.ggb" aspect="1:1">
+                            setCoordSystem(-1, 3, -1, 3);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Utiliser cette figure pour bien visualiser les vecteurs impliqués. Remarquer que les longueurs en bleu, orange et vert correspondent aux cathètes de triangles rectangles.
+                        </instructions>
+                    </interactive>
+                </figure>
+            </statement>
+            <answer>
+                La réponse suivra.
+            </answer>
+            <solution>
+                La solution suivra.
+            </solution>
+    </exercise>
     <exercise xml:id="exo-normeaddvec">
             <statement>
                 <p>Soient deux vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. Démontrer algébriquement les deux énoncés suivants en vous servant des propriétés de
@@ -162,7 +201,7 @@
                 <figure>
                     <caption> </caption>
                     <interactive xml:id="geo-exo-tetra" platform="geogebra" width="100%" aspect="1:1">
-                        <slate xml:id="slate-geo-exo-tetra" surface="geogebra" source="code/geogebra/exo-tetra.ggb" aspect="1:1">
+                        <slate xml:id="geo-exo-tetra1" surface="geogebra" source="code/geogebra/exo-tetra.ggb" aspect="1:1">
                             setCoordSystem(-3, 3, -3, 3);
                              showResetIcon(true);
                         </slate>
@@ -186,7 +225,7 @@
             <statement>
                 <p>L'orientation d'un vecteur de <m>\R^2</m> est complètement déterminée par l'angle que fait le vecteur avec l'horizontale. Dans <m>\R^3</m>, un angle
                 ne suffit plus. Il est toutefois possible de caractériser l'orientation à l'aide de trois angles. Soit  <m>\vec{u}</m> un vecteur non nul. On note <m>\alpha</m>
-                 l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des abscisses, <m>\beta</m> l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des ordonnées et <m>\gamma</m>
+                 l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des abscisses, <m>\beta</m> l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des ordonnées et <m>\phi</m>
                  l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des cotes (<m>z</m>).</p>
                  <figure>
                     <caption> </caption>
@@ -202,9 +241,9 @@
                 </figure>  
                  <p>Démontrer les affirmations suivantes:
                  <ol>
-                 <li><p>Le vecteur <m>\vec{u}\in \R^3</m> s'écrit comme <m>\vec{u}=\norm{\vec{u}}(\cos(\alpha),\cos(\beta),\cos(\gamma))</m>. On appelle le triplet
-                 <m>(\cos(\alpha),\cos(\beta),\cos(\gamma))</m> les cosinus directeurs du vecteur <m>\vec{u}</m>.</p></li>
-                 <li><p><m>\cos^2(\alpha)+\cos^2(\beta)+\cos^2(\gamma)=1</m> </p></li>
+                 <li><p>Le vecteur <m>\vec{u}\in \R^3</m> s'écrit comme <m>\vec{u}=\norm{\vec{u}}(\cos(\alpha),\cos(\beta),\cos(\phi))</m>. On appelle le triplet
+                 <m>(\cos(\alpha),\cos(\beta),\cos(\phi))</m> les cosinus directeurs du vecteur <m>\vec{u}</m>.</p></li>
+                 <li><p><m>\cos^2(\alpha)+\cos^2(\beta)+\cos^2(\phi)=1</m> </p></li>
                  <li><p> Dans <m>\R^2</m>, la notion de cosinus directeur existe aussi et un vecteur <m>\vec{v}\in\R^2</m> s'écrit aussi <m>\vec{v}=\norm{\vec{v}}(\cos(\theta),\cos(\alpha))</m>.</p></li>
                  <li><p>Montrer qu'un vecteur non nul de <m>\R^3</m> peut aussi être entièrement déterminé  à l'aide de deux angles, <m>\theta </m>  et <m>\phi</m> et sa longueur. (Remarquer le
                  parallèle avec <m>\R^2</m> où seul <m>\theta</m> était nécessaire dans la forme polaire.)</p></li>
@@ -280,7 +319,7 @@
                 <m>\vec{a}</m> qui agit sur un mobile pour lui occasionner son changement de direction. Dans un mouvement circulaire, ce vecteur accélération est constant.
                 Dans la figure ci-dessous, on observe qu'il est possible de décomposer le vecteur <m>\vec{a}</m> en sa composante radiale (<m>\vec{a}_r</m>)
                 et sa composante tangentielle (<m>\vec{a}_t</m>). Cette dernière est calculable en faisant la projection de <m>\vec{a}</m> sur <m>\vec{v}</m> et les deux composantes sont perpendiculaires.</p>
-                <p>En utilisant cela et la définition de la projection orthogonale (<xref ref="eq-projortho"/>), déterminer l'accélération tangentielle et l'accélération
+                <p>En utilisant cela et la définition de la projection orthogonale <xref ref="eq-projortho"/>, déterminer l'accélération tangentielle et l'accélération
                 radiale d'une particule en mouvement, au moment où sa vitesse est donnée par le vecteur <m>\vec{v}=(1,2,-2)</m> et son accélération est <m>\vec{a}=(3,2,4)</m>.</p>
                 <figure>
                     <caption> </caption>
