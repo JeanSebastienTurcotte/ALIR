@@ -17,7 +17,7 @@
     souvent représentées graphiquement, comme à la figure suivante.
     <figure xml:id="fig-unefonction">
     <caption>La fonction <m>y=x^2+1</m></caption>
-    <image>
+    <image xml:id="sageplot-unefonction">
     <sageplot>
     plot(x^2+1,(x,-5,5))
     </sageplot>
@@ -60,11 +60,12 @@
     <li><p>La fonction <m>T(x,y)=(x^2,y-xy)</m> est une fonction de <m>\R^2</m> vers <m>\R^2</m>.</p></li>
     <li xml:id="li-transfolin"><p> La fonction <m>T(x,y)=(x-y,x+y)</m> est une fonction de <m>\R^2</m> vers <m>\R^2</m>.</p></li>
     <li><p>La fonction <m>T(x,y,z)=(\sin(x),\ln(y),z^2-x,4)</m> est une fonction de <m>\R^3</m> vers <m>\R^4</m>.</p></li>
+    <li xml:id="li-translation"><p> La translation de <m>\vec{w}</m>, qui transforme tout vecteur <m>\vec{u}</m> par <m>T(\vec{u})=\vec{u}+\vec{w}</m>.</p></li>
     </ol></list>
     </p>
     </example>
     </p>
-    <p>Une étude exhaustive de toutes les fonctions seraient beaucoup trop technique et difficile. On se restreint donc à un type particulier de fonction, dites linéaires.
+    <p>Une étude exhaustive de toutes les fonctions seraient beaucoup trop technique et difficile. On se restreint donc à un type particulier de fonction, dites linéaires, exception faite pour la transformation <xref ref="li-translation">translation</xref>.
     Pour l'instant, la motivation derrière ce choix sera surtout de nature géométrique. <!-- ToDo: faire un ref sur l'importance des transf lin générale, polynome derivée etc. -->
     Il est assez difficile de représenter une fonction vectorielle, principalement dû à la dimension des vecteurs. Pour illustrer une fonction comme la fonction <m>T_3(x,y)</m>
     de l'exemple <xef ref="ex-transfquelc"/>, il faut deux dimensions pour le domaine et deux pour l'image. On s'en sauve en utilisant deux copies de <m>\R^2</m> comme 
@@ -214,7 +215,10 @@
     </p>
     </solution>
     <solution>
-    <p>Finalement, la transformation  <m>T(x,y,z)=(\sin(x),\ln(y),z^2-x,4)</m> n'est pas linéaire. Encore une fois, on voit que le vecteur <m>(0,0,0)</m> n'est pas envoyé sur le vecteur <m>(0,0,0,0)</m>. </p>
+    <p>La transformation  <m>T(x,y,z)=(\sin(x),\ln(y),z^2-x,4)</m> n'est pas linéaire. Encore une fois, on voit que le vecteur <m>(0,0,0)</m> n'est pas envoyé sur le vecteur <m>(0,0,0,0)</m>. </p>
+    </solution>
+    <solution>
+    <p>La translation n'est pas une transformation linéaire. En effet, <m>T(k\vec{u})=k\vec{u}+\vec{w}\neq k(\vec{u}+\vec{w})=kT(\vec{u})</m>.</p>
     </solution>
     </example>
     <insight xml:id="con-satisprop">
@@ -351,6 +355,32 @@
     </p>
     <p>On verra prochainement comment calculer plus efficacement les compositions de fonctions, en développant un outil qui sera d'une utilité beaucoup plus grande que 
     les transformations linéaires.</p>
+    <p>On termine avec des commandes Sage en lien avec la sous-section.
+    <computation xml:id="sageex-deftransfo">
+    <title>Les transformations sur Sage</title>
+    <p>On verra dans les prochaines sous-sections comment facilement vérifier si une transformation est linéaire ou non et comment l'appliquer efficacement sur un ensemble de points . Pour le moment, on construit sur l'exemple calculatoire <xref ref="sageex-utvec"/> en montrant comment on peut 
+    appliquer une translation sur un ensemble de points et illustrer cette translation. Pour cela, on définit un quadrilatère, un vecteur de translation et on applique ce vecteur à chaque point du quadrilatère. Pour être efficace, 
+    on utilise la commande <c>list</c>.
+    <sage>
+    <input>
+       #Définition des points du quadrilatère ABCD
+       A=vector([0,0])
+       B=vector([3,0])
+       C=vector([5,4])
+       D=vector([2,2])    
+       #On forme une liste contenant tous les points (vecteurs)
+       L=list([A,B,C,D])
+       #On définit le vecteur translation
+       w=vector([3,5])
+       #On applique la translation à tous les vecteurs de la liste
+       Ltrans=list([v+w for v in L])
+       #On illustre les quadrilatères, ainsi que le vecteur w sur l'un des points
+       polygon(L,color="blue")+polygon(Ltrans,color="red")+plot(w,start=A,color="black")
+    </input>
+    </sage>
+    </p>
+    </computation>
+    </p>
     <!-- Ne fonctionne pas bien pour la multiplication par un scalaire <p>On termine avec des commandes Sage en lien avec la sous-section.
     <computation xml:id="sageex-deftransfo">
     <title>Les transformations linéaires sur Sage</title>
@@ -752,7 +782,7 @@ Toute matrice correspond donc à une transformation linéaire.
 On termine avec des commandes Sage en lien avec la sous-section.
 <computation xml:id="sageex-transfomat">
 <title>Les matrices avec Sage</title>
-<p>Íl est possible de définir des matrices dans Sage avec la commande <c>matrix</c>. À noter toutefois que Sage a une préférence pour les lignes plutôt que les colonnes, et que si on veut
+<p>Il est possible de définir des matrices dans Sage avec la commande <c>matrix</c>. À noter toutefois que Sage a une préférence pour les lignes plutôt que les colonnes, et que si on veut
 définir la matrice selon ses colonnes, on doit utiliser la commande <c>column_matrix</c>.
 <sage xml:id="sagecell-transfomat-1">
 <input>
@@ -790,9 +820,10 @@ show('A[1][1]=',A[1][1])
 la commande <m>A.row(i)</m>. Pour obtenir la colonne <m>j+1</m>, on devra utiliser la commande <c>A.column(j)</c>.
 <sage xml:id="sagecell-transfomat-4">
 <input>
+show('A=',A)
 show('A[0]=',A[0])
-show('La deuxième ligne de A est ' A.row(1))
-show('La première colonne de A est ' A.column(0))
+show('La deuxième ligne de A est ', A.row(1))
+show('La première colonne de A est ', A.column(0))
 </input>
 </sage>
 </p>
@@ -829,17 +860,130 @@ plot(u,color="blue")+plot(A*u,color="red")
 </computation>
 </p>
     </subsection>
+    <subsection xml:id="sssec-opmat">
+    <title> L'addition matricielle et la multiplication par un scalaire</title>
+    <p>L'exercice <xref provisional="exo-sommetransfo"/> montre que la somme de deux transformations linéaires est aussi une transformation linéaire. Géométriquement, on peut le voir comme si, étant donné deux transformations linéaires
+     différentes <m>T_1,T_2</m>, ayant le même domaine et la même image, et un vecteur <m>\vec{u}</m>, la transformation <m>(T_1+T_2)(\vec{u})=T_1(\vec{u})+T_2(\vec{u})</m> correspond à la somme des transformations sur <m>\vec{u}</m>. En ce sens, l'addition de deux transformations
+     correspond à une addition vectorielle dans l'espace image de la transformation. Si cette somme est une transformation linéaire, elle doit donc avoir une forme matricielle.</p>
+     <p>
+     Soit <m>A\in \mathcal{M}_{m\times n}</m> la matrice de <m>T_1</m> et <m>\vec{a}_i</m> les colonnes de <m>A</m> et <m>B\in \mathcal{M}_{m\times n}</m> la matrice de <m>T_2</m> et <m>\vec{b}_i</m> les colonnes de <m>B</m>. Alors on a
+     <md>
+     <mrow>T_1(\vec{u})+T_2(\vec{u})&amp;=A\vec{u}+B\vec{u}</mrow>
+     <mrow>&amp;=\vec{u}_1\vec{a}_1  + \vec{u}_2\vec{a}_2  + \cdots + \vec{u}_n\vec{a}_n +\vec{u}_1\vec{b}_1  + \vec{u}_2\vec{b}_2  + \cdots + \vec{u}_n\vec{b}_n </mrow>
+     <mrow>&amp;=\vec{u}_1\vec{a}_1 +\vec{u}_1\vec{b}_1 + \vec{u}_2\vec{a}_2  + \vec{u}_2\vec{b}_2+ \cdots + \vec{u}_n\vec{a}_n  +\vec{u}_n\vec{b}_n </mrow>
+     <mrow>&amp;=\vec{u}_1(\vec{a}_1+\vec{b}_1)  + \vec{u}_2(\vec{a}_2+\vec{b}_2)  + \cdots + \vec{u}_n(\vec{a}_n+\vec{b}_n) </mrow>
+     <mrow>&amp;=\begin{pmatrix}
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+\vec{a}_1+\vec{b}_1 &amp; \vec{a}_2+\vec{b}_2 &amp; \cdots &amp; \vec{a}_n+\vec{b}_n \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert
+\end{pmatrix}\begin{pmatrix}u_1\\ u_2\\ \vdots\\ u_n \end{pmatrix}</mrow>
+     </md>.
+     La matrice de la somme est donc une matrice composée de la somme des colonnes des matrices <m>A</m> et <m>B</m>. L'exercice <xref provisional="exo-matsommelignes"/> montre que cela est équivalent de dire que la matrice <m>A+B</m> est
+     obtenue en prenant la somme des lignes des matrices <m>A</m> et <m>B</m> et donc qu'au final, on additionne chaque entrée correspondante. On arrive ainsi à la définition suivante.
+     </p>
+     <p>
+     <definition xml:id="def-matsomme">
+     <p>Soit <m>A,B\in\mathcal{M}_{m\times n}</m> deux matrices. On définit la somme de <m>A</m> et <m>B</m> comme étant la matrice telle que
+     <me>
+     (A+B)_{i,j}=(a_{i,j}+b_{i,j})
+     </me>.</p>
+     </definition>
+     <example xml:id="ex-matsomme">
+     <title>Somme de matrices</title>
+     <statement><p>Soit <m>A=\begin{pmatrix}1&amp;-3&amp;2\\ -2&amp; 1 &amp;0 \end{pmatrix},B=\begin{pmatrix}5&amp;-2&amp;1\\ 0&amp; 2 &amp;7 \end{pmatrix}</m> et <m>C=\begin{pmatrix} 1&amp;1\\ -1&amp; 2 \end{pmatrix}</m>. On calcule, si possible
+     , les sommes <m>A+B</m> et <m>A+C</m>.</p></statement>
+     <solution>
+     <p>Puisque <m>A</m> et <m>B</m> ont les mêmes dimensions, il est possible de les additionner. Selon l'explication ci-dessus, on obtient
+     <md>
+     <mrow>
+     A+B&amp;=\begin{pmatrix}1&amp;-3&amp;2\\ -2&amp; 1 &amp;0 \end{pmatrix}+\begin{pmatrix}5&amp;-2&amp;1\\ 0&amp; 2 &amp;7 \end{pmatrix}
+     </mrow>
+     <mrow>&amp;=\begin{pmatrix}1+5&amp;-3-2&amp;2+1\\ -2+0&amp; 1+2 &amp;0+7 \end{pmatrix}</mrow>
+     <mrow>&amp;=\begin{pmatrix}6&amp;-5&amp;3\\ -2&amp; 3 &amp;7 \end{pmatrix}</mrow>
+     </md>.
+     Comme la matrice <m>C</m> est de taille différente de <m>A</m>, l'addition n'est pas possible.
+     </p>
+     </solution>
+     </example>
+     </p>
+     <p>Si on multiplie une transformation par un scalaire, c'est encore une transformation linéaire, puisque c'est en fait une <xref ref="li-transfoscal">propriété</xref>  définissant les transformations linéaire. Une démarche similaire
+     à celle en début de sous-section permet d'arriver à la définition algébrique suivante.
+     <definition xml:id="def-matprodscal">
+     <title>
+     Multiplication d'une matrice par un scalaire
+     </title>
+     <p>Soit <m>A\in \mathcal{m\times n}</m> et <m>k\in \R</m>. La matrice <m>kA</m> est définie comme étant la matrice telle que 
+     <me>
+     (kA)_{i,j}=ka_{i,j}
+     </me>.
+     </p>
+     </definition>
+     Cette définition a déjà été mentionné de manière intuitive à la remarque <xref ref="rem-multscalmat"/>.
+     <example xml:id="ex-matprodscal">
+     <title>Multiplication par un scalaire d'une matrice</title>
+     <statement><p>Soit <m>A=\begin{pmatrix}1&amp;-3&amp;2\\ -2&amp; 1 &amp;0 \end{pmatrix}</m> et <m>C=\begin{pmatrix} 1&amp;1\\ -1&amp; 2 \end{pmatrix}</m>. On calcule <m>3A</m> et <m>-2C</m>.</p></statement>
+     <solution>
+     <p>Selon la définition, on a
+     <md>
+     <mrow>
+     3A&amp;=\begin{pmatrix}3*1&amp;3*(-3)&amp;3*2\\ 3*(-2)&amp; 3*1 &amp;3*0 \end{pmatrix}
+     </mrow>
+     <mrow>&amp;=\begin{pmatrix}3&amp;-9&amp;6\\ -6&amp; 3 &amp;0 \end{pmatrix}</mrow>
+     </md>.
+     Pour la matrice <m>C</m>, on a <m>-2C=\begin{pmatrix} -2&amp;-2\\ 2&amp; -4 \end{pmatrix}</m>.
+     </p>
+     </solution>
+     </example>
+     </p>
+     <p>L'addition matricielle et la multiplication par un scalaire possède un ensemble de propriétés familières à l'addition et à la multiplication régulière, ainsi qu'à ces mêmes
+     opérations sur les vecteurs. En fait, dans l'exercice <xref ref="exo-propvec2"/>, ces propriétés ont été démontrées pour les vecteurs. L'exercice <xref provisional="exo-propopmat"/> fera
+     la même chose pour les propriétés, qui sont données ci-dessous à titre de référence.
+     <proposition xml:id="prop-opmat">
+     <title>Les propriétés de l'addition matricielle et de la multiplication par un scalaire </title>
+     <p>Soit <m>A,B,C\in \mathcal{M}_{m\times n}</m> et <m>r,s\in \R</m>. Les propriétés suivantes sont toujours vraies:
+     <list xml:id="li-opmat">
+     <ol>
+                    <li><m>A+B=B+A</m> (commutativité de l'addition matricielle)</li>
+                    <li><m>A+(B+C)=(A+B)+C</m> (associativité de l'addition matricielle)</li>
+                    <li><m>A+\vec{0}=A</m> (neutre additif)</li>
+                    <li><m>A+(-A)=\vec{0}</m> (inverse additif)</li>
+                    <li><m>(rs)A=r(sA)</m> (associativité de la multiplication par un scalaire)</li>
+                    <li><m>r(A+B)=rA+rB</m> (distributivité sur l'addition matricielle)</li>
+                    <li><m>(r+s)A=rA+sA</m> (distributivité de l'addition des scalaires)</li>
+                    <li><m>1A=A</m> (neutre multiplicatif)</li>
+                </ol></list>
+     </p>
+     </proposition>
+     </p>
+     <p>On termine avec des commandes Sage en lien avec la sous-section.
+     <computation xml:id="sageex-opmat">
+     <title>Les opérations matricielles sur Sage</title>
+     <p>Il est aussi facile d'additionner deux matrices et d'en multiplier une par un scalaire que de faire ces mêmes opérations pour un vecteur. 
+     <sage>
+     <input>
+A=column_matrix([[1,2],[3,-1]])
+B=column_matrix([[4,-1],[-1,2]])
+show("A+B=",A+B)
+show("3A=",3*A)
+show("2A-5B=",2*A-5*B)     
+     </input>
+     </sage>
+     </p>
+     </computation>
+     </p>
+    </subsection>
     <conclusion xml:id="concl-transfodef">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont
     <ul>
-    <li>Les <xref ref="def-transfolin">propriétés</xref> définissant une transformation linéaire.</li>
-    <li>Le produit d'une matrice avec un vecteur, défini à l'équation <xref ref="eq-matvecprodgen"/>.</li>
-    <li>Le fait que dans une matrice, les colonnes représentent l'image des vecteurs  <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>.</li>
-    <li> L'équivalence entre une matrice et une transformation linéaire.</li>
+    <li><p> Les <xref ref="def-transfolin">propriétés</xref> définissant une transformation linéaire.</p></li>
+    <li><p> Le produit d'une matrice avec un vecteur, défini à l'équation <xref ref="eq-matvecprodgen"/>.</p></li>
+    <li><p> Le fait que dans une matrice, les colonnes représentent l'image des vecteurs  <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>.</p></li>
+    <li><p> L'équivalence entre une matrice et une transformation linéaire.</p></li>
+    <li><p> L'addition matricielle et la multiplication d'une matrice par un scalaire.</p></li>
     </ul> 
     De plus avec Sage, on peut définir une matrice avec la commande <c>matrix</c>. Par défaut, Sage définit les matrices selon les lignes. La commande <c>column_matrix()</c> permet
-    de le faire selon les colonnes. Lorsque compatible, on peut multiplier une matrice par un vecteur avec l'opération <c>*</c>. On peut accéder aux lignes et colonnes d'une matrice avec les commandes
-    <c>A.row(i)</c> et <c>A.column(j)</c>.
+    de le faire selon les colonnes. Lorsque compatible, on peut multiplier une matrice par un vecteur avec l'opération <c>*</c>. On peut accéder aux lignes et colonnes d'une matrice <m>A</m> avec les commandes
+    <c>A.row(i)</c> et <c>A.column(j)</c>. L'addition de deux matrices se fait avec l'opération <c>+</c> et la multiplication par un scalaire avec l'opération <c>*</c>.
     </p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
@@ -854,8 +998,19 @@ plot(u,color="blue")+plot(A*u,color="red")
     </md>.
     La composition des deux transformations est donc une nouvelle transformation <m>S(x,y)=(-x,y)</m>. Concrètement, la transformation  correspond à la réflexion par 
     rapport à l'axe des ordonnées, voir l'exercice <xref provisional="exo-transfor2-refy"/>.</p></solution> -->
-   <!-- exercice sur la somme de deux transformations -->
+   <!-- exercice sur la somme de deux transformations  xml:id="exo-sommetransfo"-->
    <!-- unicité de la représentation d'une transfo par une matrice -->
    <!-- Si Au=Bu pour tout les u, alors A=B -->
-   <!-- Exercice en lien avec l'équation  <xref ref="eq-matvecprodgen"/>, le produit matrice vecteur est aussi un vecteur ou chaque composante est un produit scalaire. -->
+   <!-- Exercice en lien avec l'équation  <xref ref="eq-matvecprodgen"/>, le produit matrice vecteur est aussi un vecteur ou chaque composante est un produit scalaire. 
+   Utiliser cet exercice pour trouver la matrice de A+B. Démarche ci-dessous:
+               Soit <m>A\in \mathcal{M}_{m\times n}</m> la matrice de <m>T_1</m> et <m>\vec{a}_i</m> les lignes de <m>A</m> et <m>B\in \mathcal{M}_{m\times n}</m> la matrice de <m>T_2</m> et <m>\vec{b}_i</m> les lignes de <m>B</m>. Alors on a
+               <md>
+               <mrow>T_1(\vec{u})+T_2(\vec{u})&amp;=A\vec{u}+B\vec{u}</mrow>
+               <mrow>&amp;=\begin{pmatrix}\vec{a}_1\cdot \vec{u} \\ \vec{a}_2\cdot \vec{u} \\ \vdots \\ \vec{a}_m\cdot \vec{u}\end{pmatrix}+\begin{pmatrix}\vec{b}_1\cdot \vec{u} \\ \vec{b}_2\cdot \vec{u} \\ \vdots \\ \vec{b}_m\cdot \vec{u}\end{pmatrix}</mrow>
+               <mrow>&amp;=\begin{pmatrix}\vec{a}_1\cdot \vec{u}+\vec{b}_1\cdot \vec{u} \\ \vec{a}_2\cdot \vec{u}+\vec{b}_2\cdot \vec{u} \\ \vdots \\ \vec{a}_m\cdot \vec{u}+\vec{b}_m\cdot \vec{u}\end{pmatrix}</mrow>
+               <mrow>&amp;=\begin{pmatrix}(\vec{a}_1+\vec{b}_1)\cdot \vec{u} \\ (\vec{a}_2+\vec{b}_2)\cdot \vec{u} \\ \vdots \\ (\vec{a}_m+\vec{b}_m)\cdot \vec{u}\end{pmatrix}</mrow>
+               <mrow>&amp;=\begin{pmatrix}</mrow>
+               </md>
+   -->
+   <!-- Un exercice semblable à exo-propvec2 pour les matrices, xml:id="exo-propopmat" Les propriétés sont dans la liste "li-opmath"-->
 </section>

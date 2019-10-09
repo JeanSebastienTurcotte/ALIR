@@ -235,9 +235,70 @@
     <definition xml:id="def-matid">
     <title>La matrice identité</title>
     <p>Soit la matrice dont les entrées valent <m>1</m> si le numéro de la ligne correspond à celui de la colonne et <m>0</m> sinon. Ceci correspond à une transformation qui envoie les vecteurs
-    <m>(1,0,\ldots , 0),(0,1,0,\ldots , 0),\ldtos (0,\ldots ,0,1)</m> sur eux-mêmes et donc, la transformation qui ne fait rien. On apelle cette matrice l'identité et on la note <m>I_n</m>, ou tout simplement <m>I</m> lorsque
+    <m>(1,0,\ldots , 0),(0,1,0,\ldots , 0),\ldots (0,\ldots ,0,1)</m> sur eux-mêmes et donc, la transformation qui ne fait rien. On apelle cette matrice l'identité et on la note <m>I_n</m>, ou tout simplement <m>I</m> lorsque
     la dimension est évidente par le contexte ou simplement pas importante.</p>
     </definition>
+    </p>
+    <p>Lorsqu'on multiplie une matrice <m>A</m> par elle-même, on obtient alors le carré de cette matrice, noté <m>A^2</m>. En termes de transformations linéaires,
+    cela revient à composer la fonction avec elle-même, ou à l'appliquer deux fois. En généralisant, on obtient les puissances d'une matrice.
+    <definition xml:id="def-matpui">
+    <title>Les puissances d'une matrice</title>
+    <p>Soit <m>A</m> une matrice carré. On définit la <m>k</m> ième puissance de <m>A</m> comme étant le produit de <m>A</m> avec elle-même, <m>k</m> fois:
+    <me>
+    A^k=\underbrace{AA\cdots A}_{k \text{ fois }}
+    </me>.
+    </p>
+    </definition>
+    Les puissances de matrices sont particulièrement utiles dans divers contexte, comme le montre l'exemple suivant. Le chapitre <xref provisional="Applications"/> contient
+    d'autres exemples concrets d'applications.
+    <example xml:id="ex-prodmatchemins">
+    <title>Une application du produit matriciel</title>
+    <p>On considère trois villes reliées par des routes à sens unique. Les différents chemins possibles sont illustrés dans la figure ci-dessous.
+    On peut créer une matrice qui contient l'information de ce graphe, où l'entrée <m>i,j</m> de la matrice représente le nombre de chemins possibles pour se rendre
+    de la ville <m>i </m> à la ville <m>j</m>.
+    <figure xml:id="fig-graphvilles">
+    <caption>Trois villes et leurs chemins</caption>
+    <image width="80%" xml:id="sageplot-graphvilles">
+    <sageplot>
+D = DiGraph({1:[2,3,2],2:[3],3:[1,1,2]})
+D.plot(layout='circular',vertex_color="blue").show()
+    </sageplot>
+    </image>
+    </figure>
+    <me>
+    A=\begin{pmatrix}
+    0&amp;2&amp;1\\
+    0&amp;0&amp;1\\
+    2&amp;1&amp;0
+    \end{pmatrix}
+    </me>
+    </p>
+    <p>Les puissances <m>k</m> de la matrice <m>A</m> représente le nombre de chemins de "longueur" <m>k</m> pour se rendre de la ville <m>i</m> à la ville <m>j</m> 
+    en empruntant <m>k</m> chemins.
+    Par exemple, on peut calculer avec Sage les puissances de la matrice <m>A</m>.
+    <sage xml:id="sagecell-prodmatchemins">
+    <input>    
+    A=matrix([[0,2,1],[0,0,1],[2,1,0]])
+    show("A=",A)
+    show("A^2=",A^2)
+    show("A^3=",A^3)
+    show("A^5=",A^5)
+    show("En particulier, il y a   ", (A^5)[0][0], " chemins de longueur 5 se rendant de la ville 1 et retournant à la ville 1")
+    </input>
+    </sage>
+    </p>
+    </example>
+    <p>La cellule Sage ci-dessous n'est temporairement pas dans l'exemple dû à un problème technique.</p>
+     <sage xml:id="sagecell-prodmatchemins">
+    <input>    
+    A=matrix([[0,2,1],[0,0,1],[2,1,0]])
+    show("A=",A)
+    show("A^2=",A^2)
+    show("A^3=",A^3)
+    show("A^5=",A^5)
+    show("En particulier, il y a   ", (A^5)[0][0], " chemins de longueur 5 se rendant de la ville 1 et retournant à la ville 1")
+    </input>
+    </sage>
     </p>
     <p>On termine avec des commandes Sage en lien avec la sous-section.
     <computation xml:id="sageex-prodmatdef">
@@ -249,7 +310,7 @@
     <input>
     A=column_matrix([[1,-3],[4,5]])
     B=column_matrix([[0,-3],[2,1],[-1,3]])
-    show(A*B)
+    show("AB=", A*B)
     </input>
     <input>
     A=column_matrix([[1,-3],[4,5]])
@@ -259,23 +320,37 @@
     </sage>
     </p>
     <p>
-    <!-- A cleaner
-    u=vector([sqrt(2)/2,sqrt(2)/2])
-v=vector([-sqrt(2)/2,sqrt(2)/2])
-A=matrix(RDF,[u,v])
-L = [[6*cos(pi*i/100)+5*cos((6/2)*pi*i/100),6*sin(pi*i/100)-5*sin((6/2)*pi*i/100)] for i in range(200)]
-ML=column_matrix(RDF,L)
-AML=A*ML
-#polygon(L)+polygon(A*ML,color="red")
-polygon(list(AML.column(i) for i in range(200)),color="red")+polygon(L)
-
--->
+    On applique maintenant une transformation à un ensemble de points, construisant sur les exemple <xref ref="sageex-utvec"/> et <xref ref="sageex-deftransfo"/>. Pour cela, un peu de conversion est nécessaire, il faudra
+    convertir une liste en matrice, puis une matrice en liste. La première conversion se fait bien avec la commande <c>column_matrix</c>. Celle-ci prend la liste <c>L</c> et la transforme en matrice colonne. Après la multiplication de
+    cette nouvelle matrice par la transformation linéaire, il faut convertir la matrice <c>AL</c> en liste de points. Pour cela, on utilise la commande <c>list</c> sur les colonnes de <c>AL</c>. Le nombre de colonnes d'une matrice <c>M</c>
+    est donné par la commande <c>M.ncols()</c>.
+    <sage>
+    <input> 
+       #Définition des points du quadrilatère ABCD
+       A=vector([0,0])
+       B=vector([3,0])
+       C=vector([5,4])
+       D=vector([2,2])    
+       #On forme une liste contenant tous les points (vecteurs)
+       L=list([A,B,C,D])
+       #On doit convertir cette liste en matrice
+       MatL=column_matrix(L)
+       #Définition de la matrice de transformation linéaire
+       u=vector([sqrt(2)/2,sqrt(2)/2])
+       v=vector([-sqrt(2)/2,sqrt(2)/2])
+       A=column_matrix([u,v])
+       AL=A*MatL
+       #On convertit la matrice en liste pour pouvoir la tracer.
+       ALpoints=list(AL.column(i) for i in range(AL.ncols()))
+       polygon(L,color="blue")+polygon(ALpoints,color="red")
+    </input>
+    </sage>
     </p>
     </computation>
     </p>
      </subsection>
      <subsection xml:id="sssec-prodmatprop">
-     
+     <p></p>
      </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
     
@@ -283,9 +358,11 @@ polygon(list(AML.column(i) for i in range(200)),color="red")+polygon(L)
     <p>Les points importants de cette section sont
     <ul>
     <li><p> La multiplication matricielle, par la <xref ref="def-matmatprod"> définition par ses colonnes</xref> ou <xref provisional="thm-matmatprod">entrée par entrée</xref>.</p></li>
+    <li><p> La définition de la matrice <xref ref="def-matid">identité </xref>.</p></li>
     <li><p>Le fait que la multiplication n'est pas commutative</p></li>
     </ul> 
-    De plus avec Sage, on peut 
+    De plus avec Sage, on peut multiplier des matrices avec l'opération <c>*</c>. On peut aussi appliquer une transformation linéaire à un ensemble de points en transformant ces points en matrice, pour effectuer la multiplication.
+    Le nombre de colonnes d'une matrice <m>A</m> est obtenue à l'aide de la commande <c>A.ncols()</c> et le nombre de ligne serait obtenue avec <c>A.nrows()</c>.
     </p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
