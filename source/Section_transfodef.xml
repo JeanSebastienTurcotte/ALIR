@@ -248,17 +248,16 @@
     <li xml:id="li-transfor2-proj"><p>Soit <m>\vec{w}</m> un vecteur non nul. La projection orthogonale sur <m>\vec{w}</m> est une transformation linéaire.</p></li>
     </ol>
     </list>
-    <p>Il est possible de vérifier géométriquement la linéarité de chacune de ces  transformations à
-    l'aide de la figure <xref ref="fig-transfor2"/>. Les démonstrations algébriques sont faites ci-dessous.</p>
-    <figure xml:id="fig-transfor2">
-    <caption>Des transformations linéaires</caption>
-    </figure>
+    <p> Les démonstrations algébriques et géométriques de la linéarité de ces fonctions sont faites ci-dessous.</p>
     </statement>
     <solution>
+    <p>Intuitivement, la transformation laisse tout en place. Les propriétés de linéarité devraient donc découler automatiquement des propriétés des opérations sur les vecteurs.</p>
     <p>Algébriquement, la transformation est linéaire, car
-    <me>
-    I(x_1+x_2,y_1+y_2)=(x_1+x_2,y_1+y_2)=(x_1,y_1)+(x_2,y_2)=I(x_1,y_1)+I(x_2,y_2)
-    </me>.
+    <md>
+    <mrow>I(x_1+x_2,y_1+y_2)&amp;=(x_1+x_2,y_1+y_2)</mrow>
+    <mrow>&amp;=(x_1,y_1)+(x_2,y_2)</mrow>
+    <mrow>&amp;=I(x_1,y_1)+I(x_2,y_2)</mrow>
+    </md>.
     De même,
     <me>
     I(cx_1,cy_1)=(cx_1,cy_1)=c(x_1,y_1)
@@ -266,7 +265,22 @@
     </p>
     </solution>
     <solution>
-    <p>On a
+        <p> La figure interactive ci-dessous permet de voir la linéarité de la réflexion de manière intuitive.
+    <figure xml:id="fig-transfor2ref">
+    <caption>La réflexion par rapport à l'axe des abscisses est une transformation linéaire</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-transfor2ref">
+        <slate aspect="1:1" source="code/geogebra/transfor2ref.ggb"
+        surface="geogebra" xml:id="slate-transfor2ref">
+            setCoordSystem(-18, 18,-15,15,);
+          </slate>
+        <instructions>
+          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton fera animer la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
+        </instructions>
+        </interactive>
+    </figure>
+    </p>
+    <p>Algébriquement, on a
     <md>
     <mrow>S_x(x_1+x_2,y_1+y_2)&amp;=(x_1+x_2,-(y_1+y_2))</mrow>
     <mrow>&amp;=(x_1+x_2,-y_1-y_2)</mrow>
@@ -280,6 +294,71 @@
    <mrow> &amp;=c(x_1,-y_1)</mrow>
    <mrow>&amp;=cS_x(x_1,y_1)</mrow>
     </md>.</p>
+    </solution>
+    <solution>
+        <p> La figure interactive ci-dessous permet de voir la linéarité de la rotation de manière intuititve.
+    <figure xml:id="fig-transfor2rot">
+    <caption>La rotation de <m>90^\circ</m> dans le sens antihoraire est une transformation linéaire</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-transfor2rot">
+        <slate aspect="1:1" source="code/geogebra/transfor2rot.ggb"
+        surface="geogebra" xml:id="slate-transfor2rot">
+            setCoordSystem(-18, 18,-15,15,);
+          </slate>
+        <instructions>
+          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton fera animer la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
+        </instructions>
+        </interactive>
+    </figure>
+    </p>
+    <p>Algébriquement, on a
+    <md>
+    <mrow>R_{\frac{\pi}{2}}(x_1+x_2,y_1+y_2)&amp;=(-(y_1+y_2),x_1+x_2,)</mrow>
+    <mrow>&amp;=(-y_1-y_2,x_1+x_2)</mrow>
+    <mrow>&amp;=(-y_1+(-y_2),x_1+x_2,)</mrow>
+    <mrow>&amp;=(-y_1,x_1,)+(-y_2,x_2,)</mrow>
+    <mrow>&amp;=R_{\frac{\pi}{2}}(x_1,y_1)+R_{\frac{\pi}{2}}(x_2,y_2)</mrow>
+    </md>
+    et 
+    <md>
+   <mrow> R_{\frac{\pi}{2}}(cx_1,cy_1)&amp;=(-cy_1,cx_1,)</mrow>
+   <mrow> &amp;=c(-y_1,x_1,)</mrow>
+   <mrow>&amp;=cR_{\frac{\pi}{2}}(x_1,y_1)</mrow>
+    </md>.</p>
+    </solution>
+    <solution>
+    <p> La figure interactive ci-dessous permet de voir la linéarité de l'étirement de manière intuititve.
+    <figure xml:id="fig-transfor2Ehr">
+    <caption>La rotation de <m>90^\circ</m> dans le sens antihoraire est une transformation linéaire</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-transfor2Ehr">
+        <slate aspect="1:1" source="code/geogebra/transfor2Ehr.ggb"
+        surface="geogebra" xml:id="slate-transfor2Ehr">
+            setCoordSystem(-18, 18,-15,15,);
+          </slate>
+        <instructions>
+          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton fera animer la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
+        </instructions>
+        </interactive>
+    </figure>
+    </p>
+    <p>Algébriquement, on a
+    <md>
+    <mrow>Eh_r(x_1+x_2,y_1+y_2)&amp;=(r(x_1+x_2),y_1+y_2)</mrow>
+    <mrow>&amp;=(rx_1+rx_2),y_1+y_2)</mrow>
+    <mrow>&amp;=(rx_1,y_1)+(rx_2,y_2)</mrow>
+    <mrow>&amp;=Eh_r(x_1,y_1)+Eh_r(x_2,y_2)</mrow>
+    </md>
+    et 
+    <md>
+   <mrow> Eh_r(cx_1,cy_1)&amp;=(rcx_1,cy_1)</mrow>
+   <mrow> &amp;=c(rx_1,y_1)</mrow>
+   <mrow>&amp;=cEh_r(x_1,y_1)</mrow>
+    </md>.
+    </p>
+    </solution>
+     <solution>
+    <p>La démonstration est faite à l'exercice <xref provisional="homotéthie est linéaire"/></p>
     </solution>
     </example> 
     <p>Pour conclure cette sous-section, un résultat sur la composition de deux transformations linéaires.</p>

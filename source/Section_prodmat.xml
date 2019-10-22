@@ -344,7 +344,28 @@ D.plot(layout='circular',vertex_color="blue").show()
      </subsection>
      <subsection xml:id="sssec-prodmatprop">
         <title>Les propriétés du produit matriciel</title>
-     <p></p>
+     <p>Contrairement à l'addition de matrices, le produit ne possède pas exactement les mêmes propriétés que la multiplication de nombres réels. On a déjà observé à l'exemple
+      <xref ref="ex-matmatprod1"/> que la multiplication n'est pas commutative. Les propriétés suivantes sont toujours satisfaites pour le produit matriciel.
+      <proposition xml:id="prop-prodmatprop">
+      <title>Les propriété du produit matriciel</title>
+      <statement>
+      <p>Soit <m>A\in\mathcal{M}_{m\times n}</m>, <m> B,C</m> des matrices de formats appropriés et <m>r\in \R</m>. On a
+      <list xml:id="li-prodmatprop">
+      <ol>
+      <li>AI_n=I_mA=A</li>
+      <li xml:id="li-distprodmat"><p><m>(A+B)C=AC+BC</m> et <m>A(B+C)=AB+AC</m></p></li>
+      <li>(rA)B=r(AB)=A(rB)</li>
+      <li>(AB)C=A(BC)</li>
+      </ol>.</list>
+      La dernière propriété dit donc que la multiplication est associative. Comme elle n'est pas commutative, il est primordial de porter attention à l'ordre des multiplication
+      dans la propriété <xref ref="li-distprodmat"/>.
+      </p>
+      </statement>
+      <proof>
+      <p></p>
+      </proof>
+      </proposition>
+      </p>
      </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
     
@@ -353,7 +374,8 @@ D.plot(layout='circular',vertex_color="blue").show()
     <ul>
     <li><p> La multiplication matricielle, par la <xref ref="def-matmatprod"> définition par ses colonnes</xref> ou <xref provisional="thm-matmatprod">entrée par entrée</xref>.</p></li>
     <li><p> La définition de la matrice <xref ref="def-matid">identité </xref>.</p></li>
-    <li><p>Le fait que la multiplication n'est pas commutative</p></li>
+    <li><p>Le fait que la multiplication n'est pas commutative.</p></li>
+    <li><p>Le concept de puissances d'une matrice.</p></li>
     </ul> 
     De plus avec Sage, on peut multiplier des matrices avec l'opération <c>*</c>. On peut aussi appliquer une transformation linéaire à un ensemble de points en transformant ces points en matrice, pour effectuer la multiplication.
     Le nombre de colonnes d'une matrice <m>A</m> est obtenue à l'aide de la commande <c>A.ncols()</c> et le nombre de ligne serait obtenue avec <c>A.nrows()</c>.
