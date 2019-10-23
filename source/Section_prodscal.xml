@@ -81,12 +81,12 @@
         <p>Motivé par les calculs de la sous-section <xref ref="sssec-angle2vec"/>, on définit algébriquement le produit scalaire, pour ensuite regarder ses propriétés, autant algébriques que géométriques.</p>
         <definition xml:id="def-prodscal">
         <title> Le produit scalaire</title>
-         <p>Soit <m>\vec{u},\vec{v}</m> deux vecteurs de <m>\R^2</m> ou <m>\R^3</m>. On définit le <emph> produit scalaire </emph> de ces vecteurs, noté <m>\vec{u}\cdot \vec{v}</m>, comme étant la somme du produit des composantes correspondantes, c'est-à-dire 
+         <statement><p>Soit <m>\vec{u},\vec{v}</m> deux vecteurs de <m>\R^2</m> ou <m>\R^3</m>. On définit le <em> produit scalaire </em> de ces vecteurs, noté <m>\vec{u}\cdot \vec{v}</m>, comme étant la somme du produit des composantes correspondantes, c'est-à-dire 
             <md>
             <mrow>\vec{u}\cdot \vec{v}&amp;= u_1v_1+u_2v_2 &amp;&amp;\text{ si } \vec{u},\vec{v}\in \R^2</mrow>
                 <mrow>\vec{u}\cdot \vec{v}&amp;= u_1v_1+u_2v_2+u_3v_3 &amp;&amp;\text{ si } \vec{u},\vec{v}\in \R^3</mrow>
             </md>.
-            </p>
+            </p></statement>
         </definition>
         <p>Le produit scalaire, comme son nom l'indique, donne un nombre réel (un scalaire) et non un vecteur. En reprenant l'équation pour l'angle entre deux vecteurs, on peut écrire 
         <men xml:id="eq-prodscalgeo">\vec{u}\cdot \vec{v}=\|\vec{u}\|\|\vec{v}\|\cos(\theta)</men>.
@@ -96,12 +96,15 @@
         <p>Voici maintenant quelques propriétés du produit scalaire.</p>
         <proposition xml:id="prop-propprodscal">
         <statement><p>Le produit scalaire entre deux vecteurs quelconques possède les propriétés suivantes:</p>
-            <ol xml:id="ol-propprodscal">
+        <list xml:id="li-propprodscal">
+            <title> Les propriétés du produit scalaire</title>
+            <ol>
             <li xml:id="li-propprodscal-comm"><p> <m>\vec{u}\cdot\vec{v}=\vec{v}\cdot\vec{u}</m> (commutativité du produit scalaire)</p></li>
             <li xml:id="li-propprodscal-multscal"><p><m>(c\vec{u})\cdot \vec{v}=\vec{u}\cdot (c\vec{v})=c(\vec{u}\cdot\vec{v})</m> pour tout <m>c\in\R</m>.</p></li>
             <li xml:id="li-propprodscal-dist"><p><m>\vec{u}\cdot(\vec{v}+\vec{w})=\vec{u}\cdot\vec{v}+\vec{u}\cdot\vec{w}</m> (distributivité du produit scalaire)</p></li>
             <li xml:id="li-propprodscal-norm"><p><m>\vec{u}\cdot\vec{u}=\|\vec{u}\|^2</m></p></li>
             </ol>
+        </list>
             </statement>
             <proof>
            <p> La plupart des propriétés découlent directement des propriétés de l'addition et de la multiplication de nombres réels. Par exemple, pour deux vecteurs de <m>\R^2</m>, on a
@@ -163,7 +166,7 @@
         </proposition>
  <p>Les vecteurs perpendiculaires seront d'une grande importance. Deux vecteurs perpendiculaires sont aussi dit orthogonaux.</p>
         <aside>
-            <p>Lorsqu'on généralise les concepts d'algèbre linéaire à des structure plus abstraites, la notion de perpendiculaire est difficile à imaginer. Toutefois, le concept de produit scalaire nul reste important. C'est pourquoi les mathématiciens ont introduits le terme orthogonal, du grec <emph>orthos</emph>, droit, et du grec <emph>g<span>&#333;</span>nia</emph>, angle.</p>
+            <p>Lorsqu'on généralise les concepts d'algèbre linéaire à des structure plus abstraites, la notion de perpendiculaire est difficile à imaginer. Toutefois, le concept de produit scalaire nul reste important. C'est pourquoi les mathématiciens ont introduits le terme orthogonal, du grec <em>orthos</em>, droit, et du grec <em>g&#333;nia</em>, angle.</p>
         </aside>
         <example xml:id="ex-diaglos">
         <title>Les diagonales d'un losange</title>
@@ -180,16 +183,16 @@
                     </intructions>
                 </interactive>
             </figure>
-            Pour commencer, il est utile de se fixer un repère. En cliquant sur la case "repère", on choisit de fixer l'origine à l'un des quatre sommets du losange et de nommer les autres sommets <m>A,B</m> et <m>C</m>. On veut montrer que <m>\vecl{OC}</m> est perpendiculaire à <m>\vecl{BA}</m> ou, de manière équivalente, que <m>\pscal{OC}{BA}=0</m>. On a comme hypothèse que <m>\|\vecl{OA}\|=\|\vecl{OB}\|</m> et donc qu'en fait les quatre côtés sont égaux. En réécrivant les diagonales comme étant respectivement la somme et la différence des vecteurs <m>\vecl{OA},\vecl{OB}</m>, on a
+            <p>Pour commencer, il est utile de se fixer un repère. En cliquant sur la case "repère", on choisit de fixer l'origine à l'un des quatre sommets du losange et de nommer les autres sommets <m>A,B</m> et <m>C</m>. On veut montrer que <m>\vecl{OC}</m> est perpendiculaire à <m>\vecl{BA}</m> ou, de manière équivalente, que <m>\pscal{OC}{BA}=0</m>. On a comme hypothèse que <m>\|\vecl{OA}\|=\|\vecl{OB}\|</m> et donc qu'en fait les quatre côtés sont égaux. En réécrivant les diagonales comme étant respectivement la somme et la différence des vecteurs <m>\vecl{OA},\vecl{OB}</m>, on a
             <md>
             <mrow>\pscal{OC}{BA}&amp;=(\vecl{OA}+\vecl{AC})\cdot(\vecl{OA}-\vecl{OB})&amp;&amp;</mrow>
                 <mrow>&amp;=(\vecl{OA}+\vecl{OB})\cdot(\vecl{OA}-\vecl{OB})&amp;&amp; \text{ car  } \vecl{AC}=\vecl{OB}</mrow>
                 <mrow>&amp;=\vecl{OA}\cdot\vecl{OA}-\vecl{OA}\cdot\vecl{OB}+\vecl{OB}\cdot\vecl{OA} -\vecl{OB}\cdot\vecl{OB}&amp;&amp; \text{ propriété } <xref ref="li-propprodscal-dist"/></mrow>
                 <mrow>&amp;=\norm{\vecl{OA}}^2-\norm{\vecl{OB}}^2 &amp;&amp; \text{ propriété } <xref ref="li-propprodscal-norm"/></mrow>
                 <mrow>&amp;=\norm{\vecl{OA}}^2-\norm{\vecl{OA}}^2 &amp;&amp; \text{ hypothèse }</mrow>
-                <mrow>&amp;=0&amp;&amp;</mrow>.
-            </md>
-            Ainsi, les diagonales sont perpendiculaires, car le produit scalaire donne <m>0</m>.
+                <mrow>&amp;=0&amp;&amp;</mrow>
+            </md>.
+            Ainsi, les diagonales sont perpendiculaires, car le produit scalaire donne <m>0</m>. </p>
         </example>
         <p>Dans l'exercice <xref provisional="normsommecarree"/>, on montre que similairement à la somme de nombres réels, le carré de la norme d'une somme introduit un facteur croisé dans la réponse: 
         <me>
@@ -265,7 +268,7 @@
         <computation xml:id="sageex-prodscal">
         <title>Le produit scalaire avec Sage</title>
         <p>Il est possible de calculer le produit scalaire entre <m>\vec{u}</m> et <m>\vec{v}</m> avec la commande <c>u.dot_product(v)</c>. Il est également possible d'utiliser plus simplement <c>u*v</c>.</p>
-            <sage xml:id="sagecell-prodscal-1">
+            <sage>
             <input>
                 u,v=vector([-1,1,1]),vector([1,0,3])
                 show(u.dot_product(v))
@@ -276,7 +279,7 @@
             </output>
             </sage>
             <p>Pour calculer l'angle entre deux vecteurs, on utilise la formule <xref ref="eq-prodscalgeo"/>.</p>
-            <sage xml:id="sagecell-prodscal-2">
+            <sage>
             <input>
                 u,v=vector([-1,1,1]),vector([1,0,3])
                 pscal=u*v
@@ -310,16 +313,16 @@
         </instructions>
         </interactive>
     </figure>
-        <p>Par définition, le vecteur allant de <m>\vec{v}_{\vec{u}}</m> à l'extrémité de <m>\vec{v}</m> est perpendiculaire à <m>\vec{u}</m>. Ce vecteur n'est rien d'autre que <m>\vec{v}-\vec{v}_{\vec{u}}</m>. De plus, le vecteur <m>\vec{v}_{\vec{u}}</m> étant parallèle à <m>\vec{u}</m> donc (<m>\vec{v}_{\vec{u}}=c\vec{u}</m>), il est possible de déterminer le bon scalaire <m>c</m>:</p>
+        <p>Par définition, le vecteur allant de <m>\vec{v}_{\vec{u}}</m> à l'extrémité de <m>\vec{v}</m> est perpendiculaire à <m>\vec{u}</m>. Ce vecteur n'est rien d'autre que <m>\vec{v}-\vec{v}_{\vec{u}}</m>. De plus, le vecteur <m>\vec{v}_{\vec{u}}</m> étant parallèle à <m>\vec{u}</m> donc (<m>\vec{v}_{\vec{u}}=c\vec{u}</m>), il est possible de déterminer le bon scalaire <m>c</m>:
         <md>
         <mrow>0&amp;=(\vec{v}-\vec{v}_{\vec{u}})\cdot \vec{u}</mrow>
             <mrow>&amp;=(v-c\vec{u})\cdot \vec{u}</mrow>
             <mrow>&amp;=\pscal{v}{u}-c\pscal{u}{u}</mrow>
-        </md>.
+        </md>.</p>
         <p>En réarrangeant la dernière égalité, on obtient le scalaire <m>c</m> menant à  la définition mathématique du vecteur <m>\vec{v}_{\vec{u}}</m>:</p>
         <definition>
         <title>La projection orthogonale</title>
-            <p>Soit deux vecteurs non nuls <m>\vec{u},\vec{v}</m>. La projection de <m>\vec{v}</m> sur <m>\vec{u}</m>, notée <m>\vec{v}_{\vec{u}}</m>, est l'unique vecteur pour lequel
+            <statement><p>Soit deux vecteurs non nuls <m>\vec{u},\vec{v}</m>. La projection de <m>\vec{v}</m> sur <m>\vec{u}</m>, notée <m>\vec{v}_{\vec{u}}</m>, est l'unique vecteur pour lequel
             <ol>
             <li><p> <m>\vec{v}_{\vec{u}}</m> est parallèle à <m>\vec{u}</m>; </p></li>
             <li><p><m>\vec{v}-\vec{v}_{\vec{u}}</m> est perpendiculaire à <m>\vec{u}</m>.</p></li>
@@ -329,21 +332,21 @@
             <p>La projection orthogonale est donnée par la formule suivante :
             <men xml:id="eq-projortho">
                 \vec{v}_{\vec{u}}=\frac{\pscal{v}{u}}{\pscal{u}{u}}\vec{u}
-            </men>.</p>
+            </men>.</p></statement>
             </definition>
             <p> Algébriquement, on voit que si les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sont perpendiculaires, la projection sera nulle. La figure interactive <xref ref="fig-projortho"/> permet aussi de voir géométriquement cet aspect.</p>
         <example xml:id="ex-piedhauteur">
             <title>Le pied de la hauteur</title>
             <statement>
             <p>Un triangle est formé des points <m>A(1,-1,2),B(2,3,1)</m> et <m>C(1,1,-2)</m>. On cherche les coordonnées du point <m>H</m> correspondant au pied de la hauteur issue de <m>C</m>. </p></statement>
-            <solution><p>On trace  le triangle dans un repère quelconque.
+            <solution><p>On trace  le triangle dans un repère quelconque.</p>
                 <figure xml:id="fig-piedhauteur">
                 <caption>Le pied de la hauteur</caption>
                 <image source="images/piedhauteur">
                 <description> Le triangle ABC est illustré, ainsi que la hauteur issue de C menant au point H.</description>
                     </image>
                 </figure>
-                Le point cherché <m>H</m> peut être obtenu en additionnant au point <m>A</m> le vecteur correspondant à la projection de <m>\vecl{AC}</m> sur <m>\vecl{AB}</m>, ou de manière équivalente en ajoutant à <m>B</m> le vecteur correspondant à la projection de <m>\vecl{BC}</m> sur <m>\vecl{BA}</m>. On choisit la première option:</p>
+                <p>Le point cherché <m>H</m> peut être obtenu en additionnant au point <m>A</m> le vecteur correspondant à la projection de <m>\vecl{AC}</m> sur <m>\vecl{AB}</m>, ou de manière équivalente en ajoutant à <m>B</m> le vecteur correspondant à la projection de <m>\vecl{BC}</m> sur <m>\vecl{BA}</m>. On choisit la première option:
                 <md>
                 <mrow>\vecl{OH}&amp;=\vecl{OA}+\vecl{AH}</mrow>
                 <mrow>&amp;=\vecl{OA}+\vecl{AC}_{\vecl{AB}}</mrow>
@@ -352,14 +355,14 @@
                 <mrow>&amp;=(1,-1,2)+\frac{4}{18}(1,4,-1)</mrow>
                 <mrow>&amp;=\frac{1}{9}(9,-9,18)+\frac{1}{9}(2,8,-2)</mrow>
                 <mrow>&amp;=\frac{1}{9}(1,-1,16)</mrow>
-                </md>.
+                </md>.</p>
             </solution>
         </example>
        <p>On termine avec des commandes Sage en lien avec la sous-section.</p> 
         <computation xml:id="sageex-projortho" >
         <title>La projection orthogonale sur Sage</title>
             <p>Avec les commandes apprises jusqu'à maintenant, on peut calculer la projection orthogonale d'un vecteur sur un autre grâce à la formule <xref ref="eq-projortho"/>.</p>
-            <sage xml:id="sagecell-projortho1">
+            <sage>
             <input>
             u=vector([3,3])
             v=vector([2,1])
@@ -368,7 +371,7 @@
             </input>
             </sage>
             <p>On illustre les vecteurs afin de visualiser le résultat.</p>
-            <sage xml:id="sagecell-projortho2">
+            <sage>
             <input>
             show((plot(u,color="red")+plot(v,color="blue")+plot(vu,color="green")+plot(v-vu,start=vu,color="black")))
             </input>
