@@ -256,7 +256,7 @@
     <image width="80%" xml:id="sageplot-graphvilles">
     <sageplot>
 D = DiGraph({1:[2,3,2],2:[3],3:[1,1,2]})
-D.plot(layout='circular',vertex_color="blue").show()
+plot(D,layout='circular',vertex_color="blue")
     </sageplot>
     </image>
     </figure>
@@ -283,17 +283,6 @@ D.plot(layout='circular',vertex_color="blue").show()
     </input>
     </sage>
     </example>
-    <p>La cellule Sage ci-dessous n'est temporairement pas dans l'exemple dû à un problème technique.</p>
-     <sage>
-    <input>    
-    A=matrix([[0,2,1],[0,0,1],[2,1,0]])
-    show("A=",A)
-    show("A^2=",A^2)
-    show("A^3=",A^3)
-    show("A^5=",A^5)
-    show("En particulier, il y a   ", (A^5)[0][0], " chemins de longueur 5 se rendant de la ville 1 et retournant à la ville 1")
-    </input>
-    </sage>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-prodmatdef">
     <title>
@@ -349,26 +338,250 @@ D.plot(layout='circular',vertex_color="blue").show()
       <proposition xml:id="prop-prodmatprop">
       <title>Les propriété du produit matriciel</title>
       <statement>
-      <p>Soit <m>A\in\mathcal{M}_{m\times n}</m>, <m> B,C</m> des matrices de formats appropriés et <m>r\in \R</m>. On a
+      <p>Soit <m>A\in\mathcal{M}_{m\times n}</m>, <m> B,C</m> des matrices de format approprié et <m>r\in \R</m>. On a
       <list xml:id="li-prodmatprop">
       <ol>
-      <li>AI_n=I_mA=A</li>
+      <li><p><m>AI_n=I_mA=A</m></p></li>
       <li xml:id="li-distprodmat"><p><m>(A+B)C=AC+BC</m> et <m>A(B+C)=AB+AC</m></p></li>
-      <li>(rA)B=r(AB)=A(rB)</li>
-      <li>(AB)C=A(BC)</li>
+      <li><p><m>(rA)B=r(AB)=A(rB)</m></p></li>
+      <li><p><m>(AB)C=A(BC)</m></p></li>
       </ol>.</list>
       La dernière propriété dit donc que la multiplication est associative. Comme elle n'est pas commutative, il est primordial de porter attention à l'ordre des multiplication
       dans la propriété <xref ref="li-distprodmat"/>.
       </p>
       </statement>
       <proof>
-      <p></p>
+      <p>Posons <m>\vec{e}_k</m> les colonnes de la matrice identité <m>I_n</m> et <m>\vec{a}_k</m> les colonnes de <m>A</m>. Comme la <m>k</m> ième colonne du produit 
+      <m>AI_n</m> est donnée par <m>A\vec{e}_k</m> et que ce produit matrice vecteur correspond à <m>a_k</m>, on a
+      <me>
+      AI_n=A
+      </me>.
+      </p>
+      <p>De plus, la <m>k</m> ième colonne de <m>I_mA</m> est donné par <m>I_m\vec{a}_k</m> et ce produit matrice vecteur vaut <m>a_k</m>. On a donc
+      <me>
+      I_mA=A
+      </me>.
+      </p>
+      </proof>
+      <proof>
+      <p>Posons <m>\vec{c}_k</m> la <m>k</m> ième colonne de la matrice <m>C</m>. Selon l'addition matricielle, on a pour la <m>k</m> ième colonne de <m>(A+B)C</m>
+      <m>
+      (A+B)\vec{c}_k=A\vec{c}_k+B\vec{c}_k
+      </m>
+       et donc, <m>(A+B)C=AC+BC</m>.
+      </p>
+      <p>De même, si <m>\vec{b}_k</m> représente la <m>k</m> ième colonne de <m>B</m>, on peut déterminer la <m>k</m> ième colonne de <m>A(B+C)</m> en utilisant le fait que
+      la <m>k</m> ième colonne de <m>B+C</m> est <m>\vec{b}_k+\vec{c}_k</m> pour avoir
+      <me>
+      A(\vec{b}_k+\vec{c}_k)=A\vec{b}_k+A\vec{c}_k
+      </me>.
+      Ainsi, <m>A(B+C)=AB+AC</m>.
+      </p>
+      </proof>
+      <proof>
+      <p>Pour la multiplication par un scalaire, on a d'une part
+      <md>
+      <mrow>(rA)B&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     (rA)\vec{b}_1 &amp; (rA)\vec{b}_2 &amp;\cdots &amp; (rA)\vec{b}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;</mrow>
+     <mrow>&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     r(A\vec{b}_1) &amp; r(A\vec{b}_2) &amp;\cdots &amp; r(A\vec{b}_n) \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp; \text{selon l'associativité du produit matrice vecteur (À faire?)}</mrow>
+     <mrow>&amp;= r\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\vec{b}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp; \text{Selon }<xref ref="def-matprodscal"/></mrow>
+     <mrow>&amp;=r(AB)</mrow>
+     </md>.
+     D'un autre côté
+     <md>
+      <mrow>(rA)B&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     (rA)\vec{b}_1 &amp; (rA)\vec{b}_2 &amp;\cdots &amp; (rA)\vec{b}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;</mrow>
+      <mrow>&amp;=\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A(r\vec{b}_1) &amp; A(r\vec{b}_2) &amp;\cdots &amp; A(r\vec{b}_n) \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp;&amp; \text{selon l'associativité du produit matrice vecteur (À faire?)}</mrow>
+     <mrow>&amp;=A(rB)</mrow>
+      </md>.</p>
+      </proof>
+      <proof>
+      <p>Pour l'associativité, on suppose que <m>B\in\mathal{M}_{n,p}</m> et <m>C\in\mathcal{M}_{p,q}</m>. On a alors
+      <md>
+      <mrow>(AB)C&amp;=\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     (AB)\vec{c}_1 &amp; (AB)\vec{c}_2 &amp;\cdots &amp; (AB)\vec{c}_q \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;</mrow>
+    <mrow>&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     (AB)\vec{c}_1 &amp; (AB)\vec{c}_2 &amp;\cdots &amp; (AB)\vec{c}_q \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;</mrow>
+     <mrow>&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A(B\vec{c}_1) &amp; A(B\vec{c}_2) &amp;\cdots &amp; A(B\vec{c}_q) \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;\text{ selon la définition } <xref ref="def-matmatprod"/></mrow>
+     <mrow>&amp;= A\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     B\vec{c}_1 &amp; B\vec{c}_2 &amp;\cdots &amp; B\vec{c}_q \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;</mrow>
+     <mrow>&amp;=A(BC)</mrow>
+      </md>.
+      </p>
       </proof>
       </proposition>
       </p>
-     </subsection>
-    <!-- Sous-sections à écrire, à même ce fichier -->
-    
+      <p>La multiplication matricielle permet d'obtenir la matrice de certaines transformations linéaires en se ramenant à un cas connu.</p>
+      <insight xml:id="con-casconnu">
+      <title>Se ramener à un cas connu</title>
+      <p>En mathématiques, il est fréquent de prendre un problème et de le transformer en plusieurs problèmes plus simples et déjà connus. Par exemple, on peut calculer
+      l'aire d'un polygone en le décomposant en triangles, formes plus simples et d'aire connu. <!-- ToDo à finir --> </p>
+      </insight>
+      <example xml:id="ex-refR2">
+      <title>La réflexion par rapport à une droite passant par l'origine</title>
+      <statement>
+      <p>On considère <m>\mathcal{D}</m> une droite de <m>\R^2</m> passant par l'origine, qui fait un angle de <m>\theta</m> avec l'axe des abscisses (mesuré dans le sens anti horaire).
+      On cherche à faire une réflexion par rapport à cette droite. On peut déterminer la matrice de cette réflexion de la manière suivante:
+      <ol>
+      <li><p>On commence par faire une rotation de <m>\theta</m> dans le sens horaire afin de ramener la droite sur l'axe des abscisses.</p></li>
+      <li><p> On effectue ensuite la réflexion par rapport à l'axe des abscisses, que l'on sait faire (voir l'exemple <xref ref="ex-transfor2"/>).</p></li>
+      <li><p>Par la suite, on ramène le tout à la position initiale en effectuant une rotation de <m>\theta</m> dans le sens anti horaire.</p></li>
+      </ol>
+      </p>
+      </statement>
+      <solution>
+      <p>Selon l'énoncé du problème, cette réflexion est en faite une compisition de deux rotations et de la réflexion <m>S_x</m>. Si on pose <m>S_{\theta}</m> la 
+      réflexion cherchée, on a alors
+      <md>
+      <mrow>S_{\theta}&amp;=R_{\theta}S_xR_{-\theta}</mrow>
+      <mrow>&amp;=\begin{pmatrix}
+ \cos(\theta) &amp; -\sin(\theta)\\
+ \sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix}
+ \begin{pmatrix}
+1&amp;0\\
+0&amp;-1
+\end{pmatrix}
+\begin{pmatrix}
+ \cos(-\theta) &amp; -\sin(-\theta)\\
+ \sin(-\theta) &amp; \cos(-\theta)
+ \end{pmatrix} &amp;&amp; \text{selon les équations } <xref ref="eq-rotr2"/> \text{ et } <xref ref="eq-refx"/>
+</mrow>
+<mrow>&amp;=\left[\begin{pmatrix}
+ \cos(\theta) &amp; -\sin(\theta)\\
+ \sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix}
+ \begin{pmatrix}
+1&amp;0\\
+0&amp;-1
+\end{pmatrix} \right]
+\begin{pmatrix}
+ \cos(\theta) &amp; \sin(\theta)\\
+ -\sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix} &amp;&amp; \text{selon l'associativité de la multiplication matricielle et les identités } \sin(-\theta)=-\sin(\theta) \text{ et } \cos(-\theta)=\cos(\theta)</mrow>
+<mrow>&amp;=\begin{pmatrix}
+\cos(\theta)&amp;\sin(\theta)\\
+\sin(\theta)&amp;-\cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+ \cos(\theta) &amp; \sin(\theta)\\
+ -\sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix}</mrow>
+ <mrow xml:id="eq-refr2-1">&amp;=
+\begin{pmatrix}
+ \cos^2(\theta)-\sin^2(\theta) &amp; 2\sin(\theta)\cos(\theta)\\
+ 2\sin(\theta)\cos(\theta) &amp; \sin^2(\theta)-\cos^2(\theta)
+ \end{pmatrix}</mrow>
+ <mrow xml:id="eq-refr2-2">&amp;=
+\begin{pmatrix}
+\cos(2\theta)&amp; \sin(2\theta)\\
+\sin(2\theta) &amp; -\cos(2\theta)
+ \end{pmatrix} &amp;&amp; \text{en vertu des identités } \cos^2(\theta)-\sin^2(\theta)=\cos(2\theta) \text{ et } 2\sin(\theta)\cos(\theta)=\sin(2\theta)</mrow>
+</md>.
+      </p>
+      <p>L'une ou l'autre des formes matricielles peut être utilisée.</p>
+      </solution>
+      </example>
+      <p>On termine avec un exemple de compositions de transformations linéaires, en utilisant Sage pour faire les calculs.</p>
+      <computation xml:id="sageex-propprodmat">
+      <title>La composition de certaines transformations</title>
+      <p>On considère une rotation d'angle <m>\theta_1</m> et une rotation d'angle <m>\theta_2</m>. Intuitivement, la composition de ces deux rotations devrait être une 
+      rotation d'angle <m>\theta_1+\theta_2</m>. On peut le vérifier algébriquement à l'aide de Sage. Afin de simplifier le code, on utilise <m>\theta_1=a</m> et <m>\theta_2=b</m>.</p>
+      <sage>
+      <input>
+      var("theta1,theta2")
+      Rtheta1=column_matrix([[cos(theta1),sin(theta1)],[-sin(theta1),cos(theta1)]])
+      Rtheta2=column_matrix([[cos(theta2),sin(theta2)],[-sin(theta2),cos(theta2)]])
+      produit=Rtheta1*Rtheta2
+      show(produit.simplify_trig())
+      show(produit.apply_map(lambda x: x.trig_reduce()))
+      </input>
+      </sage>
+      <p> La dernière ligne du code permet d'obtenir la simplification voulue. La méthode <c>apply_map</c> permet d'appliquer <c>trig_reduce()</c> à chaque entrée de la 
+      matrice par le biais d'une fonction intermédiaire <c>lambda</c>. Ceci n'est pas très intuitif, mais pour l'instant, ça suffira. L'exercice <xref provisional="simplifiermatrice"/>
+       permettra de créer une fonction plus conventionnel qui pourra simplifier une matrice.</p>
+       <p>On voit toutefois qu'après simplification, la transformation est bel et bien une rotation d'angle <m>\theta_1+\theta_2</m>.</p>
+       <p>On s'intéresse maintenant à la composition de deux réflexions. Est-ce que le résultat sera aussi une réflexion? Si oui, pourquoi et si non, donner un exemple avant d'éxecuter le code ci-dessous.</p>
+         <sage>
+         <input>
+var("theta1,theta2")
+Stheta1=column_matrix([[cos(2*theta1),sin(2*theta1)],[sin(2*theta1),-cos(2*theta1)]])
+Stheta2=column_matrix([[cos(2*theta2),sin(2*theta2)],[sin(2*theta2),-cos(2*theta2)]])
+produit=Stheta1*Stheta2
+show(produit.simplify_trig())
+show(produit.apply_map(lambda x: x.trig_reduce()))         
+         </input>
+         </sage>  
+         <p>Le résultat, peut-être surprenant, est une rotation. La simplification effectuée par Sage ne montre pas directement la forme d'une matrice de rotation,
+         mais on peut montrer qu'elle est équivalente à une rotation d'angle <m>2(\theta_1-\theta_2)</m>. Ceci suggère que également que les réflexions ne sont pas commutatives,
+         à savoir qu'en général, <m>S_{\theta_1}S_{\theta_2}\neq S_{\theta_2}S_{\theta_1}</m>.</p>
+       <p>Maintenant, on s'intéresse à la composition d'une rotation et d'une réflexion. Comme on sait que la multiplication n'est pas commutative, on va regarder s'il
+       y a une différence entre faire la réflexion en premier suivie de la rotation et la rotation suivie de la réflexion (une prédiction?).</p>
+       <p>D'abord, <m>R_{\theta_1}S_{\theta_2}</m>:</p>
+       <sage>
+       <input>
+       var("theta1,theta2")
+       Rtheta1=column_matrix([[cos(theta1),sin(theta1)],[-sin(theta1),cos(theta1)]])
+       Stheta2=column_matrix([[cos(2*theta2),sin(2*theta2)],[sin(2*theta2),-cos(2*theta2)]])
+       produit=Rtheta1*Stheta2
+       show(produit.simplify_trig())
+       show(produit.apply_map(lambda x: x.trig_reduce()))
+       </input>
+       </sage>
+       <p>Le résultat semble donc être une réflexion d'angle <m>\frac{\theta_1+2\theta_2}{2}</m>.</p>
+       <p>On compare maintenant avec <m>S_{\theta_2}R_{\theta_1}</m>:</p>
+       <sage>
+       <input>
+var("theta1,theta2")
+Rtheta1=column_matrix([[cos(theta1),sin(theta1)],[-sin(theta1),cos(theta1)]])
+Stheta2=column_matrix([[cos(2*theta2),sin(2*theta2)],[sin(2*theta2),-cos(2*theta2)]])
+produit=Stheta2*Rtheta1
+show(produit.simplify_trig())
+show(produit.apply_map(lambda x: x.trig_reduce()))       
+       </input>
+       </sage>
+       <p>Le résultat est encore une fois une réflexion, mais cette fois-ci d'angle <m>\frac{-\theta_1+2\theta_2}{2}</m>.</p>
+       <p>Finalement, on s'intéresse à la composition de trois transformations, en utilisant les calculs précédents et l'associativité pour déterminer le résultat final.
+       <ol>
+       <li><p> La composition de trois rotations devrait être elle aussi une rotation, dont l'angle correspond à la somme des angles de chacune des rotations. En utilisant l'associativité, on montre facilement que
+       <md>
+       <mrow>R_{\theta_1}(R_{\theta_2}R_{\theta_3})&amp;=R_{\theta_1}R_{\theta_2+\theta_3} &amp;&amp; \text{puisque  la composition de deux rotations est une rotation dont l'angle est la somme des angles}</mrow>
+       <mrow>&amp;=R_{\theta_1+\theta_2+\theta_3} &amp;&amp; \text{puisque  la composition de deux rotations est une rotation dont l'angle est la somme des angles}</mrow>
+       <mrow>&amp;=R_{\theta_1+\theta_2}R_{\theta_3} &amp;&amp; \text{selon l'associativité de l'addition de nombres réels et la composition de rotations}</mrow>
+       <mrow>&amp;(R_{\theta_1}R_{\theta_2})R_{\theta_3} &amp;&amp;\text{puisque la composition de deux rotations est une rotation dont l'angle est la somme des angles}</mrow>
+       </md>. L'associativité est ainsi vérifiée et cohérente avec la composition de rotations.</p></li>
+       <li><p>La composition de trois réflexions semble plus difficile à analyser. Deux réflexions composées ensemble donnent une rotation. Une rotation composée avec une réflexion donne une réflexion, mais on sait que 
+       l'ordre de la composition est importante. Est-ce évident que l'associativité sera respectée? On a d'une part
+       <md>
+       <mrow>S_{\theta_1}(S_{\theta_2}S_{\theta_3})&amp;=S_{\theta_1}R_{2(\theta_2-\theta_3)} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
+       <mrow>&amp;=S_{\frac{-(2(\theta_2-\theta_3))+2\theta_1}{2}} &amp;&amp; \text{puisque  la composition d'une rotation suivie d'une réflexion est une réflexion dont l'angle est la moitiée de la différence entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
+       <mrow>&amp;=S_{\theta_1-\theta_2+\theta_3} &amp;&amp; \text{après simplification}</mrow>
+       </md>. D'autre part, on a
+        <md>
+       <mrow>(S_{\theta_1}S_{\theta_2})S_{\theta_3}&amp;=R_{2(\theta_1-\theta_2)S_{\theta_3}} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
+       <mrow>&amp;=S_{\frac{2(\theta_1-\theta_2)+2\theta_3}{2}} &amp;&amp; \text{puisque  la composition d'une réflexion suivie d'une roation est une réflexion dont l'angle est la moitiée de la somme entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
+       <mrow>&amp;=S_{\theta_1-\theta_2+\theta_3} &amp;&amp; \text{après simplification}</mrow>
+       </md>. 
+       On a donc bel et bien égalité.
+       </p></li>
+       </ol>
+       D'autres cas seront explorés à l'exercices  <xref provisional="exo-associativiterotref"/>.
+       </p>
+      </computation>
+     </subsection> 
     <conclusion xml:id="concl-prodmat">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont
     <ul>
@@ -376,14 +589,18 @@ D.plot(layout='circular',vertex_color="blue").show()
     <li><p> La définition de la matrice <xref ref="def-matid">identité </xref>.</p></li>
     <li><p>Le fait que la multiplication n'est pas commutative.</p></li>
     <li><p>Le concept de puissances d'une matrice.</p></li>
+    <li><p>Les <xref ref="li-distprodmat"> propriétés </xref> de la multiplication matricielle.</p></li>
+    <li><p>La forme matricielle d'une réflexion, donnée par l'équation <xref ref="eq-refr2-2"/> ou encore <xref ref="eq-refr2-1"/>.</p></li>
     </ul> 
     De plus avec Sage, on peut multiplier des matrices avec l'opération <c>*</c>. On peut aussi appliquer une transformation linéaire à un ensemble de points en transformant ces points en matrice, pour effectuer la multiplication.
-    Le nombre de colonnes d'une matrice <m>A</m> est obtenue à l'aide de la commande <c>A.ncols()</c> et le nombre de ligne serait obtenue avec <c>A.nrows()</c>.
+    Le nombre de colonnes d'une matrice <m>A</m> est obtenue à l'aide de la commande <c>A.ncols()</c> et le nombre de ligne serait obtenue avec <c>A.nrows()</c>. La commande <c>trig_reduce</c> permet de simplifier des 
+    équations trigonométriques.
     </p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
 </section>
 <!--Exercice montrer que AI=A pour 2x2 (on a montré IA=A dans le texte) -->
 <!-- Exercice en référence à <xref ref="ex-prodmatgeo"/> où cette fois on connait T1 et on cherche T2. Demander en mot la différence et pourquoi c'est plus difficile -->
-
+<!-- Exercice style question 10 examen 2, étirement quelconque Voir aussi <xref ref="ex-refR2"/> -->
+<!-- Exercice vérifier associativité de RSR, RRS , etc sans 'calculs', voir le dernier exemple sage -->
 

@@ -587,12 +587,12 @@ I=\begin{pmatrix}
 <solution>
 <p>Dans une réflexion par rapport à l'axe des abscisses, la première coordonnée reste la même et la seconde change de signe. On a donc <m>S_x(1,0)=\vecd{1,0}</m> et
 <m>S_x(0,1)\vecd{0}{-1}</m>. La matrice est donc
-<me>
+<men xml:id="eq-refx">
 S_x=\begin{pmatrix}
 1&amp;0\\
 0&amp;-1
 \end{pmatrix}
-</me>.</p>
+</men>.</p>
 </solution>
 <solution>
 <p>La rotation de <m>\frac{\pi}{2}</m> dans le sens antihoraire est donnée par la transformation <m>R_{\frac{\pi}{2}}(x,y)=(-y,x)</m>. On a donc
@@ -835,6 +835,42 @@ Toute matrice correspond donc à une transformation linéaire.
  <p>La proposition <xref ref="prop-matsonttransfos"/> affirme qu'il y a une équivalence entre transformation linéaire et matrice. Pour cette raison, on utilisera souvent la lettre <m>T</m> pour désigner à la fois
  la transformation ou sa matrice associée.</p>
  </remark>
+ <p> Dans l'exemple <xref ref="ex-transfomatrice"/>, on a entre autre déterminer la matrice d'une rotation de <m>90^{\circ}</m> autour de l'origine. On s'intérsse maintenant
+ au cas plus général d'une rotation d'angle <m>\theta</m> autour de l'origine.</p>
+ <example xml:id="ex-rotr2">
+ <title>Rotation autour de l'origine dans le plan: dynamique</title>
+ <statement>
+ <p>Considérons un angle <m>\theta</m>. On souhaite déterminer la matrice <m>R_{\theta}</m> correspondant à la rotation d'un angle <m>\theta</m>, mesuré dans le sens anti horaire.
+ La figure interactive suivante permet d'explorer cette rotation avec les vecteurs <m>(1,0)</m> et <m>(0,1)</m>.</p>
+ <figure xml:id="fig-rotr2">
+ <caption> La rotation dans le plan</caption>
+ <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-rotr2">
+        <slate aspect="1:1" source="code/geogebra/rotr2.ggb"
+        surface="geogebra" xml:id="slate-rotr2">
+            setCoordSystem(-1.5, 1.5,-1.5,1.5,);
+          </slate>
+        <instructions>
+          <p>L'interaction permet de manipuler l'angle <m>\theta</m> et de voir la transformation des vecteurs <m>(1,0)</m> et <m>(0,1)</m>. Un clic sur la boite
+          permet de faire afficher les coordonnées horizontale et verticale du vecteur <m>T(1,0)</m> en fonction de <m>\theta</m>.</p>
+        </instructions>
+        </interactive>
+ </figure>
+ </statement>
+ <solution>
+ <p>Puisqu'on cherche la matrice, il suffit de déterminer l'image des vecteurs <m>(1,0)</m> et <m>(0,1)</m> par la rotation. Comme ces vecteurs sont séparés par un angle
+ de <m>90^{\circ}</m> et que la rotation de <m>\theta</m> ne changera pas ceci, on peut seulement trouver l'image de <m>(1,0)</m> et déterminer l'image de <m>(0,1)</m> en
+ prenant le vecteur perpendiculaire à l'image de <m>(1,0)</m>. Selon la figure <xref ref="fig-rotr2"/>, l'image du vecteur <m>(1,0)</m> est
+ <m>R_{\theta}(1,0)=(\cos(\theta),\sin(\theta))</m> et donc, <m>R_{\theta}(0,1)=(-\sin(\theta),\cos(\theta))</m>. On a alors
+ <men xml:id="eq-rotr2">
+ R_{\theta}=\begin{pmatrix}
+ \cos(\theta) &amp; -\sin(\theta)\\
+ \sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix}
+ </men>.
+ </p>
+ </solution>
+ </example>
 <p>
 On termine avec des commandes Sage en lien avec la sous-section.</p>
 <computation xml:id="sageex-transfomat">
@@ -1027,6 +1063,7 @@ show("2A-5B=",2*A-5*B)
     <li><p> Le produit d'une matrice avec un vecteur, défini à l'équation <xref ref="eq-matvecprodgen"/>.</p></li>
     <li><p> Le fait que dans une matrice, les colonnes représentent l'image des vecteurs  <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>.</p></li>
     <li><p> L'équivalence entre une matrice et une transformation linéaire.</p></li>
+    <li><p> La forme matricielle d'une <xref ref="eq-rotr2"> rotation </xref> dans <m>\R^2</m>.</p></li>
     <li><p> L'addition matricielle et la multiplication d'une matrice par un scalaire.</p></li>
     </ul> 
     De plus avec Sage, on peut définir une matrice avec la commande <c>matrix</c>. Par défaut, Sage définit les matrices selon les lignes. La commande <c>column_matrix()</c> permet
@@ -1061,4 +1098,5 @@ show("2A-5B=",2*A-5*B)
                </md>
    -->
    <!-- Un exercice semblable à exo-propvec2 pour les matrices, xml:id="exo-propopmat" Les propriétés sont dans la liste "li-opmath"-->
+   <!-- Exercice pour la forme matricielle d'une réflexion, sans passer par la composition (Avec un geogebra peut-être?) voir ref="ex-rotr2" -->
 </section>
