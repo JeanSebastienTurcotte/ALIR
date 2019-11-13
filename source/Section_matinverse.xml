@@ -275,7 +275,7 @@
     </p>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-inv2x2">
-    <title>Les matrices inverse sur Sage</title>
+    <title>Les matrices inverses sur Sage</title>
     <p>Sur Sage, on peut calculer facilement l'inverse d'une matrice <m>2\times 2</m> <m> A</m> en utilisant la commande <c>A.inverse()</c>. On pourra bien entendu vérifer avec la multiplication matricielle
     que le calcul est bon.</p>
     <sage>
@@ -475,19 +475,146 @@ show("Tu2=",T*u2)
     <mrow>\vec{e}_n&amp;=  (0,\ldots ,0,1) </mrow>
     </md>.
     </p>
-    <p>De plus, la proposition <xref ref="prop-surjestinv"/> donne une manière explicite pour obtenir l'inverse.</p>
+    <p>De plus, la proposition <xref ref="prop-surjestinv"/> donne une manière explicite pour obtenir l'inverse. Pour chaque vecteur <m>\vec{e}_k</m>, on cherche un
+    vecteur <m>\vec{b}_k</m> tel que <m>A\vec{b}_k=\vec{e}_k</m>. La matrice inverse est alors
+    <me>
+    A^{-1}=\begin{pmatrix}
+    \lvert \amp \lvert \amp \cdots \amp \lvert \\
+     \vec{b}_1\amp \vec{b}_2\amp \cdots \amp \vec{b}_n \\
+    \lvert \amp \lvert \amp \cdots \amp \lvert \\
+    \end{pmatrix}</me>.
+    </p>
     </remark>
+    <p>On utilise cette méthode pour calculer à nouveau l'inverse de la matrice de l'exemple <xref ref="ex-matinverse1"/>.</p>
+    <example xml:id="ex-matinverse3">
+    <title>Calcul d'une matrice inverse</title>
+    <statement><p>
+    On considère la matrice <m>A=\begin{pmatrix} 1\amp 1 \\ 4\amp 5 \end{pmatrix}</m> de l'exemple <xref ref="ex-matinverse1"/> et on calcule son inverse à l'aide de la 
+    méthode de la proposition <xref ref="prop-surjestinv"/> et détaillée à la remarque <xref ref="rem-obtenirinverse"/>.
+    </p>
+    <p>Il est intéressant de s'attarder à la différence entre la méthode explicitée à l'exemple <xref ref="ex-matinverse1"/> et dans le paragraphe qui suit cet exemple et la 
+    méthode effectuée ci-dessous basée sur la remarque <xref ref="rem-obtenirinverse"/>. </p>
+    <p>Évidemment, pour une matrice <m>2\times 2</m>, la formule <xref ref="eq-matinverse2x2"/> permet d'obtenir l'inverse sans faire beaucoup de calculs, mais on verra
+    qu'avec une matrice de taille plus grande, il est plus difficile de trouver une formule générale et il est plus simple de rechercher les vecteurs colonnes de l'inverse.</p>
+    </statement>
+    <solution>
+    <p>On cherche un vecteur <m>\vec{b}_1=\vecd{b_{1,1}{b_{2,1}}</m> tel que <m>A\vec{b}_1=\vecd{1}{0}</m> et un vecteur <m>\vec{b}_2=\vecd{b_{1,2}{b_{2,2}}</m> tel que <m>A\vec{b}_2=\vecd{0}{1}</m>.
+    On a
+    <md>
+   <mrow> A\vec{b}_1&amp;=\vecd{1}{0}</mrow>
+   <mrow number="yes" xml:id="eq-matinverse3-1-1">\begin{pmatrix} 1\amp 1 \\ 4\amp 5 \end{pmatrix}\vecd{b_{1,1}{b_{2,1}}&amp;=\vecd{1}{0}</mrow>
+   <mrow number="yes" xml:id="eq-matinverse3-1-2">\vecd{b_{1,1}+b_{2,1}}{4b_{1,1}+5b_{2,1}}&amp;=\vecd{1}{0}</mrow>
+    </md>
+    et
+    <md>
+   <mrow> A\vec{b}_2&amp;=\vecd{0}{1}</mrow>
+   <mrow>\begin{pmatrix} 1\amp 1 \\ 4\amp 5 \end{pmatrix}\vecd{b_{1,2}{b_{2,2}}&amp;=\vecd{0}{1}</mrow>
+   <mrow>\vecd{b_{1,2}+b_{2,2}}{4b_{1,2}+5b_{2,2}}&amp;=\vecd{0}{1}</mrow>
+    </md>.
+    </p><p>
+    Pour le premier système, on trouve en comparant les deuxièmes composantes des vecteurs de l'équation <xref ref="eq-matinverse3-1-2"/> que <m>b_{2,1}=-\frac{4}{5}b_{1,1}</m>.
+    En remplaçant dans l'équation <xref ref="eq-matinverse3-1-1"/>, on trouve <m>b_{1,1}-\frac{4}{5}b_{1,1}=1</m>, ce qui donne <m>b_{1,1}=5</m>. On déduit alors <m>b_{2,1}=-4</m>
+    </p>
+    <p>Pour le second système, en suivant une méthode similaire, on trouver <m>b_{1,2}=-1</m> et <m>b_{2,2}=1</m>. Cela correspond évidemment à ce qui avait été trouvé
+    aux exemples <xref ref="ex-matinverse1"/> et <xref ref="ex-matinverse2"/>.</p>
+    </solution>
+    </example>
+    <p>Dans le chapitre <xref provisional="chap-SEL"/>, on aura une méthode efficace pour trouver les vecteurs colonnes de l'inverse d'une matrice carrée de taille <m>n</m>. Pour le moment,
+    on utilisera Sage ou on donnera simplement l'inverse en cas de besoin.</p>
+    <p>On termine avec un exemple Sage en lien avec la sous-section.</p>
+    <computation xml:id="sageex-matinv">
+    <title>Retour sur les matrices inverses sur Sage</title>
+    <p>Armé de la définition <xref ref="def-matcarreeinverse"/>, on regarde à nouveau des calculs de matrices inverses sur Sage. En particulier, on compare on multiplie à gauche
+    et à droite par l'inverse afin de vérifier l'égalité avec la matrice identité.</p>
+    <sage>
+    <input>
+A=column_matrix([[1,2,3],[-1,3,2],[-3,2,1]])
+Ainv=A.inverse()
+show("AA^(-1)=",A*Ainv)
+show("A^(-1)A=",Ainv*A)
+    </input>
+    </sage>
+    <p>Il peut être utile aussi de savoir que pour calculer l'inverse, on peut utiliser <c>A^(-1)</c>, qui se rapproche davantage de la notation mathématique usuelle.</p>
+    <sage>
+    <input>
+    show("A^(-1)=",A^(-1))
+    </input>
+    </sage>
+    </computation>
     </subsection>
     <subsection xml:id="sssec-propinv">
     <title>Propriétés de la matrice inverse</title>
+    <p>Dans cette sous-section, on s'intéresse aux propriétés de la matrice inverse. En particulier, on énonce une première version du <xref provisional="thm-delamatriceinverse">théorème de la matrice inverse</xref>,
+    qui donne plusieurs critères équivalents pour déterminer si une matrice carrée possède un inverse.</p>
+     <p>Depuis le début de cette section, on parle de l'inverse d'une matrice. On ne sait toutefois jamais posé la question à savoir si cet inverse est unique. On a déjà fait 
+     une remarque similaire dans la section <xref ref="sec-droitesplans"/> au sujet des vecteurs directeurs des droites et des plans. Ceux-ci ne sont pas uniques. Dans le cas
+     d'une matrice inverse par contre, l'unicité se vérifie.</p>
+     <proposition xml:id="prop-inverseunique">
+     <title>L'inverse d'une matrice carrée est unique</title>
+     <statement><p>Soit <m>A</m> une matrice carrée et <m>B,C</m> deux matrices telles que <m>BA=I</m> et <m>CA=I</m>. Alors <m>B=C</m>.</p></statement>
+     <proof>
+     <p>L'égalité suit des propriétés de la multiplication matricielle et du fait que si <m>CA=I</m>, alors <m>AC=I</m> (théorème <xref ref="thm-invgauchedroite"/>).
+     <md>
+     <mrow>B&amp;=BAC &amp;&amp; \text{ car } AC=I</mrow>
+     <mrow>&amp;=(BA)C&amp;&amp; \text{ associativité de la multiplication matricielle}</mrow>
+     <mrow>&amp;=C &amp;&amp; \text{car} BA=I</mrow>
+     </md>.
+     </p>
+     </proof>
+     </proposition>
+     <p>En plus d'être unique, l'inverse possède la propriété importante suivante.</p>
+     <proposition xml:id="prop-inverseproduit">
+     <title>L'inverse d'un produit</title>
+     <statement><p>Soit <m>A</m> et <m>B</m> deux matrices carrées d'ordre <m>n</m> qui sont inversibles. Alors le produit <m>AB</m> est inversible et son inverse est <m>B^{-1}A^{-1}</m>.</p></statement>
+     <proof>
+     <p>Avant de s'embarquer dans des manipulations algébriques abstraites, on réfléchit un instant sur la signification de la proposition. Si deux transformations sont inversibles et 
+     qu'on les compose, c'est-à-dire qu'on les fait l'une après l'autre, alors il n'y a pas de raison apparente qui ferait en sorte que cette composition ne soit pas inversible.
+     De plus, il semble que pour revenir sur le vecteur original, il suffit de faire les transformations inverses dans l'ordre inverses. Il semble donc assez intuitif que
+     <me>
+     (AB)^{-1}=B^{-1}A^{-1}
+     </me>
+     D'un point de vue algébrique, on vérifie facilement que <m>(B^{-1}A^{-1})(AB)=B^{-1}A^{-1}AB=B^{-1}IB=B^{-1}B=I</m>. Il ne reste donc qu'à vérifier l'existence de l'inverse.
+     </p>
+     <p>Soit <m>\vec{v}\in \R^n</m> un vecteur de l'image de <m>AB</m>. On cherche <m>\vec{u}</m> telle que <m>AB\vec{u}=\vec{v}</m>. En vertu de la proposition 
+     <xref ref="prop-surjestinv"/>, si <m>\vec{u}</m> existe, la matrice <m>AB</m> est inversible. On construit <m>\vec{u}</m> en inversant successivement les matrices <m>A</m>
+     et <m>B</m>. Tel qu'attendu
+     <md>
+     <mrow>AB\vec{u}&amp;=\vec{v}</mrow>
+     <mrow>B\vec{u}&amp;=A^{-1}\vec{v}</mrow>
+     <mrow>\vec{u}&amp;=B^{-1}A^{-1}\vec{v}</mrow>
+     </md>.
+     Comme les matrices <m>A^{-1}</m> et <m>B^{-1}</m> existent, le vecteur <m>\vec{u}</m> existe. Ainsi, la matrice <m>AB</m> possède toujours un inverse.
+     </p>
+     </proof>
+     </proposition>
+     <aside>
+     <title>En passant</title>
+     <p>Parfois, la proposition <xref ref="prop-inverseproduit"/> est appelé le théorème du bas et du soulier. L'analogie va comme suit:</p>
+     <p>Lorsqu'on se lève le matin pour quitter la maison, on commence par mettre des bas à ses pieds, pour ensuite mettre des souliers. Le soir venu, on enlève d'abord
+     les souliers, puis ensuite les bas. L'inverse de mettre ses bas puis ses souliers est donc enlever ses souliers puis ses bas:
+     <me>
+     (\text{bas}\circ \text{souliers})^{-1}=\text{soulier}^{-1}\circ\text{bas}^{-1}
+     </me>.</p>
+     </aside>
+     <p>Parfois, une discussion sur les propriétés en est aussi une sur les "non propriétés". Par exemple, l'inverse de la somme de deux matrices n'est pas la somme des
+     inverses de ces matrices. En fait, il est même possible que la somme de deux matrices inversibles ne soit pas inversible (contrairement au produit). Pour un exemple simple,
+     on prend une matrice inversible <m>A</m> et on considère la matrice <m>A+(-A)</m>. On obtient la matrice nulle, qui n'est pas inversible. En effet, si <m>\vec{v}\neq \vec{0}</m> est un 
+     vecteur de l'image de <m>A-A</m>, aucun vecteur <m>\vec{u}</m> n'est envoyé sur <m>\vec{v}</m>, car <m>(A-A)\vec{u}=\vec{0}</m>. En vertu de la proposition <xref ref="prop-investsurj"/>,
+     la matrice nulle ne peut être inversible.</p>
+     <p>Pour la multiplication par un scalaire, on a toutefois la propriété suivante, si <m>k\neq 0</m>:
+     <me>
+     (kA)^{-1}=\frac{1}{k}A^{-1}
+     </me>.</p>
     </subsection>
     <conclusion xml:id="concl-matinverse">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont
     <ul>
     <li><p> L'inverse d'une matrice ou d'une transformation n'existe pas toujours </p></li>
     <li><p>Lorsqu'il existe, l'inverse d'une matrice <m>2\times 2</m> est donnée par l'équation <xref ref="eq-matinverse2x2"/>.</p></li>
+    <li><p> La <xref ref="def-matcarreeinverse"> définition </xref> de l'inverse d'une matrice carrée et le fait qu'un inverse à gauche est un inverse à droite.</p></li>
+    <li><p><xref ref="prop-inverseproduit">L'inverse d'un produit</xref> est le produit des inverses, mais l'ordre est renversé </p></li>
     </ul> 
-    De plus avec Sage, 
+    De plus avec Sage, on peut calculer l'inverse d'une matrice <m>A</m> avec la commande <c>A.inverse()</c> ou <c>A^(-1)</c>.
     </p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
@@ -495,3 +622,5 @@ show("Tu2=",T*u2)
 <!-- Geogebra pour l'exemple transforr2inv -->
 <!-- Exercice pour résoudre le 2e SEL 2x2 pour la matrice inverse. Voir le texte -->
 <!-- Exercice en lien avec remarque <xref ref="rem-obtenirinverse"/>  Il suffit que Au=v ait une solution pour tous les vecteurs de la forme e1=(1,0,...,0),...,en=(0,0,...,1) -->
+<!-- inverse d'un produit de trois matrices -->
+<!-- Expliquer pourquoi la projection orthogonale ne peut pas avoir d'inverse, selon la proposition <xref ref="prop-investsurj"/> -->
