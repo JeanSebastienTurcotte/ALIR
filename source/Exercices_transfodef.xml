@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue le fichier principal du livre                     -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Copyright (C) 2019  Jean-Sébastien Turcotte, Philémon Turcotte         -->
+<!-- Licence à venir                                                        -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-transfodef">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+   <!--exercise xml:id="exo-">
+            <statement>
+                La question.
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse sera disponible sous peu.
+            </answer>
+            <solution>
+                La solution sera disponible sous peu.
+            </solution>
+    </exercise>-->
+    <exercise xml:id="exo-trouvermattransfo">
+            <statement>
+                <p>Pour chaque </p>
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse sera disponible sous peu.
+            </answer>
+            <solution>
+                La solution sera disponible sous peu.
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-propopmat">
+            <statement>
+                <p>Dans l'exercice <xref ref="exo-propvec2"/>, on a démontré les propriétés des vecteurs algébriques. 
+                Ces propriétés s'appliquent également aux matrices et ont été énoncées dans la liste <xref ref="li-opmat"/>.
+                Soit <m>A,B,C\in \mathcal{M}_{m\times n}</m> et <m>r,s\in \R</m>. Démontrer algébriquement chacune de ces propriétés.</p>
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse sera disponible sous peu.
+            </answer>
+            <solution>
+                La solution sera disponible sous peu.
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-sommetransfo">
+            <statement>
+               <p>Soient deux transformations linéaires <m>T_1</m> et <m>T_2</m> ayant le même domaine et la même image. 
+               Soit la transformation <m>S</m>, définie ainsi comme la somme de ces transformations:
+               <me>S(\vec{u})=(T_1+T_2)(\vec{u})=T_1(\vec{u})+T_2(\vec{u})</me>.
+               Montrer que <m>S</m> est linéaire.</p>
+            </statement>
+            <hint>
+                <p>Considérer ce qu'on connait par rapport à <m>T_1</m> et <m>T_2</m>. 
+                Puisque ce sont des transformations linéaires, elles respectent déjà les <xref ref="def-transfolin">propriétés</xref>. 
+                On doit se servir de cela afin de montrer que <m>S</m> respecte également ces propriétés.</p>
+            </hint>
+            <solution>
+            <p>Soit <m>\vec{u}</m> et <m>\vec{v}</m> dans le domaine de ces transformations et <m>c\in\R</m>. 
+                <md>
+                    <mrow>S(\vec{u}+\vec{v})&amp;=T_1(\vec{u}+\vec{v})+T_2(\vec{u}+\vec{v})&amp;&amp; \text{ par la définition de } S</mrow>
+                    <mrow>&amp;=T_1(\vec{u})+T_1(\vec{v})+T_2(\vec{u})+T_2(\vec{v})&amp;&amp; \text{ par } <xref ref="li-transfosomme"/></mrow>
+                    <mrow>&amp;=T_1(\vec{u})+T_2(\vec{u})+T_1(\vec{v})+T_2(\vec{v})</mrow>
+                    <mrow>&amp;=S(\vec{u})+S(\vec{v})</mrow>
+                </md>
+                et
+                <md>
+                    <mrow>S(c\vec{u})&amp;=T_1(c\vec{u})+T_2(c\vec{u})&amp;&amp; \text{ par la définition de } S</mrow>
+                    <mrow>&amp;=cT_1(\vec{u})+cT_2(\vec{u})&amp;&amp; \text{ par } <xref ref="li-transfoscal"/></mrow>
+                    <mrow>&amp;=c\big(T_1(\vec{u})+T_2(\vec{u})\big)</mrow>
+                    <mrow>&amp;=cS(\vec{u})</mrow>
+                </md>
+            </p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-transfocomp">
+            <statement>
+                <p>Dans l'exemple <xref ref="ex-transfocomp"/>, nous avons composé deux transformations linéaires en exécutant les opérations successivement. 
+                Effectuer ces transformations dans l'ordre inverse, c'est-à-dire effectuer la permutation (<xref ref="li-transfor2-P"/>) et ensuite la rotation de <m>90^\circ</m> (<xref ref="li-transfor2-rot90"/>)</p>
+            </statement>
+            <answer>
+                <p><me>S(x,y)=R_{\frac{\pi}{2}}\circ P (x,y)=(-x,y)</me></p>
+            </answer>
+            <solution>
+                <p>Soit <m>(x,y)</m> un vecteur de <m>\R^2</m>. On a
+                <md>
+                <mrow>S(x,y)&amp;=R_{\frac{\pi}{2}}\circ P (x,y)</mrow>
+                <mrow>&amp;=R_{\frac{\pi}{2}}(P(x,y))</mrow>
+                <mrow>&amp;=R_{\frac{\pi}{2}}(y,x)  &amp;&amp; \text{selon la définition de } P\text{ au point } <xref ref="li-transfor2-P"/> </mrow>
+                <mrow>&amp;=(-x,y)  &amp;&amp; \text{selon la définition de } R_{\frac{\pi}{2}} \text{ au point } <xref ref="li-transfor2-rot90"/></mrow>
+                </md>.
+                La composition des deux transformations est donc une nouvelle transformation <m>S(x,y)=(-x,y)</m>. Concrètement, la transformation  correspond à la réflexion par 
+                rapport à l'axe des ordonnées, voir l'exercice <xref provisional="exo-transfor2-refy"/>.</p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-transfocompmat">
+            <statement>
+                <p>Dans l'exercice <xref ref="exo-transfocomp"/>, on a composé la permutation (<xref ref="li-transfor2-P"/>) et la rotation de <m>90^\circ</m> (<xref ref="li-transfor2-rot90"/>).
+                L'exemple <xref ref="ex-mattransfor2"/> nous a permis de trouver leurs matrices de transformation:
+                <me>R_{\frac{\pi}{2}}=\begin{pmatrix}
+                0&amp;-1\\
+                1&amp;0
+                \end{pmatrix} \text{ et }
+                P=\begin{pmatrix}
+                0&amp;1\\
+                1&amp;0
+                \end{pmatrix}</me>
+                Utiliser ces matrices pour trouver la matrice de la transformation <m>S=R_{\frac{\pi}{2}}\circ P</m>. </p>
+            </statement>
+            <hint>
+                <p>On n'a pas encore appris à multiplier les matrices, ce qui serait de loin plus rapide. Il faut donc trouver <m>S(1,0)</m> et 
+                <m>S(0,1)</m> et les mettre en colonnes dans la matrice de <m>S</m>.</p>
+            </hint>
+            <answer>
+                La réponse sera disponible sous peu.
+            </answer>
+            <solution>
+                La solution sera disponible sous peu.
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-reptransfomatunique">
+            <statement>
+                <p>Montrer que la représentation matricielle d'une transformation linéaire est unique.</p>
+            </statement>
+            <hint>
+                <p>Supposer qu'il existe deux matrices <m>A</m> et <m>B</m> qui expriment la même transformation linéaire. 
+                Considérer ensuite que chaque vecteur de la base canonique <m>\mathcal{B}=\langle(1,0,\ldots , 0), (0,1,0,\ldots ,0),\ldots , (0,\ldots , 0 ,1)\rangle</m> 
+                devient chaque colonne de la matrice de transformation linéaire. Cela amène très rapidement à une contradiction.</p>
+            </hint>
+            <solution>
+                <p>Soient <m>A</m> et <m>B</m>, deux matrices différentes qui représentent la même transformation linéaire. 
+                On obtient la première colonne d'une matrice de transformation linéaire en obtenant l'effet de cette transformation sur le premier vecteur de la base 
+                canonique <m>\vec{e}_1=(1,0,\ldots , 0)</m>. Mais on obtient l'effet justement en multipliant la matrice de transformation par ce vecteur.
+                Ainsi, par l'équation <xref ref="eq-matvecprodgen"/>,
+                <me>A\vec{e}_1=\begin{pmatrix}
+                \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+                \vec{a}_1 &amp; \vec{a}_2 &amp; \cdots &amp; \vec{a}_n \\
+                \lvert &amp; \lvert &amp; \cdots &amp; \lvert
+                \end{pmatrix}\begin{pmatrix}1\\ 0\\ \vdots\\ 0 \end{pmatrix}=1\vec{a}_1+0\vec{a}_2+\cdots +0\vec{a}_n=\vec{a}_1</me>
+                et
+                <me>B\vec{e}_1=\begin{pmatrix}
+                \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+                \vec{b}_1 &amp; \vec{b}_2 &amp; \cdots &amp; \vec{b}_n \\
+                \lvert &amp; \lvert &amp; \cdots &amp; \lvert
+                \end{pmatrix}\begin{pmatrix}1\\ 0\\ \vdots\\ 0 \end{pmatrix}=1\vec{b}_1+0\vec{b}_2+\cdots +0\vec{b}_n=\vec{b}_1</me>
+                Alors, <m>\vec{a}_1=\vec{b}_1</m> et de même, on peut montrer que chaque colonne des matrices <m>A</m> et <m>B</m> sont identiques. 
+                Donc, la représentation matricielle d'une transformation linéaire est unique. 
+                </p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-AuegalBu">
+            <statement>
+                <p>Soient deux matrices <m>A</m> et <m>B</m>, de mêmes dimensions qui sont telles que <m>A\vec{u}=B\vec{u}</m>, 
+                pour tout vecteur compatible <m>\vec{u}</m>. Démontrer que <m>A=B</m>.</p>
+            </statement>
+            <hint>
+                <p>On peut procéder de façon semblable au numéro précédent, en choisissant les vecteurs de la base canonique. 
+                En effet, l'équation <xref ref="eq-matvecprodgen"/> nous indique que si l'on choisit le vecteur <m>(1,0,\ldots , 0)</m> comme <m>\vec{u}</m>, on obtiendra la première colonne de la matrice.
+                Cela mènera rapidement à une contradiction.</p>
+            </hint>
+            <solution>
+                La solution sera disponible sous peu.
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-matsommelignes">
+            <statement>
+                <p>Soient deux transformations linéaires <m>T_1</m> et <m>T_2</m> ainsi que leurs matrices respectives <m>A\in \mathcal{M}_{m\times n}</m> et <m>B\in \mathcal{M}_{m\times n}</m>.
+                On veut démontrer que la matrice de <m>T_1+T_2</m> est égale à <m>A+B</m> où on effectue l'addition de chaque élément correspondant dans les deux matrices.
+                </p>
+            </statement>
+            <hint>
+                <p>Utiliser l'équation  <xref ref="eq-matvecprod"/> et commencer avec le fait que <m>(T_1+T_2)(\vec{u})=T_1(\vec{u})+T_2(\vec{u})</m>, tel que démontré à l'exercice <xref ref="exo-sommetransfo"/>.
+                Définir des vecteurs lignes pour chaque matrice.</p>
+            </hint>
+            <solution>
+                <p>Soit <m>A\in \mathcal{M}_{m\times n}</m> la matrice de <m>T_1</m> et <m>\vec{a}_i</m> les lignes de <m>A</m> et <m>B\in \mathcal{M}_{m\times n}</m> la matrice de <m>T_2</m> et <m>\vec{b}_i</m> les lignes de <m>B</m>. Alors on a
+               <md>
+               <mrow>T_1(\vec{u})+T_2(\vec{u})&amp;=A\vec{u}+B\vec{u}</mrow>
+               <mrow>&amp;=\begin{pmatrix}\vec{a}_1\cdot \vec{u} \\ \vec{a}_2\cdot \vec{u} \\ \vdots \\ \vec{a}_m\cdot \vec{u}\end{pmatrix}+\begin{pmatrix}\vec{b}_1\cdot \vec{u} \\ \vec{b}_2\cdot \vec{u} \\ \vdots \\ \vec{b}_m\cdot \vec{u}\end{pmatrix}</mrow>
+               <mrow>&amp;=\begin{pmatrix}\vec{a}_1\cdot \vec{u}+\vec{b}_1\cdot \vec{u} \\ \vec{a}_2\cdot \vec{u}+\vec{b}_2\cdot \vec{u} \\ \vdots \\ \vec{a}_m\cdot \vec{u}+\vec{b}_m\cdot \vec{u}\end{pmatrix}</mrow>
+               <mrow>&amp;=\begin{pmatrix}(\vec{a}_1+\vec{b}_1)\cdot \vec{u} \\ (\vec{a}_2+\vec{b}_2)\cdot \vec{u} \\ \vdots \\ (\vec{a}_m+\vec{b}_m)\cdot \vec{u}\end{pmatrix}</mrow>
+               <mrow>&amp;=\begin{pmatrix}
+                    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_1+\vec{b}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
+                    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_2+\vec{b}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
+                    \vdots &amp; \vdots &amp; \vdots \\
+                    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_m+\vec{b}_m &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} 
+                    \end{pmatrix}\vec{u}</mrow>
+               <mrow>&amp;=(A+B)\vec{u}</mrow>
+               </md></p>
+            </solution>
+    </exercise>
+</exercises>

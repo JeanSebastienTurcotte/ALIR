@@ -767,7 +767,7 @@ Toute matrice correspond donc à une transformation linéaire.
 </proposition>
 <p>Cette proposition donne une autre option pour vérifier si une transformation est linéaire. Étant donnée <m>T</m> une transformation quelconque, on peut calculer l'image des vecteurs <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>,
  les mettre dans une matrice, et vérifier que cette matrice correspond à la transformation <m>T</m>. Si c'est le cas, <m>T</m> est linéaire, sinon elle ne l'est pas<fn>Techniquement, il faudrait s'assurer que le représentation
- par une matrice d'une transformation linéaire est unique. Pour cela, voir l'exercice <xref provisional="exo-reptransfomatunique"/>.</fn>.</p>
+ par une matrice d'une transformation linéaire est unique. Pour cela, voir l'exercice <xref ref="exo-reptransfomatunique"/>.</fn>.</p>
  <example xml:id="ex-transfomatrice">
  <title>Les transformations et les matrices</title>
  <statement>
@@ -951,7 +951,7 @@ plot(u,color="blue")+plot(A*u,color="red")
     </subsection>
     <subsection xml:id="sssec-opmat">
     <title> L'addition matricielle et la multiplication par un scalaire</title>
-    <p>L'exercice <xref provisional="exo-sommetransfo"/> montre que la somme de deux transformations linéaires est aussi une transformation linéaire. Géométriquement, on peut le voir comme si, étant donné deux transformations linéaires
+    <p>L'exercice <xref ref="exo-sommetransfo"/> montre que la somme de deux transformations linéaires est aussi une transformation linéaire. Géométriquement, on peut le voir comme si, étant donné deux transformations linéaires
      différentes <m>T_1,T_2</m>, ayant le même domaine et la même image, et un vecteur <m>\vec{u}</m>, la transformation <m>(T_1+T_2)(\vec{u})=T_1(\vec{u})+T_2(\vec{u})</m> correspond à la somme des transformations sur <m>\vec{u}</m>. En ce sens, l'addition de deux transformations
      correspond à une addition vectorielle dans l'espace image de la transformation. Si cette somme est une transformation linéaire, elle doit donc avoir une forme matricielle.</p>
      <p>
@@ -967,7 +967,7 @@ plot(u,color="blue")+plot(A*u,color="red")
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert
 \end{pmatrix}\begin{pmatrix}u_1\\ u_2\\ \vdots\\ u_n \end{pmatrix}</mrow>
      </md>.
-     La matrice de la somme est donc une matrice composée de la somme des colonnes des matrices <m>A</m> et <m>B</m>. L'exercice <xref provisional="exo-matsommelignes"/> montre que cela est équivalent de dire que la matrice <m>A+B</m> est
+     La matrice de la somme est donc une matrice composée de la somme des colonnes des matrices <m>A</m> et <m>B</m>. L'exercice <xref ref="exo-matsommelignes"/> montre que cela est équivalent de dire que la matrice <m>A+B</m> est
      obtenue en prenant la somme des lignes des matrices <m>A</m> et <m>B</m> et donc qu'au final, on additionne chaque entrée correspondante. On arrive ainsi à la définition suivante.
      </p>
      <definition xml:id="def-matsomme">
@@ -1022,7 +1022,7 @@ plot(u,color="blue")+plot(A*u,color="red")
      </solution>
      </example>
      <p>L'addition matricielle et la multiplication par un scalaire possède un ensemble de propriétés familières à l'addition et à la multiplication régulière, ainsi qu'à ces mêmes
-     opérations sur les vecteurs. En fait, dans l'exercice <xref ref="exo-propvec2"/>, ces propriétés ont été démontrées pour les vecteurs. L'exercice <xref provisional="exo-propopmat"/> fera
+     opérations sur les vecteurs. En fait, dans l'exercice <xref ref="exo-propvec2"/>, ces propriétés ont été démontrées pour les vecteurs. L'exercice <xref ref="exo-propopmat"/> fera
      la même chose pour les propriétés, qui sont données ci-dessous à titre de référence.</p>
      <proposition xml:id="prop-opmat">
      <title>Les propriétés de l'addition matricielle et de la multiplication par un scalaire </title>
@@ -1071,32 +1071,5 @@ show("2A-5B=",2*A-5*B)
     <c>A.row(i)</c> et <c>A.column(j)</c>. L'addition de deux matrices se fait avec l'opération <c>+</c> et la multiplication par un scalaire avec l'opération <c>*</c>.
     </p>
     </conclusion>
-   <!--Inclure les exercices de la section ci-dessous--> 
-   <!-- Exercice en référence à ex-transfocomp pour calculer R(P), pas commutatif  xml:id="exo-transfocomp-RP"
-   <solution>
-    <p>Soit <m>(x,y)</m> un vecteur de <m>\R^2</m>. On a
-    <md>
-    <mrow>S(x,y)&amp;=R_{\frac{\pi}{2}}\circ P (x,y)</mrow>
-    <mrow>&amp;=R_{\frac{\pi}{2}}(P(x,y))</mrow>
-    <mrow>&amp;=R_{\frac{\pi}{2}}(y,x)  &amp;&amp; \text{selon la définition de } P\text{ au point } <xref ref="li-transfor2-P"/> </mrow>
-    <mrow>&amp;=(-x,y)  &amp;&amp; \text{selon la définition de } R_{\frac{\pi}{2}} \text{ au point } <xref ref="li-transfor2-rot90"/></mrow>
-    </md>.
-    La composition des deux transformations est donc une nouvelle transformation <m>S(x,y)=(-x,y)</m>. Concrètement, la transformation  correspond à la réflexion par 
-    rapport à l'axe des ordonnées, voir l'exercice <xref provisional="exo-transfor2-refy"/>.</p></solution> -->
-   <!-- exercice sur la somme de deux transformations  xml:id="exo-sommetransfo"-->
-   <!-- unicité de la représentation d'une transfo par une matrice -->
-   <!-- Si Au=Bu pour tout les u, alors A=B -->
-   <!-- Exercice en lien avec l'équation  <xref ref="eq-matvecprodgen"/>, le produit matrice vecteur est aussi un vecteur ou chaque composante est un produit scalaire. 
-   Utiliser cet exercice pour trouver la matrice de A+B. Démarche ci-dessous:
-               Soit <m>A\in \mathcal{M}_{m\times n}</m> la matrice de <m>T_1</m> et <m>\vec{a}_i</m> les lignes de <m>A</m> et <m>B\in \mathcal{M}_{m\times n}</m> la matrice de <m>T_2</m> et <m>\vec{b}_i</m> les lignes de <m>B</m>. Alors on a
-               <md>
-               <mrow>T_1(\vec{u})+T_2(\vec{u})&amp;=A\vec{u}+B\vec{u}</mrow>
-               <mrow>&amp;=\begin{pmatrix}\vec{a}_1\cdot \vec{u} \\ \vec{a}_2\cdot \vec{u} \\ \vdots \\ \vec{a}_m\cdot \vec{u}\end{pmatrix}+\begin{pmatrix}\vec{b}_1\cdot \vec{u} \\ \vec{b}_2\cdot \vec{u} \\ \vdots \\ \vec{b}_m\cdot \vec{u}\end{pmatrix}</mrow>
-               <mrow>&amp;=\begin{pmatrix}\vec{a}_1\cdot \vec{u}+\vec{b}_1\cdot \vec{u} \\ \vec{a}_2\cdot \vec{u}+\vec{b}_2\cdot \vec{u} \\ \vdots \\ \vec{a}_m\cdot \vec{u}+\vec{b}_m\cdot \vec{u}\end{pmatrix}</mrow>
-               <mrow>&amp;=\begin{pmatrix}(\vec{a}_1+\vec{b}_1)\cdot \vec{u} \\ (\vec{a}_2+\vec{b}_2)\cdot \vec{u} \\ \vdots \\ (\vec{a}_m+\vec{b}_m)\cdot \vec{u}\end{pmatrix}</mrow>
-               <mrow>&amp;=\begin{pmatrix}</mrow>
-               </md>
-   -->
-   <!-- Un exercice semblable à exo-propvec2 pour les matrices, xml:id="exo-propopmat" Les propriétés sont dans la liste "li-opmath"-->
-   <!-- Exercice pour la forme matricielle d'une réflexion, sans passer par la composition (Avec un geogebra peut-être?) voir ref="ex-rotr2" -->
+   <xi:include href="Exercices_transfodef.xml" />
 </section>
