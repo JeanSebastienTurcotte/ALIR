@@ -606,6 +606,101 @@ show("A^(-1)A=",Ainv*A)
      (kA)^{-1}=\frac{1}{k}A^{-1}
      </me>.</p>
     </subsection>
+    <subsection xml:id="sssec-algmat">
+    <title>Algèbre matricielle</title>
+   <p>Dans cette section, on illustre l'utilisation de l'algèbre matricielle, qui diffère de l'algèbre usuelle, principalement par le fait que la multiplication n'est
+    pas commutatif.</p>
+    <example xml:id="ex-algmat1">
+    <title>Algèbre matricielle</title>
+    <statement><p>Soit <m>A,B,C</m> et <m>X</m> des matrices. On cherche à isoler <m>X</m> dans l'équation
+    <me>
+    AX+B=C
+    </me>.</p>
+    <p>Quelles sont les conditions sur les matrices <m>A,B,C</m> pour qu'il soit possible d'isoler <m>X</m>.</p></statement> 
+    <solution>
+    <p>On isole <m>X</m>, sans se soucier des conditions sur les matrices. On les déterminera après avoir effectué les opérations algébriques. On a donc
+    <md>
+    <mrow> AX+B&amp;=C</mrow>
+    <mrow>AX&amp;=C-B</mrow>
+    <mrow>X&amp;=A^{-1}(C-B)</mrow>
+    </md>.
+    </p>
+    <p>Il faut donc que <m>B</m> et <m>C</m> soit de même format, puisqu'on les soustrait. De plus, on utilise l'inverse de <m>A</m>. Il faut donc que <m>A</m> soit une matrice carrée.
+    <fn>Techniquement, ce n'est pas vrai, <m>A</m> pourrait posséder un inverse à droite si elle est rectangulaire. Voir la section <xref provisional="sec-matmn"/>.</fn>
+    Si <m>A</m> est une matrice <m>n\times n</m>, il faut que <m>C-B</m> ait <m>n</m> lignes. Sans obligation sur le nombre de colonnes, on peut supposer qu'il y en a <m>m</m>.
+    Les matrices <m>B,C</m> sont donc de format <m>n\times m</m>.
+    </p>
+    <p>Le produit <m>A^{-1}(C-B)</m> sera une matrice <m>n\times m</m> et donc, le format de <m>X</m> sera <m>n\times m</m>. C'est également compatible avec l'équation initial
+    puisque <m>AX</m> est de format <m>n\times m</m> et qu'on additionne à ce produit la matrice <m>n\times m</m> B pour avoir la matrice <m>C</m>, aussi <m>n\times m</m>. </p>
+    </solution>
+    </example>
+    <p>Dans tous les exemples qui suivent, on suppose que les matrices ont un format approprié pour que les opérations soient définies et que les matrices qui ont à
+    être inversée sont carrées. L'exercice <xref provisional="exo-algmatpropex"/> servira à déterminer dans chaque cas les conditions sur les matrices.
+    </p>
+    <example xml:id="ex-algmat2">
+    <title>Algèbre matricielle, deuxième partie</title>
+    <statement>
+    <p>Pour chaque équation ci-dessous, isoler la matrice <m>X</m>, en supposant que les formats sont appropriés et que la matrices ayant à être inversée sont inversible.
+    <ol>
+    <li><m>XA+B=C</m></li>
+    <li><m>AX+B=X</m></li>
+    <li><m>AXB=D</m></li>
+    <li><m>(A+X)B+(B+X)A=I</m></li>
+    <li><m>AX^{-1}+B=C</m></li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>Similairement à l'exemple <xref ref="ex-algmat1"/>, on a
+    <md>
+    <mrow> XA+B&amp;=C</mrow>
+    <mrow>XA&amp;=C-B</mrow>
+    <mrow>X&amp;=(C-B)A^{-1}</mrow>
+    </md>.
+    </p>
+    </solution>
+    <solution>
+    <p>On commence par regrouper les termes ayant la matrice <m>X</m> d'un côté. On obtient alors
+    <md>
+    <mrow> AX-X&amp;=-B</mrow>
+    <mrow>(A-I)X&amp;=-B</mrow>
+    <mrow>X&amp;=(A-I)^{-1}(-B)</mrow>
+    <mrow>X&amp;=-(A-I)^{-1}B</mrow>
+    </md>.
+    </p>
+    </solution>
+    <solution>
+    <p>On a
+    <md>
+    <mrow>AXB&amp;=D</mrow>
+    <mrow>AX&amp;=DB^{-1}</mrow>
+    <mrow>X&amp;=A^{-1}DB^{-1}</mrow>
+    </md>.
+    </p>
+    </solution>
+    <solution>
+    <p>On commence par poser <m>Y=X^{-1}</m>. L'expression devient <m>AY+B=C</m>, équivalente à celle de l'exemple <xref ref="ex-algmat1"/>. On a donc
+    <me>
+    Y=A^{-1}(C-B)
+    </me>.
+    Puisque <m>X=Y^{-1}=(X^{-1})^{-1}</m>, on a
+    <md>
+    <mrow>X&amp;=\left(A^{-1}(C-B)\right)^{-1}</mrow>
+    <mrow>&amp;=(C-B)^{-1}(A^{-1})^{-1}</mrow>
+    <mrow>&amp;=(C-B)^{-1}A</mrow>
+    </md>.
+    </p>
+    </solution>
+    <solution>
+    <p>On commence par développer l'expression au carré, en portant une attention particulière aux termes <m>AB</m> et <m>BA</m> (voir l'exercice <xref provisional="AplusBaucarré"/>). On a donc
+    <md>
+    <mrow>A^2+AX+XA</mrow>
+    </md>
+    </p>
+    </solution>
+    </example>
+    <p>TERMINER avec vérification sage des réponses? Style plug X= dans l'équation et vérifier bool si égalité?</p>
+    </subsection>
     <conclusion xml:id="concl-matinverse">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont
     <ul>
@@ -624,3 +719,5 @@ show("A^(-1)A=",Ainv*A)
 <!-- Exercice en lien avec remarque <xref ref="rem-obtenirinverse"/>  Il suffit que Au=v ait une solution pour tous les vecteurs de la forme e1=(1,0,...,0),...,en=(0,0,...,1) -->
 <!-- inverse d'un produit de trois matrices -->
 <!-- Expliquer pourquoi la projection orthogonale ne peut pas avoir d'inverse, selon la proposition <xref ref="prop-investsurj"/> -->
+<!-- Montrer que A0=0 et que 0A=0 où 0 est la matrice nulle de format approprié -->
+<!-- Déterminer les caractéristiques pour chaque matrices des exemples de la sssec-algmat -->

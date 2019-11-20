@@ -360,6 +360,53 @@
      <solution>
     <p>La démonstration est faite à l'exercice <xref provisional="homotéthie est linéaire"/></p>
     </solution>
+    <solution>
+    <p>La figure interactive ci-dessous permet devoir la linéarité de la permutation de composantes de manière intuitive.
+    <figure xml:id="fig-transfor2perm">
+    <caption>La permutation des composantes d'un vecteur est une transformation linéaire</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-transfor2perm">
+        <slate aspect="1:1" source="code/geogebra/transfor2perm.ggb"
+        surface="geogebra" xml:id="slate-transfor2perm">
+            setCoordSystem(-18, 18,-15,15,);
+          </slate>
+        <instructions>
+          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton fera animer la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
+        </instructions>
+        </interactive>
+    </figure>
+    </p>
+    <p>Algébriquement, on a
+    <md>
+    <mrow>P(x_1+x_2,y_1+y_2)&amp;=(y_1+y_2,x_1+x_2)</mrow>
+    <mrow>&amp;=(y_1,x_1)+(y_2,x_2)</mrow>
+    <mrow>&amp;=P(x_1,y_1)+P(x_2,y_2)</mrow>
+    </md>
+    et
+    <md>
+    <mrow>P(kx_1,ky_1) &amp;=(ky_1,kx_1)</mrow>
+    <mrow>&amp;=k(y_1,x_1)</mrow>
+    <mrow>&amp;=kP(x_1,y_1)</mrow>
+    </md>.
+    </p>
+    </solution>
+    <solution>
+    <p>
+    On note <m>\text{proj}_{\vec{w}}(\vec{u})</m> la projection orthogonale du vecteur <m>\vec{u}</m> sur le vecteur <m>\vec{w}</m>. Algébriquement, on a
+    <md>
+    <mrow> \text{proj}_{\vec{w}}(\vec{u}+\vec{v})&amp;=\frac{(\vec{u}+\vec{v})\cdot \vec{w}}{\vec{w}\cdot \vec{w}}\vec{w} &amp;&amp; \text{ selon l'équation } <xref ref="eq-projortho"/></mrow>
+    <mrow> &amp;=\frac{\vec{u}\cdot \vec{w}+\vec{v}\cdot \vec{w}}{\vec{w}\cdot \vec{w}}\vec{w} &amp;&amp; \text{selon la } <xref ref="prop-propprodscal">propriété </xref>\text{ de distributivité du produit scalaire}</mrow>
+    <mrow>&amp;=\frac{\vec{u}\cdot \vec{w}}{\vec{w}\cdot \vec{w}}\vec{w}+\frac{\vec{v}\cdot \vec{w}}{\vec{w}\cdot \vec{w}}\vec{w}</mrow>
+    <mrow>&amp;=\text{proj}_{\vec{w}}(\vec{u})+\text{proj}_{\vec{w}}(\vec{v})</mrow>
+    </md>
+    et 
+    <md>
+    <mrow>\text{proj}_{\vec{w}}(k\vec{u})&amp;=\frac{k\vec{u}\cdot \vec{w}}{\vec{w}\cdot \vec{w}}\vec{w} &amp;&amp; \text{ selon l'équation } <xref ref="eq-projortho"/></mrow>
+    <mrow>&amp;=k\frac{\vec{u}\cdot \vec{w}}{\vec{w}\cdot \vec{w}}\vec{w} &amp;&amp; \text{ selon la } <xref ref="def-prodscal">propriété </xref> \text{ du produit scalaire}</mrow>
+    <mrow>&amp;=k\text{proj}_{\vec{w}}(\vec{u})</mrow>
+   </md>.
+    </p>
+    </solution>
     </example> 
     <p>Pour conclure cette sous-section, un résultat sur la composition de deux transformations linéaires.</p>
     <theorem xml:id="thm-transfocompo">
@@ -930,8 +977,16 @@ show(u[0]*A.column(0)+u[1]*A.column(1))
 </sage>
 <sage>
 <input>
+#calcul en utilisant l'opération *
 w=vector([1,3,-1])
 show('Aw='A*w)
+</input>
+</sage>
+<p>On peut définir une matrice dont tous les éléments sont nuls rapidement en utilisant la commande <c>matrix(m,n,0)</c>. On aura alors une matrice <m>m\times n</m> remplies de <m>0</m>.</p>
+<sage>
+<input>
+Z=matrix(3,5,0)
+show(Z)
 </input>
 </sage>
 <p>Pour une matrice donnée, on peut déterminer la transformation linéaire associée en multipliant par le vecteur <m>(x_1,x_2,\ldots , x_n)</m> approprié.</p>
