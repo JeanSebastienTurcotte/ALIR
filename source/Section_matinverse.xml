@@ -699,7 +699,72 @@ show("A^(-1)A=",Ainv*A)
     </p>
     </solution>
     </example>
-    <p>TERMINER avec vérification sage des réponses? Style plug X= dans l'équation et vérifier bool si égalité?</p>
+    <p>TERMINER avec vérification sage des réponses? Style plug X= dans l'équation et vérifier bool si égalité? </p>
+    <computation xml:id="sageex-algmat">
+    <title>L'algèbre matricielle avec Sage</title>
+    <p>Parfois, il est pratique de travailler avec des matrices génériques, de manière purement algébrique, sans se soucier des entrées spécifiques des matrices. 
+    Malheureusement, Sage ne permet pas (encore) l'utilisation de variables pour des matrices comme on l'a fait dans les exemples <xref first="ex-algmat1" last="ex-algmat2"/>.
+    On fait un compromis en se créant une matrice arbitraire de taille spécifique. Les calculs faits ainsi ne pourront donc pas êtres considérés comme des preuves des
+    identités, mais au moins une vérification plus générale qu'un exemple spécifique.
+    </p>
+    <p>On doit dans un premier temps créer une matrice dont les entrées seront arbitraires, par exemple
+    <m>A=\begin{pmatrix} a_{1,1} &amp; a_{1,2} &amp; a_{1,3} \\ 
+    a_{2,1} &amp; a_{2,2} &amp; a_{2,3} \\
+    a_{3,1} &amp; a_{3,2} &amp; a_{3,3} 
+    \end{pmatrix}</m>.</p>
+    <p>Pour cela, on se sert du constructeur de matrices à partir d'une liste. Par exemple, pour créer une matrice dont les entrées seraient les nombres de <m>1</m> à <m>9</m>,
+    en ligne, on peut utiliser la suite d'instructions suivante.</p>
+    <sage>
+    <input>
+    liste=[i+1 for i in range(9)]   #range(9) va de 0 à 8, donc on fait 1+1
+    show(liste)
+    A=matrix(3,3,liste)    #3,3 est la taille de la matrice
+    show(A)
+    </input>
+    </sage>
+    <p>On veut donc créer une fonction Sage qui, étant donné des dimensions <m>m,n</m> et un paramètre alphabétique, retournera une matrice de taille <m>m\times n</m> dont les entrées
+    seront dénotées par la lettre choisie indicée de la position, comme à l'équation <xref ref="eq-matindice"/>. Voici une manière d'y arriver, avec commentaire dans le code.</p>
+    <sage>
+    <input>
+    def matquelc(m,n,lettre):
+    a=str(lettre)   #On s'assure que lettre est un caractère de la forme "a"
+    liste=[] #Création d'une liste vide
+    for i in range(m):
+        for j in range(n):     #On itère sur les lignes (i de 0 à m-1) et les colonnes (j de 0 à n-1)
+            liste.append('%s_%d%d'%(a,i+1,j+1))   #On ajoute à la fin de la liste (append) la chaine a_i+1j+1 , les +1 paliant au fait que range(k) va de 0 à k-1
+    M=matrix(SR,m,n,liste)  #On crée une matrice mxn à partir de liste (Le SR dit à sage que la matrice est symbolique. Il n'est pas nécessaire de comprendre son rôle)
+    return M  #La fonction retourne la matrice M
+    </input>
+    </sage>
+    <p>On appelle maintenant le code pour créer deux matrices <m>2\times 2</m> avec des indices respectifs <m>a</m> et <m>b</m>.</p>
+    <sage>
+    <input>
+    A=matquelc(2,2,'a')
+    B=matquelc(2,2,'b')
+    show(A+B)
+    </input>
+    </sage>
+    <p>Remarquons que les fonctions sage utilisées ne permettent pas d'écrire <m>a_{1,2}</m>. Les entrées pourraient porter à confusion si la taille était supérieure à <m>9</m>.</p>
+    <sage>
+    <input>
+    C=matquelc(12,15,'c')
+    show(C)
+    </input>
+    </sage>
+    <p>On peut ensuite "vérifier" l'équation de l'exemple <xref ref="ex-algmat1"/>   de la manière suivante. </p>
+    <sage>
+    <input>
+A=matquelc(4,4,'a')
+B=matquelc(4,4,'b')
+C=matquelc(4,4,'c')
+X=A^(-1)*(C-B)
+A*X+B==C
+    </input>
+    </sage>
+    <p>On a choisit <m>4\times 4</m> pour la taille des matrices, mais on aurait pu choisir d'autre valeurs, respectant les conditions énumérées dans l'exemple <xref ref="ex-algmat1"/>.
+    Un rappel s'impose aussi sur sage. Si l'expression avec le <c>==</c> renvoie <c>true</c>, alors on peut être certain que c'est vrai. Par contre, un <c>false</c> ne signifie pas
+    que l'expression est fausse, mais que sage est incapable de la vérifier.</p>
+    </computation>
     </subsection>
     <conclusion xml:id="concl-matinverse">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont
@@ -721,3 +786,5 @@ show("A^(-1)A=",Ainv*A)
 <!-- Expliquer pourquoi la projection orthogonale ne peut pas avoir d'inverse, selon la proposition <xref ref="prop-investsurj"/> -->
 <!-- Montrer que A0=0 et que 0A=0 où 0 est la matrice nulle de format approprié -->
 <!-- Déterminer les caractéristiques pour chaque matrices des exemples de la sssec-algmat -->
+<!-- Exercice Sage en lien avec sageex-algmat pour vérifier certaines égalité de ex-algmat2.
+
