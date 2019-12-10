@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Copyright (C) 2019  Jean-Sébastien Turcotte, Philémon Turcotte         -->
+<!-- Licence à venir                                                        -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-transfodimsup">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title>Transformations linéaires de dimension supérieure </title>
+    <introduction xml:id= "intro-transfodimsup">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>On propose maintenant une courte section exploratoire sur les transformations linéaires de dimensions plus grandes. Les concepts à la base géométriques demanderont
+    à être précisé afin d'avoir une signification dans les espaces plus abstraits et des questions comme trouver l'inverse metteront en avant-plan la nécessité de développer
+    les outils techniques du chapitre <xref provisional="chap-SEL"/>.</p>
+    
+    <p>On commence la section en terrain familier, soit avec les transformations linéaires de nature géométrique, mais dans <m>\R^3</m>. On verra rapidement des complexités
+    émerger pour le calcul d'un inverse.</p>
+    <p>Finalement, on généralise en considérant les matrices de taille <m>m\times n</m> où <m>m</m> n'est pas nécessairement égal à <m>n</m>. On se questionne sur la signification
+    d'un inverse pour ces transformations, introduisant par le fait même des concepts qui seront détaillés au chapitre suivant.</p>
+    </introduction>
+    <subsection xml:id="sssec-transfor3">
+    <title>Transformations linéaires dans l'espace à trois dimensions</title>
+    <p>N'importe quel vecteur de <m>\R^3</m> peut être écrit de manière unique comme une <xref ref="def-comblin">combinaison linéaire</xref> des vecteurs 
+    <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>. On peut donc décrire une transformation linéaire dans <m>\R^3</m> par une matrice <m>3\times 3</m> où chaque colonne 
+    représente l'image de ces trois vecteurs. La transformation identité, qui ne consiste à rien faire est donnée par la matrice
+    <me>
+    I_3=\begin{pmatrix}
+    1\amp 0\amp 0\\
+    0\amp 1\amp 0\\
+    0\amp 0\amp 1
+    \end{pmatrix}
+    </me>.
+    </p>
+    <p>Un exemple un peu plus élaboré consiste à regarder un étirement de facteur <m>k_1,k_2,k_3</m> dans la direction des vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>.
+    </p>
+    <example xml:id="ex-etirementr3">
+    <title>Étirements dans <m>\R^3</m></title>
+    <statement>
+    <p>On considère une transformation linéaire qui étire dans la direction des abscisses d'un facteur <m>3</m>, dans la direction des ordonnées d'un facteur <m>2</m>
+    et dans la direction des cotes d'un facteur <m>-4</m>. On veut déterminer la matrice de cette transformation.</p>
+    <solution>
+    <p>L'image des vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m> est respectivement <m>(3,0,0),(0,2,0)</m> et <m>(0,0,-4)</m>. La matrice est donc
+    <me>
+    A=\begin{pmatrix}
+    3\amp 0\amp 0\\
+    0\amp 2\amp 0\\
+    0\amp 0\amp -4
+    \end{pmatrix}
+    </me>.
+    </p>
+    </solution>
+    </statement>
+    </example>
+    <p>Une homotétie est un étirement simultanné pour lequel <m>k_1=k_2=k_3</m>.</p>
+    <p>On s'intéresse  maintenant aux rotations dans <m>\R^3</m>. Dans le plan, une rotation s'effectue autour d'un point. Comme on veut que l'origine reste fixe, il n'y 
+    avait qu'un choix possible, tourner autour du point <m>(0,0)</m>. Dans <m>R^3</m>, les rotations s'effectuent autour de droites, appelées l'axe de rotation. On débute par
+    déterminer les matrices de rotation par rapport aux axes de coordonnées.</p>
+    <example xml:id="ex-rotR3axes">
+    <title>Rotation par rapport aux axes de coordonnées</title>
+    <statement>
+    <p>On note les matrices de rotation par rapport aux axes de coordonnées <m>x,y,z</m> respectivement <m>R_{\theta_x},R_{\theta_y}</m> et <m>R_{\theta_y}</m>. On cherche à
+    déterminer ces matrices en fonction d'un angle <m>\theta</m>. La figure interactive <xref ref="fig-rotR3axes"/> peut être pratique pour visualiser les situations.</p>
+          <figure xml:id="fig-rotR3axes">
+      <caption>Les rotations standards dans <m>\R^3</m></caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-rotR3axes">
+        <slate aspect="1:1" source="code/geogebra/rotR3axes.ggb"
+        surface="geogebra" xml:id="slate-rotR3axes">
+            setCoordSystem(-1.5, 1.5,-1.5,1.5,-1.5,1.5);
+          </slate>
+        <instructions>
+          <p> Un clic sur l'un des trois boutons mettra la figure dans la bonne perspective. On pourra ensuite déplacer l'image d'un vecteur selon un angle <m>\theta</m> afin de visualiser où vont les vecteurs
+          <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>.
+          </p>
+        </instructions>
+        </interactive>
+    </figure>
+    <p>Dans chacun des cas, on choisit de mesure l'angle à partir du raisonnement suivant. On écrit la séquence <m>x\to y\to z \to x \to y</m>. On choisit l'axe de rotation et on supprime 
+    la première occurence de cet axe dans la séquence. L'angle est mesuré entre les demis axes positifs selon la première flèche à sa droite. Ainsi, l'angle pour une rotation par rapport à l'axe des <m>y</m>
+    est mesuré de l'axe des <m>z</m> vers l'axe des <m>x</m> positifs.</p>
+    </statement>
+    <solution>
+    <p>On débute avec la rotation selon l'axe des <m>z</m>, car c'est celle qui est le plus près de la rotation dans <m>\R^2</m>. Dans un premier temps, l'image du vecteur 
+    <m>(0,0,1)</m> est <m>(0,0,1)</m> car celui-ci est sur l'axe de rotation. Comme l'angle est mesuré de l'axe des <m>x</m> vers l'axe des <m>y</m>, l'image
+    du vecteur <m>(1,0,0)</m> sera de la forme <m>(\cos(\theta),\sin(\theta),0)</m>. La figure <xref ref="fig-rotR3axes"/> illustre l'image du vecteur <m>(1,0,0)</m>
+    si on clique sur "rotation selon l'axe des <m>z</m>".</p>
+    
+    <p>Comme le vecteur <m>(0,1,0)</m> est perpendiculaire au vecteur <m>(1,0,0)</m> dans le sens antihoraire, son image sera perpendiculaire à <m>(cos(\theta),\sin(\theta),0)</m>, aussi dans le sens anithoraire et sera aussi
+    dans le plan <m>z=0</m>. En suivant un raisonnement similaire à celui de l'exemple <xref ref="ex-rotr2"/>, on obtient <m>R_{\theta_z}(0,1,0)=(-\sin(\theta),cos(\theta),0)</m>. La matrice
+    est donc
+    <men xml:id="eq-rotR3z">
+    R_{\theta_z}=\begin{pmatrix} \cos(\theta) \amp -\sin(\theta) \amp 0 \\
+                                 \sin(\theta) \amp \cos(\theta) \amp 0 \\
+                                  0 \amp 0 \amp 1\end{pmatrix}
+    </men>.</p>
+    </solution>
+    <solution>
+    <p>On considère maintenant la rotation selon l'axe des <m>y</m>. Selon la séquence, l'angle sera mesuré de l'axe des <m>z</m> positifs vers l'axe des <m>x</m> positifs.
+    Évidemment, l'image du vecteur <m>(0,1,0)</m> est lui-même puisque celui-ci est sur l'axe de rotation.</p>
+    <p>On commence par trouver l'image du vecteur <m>(0,0,1)</m>. La figure <xref ref="fig-rotR3axes"/> peut être pratique pour visualiser. Un clic sur "rotation selon l'axe des <m>y</m>" fera apparaitre
+    l'image du vecteur <m>(0,0,1)</m>. L'image du vecteur <m>(0,0,1)</m> est <m>(\sin(\theta),0,\cos(\theta))</m>.</p>
+    <p>Comme le vecteur <m>(1,0,0)</m> est perpendiculaire au vecteur <m>(0,0,1)</m> dans le sens antihoraire, son image sera perpendiculaire à <m>(\sin(\theta),0,\cos(\theta))</m>, aussi dans le sens anithoraire 
+    et sera aussi dans le plan <m>y=0</m>. En suivant un raisonnement similaire à celui de l'exemple <xref ref="ex-rotr2"/>, on obtient <m>R_{\theta_y}(1,0,0)=(\cos(\theta),0,-sin(\theta))</m>. La matrice
+    est donc
+    <men xml:id="eq-rotR3y">
+    R_{\theta_y}=\begin{pmatrix} \cos(\theta) \amp 0 \amp \sin(\theta) \\
+                                 0 \amp 1 \amp 0 \\
+                                  -\sin(\theta) \amp 0 \amp  \cos(\theta)\end{pmatrix}
+    </men>.</p>
+    </solution>
+    <solution>
+    <p>La matrice de rotation selon l'axe des <m>x</m> est obtenue à l'exercice <xref provisional="exo-rotR3x"/>.</p>
+    </solution>
+    </example>
+    <p>Les rotations par rapport à des droites quelconques est un peu plus difficile à analyser. On explore le sujet dans l'exemple calculatoire <xref ref="sageex-transfodimsup"/> et on s'y intéressera
+    davantage dans la section <xref provisional="matrices orthogonales"/>.</p>
+    <p>On regarde à maintenant les réflexions de l'espace. Dans le plan, la réflexion s'effectue selon une droite, mais dans l'espace, c'est selon un plan que la réflexion s'effectue.
+    On détermine les matrices de réflexion selon les plans <m>x=0,y=0</m> et <m>z=0</m>.</p>
+    <example xml:id="ex-refR3plans0">
+    <title> Réflexion par rapport aux plans <m>x=0,y=0</m> et <m>z=0</m></title>
+    <statement>
+    <p>On note par <m>S_{yOz}, S_{xOz}, S_{yOz}</m> les matrices de réflexions par rapport aux plans respectifs <m>x=0,y=0</m> et <m>z=0</m>.<fn>Dans <m>\R^2</m>, on avait noté
+     <m>S_y</m> la réflexion par rapport à l'axe des <m>y</m>, correspondant à <m>x=0</m>. On a choisi la notation <m>yOz</m> pour faire un parallèle avec cette notation pour
+     décrire la réflexion dans <m>\R^3</m> par rapport au plan <m>x=0: S_{yOz}</m>.</fn> </p>
+     <p>On cherche les matrices <m>S_{yOz}, S_{xOz}, S_{yOz}</m>.</p>
+    </statement>
+    <solution>
+    <p>On commence avec la réflexion <m>S_{yOz}</m> selon le plan <m>x=0</m>. Comme le vecteur <m>(1,0,0)</m> est perpendiculaire au plan (c'est un vecteur normal de ce plan), sa 
+    réflexion est donnée par <m>(-1,0,0)</m>. Les vecteurs <m>(0,1,0)</m> et <m>(0,0,1)</m> eux sont sur le plan et ne sont donc pas affectés par la réflexion. La matrice est donc
+    <men xml:id="eq-refR3yOz">
+    S_{yOz}=\begin{pmatrix}
+    -1\amp 0\amp 0\\
+    0\amp 1 \amp 0 \\
+    0\amp 0\amp 1
+    \end{pmatrix}
+    </men>.
+    </p>
+    <p>De manière similaire, on obtient
+    <men xml:id="eq-refR3xOz">
+    S_{xOz}=\begin{pmatrix}
+    \amp 0\amp 0\\
+    0\amp -1 \amp 0 \\
+    0\amp 0\amp 1
+    \end{pmatrix}
+    </men>
+    et
+    <men xml:id="eq-refR3xOy">
+    S_{xOy}=\begin{pmatrix}
+    1\amp 0\amp 0\\
+    0\amp 1 \amp 0 \\
+    0\amp 0\amp -1
+    \end{pmatrix}
+    </men>.
+    </p>
+    </solution>
+    </example>
+    <p>Les réflexions par rapport à des plans quelconques sont plus difficiles à analyser. On explore le sujet dans l'exercice <xref provisional="exo-refR3"/> et on s'y intéressera
+    davantage dans la section <xref provisional="matrices orthogonales"/>.</p>
+    <p>
+    En quoi consiste l'inverse des rotations et réflexions dans <m>\R^3</m>? Comme c'était le cas dans <m>\R^2</m>, l'inverse d'une rotation d'angle <m>\theta</m> et d'axe 
+    de rotation <m>\mathcal{D}</m> est une rotation d'angle <m>-\theta</m>, aussi d'axe <m>\mathcal{D}</m>. Pour la réflexion, il suffit de refaire la même réflexion.
+    On vérifie cet intuition avec des rotations et des réflexions simples calculées aux exemples <xref ref="ex-rotR3axes"/> et <xref ref="ex-refR3plans0"/>.
+    </p>
+    <example xml:id="ex-rotrefR3simpleinverse">
+    <title>L'inverse de rotations et réflexions simples</title>
+    <statement><p>On vérifie que l'inverse des matrices <m>R_{\theta_z}</m> et <m>S_{yOz}</m> est respectivement <m>R_{-\theta_z}</m> et <m>S_{yOz}</m>. </p></statement>
+    <solution>
+    <p>On commence avec l'inverse de la rotation. Il suffit de vérifier que <m>R_{\theta_z}R_{-\theta_z}=I</m>. On a
+    <md>
+    <mrow>R_{\theta_z}R_{-\theta_z}&amp;=\begin{pmatrix} \cos(\theta) \amp -\sin(\theta) \amp 0 \\
+                                 \sin(\theta) \amp \cos(\theta) \amp 0 \\
+                                  0 \amp 0 \amp 1\end{pmatrix}\begin{pmatrix} \cos(-\theta) \amp -\sin(-\theta) \amp 0 \\
+                                 \sin(-\theta) \amp \cos(-\theta) \amp 0 \\
+                                  0 \amp 0 \amp 1\end{pmatrix}</mrow>
+<mrow>&amp;=\begin{pmatrix} \cos(\theta) \amp -\sin(\theta) \amp 0 \\
+                                 \sin(\theta) \amp \cos(\theta) \amp 0 \\
+                                  0 \amp 0 \amp 1\end{pmatrix}\begin{pmatrix} \cos(\theta) \amp \sin(\theta) \amp 0 \\
+                                 -\sin(\theta) \amp \cos(\theta) \amp 0 \\
+                                  0 \amp 0 \amp 1\end{pmatrix} &amp;&amp; \text{grâce aux identitées trigonométriques}</mrow>
+<mrow>&amp;=\begin{pmatrix} \lvert \amp \lvert \amp \lvert \\
+                           R_{\theta_z}\vec3d{\cos(\theta)}{-\sin(\theta)}{0} \amp R_{\theta_z}\vec3d{\sin(\theta)}{\cos(\theta)}{0}\amp R_{\theta_z}\vec3d{0}{0}{1}\\  \lvert \amp \lvert \amp \lvert\end{pmatrix} &amp;&amp;\text{ par la définition } <xref ref="def-matmatprod"/></mrow>
+   <mrow>\begin{pmatrix} \cos^2(\theta)+\sin^2(\theta)\amp 0\amp 0 \\ 0\amp \sin^2(\theta)+\cos^2(\theta)\amp 0\\0\amp 0\amp 1 \end{pmatrix}</mrow>
+   <mrow>&amp;=\begin{pmatrix} 1 \amp 0\amp 0 \\  0 \amp 1\amp 0 \\  0 \amp 0\amp 1 \end{pmatrix}</mrow>
+   <mrow>&amp;=I</mrow>
+   </md>.
+    </p>
+    <p>
+ Pour la réflexion, on remarque que les deuxièmes et troisièmes colonnes de <m>S_{yOz}</m> sont respectivement <m>(0,1,0)</m> et <m>(0,0,1)</m>. Les produits 
+ <m>S_{yOz}\vecd3{0}{1}{0}</m> et <m>S_{yOz}\vecd3{0}{0}{1}</m> seront donc égaux respectivement à la deuxième et troisième colonne de la matrice <m>S_{yOz}</m>.
+ De plus, comme le produit <m>S_{yOz}\vecd3{-1}{0}{0}</m> donne l'opposé de la première colonne, on a
+ <me>
+ S_{yOz}S_{yOz}=\begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}=I
+ </me>.
+    </p>
+    <p>En fonction du théorème <xref ref="def-matcarreeinverse"/>, on a 
+    <md>
+    <mrow>R_{\theta_z}^{-1}&amp;=R_{-\theta_z} </mrow>
+    <mrow> S_{yOz}^{-1}&amp;= S_{yOz}</mrow>
+    </md>.</p>
+    </solution>
+    </example>
+    <p>On termine avec un exemple Sage en lien avec la sous-section.</p>
+    <computation xml:id="sageex-transfodimsup">
+    <title>Les rotations selon une droite passant par l'origine dans <m>\R^3</m>.</title>
+    <p>Il existe différentes manières de calculer d'obtenir la matrice d'une transformation linéaire. La méthode décrite à l'équation <xref ref="eq-matparvecteursuv"/>
+    fonctionne si on peut trouver l'image d'assez de vecteurs indépendants. L'exemple <xref ref="ex-refR2"/> montre une autre manière en se ramenant à un cas connu (voir aussi
+     <xref ref="con-casconnu"/>)</p>
+     <p>On utilise la seconde méthode pour résoudre le problème. L'idée va être d'effectuer des rotations connues pour apporter l'axe de rotation sur l'axe des <m>x</m>, faire une rotation selon l'axe des <m>x</m> et défaire
+     les rotations qui ont déplacé l'axe de rotation original. Le processus est illustré en étape dans la figure <xref ref="fig-rotR3gen"/>.</p>
+      <figure xml:id="fig-rotR3gen">
+      <caption>Les rotations dans <m>\R^3</m></caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-RotR3gen">
+        <slate aspect="1:1" source="code/geogebra/RotR3gen.ggb"
+        surface="geogebra" xml:id="slate-RotR3gen">
+            setCoordSystem(-1.5, 1.5,-1.5,1.5,-1.5,1.5);
+          </slate>
+        <instructions>
+          <p>Il est possible de déplacer l'axe de rotation et le vecteur qui fera une rotation autour de l'axe. (L'angle de la rotation est fixé à <m>135^\circ</m>.)
+          Comme il n'y a que la direction qui est importante, les vecteurs sont fixés pour  être unitaire. 
+          </p>
+        </instructions>
+        </interactive>
+    </figure>
+    <p>L'animation effectue les étapes suivantes au fil des clics sur
+          les boutons:
+          <ol>
+          <li><p>On commence par ramener l'axe de rotation dans le plan généré par les vecteurs <m>(1,0,0)</m> et <m>(0,0,1)</m>. On ramène ensuite l'axe sur l'axe
+          des <m>z</m>.</p>
+          
+          <p>Pour cela, on calcule l'angle que fait la projection de l'axe de rotation sur le plan <m>z=0</m> avec l'axe des <m>x</m>. On note cet angle <m>\theta_x</m>.</p>
+    
+          <p>Une rotation par rapport à l'axe des <m>z</m> d'angle <m>-\theta_x</m> ramènera l'axe de rotation dans le plan  <m>y=0</m>.</p>
+          <p>On fait subir cette même rotation au vecteur <m>\vec{u}</m>.</p>
+          </li>
+          <li><p>On veut ensuite ramener le nouvel axe sur l'axe des <m>z</m>. Pour cela, on calcule l'angle <m>\theta_z</m> entre l'axe des <m>z</m> et le vecteur dans le plan <m>y=0</m>.</p>
+          <p>Une rotation par rapport à l'axe des <m>y</m> d'angle <m>-\theta_z</m> ramènera le vecteur sur l'axe des <m>z</m>.</p>
+          <p>On fait aussi subir cette rotation au vecteur <m>\vec{u}</m> précédemment transformé.</p>
+          </li>
+          <li><p>Ensuite, on effectue la rotation du vecteur <m>\vec{u}</m> ayant subi les deux rotations, par rapport à l'axe des <m>z</m>. Ceci est ainsi équivalent à la rotation
+          par rapport à l'axe original, mais le vecteur <m>\vec{u}</m> transformé  n'est pas au bon endroit. </p></li>
+          <li><p>Finalement, on défait les rotations par rapport à l'axe des <m>y</m> et à l'axe des <m>z</m> d'angle <m>\theta_z</m> et <m>\theta_x</m> (dans cet ordre) pour ramener
+          en place le vecteur <m>\vec{u}</m> transformé et l'axe de rotation déplacé.</p></li>
+          </ol></p>
+          <p>On fait un exemple concret avec le vecteur <m>\vec{u}=(1,2,-1)</m> autour de l'axe <m>(-1,1,2)</m> et un angle de <m>60^\circ</m>. On effectue les calculs avec Sage.</p>
+          <p>Dans un premier temps, on veut déterminer l'angle <m>\theta_x</m> que fait la projection de l'axe de rotation <m>(-1,1,2)</m> sur le plan <m>z=0</m> avec l'axe des <m>x</m>.</p>
+          <p>On utilise la fonction définie à l'exercice <xref ref="exo-sage-prodscal-2"/> pour calculer l'angle entre deux vecteurs.</p>
+          <sage>
+          <input>
+          def angle_entre_vec(u,v):
+              return arccos(u*v/(norm(u)*norm(v)))
+          </input>
+          </sage>
+          <sage>
+          <input>
+v=vector([-1,1,2])   #le vecteur v représentant l'axe de rotation
+vz0=vector([v[0],v[1],0])  #définition de la projection du vecteur v liée au vecteur u lui-même, cela permet de changer le vecteur v à un seul endroit en cas de besoin 
+i=vector([1,0,0])
+thetax=angle_entre_vec(vz0,i)  #L'angle entre vz0 et l'axe des x
+show('thetax =',thetax)
+          </input>
+          </sage>
+          <p> On calcule ensuite la rotation de l'axe et du vecteur <m>\vec{u}</m> autour de l'axe des <m>z</m> d'un angle <m>-\theta_x</m>. Cela amène l'axe de rotation dans le plan <m>y=0</m>. On remarque l'application
+          de la fonction <c>.apply_map(lambda x: x.trig_reduce())</c> pour simplifier les expressions trigonométriques.</p>
+          <sage>
+          <input>
+u=vector([1,2,-1])
+Rz=column_matrix([[cos(-thetax),sin(-thetax),0],[-sin(-thetax),cos(-thetax),0],[0,0,1]])
+vrotz=(Rz*v).apply_map(lambda x: x.trig_reduce())
+urotz=(Rz*u).apply_map(lambda x: x.trig_reduce())
+show('vrotz=',vrotz)
+show('urotz=',urotz)          
+          </input>
+          </sage>
+          <p>La prochaine étape est de calculer l'angle que fait le vecteur <m>\vecl{vtorz}</m> avec l'axe des <m>z</m> afin de le ramener sur celui-ci par une rotation selon l'axe des <m>y</m> appropriée. On 
+          applique aussi cette rotation sur le vecteur <m>\vecl{urotz}</m>.</p>
+          <sage>
+          <input>
+k=vector([0,0,1])
+thetaz=angle_entre_vec(vrotz,k)  #L'angle entre vrotz et l'axe des z
+Ry=column_matrix([[cos(-thetaz),0,-sin(-thetaz)],[0,1,0],[sin(-thetaz),0,cos(-thetaz)]]) #La matrice de rotation selon y de -thetaz
+vroty=Ry*vrotz
+show("vroty=",(vroty).apply_map(lambda x: x.trig_reduce()))
+#On sait que la première entrée devrait aussi être nulle. On s'en 'assure' avec une évaluation numérique.
+show("vroty=",vroty.n())
+uroty=Ry*urotz
+show("uroty=",uroty.apply_map(lambda x: x.trig_reduce()))          
+          </input>
+          </sage>
+          <p>On remarque que pour la suite, il n'était pas nécessaire de calculer le vecteur <m>\vecl{vroty}</m>, mais que c'est une bonne manière de vérifier la validité des calculs.</p>
+          <p>Il reste maintenant à calculer l'image du vecteur <m>\vecl{uroty}</m> par une rotation selon l'axe des <m>z</m> d'un angle de <m>60</m> degrés. Par la suite, on défait les rotations afin de ramener le vecteur
+          au bon endroit.</p>
+          <sage>
+          <input>
+R=column_matrix([[cos(pi/3),sin(pi/3),0],[-sin(pi/3),cos(pi/3),0],[0,0,1]])  #La matrice de rotation selon z de 60 degrés = pi/3
+urot=R*uroty
+show("urot=", urot.apply_map(lambda x: x.trig_reduce()))
+          </input>
+          </sage>
+          <p>Pour terminer, on replace le vecteur <m>\vecl{urot}</m> au bon endroit en lui appliquant les rotations inverses <m>R_y^{-1}</m> et <m>R_z^{-1}</m>, dans cet ordre.</p>
+          <sage>
+          <input>
+Ryinv=Ry.inverse()
+Rzinv=Rz.inverse()
+Tu=Rzinv*Ryinv*urot
+show("T(u)=",Tu.n())          
+          </input>
+          </sage>
+    </computation>
+    <remark>
+    <title>Toujours possible?</title>
+    <p>Dans l'exemple <xref ref="sageex-transfodimsup"/>, est-ce que la démarche utilisée pour calculer la rotation de <m>60</m> degrés autour du vecteur <m>(-1,1,2)</m> aurait fonctionnée peu importe l'angle? La direction? 
+    Le vecteur <m>\vec{u}</m>? On explore ces questions dans l'exercice <xref provisional="exo-rotR3gen"/>. </p>
+    </remark>
+    </subsection> 
+    <subsection xml:id="ssec-transfogen">
+    <title>Transformations de dimension quelconque</title>
+    <p>On considère la matrice 
+    <me>
+    A=\begin{pmatrix} 1\amp 0 \\ 0\amp 1 \\ 1\amp 1 \end{pmatrix}
+    </me>.
+    Cette matrice prend des vecteurs de <m>\R^2</m> et les envoie dans <m>\R^3</m>. Cet exemple simple est une transformation linéaire de <m>\R^2</m> vers <m>\R^3</m> qui apporte les vecteurs de <m>\R^2</m> sur le plan
+    <m>z=1</m> en faisant correspondre les coordonnées <m>x,y</m> de l'image à celles du domaines.
+    </p>
+    </subsection>
+    <conclusion xml:id="concl-transfodimsup">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+   <p>Les points importants de cette section sont
+    <ul>
+    <li><p>Les rotations selon les trois axes de coordonnées, définies à l'exemple <xref ref="ex-rotR3axes"/>.</p></li>
+    <li><p>Les réflexions par rapport aux trois plans standards, définis à l'exemple <xref ref="ex-refR3plans0"/>.</p></li>
+    <li><p>L'inverse de ces transformations, obtenus de manière géométrique à l'exemple <xref ref="ex-rotrefR3simpleinverse"/>.</p></li>
+    </ul></p>
+    </conclusion>
+   <!--Inclure les exercices de la section ci-dessous--> 
+</section>
+<!-- exo  xml:id=exo-rotR3x  pour trouver la matrice de rotation selon l'axe des x. Faire référence à <xref ref="ex-rotR3axes"/> et à la figure <xref ref="fig-rotR3axes"/> -->
+<!-- faire un exercice ( xml:id="exo-refR3" ) d'une réflexion selon un plan spécifié. Utiliser le vecteur normal du plan qui est réflechit sur moins n et deux vecteurs directeurs du plan qui sont laissés 
+sur eux-mêmes. Faire un a) et un b) avec eq vectorielle et eq normale. -->
+<!-- refaire le même exercice, mais en calculant directement l'image des vecteurs e1,e2,e3 en utilisant les projections orthogonales sur n. -->
+<!-- Exercice étirement direction quelconque, avec l'équation T=VU^-1  (calculs avec Sage)-->
