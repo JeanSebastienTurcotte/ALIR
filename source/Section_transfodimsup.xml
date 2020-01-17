@@ -322,9 +322,109 @@ show("T(u)=",Tu.n())
     <me>
     A=\begin{pmatrix} 1\amp 0 \\ 0\amp 1 \\ 1\amp 1 \end{pmatrix}
     </me>.
-    Cette matrice prend des vecteurs de <m>\R^2</m> et les envoie dans <m>\R^3</m>. Cet exemple simple est une transformation linéaire de <m>\R^2</m> vers <m>\R^3</m> qui apporte les vecteurs de <m>\R^2</m> sur le plan
-    <m>z=1</m> en faisant correspondre les coordonnées <m>x,y</m> de l'image à celles du domaines.
+    Cette matrice prend des vecteurs de <m>\R^2</m> et les envoie dans <m>\R^3</m>. Cet exemple simple est une transformation linéaire de <m>\R^2</m> vers <m>\R^3</m> qui apporte les vecteurs de <m>\R^2</m> dans <m>\R^3</m> 
+    en faisant correspondre les coordonnées <m>x,y</m> de l'image à celles du domaines et en additionnant <m>x,y</m> pour obtenir la valeur de <m>z</m>. </p>
+    <p>La question du produit matriciel de deux matrices <m>m\times n</m> a déjà été considérée à la section <xref ref="sec-prodmat"/>,
+    bien que les exemples étaient principalement dans un contexte géométrique avec des matrices <m>2\times 2</m> ou <m>3\times 3</m>.
     </p>
+    <p>La question de l'inverse demeure toutefois. Une première interrogation se pose si on se souvient de la proposition <xref ref="prop-investsurj"/> qui dit que les transformations inversibles atteignent tous les
+    vecteurs de leur image. Comme la matrice <m>A</m> est restreinte aux vecteurs tels que <m>z=x+y</m>, elle n'atteint pas l'ensemble des vecteurs de <m>\R^3</m>. Serait-elle donc non inversible?</p>
+    <p>Un calcul simple montre pourtant que
+    <me>
+    \begin{pmatrix} 1\amp 0\amp 0 \\ 0 \amp 1 \amp 0 \end{pmatrix}\begin{pmatrix} 1\amp 0 \\ 0\amp 1 \\ 1\amp 1 \end{pmatrix}=\begin{pmatrix} 1 \amp 0 \\ 0 \amp 1\end{pmatrix}
+    </me>.
+    </p>
+    <p>On pourrait alors penser que la matrice <m>B=\begin{pmatrix} 1\amp 0\amp 0 \\ 0 \amp 1 \amp 0 \end{pmatrix}\begin{pmatrix}</m> et que la proposition <xref ref="prop-investsurj"/> n'est vrai que pour les matrices carrées. </p>
+    <p>Un autre problème survient lorsqu'on regarde si le théorème <xref ref="thm-invgauchedroite"/> est satisfait. Un autre calcul simple montre que
+    <me>
+    \begin{pmatrix} 1\amp 0 \\ 0\amp 1 \\ 1\amp 1 \end{pmatrix}\begin{pmatrix} 1\amp 0\amp 0 \\ 0 \amp 1 \amp 0 \end{pmatrix=\begin{pmatrix} 1\amp 0\amp 0 \\ 0 \amp 1 \amp 0 \\ 1 \amp 1 \amp 0 \end{pmatrix
+    </me>.
+    Comme cela ne coincide pas avec la matrice identité dans <m>\R^3</m>, on conclut que <m>A</m> n'est pas l'inverse de <m>B</m>, au sens de la défition <xref ref="def-transfoinverseprelim"/>, bien que <m>B</m> semble 
+    être l'inverse de <m>A</m> selon cette même définition. Afin de distinguer les choses, on propose la définition suivante.</p>
+    <definition xml:id="def-invmn">
+    <title>Les inverses d'une matrice qui n'est pas carrée</title>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m>. Une matrice <m>B</m> de taille <m>n\times m</m> est un inverse à gauche de la matrice <m>A</m> si <m>BA=I_n</m>. De même, une matrice <m>C</m> de taille <m>n\times m</m>
+    est un inverse à droite de la matrice <m>A</m> si <m>AC=I_m</m>.</p>
+    </definition>
+    <remark xml:id="rem-invmn">
+    <title> La symétrie des inverse à gauche et à droite</title>
+    <p>Si <m>B</m> est un inverse à gauche de <m>A</m>, alors on peut aussi dire que <m>A</m> est un inverse à droite de <m>B</m>. De même, si <m>C</m> est un inverse à droite de <m>A</m>, alors on peut aussi dire que <m>A</m> est un inverse à gauche de <m>C</m>.
+    De plus, si <m>m=n</m>, alors le théorème <xref ref="thm-invgauchedroite"/> est satisfait et <m>B=C</m>.
+    </p>
+    </remark>
+    <p>Un autre malheureux problème existe lorsque les matrices ne sont pas carrés. Prenons la matrice 
+    <m>D=\begin{pmatrix}
+    2\amp 1\amp -1 \\ 1\amp 2\amp -1
+    \end{pmatrix}</m>.
+    Un calcul simple montre qu'on a aussi <m>DA=I_2</m> et pourtant <m>D\neq B</m>. L'inverse à gauche d'une matrice n'est donc pas unique. Il en est de même pour l'inverse à droite. La proposition <xref ref="prop-inverseunique"/>
+    ne s'applique donc réellement qu'aux matrices carrées.
+    </p>
+    <p>Est-ce qu'une matrice <m>m\times n</m> avec <m>m\neq n</m> peut avoir à la fois un inverse à gauche et un inverse à droite? Comment calculer les inverses lorsqu'ils existent? Ces questions, en apparence simples, 
+    s'avèrent complexes et motivent la nécessité de définir des concepts plus abstraits de la théorie matricielle. Avec les outils du chapite <xref ref="chap-SEL"/>, on sera en mesure
+    de démontrer le théorème <xref provisional="thm-invrect"/>, qui stipule que seule les matrices carrées peuvent avoir un inverse à gauche et un inverse à droite et on
+    aura une manière de calculer les inverses à gauche ou à droite de matrices arbitraires, lorsque possible.</p>
+    
+    <!--
+    <p>On propose une démonstration partielle du résultat, qui sera revisité dans la section<xref provisional="rang d'une matrice"/>
+    . Les deux propositions suivantes seront utiles.</p>
+    <proposition xml:id="prop-invgaucheinj">
+    <title>L'inverse à gauche et l'image de la transformation</title>
+    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> possédant un inverse à gauche <m>B</m>. Alors pour tout vecteur <m>v\in \R^m</m>, il existe au plus un vecteur <m>\vec{u}\in \R^n</m> tel que
+    <me>
+    A\vec{u}=\vec{v}
+    </me>. En termes plus simples, si un vecteur de l'image est atteint par la transformation <m>A</m>, il ne l'est que par un seul vecteur du domaine.</p></statement>
+    <proof>
+    <p>Si un vecteur <m>\vec{u}\in \R^n</m> existe tel que <m>A\vec{u}=\vec{v}</m>, alors on a
+    <md>
+    <mrow>A\vec{u}&amp;=\vec{v}</mrow>
+   <mrow> BA\vec{u}&amp;=B\vec{v}</mrow>
+   <mrow>I_n\vec{u}&amp;=B\vec{v}</mrow>
+   <mrow>\vec{u}&amp;=B\vec{v}</mrow>
+    </md>.
+    Ainsi, <m>\vec{u}</m> est obtenu en prenant le produit de l'inverse à gauche  de <m>A</m> par <m>\vec{v}</m>. Même si l'inverse peut ne pas être unique, si <m>CA=I</m> également, alors
+        <md>
+    <mrow>A\vec{u}&amp;=\vec{v}</mrow>
+   <mrow> CA\vec{u}&amp;=C\vec{v}</mrow>
+   <mrow>I_n\vec{u}&amp;=C\vec{v}</mrow>
+   <mrow>\vec{u}&amp;=C\vec{v}</mrow>
+    </md>
+    et donc <m>B\vec{v}=C\vec{v}</m> pour tous les vecteurs qui sont atteints par <m>A</m>.
+    </p>
+    </proof>
+    </proposition>
+    <proposition xml:id="prop-invdroite">
+    <title>L'inverse à droite et l'image de la transformation</title>
+    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> possédant un inverse à droite <m>C</m>. Alors pour tout vecteur <m>\vec{v}\in \R^m</m>, il existe au moins un vecteur <m>\vec{u}\in \R^n</m> tel que
+    <me>
+    A\vec{u}=\vec{v}
+    </me>.
+    En termes plus simples, tout vecteur de l'image est atteint par au moins un vecteur du domaine.</p></statement>
+    <proof>
+    <p>Soit <m>\vec{v}</m> un vecteur de l'image. On pose <m>\vec{u}=C\vec{v}</m>. Alors
+    <md>
+    <mrow>A\vec{u}&amp;=AC\vec{v}</mrow>
+    <mrow>&amp;=I_m\vec{v}</mrow>
+    <mrow>&amp;=\vec{v}</mrow>
+    </md>.
+    et donc, il existe au moins un vecteur du domaine atteignant <m>\vec{v}</m>.</p>
+    </proof>
+    </proposition>
+    <p>L'existence d'un inverse à gauche et d'un inverse à droite est réservé au matrice carré seulement. À l'aide des deux propositions suivantes, on arrive à montrer le résultat suivant.</p>
+    <theorem xml:id="thm-invrect">
+    <title>Une matrice rectangulaire ne peut avoir d'inverse à gauche et à droite</title>
+    <statement>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m>. Alors
+    <ol>
+    <li><p>si <m>m&lt; n</m>, alors <m>A</m> n'a pas d'inverse à gauche;</p></li>
+    <li><p>si <m>m&gt; n</m>, alors <m>A</m> n'a pas d'inverse à droite. </p></li>
+    </ol>
+    </p>
+    </statement>
+    <proof>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m> avec <m>m&lt; n</m>.</p>
+    </proof>
+    </theorem>
+    -->
     </subsection>
     <conclusion xml:id="concl-transfodimsup">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
    <p>Les points importants de cette section sont
@@ -332,6 +432,7 @@ show("T(u)=",Tu.n())
     <li><p>Les rotations selon les trois axes de coordonnées, définies à l'exemple <xref ref="ex-rotR3axes"/>.</p></li>
     <li><p>Les réflexions par rapport aux trois plans standards, définis à l'exemple <xref ref="ex-refR3plans0"/>.</p></li>
     <li><p>L'inverse de ces transformations, obtenus de manière géométrique à l'exemple <xref ref="ex-rotrefR3simpleinverse"/>.</p></li>
+    <li><p>Une matrice rectangulaire <m>(m\neq n)</m> peut avoir des inverses à gauche ou des inverses à droite.</p></li>
     </ul></p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
