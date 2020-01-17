@@ -9,21 +9,116 @@
 
 <exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-prodmat">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>
-    <!--Exercice montrer que AI=A pour 2x2 (on a montré IA=A dans le texte) -->
-    <!-- Exercice en référence à <xref ref="ex-prodmatgeo"/> où cette fois on connait T1 et on cherche T2. Demander en mot la différence et pourquoi c'est plus difficile -->
-  
     <!--exercise xml:id="exo-">
             <statement>
-                La question.
+                <p>La question.</p>
             </statement>
             <hint>
-                Un indice.
+                <p>Un indice.</p>
             </hint>
             <answer>
-                La réponse.
+                <p>La réponse sera disponible sous peu.</p>
             </answer>
             <solution>
-                La solution.
+                <p>La solution sera disponible sous peu.</p>
             </solution>
     </exercise>-->
+    <exercise xml:id="exo-prodmatgeo">
+            <statement>
+                <!-- Exercice en référence à <xref ref="ex-prodmatgeo"/> où cette fois on connait T1 et on cherche T2. Demander en mot la différence et pourquoi c'est plus difficile -->
+            <p>La question.</p>
+            </statement>
+            <hint>
+                <p>Un indice.</p>
+            </hint>
+            <answer>
+                <p>La réponse sera disponible sous peu.</p>
+            </answer>
+            <solution>
+                <p>La solution sera disponible sous peu.</p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-AIegaleA">
+            <statement>
+                <p>Démontrer que peu importe la matrice <m>A\in\mathcal{M}_2</m>, on a <m>AI=A</m>.</p>
+            </statement>
+            <hint>
+                <p>Il faut simplement créer une matrice quelconque et faire le calcul.</p>
+            </hint>
+            <solution>
+                <p>Soit <m>A=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\in\mathcal{M}_2</m>. Alors,
+                <md>
+                <mrow>AI&amp;=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}</mrow>
+                 <mrow>&amp;=A</mrow>
+                </md></p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-prodmatpascommutatif">
+            <statement>
+                <p>Soient deux matrices carrées <m>A</m> et <m>B</m>. Considérer l'équation suivante:
+                <me>(A+B)^2=A^2+2AB+B^2</me>. Si cette équation est valide, la démontrer. Sinon, donner un contre-exemple. </p>
+            </statement>
+            <hint>
+                <p>Considérer la commutativité du produit matriciel.</p>
+            </hint>
+            <answer>
+                <p>L'équation n'est pas valide. Un contre-exemple possible est <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</m>.</p>
+            </answer>
+            <solution>
+                <p>Avec le contre-exemple <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</m>, 
+                on calcule <m>(A+B)^2</m> et <m>A^2+2AB+B^2</m> et on constate que ce n'est pas égal. En effet,
+                <md>
+                <mrow>(A+B)^2&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}12&amp;0\\0&amp;12\end{pmatrix}</mrow>
+                </md>
+                et
+                <md>
+                <mrow>A^2+2AB+B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2+2\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+2\begin{pmatrix}3&amp;0\\0&amp;2\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}+\begin{pmatrix}6&amp;0\\0&amp;4\end{pmatrix}+\begin{pmatrix}6&amp;0\\0&amp;6\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}13&amp;0\\0&amp;11\end{pmatrix}</mrow>
+                </md>
+                Algébriquement, la raison pour laquelle cela est faux est que le produit matriciel n'est pas commutatif. On a donc que <m>AB\neq BA</m>. Ainsi,
+                <me>(A+B)^2=(A+B)(A+B)=AA+BA+AB+BB\neq A^2+2AB+B^2</me>.
+                </p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-etirementR2">
+            <statement>
+                <p>En utilisant une méthode analogue à celle de l'exercice <xref ref="ex-refR2"/>, déterminer la matrice de transformation linéaire permettant de
+                faire un étirement de facteur <m>k</m> dans la direction d'un vecteur <m>\vec{u}=(\cos(\theta), \sin(\theta))</m>. 
+                Utiliser les matrices <m>R_\theta</m> et <m>R_{-\theta}</m> de l'exercice ainsi que la matrice d'étirement horizontal de facteur <m>k</m>.</p>
+            </statement>
+            <hint>
+                <p>La démarche consiste en réalité à effectuer d'abord une rotation d'angle <m>-\theta</m>, ensuite étirer horizontalement, puis effectuer la rotation d'angle <m>\theta</m>.
+                On le fait en multipliant les trois matrices ensemble.</p>
+            </hint>
+            <answer>
+                <p>La réponse sera disponible sous peu.</p>
+            </answer>
+            <solution>
+                <p>La solution sera disponible sous peu.</p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-dirinvariantesR2">
+            <statement>
+                <p>À partir de la matrice développée à l'exercice <xref ref="exo-etirementR2"/> considérer un étirement <m>T</m> dans la direction d'angle <m>\theta=30^\circ</m> et de facteur <m>k=2</m>. 
+                Vérifier que pour le vecteur <m>\vec{u}=\begin{pmatrix}\cos(\theta)\\ \sin(\theta)\end{pmatrix}=\begin{pmatrix}\sqrt{3}/2\\1/2\end{pmatrix}</m>, on a <m>T(\vec{u})=2\vec{u}</m> et que <m>T(\vec{u}_\perp)=\vec{u}_\perp</m>.</p>
+                <p>On appelle ces deux directions les directions invariantes d'une transformation linéaire. 
+                On les appelle également des vecteurs propres et le facteur d'étirement une valeur propre. On étudiera ces notions à la section <xref provisional="section sur les valeurs propres"/>.</p>
+            </statement>
+            <hint>
+                <p>Un indice.</p>
+            </hint>
+            <answer>
+                <p>La réponse sera disponible sous peu.</p>
+            </answer>
+            <solution>
+                <p>La solution sera disponible sous peu.</p>
+            </solution>
+    </exercise>
 </exercises>
