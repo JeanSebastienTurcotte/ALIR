@@ -211,23 +211,6 @@
             </p>
             </solution>
     </exercise>
-    <exercise xml:id="exo-trouvervectransfo">
-            <statement>
-                <p>Soit une transformation linéaire <m>T</m> et sa matrice de transformation <m>A</m>. À l'aide de la figure interactive suivante, répondre aux questions suivantes.
-                <ol>
-                <li>Si </li>
-                </ol></p>
-            </statement>
-            <hint>
-                <p>Un indice.</p>
-            </hint>
-            <answer>
-                <p>La réponse sera disponible sous peu.</p>
-            </answer>
-            <solution>
-                <p>La solution sera disponible sous peu.</p>
-            </solution>
-    </exercise>
     <exercise xml:id="exo-transfocomp">
             <statement>
                 <p>Dans l'exemple <xref ref="ex-transfocomp"/>, on a composé deux transformations linéaires en exécutant les opérations successivement. 
@@ -344,4 +327,308 @@
                </md></p>
             </solution>
     </exercise>
+    <exercisegroup xml:id="exosage-transfodef">
+    <title>Exercices Sage</title>
+    <introduction>
+    <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
+    </introduction>
+    <exercise xml:id="exosage-transfodef-1">
+    <statement>
+    <p>Considérer les matrices 
+    <me>
+    A=\begin{pmatrix}
+    -1 \amp 2\amp 4 \\
+    0 \amp 3 \amp -2
+    \end{pmatrix}
+    \text{ et }
+    B=\begin{pmatrix}
+    -3 \amp 3 \\
+    2 \amp 1 \\
+    0 \amp -5
+    \end{pmatrix}
+    </me>.
+    </p>
+    <p>
+    <ol>
+    <li><p>Définir les matrices <m>A</m> et <m>B</m>.</p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </li>
+    <li><p>Additioner la deuxième ligne de la matrice <m>A</m> avec la première colonne de la matrice <m>B</m>.</p>
+     <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </li>
+    <li><p>Additionner toutes les lignes de <m>B</m> et toutes les colonnes de <m>A</m>.</p>
+     <sage>
+    <input>
+    
+    </input>
+    </sage></li>
+    <li><p>Calculer le produit scalaire de la première colonne de <m>A</m> avec la première colonne de <m>B</m>, ou dire pourquoi ce n'est pas possible d'effectuer l'opération.</p>
+     <sage>
+    <input>
+    
+    </input>
+    </sage></li>
+     <li><p>Calculer le produit scalaire de la première colonne de <m>A</m> avec la première ligne de <m>B</m>, ou dire pourquoi ce n'est pas possible d'effectuer l'opération.</p>
+     <sage>
+    <input>
+    
+    </input>
+    </sage></li>
+    </ol>
+    </p>
+    </statement>
+    <answer>
+    <ol>
+    <li><m>
+    A=\begin{pmatrix}
+    -1 \amp 2\amp 4 \\
+    0 \amp 3 \amp -2
+    \end{pmatrix}
+    </m> et <m>
+    B=\begin{pmatrix}
+    -3 \amp 3 \\
+    2 \amp 1 \\
+    0 \amp -5
+    \end{pmatrix}
+    </m>.</li>
+    <li>
+    <m>(-3, 5, -2)</m>
+    </li>
+    <li><m>(4, 0)</m></li>
+    <li><p>Impossible</p></li>
+    <li><m>3</m></li>
+    </ol>
+    </answer>
+    <solution>
+    <ol>
+    <li>
+    <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+                A=column_matrix([[-1,0],[2,3],[4,-2]])
+                B=column_matrix([[-3,2,0],[3,1,-5]])
+                show("A=",A)
+                show("B=",B)
+</input>
+                   </program>
+                   </listing>
+    </li>
+    <li>
+    <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+                show(A.row(1)+B.column(0))
+</input>
+                   </program>
+                   </listing>
+    </li>
+    <li>
+    <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+                show(sum(A.column(k) for k in range(A.ncols()))+sum(B.row(k) for k in range(B.nrows())))
+</input>
+                   </program>
+                   </listing>
+    </li>
+    <li><p>L'opération est impossible, car les vecteurs n'ont pas la même dimension.</p></li>
+    <li><listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+                show(A.column(0)*B.row(0))
+</input>
+                   </program>
+                   </listing></li>
+    </ol>
+    </solution>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Considérer le carré de sommets <m>(1,0),(1,1),(2,1),(2,0)</m> et la transformation qui effectue une rotation de <m>50</m> degrés. Tracer dans un même graphique
+    le carré original en bleu et sa transformation par la rotation en rouge.</p>
+    <sage>
+    <input>
+    
+    </input></sage>
+    </statement>
+    <answer>
+ <figure xml:id="fig-sageplot-exosage-transfodef-2">
+          <caption>L'image d'un carré par une rotation de 50 degrés autour de l'origine.</caption>
+          <image xml:id="sageplot-exosage-transfodef-2">
+          <description>Un carré bleu est affiché ainsi que son image en rouge par une rotation de 50 degrés.                 
+          </description>
+        <sageplot>
+A=vector([1,0])
+B=vector([1,1])
+C=vector([2,1])
+D=vector([2,0])    
+L=list([A,B,C,D])
+theta=50/360*2*pi
+R=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]])
+Ltrans=list([R*v for v in L])
+polygon(L,color="blue")+polygon(Ltrans,color="red")             
+        </sageplot>  
+            </image>
+            </figure>   
+    </answer>
+    <solution>
+    <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+#Définition des points du quadrilatère ABCD
+A=vector([1,0])
+B=vector([1,1])
+C=vector([2,1])
+D=vector([2,0])    
+#On forme une liste contenant tous les points (vecteurs)
+L=list([A,B,C,D])
+#On définit la matrice de rotation
+theta=50/360*2*pi
+R=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]])
+#On applique la translation à tous les vecteurs de la liste
+Ltrans=list([R*v for v in L])
+#On illustre les quadrilatères, ainsi que le vecteur w sur l'un des points
+polygon(L,color="blue")+polygon(Ltrans,color="red")
+</input>
+                   </program>
+                   </listing>
+    </solution>
+    </exercise>
+    <exercise xml:id="exosage-transfodef-2">
+    <statement>
+    <p>La matrice <xref ref="eq-rotr2"/> permet de faire une rotation dans <m>\R^2</m> autour de l'origine. Il peut cependant arriver que l'on veuille tourner un objet autour d'un autre 
+    point que l'origine, tel qu'illustré à la figure <xref ref="fig-rotaffine1"/>.</p>
+     <figure xml:id="fig-rotaffine1">
+      <caption>Une rotation autour d'un point autre que l'origine</caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-rotaffine1">
+        <slate aspect="1:1" source="code/geogebra/exo-rotaffine1.ggb"
+        surface="geogebra" xml:id="slate-rotaffine1">
+            setCoordSystem(-7,7-7,7);
+          </slate>
+        <instructions>
+          <p>Il est possible de déplacer l'objet en bleu, le centre de rotation  <m>P</m> et le curseur pour changer l'angle de rotation.
+          </p>
+        </instructions>
+        </interactive>
+    </figure>
+    <p>Soit <m>P(2,3)</m> un point de <m>\R^2</m>. On veut faire une rotation de <m>90</m> degrés autour de ce point.</p>
+    <ol>
+    <li><p>Expliquer pourquoi cette transformation n'est pas une transformation linéaire.</p></li>
+    <li><p>Pour effectuer cette transformation à l'aide des matrices, il est possible de translater à l'origine, d'appliquer la rotation autour de l'origine et de translater
+    à nouveau au point de départ, comme illustré à la figure <xref ref="fig-rotaffine2"/>. Appliquer cette méthode pour trouver l'image du vecteur <m>\vec{u}=(-1,1)</m>
+    selon la transformation décrite ci-dessus.</p></li>
+    </ol>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    <figure xml:id="fig-rotaffine2">
+      <caption>Une rotation autour d'un point autre que l'origine: la méthode</caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-rotaffine2">
+        <slate aspect="1:1" source="code/geogebra/exo-rotaffine2.ggb"
+        surface="geogebra" xml:id="slate-rotaffine2">
+            setCoordSystem(-5,5-5,5);
+          </slate>
+        <instructions>
+          <p>Il est possible de déplacer l'objet en bleu, le centre de rotation  <m>P</m> et le curseur pour changer l'angle de rotation.
+          </p>
+        </instructions>
+        </interactive>
+    </figure>
+    </statement>
+    <answer>
+    <ol>
+    <li><p>La transformation n'est pas linéaire car l'origine est déplacé, ce qui contredit la proposition <xref ref="prop-transfolinprop"/>.</p></li>
+    <li><p>L'image est le point <m>(4,0)</m>.</p></li>
+    </ol>
+    </answer>
+    <solution>
+    <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+rot90=column_matrix([[0,1],[-1,0]]) #la matrice de rotation de 90 degrés
+trans=vector([2,3]) #Le centre de la rotation, aussi le vecteur de translation
+point=vector([-1,1])
+pointtrans=point-trans # L'image du point après la translation
+pointtransrot=rot90*pointtrans #L'image du point translaté après la translation
+pointfinal=pointtransrot+trans
+show(pointfinal)
+</input>
+                   </program>
+                   </listing>
+    </solution>
+    </exercise>
+    <exercise>
+    <title>Une fonction pour la rotation autour de point quelconque</title>
+    <statement><p> En se basant sur l'exercice <xref ref="exosage-transfodef-2"/>, on veut créer une fonction <c>rotaffine</c> qui prendra comme argument un centre de rotation <m>c</m>, un angle <m>\theta</m> et un
+    point <m>P</m>. La fonction retournera l'image du point <m>P</m> par une rotation de <m>\theta</m> autour du centre <m>c</m>. Tester la fonction avec l'exercice
+    <xref ref="exosage-transfodef-2"/> afin de valider sont fonctionnement.</p>
+    <p>Une question à se poser: degrés ou radians? Selon la mesure choisie, y aura-t-il des ajustements à apporter?</p>
+    <ol>
+    <li><p>Créer la fonction définie dans le préambule de l'exercice et tester avec les paramètres de l'exercices <xref ref="exosage-transfodef-2"/>.</p></li>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    <li xml:id="li-exosage-transfodef-3"><p>Calculer l'image des points suivants selon les rotations données, à l'aide de la fonction <c>rotaffine</c>.</p>
+    <ol>
+    <li><m>c=(0,0),\theta=\frac{3\pi}{4} \text{ radians }, P(-3,-4)</m></li>
+    <li><m>c=(-3,-4),\theta=\frac{3\pi}{4} \text{ radians }, P(0,0)</m></li>
+    <li><m>c=(2,5),\theta=\frac{4\pi}{7} \text{ radians }, P(-5,1)</m></li>
+    <li><m>c=(8,-3),\theta=125 \text{ degrés }, P(1,2)</m></li>
+    </ol>
+    </li>
+    </ol>
+        <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement>
+    <answer>
+    <p>Pour la partie <xref ref="li-exosage-transfodef-3"/>, les réponses sont
+    <ol label="i.">
+    <li><m>\left(\frac{7}{2}\sqrt{2}, \frac{1}{2}\sqrt{2}\right)</m></li>
+    <li><m>\left(-\frac{7}{2}\sqrt{2} - 3, -\frac{1}{2}\sqrt{2} - 4\right)</m></li>
+    <li><m>\left(7\cos\left(\frac{3}{7}\pi\right) + 4*\sin\left(\frac{3}{7}\pi\right) + 2,4\cos\left(\frac{3}{7}\pi\right) -7\sin\left(\frac{3}{7}\pi\right) + 5\right)\approx (7.45735818642150, -0.934411649447508)</m></li>
+    <li><m>\left(7*\cos\left(\frac{11}{36}\pi\right) - 5*\sin\left(\frac{11}{36}\pi\right) + 8, -5\cos\left(\frac{11}{36}\pi\right) - 7\sin\left(\frac{11}{36}\pi\right) - 3\right)\approx (7.91927483301236, -11.6019464917782)</m></li>
+    </ol></p>
+    </answer>
+    <solution>
+    <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+def rotaffine(c,theta,P):
+    rot=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]]) #la matrice de rotation de theta radians
+    Ptrans=P-c # L'image du point après la translation
+    Ptransrot=rot*Ptrans #L'image du point translaté après la translation
+    Pfinal=Ptransrot+c
+    return Pfinal
+</input>
+                   </program>
+                   </listing>
+                   <p>Il suffit ensuite d'appeler la fonction avec les arguments nécessaires. Par exemple, le code <c>rotaffine(vector([2,3]),pi/2,vector([-1,1]))</c>
+                   devrait donner la réponse obtenue à l'exercice <xref ref="exosage-transfodef-2"/>.</p>
+    </solution>
+    </exercise>
+    </exercisegroup>
 </exercises>
