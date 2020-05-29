@@ -204,11 +204,12 @@
     </example>
     <p>On termine avec un exemple Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-transfodimsup">
-    <title>Les rotations selon une droite passant par l'origine dans <m>\R^3</m>.</title>
+    <title>Les rotations selon une droite passant par l'origine dans <m>\R^3</m></title>
     <p>Il existe différentes manières de calculer d'obtenir la matrice d'une transformation linéaire. La méthode décrite à l'équation <xref ref="eq-matparvecteursuv"/>
     fonctionne si on peut trouver l'image d'assez de vecteurs indépendants. L'exemple <xref ref="ex-refR2"/> montre une autre manière en se ramenant à un cas connu (voir aussi
      <xref ref="con-casconnu"/>)</p>
-     <p>On utilise la seconde méthode pour résoudre le problème. L'idée va être d'effectuer des rotations connues pour apporter l'axe de rotation sur l'axe des <m>x</m>, faire une rotation selon l'axe des <m>x</m> et défaire
+     <p>On utilise la seconde méthode pour résoudre le problème de trouver la matrice d'une rotation dans <m>\R^3</m> dont l'axe de rotation est une droite quelconque, passant par l'origine.
+     L'idée va être d'effectuer des rotations connues pour apporter l'axe de rotation sur l'axe des <m>x</m>, faire une rotation selon l'axe des <m>x</m> et défaire
      les rotations qui ont déplacé l'axe de rotation original. Le processus est illustré en étape dans la figure <xref ref="fig-rotR3gen"/>.</p>
       <figure xml:id="fig-rotR3gen">
       <caption>Les rotations dans <m>\R^3</m></caption>
@@ -275,7 +276,7 @@ show('vrotz=',vrotz)
 show('urotz=',urotz)          
           </input>
           </sage>
-          <p>La prochaine étape est de calculer l'angle que fait le vecteur <m>\vecl{vtorz}</m> avec l'axe des <m>z</m> afin de le ramener sur celui-ci par une rotation selon l'axe des <m>y</m> appropriée. On 
+          <p>La prochaine étape est de calculer l'angle que fait le vecteur <m>\vecl{vrotz}</m> avec l'axe des <m>z</m> afin de le ramener sur celui-ci par une rotation selon l'axe des <m>y</m> appropriée. On 
           applique aussi cette rotation sur le vecteur <m>\vecl{urotz}</m>.</p>
           <sage>
           <input>
@@ -323,7 +324,9 @@ show("T(u)=",Tu.n())
     A=\begin{pmatrix} 1\amp 0 \\ 0\amp 1 \\ 1\amp 1 \end{pmatrix}
     </me>.
     Cet exemple simple est une transformation linéaire  qui apporte les vecteurs de <m>\R^2</m> dans <m>\R^3</m> 
-    en faisant correspondre les coordonnées <m>x,y</m> de l'image à celles du domaine et en additionnant les valeurs <m>x,y</m> pour obtenir la valeur de <m>z</m>. </p>
+    en faisant correspondre les coordonnées <m>x,y</m> de l'image à celles du domaine et en additionnant les valeurs <m>x,y</m> pour obtenir la valeur de <m>z</m>:
+    <md>A\vecd{x}{y}=\begin{pmatrix} 1\amp 0 \\ 0\amp 1 \\ 1\amp 1 \end{pmatrix}\vecd{x}{y}=vec3d{x}{y}{x+y}</md>.
+    </p>
     <p>La question du produit matriciel de deux matrices <m>m\times n</m> a déjà été considérée à la section <xref ref="sec-prodmat"/>,
     bien que les exemples étaient principalement dans un contexte géométrique avec des matrices <m>2\times 2</m> ou <m>3\times 3</m>.
     </p>
@@ -364,31 +367,38 @@ show("T(u)=",Tu.n())
     de démontrer le théorème <xref provisional="thm-invrect"/>, qui stipule que seule les matrices carrées peuvent avoir un inverse à gauche et un inverse à droite et on
     aura une manière de calculer les inverses à gauche ou à droite de matrices arbitraires, lorsque possible.</p>
     
-    <!--
+
     <p>On propose une démonstration partielle du résultat, qui sera revisité dans la section<xref provisional="rang d'une matrice"/>
     . Les deux propositions suivantes seront utiles.</p>
-    <proposition xml:id="prop-invgaucheinj">
+    <proposition xml:id="prop-invgauche">
     <title>L'inverse à gauche et l'image de la transformation</title>
     <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> possédant un inverse à gauche <m>B</m>. Alors pour tout vecteur <m>v\in \R^m</m>, il existe au plus un vecteur <m>\vec{u}\in \R^n</m> tel que
     <me>
     A\vec{u}=\vec{v}
     </me>. En termes plus simples, si un vecteur de l'image est atteint par la transformation <m>A</m>, il ne l'est que par un seul vecteur du domaine.</p></statement>
     <proof>
-    <p>Si un vecteur <m>\vec{u}\in \R^n</m> existe tel que <m>A\vec{u}=\vec{v}</m>, alors on a
+    <p>Si un vecteur <m>\vec{u}_1\in \R^n</m> existe tel que <m>A\vec{u}_1=\vec{v}</m>, alors on a
     <md>
-    <mrow>A\vec{u}&amp;=\vec{v}</mrow>
-   <mrow> BA\vec{u}&amp;=B\vec{v}</mrow>
-   <mrow>I_n\vec{u}&amp;=B\vec{v}</mrow>
-   <mrow>\vec{u}&amp;=B\vec{v}</mrow>
+    <mrow>A\vec{u}_1 &amp;=\vec{v}</mrow>
+   <mrow> BA\vec{u}_1 &amp;=B\vec{v}</mrow>
+   <mrow>I_n\vec{u}_1 &amp;=B\vec{v}</mrow>
+   <mrow>\vec{u}_1 &amp;=B\vec{v}</mrow>
     </md>.
-    Ainsi, <m>\vec{u}</m> est obtenu en prenant le produit de l'inverse à gauche  de <m>A</m> par <m>\vec{v}</m>. Même si l'inverse peut ne pas être unique, si <m>CA=I</m> également, alors
-        <md>
-    <mrow>A\vec{u}&amp;=\vec{v}</mrow>
-   <mrow> CA\vec{u}&amp;=C\vec{v}</mrow>
-   <mrow>I_n\vec{u}&amp;=C\vec{v}</mrow>
-   <mrow>\vec{u}&amp;=C\vec{v}</mrow>
+    Ainsi, <m>\vec{u}_1</m> est obtenu en prenant le produit de l'inverse à gauche  de <m>A</m> par <m>\vec{v}</m>. Or l'inverse de <m>A</m>, peut ne pas être unique. Si pour <m>C\neq B</m> on a <m>CA=I</m> également, alors
+       peut-être que <m>\vec{u}_2=C\vec{v}</m> est une solution aussi puisque  <md>
+    <mrow>A\vec{u}_2&amp;=\vec{v}</mrow>
+   <mrow> CA\vec{u}_2&amp;=C\vec{v}</mrow>
+   <mrow>I_n\vec{u}_2&amp;=C\vec{v}</mrow>
+   <mrow>\vec{u}_2&amp;=C\vec{v}</mrow>
+    </md>.
+    Mais dans ce cas,
+    <md>
+    <mrow>\vec{v}&amp;=\vec{v}</mrow>
+    <mrow> A\vec{u}_1 &amp;=A\vec{u}_2</mrow>
+    <mrow>BA\vec{u}_1&amp;= BA\vec{u}_2</mrow>
+    <mrow>\vec{u}_1&amp;=\vec{u}_2</mrow>
     </md>
-    et donc <m>B\vec{v}=C\vec{v}</m> pour tous les vecteurs qui sont atteints par <m>A</m>.
+    et donc, la solution est unique.
     </p>
     </proof>
     </proposition>
@@ -421,10 +431,30 @@ show("T(u)=",Tu.n())
     </p>
     </statement>
     <proof>
-    <p>Soit <m>A</m> une matrice <m>m\times n</m> avec <m>m&lt; n</m>.</p>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m> avec <m>m&lt; n</m>. Par simplicité, on suppose que <m>m=2</m>. On considère l'équation
+    <men xml:id="eq-mltn">
+    A\vec{u}=\vecd{0}{0}
+    </men>. Évidemment, <m>\vec{u}=\vec{0}</m> est une solution à l'équation. Soit <m>\vec{a}_1,\vec{a}_2</m> et <m>\vec{a_3}</m> les trois premières colonnes de <m>A</m> 
+    (on se rappelle que <m>n&gt; m=2</m>). Si deux de ces vecteurs sont parallèles, disons <m>\vec{a_1}=k\vec{a_2}</m>, alors en prenant <m>\vec{u}=(1,-k,0,\ldots 0)</m>, on 
+    obtient une solution à l'équation <xref ref="eq-mltn"/> différente du vecteur <m>\vec{u}=\vec{0}</m>. Si aucun des vecteurs n'est parallèle à un autre, alors l'exercice
+    <xref ref="exo-3vecr2dep"/> garanti l'existence d'une combinaison linéaire <m>a\vec{a}_1+b\vec{a}_2+c\vec{a}_3=\vec{0}</m> où <m>a,b,c</m> ne sont pas tous nuls.
+    En prenant les trois premières composantes de <m>\vec{u}</m> égales à <m>a,b,c</m> et en prenant le reste des composantes nulles (si nécessaire) pour que le vecteur soit de dimension <m>m\geq 3</m>,
+    on obtient aussi une solution à l'équation <xref ref="eq-mltn"/> différente du vecteur <m>\vec{u}=\vec{0}</m>. >Si <m>A</m> possédait un inverse à gauche, ceci contredirait la proposition <xref ref="prop-invgauche"/>.
+    </p>
+    <p>Soit maintenant <m>B</m> une matrice <m>m\times n</m> avec <m>m&gt; n</m>. Par simplicité, on suppose que <m>n=2</m>. On considère l'équation
+    <men xml:id="eq-mgtn">
+    B\vecd{x}{y}=\vec{v}
+    </men>.
+    Soit <m>\vec{b}_1,\vec{b}_2</m> les colonnes de la matrice <m>B</m>. Alors l'équation <xref ref="eq-mgtn"/> revient à exprimer le vecteur <m>\vec{v}\in \R^m</m> comme
+    <m>\vec{v}=x\vec{b}_1+y\vec{b}_2</m>. C'est donc dire que le vecteur <m>\vec{v}</m> est dans le plan engendré par les colonnes de <m>B</m>. Or le plan est un objet à deux
+    dimensions et le vecteur <m>\vec{v}</m> vit dans un espace à <m>m&gt; 2</m> dimensions. Il y a donc certainement des vecteurs dans <m>\R^m</m> qui ne peuvent satisfaire 
+    l'équation <xref ref="eq-mgtn"/>. Si <m>B</m> possédait un inverse à droite, ceci contredirait la proposition <xref ref="prop-invdroite"/>.
+    </p>
+    <p>Évidemment, cette preuve n'est pas complète et se veut seulement une idée intuitive de la véracité du résultat. On reviendra sur ce dernier lorsque des notions
+    plus précises auront été établies dans les chapitres subséquents.</p>
     </proof>
     </theorem>
-    -->
+
     </subsection>
     <conclusion xml:id="concl-transfodimsup">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
    <p>Les points importants de cette section sont
@@ -436,9 +466,10 @@ show("T(u)=",Tu.n())
     </ul></p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_transfodimsup.xml" />
 </section>
-<!-- exo  xml:id=exo-rotR3x  pour trouver la matrice de rotation selon l'axe des x. Faire référence à <xref ref="ex-rotR3axes"/> et à la figure <xref ref="fig-rotR3axes"/> -->
 <!-- faire un exercice ( xml:id="exo-refR3" ) d'une réflexion selon un plan spécifié. Utiliser le vecteur normal du plan qui est réflechit sur moins n et deux vecteurs directeurs du plan qui sont laissés 
 sur eux-mêmes. Faire un a) et un b) avec eq vectorielle et eq normale. -->
 <!-- refaire le même exercice, mais en calculant directement l'image des vecteurs e1,e2,e3 en utilisant les projections orthogonales sur n. -->
 <!-- Exercice étirement direction quelconque, avec l'équation T=VU^-1  (calculs avec Sage)-->
+

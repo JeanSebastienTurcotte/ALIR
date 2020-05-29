@@ -101,7 +101,7 @@
                 <p>La solution sera disponible sous peu.</p>
             </solution>
     </exercise>
-    <exercise> <!-- Peut-être mettre le a) dans la section transfodef, mais... --> <!-- Faire un "projet" sur les matrices de permutation -->
+    <exercise xml:id="exo-matpermudef"> <!-- Peut-être mettre le a) dans la section transfodef, mais... --> <!-- Faire un "projet" sur les matrices de permutation -->
             <statement>
                 <p>Une matrice de permutation est une matrice <m>P</m> telle que chaque colonne et chaque ligne ne contient qu'une entrée non nulle égale à <m>1</m>.
                 Par exemple, la matrice 
@@ -213,6 +213,11 @@
                 <p>La solution sera disponible sous peu.</p>
             </solution>
     </exercise>
+    <exercisegroup xml:id="exosage-prodmat">
+    <title>Exercices Sage</title>
+    <introduction>
+    <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
+    </introduction>
     <exercise>
     <statement> 
     <p>Lors d'une certaine journée au Canada, voici les offres pour des vols directs entre les principaux aéroports canadiens:</p>
@@ -355,11 +360,6 @@
 </ol></p>
     </statement>
     </exercise>
-    <exercisegroup xml:id="exosage-prodmat">
-    <title>Exercices Sage</title>
-    <introduction>
-    <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
-    </introduction>
     <exercise>
     <statement>
     <p>Soit <me>A=\begin{pmatrix} 1\amp -2\amp 2\amp 1 \amp 0 \amp 4\\
@@ -380,6 +380,77 @@ Utiliser Sage pour calculer le produit <m>AB</m>.
 </sage>
     </statement>
     </exercise>
+    <exercise xml:id="exosage-permmatrices">
+    <title>Construction des matrices de permutation d'ordre <m>n</m></title>
+    <statement><p>Dans cet exercice, on veut donner une manière de lister les matrices de permutation <m>n\times n</m>, définies à l'exercice <xref ref="exo-matpermudef"/>.Pour cela
+    on va utiliser la commande <c>Permutations(n).list()</c>, qui renvoie la liste des permutations à <m>n</m> éléments. Par exemple</p>
+    <sage>
+    <input>
+    Permutations(3).list()
+    </input>
+    </sage>
+    <p>renvoie une liste de <m>6</m> éléments correspondant à toutes les manières d'ordonner les nombres <m>1,2,3</m>. Une matrice de permutation est une matrice obtenu en permutant les colonnes de la matrice identité.
+    Dans cet exercice, on va créer une fonction <c>perm_matrix(n)</c> qui va donner une liste des matrices de permutation d'ordre <m>n</m>. Pour cela, il faudra 
+    <ul>
+    <li><p>Créer la liste des permutations d'ordre <m>n</m> à l'aide de la commande <c>Permutations(n).list()</c>. </p></li>
+    <li><p>Créer la liste des vecteurs <m> \vec{e}_1,\vec{e}_2 , \ldots ,\vec{e}_n</m> à partir de la matrice identité. (Utiliser la commande <c>A.columns()</c>.</p></li>
+    <li><p>Créer chaque matrice de permutation à partir de la liste des permutations. La liste des permutations permet de savoir les colonnes de la matrice identité vont dans quelle colonne de chaque matrice <m>P</m>.</p></li>
+    </ul>
+    </p></statement>
+    <hint><p>Commencer par créer une fonction qui va donner les matrices de permutation <m>2\times 2</m> et une autre fonction qui va donner les matrices de permutation <m>3\times 3</m>. Des réponses possibles se 
+    trouvent dans l'indice suivant.</p></hint>
+    <hint>
+    <listing>
+                   <caption>Un indice pour l'exercice</caption>
+               <program language="sage">
+               <input>
+def perm_matrix2x2():
+    Id=identity_matrix(2)
+    col=Id.columns()
+    p=Permutations(2).list() #La liste des permutations
+    L=list() #une liste vide
+    for perm in p: #Pour chaque permutation dans la liste p, on va ajouter la matrice de permutation correspondante à la liste L
+        P=column_matrix([col[perm[0]-1],col[perm[1]-1]]) #On construit une matrice de permutation selon une permutation spécifique
+        L.append(P) #On l'ajoute à la liste existante
+    return L
+    
+def perm_matrix3x3():
+    Id=identity_matrix(3)
+    col=Id.columns()
+    p=Permutations(3).list() #La liste des permutations
+    L=list() #une liste vide
+    for perm in p: #Pour chaque permutation dans la liste p, on va ajouter la matrice de permutation correspondante à la liste L
+        P=column_matrix([col[perm[0]-1],col[perm[1]-1],col[perm[2]-1]]) #On construit une matrice de permutation selon une permutation spécifique
+        L.append(P) #On l'ajoute à la liste existante
+    return L
+</input>
+                   </program>
+                   </listing> 
+                   <p>Pour le cas <m>n\times n</m>, il faudra faire quelques modifications. D'abord, on change les <m>2,3</m> dans les premières lignes par des <m>n</m>, afin d'avoir le caractère plus général
+                   de l'exercice. Ensuite parce qu'on ne connait pas d'avance la dimension des matrices cherchées, il faut trouver un moyen de changer la ligne <c>P=column_matrix(...)</c>.</p>
+    </hint>
+    <solution>
+    <listing>
+                   <caption>La solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+def perm_matrix(n):
+    Id=identity_matrix(n)
+    col=Id.columns()
+    p=Permutations(n).list()
+    L=list()
+    for perm in p:
+        colperm=list()
+        for j in range(len(perm)):
+            colperm.append(col[perm[j]-1])
+        P=column_matrix(colperm)
+        L.append(P)
+    return L
+</input>
+                   </program>
+                   </listing> 
+    </solution>
+    </exercise>
     <exercise>
     <statement>
     <p>Utiliser le produit de matrices de rotation et Sage pour démontrer les identités trigonométriques
@@ -388,10 +459,12 @@ Utiliser Sage pour calculer le produit <m>AB</m>.
     <mrow xml:id="eq-sommeanglessin"> \sin(\alpha +\beta)=\sin(\alpha)\cos(\beta)+\cos(\alpha)\sin(\beta)</mrow>.
     </mdn>
     </p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
     </statement>
-    <hint>
-                <p>Un indice.</p>
-            </hint>
             <answer>
                 <p>Si on compose les rotations <m>R_{\alpha}</m> et <m>R_{\beta}</m>, on sait que l'image du vecteur <m>(1,0)</m> correspondra à
                 <m>(\cos(\alpha+\beta),\sin(\alpha+\beta)</m>, puisque c'est le fonctionnement même des rotations composées d'additionner les angles.

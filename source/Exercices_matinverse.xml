@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                     -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Copyright (C) 2019  Jean-Sébastien Turcotte, Philémon Turcotte         -->
+<!-- Licence à venir                                                        -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-matinverse">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+  <!--  <exercise xml:id="exo-">
+            <statement>
+                La question.
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse.
+            </answer>
+            <solution>
+                La solution.
+            </solution>
+    </exercise>      -->
+    <exercise xml:id="exo-SEL2x2matinverse">
+            <statement>
+                <p>Dans la section, on a déterminé l'inverse d'une matrice <m>2\times 2</m> quelconque sous la condition que <m>ad-bc\neq 0</m>. On a toutefois laissé
+                les détails de la résolution du système d'équations 
+                <md>
+    <mrow>ay+bw&amp;=0 </mrow>
+    <mrow> cy+dw&amp;=1</mrow>
+    </md> à compléter. </p>
+    <p>Montrer que la solution à ce système est <m>y=\frac{-b}{ad-bc}</m> et <m>w=\frac{a}{ad-bc}</m>.</p>
+            </statement>
+            <hint>
+                <p>S'inspirer de la résolution du système dans le texte.</p>
+            </hint>
+            <solution>
+                <p>
+                on multiplie la première équation par <m>c</m> et la seconde par <m>a</m>. On obtient
+    <mdn>
+    <mrow xml:id="eq-exomatinverse2x2-1">acy+bcw&amp;=0 </mrow>
+    <mrow xml:id="eq-exomatinverse2x2-2"> acy+adw&amp;=a</mrow>
+    </mdn>.
+    En soustrayant l'équation <xref ref="eq-exomatinverse2x2-2"/> de l'équation <xref ref="eq-exomatinverse2x2-1"/>, on obtient
+    <me>
+    (ad-bc)w=a
+    </me>.
+    Toujours sous l'hypothèse que <m>ad-bc\neq 0</m>, on obtient <m>w=\frac{a}{ad-bc}</m>. 
+    </p>
+    <p>En multipliant maintenant la première équation du premier système par <m>d</m> et la seconde par <m>b</m>, on obtient
+    <mdn>
+    <mrow xml:id="eq-exomatinverse2x2-3">ady+bdw&amp;=0 </mrow>
+    <mrow xml:id="eq-exomatinverse2x2-4"> aby+bdw&amp;=b</mrow>
+    </mdn>.
+    En soustrayant  cette fois l'équation <xref ref="eq-exomatinverse2x2-3"/> de l'équation <xref ref="eq-exomatinverse2x2-4"/>, on obtient
+    <me>
+    (ad-bc)y=-b
+    </me>.
+    On trouve <m>y=\frac{-b}{ad-bc}</m>.
+                </p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-vecteursesuffisants">
+            <statement>
+                <p>Dans la remarque <xref ref="rem-obtenirinverse"/>, il est mentionné qu'une matrice <m>A</m> possède un inverse si pour tout les <m>\vec{v}</m> dans 
+                <m>\R^n</m>, il existe un <m>\vec{u}</m> tel que <m>A\vec{u}=\vec{v}</m>. Montrer qu'en fait, il suffit que les équations
+                <md>
+                <mrow>A\vec{u}&amp;=(1,0,\ldots, 0)</mrow>
+                <mrow>A\vec{u}&amp;=(0,1,0,\ldots, 0)</mrow>
+                <mrow>\vdots&amp;=\vdots</mrow>
+                <mrow>A\vec{u}&amp;=(0,\ldots, 0,1)</mrow>
+                </md>
+                possèdent des solutions.</p>
+            </statement>
+            <hint>
+                <p>Essayer de montrer que si  des solutions existent pour ces équations, alors une solution existe pour n'importe quel <m>\vec{v}</m>.</p>
+            </hint>
+           
+            <solution>
+            <p>À venir</p>
+            </solution>
+    </exercise> 
+    <exercise>
+            <statement>
+                <p>Généraliser la proposition <xref ref="prop-inverseproduit"/> à trois matrices. Est-il possible de généraliser davantage?</p>
+            </statement>
+            <solution>
+            <p>À venir</p>
+            </solution>
+    </exercise>
+     <exercise>
+            <statement>
+                <p>Expliquer pourquoi une projection orthogonale sur un vecteur <m>\vec{u}</m> est une transformation linéaire non inversible.</p>
+            </statement>
+            <solution>
+            <p>La proposition <xref ref="prop-investsurj"/> dit qu'une transformation inversible doit atteindre tous les vecteurs de son image. Comme la projection 
+            envoie les vecteurs sur une droite, elle ne peut atteindre tous les vecteurs. Elle est donc non inversible.</p>
+            </solution>
+    </exercise>
+    <exercise>
+            <statement>
+                <p>Soit <m>A</m> une matrice <m>m\times n</m> pas nécessairement carrée et <m>O</m> la matrice nulle de dimension appropriée. Montrer que
+                <ol>
+                <li>AO=O</li>
+                <li>OA=O.</li>
+                </ol>
+                </p>
+            </statement>
+            <solution>
+            <p>À venir</p>
+            </solution>
+    </exercise>
+    <exercise>
+            <statement>
+                <p>Considérer la matrice <m>A</m> inversible et le nombre réel non nul <m>c</m>. Quel est l'inverse de la matrice <m>B=cA</m>?
+                </p>
+            </statement>
+            <solution>
+            <p>À venir</p>
+            </solution>
+    </exercise>
+    <exercise>
+            <statement>
+                <p>Pour chaque énoncé suivant, les matrices sont supposés être de format approprié et inversibles lorsque nécessaire. Donner une preuve si l'énoncé est vrai, ou donner un contre-exemple si l'énoncé est faux.
+                <ol>
+                <li>(A+B)^{-1}=A^{-1}+B^{-1}</li>
+                </ol>
+                </p>
+            </statement>
+            <solution>
+            <p>À venir</p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-2x2inverse">
+            <statement>
+                <p> En utilisant lorsque possible le fait que <m>A\vec{u}=\vec{v}</m> peut s'écrire sous la forme <m>\vec{u}=A^{-1}\vec{v}</m>, répondre aux questions suivantes:
+                <ol>
+                <li><p>Trouver un vecteur <m>\vec{u}</m> tel que <m>\begin{pmatrix}1\amp 2\\ -1 \amp 4  \end{pmatrix}\vec{u}=\vecd{3}{1}</m>.</p></li>
+                <li><p>Trouver un vecteur <m>\vec{u}</m> tel que <m>\begin{pmatrix}1\amp 2\\ 0 \amp 1  \end{pmatrix}\vec{u}=\vecd{-1}{5}</m>.</p></li>
+                <li><p> Trouver un vecteur <m>\vec{u}\in \R^2</m> tel que son image par une rotation de <m>30^{\circ}</m> est le vecteur <m>(2,-3)</m>. </p></li>
+                <li><p>Trouver deux vecteurs <m>\vec{u}_1,\vec{u}_2</m> tels que <m>\begin{pmatrix}-3\amp 1\\ 2 \amp -1  \end{pmatrix}\vec{u}_1=\vecd{1}{0}</m> et
+                <m>\begin{pmatrix}-3\amp 1\\ 2 \amp -1\end{pmatrix}\vec{u}_2=\vecd{0}{1}</m>.</p></li>
+                <li>Trouver un vecteur <m>\vec{u}</m> tel que <m>\begin{pmatrix}1\amp 0\\ 0 \amp 3  \end{pmatrix}\vec{u}=\vecd{2}{6}</m>, sans calculer la matrice inverse.</li>
+                </ol>
+                </p>
+            </statement>
+            <solution>
+            <p>À venir</p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-cisaillement">
+    <statement>  
+    <p>Au niveau géomérique, une matrice de la forme <m>Ch_k\begin{pmatrix}1\amp 0\\ k \amp 1  \end{pmatrix}</m> ou <m>Cv_k\begin{pmatrix}1\amp k\\ 0 \amp 1  \end{pmatrix}</m> est
+    une matrice de cisaillement, dont l'effet est illustré à l'activité interactive <xref ref="fig-cisaillement"/>. Donner l'effet algébrique d'un cisaillement et son inverse, en justifiant  géométriqument et algébriquement.
+    </p>
+    <figure xml:id='fig-cisaillement'>
+    <caption>Les transformations "cisaillement"</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-cisaillement">
+        <slate aspect="1:1" source="code/geogebra/exo-cisaillement.ggb"
+        surface="geogebra" xml:id="slate-cisaillement">
+            setCoordSystem(-5,5,-5,5);
+            showResetIcon(true);
+          </slate>
+        <instructions>
+          <p>La valeur de <m>k</m> est initialisée à <m>0</m>, ce qui donne la transformation identité. En changeant cette valeur, décrire la transformation. La figure bleue représente le cisaillement horizontal 
+          <m>Ch_k</m> et la figure rouge le cisaillement vertical <m>Cv_k</m>.</p>
+        </instructions>
+        </interactive>
+    </figure>
+    </statement>
+    <hint>
+    <p>Pour la partie algébrique, multiplier les matrices par un vecteur <m>vecd{x}{y}</m> quelconque et analyser l'effet.</p>
+    </hint>
+    </exercise>
+    <exercise xml:id="exo-prodmatinversegeo">
+    <statement>  
+    <p>Dans la figure <xref ref="fig-prodmatinversegeo"/>, un vecteur <m>\vec{u}</m> est montré, de même que son effet par une transformation <m>T_1</m> et la composition des transformations <m>T_1(T_2)</m>.
+    On cherche à déterminer la matrice de la transformation <m>T_2</m>.</p>
+    <figure xml:id='fig-prodmatinversegeo'>
+    <caption>La transformation intérieure d'une composition, géométriquement</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-prodmatinversegeo">
+        <slate aspect="1:1" source="code/geogebra/exo-prodmatinversegeo.ggb"
+        surface="geogebra" xml:id="slate-prodmatinversegeo">
+            setCoordSystem(-7,5,-5,5);
+            showResetIcon(true);
+          </slate>
+        <instructions>
+          <p>Déplacer le point bleue afin de voir l'effet de <m>T_1</m> et de <m>T_1(T_2(x,y))</m> sur le vecteur <m>\vec{u}</m>. Dans les champs de texte <m>a,b,c,d</m>, entrer les valeurs pour
+          <me>
+          T_2=\begin{pmatrix} a&amp;c\\ b&amp;d \end{pmatrix}
+          </me> et appuyer sur "Vérifier la réponse" pour valider. Si désiré, un nouveau problème peut être généré en cliquant sur "Nouveau problème".</p>
+        </instructions>
+        </interactive>
+    </figure>
+    <p>Répondre aux questions suivantes:
+    <ol>
+    <li><p>Expliquer comment trouver la transformation <m>T_2</m> à partir des informations données.</p></li>
+    <li><p>Comparer cet exercice à l'exemple <xref ref="ex-prodmatgeo"/>. Pourquoi à ce moment n'a-t-on pas demandé de trouver <m>T_2</m> sachant l'effet de <m>T_1</m> et de la composition <m>T_1\circ T_2</m>.</p></li>
+    </ol>
+    </p>
+    </statement>
+    </exercise>
+    <exercise xml:id="exo-algmatpropex">
+            <statement>
+                <p>Déterminer les dimensions possibles de chaque matrice de l'exemple <xref ref="ex-algmat2"/>.</p>
+            </statement>
+            <solution>
+           <p>À venir</p>
+            </solution>
+    </exercise>
+    <exercise xml:id="exo-Ainverseprod">
+    <statement><p>Soit <m>A,B</m> deux matrices carrées telles que <m>AB</m> est inversible. Compléter la preuve de la proposition <xref ref="prop-inverseproduit"/> en
+    montrant que <m>A</m> est inversible.</p></statement>
+    <solution><p>Puisque <m>AB</m> est inverisble, il existe <m>C</m> telle que <m>CAB=ABC=I</m>, selon la définition <xref ref="def-matcarreeinverse"/>. On peut alors
+    écrire à l'aide de l'associativité de la multiplication matricielle <m>A(BC)=I</m>. Toujours selon la définition <xref ref="def-matcarreeinverse"/>, la matrice
+    <m>A</m> est inversible.</p></solution>
+    </exercise>
+    <exercisegroup xml:id="exosage-matinverse">
+    <title>Exercices Sage</title>
+    <introduction>
+    <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
+    </introduction>
+    <exercise>
+    <statement>
+    <p>Donner les inverse des matrices suivantes. Vérifier aussi en effectuant la multiplication pour avoir l'idendité.
+    <md>
+    <mrow>A=\begin{pmatrix} 3 \amp -1 \\
+0 \amp -3 \end{pmatrix}</mrow>
+ <mrow>B=\begin{pmatrix} 2 \amp -2 \amp 1 \\
+-1 \amp 5 \amp 1 \\
+2 \amp 1 \amp 3 \end{pmatrix}</mrow>
+<mrow>C=\begin{pmatrix} \frac{1}{2} \amp -1 \amp -2 \\
+2 \amp 0 \amp \frac{1}{5} \\
+\frac{1}{3} \amp 3 \amp \frac{4}{3}\end{pmatrix}</mrow>
+    </md>
+    </p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement>
+    <solution>À venir</solution>
+    </exercise>
+    <exercise>
+    <statement><p>Considérer les matrices <m>B</m> et <m>C</m> de l'exemple précédent. Vérifier que <m>(AB)^{-1}=B^{-1}A^{-1}</m> à l'aide de Sage. Il est possible de calculer les résultats, ou simplement
+    de comparer en utilisant la double égalité <c>==</c>.</p></statement>
+    </exercise>
+    <exercise>
+    <statement><p>
+    Dans cet exercice, on cherche à créer une fonction qui va donner automatiquement la réponse à un exemple de la figure interactive  <xref ref="fig-prodmatinversegeo"/> en fonction des informations données.
+    On appellera la fonction <c>inversecompo(T11,T12,C1,C2)</c> où <m>T11,T12</m> sont respectivement les première et deuxième colonne de la matrice de la transformation <m>T1</m> et <m>C1,C2</m> sont respectivement les première et deuxième colonne de la matrice de la transformation <m>T1(T_2)</m>.
+    </p>
+    <p>Créer cette fonction et utiliser la figure <xref ref="fig-prodmatinversegeo"/> pour la tester.</p>
+    </statement>
+    <solution>
+   <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+def inversecompo(T11,T12,C1,C2):
+    T1=column_matrix([T11,T12])
+    T1inv=T1.inverse()
+    C=column_matrix([C1,C2])
+    T2=T1inv*C
+    return T2
+</input>
+                   </program>
+                   </listing> 
+    </solution>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>On s'intéresse à la matrice inverse des matrices de permutation.
+    <ol>
+    <li><p>À l'aide du code de l'exercice <xref ref="exosage-permmatrices"/>, déterminer combien de matrices de permutation <m>4\times 4</m> sont leur propre inverse.</p></li>
+    <li><p>Faire une liste des matrices de permutation <m>4\times 4</m> qui sont leur propre inverse et une autre liste des matrices qui ne le sont pas. Qu'est-ce qui caractérise une matrice de permutation qui est
+    son propre inverse?</p></li>
+    </ol>
+    </p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement>
+    <answer>
+    À venir
+    </answer>
+    <solution>
+    <p><ol><li>
+    <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+def perm_matrix(n):
+    Id=identity_matrix(n)
+    col=Id.columns()
+    p=Permutations(n).list()
+    L=list()
+    for perm in p:
+        colperm=list()
+        for j in range(len(perm)):
+            colperm.append(col[perm[j]-1])
+        P=column_matrix(colperm)
+        L.append(P)
+    return L
+P4=perm_matrix(4)
+P4propreinverse=list()
+for M in P4:
+    if M*M==identity_matrix(4):
+        P4propreinverse.append(M)
+P4propreinverse
+P4copie=P4
+for M in P4propreinverse:
+    P4copie.remove(M)
+P4autreinverse=P4copie
+show("Les matrices de permutation 4x4 sont",P4)
+show("Parmi ces matrices, voici celles qui sont leur propre inverse", P4propreinverse)
+show("Celles-ci ne sont pas leur propre inverse",P4autreinverse)
+</input>
+                   </program>
+                   </listing> </li>
+                   <li><p>La principale caractéristique des matrices de permutation qui sont leur propre inverse est que les permutation ne se font que deux à deux. Par exemple, considérer les matrices
+                   <md>
+                   <mrow>P_1=\begin{pmatrix} 
+                   \amp0 \amp 1\amp 0\amp 0\\
+                   \amp1 \amp 0\amp 0\amp 0\\
+                   \amp0 \amp 0\amp 1\amp 0\\
+                   \amp0 \amp 0\amp 0\amp 1
+                   \end{pmatrix}</mrow>
+                    <mrow>P_2=\begin{pmatrix} 
+                   \amp0 \amp 1\amp 0\amp 0\\
+                   \amp1 \amp 0\amp 0\amp 0\\
+                   \amp0 \amp 0\amp 0\amp 1\\
+                   \amp0 \amp 0\amp 1\amp 0
+                   \end{pmatrix}</mrow>
+                    <mrow>P_3=\begin{pmatrix} 
+                   \amp0 \amp 0\amp 1\amp 0\\
+                   \amp1 \amp 0\amp 0\amp 0\\
+                   \amp0 \amp 1\amp 0\amp 0\\
+                   \amp0 \amp 0\amp 0\amp 1
+                   \end{pmatrix}</mrow>
+                   </md>. On regarde l'effet de ces matrices dans Sage sur un vecteur <m>\vec{v}=(x_1,x_2,x_3,x_4)</m>.</p></li></ol></p>
+                   <sage>
+                   <input>
+var("x1,x2,x3,x4")
+P1=column_matrix([[0,1,0,0],[1,0,0,0],[0,0,1,0],[0,0,0,1]])
+P2=column_matrix([[0,1,0,0],[1,0,0,0],[0,0,0,1],[0,0,1,0]])
+P3=column_matrix([[0,1,0,0],[0,0,1,0],[1,0,0,0],[0,0,0,1]])
+v=vector([x1,x2,x3,x4])
+show("P1=",P1)
+show("P2=",P2)
+show("P3=",P3)
+show("P1*v=",P1*v)
+show("P2*v=",P2*v)
+show("P3*v=",P3*v)
+                   </input>
+                   </sage>
+                   <p>On voit que les matrices <m>P_1,P_1</m> permutent les composantes <m>x_1</m> et <m>x_2</m> du vecteurs <m>\vec{v}</m> entre elles, avec <m>P_2</m> qui permutent également <m>x_3</m> avec <m>x_4</m>.
+                   Par contre, <m>P_3</m> envoie <m>x_1</m> à la position de <m>x_2</m>, <m>x_2</m> à la position de <m>x_3</m> et <m>x_3</m> à la position de <m>x_1</m>.<fn>Le lecteur intéressé d'en apprendre plus peut se renseigner sur les cycles d'une
+                   permutation.</fn>On applique une seconde fois les matrices <m>P_1,P_2,P_3</m> au vecteur <m>\vec{v}</m>. Peut-on prédire ce qui va se passer?
+                   </p>
+                   <sage>
+                   <input>
+show("P1P1*v=",P1*P1*v)
+show("P2P2*v=",P2*P2*v)
+show("P3P3*v=",P3*P3*v)
+                   </input>
+                   </sage>
+                   <p>Puisque dans <m>P_1</m> et <m>P_2</m> les entrées permutent en paires, une application double de la permutation revient à ne rien faire. Par contre pour <m>P_3</m>, les entrées <m>x_1,x_2,x_3</m>
+                   permutent selon un cycle de longueur trois. On devrait donc avoir besoin d'une troisième application pour revenir à l'identité.</p>
+                   <sage>
+                   <input>
+                   show("P3P3P3*v=",P3*P3*P3*v)
+                   </input></sage>
+    </solution>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>On souhaite utiliser Sage pour vérifier certaine des égalités de l'exemple <xref ref="ex-algmat2"/>, en utilisant des matrices compatibles d'une taille "arbitraire", un peu comme on l'a fait dans l'exemple <xref ref="sageex-algmat"/>.
+    </p>
+    <p>Pour chaque énoncé de l'exemple <xref ref="ex-algmat2"/>, utiliser Sage pour "vérifier" l'égalité. Les dimensions des matrices ont été trouvées à l'exercice <xref ref="exo-algmatpropex"/>. </p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement>
+    <solution>
+    <p>À venir</p></solution>
+    </exercise>
+    </exercisegroup>
+</exercises>
+<!-- Exercice Sage en lien avec sageex-algmat pour vérifier certaines égalité de ex-algmat2. -->
+
