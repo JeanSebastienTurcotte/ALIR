@@ -488,7 +488,7 @@
                    <p>
                    À remarquer qu'il y a une infinité de solution, données sous forme paramétrique ici. Ceci est attendu étant donné que n'importe quel multiple d'un vecteur normal est aussi un vecteur normal.
                    Dans notre cas, si on prend la variable libre comme étant égale à <m>3</m> (pour éliminer les fractions), on obtient</p>
-                   <listing>
+                   <listing xml:id="code-extrairevariables">
                    <caption>Le code pour le vecteur normal, partie 2</caption>
                <program language="sage">
                <input>
@@ -550,6 +550,32 @@
                    </li>
                    </ol></p>
     </solution>
+    </exercise>
+    <exercise><!-- restructurer cet exercice pour faire créer les fonctions intermédiaires. -->
+    <introduction><p>On considère le vecteur  <m>\vec{n}=(n1,n2,n3)</m> et un point <m>P(p1,p2,p3)</m>. On cherche à créer une fonction qui va retourner une équation vectorielle du plan dont le vecteur normal 
+    est <m>\vec{n}</m> et passant par le point <m>P</m>.</p></introduction>
+    <task>
+    <statement>
+    <p>
+    Étant donné un vecteur <m>\vec{n}\in \R^3</m>, il existe une infinité de vecteurs <m>\vec{u},\vec{v}</m> tels que <m>\vec{u}\cdot \vec{n}=\vec{v}\cdot\vec{n}=0</m>, mais
+    tels que <m>\vec{v}\neq k\vec{u}</m>. Pour obtenir une équation vectorielle du plan, il suffit d'en trouver deux.
+    </p>
+    <p>Dans cette partie de l'exercice, on va créer une partie de la fonction qui servira à trouver l'équation vectorielle. Un peu comme dans le code <xref ref="code-extrairevariables"/>,
+    on s'attend à ce qu'il y ait des variables libres lorsque Sage va résoudre l'équation normale du plan afin de trouver les vecteurs <m>\vec{u},\vec{v}</m>. On veut 
+    extraire deux solutions particulières de cet ensemble de solutions.</p>
+    <!-- Code utile à finir
+    var("n1,n2,n3,k,x,y,z")
+plan=vector([n1,n2,n3])*vector([x,y,z])==0
+sol=solve(plan,x,y,z,solution_dict=True)
+l=[]
+for v in sol[0].keys():
+    for var in sol[0][v].variables():
+        if var not in l and var not in [n1,n2,n3] :
+            l.append(var)
+l
+-->
+    </statement>
+    </task>
     </exercise>
     <exercise xml:id="exo-parabolesage">
     <title>Automatisation de l'équation d'une parabole</title>

@@ -123,12 +123,21 @@
     </exercise>
     <exercise>
             <statement>
-                <p>Pour chaque énoncé suivant, les matrices sont supposés être de format approprié et inversibles lorsque nécessaire. Donner une preuve si l'énoncé est vrai, ou donner un contre-exemple si l'énoncé est faux.
+                <p>Pour chaque énoncé suivant, les matrices sont supposés être carrées, de format approprié et inversibles lorsque nécessaire. Donner une preuve si l'énoncé est vrai, ou donner un contre-exemple si l'énoncé est faux.
                 <ol>
-                <li>(A+B)^{-1}=A^{-1}+B^{-1}</li>
+                <li><p><m>(A+B)^{-1}=A^{-1}+B^{-1}</m></p></li>
+                <li><p>Si <m>A</m> est inversible et que <m>AB=AC</m>, alors <m>B=C</m></p></li>
+                <li><p>Si <m>A</m> n'est pas inverisble et que <m>AB=AC</m>, alors <m>B=C</m>.</p></li>
+                <li><p>Si <m>A</m> est inversible et qu'on interchange deux colonnes (ou deux lignes) pour obtenir la matrice  <m>B</m>, alors <m>B</m> est inversible.</p></li>
+                <li><p>Si <m>A</m> possède une ligne de zéros, alors <m>A</m> n'est pas inversible.</p></li>
+                <li><p>Si <m>B=(A^2)^{-1}</m>, alors <m>A^{-1}=AB</m></p></li>
                 </ol>
                 </p>
             </statement>
+            <hint>
+            <p><ol><li><p>À venir</p></li><li><p>À venir</p></li><li><p>À venir</p></li><li><p>Trouver une matrice <m>P</m> telle que <m>PA=B</m> ou <m>AP=B</m> et utiliser
+            la proposition <xref ref="prop-inverseproduit"/></p></li><li><p>Propriété <xref ref="prop-investsurj"/></p></li><li><p>À venir</p></li></ol></p>
+            </hint>
             <solution>
             <p>À venir</p>
             </solution>
@@ -219,12 +228,23 @@
     écrire à l'aide de l'associativité de la multiplication matricielle <m>A(BC)=I</m>. Toujours selon la définition <xref ref="def-matcarreeinverse"/>, la matrice
     <m>A</m> est inversible.</p></solution>
     </exercise>
+    <exercise xml:id="exo-etirquelcr2">
+    <title>Un étirement quelconque dans <m>\R^2</m></title>
+    <statement><p>Dans <m>\R^2</m>, un étirement de direction <m>\vec{u}</m> et de facteur <m>k</m> est une transformation linéaire <m>E_{\vec{u},k}</m> telle que
+    <m> E_{\vec{u},k}(\vec{u})=k\vec{u}</m> et <m> E_{\vec{u},k}(\vec{u_{\perp})=k\vec{u_{\perp}</m>. En mots, la transformation
+    étire la direction <m>\vec{u}</m> d'un facteur <m>k</m> et laisse la direction perpendiculaire inchangée.
+    </p>
+    <p>On considère un étirement dans la direction <m>\vec{u}=(1,2)</m> et de facteur <m>k=3</m>. Déterminer la matrice de cette transformation en utilisant la formule
+    <xref ref="eq-matparvecteursuv"/>.
+    </p>
+    </statement>
+    </exercise>
     <exercisegroup xml:id="exosage-matinverse">
     <title>Exercices Sage</title>
     <introduction>
     <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
     </introduction>
-    <exercise>
+    <exercise xml:id="exosage-matinverse-1">
     <statement>
     <p>Donner les inverse des matrices suivantes. Vérifier aussi en effectuant la multiplication pour avoir l'idendité.
     <md>
@@ -247,30 +267,40 @@
     <solution>À venir</solution>
     </exercise>
     <exercise>
-    <statement><p>Considérer les matrices <m>B</m> et <m>C</m> de l'exemple précédent. Vérifier que <m>(AB)^{-1}=B^{-1}A^{-1}</m> à l'aide de Sage. Il est possible de calculer les résultats, ou simplement
+    <statement><p>Considérer les matrices <m>B</m> et <m>C</m> de l'exemple <xref ref="exosage-matinverse-1"/>. Vérifier que <m>(AB)^{-1}=B^{-1}A^{-1}</m> à l'aide de Sage. Il est possible de calculer les résultats, ou simplement
     de comparer en utilisant la double égalité <c>==</c>.</p></statement>
     </exercise>
-    <exercise>
-    <statement><p>
-    Dans cet exercice, on cherche à créer une fonction qui va donner automatiquement la réponse à un exemple de la figure interactive  <xref ref="fig-prodmatinversegeo"/> en fonction des informations données.
-    On appellera la fonction <c>inversecompo(T11,T12,C1,C2)</c> où <m>T11,T12</m> sont respectivement les première et deuxième colonne de la matrice de la transformation <m>T1</m> et <m>C1,C2</m> sont respectivement les première et deuxième colonne de la matrice de la transformation <m>T1(T_2)</m>.
-    </p>
-    <p>Créer cette fonction et utiliser la figure <xref ref="fig-prodmatinversegeo"/> pour la tester.</p>
+    <exercise xml:id="exosage-etirquelcR2">
+    <title>Les étirements quelconque</title>
+    <statement>
+    <p>En se basant sur l'exercice <xref ref="exo-etirquelcr2"/>, on souhaite trouver la formule d'un étirement dans <m>\R^2</m> de direction <m>\vec{u}=(u_1,u_2)\neq \vec{0}</m>
+    et de facteur <m>k\in \R </m>.</p>
+    <p>Utiliser Sage pour déterminer la matrice. Essayer de le faire en créant une fonction <c>etirR2(u,k)</c> qui retournera la matrice.</p>
     </statement>
+    <answer>
+    <p><me>
+    \left(\begin{array}{rr}
+\frac{k u_{1}^{2} + u_{2}^{2}}{u_{1}^{2} + u_{2}^{2}} \amp \frac{{\left(k - 1\right)} u_{1} u_{2}}{u_{1}^{2} + u_{2}^{2}} \\
+\frac{{\left(k - 1\right)} u_{1} u_{2}}{u_{1}^{2} + u_{2}^{2}} \amp \frac{k u_{2}^{2} + u_{1}^{2}}{u_{1}^{2} + u_{2}^{2}}
+\end{array}\right)
+    </me></p>
+    </answer>
     <solution>
-   <listing>
+    <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
                <input>
-def inversecompo(T11,T12,C1,C2):
-    T1=column_matrix([T11,T12])
-    T1inv=T1.inverse()
-    C=column_matrix([C1,C2])
-    T2=T1inv*C
-    return T2
-</input>
+def etirR2(u,k):
+    uperp=vector([-u[1],u[0]]) #Le vecteur u perpendiculaire
+    U=column_matrix([u,uperp]) #La matrice U
+    V=column_matrix([k*u,uperp]) #La matrice V
+    T=V*(U.inverse()) #La transformation
+    return T
+show(etirR2(vector([u1,u2]),k).simplify_full())
+               </input>
                    </program>
                    </listing> 
+                   <p>Remarquer qu'on a utiliser la commande <c>simplify_full()</c> afin d'avoir une forme plus compacte.</p>
     </solution>
     </exercise>
     <exercise>
@@ -394,7 +424,42 @@ show("P3P3*v=",P3*P3*v)
     <solution>
     <p>À venir</p></solution>
     </exercise>
+    <exercise>
+    <title> Une fonction pour trouver l'inverse</title>
+    <statement><p>
+    Dans cet exercice, on cherche à créer une fonction qui va donner automatiquement la réponse à un exemple de la figure interactive  <xref ref="fig-prodmatinversegeo"/> en fonction des informations données.
+    On appellera la fonction <c>inversecompo(T11,T12,C1,C2)</c> où <m>T11,T12</m> sont respectivement les première et deuxième colonne de la matrice de la transformation <m>T1</m> et <m>C1,C2</m> sont respectivement les première et deuxième colonne de la matrice de la transformation <m>T1(T_2)</m>.
+    </p>
+    <p>Créer cette fonction et utiliser la figure <xref ref="fig-prodmatinversegeo"/> pour la tester.</p>
+    </statement>
+    <solution>
+   <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+def inversecompo(T11,T12,C1,C2):
+    T1=column_matrix([T11,T12])
+    T1inv=T1.inverse()
+    C=column_matrix([C1,C2])
+    T2=T1inv*C
+    return T2
+</input>
+                   </program>
+                   </listing> 
+    </solution>
+    </exercise>
+  <!--  <exercise>
+    <statement>
+    <p>Parmi toutes les matrices <m>2\times 2</m>, il y en a <m>81</m> dont les entrées ne sont que des valeurs parmi <m>\{-1,0,1\}</m>. Combien de ces 
+    matrices sont inversibles?</p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement>
+    </exercise> -->
     </exercisegroup>
 </exercises>
-<!-- Exercice Sage en lien avec sageex-algmat pour vérifier certaines égalité de ex-algmat2. -->
+
 

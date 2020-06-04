@@ -9,6 +9,94 @@
 
 <exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-transfodimsup">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>
+    <exercise>
+    <task>
+    <statement>
+    <p>Donner un exemple d'une matrice <m>3\times 5</m> qui ne possède pas d'inverse à gauche, mais qui possède un inverse à droite.</p>
+    </statement>
+    <hint>
+    <p>À venir</p>
+    </hint>
+    <solution>
+    <p>À venir</p>
+    </solution>
+    </task>
+    <task>
+    <statement>
+    <p>Donner un exemple d'une matrice <m>3\times 5</m> qui ne possède pas d'inverse à droite, mais qui possède un inverse à gauche.</p>
+    </statement>
+    <hint>
+    <p>À venir</p>
+    </hint>
+    <solution>
+    <p>À venir</p>
+    </solution>
+    </task>
+    </exercise>
+    <exercise>
+    <task>
+    <statement>
+    <p>Trouver un inverse à gauche pour la matrice <m>A=\begin{pmatrix}
+1 \amp 0 \\
+0 \amp 2 \\
+1 \amp 0
+ \end{pmatrix}</m></p>
+    </statement>
+    <answer>
+    <p><me>
+    A^{-1}_{\text{gauche}}=\begin{pmatrix}
+2 \amp 0 \amp -1 \\
+1 \amp \frac{1}{2} \amp -1
+\end{pmatrix}
+    </me></p>
+    </answer>
+    </task>
+    <task><statement><p>Trouver un inverse à droite pour la matrice <m>B=\begin{pmatrix}
+0 \amp 1 \amp -1 \\
+1 \amp 0 \amp 0
+\end{pmatrix}</m></p></statement>
+<answer><p><me>
+B^{-1}_{\text{droite}}=\begin{pmatrix}
+0 \amp 1 \\
+2 \amp 1 \\
+1 \amp 1
+\end{pmatrix}
+</me></p></answer>
+</task><task><statement>
+<p>Lequel de ces deux inverses est le plus "difficile" à trouver? Pourquoi?</p>
+</statement></task>
+    </exercise>
+    <exercise>
+    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> et <m>B</m> un inverse à droite de <m>A</m>. Montrer que <m>C</m> est aussi un inverse à droite
+    pour <m>A</m> si et seulement si <m>A(B-C)=O</m> où les matrices sont de formats appropriés.</p></statement>
+    </exercise>
+    <exercise>
+    <introduction><p>Soit <m>A,B,C</m> des matrices carrées <m>n\times n</m> tels que
+    <ul>
+    <li><p><m>A, A-AB </m> et <m>B</m>  sont inversibles</p></li>
+    <li><p><m>(A-AB)^{-1}=B^{-1}C</m>.</p></li>
+    </ul></p></introduction>
+    <task>
+    <statement><p>Montrer que la matrice <m>C</m> est inversible</p></statement>
+    </task>
+    <task><statement><p>Exprimer <m>C</m> en fonction de <m>A,B</m> et leur inverse.</p></statement></task>
+    </exercise>
+    <exercise xml:id="exo-invspecial">
+    <statement><p>En utilisant la définition du produit matriciel <xref ref="def-matmatprod"/>, déterminer l'inverse des matrices
+    <md>
+    <mrow>A_3=\begin{pmatrix}1\amp 0\amp 0\\ 1\amp 1\amp 0\\ 1\amp 1\amp 1 \end{pmatrix}</mrow>
+    <mrow>A_4=\begin{pmatrix}1\amp 0\amp 0 \amp 0\\ 1\amp 1\amp 0 \amp 0\\ 1\amp 1\amp 1 \amp 0\\ 1\amp 1 \amp 1 \amp 1 \end{pmatrix}</mrow>
+    </md>.
+    Quel serait un inverse pour
+    <me>
+    A_n=\begin{pmatrix} 1\amp 0\amp \amp 0\amp \cdots \amp 0\\
+                        1\amp 1\amp 0 \amp \cdots \amp 0\\
+                        \vdots \amp \vdots \amp \vdots \amp \ddots \amp \vdots \\
+                        1\amp 1 \amp 1 \amp \cdots \amp 1\end{pmatrix}
+    </me>?
+    </p></statement>
+    <hint><p>Considérer la l'équation <m>AA^{-1}=I</m> et déterminer colonne par colonne les entrées de <m>A^{-1}</m>.</p></hint>
+    </exercise>
     <exercise xml:id="exo-rotR3x">
             <statement>
                 <p>Déterminer la matrice d'une rotation dans <m>\R^3</m> autour de l'axe des <m>x</m>. Ceci complètera l'exemple <xref ref="ex-rotR3axes"/>. La figure <xref ref="fig-rotR3axes"/>
@@ -23,19 +111,22 @@
     </exercise>
     <exercise xml:id="exo-refR3" >
             <statement>
-                <p>On considère le plan d'équation normale <m>x+2y-3z=0</m>. On cherche à déterminer la matrice de réflexion autour de ce plan.
+                <p><ol><li><p>On considère le plan d'équation normale <m>x+2y-3z=0</m>. On cherche à déterminer la matrice de réflexion autour de ce plan.
                 <ol>
                 <li><p>Dans un premier temps, utiliser le principe derrière l'équation <xref ref="eq-matparvecteursuv"/> pour trouver la matrice de la transformation
                 en considérant l'image de trois vecteurs spécifiques.</p></li>
                 <li><p>Déterminer directement la matrice en calculant l'image des vecteurs <m>(1,0,0),(0,1,0),(0,0,1)</m>. Pour cela, considérer la projection orthogonale de ces vecteurs
                 sur le plan. La figure <xref ref="fig-distpd"/> peut être utile, en considérant la droite comme le plan vu dans une certaine perspective.</p></li>
                 </ol>
-                </p>
+                </p></li>
+                <li><p>Répéter les démarches précédentes avec le plan <m>(x,y,z)=(1,2,-1)+r(-1,2,1)+s(3,0,-4)</m>.</p></li> <!-- vérifier pour la seconde partie ... prod vect -->
+                </ol></p>
             </statement>
             <hint>
             <p>
             <ol>
-            <p>Considérer le vecteur normal et deux vecteurs directeurs quelconques.</p>
+            <li><p>Considérer le vecteur normal et deux vecteurs directeurs quelconques.</p></li>
+            <li><p>À venir</p></li>
             </ol>
             </p>
             </hint>
@@ -46,4 +137,159 @@
                 <p>À venir</p>
             </solution>
     </exercise>
+    <exercise>
+    <statement><p>Dans <m>\R^2</m>, si <m>R_{\theta_1}</m> et <m>R_{\theta_2}</m> sont deux matrices de rotation, alors <m>R_{\theta_1}R_{\theta_2}=R_{\theta_2}R_{\theta_1}</m>.
+    Est-ce aussi vrai dans <m>\R^3</m>? Si oui, pourquoi et si non, donner un exemple.</p></statement>
+    <answer>
+    <p>En général, ce ne sera pas commutatif. Par exemple, une rotation de <m>\frac{\pi}{2}</m> selon l'axe des <m>x</m> et une rotation de <m>\frac{\pi}{2}</m> selon l'axe des <m>z</m>.</p>
+    </answer>
+    <solution>
+    <p>Voici une animation qui permet de visualier les transformations données dans la réponse.
+    </p>
+    <figure xml:id="fig-rotR3noncom">
+      <caption>Les rotations dans <m>\R^3</m> ne sont pas commutatives en général</caption>
+      <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-RotR3noncom">
+        <slate aspect="1:1" source="code/geogebra/RotR3noncom.ggb"
+        surface="geogebra" xml:id="slate-RotR3noncom">
+            setCoordSystem(-5, 5,-5,5,-5,5);
+          </slate>
+        <instructions>
+          <p>Un clic sur les boutons de rotation les effectuera selon l'ordre spécifié. Le bouton réinitialisé permet de mettre le cube en position initiale sans démarrer d'animation. 
+          </p>
+        </instructions>
+        </interactive>
+    </figure>
+    </solution>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>L'effet d'un cisaillement horizontal ou vertical a été illustré à l'exercice <xref ref="exo-cisaillement"/>. Qu'en est-il des cisaillements dans <m>\R^3</m>?
+    Algébriquement, on peut voir l'effet d'un cisaillement selon l'un des axes comme l'ajout d'un multiple d'une coordonnée à l'autre. Ainsi, le cisaillement 
+    <m>\begin{pmatrix} 1 \amp 2 \\ 0 \amp1\end{pmatrix}</m> a pour effet d'ajouter à la composante <m>1</m> deux fois la composante <m>2</m>:
+    <me>
+    \begin{pmatrix} 1 \amp 2 \\ 0 \amp1\end{pmatrix}\vecd{x}{y}=\vecd{x+2y}{y}
+    </me>.
+    </p>
+    <p>Pour avoir un comportement analogue dans <m>\R^3</m>, deux situations sont possibles:
+    <ol>
+    <li><p>On veut ajouter un multiple d'une seule composante à une autre composante;</p></li>
+    <li><p>On veut ajouter des multiples des autres composantes à une composante.</p></li>
+    </ol></p>
+    </introduction>
+    <task><statement>
+    <p>Soit <m>C_{xy,k},C_{xz,k}</m> les transformations qui ajoutent à la composante <m>x</m> respectivement <m>k</m> fois la composante en <m>y</m> ou <m>z</m>. D'une 
+    manière analogue, on définit les transformations <m>C_{yx,k}, C_{yz,k}, C_{zx,k}, C_{zy,k}</m></p>
+    <p>Donner la matrice de chacun de ces six transformations.</p>
+    </statement></task>
+    <task><statement><p>On veut maintenant définir trois cisaillements pour lesquels on ajoute à une composante des multiples des deux autres composantes. Quelles
+    serait une notation appropriée et la matrice de ces transformations?</p></statement></task>
+    <task><statement><p>Pour chacun des cisaillements, déterminer sans calculer l'inverse de la transformation. Justifier.</p></statement></task>
+    </exercise>
+    <exercisegroup>
+    <title>Exercices Sage</title>
+    <introduction>
+    <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
+    </introduction>
+    <exercise>
+    <introduction><p>On s'intéresse à la matrice d'un étirement quelconque dans <m>\R^3</m>. Un étirement de direction <m>\vec{n}</m> et de facteur <m>k</m> est une
+    transformation linéaire <m>E_{\vec{n},k}</m> telle que <m>E_{\vec{n},k}(\vec{n})=k\vec{n}</m> et <m>E_{\vec{n},k}(\vec{u})=\vec{u}</m> pour tout vecteur <m>\vec{u}</m>
+    tels que <m>\vec{n}\cdot \vec{u}=0</m></p></introduction>
+    <task>
+    <statement>
+    <p>Quels sont les vecteurs qui demeurent inchangés par l'étirement.</p>
+    </statement>
+    <answer><p>Ce sont les vecteurs perpendiculaires à <m>\vec{n}</m>, donc ceux dans le plan <m>\vec{n}\cdot (x,y,z)=0</m>.</p></answer></task>
+    <task>
+    <statement><p>Déterminer la matrice d'un étirement dans la direction <m>\vec{n}=(1,3,5)</m> de facteur <m>k=\frac{1}{2}</m>.</p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement>
+    <answer>
+    <p><me>
+    T=\begin{pmatrix}
+\frac{69}{70} \amp -\frac{3}{70} \amp -\frac{1}{14} \\
+-\frac{3}{70} \amp \frac{61}{70} \amp -\frac{3}{14} \\
+-\frac{1}{14} \amp -\frac{3}{14} \amp \frac{9}{14}
+\end{pmatrix}
+    </me></p>
+    </answer>
+    <solution>
+    <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+var("x,y,z")
+#Recherche de vecteurs perpendiculaires à n
+n=vector([1,3,5])
+sol=solve(n*vector([x,y,z])==0,x,y,z,solution_dict=True)
+l=[] #Liste vide des variables libres
+for v in sol[0].keys():  # vérifier ce que sol[0].keys() donne pour comprendre cette étape
+    for var in sol[0][v].variables():  #Vérifier aussi cette étape
+        if var not in l:   #On ne veut pas que les variables soient la plusieurs fois
+            l.append(var)
+u=vector([sol[0][x],sol[0][y],sol[0][z]]).subs({l[0]:1,l[1]:0})
+v=vector([sol[0][x],sol[0][y],sol[0][z]]).subs({l[0]:0,l[1]:1})  #Ceci crée deux vecteurs non parallèles qui seront nos vecteurs directeurs.
+#Recherche de la matrice de transformation
+k=1/2
+U=column_matrix([n,u,v])
+V=column_matrix([k*n,u,v])
+T=V*(U.inverse())
+show(T)
+               </input>
+                   </program>
+                   </listing> 
+    </solution>
+    </task>
+    <task><statement><p>Adapter la fonction de la partie précédente pour créer ue fonction <c>etirR3</c>, similaire à celle développée à l'exercice <xref ref="exosage-etirquelcR2"/>,
+    qui détermine la matrice d'un étirement dans la direction <m>\vec{n}=(n1,n2,n3)</m> et 
+    de facteur <m>k</m>. Vérifier la solution avec l'exercice précédent.</p></statement>
+    <solution>
+     <listing>
+                   <caption>Le code solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+var("x,y,z,n1,n2,n3,k")
+#Recherche de vecteurs perpendiculaires à n
+def etirR3(n,k):
+    sol=solve(n*vector([x,y,z])==0,x,y,z,solution_dict=True)
+    l=[] #Liste vide des variables libres
+    for v in sol[0].keys():  # vérifier ce que sol[0].keys() donne pour comprendre cette étape
+        for var in sol[0][v].variables():  #Vérifier aussi cette étape
+            if var not in l and var not in [n1,n2,n3]:   #On ne veut pas que les variables soient la plusieurs fois
+                l.append(var)
+    u=vector([sol[0][x],sol[0][y],sol[0][z]]).subs({l[0]:1,l[1]:0})
+    v=vector([sol[0][x],sol[0][y],sol[0][z]]).subs({l[0]:0,l[1]:1})  #Ceci crée deux vecteurs non parallèles qui seront nos vecteurs directeurs.
+    #Recherche de la matrice de transformation
+    U=column_matrix([n,u,v])
+    V=column_matrix([k*n,u,v])
+    T=V*(U.inverse())
+    return T
+show(etirR3(vector([1,3,5]),1/2))
+show(etirR3(vector([n1,n2,n3]),k).simplify_full())
+               </input>
+                   </program>
+                   </listing>    
+    </solution>
+    </task>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>En continuant l'esprit de l'exercice <xref ref="exo-invspecial"/>, vérifier que la réponse donnée correspond bien pour les matrices
+    <me>A=\begin{pmatrix} 1\amp 0\amp 0\amp 0 \\ 1\amp 1\amp 0\amp 0 \\ 1\amp 1\amp 1\amp 0 \\ 1\amp 1\amp 1\amp 1 \end{pmatrix}</me>
+    et
+    <me>B=\begin{pmatrix} 1\amp 0\amp 0\amp 0\amp 0 \\ 1\amp 1\amp 0\amp 0\amp 0\\ 1\amp 1\amp 1\amp 0\amp 0\\ 1\amp 1\amp 1\amp 1\amp 0\\ 1\amp 1\amp 1\amp 1\amp 1 \end{pmatrix}</me>.</p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement>
+    </exercise>
+    </exercisegroup>
 </exercises>
+<!--exo similaire pour une matrice colonne 11111..., 02222...,00333...,....00...0n -->
+<!--Trouver axe de rotation avec Ru-u perpendiculaire à axe (avec prod vec?-->
