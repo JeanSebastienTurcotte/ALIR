@@ -27,6 +27,7 @@
         Il es possible de définir ses propres macros qui seront ensuite utilisées dans le reste du texte. 
         -->
         <macros>
+\usepackage{spalign}
         % Définit quelques commandes raccourcies
 \newcommand{\Z}{\mathbb{Z}}                %Pour faire les Z,R,Q,N et C des ensembles plus rapidement
 \newcommand{\R}{\mathbb{R}}
@@ -47,6 +48,11 @@
 \newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
 \newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
 \newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimil1}[2]{\stackrel{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}
+\newcommand{\matsimil2}[2]{\stackrel{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}
+\newcommand{\matsimil3}[3]{\stackrel{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -240,6 +246,7 @@ $\Box$
         <!--Inclure les chapitres au fur et à mesure qu'ils sont écrits -->
         <xi:include href="Chapitre_vecteurs.xml" />
         <xi:include href="Chapitre_transformations.xml" />
+        <xi:include href="Chapitre_SEL.xml" />
         <!-- Backmatter -->
     </book>
 
