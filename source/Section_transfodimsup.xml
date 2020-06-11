@@ -28,9 +28,9 @@
     représente l'image de ces trois vecteurs. La transformation identité, qui ne consiste à rien faire est donnée par la matrice
     <me>
     I_3=\begin{pmatrix}
-    1\amp 0\amp 0\\
-    0\amp 1\amp 0\\
-    0\amp 0\amp 1
+    1&amp; 0&amp; 0\\
+    0&amp; 1&amp; 0\\
+    0&amp; 0&amp; 1
     \end{pmatrix}
     </me>.
     </p>
@@ -45,9 +45,9 @@
     <p>L'image des vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m> est respectivement <m>(3,0,0),(0,2,0)</m> et <m>(0,0,-4)</m>. La matrice est donc
     <me>
     A=\begin{pmatrix}
-    3\amp 0\amp 0\\
-    0\amp 2\amp 0\\
-    0\amp 0\amp -4
+    3&amp; 0&amp; 0\\
+    0&amp; 2&amp; 0\\
+    0&amp; 0&amp; -4
     \end{pmatrix}
     </me>.
     </p>
@@ -92,9 +92,9 @@
     dans le plan <m>z=0</m>. En suivant un raisonnement similaire à celui de l'exemple <xref ref="ex-rotr2"/>, on obtient <m>R_{\theta_z}(0,1,0)=(-\sin(\theta),cos(\theta),0)</m>. La matrice
     est donc
     <men xml:id="eq-rotR3z">
-    R_{\theta_z}=\begin{pmatrix} \cos(\theta) \amp -\sin(\theta) \amp 0 \\
-                                 \sin(\theta) \amp \cos(\theta) \amp 0 \\
-                                  0 \amp 0 \amp 1\end{pmatrix}
+    R_{\theta_z}=\begin{pmatrix} \cos(\theta) &amp; -\sin(\theta) &amp; 0 \\
+                                 \sin(\theta) &amp; \cos(\theta) &amp; 0 \\
+                                  0 &amp; 0 &amp; 1\end{pmatrix}
     </men>.</p>
     </solution>
     <solution>
@@ -106,9 +106,9 @@
     et sera aussi dans le plan <m>y=0</m>. En suivant un raisonnement similaire à celui de l'exemple <xref ref="ex-rotr2"/>, on obtient <m>R_{\theta_y}(1,0,0)=(\cos(\theta),0,-sin(\theta))</m>. La matrice
     est donc
     <men xml:id="eq-rotR3y">
-    R_{\theta_y}=\begin{pmatrix} \cos(\theta) \amp 0 \amp \sin(\theta) \\
-                                 0 \amp 1 \amp 0 \\
-                                  -\sin(\theta) \amp 0 \amp  \cos(\theta)\end{pmatrix}
+    R_{\theta_y}=\begin{pmatrix} \cos(\theta) &amp; 0 &amp; \sin(\theta) \\
+                                 0 &amp; 1 &amp; 0 \\
+                                  -\sin(\theta) &amp; 0 &amp;  \cos(\theta)\end{pmatrix}
     </men>.</p>
     </solution>
     <solution>
@@ -132,26 +132,26 @@
     réflexion est donnée par <m>(-1,0,0)</m>. Les vecteurs <m>(0,1,0)</m> et <m>(0,0,1)</m> eux sont sur le plan et ne sont donc pas affectés par la réflexion. La matrice est donc
     <men xml:id="eq-refR3yOz">
     S_{yOz}=\begin{pmatrix}
-    -1\amp 0\amp 0\\
-    0\amp 1 \amp 0 \\
-    0\amp 0\amp 1
+    -1&amp; 0&amp; 0\\
+    0&amp; 1 &amp; 0 \\
+    0&amp; 0&amp; 1
     \end{pmatrix}
     </men>.
     </p>
     <p>De manière similaire, on obtient
     <men xml:id="eq-refR3xOz">
     S_{xOz}=\begin{pmatrix}
-    \amp 0\amp 0\\
-    0\amp -1 \amp 0 \\
-    0\amp 0\amp 1
+    &amp; 0&amp; 0\\
+    0&amp; -1 &amp; 0 \\
+    0&amp; 0&amp; 1
     \end{pmatrix}
     </men>
     et
     <men xml:id="eq-refR3xOy">
     S_{xOy}=\begin{pmatrix}
-    1\amp 0\amp 0\\
-    0\amp 1 \amp 0 \\
-    0\amp 0\amp -1
+    1&amp; 0&amp; 0\\
+    0&amp; 1 &amp; 0 \\
+    0&amp; 0&amp; -1
     \end{pmatrix}
     </men>.
     </p>
@@ -170,20 +170,20 @@
     <solution>
     <p>On commence avec l'inverse de la rotation. Il suffit de vérifier que <m>R_{\theta_z}R_{-\theta_z}=I</m>. On a
     <md>
-    <mrow>R_{\theta_z}R_{-\theta_z}&amp;=\begin{pmatrix} \cos(\theta) \amp -\sin(\theta) \amp 0 \\
-                                 \sin(\theta) \amp \cos(\theta) \amp 0 \\
-                                  0 \amp 0 \amp 1\end{pmatrix}\begin{pmatrix} \cos(-\theta) \amp -\sin(-\theta) \amp 0 \\
-                                 \sin(-\theta) \amp \cos(-\theta) \amp 0 \\
-                                  0 \amp 0 \amp 1\end{pmatrix}</mrow>
-<mrow>&amp;=\begin{pmatrix} \cos(\theta) \amp -\sin(\theta) \amp 0 \\
-                                 \sin(\theta) \amp \cos(\theta) \amp 0 \\
-                                  0 \amp 0 \amp 1\end{pmatrix}\begin{pmatrix} \cos(\theta) \amp \sin(\theta) \amp 0 \\
-                                 -\sin(\theta) \amp \cos(\theta) \amp 0 \\
-                                  0 \amp 0 \amp 1\end{pmatrix} &amp;&amp; \text{grâce aux identitées trigonométriques}</mrow>
-<mrow>&amp;=\begin{pmatrix} \lvert \amp \lvert \amp \lvert \\
-                           R_{\theta_z}\vec3d{\cos(\theta)}{-\sin(\theta)}{0} \amp R_{\theta_z}\vec3d{\sin(\theta)}{\cos(\theta)}{0}\amp R_{\theta_z}\vec3d{0}{0}{1}\\  \lvert \amp \lvert \amp \lvert\end{pmatrix} &amp;&amp;\text{ par la définition } <xref ref="def-matmatprod"/></mrow>
-   <mrow>\begin{pmatrix} \cos^2(\theta)+\sin^2(\theta)\amp 0\amp 0 \\ 0\amp \sin^2(\theta)+\cos^2(\theta)\amp 0\\0\amp 0\amp 1 \end{pmatrix}</mrow>
-   <mrow>&amp;=\begin{pmatrix} 1 \amp 0\amp 0 \\  0 \amp 1\amp 0 \\  0 \amp 0\amp 1 \end{pmatrix}</mrow>
+    <mrow>R_{\theta_z}R_{-\theta_z}&amp;=\begin{pmatrix} \cos(\theta) &amp; -\sin(\theta) &amp; 0 \\
+                                 \sin(\theta) &amp; \cos(\theta) &amp; 0 \\
+                                  0 &amp; 0 &amp; 1\end{pmatrix}\begin{pmatrix} \cos(-\theta) &amp; -\sin(-\theta) &amp; 0 \\
+                                 \sin(-\theta) &amp; \cos(-\theta) &amp; 0 \\
+                                  0 &amp; 0 &amp; 1\end{pmatrix}</mrow>
+<mrow>&amp;=\begin{pmatrix} \cos(\theta) &amp; -\sin(\theta) &amp; 0 \\
+                                 \sin(\theta) &amp; \cos(\theta) &amp; 0 \\
+                                  0 &amp; 0 &amp; 1\end{pmatrix}\begin{pmatrix} \cos(\theta) &amp; \sin(\theta) &amp; 0 \\
+                                 -\sin(\theta) &amp; \cos(\theta) &amp; 0 \\
+                                  0 &amp; 0 &amp; 1\end{pmatrix} &amp;&amp; \text{grâce aux identitées trigonométriques}</mrow>
+<mrow>&amp;=\begin{pmatrix} \lvert &amp; \lvert &amp; \lvert \\
+                           R_{\theta_z}\vecddd{\cos(\theta)}{-\sin(\theta)}{0} &amp; R_{\theta_z}\vecddd{\sin(\theta)}{\cos(\theta)}{0}&amp; R_{\theta_z}\vecddd{0}{0}{1}\\  \lvert &amp; \lvert &amp; \lvert\end{pmatrix} &amp;&amp;\text{ par la définition } <xref ref="def-matmatprod"/></mrow>
+   <mrow>\begin{pmatrix} \cos^2(\theta)+\sin^2(\theta)&amp; 0&amp; 0 \\ 0&amp; \sin^2(\theta)+\cos^2(\theta)&amp; 0\\0&amp; 0&amp; 1 \end{pmatrix}</mrow>
+   <mrow>&amp;=\begin{pmatrix} 1 &amp; 0&amp; 0 \\  0 &amp; 1&amp; 0 \\  0 &amp; 0&amp; 1 \end{pmatrix}</mrow>
    <mrow>&amp;=I</mrow>
    </md>.
     </p>
@@ -192,7 +192,7 @@
  <m>S_{yOz}\vecd3{0}{1}{0}</m> et <m>S_{yOz}\vecd3{0}{0}{1}</m> seront donc égaux respectivement à la deuxième et troisième colonne de la matrice <m>S_{yOz}</m>.
  De plus, comme le produit <m>S_{yOz}\vecd3{-1}{0}{0}</m> donne l'opposé de la première colonne, on a
  <me>
- S_{yOz}S_{yOz}=\begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}=I
+ S_{yOz}S_{yOz}=\begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}=I
  </me>.
     </p>
     <p>En fonction du théorème <xref ref="def-matcarreeinverse"/>, on a 
@@ -321,11 +321,11 @@ show("T(u)=",Tu.n())
     <title>Transformations de dimension quelconque</title>
     <p>On considère la matrice 
     <me>
-    A=\begin{pmatrix} 1\amp 0 \\ 0\amp 1 \\ 1\amp 1 \end{pmatrix}
+    A=\begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}
     </me>.
     Cet exemple simple est une transformation linéaire  qui apporte les vecteurs de <m>\R^2</m> dans <m>\R^3</m> 
     en faisant correspondre les coordonnées <m>x,y</m> de l'image à celles du domaine et en additionnant les valeurs <m>x,y</m> pour obtenir la valeur de <m>z</m>:
-    <me>A\vecd{x}{y}=\begin{pmatrix} 1\amp 0 \\ 0\amp 1 \\ 1\amp 1 \end{pmatrix}\vecd{x}{y}=vec3d{x}{y}{x+y}</me>.
+    <me>A\vecd{x}{y}=\begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}\vecd{x}{y}=\vecddd{x}{y}{x+y}</me>.
     </p>
     <p>La question du produit matriciel de deux matrices <m>m\times n</m> a déjà été considérée à la section <xref ref="sec-prodmat"/>,
     bien que les exemples étaient principalement dans un contexte géométrique avec des matrices <m>2\times 2</m> ou <m>3\times 3</m>.
@@ -334,13 +334,13 @@ show("T(u)=",Tu.n())
     vecteurs de leur image. Comme la matrice <m>A</m> est restreinte aux vecteurs tels que <m>z=x+y</m>, elle n'atteint pas l'ensemble des vecteurs de <m>\R^3</m>. Serait-elle donc non inversible?</p>
     <p>Un calcul simple montre pourtant que
     <me>
-    \begin{pmatrix} 1\amp 0\amp 0 \\ 0 \amp 1 \amp 0 \end{pmatrix}\begin{pmatrix} 1\amp 0 \\ 0\amp 1 \\ 1\amp 1 \end{pmatrix}=\begin{pmatrix} 1 \amp 0 \\ 0 \amp 1\end{pmatrix}
+    \begin{pmatrix} 1&amp; 0&amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}\begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}=\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1\end{pmatrix}
     </me>.
     </p>
-    <p>On pourrait alors penser que la matrice <m>B=\begin{pmatrix} 1\amp 0\amp 0 \\ 0 \amp 1 \amp 0 \end{pmatrix}</m> est un inverse et que la proposition <xref ref="prop-investsurj"/> n'est vrai que pour les matrices carrées. </p>
+    <p>On pourrait alors penser que la matrice <m>B=\begin{pmatrix} 1&amp; 0&amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}</m> est un inverse et que la proposition <xref ref="prop-investsurj"/> n'est vrai que pour les matrices carrées. </p>
     <p>Un autre problème survient lorsqu'on regarde si le théorème <xref ref="thm-invgauchedroite"/> est satisfait. Un autre calcul simple montre que
     <me>
-    \begin{pmatrix} 1\amp 0 \\ 0\amp 1 \\ 1\amp 1 \end{pmatrix}\begin{pmatrix} 1\amp 0\amp 0 \\ 0 \amp 1 \amp 0 \end{pmatrix}=\begin{pmatrix} 1\amp 0\amp 0 \\ 0 \amp 1 \amp 0 \\ 1 \amp 1 \amp 0 \end{pmatrix}
+    \begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}\begin{pmatrix} 1&amp; 0&amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}=\begin{pmatrix} 1&amp; 0&amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 1 &amp; 1 &amp; 0 \end{pmatrix}
     </me>.
     Comme cela ne coincide pas avec la matrice identité dans <m>\R^3</m>, on conclut que <m>A</m> n'est pas l'inverse de <m>B</m>, au sens de la défition <xref ref="def-transfoinverseprelim"/>, bien que <m>B</m> semble 
     être l'inverse de <m>A</m> selon cette même définition. Afin de distinguer les choses, on propose la définition suivante.</p>
@@ -357,7 +357,7 @@ show("T(u)=",Tu.n())
     </remark>
     <p>Un autre malheureux problème existe lorsque les matrices ne sont pas carrés. Prenons la matrice 
     <m>D=\begin{pmatrix}
-    2\amp 1\amp -1 \\ 1\amp 2\amp -1
+    2&amp; 1&amp; -1 \\ 1&amp; 2&amp; -1
     \end{pmatrix}</m>.
     Un calcul simple montre qu'on a aussi <m>DA=I_2</m> et pourtant <m>D\neq B</m>. L'inverse à gauche d'une matrice n'est donc pas unique. Il en est de même pour l'inverse à droite. La proposition <xref ref="prop-inverseunique"/>
     ne s'applique donc réellement qu'aux matrices carrées.
