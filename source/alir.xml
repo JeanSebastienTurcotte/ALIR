@@ -6,7 +6,7 @@
 <!--                                                                        -->
 <!-- Copyright (C) 2019  Jean-Sébastien Turcotte, Philémon Turcotte         -->
 <!-- Licence à venir                                                        -->
-<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="fr-FR">
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="fr-FR"> <!-- À voir s'il est possible de modifier pour avoir fr-CA -->
   <!--
     "docinfo" contient des informartions techniques, par exemple des macros LaTeX.-->
 <docinfo>
@@ -21,13 +21,14 @@
         -->
         <latex-preamble>
             <package>cancel</package>  <!-- à titre d'exemple -->
+            <package>ifthen</package>
             <!-- <package>[customcolors]{hf-tikz} </package> -->
         </latex-preamble>
         <!--
         Il es possible de définir ses propres macros qui seront ensuite utilisées dans le reste du texte. 
         -->
         <macros>
-        % Définit quelques commandes raccourcies
+        % Définit quelques commandes raccourcies  %Les noms de doivent pas contenir de nombres
 \newcommand{\Z}{\mathbb{Z}}                %Pour faire les Z,R,Q,N et C des ensembles plus rapidement
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -49,11 +50,10 @@
 \newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
 \newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
 \newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
-\newcommand{\matsimil1}[2]{\stackrel{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}
-\newcommand{\matsimil2}[2]{\stackrel{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}
-\newcommand{\matsimil3}[3]{\stackrel{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -236,7 +236,7 @@ $\Box$
     <!-- <xi:include href="./bookinfo.xml" />     À inclure éventuellement, voir les autres projets MBK pour info -->  
     
     <!--Structure principale -->
-    <book xml:id="alir">  <!-- À voir s'il est possible de modifier pour avoir fr-CA -->
+    <book xml:id="alir">  
         <title> Algèbre linéaire : Intuition et rigueur</title>
         <subtitle>Version préliminaire</subtitle>
         
@@ -245,7 +245,7 @@ $\Box$
         <!--Inclure les chapitres au fur et à mesure qu'ils sont écrits -->
         <xi:include href="Chapitre_vecteurs.xml" />
         <xi:include href="Chapitre_transformations.xml" />
-        <xi:include href="Chapitre_SEL.xml" />
+       <xi:include href="Chapitre_SEL.xml" />
         <!-- Backmatter -->
     </book>
 
