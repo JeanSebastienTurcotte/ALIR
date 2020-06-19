@@ -550,7 +550,17 @@
                 <p>Les coordonnées de ce point sont <m>P(5, 10, 6)</m>.</p>
             </answer>
             <solution>
-                <p>La solution est à venir.</p>
+                <p>La méthode préférée ici est de débuter à un point connu (<m>A</m>, par exemple), de trouver un vecteur dans la direction où on veut se déplacer
+                (<m>\vecl{AB}</m>, par exemple) et finalement de le "scaler" à la longueur voulue. De cette démarche, on obtient la formule suivante:
+                <md>
+                    <mrow>\vecl{OP}&amp;=\vecl{OA}+\frac{3}{8}\vecl{AB}</mrow>
+                    <mrow>&amp;=\vecl{OA}+\frac{3}{8}\big(\vecl{OB}-\vecl{OA}\big)</mrow>
+                    <mrow>&amp;=(2,1,0)+\frac{3}{8}\big((10,25,16)-(2,1,0)\big)</mrow>
+                    <mrow>&amp;=(2,1,0)+\frac{3}{8}(8,24,16)</mrow>
+                    <mrow>&amp;=(2,1,0)+(3,9,6)</mrow>
+                    <mrow>&amp;=(5,10,6)</mrow>
+                </md>
+                Les coordonnées du point cherché sont donc <m>P(5, 10, 6)</m>.</p>
             </solution>
         </exercise>
         <exercise xml:id="exo-axiomesgeo">
@@ -619,18 +629,22 @@
                     </interactive>
                 </figure>
             </statement>
-            <answer>
-                <p><ol>
-                    <li><p>La position initiale vérifie l'inégalité du triangle. Bref, comme son nom l'indique, elle est vérifiée dès que les vecteurs 
-                        additionnés forment un triangle. L'égalité se produira dans différentes situations décrites plus bas.</p></li>
-                    <li><p>De façon semblable, cette équation est vérifiée dès que les conditions d'égalité ... BLABLABLA.</p></li>
-                    <li><p></p></li>
-                    <li><p></p></li>
-                    <li><p></p></li>
-                </ol></p>
-            </answer>
             <solution>
-                <p>La solution. </p>
+                <p><ol>
+                    <li><p>Cette inégalité se nomme l'inégalité du triangle. Elle est toujours vraie pour deux vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>.
+                    Comme son nom l'indique, on la visualise bien lorsque les deux vecteurs sont additionnés avec la méthode du triangle, tel que le dessin le montre.
+                    Elle signifie que la somme des longueurs des deux premiers côtés sera toujours supérieure à la longueur du dernier côté.</p></li>
+                    <li><p>Les seule façons que cela ne serait pas vrai sont lorsque <m>\vec{u}=\vec{0}</m>, lorsque <m>\vec{v}=\vec{0}</m> (ou les deux!) ou lorsque 
+                    les deux vecteurs ont la même orientation. Dans ce dernier cas, les trois vecteurs seraient donc sur une seule droite et l'addition de 
+                    <m>\vec{u}</m> et <m>\vec{v}</m> donne clairement un vecteur de même longueur que l'addition de leurs longueurs.</p></li>
+                    <li><p>À l'inverse du la lettre précédente, cette égalité est vraie dans les trois cas donnés, mais pas lorsque les deux vecteurs sont nuls. 
+                    Bref, lorsque <m>\vec{u}=\vec{0}</m> ou lorsque <m>\vec{v}=\vec{0}</m> (mais pas les deux!) ou lorsque 
+                    les deux vecteurs ont la même orientation.</p></li>
+                    <li><p>Dans ce cas, avec les restrictions imposées, il faut absolument que les deux vecteurs soient non-nuls et aient la même orientation.</p></li>
+                    <li><p>Ce dernier cas est particulier. Il faut réfléchir ainsi: on cherche à créer un triangle avec l'addition de vecteurs et on veut que chaque 
+                    côté ait la même longueur. Bref, on veut un triangle équilatéral. Il faut donc que <m>\vec{u}</m> et <m>\vec{v}</m> soient de même longueur et 
+                    forment un angle de <m>60^\circ</m> pour que l'énoncé soit vérifié.</p></li>
+                </ol></p>
             </solution>
         </exercise>
     <exercise xml:id="exo-diagpara">
@@ -855,10 +869,7 @@
                     <li><p><m>\vecl{AF}</m></p></li>
                 </ol></p>
             </answer>
-            <solution>
-                <p>Solutions à venir.</p>
-            </solution>
-        </exercise>
+            </exercise>
         <exercise xml:id="exo-VFvecpara">
             <statement>
                 <p>Observer le parallélipipède suivant et dire si les énoncés ci-dessous sont vrais ou faux.</p>
@@ -898,8 +909,8 @@
                     Il y a plusieurs façons de raisonner pour déterminer si les vecteurs de ces énoncés sont égaux.
                     Avant de débuter, nous donnons quelques principes importants pour structurer notre raisonnement 
                     à l'écrit. D'abord, on veut souvent exprimer un vecteur de façon équivalente avec d'autres points. 
-                    Ensuite, on veut exprimer l'addition de vecteurs de façon équivalente avec un seul vecteur 
-                    <xref provisional = "Loi de Chasles"/>. Finalement, il peut arriver que l'on veuille effectuer les
+                    Ensuite, on veut exprimer l'addition de vecteurs de façon équivalente avec un seul vecteur <xref ref="li-axiomesgeo-Chasles" >(Loi de Chasles)</xref>.
+                    Finalement, il peut arriver que l'on veuille effectuer les
                     étapes précédentes à l'inverse et ainsi exprimer un vecteur comme l'addition de deux ou trois 
                     vecteurs afin d'expliciter comment il s'annule avec d'autres vecteurs. Noter qu'il est utile de 
                     réorganiser l'ordre de l'addition des vecteurs pour mieux communiquer ce qu'on simplifie.
