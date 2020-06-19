@@ -461,16 +461,18 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      A=column_matrix([[1,2,-1],[3,2,0],[1,-4,2]])
      e=vector([1,0,0])
      Aaug=A.augment(e) #On remarque que l'augmentation n'est qu'une colonne supplémentaire. Il faut se rappeler que la dernière colonne représente le vecteur.
+     Aaugm=A.augment(e,subdivide=True) #On peut demander à Sage de distinguer la partie augmentée
      show(E1*Aaug)
+     show(E1*aaugm)
      </input>
      </sage>
      <p>Comme chacune des étapes suivantes est effectuée après les précédentes, il est important de bien faire les multiplications.</p>
      <sage>
      <input>
-     show(E2*E1*Aaug)
-     show(E3*E2*E1*Aaug)
-     show(E4*E3*E2*E1*Aaug)
-     show(E5*E4*E3*E2*E1*Aaug)
+     show(E2*E1*Aaugm)
+     show(E3*E2*E1*Aaugm)
+     show(E4*E3*E2*E1*Aaugm)
+     show(E5*E4*E3*E2*E1*Aaugm)
      </input>
      </sage>
      <p>Le résultat est bel et bien le même que la matrice à la fin de l'exemple <xref ref="ex-opelem"/>.</p>
@@ -486,14 +488,15 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <statement>
     <p>Soit <m>A</m> une matrice de taille <m>m\times n</m>.Le premier élément non nul de chaque ligne est appelé le pivot de cette ligne. Un colonne qui contient un pivot est
     appelée une colonne pivot.</p>
-    <p>On dit que <m>A</m> est échelonnée réduite si elle satisfait chacun des caractéristiques suivantes:
+    <p>On dit que <m>A</m> est échelonnée réduite si elle satisfait chacun des caractéristiques suivantes:</p>
+    <list xml:id="li-rref">
     <ol>
-    <li><p>Si la matrice contient des lignes dont toutes les entrées sont nulles (donc sans pivot), ces lignes sont dans le bas de la matrice.</p></li>
-    <li><p>Le pivot de chaque ligne non nulle est égal à <m>1</m>.</p></li>
-    <li><p>De haut en bas, les pivots sont à la droite (pas nécessairement directement) les uns des autres.</p></li>
-    <li><p>Les entrées d'une colonne pivot sont toutes égales à <m>0</m>, sauf le pivot.</p></li>
+    <li xml:id="li-rrefnulles"><p>Si la matrice contient des lignes dont toutes les entrées sont nulles (donc sans pivot), ces lignes sont dans le bas de la matrice.</p></li>
+    <li xml:id="li-rrefpivot1"><p>Le pivot de chaque ligne non nulle est égal à <m>1</m>.</p></li>
+    <li xml:id="li-rrefpivotdroite"><p>De haut en bas, les pivots sont à la droite (pas nécessairement directement) les uns des autres.</p></li>
+    <li xml:id="li-rrefcolpivot"><p>Les entrées d'une colonne pivot sont toutes égales à <m>0</m>, sauf le pivot.</p></li>
     </ol>
-    </p>
+    </list>
     </statement>
     </definition>
     <p>On regarde des exemples de matrices respectant certaines des conditions de la définition <xref ref="def-matrref"/> afin de bien comprendre ce concept.</p>
@@ -919,14 +922,12 @@ show("Les pivots sont en position ", A.pivots())
     <li><p><xref ref="algo-GJ">L'algorithme de Gauss-Jordan</xref>, pour échelonner des matrices.</p></li>
     </ul>
     </p>
-    <p>De plus, les commandes Sage utiles comme <c>A.augment(b)</c> pour augmenter la matrice <m>A</m> du vecteur <m>\vec{b}</m>, <c>A.rref()</c> pour avoir la forme échelonnée réduite d'une matrice, <c>A.solve_right(b)</c> pour résoudre un SEL et <c>A.pivots()</c> pour avoir
+    <p>De plus, les commandes Sage utiles comme <c>A.augment(b)</c> pour augmenter la matrice <m>A</m> du vecteur <m>\vec{b}</m>, la commande <c>elementary_matrix</c> pour obtenir
+    une matrice élémentaire, la commande <c>A.rref()</c> pour avoir la forme échelonnée réduite d'une matrice, <c>A.solve_right(b)</c> pour résoudre un SEL et <c>A.pivots()</c> pour avoir
     la position des colonnes pivots.</p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_GJ.xml" />
 </section>
 <!-- Faire un exemple dynamique pour opelem, éventuellement avoir un échelonneur -->
-<!-- un exercice xref="exo-sel3x3geo" pour parler de la géométride de l'intersection de 2 et trois plans. -->
-<!-- Les matrices élémentaires sont inversibles  exo-mateleminverse -->
-<!-- exo créer une matrice respectant telle et telle condtion de ERL, mais pas les autres -->
 <!-- Exercice en lien avec <xref ref="rem-possGJ"/> sur faire plus d'une opération en utilisant une ligne modifié (Ex  3L2-> L2 et après faire L2+L1->L1) Papillon avait un exo du genre aussi -->
-<!-- Trouver des inverses avec GJ -->
