@@ -13,7 +13,7 @@
     <title> Vecteurs de dimension supérieure</title>
     <introduction xml:id= "intro-vecndim">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Bien que notre conception de la géométrie se limite aux objets dans <m>\R^2</m> ou <m>\R^3</m>, il y a de l'intérêt à considérer les objets de dimension supérieure.
-    Dans le chapitre <xref provisional="chap-SEL"/>, on s'intéresse à résoudre un ensemble d'équations de la forme
+    Dans le chapitre <xref ref="chap-SEL"/>, on s'intéresse à résoudre un ensemble d'équations de la forme
     <me>
     a_1x_1+a_2x_2+\cdots +a_nx_n=b_1
     </me>,
@@ -117,7 +117,7 @@
         </md>.
     En prenant la fonction cosinus inverse, on trouve
     <me>
-    \theta=\arccos\left(-\frac{1}{\sqrt{30}}\right)\approx 1.75440033707382
+    \theta=\arccos\left(-\frac{1}{\sqrt{30}}\right)\approx 1.7544
     </me>.
     </p>
     </solution>
@@ -167,16 +167,16 @@
     <me>
     a_1x_1+a_2x_2+\dots a_{n}x_{n}=d
     </me>,
-    où <m>n=(a_1,a_2,\dots , a_n)</m> est appelé un vecteur normal. On définit le lieu des points satisfaisant une telle équation comme un hyperplan de <m>\R^n</m>.
+    où <m>\vec{n}=(a_1,a_2,\dots , a_n)</m> est appelé un vecteur normal. On définit le lieu des points satisfaisant une telle équation comme un hyperplan de <m>\R^n</m>.
     On verra éventuellement que cet objet est composé de <m>n-1</m> dimensions et peut donc aussi être décrit à partir d'un ensemble de <m>n-1</m> vecteurs possédant 
     une propriété spécifique.
     </p>
     <p>De façon plus générale, on définit l'espace engendré par un ensemble de vecteurs.</p>
     <definition xml:id="def-span">
-    <statement><p>Soit <m>u_1,u_2,\ldots, u_n</m> un ensemble de vecteurs. On définit l'espace engendré par ces vecteurs, noté <m>\vspan</m>, comme étant l'ensemble des combinaisons
-    linéaires des vecteurs <m>u_1,u_2,\ldots u_n</m>:
+    <statement><p>Soit <m>\vec{u}_1,\vec{u}_2,\ldots, \vec{u}_n</m> un ensemble de vecteurs. On définit l'espace engendré par ces vecteurs, noté <m>\vspan</m>, comme étant l'ensemble des combinaisons
+    linéaires des vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots \vec{u}_n</m>:
     <me>
-    \vspan(u_1,u_2,\ldots, u_n)=\{a_1u_1+a_2u_2+\ldots +a_nu_n~|~ a_1,a_2,\ldots, a_n\in\R\}
+    \vspan(\vec{u}_1,\vec{u}_2,\ldots, \vec{u}_n)=\{a_1\vec{u}_1+a_2\vec{u}_2+\ldots +a_n\vec{u}_n~|~ a_1,a_2,\ldots, a_n\in\R\}
     </me>.</p></statement>
     </definition>
     <p>À noter qu'on ne donne aucune condition sur les vecteurs engendrant l'espace. Certains pourraient être nuls, parallèles à d'autres vecteurs ou combinaison linéaire des autres 
@@ -195,12 +195,12 @@
     Dans notre cas, on a
     <md>
     <mrow>\vec{v}&amp;=a\vec{u}_1+b\vec{u}_2+c\vec{u}_3+d\vec{u}_4</mrow>
-    <mrow>&amp;=a(1,-2,3,1)+b(0,3,-1,1)+c(0,0,0,0)+d(0,-3,-1,1)</mrow>
-    <mrow>&amp;=a(1,-2,3,1)+b(0,3,-1,1)-d(0,3,1,-1)</mrow>
+    <mrow>&amp;=a(1,-2,3,1)+b(0,3,-1,1)+c(0,0,0,0)+d(0,-3,1,-1)</mrow>
+    <mrow>&amp;=a(1,-2,3,1)+b(0,3,-1,1)-d(0,3,-1,1)</mrow>
     <mrow>&amp;=a(1,-2,3,1)+(b-d)(0,3,-1,1)</mrow>
     </md>.
     Comme <m>b-d</m> est un nombre réel quelconque, on peut réécrire les vecteurs du <m>\vspan(u_1,u_2,u_3,u_4)</m> comme les vecteurs s'écrivant comme une combinaison linéaire
-    des vecteurs <m>(1,-2,3,1)</m> et <m>(0,3,-1,1)</m>. Le <m>\vspan</m> est donc un plan dans <m>\R^4</m>.
+    des deux vecteurs <m>(1,-2,3,1)</m> et <m>(0,3,-1,1)</m>. Le <m>\vspan</m> est donc un plan dans <m>\R^4</m>.
     </p>
     </solution>
     </example>

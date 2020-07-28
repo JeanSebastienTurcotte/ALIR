@@ -9,43 +9,99 @@
 
 <exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-vecndim">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>
-    <!--
-    <exercise xml:id="exo-">
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
             <statement>
-                La question.
+                <p>La première lettre de la question.</p>
             </statement>
-            <hint>
-                 <p> Un indice suivra. </p>
-            </hint>
             <answer>
-                <p>La réponse suivra.</p>
+                <p> La réponse suivra. </p>
             </answer>
             <solution>
-               <p> La solution suivra.</p>
+                <p> La solution suivra. </p>
             </solution>
+    </task>
     </exercise>
     -->
     <exercise xml:id="exo-vecRncalculs">
-            <statement>
+            <introduction>
                 <p>Soient <m>\vec{u}=(1,5,3,2), \vec{v}=(-2,-1,1,2)</m> et <m>\vec{w}=(0,3,3,0)</m>, des vecteurs de <m>\R^4</m>.</p>
-                <ol>
-                <li><p>Calculer <m>\vec{u}\cdot\vec{v}</m>, <m>\vec{v}\cdot\vec{w}</m> et <m>\vec{u}\cdot\vec{w}</m>.</p></li>
-                <li><p>Calculer l'angle entre <m>\vec{u}</m> et <m>\vec{w}</m>. Donner l'angle entre <m>\vec{u}</m> et <m>\vec{v}</m> et entre <m>\vec{v}</m> et <m>\vec{w}</m>.</p></li>
-                <li><p>L'affirmation suivante est seulement vraie dans <m>\R^2</m>. Expliquer pourquoi géométriquement en donnant un exemple dans <m>\R^3</m>.</p>
-                <p>«Deux vecteurs perpendiculaires au même vecteur sont nécessairement parallèles.»</p>
-                </li>
-                <li><p>Calculer la projection <m>\vec{u}_\vec{w}</m> et expliquer pourquoi <m>\vec{u}_\vec{v}</m> donne le vecteur nul.</p> </li>
-                </ol>
+            </introduction>
+            <task>
+            <statement>
+                <p>Calculer <m>\vec{u}\cdot\vec{v}</m>, <m>\vec{v}\cdot\vec{w}</m> et <m>\vec{u}\cdot\vec{w}</m>.</p>
             </statement>
-            <hint>
-                <p>Un indice suivra.</p>
-            </hint>
             <answer>
-                <p>La réponse suivra.</p>
+                <p> <me>\vec{u}\cdot\vec{v}=0</me>
+                <me>\vec{v}\cdot\vec{w}=0</me>
+                <me>\vec{u}\cdot\vec{w}=24</me> </p>
             </answer>
             <solution>
-                <p>La solution suivra.</p>
+                <p><me>\vec{u}\cdot\vec{v}=(1,5,3,2)\cdot(-2,-1,1,2)=1*(-2)+5*(-1)+3*1+2*2=0</me>
+                <me>\vec{v}\cdot\vec{w}=(-2,-1,1,2)\cdot(0,3,3,0)=(-2)*0+(-1)*3+1*3+2*0=0</me>
+                <me>\vec{u}\cdot\vec{w}=(1,5,3,2)\cdot(0,3,3,0)=1*0+5*3+3*3+2*0=24</me></p>
             </solution>
+            </task>
+            <task>
+            <statement>
+                <p>Calculer l'angle entre <m>\vec{u}</m> et <m>\vec{w}</m>. 
+                Donner l'angle entre <m>\vec{u}</m> et <m>\vec{v}</m> et entre <m>\vec{v}</m> et <m>\vec{w}</m>.</p>
+            </statement>
+            <answer>
+                <p>
+                <me>\theta_{\vec{u}\vec{w}}\approx 0.4375 \text{ radians } \approx 25.1^\circ</me>
+                <me>\theta_{\vec{u}\vec{v}}=\frac{\pi}{2}=90^\circ</me>
+                <me>\theta_{\vec{v}\vec{w}}=\frac{\pi}{2}=90^\circ</me>
+                </p>
+            </answer>
+            <solution>
+                <p>D'abord, pour l'angle entre <m>\vec{u}</m> et <m>\vec{w}</m>, on utilise la <xref ref="eq-anglevec">formule</xref> habituelle.
+                <md>
+                    <mrow>\cos(\theta)&amp;=\frac{\vec{u}\cdot\vec{w}}{\norm{\vec{u}}\norm{\vec{w}}}</mrow>
+                    <mrow>\cos(\theta)&amp;=\frac{24}{\sqrt{1^2+5^2+3^2+2^2}\sqrt{0^2+3^2+3^2+0^2}}</mrow>
+                    <mrow>\cos(\theta)&amp;=\frac{24}{\sqrt{39}\sqrt{18}}</mrow>
+                    <mrow>\cos(\theta)&amp;=\frac{8}{\sqrt{78}}</mrow>
+                    <mrow>\theta &amp;\approx 0.4375 \text{ radians } \approx 25.1^\circ</mrow>
+                </md>
+                Pour les angles entre <m>\vec{u}</m> et <m>\vec{v}</m> et entre <m>\vec{v}</m> et <m>\vec{w}</m>, 
+                on peut immédiatement conclure du fait que leur produit scalaire est nul que leur angle sera de <m>90^\circ</m> ou <m>\frac{\pi}{2}</m>.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p>L'affirmation suivante est seulement vraie dans <m>\R^2</m>. Expliquer pourquoi géométriquement en donnant un exemple dans <m>\R^3</m>.</p>
+                <p>«Deux vecteurs perpendiculaires au même vecteur sont nécessairement parallèles.»</p>
+            </statement>
+            <solution>
+                <p>C'est tout simplement puisqu'il existe une infinté de directions qui sont toutes perpendiculaires à un même vecteur.
+                On a compris ce fait en étudiant le plan dans <m>\R^3</m>. Le vecteur normal au plan était perpendiculaire à tout vecteur dans le plan.
+                C'est pour cela qu'on peut donner une infinité de paires de vecteurs directeurs afin de définir le plan.</p>
+                <p>On donne un exemple très simple. Les vecteurs <m>(1,0,0)</m> et <m>(0,1,0)</m> sont tous les deux perpendiculaires au vecteur <m>(0,0,1)</m>.
+                Cependant, ils ne sont pas parallèles. Ils sont même perpendiculaires entre eux aussi!</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p>Calculer la projection <m>\vec{u}_\vec{w}</m> et expliquer pourquoi <m>\vec{u}_\vec{v}</m> donne le vecteur nul.</p>
+            </statement>
+            <answer>
+                <p><me>\vec{u}_\vec{w}=(0,4,4,0)</me></p>
+            </answer>
+            <solution>
+                <p><md>
+                    <mrow>\vec{u}_\vec{w}&amp;=\frac{\vec{u}\cdot\vec{w}}{\vec{w}\cdot\vec{w}}\vec{w}</mrow>
+                    <mrow>&amp;=\frac{24}{18}(0,3,3,0)</mrow>
+                    <mrow>&amp;=(0,4,4,0)</mrow>
+                </md>
+                La projection <m>\vec{u}_\vec{v}</m> donne le vecteur nul puisque leur produit scalaire est nul. 
+                Ce produit étant au numérateur de la formule de la projection, on obtiendra donc le vecteur nul dans <m>\R^4</m>, soit
+                <me>\vec{u}_\vec{v}=(0,0,0,0)</me></p>
+            </solution>
+            </task>
     </exercise>
     <exercise xml:id="exo-comblinR4">
             <statement>
@@ -56,30 +112,88 @@
                 <p>Utiliser l'exemple <xref ref="ex-span"/> pour vous aider.</p>
             </hint>
             <answer>
-                 <p>La réponse suivra.</p>
+                 <p><me>\vspan(v_1,v_2,v_3,v_4)=\vspan(v_1,v_3)</me>
+                 Cet espace ne correspond pas à <m>\R^4</m>. 
+                 Noter qu'on aurait pu caractériser le span avec n'importe quelle autre paire de vecteurs ici.</p>
             </answer>
             <solution>
-                 <p> La solution suivra.</p>
+                 <p>On suit le conseil de l'indication et chercher à caractériser l'ensemble des combinaisons linéaires possibles avec ces quatre vecteurs.
+                 On verra que ce n'est pas facile de trouver un moyen de combiner les vecteurs afin de voir comment certains sont redondants.
+                 <md>
+                     <mrow>\vec{v}&amp;=a\vec{v}_1+b\vec{v}_2+c\vec{v}_3+d\vec{v}_4</mrow>
+                     <mrow>&amp;=a(1,4,-3,0)+b(0,2,3,1)+c(1,6,0,1)+d(2,10,-3,1)</mrow>
+                     <mrow>&amp;=a(1,4,-3,0)+b(0,2,3,1)+c(1,6,0,1)+d\big((1,4,-3,0)+(1,6,0,1)\big)</mrow>
+                     <mrow>&amp;=a(1,4,-3,0)+b(0,2,3,1)+c(1,6,0,1)+d(1,4,-3,0)+d(1,6,0,1)</mrow>
+                     <mrow>&amp;=(a+d)(1,4,-3,0)+b(0,2,3,1)+(c+d)(1,6,0,1)</mrow>
+                     <mrow>&amp;=(a+d)(1,4,-3,0)+b\big((1,6,0,1)-(1,4,-3,0)\big)+(c+d)(1,6,0,1)</mrow>
+                     <mrow>&amp;=(a+d-b)(1,4,-3,0)+(c+d+b)(1,6,0,1)</mrow>
+                     <mrow>&amp;=(a+d-b)\vec{v}_1+(c+d+b)\vec{v}_3</mrow>
+                 </md>
+                 Puisque les valeurs de <m>a</m> et de <m>c</m> n'apparaissent qu'une fois pour chaque vecteur, 
+                 toutes les combinaisons linéaires imaginables avec les quatre vecteur initiaux se construisent à l'aide des deux vecteurs restants.
+                 Autrement dit, peu importe les valeurs choisies pour <m>b</m> et <m>d</m>, on ne pourra pas créer un nouveau vecteur qu'on n'est 
+                 incapable de créer simplement en ajustant les valeurs de <m>a</m> et de <m>c</m> en conséquence. 
+                 Les vecteurs <m>\vec{v}_2</m> et <m>\vec{v}_4</m> sont donc redondants.</p>
+                 <p>Il est primordial de remarquer qu'on aurait pu combiner différemment et obtenir deux autres vecteurs à la fin.
+                 L'important est que le <m>\vspan(v_1,v_2,v_3,v_4)</m> est un sous-espace de <m>\R^4</m> engendré par deux vecteurs. 
+                 C'est donc un plan. On verra plus tard que cet espace est de dimension <m>2</m>.</p>
+                 <p>On peut donc écrire: <me>\vspan(v_1,v_2,v_3,v_4)=\vspan(v_1,v_3)</me></p>
+                 
             </solution>
     </exercise>
     <exercise xml:id="exo-comblin-kvec">
+            <introduction>
+                <p>Soient deux vecteurs <m>\vec{v}, \vec{w}</m> qui sont tous les deux des combinaisons linéaires des vecteurs 
+                <m>\vec{u_1}, \vec{u_2}, \dots ,\vec{u_k}</m>.</p>
+            </introduction>
+            <task>
             <statement>
-                <p>Soient deux vecteurs <m>\vec{v}, \vec{w}</m> qui sont tous les deux des combinaisons linéaires des vecteurs <m>\vec{u_1}, \vec{u_2}, \dots ,\vec{u_k}</m>.
-                <ol>
-                <li><p>Montrer que pour tout scalaire <m>k\in\R</m>, le vecteur <m>k\vec{v}</m> est une combinaison linéaire des vecteurs  <m>\vec{u_1}, \vec{u_2}, \dots ,\vec{u_k}</m>.</p></li>
-                <li><p>Montrer que le vecteur <m>\vec{v}+\vec{w}</m> est une combinaison linéaire des vecteurs  <m>\vec{u_1}, \vec{u_2}, \dots ,\vec{u_k}</m>.</p></li>
-                <li><p>Expliquer pourquoi il n'est pas important de connaitre l'espace dans lequel ces vecteurs existent?</p></li>
-                </ol></p>
+                <p>Montrer que pour tout scalaire <m>c\in\R</m>, le vecteur <m>c\vec{v}</m> est une combinaison linéaire des vecteurs  <m>\vec{u_1}, \vec{u_2}, \dots ,\vec{u_k}</m>.</p>
             </statement>
-            <hint>
-              <p> Un indice suivra. </p>
-            </hint>
-            <answer>
-                <p>La réponse suivra.</p>
-            </answer>
             <solution>
-                 <p> La solution suivra.</p>
+                <p>On sait que <m>\vec{v}</m> est une combinaison linéaire des vecteurs donnés. 
+                Supposons que cette combinaison est donnée par les scalaires <m>a_1, a_2, \dots , a_k \in\R</m>. Ainsi,
+                <me>\vec{v}=a_1\vec{u_1}+a_2\vec{u_2}+ \cdots +a_k\vec{u_k}</me>.
+                Alors, 
+                <md>
+                    <mrow>c\vec{v}&amp;=c\big(a_1\vec{u_1}+a_2\vec{u_2}+ \cdots +a_k\vec{u_k}\big)</mrow>
+                    <mrow>&amp;=c(a_1\vec{u_1})+c(a_2\vec{u_2})+ \cdots +c(a_k\vec{u_k})</mrow>
+                    <mrow>&amp;=(ca_1)\vec{u_1})+(ca_2)\vec{u_2})+ \cdots +(ca_k)\vec{u_k})</mrow>
+                </md>
+                Les valeurs <m>ca_1, ca_2, \dots , ca_k</m> étant des scalaires, on a montré que <m>c\vec{v}</m> est une combinaison linéaire 
+                des vecteurs  <m>\vec{u_1}, \vec{u_2}, \dots ,\vec{u_k}</m>.</p>
             </solution>
+            </task>
+            <task>
+            <statement>
+                <p>Montrer que le vecteur <m>\vec{v}+\vec{w}</m> est une combinaison linéaire des vecteurs  <m>\vec{u_1}, \vec{u_2}, \dots ,\vec{u_k}</m>.</p>
+            </statement>
+            <solution>
+                <p>On sait que <m>\vec{v}</m> et <m>\vec{w}</m> sont des combinaisons linéaires des vecteurs donnés. 
+                Supposons que ces combinaisons sont données par les scalaires <m>a_1, a_2, \dots , a_k \in\R</m> et <m>b_1, b_2, \dots , b_k \in\R</m>. Ainsi,
+                <me>\vec{v}=a_1\vec{u_1}+a_2\vec{u_2}+ \cdots +a_k\vec{u_k}</me> et <me>\vec{w}=b_1\vec{u_1}+b_2\vec{u_2}+ \cdots +b_k\vec{u_k}</me>.
+                Alors, 
+                <md>
+                    <mrow>\vec{v}+\vec{w}&amp;=\big(a_1\vec{u_1}+a_2\vec{u_2}+ \cdots +a_k\vec{u_k}\big)+\big(b_1\vec{u_1}+b_2\vec{u_2}+ \cdots +b_k\vec{u_k}\big)</mrow>
+                    <mrow>&amp;=(a_1\vec{u_1}+b_1\vec{u_1})+(a_2\vec{u_2}+b_2\vec{u_2})+ \cdots +(a_k\vec{u_k}+b_k\vec{u_k})</mrow>
+                    <mrow>&amp;=(a_1+b_1)\vec{u_1})+(a_2+b_2)\vec{u_2})+ \cdots +(a_k+b_k)\vec{u_k})</mrow>
+                </md>
+                Les valeurs <m>a_1+b_1, a_2+b_2, \dots , a_k+b_k</m> étant des scalaires, on a montré que <m>\vec{v}+\vec{w}</m> est une combinaison linéaire 
+                des vecteurs  <m>\vec{u_1}, \vec{u_2}, \dots ,\vec{u_k}</m>.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p>Expliquer pourquoi il n'est pas important de connaitre l'espace dans lequel ces vecteurs existent?</p>
+            </statement>
+            <solution>
+                <p>Puisqu'on n'a jamais utilisé les composantes des vecteurs en question.
+                On se limite purement à la multiplication par un scalaire et l'addition vectorielle. 
+                Ces opérations fonctionnent de la même façon peu importe l'espace dans lequel on se trouve.
+                Attention, tous les vecteurs doivent faire partie du même espace. 
+                    On ne peut jamais additionner des vecteurs de <m>\R^2</m> avec des vecteurs de <m>\R^3</m>, par exemple.</p>
+            </solution>
+            </task>
     </exercise>
     <exercise xml:id="exo-spanvw">
             <statement>
@@ -87,35 +201,66 @@
                 Montrer algébriquement l'égalité suivante en vous servant de la définition <xref ref="def-span"/>:
                 <me>\vspan(\vec{v}+c\vec{w},\vec{w})=\vspan(\vec{v},\vec{w})</me>.</p>
             </statement>
-            <answer>
-                <p>La réponse suivra.</p>
-            </answer>
             <solution>
-                 <p> La solution suivra.</p>
+                 <p>On montrera cette égalité en partant du membre de droite.
+                 <md>
+                     <mrow>\vspan(\vec{v},\vec{w})&amp;=\{a\vec{v}+b\vec{w}~|~ a,b\in\R\}</mrow>
+                     <mrow>&amp;=\{a\vec{v}+b\vec{w}+ac\vec{w}-ac\vec{w}~|~ a,b,c\in\R\}</mrow>
+                     <mrow>&amp;=\{a(\vec{v}+c\vec{w})+(b-ac)\vec{w}~|~ a,b,c\in\R\}</mrow>
+                     <mrow>&amp;=\vspan(\vec{v}+c\vec{w},\vec{w})</mrow>
+                 </md>
+                 Puisque les valeurs de <m>a</m> et de <m>b</m> sont n'importe quelle valeur réelle, on pourrait rebaptiser <m>b-ac=d</m> 
+                 et on obtient donc directement la définition du span.</p>
             </solution>
     </exercise>
     <exercise xml:id="exo-prodscalRn">
+            <task>
             <statement>
-            <ol>
-                <li><p>Soit un vecteur <m>\vec{v}\in\R^n</m>. Si <m>\vec{u}\cdot\vec{v}=0</m> pour tout vecteur <m>\vec{u}\in\R^n</m>, montrer que <m>\vec{v}=\vec{0}</m>.</p></li>
-                <li><p>Soient <m>\vec{v}, \vec{w}\in\R^n</m>. Si <m>\vec{u}\cdot\vec{v}=\vec{u}\cdot\vec{w}</m> pour tout vecteur <m>\vec{u}\in\R^n</m>, que peut-on conclure à propos de <m>\vec{v}</m> et <m>\vec{w}</m>? </p></li>
-            </ol>
+                <p>Soit un vecteur <m>\vec{v}\in\R^n</m>. Si <m>\vec{u}\cdot\vec{v}=0</m> pour tout vecteur <m>\vec{u}\in\R^n</m>, montrer que <m>\vec{v}=\vec{0}</m>.</p>
             </statement>
             <hint>
-            <p><ol>
-                <li><p>Pour démontrer ce genre de conclusion où l'hypothèse est que c'est vrai pour tout vecteur <m>\vec{u}\in\R^n</m>, la stratégie sera de choisir des vecteurs spécifiques pour <m>\vec{u}</m> qui permettent de trouver les composantes de <m>\vec{v}</m>.</p></li>
-                <li><p>Appliquer le résultat de la première question.</p></li>
-            </ol></p>
+                <p>Pour démontrer ce genre de conclusion où l'hypothèse est que c'est vrai pour tout vecteur <m>\vec{u}\in\R^n</m>, la stratégie sera de choisir des vecteurs spécifiques pour <m>\vec{u}</m> qui permettent de trouver les composantes de <m>\vec{v}</m>.</p>
+            </hint>
+            <solution>
+                <p>On suit l'indication et on décide de choisir des vecteurs <m>\vec{u}</m> qui permettent de trouver les composantes de <m>\vec{v}</m>.
+                On proposer d'utiliser des vecteurs qui sont presque le vecteur nul, à l'exception d'une composante.
+                Ainsi, si on pose <m>\vec{u}=(1,0,\dots, 0)</m>, alors
+                <md>
+                    <mrow>\vec{u}\cdot\vec{v}&amp;=0</mrow>
+                    <mrow>\Leftrightarrow(1,0,\dots, 0)\cdot(v_1,v_2,\dots,v_n)&amp;=0</mrow>
+                    <mrow>\Leftrightarrow 1*v_1+0*v_2+\cdots+0*v_n&amp;=0</mrow>
+                    <mrow>\Leftrightarrow v_1&amp;=0</mrow>
+                </md>
+                En refaisant cette démarche avec à chaque fois un choix de vecteur pour <m>\vec{u}</m> qui soit toujours le vecteur nul sauf une composante,
+                on montre que la composante correspondante du vecteur <m>\vec{v}</m> doit être nulle.
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p>Soient <m>\vec{v}, \vec{w}\in\R^n</m>. Si <m>\vec{u}\cdot\vec{v}=\vec{u}\cdot\vec{w}</m> pour tout vecteur <m>\vec{u}\in\R^n</m>, 
+                que peut-on conclure à propos de <m>\vec{v}</m> et <m>\vec{w}</m>? </p>
+            </statement>
+            <hint>
+                <p>Appliquer la démarche de la première question.</p>
             </hint>
             <answer>
-                <p><ol>
-                    <li><p>Voir la solution.</p></li>
-                    <li><p>Ils sont égaux. (<m>\vec{v}=\vec{w}</m>)</p></li>
-                </ol></p>
+                <p>Ils sont égaux (<m>\vec{v}=\vec{w}</m>).</p>
             </answer>
             <solution>
-                 <p> La solution suivra.</p>
+                <p>On suit l'indication et on décide de choisir des vecteurs <m>\vec{u}</m> qui permettent de trouver les composantes de <m>\vec{v}</m> et de <m>\vec{w}</m>.
+                Ainsi, si on pose <m>\vec{u}=(1,0,\dots, 0)</m>, alors
+                <md>
+                    <mrow>\vec{u}\cdot\vec{v}&amp;=\vec{u}\cdot\vec{w}</mrow>
+                    <mrow>\Leftrightarrow(1,0,\dots, 0)\cdot(v_1,v_2,\dots,v_n)&amp;=(1,0,\dots, 0)\cdot(w_1,w_2,\dots,w_n)</mrow>
+                    <mrow>\Leftrightarrow 1*v_1+0*v_2+\cdots+0*v_n&amp;=1*w_1+0*w_2+\cdots+0*w_n</mrow>
+                    <mrow>\Leftrightarrow v_1&amp;=w_1</mrow>
+                </md>
+                En refaisant cette démarche avec à chaque fois un choix de vecteur pour <m>\vec{u}</m> qui soit toujours le vecteur nul sauf une composante,
+                on montre que les composantes correspondantes des vecteurs <m>\vec{v}</m> et <m>\vec{w}</m> doivent être égales.
+                </p>
             </solution>
+            </task>
     </exercise>
     <exercise xml:id="exo-inegaltriangle-Rn">
             <statement>
@@ -130,33 +275,101 @@
                 <p>Observer que le produit scalaire est très utile pour exprimer une norme au carré. Cela évite d'avoir à expliciter les composantes des vecteurs.
                 On démontre donc l'inégalité dans tous les espaces euclidiens en même temps.</p>
             </hint>
-            <answer>
-                <p>La réponse suivra.</p>
-            </answer>
             <solution>
-                 <p> La solution suivra.</p>
+                 <p>
+                 Tel que suggéré dans l'indication, on va démontrer l'inégalité élevée au carrée qui lui est totalement équivalente.
+                 <md>
+                     <mrow>\norm{\vec{u}+\vec{v}}^2&amp;=(\vec{u}+\vec{v})\cdot(\vec{u}+\vec{v})</mrow>
+                     <mrow>&amp;=\vec{u}\cdot\vec{u}+\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{u}+\vec{v}\cdot\vec{v}</mrow>
+                     <mrow>&amp;=\vec{u}\cdot\vec{u}+2\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{v}</mrow>
+                     <mrow>&amp;=\norm{\vec{u}}^2+2\vec{u}\cdot\vec{v}+\norm{\vec{v}}^2</mrow>
+                     <mrow>&amp;\leq\norm{\vec{u}}^2+2\norm{\vec{u}}\norm{\vec{v}}+\norm{\vec{v}}^2 \text{  (par  <xref ref="eq-ineqCS">l'inégalité de Cauchy-Schwarz</xref>)} </mrow>
+                     <mrow>&amp;=(\norm{\vec{u}}+\norm{\vec{v}})^2</mrow>
+                     
+                 </md></p>
             </solution>
     </exercise>
     <exercise xml:id="exo-hyperplanRn">
-            <statement>
+            <introduction>
                 <p>Dans l'exemple <xref ref="ex-normavec"/>, on a montré deux techniques différentes pour trouver l'équation vectorielle d'un plan dans <m>\R^3</m>.
                 Dans la présente section, on a compris que l'équation normale dans <m>\R^n</m> définit un objet géométrique de dimension <m>n-1</m> que l'on appelle un hyperplan.</p>
-                <p>Pour chaque équation normale suivante, trouver une équation vectorielle décrivant le même hyperplan. </p>
-                <ol>
-                    <li><p><m>2x_1+x_2-3x_3+4x_4=8</m> dans <m>\R^4</m></p></li>
-                    <li><p><m>2x_1+x_2-3x_3+4x_4=8</m> dans <m>\R^5</m></p></li>
-                    <li><p><m>z=1</m> dans <m>\R^3</m></p></li>
-                    <li><p><m>x_{n}=0</m> dans <m>\R^n</m></p></li>
-                </ol>
+                <p>Pour chaque équation normale suivante, trouver une équation vectorielle décrivant le même hyperplan.</p>
+            </introduction>
+            <task>
+            <statement>
+                <p><m>2x_1+x_2-3x_3+4x_4=8</m> dans <m>\R^4</m></p>
             </statement>
-            <hint>
-                 <p> Un indice suivra. </p>
-            </hint>
             <answer>
-                <p>La réponse suivra.</p>
+                <p><me>\mathcal{P}:(x_1,x_2,x_3,x_4)=a(1,-2,0,0)+b(0,3,1,0)+c(0,-4,0,1)+(0,8,0,0)</me></p>
             </answer>
             <solution>
-                 <p> La solution suivra.</p>
+                <p>On rappelle qu'il y a au moins deux façons de faire et une infinité de différentes réponses, de par le fonctionnement des équations vectorielles.
+                On choisit la première façon de faire. Ici, dans <m>\R^4</m>, on va créer des vecteurs à quatre composantes. 
+                On isole une des variables, par exemple <m>x_2=8-2x_1+3x_3-4x_4</m> et on crée l'équation vectorielle du plan ainsi:
+                <md>
+                    <mrow>\mathcal{P}&amp;:&amp; (x_1,x_2,x_3,x_4)&amp;=(x_1,8-2x_1+3x_3-4x_4,x_3,x_4)</mrow>
+                    <mrow>&amp;&amp; &amp;=(x_1,-2x_1,0,0)+(0,3x_3,x_3,0)+(0,-4x_4,0,x_4)+(0,8,0,0)</mrow>
+                    <mrow>&amp;&amp; &amp;=x_1(1,-2,0,0)+x_3(0,3,1,0)+x_4(0,-4,0,1)+(0,8,0,0)</mrow>
+                </md>
+                On remplace les constantes par des lettres plus habituelles pour obtenir:
+                <me>\mathcal{P}:(x_1,x_2,x_3,x_4)=a(1,-2,0,0)+b(0,3,1,0)+c(0,-4,0,1)+(0,8,0,0)</me></p>
             </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>2x_1+x_2-3x_3+4x_4=8</m> dans <m>\R^5</m></p>
+            </statement>
+            <answer>
+                <p><me>\mathcal{P}:(x_1,x_2,x_3,x_4,x_5)=a(1,-2,0,0,0)+b(0,3,1,0,0)+c(0,-4,0,1,0)+d(0,0,0,0,1)+(0,8,0,0,0)</me></p>
+            </answer>
+            <solution>
+                <p>Attention, il s'agit de la même équation, mais les vecteurs doivent maintenant avoir cinq composantes.
+                On isole une des variables, par exemple <m>x_2=8-2x_1+3x_3-4x_4</m> et on crée l'équation vectorielle du plan ainsi:
+                <md>
+                    <mrow>\mathcal{P}&amp;:&amp; (x_1,x_2,x_3,x_4,x_5)&amp;=(x_1,8-2x_1+3x_3-4x_4,x_3,x_4,x_5)</mrow>
+                    <mrow>&amp;&amp; &amp;=(x_1,-2x_1,0,0,0)+(0,3x_3,x_3,0,0)+(0,-4x_4,0,x_4,0)+(0,0,0,0,x_5)+(0,8,0,0,0)</mrow>
+                    <mrow>&amp;&amp; &amp;=x_1(1,-2,0,0,0)+x_3(0,3,1,0,0)+x_4(0,-4,0,1,0)+x_5(0,0,0,0,1)+(0,8,0,0,0)</mrow>
+                </md>
+                On remplace les constantes par des lettres plus habituelles pour obtenir:
+                <me>\mathcal{P}:(x_1,x_2,x_3,x_4,x_5)=a(1,-2,0,0,0)+b(0,3,1,0,0)+c(0,-4,0,1,0)+d(0,0,0,0,1)+(0,8,0,0,0)</me></p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>z=1</m> dans <m>\R^3</m></p>
+            </statement>
+            <answer>
+                <p><me>\mathcal{P}:(x,y,z)=a(1,0,0)+b(0,1,0)+(0,0,1)</me></p>
+            </answer>
+            <solution>
+                <p>
+                <md>
+                    <mrow>\mathcal{P}&amp;:&amp; (x,y,z)&amp;=(x,y,1)</mrow>
+                    <mrow>&amp;&amp; &amp;=(x,0,0)+(0,y,0)+(0,0,1)</mrow>
+                    <mrow>&amp;&amp; &amp;=x(1,0,0)+y(0,1,0)+(0,0,1)</mrow>
+                </md>
+                 On remplace les constantes par des lettres plus habituelles pour obtenir:
+                 <me>\mathcal{P}:(x,y,z)=a(1,0,0)+b(0,1,0)+(0,0,1)</me>
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>x_{n}=0</m> dans <m>\R^n</m></p>
+            </statement>
+            <answer>
+                <p><me>\mathcal{P}:(x_1,x_2,\dots,x_n)=a_1(1,0,\dots,0)+a_2(0,1,0,\dots,0)+\cdots+a_{n-1}(0,0,\dots,0,1,0)+(0,0,\dots,0)</me></p>
+            </answer>
+            <solution>
+                <p>
+                <md>
+                    <mrow>\mathcal{P}&amp;:&amp; (x_1,x_2,\dots,x_n)&amp;=(x_1,x_2,\dots,0)</mrow>
+                    <mrow>&amp;&amp; &amp;=(x_1,0,\dots,0)+(0,x_2,0,\dots,0)+\cdots+(0,0,\dots,0,x_{n-1},0)+(0,0,\dots,0)</mrow>
+                    <mrow>&amp;&amp; &amp;=x_1(1,0,\dots,0)+x_2(0,1,0,\dots,0)+\cdots+x_{n-1}(0,0,\dots,0,1,0)+(0,0,\dots,0)</mrow>
+                </md>
+                On remplace les constantes par des lettres plus habituelles pour obtenir:
+                <me>\mathcal{P}:(x_1,x_2,\dots,x_n)=a_1(1,0,\dots,0)+a_2(0,1,0,\dots,0)+\cdots+a_{n-1}(0,0,\dots,0,1,0)+(0,0,\dots,0)</me></p>
+            </solution>
+            </task>
     </exercise>
 </exercises>
