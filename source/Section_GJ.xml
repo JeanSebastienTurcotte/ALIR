@@ -484,12 +484,12 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     équivalent, plus simple. Il serait intéressant d'avoir une méthode applicable dans tous les cas, avec un critère clair pour savoir quand arrêter. Pour cela, on
     définit la forme échelonnée réduite d'une matrice.</p>
     <definition xml:id="def-matrref">
-    <title>Pivot  et forme échelonnée réduite d'une matrice</title>
+    <title>Forme échelonnée réduite d'une matrice</title>
     <statement>
-    <p>Soit <m>A</m> une matrice de taille <m>m\times n</m>.Le premier élément non nul de chaque ligne est appelé le pivot de cette ligne. Un colonne qui contient un pivot est
-    appelée une colonne pivot.</p>
+    <p>Soit <m>A</m> une matrice de taille <m>m\times n</m>. Le premier élément non nul de chaque ligne est appelé le pivot de cette ligne.</p>
     <p>On dit que <m>A</m> est échelonnée réduite si elle satisfait chacun des caractéristiques suivantes:</p>
     <list xml:id="li-rref">
+    <title>Condition pour être échelonnée réduite</title>
     <ol>
     <li xml:id="li-rrefnulle"><p>Si la matrice contient des lignes dont toutes les entrées sont nulles (donc sans pivot), ces lignes sont dans le bas de la matrice.</p></li>
     <li xml:id="li-rrefpivot1"><p>Le pivot de chaque ligne non nulle est égal à <m>1</m>.</p></li>
@@ -497,9 +497,18 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <li xml:id="li-rrefcolpivot"><p>Les entrées d'une colonne pivot sont toutes égales à <m>0</m>, sauf le pivot.</p></li>
     </ol>
     </list>
-    </statement>
+    </statement></definition>
+    <p>Lorsqu'une matrice est sous la forme échelonnée réduite, la position de ses pivots sera particulièrement importante.</p>
+    <definition xml:id="def-pivlib">
+    <title>Pivots, variables liées et variables libres</title>
+    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> et <m>B</m> sa forme échelonnée réduite. <fn>La proposition <xref ref="prop-erlunique"/> confirmera qu'il n'y
+     a qu'une forme rref pour une matrice donnée.</fn> Si la colonne <m>j</m> de la matrice <m>B</m> contient un pivot, on dit que la colonne <m>j</m> est une colonne pivot pour la matrice <m>A</m> et que
+     la variable <m>x_j</m> est une variable pivot, ou liée.</p>
+     
+     <p>Les variables qui ne sont pas des variables liées sont dites libres.</p></statement>
     </definition>
-    <p>On regarde des exemples de matrices respectant certaines des conditions de la définition <xref ref="def-matrref"/> afin de bien comprendre ce concept.</p>
+    <p>La notion de variables libres jouera un plus grand rôle dans la sous-section <xref ref="sssec-nbsol"/>. Pour l'instant,
+    on regarde des exemples de matrices respectant certaines des conditions de la définition <xref ref="def-matrref"/> afin de bien comprendre ce concept.</p>
     <example>
     <title>Matrice échelonnée réduite</title>
     <statement>
@@ -918,7 +927,7 @@ show("Les pivots sont en position ", A.pivots())
     <li><p>Les <xref ref="def-opelem">opérations</xref> et les <xref ref="def-matelem">matrices</xref> élémentaires.</p></li>
     <li><p>Le fait que les opérations élémentaires préservent les solutions d'un système.</p></li>
     <li><p>La notion de <xref ref="def-mataug">matrices augmentée</xref>.</p></li>
-    <li><p>La notion de pivot et la <xref ref="def-matrref">forme échelonnée réduite</xref> d'une matrice.</p></li>
+    <li><p>La notion de variable <xref ref="def-pivlib"> pivot et libre </xref> et la <xref ref="def-matrref">forme échelonnée réduite</xref> d'une matrice.</p></li>
     <li><p><xref ref="algo-GJ">L'algorithme de Gauss-Jordan</xref>, pour échelonner des matrices.</p></li>
     </ul>
     </p>

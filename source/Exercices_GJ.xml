@@ -122,6 +122,13 @@
     </answer>
     </task>
     </exercise>
+    <exercise>
+    <introduction><p>Une grille de Sudoku résolue peut être vue comme une matrice <m>9\times 9</m>. Soit <m>S</m> une telle matrice. </p></introduction>
+    <task>
+    <statement><p>Parmi les <m>36</m> opérations élémentaires <m>L_i \leftrightarrow L_j</m>, lesquelles gardent la matrice transformée comme une solution sudoku valide? (Bonus: comment arriver à <m>36</m> matrices, sans les énumérer?)</p></statement>
+    </task>
+    <task><statement><p>On pose <m>\vec{v}=(1,1,1,1,1,1,1,1,1)</m>. Que vaut <m>S\vec{v}</m>?</p><!-- p-e mettre dans la section ligne vs col--></statement></task>
+    </exercise>
     <exercise xml:id="exo-mateleminverse">
     <statement>
     <p>Démontrer la proposition <xref ref="prop-mateleminverse"/>.</p>
@@ -209,13 +216,71 @@
     <statement><p>Si <m>A</m> est une matrice <m>m\times n</m> sous forme échelonnée réduite, quel est le nombre maximal de pivots que <m>A</m> peut posséder?</p></statement>
     </exercise>
     <exercise>
-    <statement>
+    <introduction><p>Pour chacun des cas suivants, donner deux matrices échelonnées réduites de format demandées qui respectent les conditions additionelles:</p></introduction>
+    <task>
+    <statement><p>Des matrices <m>2\times 2</m> pour lesquelles la variable <m>x</m> est libre.</p></statement>
+    </task>
+    <task>
+    <statement><p>Des matrices <m>2\times 2</m> pour lesquelles la variable <m>y</m> est libre.</p></statement>
+    </task>
+            <task>
+    <statement><p>Des matrices <m>3\times 3</m> pour lesquelles les variables <m>x,y</m> sont pivots et <m>z</m> est libre.</p></statement>
+    </task>
+        <task>
+    <statement><p>Des matrices <m>3\times 3</m> pour lesquelles les variables <m>x,z</m> sont pivots et <m>y</m> est libre.</p></statement>
+    </task>
+            <task>
+    <statement><p>Des matrices <m>3\times 3</m> pour lesquelles les variables <m>y,z</m> sont pivots et <m>x</m> est libre.</p></statement>
+    </task>
+            <task>
+    <statement><p>Des matrices <m>3\times 3</m> pour lesquelles les variables <m>x,y</m> sont libres et <m>z</m> est pivot.</p></statement>
+    </task>
+                <task>
+    <statement><p>Des matrices <m>3\times 3</m> pour lesquelles les variables <m>x,z</m> sont libres et <m>y</m> est pivot.</p></statement>
+    </task>
+                <task>
+    <statement><p>Des matrices <m>3\times 3</m> pour lesquelles les variables <m>y,z</m> sont libres et <m>x</m> est pivot.</p></statement>
+    </task>
+                <task>
+    <statement><p>Des matrices <m>5\times 5</m> pour lesquelles exactements deux variables  sont pivots.</p></statement>
+    </task>
+   </exercise>
+   <exercise xml:id="exo-forceechange">
+   <statement>
+   <p>Considérer la matrice <me>A=\left(\begin{array}{rrr|r}
+1 &amp; 3 &amp; 1 &amp; 1 \\
+2 &amp; x &amp; 1 &amp; -1 \\
+0 &amp; 2 &amp; -1 &amp; 2
+\end{array}\right)</me>. Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait en sorte qu'il est nécessaire d'effectuer une opération élémentaire dy
+type <m>L_i\leftrightarrow L_j</m>?</p>
+   </statement>
+   </exercise>
+    <exercise>
+    <introduction>
     <p>
-    Soit <m>a\neq 0</m>. Mettre la matrice <m>\matcold{a}{c}{b}{d}</m> sous la forme échelonnée réduite. Quelles sont les hypothèses additionnelles qui sont faites?
+     Mettre la matrice <m>\matcold{a}{c}{b}{d}</m> sous la forme échelonnée réduite. Quelles sont les hypothèses additionnelles qui sont faites si
     </p>
+    </introduction>
+    <task>
+    <statement>
+    <p> <m>a\neq 0</m>?</p>
     </statement>
+    </task>
+        <task>
+    <statement>
+    <p> <m>a= 0</m>?</p>
+    </statement>
+    </task>
+    <task><statement><p>Quel est le nombre maximum d'opérations élémentaires à effectuer pour échelonner une matrice <m>2\times 2</m>.</p></statement></task>
     <solution><p>À venir</p> <!-- Faire une référence avec le ad-bc != 0 du chapitre 2 -->
     </solution>
+    </exercise>
+    <exercise>
+    <statement><p>À la section <xref ref="sec-matinverse"/>, on a établit qu'une matrice <m>A=\matcold{a}{b}{c}{d}</m> était inversible si <m>ad-bc\neq 0</m>. Montrer que
+    toute matrice équivalente à une matrice telle que <m>ad-bc\neq 0</m> possède aussi cette condition.</p></statement>
+    <hint>
+    <p>Il suffit d'appliquer chaque opération élémentaire à la matrice <m>A</m> et vérifier la condition.</p>
+    </hint>
     </exercise>
     <exercise xml:id="exo-sel3x3geo">
     <introduction>
@@ -238,7 +303,7 @@
     <task><introduction><p>On considère maintenant trois plans dans l'espace.</p></introduction>
     <task><statement><p>Quelle peut être la position relative de trois plans dans l'espaces?</p></statement></task>
     <task><statement><p>Déduire géométriquement que le système <m>A\vec{x}=\vec{b}</m> possède aucune, une seule ou une infinité de solutions.</p></statement></task>
-    <task><statement><p>Expliquer algébriquement pourquoi si <m>\vec{u}\neq \vec{v}</m> sont des solutions au système <m>A\vec{x}=\vec{b}</m> (peu importe la taille de la
+    <task xml:id="exo-solimpinf"><statement><p>Expliquer algébriquement pourquoi si <m>\vec{u}\neq \vec{v}</m> sont des solutions au système <m>A\vec{x}=\vec{b}</m> (peu importe la taille de la
     matrice <m>A</m>!), alors il existe une infinité de solutions.</p></statement></task>
     </task>
     </exercise>
@@ -271,6 +336,35 @@
     <p><m>\matcolt{0}{0}{-1}{2}{0}{0}{1}{-1}{0}</m></p>
     </statement>
     </task>
+    </exercise>
+    <exercise>
+    <statement><p>Une matrice <m>A</m> est telle que <m>A\vecddd{1}{1}{1}=\vecddd{1}{0}{0}</m>,<m>A\vecddd{0}{1}{1}=\vecddd{0}{1}{0}</m> et <m>A\vecddd{0}{0}{1}=\vecddd{0}{0}{1}</m>.
+    Trouver <m>\vec{x}</m> telle que <m>A\vec{x}=\vecddd{-2}{3}{5}</m>. Que vaut <m>A</m>?
+    </p></statement>
+    <answer>
+    <p><m>\vec{x}=\vecddd{-2}{1}{6}</m> et <m>A=\matcolt{1}{-1}{0}{0}{1}{-1}{0}{0}{1}</m>.</p>
+    </answer>
+    <solution><p>
+    Puisque les vecteurs <m>\vec{b}</m> ont trois composantes et que les vecteurs <m>\vec{x}</m> en ont trois également, on sait que la matrice <m>A</m> est de taille
+    <m>3\times 3</m>. De plus, les équations données dans l'exercice permettent de dire que la matrice est inversible et que <m>A^{-1}=\matcolt{1}{1}{1}{0}{1}{1}{0}{0}{1}</m>, en vertu de la remarque <xref ref="rem-obtenirinverse"/>.
+    On a donc
+    <me>\vecddd{x}{y}{z}=A^{-1}\vecddd{-2}{3}{5}</me>.
+    On peut calculer ce produit matrice vecteur directement ou avec l'approche par colonne. Dans tous les cas, on obtient <m>\vecddd{x}{y}{z}=\vecddd{-2}{1}{6}</m>.
+    </p>
+    <p>Pour trouver la matrice <m>A</m>, on peut utiliser une démarche similaire à l'exemple <xref ref="ex-GJchaine"/> pour échelonner la matrice augmentée <m>(A^{-1}|I)\sim \cdots \sim (I| A)</m>.
+    On a 
+    <md>
+    <mrow>\begin{array}{rrr|rrr}1&amp;0&amp;0 &amp;1 &amp; 0&amp; 0\\
+                                1&amp;1&amp;0&amp;0&amp;1&amp;0\\
+                                1&amp;1&amp;1&amp;0&amp;0&amp;1\end{array}&amp;\substack{-L_1+L_2\rightarrow L_2 \\ -L_1+L_3\rightarrow L_3 \\ \sim}\begin{array}{rrr|rrr}1&amp;0&amp;0 &amp;1 &amp; 0&amp; 0\\
+                                0&amp;1&amp;0&amp;-1&amp;1&amp;0\\
+                                0&amp;1&amp;1&amp;-1&amp;0&amp;1\end{array}</mrow>
+                <mrow>&amp;\matsimile{2}{-}{3}\begin{array}{rrr|rrr}1&amp;0&amp;0 &amp;1 &amp; 0&amp; 0\\
+                                0&amp;1&amp;0&amp;-1&amp;1&amp;0\\
+                                0&amp;0&amp;1&amp;0&amp;-1&amp;1\end{array}</mrow>
+    </md>.
+    </p>
+    </solution>
     </exercise>
     <exercise>
     <statement>
@@ -318,6 +412,10 @@ show(elementary_matrix(5,row1=3,row2=0,scale=-4))
     <mrow>x_1&amp;{}-{}&amp;7x_2&amp;{}+{}&amp;5x_3&amp;&amp;&amp;{}={}&amp;-2</mrow>
     <mrow>2x_1&amp;{}+{}&amp;3x_2&amp;{}+{}&amp;x_3&amp;{}-{}&amp;x_4&amp;{}={}&amp;5</mrow>
     </md></p>
+        <sage>
+    <input>
+    </input>
+    </sage>
     </statement>
     <answer><p><m>(x_1,x_2,x_3,x_4)=\left(\frac{17}{14},\frac{25}{63},−\frac{11}{126},−\frac{185}{126}\right)</m></p></answer>
     <solution><listing>
@@ -336,7 +434,18 @@ pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty dev
     </task>
     <task>
         <statement>
-    <p>Les systèmes <m>A\vec{x}=\vec{b_i}</m> où <m>A=\begin{pmatrix} \end{pmatrix}</m></p>
+    <p>Les systèmes <m>A\vec{x}=\vec{b_i}</m> où <m>A=\begin{pmatrix} 0&amp;1&amp;4&amp;-1&amp;2&amp;7\\-1&amp;3&amp;3&amp;1&amp;12&amp;3\\11&amp;0&amp;2&amp;5&amp;0&amp;-4\\9&amp;5&amp;-1&amp;11&amp;-7&amp;4\\1&amp;2&amp;3&amp;-4&amp;5&amp;7\\-3&amp;2&amp;5&amp;7&amp;8&amp;-13\end{pmatrix}</m>
+    et
+    <md>
+    <mrow>\vec{b}_1&amp;=\begin{pmatrix} 1\\2\\3\\4\\5\\6  \end{pmatrix}</mrow>
+    <mrow>\vec{b}_2&amp;=\begin{pmatrix} 6\\5\\4\\3\\2\\1  \end{pmatrix}</mrow>
+    <mrow>\vec{b}_3&amp;=\begin{pmatrix} 1\\-2\\3\\-4\\5\\-6 \end{pmatrix}</mrow>
+    <mrow>\vec{b}_4&amp;=\begin{pmatrix} -6\\5\\-4\\3\\-2\\1 \end{pmatrix}</mrow>
+    </md></p>
+        <sage>
+    <input>
+    </input>
+    </sage>
     </statement>
     <answer><p>Si <m>A\vec{x}_1=\vec{b}_1,\ldots A\vec{x}_4=\vec{b}_4</m>, alors<md>
     <mrow>\vec{x}_1&amp;=\left(\frac{9665}{27056},\,\frac{33249}{13528},\,\frac{18579}{27056},\,-\frac{26313}{27056},\,-\frac{9433}{27056},\,-\frac{17315}{27056}\right)</mrow>
@@ -387,6 +496,10 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
     <mrow>x_1&amp;{}+{}&amp;8x_2&amp;{}+{}&amp;27x_3&amp;{}+{}&amp;64x_4&amp;{}={}&amp;4</mrow>
     </md>.
     </p>
+            <sage>
+    <input>
+    </input>
+    </sage>
     </statement>
     <answer><p>À venir</p></answer>
     <solution><p>À venir</p></solution>
@@ -403,6 +516,10 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
     </p>
     <p>On voit qu'il est très simple de résoudre une légère modification d'un problème déjà résolu avec l'ordinateur, alors qu'à la main, le travail aurait dû être refait
     en grande partie.</p>
+            <sage>
+    <input>
+    </input>
+    </sage>
     </statement>
     <answer><p>À venir</p></answer>
     <solution><p>À venir</p></solution>
@@ -418,6 +535,10 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
    <mrow> x_1&amp;{}+{}&amp;4x_2&amp;{}+{}&amp;9x_3&amp;{}+{}&amp;16x_4&amp;{}={}&amp;3</mrow>
     <mrow> x_1&amp;{}+{}&amp;8x_2&amp;{}+{}&amp;27x_3&amp;{}+{}&amp;64x_4&amp;{}={}&amp;4</mrow>
     </md>.</p>
+            <sage>
+    <input>
+    </input>
+    </sage>
     </statement>
     <answer><p>À venir</p></answer>
     <solution><p>À venir</p></solution>
@@ -431,6 +552,10 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
    <mrow> -x_1&amp;{}+{}&amp;4x_2&amp;{}-{}&amp;9x_3&amp;{}+{}&amp;16x_4&amp;{}={}&amp;3</mrow>
     <mrow> -x_1&amp;{}+{}&amp;8x_2&amp;{}-{}&amp;27x_3&amp;{}+{}&amp;64x_4&amp;{}={}&amp;-4</mrow>
     </md>.</p>
+            <sage>
+    <input>
+    </input>
+    </sage>
     </statement>
     <answer><p>À venir</p></answer>
     <solution><p>À venir</p></solution>
@@ -441,40 +566,26 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
     <title>La parabole revisitée</title>
     <introduction><p>Dans l'exercice <xref ref="exo-parabolesage"/>, on a automatisé le calcul de l'équation d'une parabole étant donnés sa droite directrice et son foyer.
     Si la parabole est aussi une fonction, soit <m>y=ax^2+bx+c</m>, alors il est possible à l'aide de trois points de la parabole de trouver l'équation.</p>
-    <!-- mettre la partie ci-dessous dans l'autre section -->
-    <!--<p>De plus, les paraboles font parties d'une famille plus générale de courbes appelées les coniques. <aside><title>En passant</title><p>Les coniques tirent leur nom
-    du fait qu'elles peuvent être obtenues par l'intersection d'un cône avec un plan.</p></aside>
-    L'équation cartésienne d'une conique est
-    <men xml:id="eq-conique">
-    ax^2+bxy+cy^2+dx+ey+f=0
-    </men>,
-    avec <m>a,b,c</m> pas tous nuls. Avec cinq points sur une conique, il est possible de déterminer son équation cartésienne. Cet exercice vise à explorer la recherche de l'équation 
-    de coniques par la résolution de système d'équations linéaires appropriés.</p> -->
     </introduction>
-    <task>
+    <task xml:id="exo-parasel">
     <statement>
     <p>Soit <m>P(-1,22),Q(2,19)</m> et <m>R(3,34)</m> trois points sur une parabole d'équation <m>y=ax^2+bx+c</m>.</p>
     <p>En utilisant un système d'équations linéaires, déterminer l'équation de la parabole. Tracer celle-ci, ainsi que les points <m>P,Q,R</m> sur un 
     même graphique.</p>
+            <sage>
+    <input>
+    </input>
+    </sage>
     </statement>
     </task>
-    <!-- autre section 
-    <task>
-    <introduction>
-    <p>Chacun des ensembles de points suivants sont sur une conique d'équations <m>ax^2+bxy+cy^2+dx+ey+f=0</m>. En utilisant un système d'équations linéaires, déterminer l'équation de chaque conique. Tracer celle-ci, ainsi que les points sur un 
-    même graphique. </p>
-    </introduction>
-    <task>
-    <statement>
-    <p>
-    <m>P_1(0,0),P_2(0,-1),P_3(-1,0),P_4\left(\frac{1}{3},-\frac{2}{3}\right),P_5\left(-\frac{1}{3},\frac{\sqrt{3}-1}{3}\right)</m>
-    </p>
-    </statement>
-    </task>
-    </task> -->
     <task>
     <statement><p>On veut maintenant créer une fonction qui va retourner l'équation d'une parabole passant par trois points données. La fonction doit d'abord vérifier si
-    une telle parabole existe et si c'est le cas, retourner son équation. Tester la fonction avec la réponse à la partie précédente.</p></statement>
+    une telle parabole existe et si c'est le cas, retourner son équation. Tester la fonction avec la réponse à la partie précédente.</p>
+            <sage>
+    <input>
+    </input>
+    </sage>
+    </statement>
     <solution>
     <listing>
     <caption>La fonction qui donne l'équation de la parabole passant par trois points donnés</caption>
