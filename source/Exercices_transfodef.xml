@@ -9,34 +9,37 @@
 
 <exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-transfodef">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>
-   <!--exercise xml:id="exo-">
+    
+    <!--exercice vecteur 0 par la mult scal-->
+    <!--"homotéthie est linéaire"-->
+    
+    <!-- 
+    <exercise xml:id="exo-nom">
+    <introduction>
+        <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
             <statement>
-                <p>La question.</p>
+                <p>La première lettre de la question.</p>
             </statement>
-            <hint>
-                <p>Un indice.</p>
-            </hint>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p> La réponse suivra. </p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p> La solution suivra. </p>
             </solution>
-    </exercise>-->
+    </task>
+    </exercise>
+    -->
     <exercise xml:id="exo-additionmatrices">
-            <statement>
+            <introduction>
                 <p>Soient les trois matrices suivantes: <m>A=\begin{pmatrix}0&amp;1&amp;3&amp;-2\\ -1&amp; 7 &amp;0&amp;5 \end{pmatrix},B=\begin{pmatrix}5&amp;-2&amp;-1&amp;-3\\ 2&amp; 0 &amp;7&amp;3 \end{pmatrix}</m> et <m>C=\begin{pmatrix} 2&amp;4\\ 3&amp; -2 \end{pmatrix}</m>. 
                 Soient aussi les vecteurs <m>\vec{u}=\begin{pmatrix} 2\\1 \end{pmatrix}</m> et <m>\vec{v}=\begin{pmatrix} 3\\2\\1\\0 \end{pmatrix}</m>. 
-                Calculer, si possible, les expressions suivantes. Lorsque c'est impossible, dire pourquoi.
-                <ol>
-                <li><m>2A+B</m></li>
-                <li><m>A+C</m></li>
-                <li><m>A\vec{u}</m></li>
-                <li><m>B\vec{v}</m></li>
-                <li><m>C(2\vec{u})</m></li>
-                <li><m>C(\vec{u}+\vec{v})</m></li>
-                <li><m>(2A+B)(\vec{v})</m></li>
-                </ol></p>
+                Calculer, si possible, les expressions suivantes. Lorsque c'est impossible, dire pourquoi.</p>
+            </introduction>
+            <task>
+            <statement>
+                <p><m>2A+B</m></p>
             </statement>
             <hint>
                 <p>Considérer les règles établies dans les notes. En effet, pour additionner deux matrices, elles doivent être de mêmes dimensions (voir la définition <xref ref="def-matsomme"/>).</p>
@@ -44,71 +47,388 @@
                 <p>Finalement, on multiplie par un scalaire autant les vecteurs que les matrices de façon intuitive, c'est-à-dire en multipliant chaque élément par ce scalaire (voir la définition <xref ref="def-matprodscal"/>).</p>
             </hint>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p><me>2A+B=\begin{pmatrix}5&amp;0&amp;5&amp;-7\\ 0&amp; 14 &amp;7&amp;13 \end{pmatrix}</me></p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p><md>
+                    <mrow>2A+B&amp;=2\begin{pmatrix}0&amp;1&amp;3&amp;-2\\ -1&amp; 7 &amp;0&amp;5 \end{pmatrix}+\begin{pmatrix}5&amp;-2&amp;-1&amp;-3\\ 2&amp; 0 &amp;7&amp;3 \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0&amp;2&amp;6&amp;-4\\ -2&amp; 14 &amp;0&amp;10 \end{pmatrix}+\begin{pmatrix}5&amp;-2&amp;-1&amp;-3\\ 2&amp; 0 &amp;7&amp;3 \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0+5&amp;2+(-2)&amp;6+(-1)&amp;-4+(-3)\\ -2+2&amp; 14+0 &amp;0+7&amp;10+3 \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}5&amp;0&amp;5&amp;-7\\ 0&amp; 14 &amp;7&amp;13 \end{pmatrix}</mrow>
+                </md></p>
             </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>A+C</m></p>
+            </statement>
+            <answer>
+                <p>Impossible.</p>
+            </answer>
+            <solution>
+                <p>Impossible, puisque les matrices sont de dimensions différentes.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>A\vec{u}</m></p>
+            </statement>
+            <answer>
+                <p>Impossible.</p>
+            </answer>
+            <solution>
+                <p>Impossible, puisque la matrice <m>A</m> a quatre colonnes et le vecteur <m>\vec{u}</m> ne possède que deux compsantes.
+                On ne peut donc pas faire le produit scalaire de chaque ligne avec le vecteur, tel qu'on a définit la multiplication matrice vecteur.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>B\vec{v}</m></p>
+            </statement>
+            <answer>
+                <p><me>B\vec{v}=\begin{pmatrix}10\\ 13 \end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p><md>
+                    <mrow>B\vec{v}&amp;=\begin{pmatrix}5&amp;-2&amp;-1&amp;-3\\ 2&amp; 0 &amp;7&amp;3 \end{pmatrix}\begin{pmatrix} 3\\2\\1\\0 \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}5*3+(-2)*2+(-1)*1+(-3)*0\\ 2*3+0*2+7*1+3*0 \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}10\\ 13 \end{pmatrix}</mrow>
+                </md></p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>C(2\vec{u})</m></p>
+            </statement>
+            <answer>
+                <p><me>C(2\vec{u})=\begin{pmatrix} 16\\ 8 \end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p><md>
+                    <mrow>C(2\vec{u})&amp;=\begin{pmatrix} 2&amp;4\\ 3&amp; -2 \end{pmatrix}\left(2\begin{pmatrix} 2\\1 \end{pmatrix}\right)</mrow>
+                    <mrow>&amp;=\begin{pmatrix} 2&amp;4\\ 3&amp; -2 \end{pmatrix}\begin{pmatrix} 4\\2 \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix} 2*4+4*2\\ 3*4+(-2)*2 \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix} 16\\ 8 \end{pmatrix}</mrow>
+                </md></p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>C(\vec{u}+\vec{v})</m></p>
+            </statement>
+            <answer>
+                <p>Impossible.</p>
+            </answer>
+            <solution>
+                <p>Impossible, car les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> n'ont pas le même nombre de composantes.
+                Il est donc impossible de les additionner.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>(2A+B)(\vec{v})</m></p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p><md>
+                    <mrow>(2A+B)(\vec{v})&amp;=\begin{pmatrix}5&amp;0&amp;5&amp;-7\\ 0&amp; 14 &amp;7&amp;13 \end{pmatrix}\begin{pmatrix} 3\\2\\1\\0 \end{pmatrix} \text{ (par (a))}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}5*3+0*2+5*1+(-7)*0\\ 0*3+14*2+7*1+13*0 \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}20\\ 35 \end{pmatrix}</mrow>
+                </md></p>
+            </solution>
+            </task>
     </exercise>
     <exercise xml:id="exo-transfolinoupas">
-            <statement>
+            <introduction>
                 <p>Pour chaque tranformation linéaire de <m>\R^2</m> vers <m>\R^2</m>, dire si elle est linéaire, c'est-à-dire si elles respectent les 
-                <xref ref="def-transfolin">propriétés</xref> des transformations linéaires. Si c'est le cas, le démontrer.
-                <ol>
-                <li><p><m>T_1\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}x+1\\y-1\end{pmatrix}</m></p></li>
-                <li><p><m>T_2\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}x^2\\-y\end{pmatrix}</m></p></li>
-                <li><p><m>T_3\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}2x-y\\x\end{pmatrix}</m></p></li>
-                <li><p><m>T_4\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}1/x\\y\end{pmatrix}</m></p></li>
-                <li><p><m>T_5\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}x+3y\\0\end{pmatrix}</m></p></li>
-                <li><p><m>T_6\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}y\\x\end{pmatrix}</m></p></li>
-                </ol>
-                </p>
+                <xref ref="def-transfolin">propriétés</xref> des transformations linéaires. Si c'est le cas, le démontrer.</p>
+            </introduction>
+            <task>
+            <statement>
+                <p><m>T_1\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}x+1\\y-1\end{pmatrix}</m></p>
             </statement>
-            <hint>
-                <p>Se servir de l'exemple <xref ref="ex-transfquelclin"/> pour s'aider.</p>
-            </hint>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p>La transformation <m>T_1</m> n'est pas linéaire.</p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>Il n'est pas demander de démontrer si ce n'est pas linéaire. 
+                Il aurait suffit de choisir une des deux propriétés et de montrer qu'elle est fausse avec des exemples spécifiques de vecteur(s) et de constantes.</p>
             </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T_2\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}x^2\\-y\end{pmatrix}</m></p>
+            </statement>
+            <answer>
+                <p>La transformation <m>T_2</m> n'est pas linéaire.</p>
+            </answer>
+            <solution>
+                <p>Il n'est pas demander de démontrer si ce n'est pas linéaire. 
+                Il aurait suffit de choisir une des deux propriétés et de montrer qu'elle est fausse avec des exemples spécifiques de vecteur(s) et de constantes.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T_3\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}2x-y\\x\end{pmatrix}</m></p>
+            </statement>
+            <answer>
+                <p>La transformation <m>T_3</m> est linéaire.</p>
+            </answer>
+            <solution>
+                <p>Soient <m>\vec{u}=(x_1,y_1),\vec{v}=(x_2,y_2)\in\R^2</m> et <m>c\in\R</m>. 
+                On montre que <m>T_3</m> respecte les deux <xref ref="def-transfolin">propriétés</xref> des transformations linéaires.
+                <md>
+                    <mrow>T_3(\vec{u}+\vec{v})&amp;=T_3((x_1,y_1)+(x_2,y_2))</mrow>
+                    <mrow>&amp;=T_3(x_1+x_2,y_1+y_2)</mrow>
+                    <mrow>&amp;=(2(x_1+x_2)-(y_1+y_2),x_1+x_2)</mrow>
+                    <mrow>&amp;=(2x_1-y_1,x_1)+(2x_2-y_2,x_2)</mrow>
+                    <mrow>&amp;=T_3(x_1,y_1)+T_3(x_2,y_2)</mrow>
+                    <mrow>&amp;=T_3(\vec{u})+T_3(\vec{v})</mrow>
+                </md>
+                et
+                <md>
+                    <mrow>T_3(c\vec{u})&amp;=T_3(c(x_1,y_1))</mrow>
+                    <mrow>&amp;=T_3(cx_1,cy_1)</mrow>
+                    <mrow>&amp;=(2(cx_1)-cy_1,cx_1)</mrow>
+                    <mrow>&amp;=c(2(x_1)-y_1,x_1)</mrow>
+                    <mrow>&amp;=cT_3(\vec{u})</mrow>
+                </md></p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T_4\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}1/x\\y\end{pmatrix}</m></p>
+            </statement>
+            <answer>
+                <p>La transformation <m>T_4</m> n'est pas linéaire.</p>
+            </answer>
+            <solution>
+                <p>Il n'est pas demander de démontrer si ce n'est pas linéaire. 
+                Il aurait suffit de choisir une des deux propriétés et de montrer qu'elle est fausse avec des exemples spécifiques de vecteur(s) et de constantes.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T_5\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}x+3y\\0\end{pmatrix}</m></p>
+            </statement>
+            <answer>
+                <p>La transformation <m>T_5</m> est linéaire.</p>
+            </answer>
+            <solution>
+                <p>Soient <m>\vec{u}=(x_1,y_1),\vec{v}=(x_2,y_2)\in\R^2</m> et <m>c\in\R</m>. 
+                On montre que <m>T_3</m> respecte les deux <xref ref="def-transfolin">propriétés</xref> des transformations linéaires.
+                <md>
+                    <mrow>T_5(\vec{u}+\vec{v})&amp;=T_5((x_1,y_1)+(x_2,y_2))</mrow>
+                    <mrow>&amp;=T_5(x_1+x_2,y_1+y_2)</mrow>
+                    <mrow>&amp;=((x_1+x_2)+3(y_1+y_2),0)</mrow>
+                    <mrow>&amp;=(x_1+3y_1,0)+(x_2+3y_2,0)</mrow>
+                    <mrow>&amp;=T_5(x_1,y_1)+T_5(x_2,y_2)</mrow>
+                    <mrow>&amp;=T_5(\vec{u})+T_5(\vec{v})</mrow>
+                </md>
+                et
+                <md>
+                    <mrow>T_5(c\vec{u})&amp;=T_5(c(x_1,y_1))</mrow>
+                    <mrow>&amp;=T_5(cx_1,cy_1)</mrow>
+                    <mrow>&amp;=(cx_1+3(cy_1),0)</mrow>
+                    <mrow>&amp;=c(x_1+3y_1,0)</mrow>
+                    <mrow>&amp;=cT_5(\vec{u})</mrow>
+                </md></p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T_6\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}y\\x\end{pmatrix}</m></p>
+            </statement>
+            <answer>
+                <p>La transformation <m>T_6</m> est linéaire.</p>
+            </answer>
+            <solution>
+                <p>Soient <m>\vec{u}=(x_1,y_1),\vec{v}=(x_2,y_2)\in\R^2</m> et <m>c\in\R</m>. 
+                On montre que <m>T_3</m> respecte les deux <xref ref="def-transfolin">propriétés</xref> des transformations linéaires.
+                <md>
+                    <mrow>T_6(\vec{u}+\vec{v})&amp;=T_6((x_1,y_1)+(x_2,y_2))</mrow>
+                    <mrow>&amp;=T_6(x_1+x_2,y_1+y_2)</mrow>
+                    <mrow>&amp;=(y_1+y_2,x_1+x_2)</mrow>
+                    <mrow>&amp;=(y_1,x_1)+(y_2,x_2)</mrow>
+                    <mrow>&amp;=T_6(x_1,y_1)+T_6(x_2,y_2)</mrow>
+                    <mrow>&amp;=T_6(\vec{u})+T_6(\vec{v})</mrow>
+                </md>
+                et
+                <md>
+                    <mrow>T_6(c\vec{u})&amp;=T_6(c(x_1,y_1))</mrow>
+                    <mrow>&amp;=T_6(cx_1,cy_1)</mrow>
+                    <mrow>&amp;=(cy_1,cx_1)</mrow>
+                    <mrow>&amp;=c(y_1,x_1)</mrow>
+                    <mrow>&amp;=cT_6(\vec{u})</mrow>
+                </md></p>
+            </solution>
+            </task>
     </exercise>
     <exercise xml:id="exo-trouvermattransfomots">
+            <introduction>
+                <p>Soit <m>T</m>, une transformation linéaire de <m>\R^2</m> vers <m>\R^2</m> et <m>\vec{u}\in\R^2</m>, un vecteur quelconque du plan.
+                Déterminer la matrice de transformation linéaire <m>A</m> si:</p>
+            </introduction>
+            <task>
             <statement>
-                <p>Soit <m>T</m> est une transformation linéaire de <m>\R^2</m> vers <m>\R^2</m> et <m>\vec{u}\in\R^2</m>, un vecteur quelconque du plan.
-                Déterminer la matrice de transformation linéaire <m>A</m> si:
-                <ol>
-                <li><p><m>T(\vec{u})</m> est obtenu en faisant la réflexion de <m>\vec{u}</m> selon l'axe des ordonnées (<m>y</m>).</p></li>
-                <li><p><m>T(\vec{u})</m> est obtenu en faisant la rotation de <m>\vec{u}</m> de <m>120^\circ</m> dans le sens <em>horaire</em>.</p></li>
-                <li><p><m>T(\vec{u})</m> est obtenu en faisant la réflexion de <m>\vec{u}</m> selon l'axe <m>y=-x</m>.</p></li>
-                <li><p><m>T(\vec{u})</m> est obtenu en le projetant sur la droite <m>y=x</m>.</p></li>
-                <li><p><m>T(\vec{u})</m> est obtenu en faisant d'abord une homotétie de facteur <m>2</m>, puis une rotation de <m>90^\circ</m> dans le sens anti-horaire.</p></li>
-                <li><p><m>T(\vec{u})</m> est obtenue en l'étirant horizontalement d'un facteur <m>3</m>, puis en le projetant sur la droite <m>y=-x</m>.</p></li>
-                </ol>
-                </p>
+                <p><m>T(\vec{u})</m> est obtenu en faisant la réflexion de <m>\vec{u}</m> selon l'axe des ordonnées (<m>y</m>).</p>
             </statement>
             <hint>
                 <p>Certaines matrices sont connues, comme la matrice de rotation <xref ref="eq-rotr2"/> et les transformations de l'exemple <xref ref="ex-mattransfor2"/>. 
                 Sinon, il est toujours possible de réfléchir et déterminer où les vecteurs <m>(1,0)</m> et <m>(0,1)</m> seront amenés comme on l'a fait dans l'exemple.</p>
             </hint>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p><me>A=\begin{pmatrix}-1&amp;0\\0&amp;1\end{pmatrix}</me></p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>On détermine où les vecteurs <m>(1,0)</m> et <m>(0,1)</m> seront amenés suite à cette transformation linéaire.
+                Les résultats formeront les colonnes de la matrice <m>A</m>. 
+                La réflexion selon l'axe des <m>y</m> ne modifiera pas <m>(0,1)</m>, mais amènera le vecteur <m>(1,0)</m> vers le vecteur <m>(-1,0)</m>.
+                Bref,
+                <me>T\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}-1\\0\end{pmatrix}</me>
+                et
+                <me>T\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}0\\1\end{pmatrix}</me>
+                Cela donne donc:
+                <me>A=\begin{pmatrix}-1&amp;0\\0&amp;1\end{pmatrix}</me>
+                </p>
             </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T(\vec{u})</m> est obtenu en faisant la rotation de <m>\vec{u}</m> de <m>120^\circ</m> dans le sens <em>horaire</em>.</p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}-\frac{1}{2}&amp; \frac{\sqrt{3}}{2}\\ -\frac{\sqrt{3}}{2} &amp; -\frac{1}{2}\end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>On connait déjà la <xref ref="eq-rotr2"> matrice de rotation </xref>. 
+                Elle est définie pour une rotation de <m>\theta</m> dans le sens <em>anti-horaire.</em>
+                On pose donc ici <m>\theta=-120^\circ=-\frac{2\pi}{3}</m> et on calcule les éléments de la matrice.
+                <md>
+                    <mrow>A&amp;=\begin{pmatrix}\cos(-120^\circ) &amp; -\sin(-120^\circ)\\ \sin(-120^\circ) &amp; \cos(-120^\circ)\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}-\frac{1}{2}&amp; \frac{\sqrt{3}}{2}\\ -\frac{\sqrt{3}}{2} &amp; -\frac{1}{2}\end{pmatrix}</mrow>
+                </md></p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T(\vec{u})</m> est obtenu en faisant la réflexion de <m>\vec{u}</m> selon l'axe <m>y=-x</m>.</p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}0&amp;-1\\-1&amp;0\end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>On détermine où les vecteurs <m>(1,0)</m> et <m>(0,1)</m> seront amenés suite à cette transformation linéaire.
+                Les résultats formeront les colonnes de la matrice <m>A</m>. 
+                La réflexion selon l'axe <m>y=-x</m> amènera le vecteur <m>(1,0)</m> vers le vecteur <m>(0,-1)</m> et le vecteur <m>(0,1)</m>
+                vers le vecteur <m>(-1,0)</m>
+                Bref,
+                <me>T\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}0\\-1\end{pmatrix}</me>
+                et
+                <me>T\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}-1\\0\end{pmatrix}</me>
+                Cela donne donc:
+                <me>A=\begin{pmatrix}0&amp;-1\\-1&amp;0\end{pmatrix}</me></p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T(\vec{u})</m> est obtenu en le projetant sur la droite <m>y=x</m>.</p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}\frac{1}{2}&amp;\frac{1}{2}\\\frac{1}{2}&amp;\frac{1}{2}\end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>On détermine où les vecteurs <m>(1,0)</m> et <m>(0,1)</m> seront amenés suite à cette transformation linéaire.
+                Les résultats formeront les colonnes de la matrice <m>A</m>. 
+                Puisque c'est une projection, on peut utiliser la <xref ref="eq-projortho"> formule de la projection </xref>.
+                Il faut simplement créer un vecteur <m>\vec{u}</m> qui soit sur la droite <m>y=x</m> pour projeter dessus. 
+                On prend <m>\vec{u}=(1,1)</m>.
+                <md>
+                    <mrow>T\begin{pmatrix}1\\0\end{pmatrix}&amp;=(1,0)_{(1,1)}</mrow>
+                    <mrow>&amp;=\frac{(1,0)\cdot(1,1)}{(1,1)\cdot(1,1)}(1,1)</mrow>
+                    <mrow>&amp;=\frac{1}{2}(1,1)</mrow>
+                    <mrow>&amp;=\left(\frac{1}{2},\frac{1}{2}\right)</mrow>
+                    <mrow>&amp;=\begin{pmatrix}\frac{1}{2}\\\frac{1}{2}\end{pmatrix}</mrow>
+                </md>
+                et
+                <md>
+                    <mrow>T\begin{pmatrix}0\\1\end{pmatrix}&amp;=(0,1)_{(1,1)}</mrow>
+                    <mrow>&amp;=\frac{(0,1)\cdot(1,1)}{(1,1)\cdot(1,1)}(1,1)</mrow>
+                    <mrow>&amp;=\frac{1}{2}(1,1)</mrow>
+                    <mrow>&amp;=\left(\frac{1}{2},\frac{1}{2}\right)</mrow>
+                    <mrow>&amp;=\begin{pmatrix}\frac{1}{2}\\\frac{1}{2}\end{pmatrix}</mrow>
+                </md>
+                Cela donne donc:
+                <me>A=\begin{pmatrix}\frac{1}{2}&amp;\frac{1}{2}\\\frac{1}{2}&amp;\frac{1}{2}\end{pmatrix}</me></p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T(\vec{u})</m> est obtenu en faisant d'abord une homotétie de facteur <m>2</m>, puis une rotation de <m>90^\circ</m> dans le sens anti-horaire.</p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}0&amp;-2\\2&amp;0\end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>On connait déjà les matrices d'<xref ref="eq-homotr2">homothétie </xref> et de <xref ref="eq-rotr2"> rotation </xref>. 
+                Cependant, pour faire ces deux transformations de façon successive, il nous faut utiliser la multiplication matrice vecteur pour connaitre
+                leur effet sur les vecteurs <m>(1,0)</m> et <m>(0,1)</m>. 
+                On remarque que la matrice qui agira en premier se trouve à droite, soit le plus près du vecteur à transformer.
+                On utilisera donc <me>R_{90^\circ}=\begin{pmatrix}\cos(90^\circ) &amp; -\sin(90^\circ)\\ \sin(90^\circ) &amp; \cos(90^\circ)\end{pmatrix}=
+                \begin{pmatrix}0 &amp; -1\\ 1 &amp; 0\end{pmatrix}</me>
+                et <me>H_2=\begin{pmatrix}2&amp;0\\ 0&amp;2 \end{pmatrix}</me>
+                <md>
+                    <mrow>T\begin{pmatrix}1\\0\end{pmatrix}&amp;
+                    =\begin{pmatrix}0 &amp; -1\\ 1 &amp; 0\end{pmatrix}\begin{pmatrix}2&amp;0\\ 0&amp;2 \end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0 &amp; -1\\ 1 &amp; 0\end{pmatrix}\begin{pmatrix}2\\0\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0\\2\end{pmatrix}</mrow>
+                </md>
+                et
+                <md>
+                    <mrow>T\begin{pmatrix}0\\1\end{pmatrix}&amp;
+                    =\begin{pmatrix}0 &amp; -1\\ 1 &amp; 0\end{pmatrix}\begin{pmatrix}2&amp;0\\ 0&amp;2 \end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0 &amp; -1\\ 1 &amp; 0\end{pmatrix}\begin{pmatrix}0\\2\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}-2\\0\end{pmatrix}</mrow>
+                </md>
+                Cela donne donc:
+                <me>A=\begin{pmatrix}0&amp;-2\\2&amp;0\end{pmatrix}</me>
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T(\vec{u})</m> est obtenue en l'étirant horizontalement d'un facteur <m>3</m>, puis en le projetant sur la droite <m>y=-x</m>.</p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}\frac{3}{2}&amp;-\frac{1}{2}\\-\frac{3}{2}&amp;\frac{1}{2}\end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>On pourrait procéder de façon semblable à la dernière question en trouvant d'abord les matrices d'<xref ref="eq-etirementhr2"> étirement horizontal </xref> et de projection,
+                mais on choisit une avenue plus intuitive. 
+                On peut réellement, en se faisant un dessin, <em>voir</em> où les vecteurs <m>(1,0)</m> et <m>(0,1)</m> se déplaceront.
+                D'abord, le vecteur <m>(1,0)</m> est étiré horizontalement de facteur <m>3</m> pour devenir le vecteur <m>(3,0)</m>.
+                Ensuite, la projection sur la droite <m>y=-x</m> l'amènera au vecteur <m>\left(\frac{3}{2},-\frac{3}{2}\right)</m>.
+                Le vecteur <m>(0,1)</m> ne sera pas touché par l'étirement horizontal, mais se déplacera de façon similaire par la projection
+                pour devenir <m>\left(-\frac{1}{2},\frac{1}{2}\right)</m>.
+                Bref,
+                <me>T\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}\frac{3}{2}\\ -\frac{3}{2}\end{pmatrix}</me>
+                et
+                <me>T\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}-\frac{1}{2}\\ \frac{1}{2}\end{pmatrix}</me>
+                Cela donne donc:
+                <me>A=\begin{pmatrix}\frac{3}{2}&amp;-\frac{1}{2}\\-\frac{3}{2}&amp;\frac{1}{2}\end{pmatrix}</me></p>
+            </solution>
+            </task>
     </exercise>
     <exercise xml:id="exo-trouvermattransfovecteurs">
+            <introduction>
+                <p>Soit <m>T</m> est une transformation linéaire de <m>\R^2</m> vers <m>\R^2</m>. 
+                Déterminer la matrice de transformation linéaire <m>A</m> si:</p>
+            </introduction>
+            <task>
             <statement>
-                <p>Soit <m>T</m> est une transformation linéaire de <m>\R^2</m> vers <m>\R^2</m>. Déterminer la matrice de transformation linéaire <m>A</m> si:
-                <ol>
-                    <li><p><m>T\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}-2\\5\end{pmatrix}</m> et <m>T\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}3\\6\end{pmatrix}</m></p></li>
-                    <li><p><m>T\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}2\\-3\end{pmatrix}</m> et <m>T\begin{pmatrix}2\\1\end{pmatrix}=\begin{pmatrix}-1\\1\end{pmatrix}</m></p></li>
-                    <li><p><m>T\begin{pmatrix}2\\1\end{pmatrix}=\begin{pmatrix}5\\3\end{pmatrix}</m> et <m>T\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}1\\-3\end{pmatrix}</m></p></li>
-                    <li><p><m>T\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}3\\3\end{pmatrix}</m> et <m>T\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}-1\\1\end{pmatrix}</m></p></li>
-                </ol>
-                </p>
+                <p><m>T\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}-2\\5\end{pmatrix}</m> et <m>T\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}3\\6\end{pmatrix}</m></p>
             </statement>
             <hint>
                 <p>Comme dans l'exemple <xref ref="ex-mattransfor2"/>, il faut déterminer <m>T\begin{pmatrix}1\\0\end{pmatrix}</m> et <m>T\begin{pmatrix}0\\1\end{pmatrix}</m>.
@@ -117,68 +437,267 @@
                 des vecteurs dont on connait l'effet de <m>T</m> et utiliser la linéarité pour trouver ce qu'on veut. </p>
             </hint>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p><me>A=\begin{pmatrix}-2&amp;3\\5&amp;6\end{pmatrix}</me></p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>On nous donne directement l'effet de <m>T</m> sur les vecteurs <m>\begin{pmatrix}1\\0\end{pmatrix}</m> et <m>\begin{pmatrix}0\\1\end{pmatrix}</m>.
+                On a donc directement les colonnes de la matrice. Ainsi,
+                <me>A=\begin{pmatrix}-2&amp;3\\5&amp;6\end{pmatrix}</me></p>
             </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}2\\-3\end{pmatrix}</m> et <m>T\begin{pmatrix}2\\1\end{pmatrix}=\begin{pmatrix}-1\\1\end{pmatrix}</m></p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}2&amp;-5\\-3&amp;7\end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>On a les éléments de la première colonne de <m>A</m>, mais pas ceux de la seconde. 
+                On a besoin de déterminer <m>T\begin{pmatrix}0\\1\end{pmatrix}</m>.
+                On suit l'indication pour y arriver.
+                <me>\begin{pmatrix}0\\1\end{pmatrix}=a\begin{pmatrix}1\\0\end{pmatrix}+b\begin{pmatrix}2\\1\end{pmatrix}</me>
+                On pourrait créer un système d'équations linéaires pour <m>a</m> et <m>b</m>, mais il est évident que <m>b=1</m> de par la composante en <m>y</m>.
+                Il suit que <m>a=-2</m>. On trouve ce qu'on cherche ainsi:
+                <md>
+                    <mrow>T\begin{pmatrix}0\\1\end{pmatrix}&amp;=T\left(a\begin{pmatrix}1\\0\end{pmatrix}+b\begin{pmatrix}2\\1\end{pmatrix}\right)</mrow>
+                    <mrow>&amp;=aT\begin{pmatrix}1\\0\end{pmatrix}+bT\begin{pmatrix}2\\1\end{pmatrix}\text{ par } <xref ref="def-transfolin"/></mrow>
+                    <mrow>&amp;=-2T\begin{pmatrix}1\\0\end{pmatrix}+T\begin{pmatrix}2\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=-2\begin{pmatrix}2\\-3\end{pmatrix}+\begin{pmatrix}-1\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}-4\\6\end{pmatrix}+\begin{pmatrix}-1\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}-5\\7\end{pmatrix}</mrow>
+                </md>
+                Cela nous a donné la deuxième colonne de <m>A</m>. Ainsi,
+                <me>A=\begin{pmatrix}2&amp;-5\\-3&amp;7\end{pmatrix}</me></p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T\begin{pmatrix}2\\1\end{pmatrix}=\begin{pmatrix}5\\3\end{pmatrix}</m> et <m>T\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}1\\-3\end{pmatrix}</m></p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}2&amp;1\\3&amp;-3\end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>De façon semblable, on doit maintenant trouver <m>T\begin{pmatrix}1\\0\end{pmatrix}</m> à l'aide de ce qui nous est fourni.
+                <me>\begin{pmatrix}1\\0\end{pmatrix}=a\begin{pmatrix}2\\1\end{pmatrix}+b\begin{pmatrix}0\\1\end{pmatrix}</me>
+                Il suit que <m>a=\frac{1}{2}</m> et <m>b=-\frac{1}{2}</m>. Ainsi,
+                <md>
+                    <mrow>T\begin{pmatrix}1\\0\end{pmatrix}&amp;=T\left(a\begin{pmatrix}2\\1\end{pmatrix}+b\begin{pmatrix}0\\1\end{pmatrix}\right)</mrow>
+                    <mrow>&amp;=aT\begin{pmatrix}2\\1\end{pmatrix}+bT\begin{pmatrix}0\\1\end{pmatrix}\text{ par } <xref ref="def-transfolin"/></mrow>
+                    <mrow>&amp;=\frac{1}{2}T\begin{pmatrix}2\\1\end{pmatrix}-\frac{1}{2}T\begin{pmatrix}0\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\frac{1}{2}\begin{pmatrix}5\\3\end{pmatrix}-\frac{1}{2}\begin{pmatrix}1\\-3\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}\frac{5}{2}\\\frac{3}{2}\end{pmatrix}+\begin{pmatrix}-\frac{1}{2}\\\frac{3}{2}\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}2\\3\end{pmatrix}</mrow>
+                </md>
+                Cela nous a donné la première colonne de <m>A</m>. Ainsi,
+                <me>A=\begin{pmatrix}2&amp;1\\3&amp;-3\end{pmatrix}</me>
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>T\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}3\\3\end{pmatrix}</m> et <m>T\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}-1\\1\end{pmatrix}</m></p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}1&amp;2\\2&amp;1\end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>Cette fois, il faut trouver des combinaisons linéaires pour <m>\begin{pmatrix}1\\0\end{pmatrix}</m> et <m>\begin{pmatrix}0\\1\end{pmatrix}</m>.
+                <me>\begin{pmatrix}1\\0\end{pmatrix}=a\begin{pmatrix}1\\1\end{pmatrix}+b\begin{pmatrix}1\\-1\end{pmatrix}</me>
+                On solutionne les équations <em>cachées</em> derrière:
+                <me>\begin{cases}1=a+b\\0=a-b\end{cases}</me>
+                et on obtient <m>a=b=\frac{1}{2}</m>.
+                De même, <me>\begin{pmatrix}0\\1\end{pmatrix}=c\begin{pmatrix}1\\1\end{pmatrix}+d\begin{pmatrix}1\\-1\end{pmatrix}</me>. 
+                Ce qui donne <m>c=\frac{1}{2}</m> et <m>d=-\frac{1}{2}</m>.
+                Ainsi,
+                <md>
+                    <mrow>T\begin{pmatrix}1\\0\end{pmatrix}&amp;=T\left(a\begin{pmatrix}1\\1\end{pmatrix}+b\begin{pmatrix}1\\-1\end{pmatrix}\right)</mrow>
+                    <mrow>&amp;=aT\begin{pmatrix}1\\1\end{pmatrix}+bT\begin{pmatrix}1\\-1\end{pmatrix}\text{ par } <xref ref="def-transfolin"/></mrow>
+                    <mrow>&amp;=\frac{1}{2}T\begin{pmatrix}1\\1\end{pmatrix}+\frac{1}{2}T\begin{pmatrix}1\\-1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\frac{1}{2}\begin{pmatrix}3\\3\end{pmatrix}+\frac{1}{2}\begin{pmatrix}-1\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}\frac{3}{2}\\\frac{3}{2}\end{pmatrix}+\begin{pmatrix}-\frac{1}{2}\\\frac{1}{2}\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}1\\2\end{pmatrix}</mrow>
+                </md>
+                et
+                <md>
+                    <mrow>T\begin{pmatrix}0\\1\end{pmatrix}&amp;=T\left(c\begin{pmatrix}1\\1\end{pmatrix}+d\begin{pmatrix}1\\-1\end{pmatrix}\right)</mrow>
+                    <mrow>&amp;=cT\begin{pmatrix}1\\1\end{pmatrix}+dT\begin{pmatrix}1\\-1\end{pmatrix}\text{ par } <xref ref="def-transfolin"/></mrow>
+                    <mrow>&amp;=\frac{1}{2}T\begin{pmatrix}1\\1\end{pmatrix}-\frac{1}{2}T\begin{pmatrix}1\\-1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\frac{1}{2}\begin{pmatrix}3\\3\end{pmatrix}-\frac{1}{2}\begin{pmatrix}-1\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}\frac{3}{2}\\\frac{3}{2}\end{pmatrix}+\begin{pmatrix}\frac{1}{2}\\-\frac{1}{2}\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}2\\1\end{pmatrix}</mrow>
+                </md>
+                Ainsi, 
+                <me>A=\begin{pmatrix}1&amp;2\\2&amp;1\end{pmatrix}</me>.
+                </p>
+            </solution>
+            </task>
     </exercise>
     <exercise xml:id="exo-transfodoubledef">
-            <statement>
+            <introduction>
                 <p>Les graphiques suivants représentent des transformations linéaires simples. Malgré ce qu'il peut sembler à première vue, leur définition est ambigüe.
-                Déterminer les deux matrices de transformation pouvant décrire chaque transformation illustrée.
-                <ol>
-                <li><figure xml:id="fig-exo-transfodoubledef1">
+                Déterminer les deux matrices de transformation pouvant décrire chaque transformation illustrée.</p>
+            </introduction>
+            <task>
+            <statement>
+                <p><figure xml:id="fig-exo-transfodoubledef2">
                         <caption> </caption>
-                        <image source="images/exo-transfodoubledef1.svg" width="100%">
+                        <image source="images/exo-transfodoubledef2.svg" width="100%">
                             <description>
                                 Une première transformation linéaire illustrée par son effet sur une figure.
                             </description>
                         </image>
-                </figure></li>
-                <li><figure xml:id="fig-exo-transfodoubledef2">
-                        <caption> </caption>
-                        <image source="images/exo-transfodoubledef2.svg" width="100%">
-                            <description>
-                                Une deuxième transformation linéaire illustrée par son effet sur une figure.
-                            </description>
-                        </image>
-                </figure></li>
-                <li><figure xml:id="fig-exo-transfodoubledef3">
-                        <caption> </caption>
-                        <image source="images/exo-transfodoubledef3.svg" width="100%">
-                            <description>
-                                Une troisième transformation linéaire illustrée par son effet sur une figure.
-                            </description>
-                        </image>
-                </figure></li>
-                </ol>
-                </p>
+                </figure></p>
             </statement>
             <hint>
                 <p>Comme d'habitude, il faut trouver l'effet de chaque transformation sur <m>(1,0)</m> et <m>(0,1)</m>.</p>
             </hint>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p><me>A_1=\begin{pmatrix}-1&amp;0\\0&amp;1\end{pmatrix}</me>
+                et
+                <me>A_2=\begin{pmatrix}0&amp;-2\\\frac{1}{2}&amp;0\end{pmatrix}</me></p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>La première option, qui semble la plus intuitive est de voir cette transformation comme une réflexion par rapport à
+                l'axe des <m>y</m>. Ainsi, seul le vecteur <m>(1,0)</m> se transformera pour devenir <m>(-1,0)</m>. 
+                On met les résultats en colonnes dans la matrice.
+                <me>A_1=\begin{pmatrix}-1&amp;0\\0&amp;1\end{pmatrix}</me>
+                Pour créer l'autre transformation, il suffit d'imaginer la transformation où les rôles des branches du <em>L</em> sont inversés.
+                Il s'agit donc d'une rotation et d'un étirement horizontal et d'une compression verticale. 
+                On voit aisément que le vecteur <m>(1,0)</m> se retrouve à <m>\left(0,\frac{1}{2}\right)</m>.
+                Cependant, le vecteur <m>(0,1)</m> ne formant pas une des branches, on doit s'imaginer où il se retrouvera. 
+                On doit réaliser qu'il arrivera à <m>(-2,0)</m> puisqu'il sera au double d'où la branche se retrouve. 
+                Ces résultats formeront les colonnes de la matrice.
+                <me>A_2=\begin{pmatrix}0&amp;-2\\\frac{1}{2}&amp;0\end{pmatrix}</me></p>
             </solution>
+            </task>
+            <task>
+            <statement>
+                <p><figure xml:id="fig-exo-transfodoubledef3">
+                        <caption> </caption>
+                        <image source="images/exo-transfodoubledef3.svg" width="100%">
+                            <description>
+                                Une deuxième transformation linéaire illustrée par son effet sur une figure.
+                            </description>
+                        </image>
+                </figure></p>
+            </statement>
+            <answer>
+                <p><me>A_1=\begin{pmatrix}0&amp;1\\-1&amp;0\end{pmatrix}</me>
+                et
+                <me>A_2=\begin{pmatrix}-\frac{1}{2}&amp;0\\0&amp;2\end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>La transformation la plus simple à visualiser est une rotation de <m>90^\circ</m>. 
+                On connait déjà sa matrice, mais on peut aussi la construire en regardant où les vecteurs <m>(1,0)</m> et <m>(0,1)</m> se retrouvent.
+                Le résultat, en colonnes, donne:
+                <me>A_1=\begin{pmatrix}0&amp;1\\-1&amp;0\end{pmatrix}</me>
+                La deuxième option est une réflexion selon l'axe des <m>y</m>, ainsi qu'un étirement vertical et une compression horizontale.
+                Les vecteurs en colonnes donneront la matrice:
+                <me>A_2=\begin{pmatrix}-\frac{1}{2}&amp;0\\0&amp;2\end{pmatrix}</me></p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><figure xml:id="fig-exo-transfodoubledef1">
+                        <caption> </caption>
+                        <image source="images/exo-transfodoubledef1.svg" width="100%">
+                            <description>
+                                Une troisième transformation linéaire illustrée par son effet sur une figure.
+                            </description>
+                        </image>
+                </figure></p>
+            </statement>
+            <answer>
+                <p><me>A_1=\begin{pmatrix}1&amp;-2\\1&amp;2\end{pmatrix}</me>
+                et
+                <me>A_2=\begin{pmatrix}-1&amp;2\\1&amp;2\end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>La première transformation est une combinaison d'étirements horizontal et vertical suivis d'une rotation de <m>45^\circ</m>.
+                Ainsi, le vecteur <m>(1,0)</m> se retrouve à <m>(1,1)</m>. 
+                Le vecteur <m>(0,1)</m> n'étant pas une des branches, il faut plus d'imagination pour voir où il se retrouve.
+                En doublant la longueur de la branche et donc ses coordonnées, on arrive à <m>(-2,2)</m>. La matrice est donc:
+                <me>A_1=\begin{pmatrix}1&amp;-2\\1&amp;2\end{pmatrix}</me>.
+                La deuxième transformation implique des étirements également ainsi qu'une rotation, mais également une réflexion.
+                C'est donc assez complexe géométriquement, mais en utilisant la même méthode, on peut retrouver la matrice.
+                Ainsi, le vecteur <m>(1,0)</m> se retrouve à <m>(-1,1)</m> et le vecteur <m>(0,1)</m> se retrouve à <m>(2,2)</m>.
+                On obtient donc:
+                <me>A_2=\begin{pmatrix}-1&amp;2\\1&amp;2\end{pmatrix}</me>.</p>
+            </solution>
+            </task>
     </exercise>
     <exercise xml:id="exo-propopmat">
             <statement>
                 <p>Dans l'exercice <xref ref="exo-propvec2"/>, on a démontré les propriétés des vecteurs algébriques. 
                 Ces propriétés s'appliquent également aux matrices et ont été énoncées dans la liste <xref ref="li-opmat"/>.
-                Soit <m>A,B,C\in \mathcal{M}_{m\times n}</m> et <m>r,s\in \R</m>. Démontrer algébriquement chacune de ces propriétés.</p>
+                Soient <m>A,B,C\in \mathcal{M}_{m\times n}</m> et <m>r,s\in \R</m>. Démontrer algébriquement chacune de ces propriétés.</p>
             </statement>
-            <hint>
-                <p>Un indice.</p>
-            </hint>
-            <answer>
-                <p>La réponse sera disponible sous peu.</p>
-            </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>Il existe deux formes de notation que l'on pourrait utiliser pour cette démonstration.
+                La version lourde est d'exprimer chaque matrice sous la forme suivante. On exprime <m>A\in \mathcal{M}_{m\times n}</m>.
+                <me>A=\begin{pmatrix}
+                a_{1\, 1}&amp;a_{1\, 2}&amp;\cdots &amp; a_{1\, n}\\
+                a_{2\, 1}&amp;a_{2\, 2}&amp;\cdots &amp; a_{2\, n}\\
+                \vdots  &amp; \vdots &amp; \ddots &amp; \vdots \\
+                a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}\\
+                \end{pmatrix}</me>
+                On pourrait alors démontrer chaque propriété algébriquement de façon semblable à l'exercice <xref ref="exo-propvec2"/> pour les vecteurs de <m>\R^2</m>.
+                Cependant, il existe une notation beaucoup moins lourde. 
+                Considérant que toutes les matrices en présence sont de mêmes dimensions, que l'<xref ref="def-matsomme">addition matricielle</xref> 
+                est définie élément par élément et que la <xref ref="def-matprodscal">multiplication par un scalaire</xref> multiplie tous les éléments 
+                de chaque matrice, on va adopter la notation beaucoup plus simple suivante. 
+                Bref, soient <m>A=(a_{i,j}),B=(b_{i,j}),C=(c_{i,j})\in \mathcal{M}_{m\times n}</m> et <m>r,s\in \R</m>.
+                <ol>
+                    <li><md><mrow>A+B&amp;=(a_{i,j})+(b_{i,j})</mrow>
+                        <mrow>&amp;=(a_{i,j}+b_{i,j})</mrow>
+                        <mrow>&amp;=(b_{i,j}+a_{i,j})</mrow>
+                        <mrow>&amp;=(b_{i,j})+(a_{i,j})</mrow>
+                        <mrow>&amp;=B+A</mrow></md></li>
+                    <li><md><mrow>A+(B+C)&amp;=(a_{i,j})+\big((b_{i,j})+(c_{i,j})\big)</mrow>
+                    <mrow>&amp;=(a_{i,j})+(b_{i,j}+c_{i,j})</mrow>
+                    <mrow>&amp;=(a_{i,j}+b_{i,j}+c_{i,j})</mrow>
+                    <mrow>&amp;=(a_{i,j}+b_{i,j})+(c_{i,j})</mrow>
+                    <mrow>&amp;=\big((a_{i,j})+(b_{i,j})\big)+(c_{i,j})</mrow>
+                    <mrow>&amp;=(A+B)+C</mrow>
+                    </md></li>
+                    <li><md><mrow>A+O&amp;=(a_{i,j})+(0_{i,j})</mrow>
+                    <mrow>&amp;=(a_{i,j}+0_{i,j})</mrow>
+                    <mrow>&amp;=(a_{i,j})</mrow>
+                    <mrow>&amp;=A</mrow>
+                    </md></li>
+                    <li><md><mrow>A+(-A)&amp;=(a_{i,j})+(-a_{i,j})</mrow>
+                    <mrow>&amp;=(a_{i,j})-a_{i,j})</mrow>
+                    <mrow>&amp;=(0_{i,j})</mrow>
+                    <mrow>&amp;=O</mrow>
+                    </md></li>
+                    <li><md><mrow>(rs)A&amp;=(rs)(a_{i,j})</mrow>
+                    <mrow>&amp;=((rs)a_{i,j})</mrow>
+                    <mrow>&amp;=(r(sa_{i,j}))</mrow>
+                    <mrow>&amp;=r(sa_{i,j})</mrow>
+                    <mrow>&amp;=r(s(a_{i,j}))</mrow>
+                    <mrow>&amp;=r(sA)</mrow>
+                    </md></li>
+                    <li><md><mrow>r(A+B)&amp;=r\big((a_{i,j})+(b_{i,j})\big)</mrow>
+                    <mrow>&amp;=r(a_{i,j}+b_{i,j})</mrow>
+                    <mrow>&amp;=\big(r(a_{i,j}+b_{i,j})\big)</mrow>
+                    <mrow>&amp;=(ra_{i,j}+rb_{i,j})</mrow>
+                    <mrow>&amp;=(ra_{i,j})+(rb_{i,j})</mrow>
+                    <mrow>&amp;=r(a_{i,j})+r(b_{i,j})</mrow>
+                    <mrow>&amp;=rA+rB</mrow>
+                    </md></li>
+                    <li><md><mrow>(r+s)A&amp;=(r+s)(a_{i,j})</mrow>
+                    <mrow>&amp;=\big((r+s)a_{i,j}\big)</mrow>
+                    <mrow>&amp;=(ra_{i,j}+sa_{i,j})</mrow>
+                    <mrow>&amp;=(ra_{i,j})+(sa_{i,j})</mrow>
+                    <mrow>&amp;=r(a_{i,j})+s(a_{i,j})</mrow>
+                    <mrow>&amp;=rA+sA</mrow></md></li>
+                    <li><md><mrow>1A&amp;=1(a_{i,j})</mrow>
+                    <mrow>&amp;=(1a_{i,j})</mrow>
+                    <mrow>&amp;=(a_{i,j})</mrow>
+                    <mrow>&amp;=A</mrow></md></li>
+            </ol></p>
             </solution>
     </exercise>
     <exercise xml:id="exo-sommetransfo">
@@ -250,10 +769,26 @@
                 <m>S(0,1)</m> et les mettre en colonnes dans la matrice de <m>S</m>.</p>
             </hint>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p><me>S=\begin{pmatrix}-1&amp;0\\0&amp;1\end{pmatrix}</me></p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>On suit l'indication.
+                <md>
+                    <mrow>S\begin{pmatrix}1\\0\end{pmatrix}&amp;=R_{\frac{\pi}{2}}\circ P\begin{pmatrix}1\\0\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}-1\\0\end{pmatrix}</mrow>
+                </md>
+                et
+                <md>
+                    <mrow>S\begin{pmatrix}0\\1\end{pmatrix}&amp;=R_{\frac{\pi}{2}}\circ P\begin{pmatrix}0\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0\\1\end{pmatrix}</mrow>
+                </md>
+                Ce qui donne, en colonnes dans <m>S</m>:
+                <me>S=\begin{pmatrix}-1&amp;0\\0&amp;1\end{pmatrix}</me>
+                </p>
             </solution>
     </exercise>
     <exercise xml:id="exo-reptransfomatunique">
@@ -297,7 +832,23 @@
                 Cela mènera rapidement à une contradiction.</p>
             </hint>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>Soient <m>A</m> et <m>B</m>, deux matrices différentes de mêmes dimensions. 
+                On procède de façon semblable à l'exercice précédent pour <em>expliciter</em> d'abord la première colonne de <m>A</m>. 
+                On choisit <m>\vec{u}=(1,0,\ldots , 0)</m>. Ainsi, par l'équation <xref ref="eq-matvecprodgen"/>,
+                <me>A\vec{u}=\begin{pmatrix}
+                \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+                \vec{a}_1 &amp; \vec{a}_2 &amp; \cdots &amp; \vec{a}_n \\
+                \lvert &amp; \lvert &amp; \cdots &amp; \lvert
+                \end{pmatrix}\begin{pmatrix}1\\ 0\\ \vdots\\ 0 \end{pmatrix}=1\vec{a}_1+0\vec{a}_2+\cdots +0\vec{a}_n=\vec{a}_1</me>
+                et
+                <me>B\vec{u}=\begin{pmatrix}
+                \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+                \vec{b}_1 &amp; \vec{b}_2 &amp; \cdots &amp; \vec{b}_n \\
+                \lvert &amp; \lvert &amp; \cdots &amp; \lvert
+                \end{pmatrix}\begin{pmatrix}1\\ 0\\ \vdots\\ 0 \end{pmatrix}=1\vec{b}_1+0\vec{b}_2+\cdots +0\vec{b}_n=\vec{b}_1</me>
+                Alors, <m>\vec{a}_1=\vec{b}_1</m> et de même, on peut montrer que chaque colonne des matrices <m>A</m> et <m>B</m> sont identiques. 
+                Donc, les matrices <m>A</m> et <m>B</m> doivent être égales puisque chacune de leurs colonnes sont égales. 
+                </p>
             </solution>
     </exercise>
     <exercise xml:id="exo-matsommelignes">

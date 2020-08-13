@@ -10,18 +10,20 @@
 <exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-prodmat">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>
     <!--exercise xml:id="exo-">
+            <introduction>
+                <p>L'énoncé de l'exercice.</p>
+            </introduction>
+            <task>
             <statement>
-                <p>La question.</p>
+                <p>La première lettre de la question.</p>
             </statement>
-            <hint>
-                <p>Un indice.</p>
-            </hint>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p> La réponse suivra. </p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p> La solution suivra. </p>
             </solution>
+            </task>
     </exercise>-->
     <exercise xml:id="exo-AIegaleA">
             <statement>
@@ -31,12 +33,12 @@
                 <p>Il faut simplement créer une matrice quelconque et faire le calcul.</p>
             </hint>
             <solution>
-                <p>Soit <m>A=\begin{pmatrix}aampamp;b\\campamp;d\end{pmatrix}\in\mathcal{M}_2</m>. Alors,
+                <p>Soit <m>A=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\in\mathcal{M}_2</m>. Alors,
                 <md>
-                <mrow>AIampamp;=\begin{pmatrix}aampamp;b\\campamp;d\end{pmatrix}\begin{pmatrix}1ampamp;0\\0ampamp;1\end{pmatrix}</mrow>
-                <mrow>ampamp;=\begin{pmatrix}aampamp;b\\campamp;d\end{pmatrix}\begin{pmatrix}1ampamp;0\\0ampamp;1\end{pmatrix}</mrow>
-                <mrow>ampamp;=\begin{pmatrix}aampamp;b\\campamp;d\end{pmatrix}</mrow>
-                 <mrow>ampamp;=A</mrow>
+                <mrow>AI&amp;=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}a*1+b*0&amp;a*0+b*1\\c*1+d*0&amp;c*0+d*1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}</mrow>
+                 <mrow>&amp;=A</mrow>
                 </md></p>
             </solution>
     </exercise>
@@ -49,23 +51,23 @@
                 <p>Considérer la commutativité du produit matriciel.</p>
             </hint>
             <answer>
-                <p>L'équation n'est pas valide. Un contre-exemple possible est <m>A=\begin{pmatrix}0ampamp;1\\1ampamp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0ampamp;2\\3ampamp;0\end{pmatrix}</m>.</p>
+                <p>L'équation n'est pas valide. Un contre-exemple possible est <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</m>.</p>
             </answer>
             <solution>
-                <p>Avec le contre-exemple <m>A=\begin{pmatrix}0ampamp;1\\1ampamp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0ampamp;2\\3ampamp;0\end{pmatrix}</m>, 
+                <p>Avec le contre-exemple <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</m>, 
                 on calcule <m>(A+B)^2</m> et <m>A^2+2AB+B^2</m> et on constate que ce n'est pas égal. En effet,
                 <md>
-                <mrow>(A+B)^2ampamp;=\left(\begin{pmatrix}0ampamp;1\\1ampamp;0\end{pmatrix}+\begin{pmatrix}0ampamp;2\\3ampamp;0\end{pmatrix}\right)^2</mrow>
-                <mrow>ampamp;=\begin{pmatrix}0ampamp;3\\4ampamp;0\end{pmatrix}^2</mrow>
-                <mrow>ampamp;=\begin{pmatrix}0ampamp;3\\4ampamp;0\end{pmatrix}\begin{pmatrix}0ampamp;3\\4ampamp;0\end{pmatrix}</mrow>
-                <mrow>ampamp;=\begin{pmatrix}12ampamp;0\\0ampamp;12\end{pmatrix}</mrow>
+                <mrow>(A+B)^2&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}12&amp;0\\0&amp;12\end{pmatrix}</mrow>
                 </md>
                 et
                 <md>
-                <mrow>A^2+2AB+B^2ampamp;=\begin{pmatrix}0ampamp;1\\1ampamp;0\end{pmatrix}^2+2\begin{pmatrix}0ampamp;1\\1ampamp;0\end{pmatrix}\begin{pmatrix}0ampamp;2\\3ampamp;0\end{pmatrix}+\begin{pmatrix}0ampamp;2\\3ampamp;0\end{pmatrix}^2</mrow>
-                <mrow>ampamp;=\begin{pmatrix}0ampamp;1\\1ampamp;0\end{pmatrix}\begin{pmatrix}0ampamp;1\\1ampamp;0\end{pmatrix}+2\begin{pmatrix}3ampamp;0\\0ampamp;2\end{pmatrix}+\begin{pmatrix}0ampamp;2\\3ampamp;0\end{pmatrix}\begin{pmatrix}0ampamp;2\\3ampamp;0\end{pmatrix}</mrow>
-                <mrow>ampamp;=\begin{pmatrix}1ampamp;0\\0ampamp;1\end{pmatrix}+\begin{pmatrix}6ampamp;0\\0ampamp;4\end{pmatrix}+\begin{pmatrix}6ampamp;0\\0ampamp;6\end{pmatrix}</mrow>
-                <mrow>ampamp;=\begin{pmatrix}13ampamp;0\\0ampamp;11\end{pmatrix}</mrow>
+                <mrow>A^2+2AB+B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2+2\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+2\begin{pmatrix}3&amp;0\\0&amp;2\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}+\begin{pmatrix}6&amp;0\\0&amp;4\end{pmatrix}+\begin{pmatrix}6&amp;0\\0&amp;6\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}13&amp;0\\0&amp;11\end{pmatrix}</mrow>
                 </md>
                 Algébriquement, la raison pour laquelle cela est faux est que le produit matriciel n'est pas commutatif. On a donc que <m>AB\neq BA</m>. Ainsi,
                 <me>(A+B)^2=(A+B)(A+B)=AA+BA+AB+BB\neq A^2+2AB+B^2</me>.
@@ -76,20 +78,34 @@
             <statement>
                 <p>Est-ce que l'équation <m>(A-B)(A+B)=A^2-B^2</m> est valide pour les matrices carrées? Si oui, démontrer et si non, trouver un contre-exemple.</p>
             </statement>
-            <hint>
-                <p>Un indice.</p>
-            </hint>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p>L'équation n'est pas valide. 
+                Un contre-exemple possible est le même qu'à l'exercice précédent, soit <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</m>.</p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>Avec le contre-exemple <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</m>, 
+                on calcule <m>(A-B)(A+B)</m> et <m>A^2-B^2</m> et on constate que ce n'est pas égal. En effet,
+                <md>
+                <mrow>(A-B)(A+B)&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;-1\\-2&amp;0\end{pmatrix}\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}-4&amp;0\\0&amp;-6\end{pmatrix}</mrow>
+                </md>
+                et
+                <md>
+                <mrow>A^2-B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2-\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}+\begin{pmatrix}6&amp;0\\0&amp;6\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}7&amp;0\\0&amp;7\end{pmatrix}</mrow>
+                </md>
+                Algébriquement, la raison pour laquelle cela est faux est que le produit matriciel n'est pas commutatif. On a donc que <m>AB\neq BA</m>. Ainsi,
+                <me>(A-B)(A+B)=AA+AB-BA-BB=A^2+AB-BA-B^2\neq A^2-B^2</me>.</p>
             </solution>
     </exercise>
     <exercise> <!-- revenir sur cet exercice avec les déterminants -->
             <statement>
-                <p>Avec les nombres réels, si <m>xy=0</m>, alors <m>x=0</m> ou <m>y=0</m> (possiblement les deux). Est-vrai aussi pour les matrices,
-                c'est-à-dire, si <m>AB=0</m> pour deux matrices compatibles pour la multiplication, est-ce que <m>A=0</m> ou <m>B=0</m>? Si oui, démontrer et si non, trouver un contre-exemple.</p>
+                <p>Avec les nombres réels, si <m>xy=0</m>, alors <m>x=0</m> ou <m>y=0</m> (possiblement les deux). Est-ce aussi vrai pour les matrices,
+                c'est-à-dire, si <m>AB=O</m> pour deux matrices compatibles pour la multiplication, est-ce que <m>A=O</m> ou <m>B=O</m>? 
+                Si oui, démontrer et si non, trouver un contre-exemple. On rappelle que <m>O</m> dénote la matrice nulle de taille appropriée.</p>
             </statement>
             <hint>
                 <p>Penser à deux projections orthogonales dans <m>\R^2</m>.</p>
@@ -98,64 +114,397 @@
                 <p>La réponse sera disponible sous peu.</p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>Tel que l'indication le dit, on peut réfléchir à une composition de transformations qui ramènerait tout vecteur au vecteur nul.
+                La tranformation dont la matrice est <m>O</m> peut donc être obtenue en composant, par exemple, une projection orthogonale sur l'axe des <m>x</m> (<m>A</m>) 
+                et une projection orthogonale sur l'axe des <m>y</m> (<m>B</m>) . 
+                Les matrices permettant cela ont déjà été introduites, mais on peut les créer facilement en réfléchissant où les vecteurs de la base canonique se transforment.
+                On aura <m>A=\begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}</m>.
+                En les multipliant, on obtient:
+                <md>
+                    <mrow>AB&amp;=\begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0&amp;0\\0&amp;0\end{pmatrix}</mrow>
+                    <mrow>&amp;=O</mrow>
+                </md>
+                </p>
             </solution>
     </exercise>
     <exercise xml:id="exo-matpermudef"> <!-- Peut-être mettre le a) dans la section transfodef, mais... --> <!-- Faire un "projet" sur les matrices de permutation -->
-            <statement>
+            <introduction>
                 <p>Une matrice de permutation est une matrice <m>P</m> telle que chaque colonne et chaque ligne ne contient qu'une entrée non nulle égale à <m>1</m>.
                 Par exemple, la matrice 
                 <me>
                 P=\begin{pmatrix}
-                1 \amp 0\amp 0 \amp 0 \\
-                0\amp 0 \amp 1\amp 0\\
-                0 \amp 0 \amp 0 \amp 1 \\
-                0 \amp 1 \amp 0 \amp 0
+                1 &amp; 0&amp; 0 &amp; 0 \\
+                0&amp; 0 &amp; 1&amp; 0\\
+                0 &amp; 0 &amp; 0 &amp; 1 \\
+                0 &amp; 1 &amp; 0 &amp; 0
                 \end{pmatrix}
-                </me> est une matrice de permutation.
-                <ol>
-                <li><p>Faire la liste de toutes les matrices de permutations <m>2\times 2</m>. Quel est l'effet d'une matrice de permutation <m>2\times 2</m> sur un vecteur?</p></li>
-                <li><p>Faire la liste de toutes les matrices de permutations <m>3\times 3</m>. Quel est l'effet d'une matrice de permutation <m>3\times 3</m> sur un vecteur?</p></li>
-                <li><p>Si <m>P_a</m> et <m>P_b</m> sont deux matrices de permutation, est-ce que
-                <ol>
-                <li><p>leur produit est une matrice de permutation?</p></li>
-                <li><p><m>P_aP_b=P_bP_a</m>?</p></li>
-                </ol>
-                </p></li>
-                </ol>
-                </p>
-            
-            </statement>
-            <hint>
-                <p>Un indice.</p>
-            </hint>
-            <answer>
-                <p>La réponse sera disponible sous peu.</p>
-            </answer>
-            <solution>
-                <p>La solution sera disponible sous peu.</p>
-            </solution>
-    </exercise>
-    <exercise>  <!-- peut-être difficile algébriquement, peut-être faire geométriquement seulement, peut-être revenir sur cet exercice avec les valeurs propres! -->
+                </me> est une matrice de permutation.</p>
+            </introduction>
+            <task>
             <statement>
-                <p>Soit <m>A=\begin{pmatrix} a\amp c \\ b \amp d \end{pmatrix}</m> une matrice à coefficients réels. Trouver toutes les matrices <m>A</m> telles que
-                <ol>
-                <li><p><m>A^2=I</m>. Interpréter géométriquement les matrices solutions.</p></li>
-                <li><p><m>A^2=-I</m>. Interpréter géométriquement les matrices solutions. </p></li>
-                <li><p><m>A^2=0</m>. Interpréter géométriquement les matrices solutions. </p></li>
-                <li><p><m>A^2=A</m>. Interpréter géométriquement les matrices solutions. </p></li>
-                </ol>
-                </p>
+                <p>Faire la liste de toutes les matrices de permutations <m>2\times 2</m>. Quel est l'effet d'une matrice de permutation <m>2\times 2</m> sur un vecteur?</p>
             </statement>
-            <hint>
-                <p>Un indice.</p>
-            </hint>
+            <solution>
+                <p>Voici la liste: <m>\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}</m> et <m>\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m>. 
+                La première matrice est l'identité, qui ne modifie pas les vecteurs, et la seconde est une matrice de réflexion selon l'axe <m>y=x</m>.
+                Algébriquement, cette seconde matrice fait simplement <em>permuter</em> ses composantes en <m>x</m> et <m>y</m>.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p>Faire la liste de toutes les matrices de permutations <m>3\times 3</m>. 
+                Quel est l'effet d'une matrice de permutation <m>3\times 3</m> sur un vecteur?</p>
+            </statement>
+            <solution>
+                <p>Voici la liste: 
+                <m>\begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1\end{pmatrix}</m>,
+                <m>\begin{pmatrix}0&amp;1&amp;0\\1&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}</m>,
+                <m>\begin{pmatrix}0&amp;0&amp;1\\0&amp;1&amp;0\\1&amp;0&amp;0\end{pmatrix}</m>,
+                <m>\begin{pmatrix}1&amp;0&amp;0\\0&amp;0&amp;1\\0&amp;1&amp;0\end{pmatrix}</m>,
+                <m>\begin{pmatrix}0&amp;1&amp;0\\0&amp;0&amp;1\\1&amp;0&amp;0\end{pmatrix}</m> et
+                <m>\begin{pmatrix}0&amp;0&amp;1\\1&amp;0&amp;0\\0&amp;1&amp;0\end{pmatrix}</m>.
+                La première matrice est l'identité, qui ne modifie pas les vecteurs.
+                Les trois suivantes sont des matrices de réflexion selon différents plans, puisqu'un des trois vecteurs colonnes demeure inchangé.
+                Par exemple, la deuxième est une réflexion selon le plan <m>y=x</m> et <m>(0,0,1)</m> reste inchangé.
+                Finalement, les deux dernières sont des matrices de rotation soit dans le sens horaire ou anti-horaire autour de l'axe parallèle au vecteur <m>(1,1,1)</m>.
+                Algébriquement, toutes les matrices de permutation font <em>permuter</em> les composantes d'un vecteur, soit deux à deux (réflexions) ou toutes les trois (rotations).
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p>Si <m>P_a</m> et <m>P_b</m> sont deux matrices de permutation, est-ce que leur produit est une matrice de permutation?</p>
+            </statement>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p>Oui.</p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>Oui, il s'agit encore d'une matrice de permutation. 
+                Logiquement, si on fait des permutations de composantes, et qu'on fait ensuite d'autres permutations, la composition de ces deux opérations
+                se fera en une seule opération de permutation. </p>
             </solution>
+            </task>
+            <task>
+            <statement>
+                <p>Si <m>P_a</m> et <m>P_b</m> sont deux matrices de permutation, est-ce que <m>P_aP_b=P_bP_a</m>?</p>
+            </statement>
+            <answer>
+                <p>Non.</p>
+            </answer>
+            <solution>
+                <p>Comme c'est le cas pour les matrices en général, elles ne sont pas souvent commutatives. 
+                Ici, il est possible de trouver un contre exemple où <m>P_aP_b \neq P_bP_a</m>.
+                On choisit <m>P_a=\begin{pmatrix}0&amp;1&amp;0\\1&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}</m> et 
+                <m>P_b=\begin{pmatrix}0&amp;1&amp;0\\1&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}</m>. Alors,
+                <md>
+                    <mrow>P_aP_b&amp;=\begin{pmatrix}0&amp;1&amp;0\\1&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}\begin{pmatrix}1&amp;0&amp;0\\0&amp;0&amp;1\\0&amp;1&amp;0\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}0&amp;0&amp;1\\1&amp;0&amp;0\\0&amp;1&amp;0\end{pmatrix}</mrow>
+                    <mrow>&amp;\neq \begin{pmatrix}0&amp;1&amp;0\\0&amp;0&amp;1\\1&amp;0&amp;0\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}1&amp;0&amp;0\\0&amp;0&amp;1\\0&amp;1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1&amp;0\\1&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}</mrow>
+                    <mrow>&amp;=P_bP_a</mrow>
+                </md></p>
+            </solution>
+            </task>
+    </exercise>
+    <exercise>
+            <introduction>
+                <p>Soit <m>A=\begin{pmatrix} a&amp; c \\ b &amp; d \end{pmatrix}</m> une matrice à coefficients réels. 
+                En réfléchissant de façon géométrique, puis en démontrant algébriquement que c'est bien le cas, trouver le plus possible 
+                de différentes matrices <m>A</m> telles que</p>
+            </introduction>
+            <task>
+            <statement>
+                <p><m>A^2=I</m>.</p>
+            </statement>
+            
+            <answer>
+                <p><me>A=I\text{, } A=R_{180^\circ}\text{ ou } A=S_{\theta}\text{ pour tout angle } \theta\in[0,2\pi[</me>
+                Autrement écrit,
+                <me>A=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}\text{, } A=\begin{pmatrix}-1 &amp; 0\\0 &amp; -1\end{pmatrix}
+                \text{ ou } A=\begin{pmatrix}
+                    \cos(2\theta)&amp; \sin(2\theta)\\
+                    \sin(2\theta) &amp; -\cos(2\theta)
+                    \end{pmatrix}\text{ pour tout angle } \theta\in[0,2\pi[</me>
+                </p>
+            </answer>
+            <solution>
+                <p>Géométriquement, on cherche à trouver une transformation linéaire qui, lorsque l'on effectue cette transformation deux fois de suite,
+                le résultat est de ne rien changer au vecteur initial.
+                Bref, le déplacement initial doit être en quelque sorte <em>annulé</em> en refaisant la même transformation.
+                On pense assez rapidement aux réflexions. 
+                En effet, une réflexion par rapport à n'importe quel axe répété deux fois ramènera tout vecteur à son emplacement initial.
+                Par l'équation <xref ref="eq-refr2-2"/>, on sait que toutes les matrices de réflexion sont de la même forme. On démontre que <m>S_{\theta}^2=I</m>.
+                <md>
+                    <mrow>S_{\theta}^2&amp;=\begin{pmatrix}
+                    \cos(2\theta)&amp; \sin(2\theta)\\
+                    \sin(2\theta) &amp; -\cos(2\theta)
+                    \end{pmatrix}^2</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    \cos(2\theta)&amp; \sin(2\theta)\\
+                    \sin(2\theta) &amp; -\cos(2\theta)
+                    \end{pmatrix}\begin{pmatrix}
+                    \cos(2\theta)&amp; \sin(2\theta)\\
+                    \sin(2\theta) &amp; -\cos(2\theta)
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    \cos^2(2\theta)+\sin^2(2\theta)&amp; \cos(2\theta)\sin(2\theta)-\sin(2\theta)\cos(2\theta)\\
+                    \sin(2\theta)\cos(2\theta)-\cos(2\theta)\sin(2\theta) &amp; \sin^2(2\theta)+\cos^2(2\theta)
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}</mrow>
+                    <mrow>&amp;=I</mrow>
+                </md>Une autre transformation est une rotation de <m>180^\circ</m>. 
+                En effet, lorsqu'on répète cette rotation, on revient au point de départ.
+                Par l'équation <xref ref="eq-rotr2"/>, on obtient rapidement la matrice de rotation et on vérifie que <m>R_{180^\circ}^2=I</m>.
+                <md>
+                    <mrow>R_{180^\circ}^2&amp;=\begin{pmatrix}
+                    \cos(180^\circ) &amp; -\sin(180^\circ)\\
+                    \sin(180^\circ) &amp; \cos(180^\circ)
+                    \end{pmatrix}^2</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    -1 &amp; 0\\
+                    0 &amp; -1
+                    \end{pmatrix}^2</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    -1 &amp; 0\\
+                    0 &amp; -1
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                    -1 &amp; 0\\
+                    0 &amp; -1
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    1 &amp; 0\\
+                    0 &amp; 1
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=I</mrow>
+                </md>
+                Finalement, il ne faut pas oublier que la matrice identité est une transformation linéaire.
+                Il est évident que de répéter cette tranformation qui ne change déjà rien ne transformera pas les vecteurs et donc <m>I^2=I</m>.
+                La vérification algébrique est très simple à faire.
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>A^2=-I</m>.</p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}
+                    0 &amp; -1\\
+                    1 &amp; 0
+                    \end{pmatrix} \text{ ou }
+                    A=\begin{pmatrix}
+                    0 &amp; 1\\
+                    -1 &amp; 0
+                    \end{pmatrix}</me></p>
+            </answer>
+            <solution>
+                <p>Puisque la transformation composée doit globalement amener le vecteur <m>(1,0)</m> à <m>(-1,0)</m> et <m>(0,1)</m> à <m>(0,-1)</m>, 
+                on a une solution assez simple avec la rotation. 
+                Si on fait une rotation de <m>90^\circ</m> et qu'on la répète, on arrivera à cette position.
+                On le vérifie algébriquement.
+                Par l'équation <xref ref="eq-rotr2"/>,
+                <md>
+                    <mrow>R_{90^\circ}^2&amp;=\begin{pmatrix}
+                    \cos(90^\circ) &amp; -\sin(90^\circ)\\
+                    \sin(90^\circ) &amp; \cos(90^\circ)
+                    \end{pmatrix}^2</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    0 &amp; -1\\
+                    1 &amp; 0
+                    \end{pmatrix}^2</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    0 &amp; -1\\
+                    1 &amp; 0
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                    0 &amp; -1\\
+                    1 &amp; 0
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    -1 &amp; 0\\
+                    0 &amp; -1
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=-I</mrow>
+                </md>
+                En réalité, (mais c'est beaucoup plus dur d'y penser juste comme ça), une infinité de matrices de rotation peuvent faire l'affaire.
+                En effet, il suffit d'avoir une rotation qui permet, lorsque répétée deux fois, d'aboutir à un angle qui soit un multiple de <m>2\pi</m>, partant de <m>\pi</m>.
+                Autrement dit, si <m>2\theta=\pi+2\pi k, k\in\mathbb{Z}</m>, la matrice fonctionne. On le montre.
+                <md>
+                    <mrow>R_{\frac{\pi}{2}+\pi k}^2&amp;=\begin{pmatrix}
+                    \cos\left(\frac{\pi}{2}+\pi k\right) &amp; -\sin\left(\frac{\pi}{2}+\pi k\right)\\
+                    \sin\left(\frac{\pi}{2}+\pi k\right) &amp; \cos\left(\frac{\pi}{2}+\pi k\right)
+                    \end{pmatrix}^2</mrow>
+                    <mrow>&amp;=\begin{cases}\begin{pmatrix}
+                    0 &amp; -1\\
+                    1 &amp; 0
+                    \end{pmatrix}^2 &amp;\text{ si } k \text{ pair} \\
+                    \begin{pmatrix}
+                    0 &amp; 1\\
+                    -1 &amp; 0
+                    \end{pmatrix}^2 &amp;\text{ si } k \text{ impair}
+                    \end{cases}</mrow>
+                    <mrow>&amp;=\begin{cases}\begin{pmatrix}
+                    0 &amp; -1\\
+                    1 &amp; 0
+                    \end{pmatrix}\begin{pmatrix}
+                    0 &amp; -1\\
+                    1 &amp; 0
+                    \end{pmatrix} &amp;\text{ si } k \text{ pair} \\
+                    \begin{pmatrix}
+                    0 &amp; 1\\
+                    -1 &amp; 0
+                    \end{pmatrix}\begin{pmatrix}
+                    0 &amp; 1\\
+                    -1 &amp; 0
+                    \end{pmatrix} &amp;\text{ si } k \text{ impair}
+                    \end{cases}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    -1 &amp; 0\\
+                    0 &amp; -1
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=-I</mrow>
+                </md>
+                On réalise cependant que toutes les matrices où <m>k</m> est de même parité sont identiques. 
+                En effet, une rotation de <m>90^\circ</m> est identique à une rotation de <m> 450^\circ</m>.
+                Bref, les deux matrices de rotation possibles sont de <m>90^\circ</m> et de <m> 270^\circ</m> avec les matrices respectives:
+                <me>R_{90^\circ}=\begin{pmatrix}
+                    0 &amp; -1\\
+                    1 &amp; 0
+                    \end{pmatrix} \text{ et }
+                    R_{270^\circ}=\begin{pmatrix}
+                    0 &amp; 1\\
+                    -1 &amp; 0
+                    \end{pmatrix}</me>
+                <!-- As far as I know, those are the only ones-->
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>A^2=O</m>.</p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}
+                    0 &amp; 0\\
+                    0 &amp; 0
+                    \end{pmatrix}\text{ ,  }
+                    A=\begin{pmatrix}
+                    0 &amp; 0\\
+                    b &amp; 0
+                    \end{pmatrix}\text{  ou  }
+                    A=\begin{pmatrix}
+                    0 &amp; c\\
+                    0 &amp; 0
+                    \end{pmatrix} \text{ , }b,c\in\R</me></p>
+            </answer>
+            <solution>
+                <p>Pour obtenir la matrice nulle en transformant deux fois de suite, il existe quelques options.
+                La plus facile est de définir <m>A=O</m>, la transformation qui ramène tous les vecteurs à l'origine. 
+                Il est évident que <m>O^2=O</m>, alors on ne le démontre pas algébriquement.</p>
+                <p>De façon semblable, les matrices
+                <me>\begin{pmatrix}
+                    0 &amp; 0\\
+                    b &amp; 0
+                    \end{pmatrix}\text{  et  }
+                    \begin{pmatrix}
+                    0 &amp; c\\
+                    0 &amp; 0
+                    \end{pmatrix} \text{ , }b,c\in\R
+                 </me>
+                 satisfont l'équation <m>A^2=O</m> en raison des nombreux zéros. 
+                 Elles représentent des transformations que l'on ne connait pas encore. 
+                 On peut avoir une intuition géométrique en voyant où les vecteurs de base se retrouvent.
+                 La première matrice envoie <m>(1,0)</m> sur <m>(0,b)</m> et <m>(0,1)</m> sur <m>(0,0)</m>.
+                 </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>A^2=A</m>.</p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}
+                    0 &amp; 0\\
+                    0 &amp; 0
+                    \end{pmatrix}\text{ ,  }
+                    A=\begin{pmatrix}
+                    1 &amp; 0\\
+                    0 &amp; 1
+                    \end{pmatrix}
+                    \text{ ,  }
+                    A=\begin{pmatrix}
+                    1 &amp; k\\
+                    0 &amp; 0
+                    \end{pmatrix}
+                    \text{ ,  }
+                    A=\begin{pmatrix}
+                    1 &amp; 0\\
+                    k &amp; 0
+                    \end{pmatrix}
+                    \text{ ,  }
+                    A=\begin{pmatrix}
+                    0 &amp; k\\
+                    0 &amp; 1
+                    \end{pmatrix}\text{  ou  }
+                    A=\begin{pmatrix}
+                    0 &amp; 0\\
+                    k &amp; 1
+                    \end{pmatrix} \text{ , }k\in\R</me></p>
+            </answer>
+            <solution>
+                <p>Intuitivement, il faut trouver une matrice de transformation qui donne le même résultat qu'on l'effectue deux fois de suite ou une seule fois.
+                Toutes les transformations du type projections orthogonales ou pas sont telles qu'on ne change rien en répétant la transformation une seconde fois.
+                On peut penser rapidement aux transformations orthogonales sur <m>(1,0)</m> et sur <m>(0,1)</m> données respectivement par les matrices
+                <me>\begin{pmatrix}
+                    1 &amp; 0\\
+                    0 &amp; 0
+                    \end{pmatrix} \text{ et }\begin{pmatrix}
+                    0 &amp; 0\\
+                    0 &amp; 1
+                    \end{pmatrix}</me>.
+                Il y a cependant beaucoup d'autres matrices de projection qui fonctionneront.
+                En effet, dès que soit une ligne, soit une colonne est nulle, on aura une projection oblique qui fonctionne.
+                Par exemple, si <m>A=\begin{pmatrix}
+                    1 &amp; k\\
+                    0 &amp; 0
+                    \end{pmatrix}, k\in\R</m>, alors
+                    <md>
+                        <mrow>A^2&amp;=\begin{pmatrix}
+                    1 &amp; k\\
+                    0 &amp; 0
+                    \end{pmatrix}^2</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    1 &amp; k\\
+                    0 &amp; 0
+                    \end{pmatrix}\begin{pmatrix}
+                    1 &amp; k\\
+                    0 &amp; 0
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    1 &amp; k\\
+                    0 &amp; 0
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=A</mrow>
+                    </md>
+                Il en sera de même pour les matrices <m>\begin{pmatrix}
+                    1 &amp; 0\\
+                    k &amp; 0
+                    \end{pmatrix}, k\in\R</m>, 
+                    <m>\begin{pmatrix}
+                    0 &amp; k\\
+                    0 &amp; 1
+                    \end{pmatrix}, k\in\R</m> et
+                     <m>\begin{pmatrix}
+                    0 &amp; 0\\
+                    k &amp; 1
+                    \end{pmatrix}, k\in\R</m>
+                </p>
+                <p>Finalement, la matrice identité et la matrice nulle fonctionnent également. Il est facile de le vérifier.
+                </p>
+            </solution>
+            </task>
     </exercise>
     <exercise xml:id="exo-etirementR2">
             <statement>
@@ -168,11 +517,69 @@
                 On le fait en multipliant les trois matrices ensemble.</p>
             </hint>
             <answer>
-                <p>La réponse sera disponible sous peu.</p>
+                <p><me>E\theta_k=\begin{pmatrix}
+ k\cos^2(\theta)+\sin^2(\theta) &amp; (k-1)\sin(\theta)\cos(\theta)\\
+ (k-1)\sin(\theta)\cos(\theta) &amp; k\sin^2(\theta)+\cos^2(\theta)
+ \end{pmatrix}</me></p>
             </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
-            </solution>
+                <p>Selon l'énoncé du problème, cet étirement est en fait une composition de deux rotations et de l'étirement horizontal de facteur <m>k</m> <m>Eh_k</m>. 
+                Si on pose <m>E\theta_k</m> l'étirement cherché, on a alors
+      <md>
+      <mrow>E\theta_k&amp;=R_{\theta}Eh_kR_{-\theta}</mrow>
+      <mrow>&amp;=\begin{pmatrix}
+ \cos(\theta) &amp; -\sin(\theta)\\
+ \sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix}
+ \begin{pmatrix}
+k&amp;0\\
+0&amp;1
+\end{pmatrix}
+\begin{pmatrix}
+ \cos(-\theta) &amp; -\sin(-\theta)\\
+ \sin(-\theta) &amp; \cos(-\theta)
+ \end{pmatrix} &amp;&amp; \text{selon les équations } <xref ref="eq-rotr2"/> \text{ et } <xref ref="eq-etirementhr2"/>
+</mrow>
+<mrow>&amp;=\begin{pmatrix}
+ \cos(\theta) &amp; -\sin(\theta)\\
+ \sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix}
+ \begin{pmatrix}
+k&amp;0\\
+0&amp;1
+\end{pmatrix}
+\begin{pmatrix}
+ \cos(\theta) &amp; \sin(\theta)\\
+ -\sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix} &amp;&amp; \text{selon les identités } \sin(-\theta)=-\sin(\theta) \text{ et } \cos(-\theta)=\cos(\theta)
+</mrow>
+<mrow>&amp;=\left[\begin{pmatrix}
+ \cos(\theta) &amp; -\sin(\theta)\\
+ \sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix}
+ \begin{pmatrix}
+k&amp;0\\
+0&amp;1
+\end{pmatrix} \right]
+\begin{pmatrix}
+ \cos(\theta) &amp; \sin(\theta)\\
+ -\sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix} &amp;&amp; \text{selon l'associativité de la multiplication matricielle}</mrow>
+<mrow>&amp;=\begin{pmatrix}
+k\cos(\theta)&amp;-\sin(\theta)\\
+k\sin(\theta)&amp;\cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+ \cos(\theta) &amp; \sin(\theta)\\
+ -\sin(\theta) &amp; \cos(\theta)
+ \end{pmatrix}</mrow>
+ <mrow>&amp;=
+\begin{pmatrix}
+ k\cos^2(\theta)+\sin^2(\theta) &amp; (k-1)\sin(\theta)\cos(\theta)\\
+ (k-1)\sin(\theta)\cos(\theta) &amp; k\sin^2(\theta)+\cos^2(\theta)
+ \end{pmatrix}</mrow>
+</md>.</p>
+    </solution>
     </exercise>
     <exercise xml:id="exo-dirinvariantesR2">
             <statement>
@@ -181,37 +588,164 @@
                 <p>On appelle ces deux directions les directions invariantes d'une transformation linéaire. 
                 On les appelle également des vecteurs propres et le facteur d'étirement une valeur propre. On étudiera ces notions à la section <xref provisional="section sur les valeurs propres"/>.</p>
             </statement>
-            <hint>
-                <p>Un indice.</p>
-            </hint>
-            <answer>
-                <p>La réponse sera disponible sous peu.</p>
-            </answer>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>On calcule la matrice d'étirement de facteur <m>2</m>dans la direction <m>\theta=30^\circ</m> simplement en remplaçant cet angle et cette valeur dans la matrice trouvée précédemment.
+                On obtient:
+                <md>
+                    <mrow>E30^\circ_2&amp;=\begin{pmatrix}
+                    k\cos^2(\theta)+\sin^2(\theta) &amp; (k-1)\sin(\theta)\cos(\theta)\\
+                    (k-1)\sin(\theta)\cos(\theta) &amp; k\sin^2(\theta)+\cos^2(\theta)
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    2\cos^2(30^\circ)+\sin^2(30^\circ) &amp; (2-1)\sin(30^\circ)\cos(30^\circ)\\
+                    (2-1)\sin(30^\circ)\cos(30^\circ) &amp; 2\sin^2(30^\circ)+\cos^2(30^\circ)
+                    \end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    \frac{7}{4} &amp; \frac{\sqrt{3}}{4}\\
+                    \frac{\sqrt{3}}{4} &amp; \frac{5}{4}
+                    \end{pmatrix}</mrow>
+                </md>
+                On vérifie ensuite le résultat de la transformation des deux vecteurs donnés.
+                <md>
+                    <mrow>T(\vec{u})&amp;=\begin{pmatrix}
+                    \frac{7}{4} &amp; \frac{\sqrt{3}}{4}\\
+                    \frac{\sqrt{3}}{4} &amp; \frac{5}{4}
+                    \end{pmatrix}\begin{pmatrix}\frac{\sqrt{3}}{2}\\\frac{1}{2}\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}\frac{7}{4}*\frac{\sqrt{3}}{2}+\frac{\sqrt{3}}{4}*\frac{1}{2}\\\frac{\sqrt{3}}{4}*\frac{\sqrt{3}}{2}+\frac{5}{4}*\frac{1}{2}\end{pmatrix}</mrow>
+                    <mrow>&amp;\begin{pmatrix}\sqrt{3}\\1\end{pmatrix}</mrow>
+                    <mrow>&amp;=2\begin{pmatrix}\frac{\sqrt{3}}{2}\\\frac{1}{2}\end{pmatrix}</mrow>
+                    <mrow>&amp;=2\vec{u}</mrow>
+                </md>
+                et
+                <md>
+                    <mrow>T(\vec{u}_\perp)&amp;=T\left(\begin{pmatrix}\frac{\sqrt{3}}{2}\\\frac{1}{2}\end{pmatrix}_\perp\right)</mrow>
+                    <mrow>&amp;=T\begin{pmatrix}-\frac{1}{2}\\\frac{\sqrt{3}}{2}\end{pmatrix}&amp;\text{ par } <xref ref="pro-vecperp"/></mrow>
+                    <mrow>&amp;=\begin{pmatrix}
+                    \frac{7}{4} &amp; \frac{\sqrt{3}}{4}\\
+                    \frac{\sqrt{3}}{4} &amp; \frac{5}{4}
+                    \end{pmatrix}\begin{pmatrix}-\frac{1}{2}\\\frac{\sqrt{3}}{2}\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}\frac{7}{4}*\left(-\frac{1}{2}\right)+\frac{\sqrt{3}}{4}*\frac{\sqrt{3}}{2}\\\frac{\sqrt{3}}{4}*\left(-\frac{1}{2}\right)+\frac{5}{4}*\frac{\sqrt{3}}{2}\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}-\frac{1}{2}\\\frac{\sqrt{3}}{2}\end{pmatrix}</mrow>
+                    <mrow>&amp;=\vec{u}_\perp</mrow>
+                </md>
+                </p>
             </solution>
     </exercise>
     <exercise xml:id="exo-associativiterotref">
-            <statement>
-            <p>Soit <m>R_{\theta_1},R_{\theta_2},S_{\phi_1}</m> et <m>S_{\phi_2}</m> des matrices de rotation d'angle <m>\theta_1</m> et <m>\theta_2</m> et de
+            <introduction>
+                <p>Soit <m>R_{\theta_1},R_{\theta_2},S_{\phi_1}</m> et <m>S_{\phi_2}</m> des matrices de rotation d'angle <m>\theta_1</m> et <m>\theta_2</m> et de
             réflexion d'angle <m>\phi_1</m> et <m>\phi_2</m>. En utilisant les résultats de l'exemple <xref ref="sageex-propprodmat"/>, décrire les compositions suivantes 
-            en utilisant à la fois <m>(AB)C</m> et <m>A(BC)</m> afin de vérifier l'associativité.
-            <ol>
-            <li><m>R_{\theta_1}R_{\theta_2}S_{\phi_1}</m></li>
-            <li><m>R_{\theta_1}S_{\phi_1}R_{\theta_2}</m></li>
-            <li><m>S_{\phi_1}R_{\theta_1}R_{\theta_2}</m></li>
-            <li><m>R_{\theta_1}S_{\phi_1}S_{\phi_2}</m></li>
-            <li><m>S_{\phi_1}R_{\theta_1}S_{\phi_2}</m></li>
-            <li><m>S_{\phi_1}S_{\phi_2}R_{\theta_1}</m></li>
-            </ol>
-            </p>
+            en utilisant à la fois <m>(AB)C</m> et <m>A(BC)</m> afin de vérifier l'associativité.</p>
+            </introduction>
+            <task>
+            <statement>
+                <p><m>R_{\theta_1}R_{\theta_2}S_{\phi_1}</m></p>
             </statement>
-            <answer>
-                <p>La réponse sera disponible sous peu.</p>
-            </answer>
+            <hint>
+                <p>On procède de façon semblable à l'exemple, en utilisant les résultats pour la composition des rotations et des réflexions.
+                Entre autres, on a <m>R_{\theta_1}S_{\theta_2}=S_{\frac{\theta_1+2\theta_2}{2}}</m> et <m>S_{\theta_2}R_{\theta_1}=S_{\frac{-\theta_1+2\theta_2}{2}}</m>.
+                </p>
+                <p>On remarque également que les démonstrations d'associativité se construisent du début ET de la fin, vers le milieu. 
+                Autrement dit, on peut développer <m>A(BC)</m> et <m>(AB)C</m> et simplifier pour constater que cela donne la même transformation (au milieu des démarches).
+                On a choisit de les écrire du début à la fin puisque c'est plus propre, mais on a bel et bien construit la démonstration du début et de la fin.</p>
+            </hint>
             <solution>
-                <p>La solution sera disponible sous peu.</p>
+                <p>
+                <md>
+                    <mrow>R_{\theta_1}(R_{\theta_2}S_{\phi_1})&amp;=R_{\theta_1}S_{\frac{\theta_2+2\phi_1}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{\theta_1+2\frac{\theta_2+2\phi_1}{2}}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{\theta_1+\theta_2+2\phi_1}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{(\theta_1+\theta_2)+2\phi_1}{2}}</mrow>
+                    <mrow>&amp;=R_{\theta_1+\theta_2}S_{\phi_1}</mrow>
+                    <mrow>&amp;=(R_{\theta_1}R_{\theta_2})S_{\phi_1}</mrow>
+                </md>
+                Il s'agit donc globalement d'une réflexion d'angle <m>\frac{\theta_1+\theta_2+2\phi_1}{2}</m>.</p>
             </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>R_{\theta_1}S_{\phi_1}R_{\theta_2}</m></p>
+            </statement>
+            <solution>
+                <p><md>
+                    <mrow>R_{\theta_1}(S_{\phi_1}R_{\theta_2})&amp;=R_{\theta_1}S_{\frac{-\theta_2+2\phi_1}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{\theta_1+2\frac{-\theta_2+2\phi_1}{2}}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{\theta_1-\theta_2+2\phi_1}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{-\theta_2+\theta_1+2\phi_1}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{-\theta_2+2\frac{\theta_1+2\phi_1}{2}}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{\theta_1+2\phi_1}{2}}R_{\theta_2}</mrow>
+                    <mrow>&amp;=(R_{\theta_1}S_{\phi_1})R_{\theta_2}</mrow>
+                </md>
+                Il s'agit donc globalement d'une réflexion d'angle <m>\frac{\theta_1-\theta_2+2\phi_1}{2}</m>.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>S_{\phi_1}R_{\theta_1}R_{\theta_2}</m></p>
+            </statement>
+            <solution>
+                <p><md>
+                    <mrow>S_{\phi_1}(R_{\theta_1}R_{\theta_2})&amp;=S_{\phi_1}R_{\theta_1+\theta_2}</mrow>
+                    <mrow>&amp;=S_{\frac{-(\theta_1+\theta_2)+2\phi_1}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{-\theta_1-\theta_2+2\phi_1}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{-\theta_2-\theta_1+2\phi_1}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{-\theta_2+2\frac{-\theta_1+2\phi_1}{2}}{2}}</mrow>
+                    <mrow>&amp;=S_{\frac{-\theta_1+2\phi_1}{2}}R_{\theta_2}</mrow>
+                    <mrow>&amp;=(S_{\phi_1}R_{\theta_1})R_{\theta_2}</mrow>
+                </md>
+                Il s'agit donc globalement d'une réflexion d'angle <m>\frac{-\theta_1-\theta_2+2\phi_1}{2}</m>.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>R_{\theta_1}S_{\phi_1}S_{\phi_2}</m></p>
+            </statement>
+            <solution>
+                <p><md>
+                    <mrow>R_{\theta_1}(S_{\phi_1}S_{\phi_2})&amp;=R_{\theta_1}R_{2(\phi_1-\phi_2)}</mrow>
+                    <mrow>&amp;=R_{\theta_1+2(\phi_1-\phi_2)}</mrow>
+                    <mrow>&amp;=R_{\theta_1+2\phi_1-2\phi_2}</mrow>
+                    <mrow>&amp;=R_{2(\frac{\theta_1+2\phi_1}{2}-\phi_2)}</mrow>
+                    <mrow>&amp;=S_{\frac{\theta_1+2\phi_1}{2}}S_{\phi_2}</mrow>
+                    <mrow>&amp;=(R_{\theta_1}S_{\phi_1})S_{\phi_2}</mrow>
+                </md>
+                Il s'agit donc globalement d'une rotation d'angle <m>\theta_1+2\phi_1-2\phi_2</m>.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>S_{\phi_1}R_{\theta_1}S_{\phi_2}</m></p>
+            </statement>
+            <solution>
+                <p><md>
+                    <mrow>S_{\phi_1}(R_{\theta_1}S_{\phi_2})&amp;=S_{\phi_1}S_{\frac{\theta_1+2\phi_2}{2}}</mrow>
+                    <mrow>&amp;=R_{2(\phi_1-\frac{\theta_1+2\phi_2}{2})}</mrow>
+                    <mrow>&amp;=R_{2\phi_1-\theta_1-2\phi_2}</mrow>
+                    <mrow>&amp;R_{-\theta_1+2\phi_1-2\phi_2}</mrow>
+                    <mrow>&amp;R_{2(\frac{-\theta_1+2\phi_1}{2}-\phi_2)}</mrow>
+                    <mrow>&amp;=S_{\frac{-\theta_1+2\phi_1}{2}}S_{\phi_2}</mrow>
+                    <mrow>&amp;=(S_{\phi_1}R_{\theta_1})S_{\phi_2}</mrow>
+                </md>
+                Il s'agit donc globalement d'une rotation d'angle <m>2\phi_1-\theta_1-2\phi_2</m>.</p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>S_{\phi_1}S_{\phi_2}R_{\theta_1}</m></p>
+            </statement>
+            <solution>
+                <p><md>
+                    <mrow>S_{\phi_1}(S_{\phi_2}R_{\theta_1})&amp;=S_{\phi_1}S_{\frac{-\theta_1+2\phi_2}{2}}</mrow>
+                    <mrow>&amp;=R_{2(\phi_1-\frac{-\theta_1+2\phi_2}{2})}</mrow>
+                    <mrow>&amp;=R_{2\phi_1+\theta_1-2\phi_2}</mrow>
+                    <mrow>&amp;=R_{2\phi_1-2\phi_2+\theta_1}</mrow>
+                    <mrow>&amp;=R_{2(\phi_1-\phi_2)+\theta_1}</mrow>
+                    <mrow>&amp;=R_{2(\phi_1-\phi_2)}R_{\theta_1}</mrow>
+                    <mrow>&amp;=(S_{\phi_1}S_{\phi_2})R_{\theta_1}</mrow>
+                </md>
+                Il s'agit donc globalement d'une rotation d'angle <m>2\phi_1+\theta_1-2\phi_2</m>.</p>
+            </solution>
+            </task>
     </exercise>
     <exercisegroup xml:id="exosage-prodmat">
     <title>Exercices Sage</title>
@@ -389,7 +923,7 @@ Utiliser Sage pour calculer le produit <m>AB</m>.
     Permutations(3).list()
     </input>
     </sage>
-    <p>renvoie une liste de <m>6</m> éléments correspondant à toutes les manières d'ordonner les nombres <m>1,2,3</m>. Une matrice de permutation est une matrice obtenu en permutant les colonnes de la matrice identité.
+    <p>renvoie une liste de <m>6</m> éléments correspondant à toutes les manières d'ordonner les nombres <m>1,2,3</m>. Une matrice de permutation est une matrice obtenue en permutant les colonnes de la matrice identité.
     Dans cet exercice, on va créer une fonction <c>perm_matrix(n)</c> qui va donner une liste des matrices de permutation d'ordre <m>n</m>. Pour cela, il faudra 
     <ul>
     <li><p>Créer la liste des permutations d'ordre <m>n</m> à l'aide de la commande <c>Permutations(n).list()</c>. </p></li>
@@ -489,11 +1023,11 @@ show(LatexExpr(r"\sin(\alpha+\beta)="),(Rotalpha*Rotbeta)[1][0])
     <exercise>
     <title>Les matrices nilpotentes: une fonction</title>
     <statement>
-    <p>Une matrice carrée <m>A\in\mathcal{M}_n</m> est dite nilpotente d'ordre <m>k</m> si <m>A^k=0_n</m> et <m>A^j\neq 0_n</m> si <m>j&lt;k</m>, c'est-à-dire si la matrice
-    multiplié par elle-même <m>k</m> fois donne la matrice nulle et si <m>k</m> est le premier entier pour lequel ceci se produit. On dit que <m>k</m> est l'indice de nilpotence
+    <p>Une matrice carrée <m>A\in\mathcal{M}_n</m> est dite nilpotente d'ordre <m>k</m> si <m>A^k=O_n</m> et <m>A^j\neq O_n</m> si <m>j&lt;k</m>, c'est-à-dire si la matrice
+    multipliée par elle-même <m>k</m> fois donne la matrice nulle et si <m>k</m> est le premier entier pour lequel ceci se produit. On dit que <m>k</m> est l'indice de nilpotence
     de la matrice <m>A</m>.</p>
     <p>
-    Le but de cet exercice est de créer une fonction qui prend une matrice carré comme argument et qui dit si la matrice est nilpotente ou non. Si c'est le cas, on voudra aussi avoir 
+    Le but de cet exercice est de créer une fonction qui prend une matrice carrée comme argument et qui dit si la matrice est nilpotente ou non. Si c'est le cas, on voudra aussi avoir 
     l'indice de nilpotence.
     On appelera la fonction <c>estnilpotente</c>. Quelques points à considérer. Les matrices ne sont pas toutes nilpotentes. Notre seul critère (pour l'instant) est d'essayer
     de multiplier la matrice par elle-même jusqu'à l'obtention de la matrice nulle. Il nous faut cependant un critère d'arrêt pour ne pas essayer sans fin. Il est possible de montrer

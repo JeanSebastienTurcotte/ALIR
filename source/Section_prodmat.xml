@@ -59,7 +59,7 @@
     </definition>
     <example xml:id="ex-matmatprod1">
     <title>Un produit de deux matrices</title>
-    <statement><p>On poursuit l'exemple <xref ref="ex-transfocomp"/> et l'exercice <xref provisional="exo-transfocomp-RP"/> pour calculer les matrices des transformations <m>P\circ R_{\frac{\pi}{2}} </m>et <m>R_{\frac{\pi}{2}}\circ P</m>.</p></statement>
+    <statement><p>On poursuit l'exemple <xref ref="ex-transfocomp"/> et l'exercice <xref ref="exo-transfocomp-RP"/> pour calculer les matrices des transformations <m>P\circ R_{\frac{\pi}{2}} </m>et <m>R_{\frac{\pi}{2}}\circ P</m>.</p></statement>
     <solution>
     <p>Puisque
     <me>
@@ -220,7 +220,7 @@
     </p>
     </proof>
     </proposition>
-    <p>Dans l'exercice <xref ref="ex-transfor2"/>, on a définit la transformation identité, dont la matrice <m>I</m> (pour le cas <m>\R^2\to \R^2</m>) est donnée par l'équation <xref ref="eq-id2x2"/>. Le nom identité est choisi puisque toute 
+    <p>Dans l'exemple <xref ref="ex-transfor2"/>, on a définit la transformation identité, dont la matrice <m>I</m> (pour le cas <m>\R^2\to \R^2</m>) est donnée par l'équation <xref ref="eq-id2x2"/>. Le nom identité est choisi puisque toute 
     matrice <m>A</m> multipliée par <m>I</m> donne <m>A</m>, que la multiplication soit faite à gauche ou à droite. Par exemple, pour la multiplication à droite, on a
     <md>
     <mrow>IA&amp;=\begin{pmatrix}1&amp;0\\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix}a &amp;c \\ b&amp; d \end{pmatrix}</mrow>
@@ -239,13 +239,13 @@
     cela revient à composer la fonction avec elle-même, ou à l'appliquer deux fois. En généralisant, on obtient les puissances d'une matrice.</p>
     <definition xml:id="def-matpui">
     <title>Les puissances d'une matrice</title>
-    <statement><p>Soit <m>A</m> une matrice carré. On définit la <m>k</m> ième puissance de <m>A</m> comme étant le produit de <m>A</m> avec elle-même, <m>k</m> fois:
+    <statement><p>Soit <m>A</m> une matrice carrée. On définit la <m>k</m> ième puissance de <m>A</m> comme étant le produit de <m>A</m> avec elle-même, <m>k</m> fois:
     <me>
     A^k=\underbrace{AA\cdots A}_{k \text{ fois }}
     </me>.
     </p></statement>
     </definition>
-    <p>Les puissances de matrices sont particulièrement utiles dans divers contexte, comme le montre l'exemple suivant. Le chapitre <xref provisional="Applications"/> contient
+    <p>Les puissances de matrices sont particulièrement utiles dans divers contextes, comme le montre l'exemple suivant. Le chapitre <xref provisional="Applications"/> contient
     d'autres exemples concrets d'applications.</p>
     <example xml:id="ex-prodmatchemins">
     <title>Une application du produit matriciel</title>
@@ -305,7 +305,7 @@ plot(D,layout='circular',vertex_color="blue")
     </input>
     </sage>
     <p>
-    On applique maintenant une transformation à un ensemble de points, construisant sur les exemple <xref ref="sageex-utvec"/> et <xref ref="sageex-deftransfo"/>. Pour cela, un peu de conversion est nécessaire, il faudra
+    On applique maintenant une transformation à un ensemble de points, construisant sur les exemples <xref ref="sageex-utvec"/> et <xref ref="sageex-deftransfo"/>. Pour cela, un peu de conversion est nécessaire, il faudra
     convertir une liste en matrice, puis une matrice en liste. La première conversion se fait bien avec la commande <c>column_matrix</c>. Celle-ci prend la liste <c>L</c> et la transforme en matrice colonne. Après la multiplication de
     cette nouvelle matrice par la transformation linéaire, il faut convertir la matrice <c>AL</c> en liste de points. Pour cela, on utilise la commande <c>list</c> sur les colonnes de <c>AL</c>. Le nombre de colonnes d'une matrice <c>M</c>
     est donné par la commande <c>M.ncols()</c>.</p>
@@ -351,7 +351,7 @@ plot(D,layout='circular',vertex_color="blue")
       <statement>
       <p>Soit <m>A\in\mathcal{M}_{m\times n}</m>, <m> B,C</m> des matrices de format approprié et <m>r\in \R</m>. On a</p>
       <list xml:id="li-prodmatprop">
-      <title>Propriété du produit matriciel</title>
+      <title>Propriétés du produit matriciel</title>
       <ol>
       <li><p><m>AI_n=I_mA=A</m></p></li>
       <li xml:id="li-distprodmat"><p><m>(A+B)C=AC+BC</m> et <m>A(B+C)=AB+AC</m></p></li>
@@ -369,7 +369,7 @@ plot(D,layout='circular',vertex_color="blue")
       AI_n=A
       </me>.
       </p>
-      <p>De plus, la <m>k</m> ième colonne de <m>I_mA</m> est donné par <m>I_m\vec{a}_k</m> et ce produit matrice vecteur vaut <m>a_k</m>. On a donc
+      <p>De plus, la <m>k</m> ième colonne de <m>I_mA</m> est donnée par <m>I_m\vec{a}_k</m> et ce produit matrice vecteur vaut <m>a_k</m>. On a donc
       <me>
       I_mA=A
       </me>.
@@ -377,9 +377,9 @@ plot(D,layout='circular',vertex_color="blue")
       </proof>
       <proof>
       <p>Posons <m>\vec{c}_k</m> la <m>k</m> ième colonne de la matrice <m>C</m>. Selon l'addition matricielle, on a pour la <m>k</m> ième colonne de <m>(A+B)C</m>
-      <m>
+      <me>
       (A+B)\vec{c}_k=A\vec{c}_k+B\vec{c}_k
-      </m>
+      </me>
        et donc, <m>(A+B)C=AC+BC</m>.
       </p>
       <p>De même, si <m>\vec{b}_k</m> représente la <m>k</m> ième colonne de <m>B</m>, on peut déterminer la <m>k</m> ième colonne de <m>A(B+C)</m> en utilisant le fait que
@@ -416,7 +416,7 @@ plot(D,layout='circular',vertex_color="blue")
       </md>.</p>
       </proof>
       <proof>
-      <p>Pour l'associativité, on suppose que <m>B\in\mathal{M}_{n,p}</m> et <m>C\in\mathcal{M}_{p,q}</m>. On a alors
+      <p>Pour l'associativité, on suppose que <m>B\in\mathcal{M}_{n,p}</m> et <m>C\in\mathcal{M}_{p,q}</m>. On a alors
       <md>
       <mrow>(AB)C&amp;=\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
      (AB)\vec{c}_1 &amp; (AB)\vec{c}_2 &amp;\cdots &amp; (AB)\vec{c}_q \\
@@ -439,7 +439,7 @@ plot(D,layout='circular',vertex_color="blue")
       <insight xml:id="con-casconnu">
       <title>Se ramener à un cas connu</title>
       <p>En mathématiques, il est fréquent de prendre un problème et de le transformer en plusieurs problèmes plus simples et déjà connus. Par exemple, on peut calculer
-      l'aire d'un polygone en le décomposant en triangles, formes plus simples et d'aire connu. <!-- ToDo à finir --> </p>
+      l'aire d'un polygone en le décomposant en triangles, formes plus simples et d'aire connue. <!-- ToDo à finir --> </p>
       </insight>
       <example xml:id="ex-refR2">
       <title>La réflexion par rapport à une droite passant par l'origine</title>
@@ -454,7 +454,7 @@ plot(D,layout='circular',vertex_color="blue")
       </p>
       </statement>
       <solution>
-      <p>Selon l'énoncé du problème, cette réflexion est en faite une compisition de deux rotations et de la réflexion <m>S_x</m>. Si on pose <m>S_{\theta}</m> la 
+      <p>Selon l'énoncé du problème, cette réflexion est en fait une composition de deux rotations et de la réflexion <m>S_x</m>. Si on pose <m>S_{\theta}</m> la 
       réflexion cherchée, on a alors
       <md>
       <mrow>S_{\theta}&amp;=R_{\theta}S_xR_{-\theta}</mrow>
@@ -510,7 +510,7 @@ plot(D,layout='circular',vertex_color="blue")
       <computation xml:id="sageex-propprodmat">
       <title>La composition de certaines transformations</title>
       <p>On considère une rotation d'angle <m>\theta_1</m> et une rotation d'angle <m>\theta_2</m>. Intuitivement, la composition de ces deux rotations devrait être une 
-      rotation d'angle <m>\theta_1+\theta_2</m>. On peut le vérifier algébriquement à l'aide de Sage. Afin de simplifier le code, on utilise <m>\theta_1=a</m> et <m>\theta_2=b</m>.</p>
+      rotation d'angle <m>\theta_1+\theta_2</m>. On peut le vérifier algébriquement à l'aide de Sage.</p>
       <sage>
       <input>
       var("theta1,theta2")
@@ -523,7 +523,7 @@ plot(D,layout='circular',vertex_color="blue")
       </sage>
       <p> La dernière ligne du code permet d'obtenir la simplification voulue. La méthode <c>apply_map</c> permet d'appliquer <c>trig_reduce()</c> à chaque entrée de la 
       matrice par le biais d'une fonction intermédiaire <c>lambda</c>. Ceci n'est pas très intuitif, mais pour l'instant, ça suffira. L'exercice <xref provisional="simplifiermatrice"/>
-       permettra de créer une fonction plus conventionnel qui pourra simplifier une matrice.</p>
+       permettra de créer une fonction plus conventionnelle qui pourra simplifier une matrice.</p>
        <p>On voit toutefois qu'après simplification, la transformation est bel et bien une rotation d'angle <m>\theta_1+\theta_2</m>.</p>
        <p>On s'intéresse maintenant à la composition de deux réflexions. Est-ce que le résultat sera aussi une réflexion? Si oui, pourquoi et si non, donner un exemple avant d'éxecuter le code ci-dessous.</p>
          <sage>
@@ -537,7 +537,7 @@ show(produit.apply_map(lambda x: x.trig_reduce()))
          </input>
          </sage>  
          <p>Le résultat, peut-être surprenant, est une rotation. La simplification effectuée par Sage ne montre pas directement la forme d'une matrice de rotation,
-         mais on peut montrer qu'elle est équivalente à une rotation d'angle <m>2(\theta_1-\theta_2)</m>. Ceci suggère que également que les réflexions ne sont pas commutatives,
+         mais on peut montrer qu'elle est équivalente à une rotation d'angle <m>2(\theta_1-\theta_2)</m>. Ceci suggère également que les réflexions ne sont pas commutatives,
          à savoir qu'en général, <m>S_{\theta_1}S_{\theta_2}\neq S_{\theta_2}S_{\theta_1}</m>.</p>
        <p>Maintenant, on s'intéresse à la composition d'une rotation et d'une réflexion. Comme on sait que la multiplication n'est pas commutative, on va regarder s'il
        y a une différence entre faire la réflexion en premier suivie de la rotation et la rotation suivie de la réflexion (une prédiction?).</p>
@@ -582,7 +582,7 @@ show(produit.apply_map(lambda x: x.trig_reduce()))
        <mrow>&amp;=S_{\theta_1-\theta_2+\theta_3} &amp;&amp; \text{après simplification}</mrow>
        </md>. D'autre part, on a
         <md>
-       <mrow>(S_{\theta_1}S_{\theta_2})S_{\theta_3}&amp;=R_{2(\theta_1-\theta_2)S_{\theta_3}} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
+       <mrow>(S_{\theta_1}S_{\theta_2})S_{\theta_3}&amp;=R_{2(\theta_1-\theta_2)}S_{\theta_3} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
        <mrow>&amp;=S_{\frac{2(\theta_1-\theta_2)+2\theta_3}{2}} &amp;&amp; \text{puisque  la composition d'une réflexion suivie d'une roation est une réflexion dont l'angle est la moitiée de la somme entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
        <mrow>&amp;=S_{\theta_1-\theta_2+\theta_3} &amp;&amp; \text{après simplification}</mrow>
        </md>. 
@@ -600,14 +600,13 @@ show(produit.apply_map(lambda x: x.trig_reduce()))
     <li><p> La définition de la matrice <xref ref="def-matid">identité </xref>.</p></li>
     <li><p>Le fait que la multiplication n'est pas commutative.</p></li>
     <li><p>Le concept de puissances d'une matrice.</p></li>
-    <li><p>Les <xref ref="li-distprodmat"> propriétés </xref> de la multiplication matricielle.</p></li>
-    <li><p>La forme matricielle d'une réflexion, donnée par l'équation <xref ref="eq-refr2-2"/> ou encore <xref ref="eq-refr2-1"/>.</p></li>
+    <li><p>Les <xref ref="li-prodmatprop"> propriétés </xref> de la multiplication matricielle.</p></li>
+    <li><p>La forme matricielle d'une réflexion, donnée par l'équation <xref ref="eq-refr2-2"/>.</p></li>
     </ul> 
     De plus avec Sage, on peut multiplier des matrices avec l'opération <c>*</c>. On peut aussi appliquer une transformation linéaire à un ensemble de points en transformant ces points en matrice, pour effectuer la multiplication.
-    Le nombre de colonnes d'une matrice <m>A</m> est obtenue à l'aide de la commande <c>A.ncols()</c> et le nombre de ligne serait obtenue avec <c>A.nrows()</c>. La commande <c>trig_reduce</c> permet de simplifier des 
+    Le nombre de colonnes d'une matrice <m>A</m> est obtenu à l'aide de la commande <c>A.ncols()</c> et le nombre de lignes serait obtenu avec <c>A.nrows()</c>. La commande <c>trig_reduce</c> permet de simplifier des 
     équations trigonométriques. On peut obtenir la matrice identité à l'aide de la commande <c>identity_matrix(n)</c>.
     </p>
     </conclusion>
    <xi:include href="Exercices_prodmat.xml" />
 </section>
-<!--Exercice style (A+B)^2=  -->
