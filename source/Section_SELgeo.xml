@@ -20,7 +20,11 @@
     </introduction>
     <subsection xml:id="sssec-transfozero">
     <title>Les zéros d'une transformation linéaire</title>
-    <p>On considère une matrice <m>m\times n</m> et le système d'équations linéaires <m>A\vec{x}=\vec{0}</m>. Géométriquement, les solutions à ce système représentent l'ensemble
+    <p>On considère une matrice <m>m\times n</m> et le système d'équations linéaires <m>A\vec{x}=\vec{0}</m>. Un tel système est souvent appelé homogène.
+    <aside><title>En passant</title> Le mot homogène a malheureusement plusieurs significations en mathématiques. Souvent utilisé pour signifier que le 
+    membre de droite d'une équation (ou un système) est nul (comme ici), il peut aussi faire référence à une fonction homogène. On ne devrait pas rencontrer d'autres 
+    utilisation du mot dans ces notes. </aside>
+    Géométriquement, les solutions à ce système représentent l'ensemble
     des valeurs <m>\vec{x}</m> du domaine (<m>\R^n</m>) qui sont envoyées sur le vecteur nul de l'image (<m>\R^m</m>). Comme on l'a remarqué à la proposition <xref ref="prop-transfolinprop"/>,
     le vecteur <m>\vec{0}\in \R^n</m> est toujours une solution de ce système. De plus, si la matrice <m>A</m> est carrée et inversible, c'est la <xref ref="thm-delamatriceinversev1">seule solution</xref>.</p>
     <p>Dans les autres cas, il peut exister d'autres zéros à la transformation. On pourra les trouver à l'aide de <xref ref="algo-GJ">l'algorithme de Gauss-Jordan</xref>.</p>
@@ -38,7 +42,7 @@
     <p>La figure interactive suivante permet de visualiser l'image d'un vecteur par chacune des transformations. Les détails algébriques sont faits ci-dessous.</p>
     <figure xml:id="fig-Ax0">
     <caption>Les zéros de deux transformations linéaire de l'espace</caption>
-    <interactive aspect="1:1" platform="geogebra" width="80%"
+    <interactive aspect="1:1" platform="geogebra" width="100%"
       xml:id="geog-Ax0">
         <slate aspect="1:1" source="code/geogebra/Ax0.ggb"
         surface="geogebra" xml:id="slate-Ax0">
@@ -73,7 +77,7 @@ show("rref(Aaug)=",Aaug.rref())
     l'origine de vecteur directeur <m>\vec{v}=(-2,-1,1)</m>.</p>
     </solution>
     <solution>
-    <p>On utilise Sage pour échelonner la matrice <m>A</m> et déterminer les solutions.</p>
+    <p>On utilise Sage pour échelonner la matrice <m>B</m> et déterminer les solutions.</p>
 <sage>
 <input>
 B=column_matrix([[3,-2,2],[-6,4,-4],[9,-6,6]])
@@ -491,7 +495,7 @@ vecteurs <m>e_1,e_2,\ldots , e_n</m> de l'espace <m>\R^n</m>.</p>
 def matL(A):
     R=A.rref()  #Si la matrice n'est pas ERL, on l'échelonne
     r=A.rank()  #On détermine le rang. Ceci permet de savoir combien de lignes nulles il y a.
-    Rnonnulles=A.matrix_from_rows(list(range(r)))   #On ne conserve de R que les lignes non nulles. list(range(r))=[0,1,...,r]
+    Rnonnulles=R.matrix_from_rows(list(range(r)))   #On ne conserve de R que les lignes non nulles. list(range(r))=[0,1,...,r]
     L=Rnonnulles.matrix_from_columns(R.nonpivots()) #De la matrice Rnonnulles, on extrait les colonnes non pivots pour former L
     return(L)  #On renvoie la matrice L comme réponse
 </input>
@@ -571,7 +575,7 @@ solbase(R)
      <p>On cherche à visualiser l'image de chacune de ces transformations. Pour cela, on utilise les figures interactives suivantes.</p>
      <figure>
      <caption>L'image de la transformation <m>R_\theta</m></caption>
-     <interactive aspect="1:1" platform="geogebra" width="80%"
+     <interactive aspect="1:1" platform="geogebra" width="100%"
       xml:id="geog-rotimg">
         <slate aspect="1:1" source="code/geogebra/rotimg.ggb"
         surface="geogebra" xml:id="slate-rotimg">
@@ -583,9 +587,9 @@ solbase(R)
         </instructions>
         </interactive>
      </figure>
-     <figure>
+     <figure xml:id="fig-projimg">
      <caption>L'image de la transformation <m>P</m></caption>
-     <interactive aspect="1:1" platform="geogebra" width="80%"
+     <interactive aspect="1:1" platform="geogebra" width="100%"
       xml:id="geog-projimg">
         <slate aspect="1:1" source="code/geogebra/projimg.ggb"
         surface="geogebra" xml:id="slate-projimg">
@@ -598,7 +602,7 @@ solbase(R)
      </figure>
      <figure>
      <caption>L'image de la transformation <m>B</m></caption>
-     <interactive aspect="1:1" platform="geogebra" width="80%"
+     <interactive aspect="1:1" platform="geogebra" width="100%"
       xml:id="geog-Bimg">
         <slate aspect="1:1" source="code/geogebra/Bimg.ggb"
         surface="geogebra" xml:id="slate-Bimg">
@@ -610,9 +614,9 @@ solbase(R)
         </instructions>
         </interactive>
      </figure>
-     <figure>
+     <figure xml:id="fig-Cimg">
      <caption>L'image de la transformation <m>C</m></caption>
-     <interactive aspect="1:1" platform="geogebra" width="80%"
+     <interactive aspect="1:1" platform="geogebra" width="100%"
       xml:id="geog-Cimg">
         <slate aspect="1:1" source="code/geogebra/Cimg.ggb"
         surface="geogebra" xml:id="slate-Cimg">
@@ -639,32 +643,131 @@ solbase(R)
     <p>On pose <m>\vec{b}=\vecd{b_1}{b_2}</m> et on augmente la matrice <m>\R_\theta</m> avec le vecteur <m>\vec{b}</m>, afin de procéder à l'échelonnage. On débute en supposant 
     que <m>\cos(\theta)\neq 0</m>.
     <md>
-    <mrow>\begin{array}{rr|r}
+    <mrow>\left(\begin{array}{rr|r}
     \cos(\theta)&amp;-\sin(\theta)&amp; b_1 \\
     \sin(\theta)&amp; \cos(\theta)&amp; b_2 \\
-    \end{array}&amp;\matsimils{1}{\frac{1}{\cos(\theta)}} \begin{array}{rr|r}
-    1&amp;-\tan(\theta)&amp; \frac{b_1}{\cos(\theta)} \\
+    \end{array}\right )&amp;\matsimils{1}{\frac{1}{\cos(\theta)}} \left(\begin{array}{rr|r}
+    1&amp;-\frac{\sin(\theta)}{\cos(\theta)}&amp; \frac{b_1}{\cos(\theta)} \\
     \sin(\theta)&amp; \cos(\theta)&amp; b_2 \\
-    \end{array}
+    \end{array}\right )
     </mrow>
-    <mrow>&amp;\matsimilc{1}{-\sin(\theta)}{2}\begin{array}{rr|r}
+    <mrow>&amp;\matsimilc{1}{-\sin(\theta)}{2}\left(\begin{array}{rr|r}
     1&amp;-\frac{\sin(\theta)}{\cos(\theta)}&amp; \frac{b_1}{\cos(\theta)} \\
-    0&amp; \frac{\cos^2(\theta)+\sin^2(\theta)}{\cos(\theta)}&amp; b_2-b_1\sin(\theta)\cos(\theta) \\
-    \end{array}</mrow>
-    <mrow>&amp;\matsimils{2}{\cos(\theta)}\begin{array}{rr|r}
+    0&amp; \frac{\cos^2(\theta)+\sin^2(\theta)}{\cos(\theta)}&amp; b_2-b_1\frac{\sin(\theta)}{\cos(\theta)} \\
+    \end{array}\right )</mrow>
+    <mrow>&amp;\matsimils{2}{\cos(\theta)}\left(\begin{array}{rr|r}
     1&amp;-\frac{\sin(\theta)}{\cos(\theta)}&amp; \frac{b_1}{\cos(\theta)} \\
-    0&amp; 1&amp; b_2\cos(\theta)-b_1\sin(\theta)\cos^2(\theta) \\
-    \end{array}</mrow>
-    <mrow>&amp;\matsimilc{2}{\frac{\sin(\theta)}{\cos(\theta)}}{1}\begin{array}{rr|r}
-    1&amp;0&amp; \frac{b_1}{\cos(\theta)}+b_2\sin(\theta)-b_1\sin^2(\theta)\cos(\theta) \\
-    0&amp; 1&amp; b_2\cos(\theta)-b_1\sin(\theta)\cos^2(\theta) \\
-    \end{array}</mrow>
+    0&amp; 1&amp; b_2\cos(\theta)-b_1\sin(\theta) \\
+    \end{array}\right )</mrow>
+    <mrow>&amp;\matsimilc{2}{\frac{\sin(\theta)}{\cos(\theta)}}{1}\left(\begin{array}{rr|r}
+    1&amp;0&amp; b_1\cos(\theta)+b_2\sin(\theta) \\
+    0&amp; 1&amp; b_2\cos(\theta)-b_1\sin(\theta) \\
+    \end{array}\right )</mrow>
     </md>.
     </p>
     <p>Comme toutes les colonnes sont pivots et qu'il n'y a pas de lignes nulles, on peut conclure que peu importe la valeur du vecteur <m>\vec{b}</m>, une solution existe (ce qui n'est 
     pas surprenant, compte tenu de la géométrie de la transformation rotation). En plus, on obtient cette solution en fonction des entrées de <m>\vec{b}</m>.</p>
+    <p>Puisque l'on a divisé par <m>\cos(\theta)</m>, on doit voir ce qui se passe lorsque ce dernier vaut <m>0</m>. Si c'est le cas, alors <m>\sin(\theta)=-1</m> ou <m>\sin(\theta)=1</m>.
+    Dans les deux cas, la matrice se réduit aussi à l'identité à l'aide d'une permutation de lignes et d'une multiplication d'une ligne par <m>-1</m>.</p>
+    </solution>
+    <solution>
+    <p>On pose <m>\vec{b}=\vecd{b_1}{b_2}</m> et on augmente la matrice <m>P</m> avec le vecteur <m>\vec{b}</m>, afin de procéder à l'échelonnage.
+    <md>
+    <mrow>
+    \left ( \begin{array}{rr|r} 1&amp; 1&amp; b_1 \\ 1&amp; 1&amp; b_2 \end{array}\right) &amp;\matsimilc{1}{-}{2}     \left ( \begin{array}{rr|r} 1&amp; 1&amp; b_1 \\ 0&amp; 0&amp; b_2-b_1 \end{array}\right)
+    </mrow>
+    </md>.
+    </p>
+    <p>La matrice est déjà sous la forme échelonné réduite et on constate que la dernière ligne (de la partie non augmentée) est nulle. Pour que le système possède une solution,
+    il faut que le terme augmenté dans la dernière ligne soit nul aussi, c'est-à-dire, il faut que <m>b_2-b_1=0</m>. En réécrivant, on se rend compte que les vecteurs
+    de l'image doivent satisfaire <m>b_1=b_2</m>. Ce sont précisément les vecteurs sur la droite de la figure <xref ref="fig-projimg"/>.</p>
+    </solution>
+    <solution><p>Voir l'exercice <xref provisional="exo-imgalgB"/>.</p></solution>
+    <solution>
+    <p>On pose <m>\vec{b}=\vecd{b_1}{b_2}{b_3}</m> et on augment la matrice <m>C</m> avec le vecteur <m>\vec{b}</m>, afin de procéder à l'échelonnage.
+    <md>
+    <mrow>
+    \left(\begin{array}{rrr|r} 1&amp; 2&amp; -3&amp; b_1\\
+                                 -2 &amp; -4 &amp; 6&amp; b_2\\
+                                 -1 &amp; -2&amp; 3&amp; b_3
+                                 \end{array}\right)&amp;\stackrel{2L_1+L_2\rightarrow L_2}{\stackrel{L_1+L_3\rightarrow L_3}{\sim}}\left(\begin{array}{rrr|r} 1&amp; 2&amp; -3&amp; b_1\\
+                                 0 &amp; 0 &amp; 0&amp; b_2+2b_1\\
+                                 0 &amp; 0&amp;0&amp; b_3+b_1
+                                 \end{array}\right)
+    </mrow>
+    </md>.
+    </p>
+    <p>La matrice est déjà sous la forme échelonné réduite et on constate que les deux dernières lignes (de la partie non augmentée) sont nulles. Pour que le système possède une solution,
+    il faut que les termes de la partie augmentée dans ces  lignes soient nuls aussi, c'est-à-dire, il faut que <m>b_2+2b_1=0</m> et <m>b_3+b_1=0</m>.
+    Ceci amène un nouveau système d'équations linéaires homogène à deux équations et trois inconnues. La matrice augme de ce système est 
+    <me>
+    \left(\begin{array}{rrr}
+    1 &amp; 0 &amp; 1 \\
+    2&amp; 1 &amp; 0
+    \end{array}\right)
+    </me>.
+    On utilise la fonction <c>solbase</c> définie plus haut afin de trouver les solutions de base de ce système.
+    </p>
+    <sage>
+    <input>
+    M=matrix([[1,0,1],[2,1,0]])
+    show(solbase(M))
+    </input>
+    </sage>
+    <p>Les vecteurs composant l'image de la transformation linéaire <m>C</m> se trouvent donc sur les combinaisons linéaires (donc ici, la droite) du vecteur 
+    <m>\vec{s}=(-1,2,1)</m>. Ceci coincide bien avec la droite de la figure <xref ref="fig-Cimg"/>, comme le montre l'animation suivante.</p>
+    <figure xml:id="fig-Cimganim">
+     <caption>L'image de la transformation <m>C</m></caption>
+     <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-Cimganim">
+        <slate aspect="1:1" source="code/geogebra/Cimganim.ggb"
+        surface="geogebra" xml:id="slate-Cimganim">
+            applet.setCoordSystem(-8, 8,-8,8,-8,8);
+          </slate>
+        <instructions>
+          <p><alert>Instructions pour la figure interactive:</alert> Déplacer le point <m>A</m> afin de visualiser la transformation <m>C</m>. Cliquer sur le texte pour
+          décomposer le vecteur directeur et suivre les instructions apparaissant.</p>
+        </instructions>
+        </interactive>
+     </figure>
     </solution>
     </example>
+    <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
+    <computation>
+    <!-- watch for progress on https://trac.sagemath.org/ticket/23715 -->
+    <title>L'image de transformations linéaire et Sage</title>
+    <p>Sage ne pourra pas travailler directement avec les variables comme <m>b_1,b_2,b_3</m> si on ne l'aide pas un peu. Pour déterminer l'image d'une transformation 
+    avec Sage, trois ajustements seront nécessaire. Leur raison d'être est liée au fonctionnement du logiciel et dépasse le niveau du manuel. On se contente d'appliquer la solution. On constate
+    l'ajout d'une ligne <c>R.&lt;b1,b2,b3>=QQ[]</c> au code. De plus, la colonne augmentée est inscrite à même la matrice. Finalement, on note l'utilisation de la fonction <c>echelon_form()</c> plutôt que le standard <c>rref()</c>. Avec 
+    ces  ajustements, on peut obtenir la forme échelonnée réduite de la matrice avec le vecteur <m>\vec{b}</m> variables.</p>
+    <p>On procède avec les matrices <m>B,C</m> de l'exemple <xref ref="ex-imggeo"/>.</p>
+    <sage>
+    <input>
+R.&lt;b1,b2,b3>=QQ[]
+B=matrix([[1,2,-3,b1],[-2,-1,1,b2],[-1,1,-2,b3]])  
+show("rref(B)=",B.echelon_form())
+    </input>
+    </sage>
+    <p>On trouve la condition <m>b_3-b_1-b_2=0</m>. On reconnait ici l'équation normale d'un plan dans <m>R^3</m>. On pourrait trouver l'équation vectoriel en isolant
+    par exemple <m>b_3</m> ou encore en utilisant <c>solbase</c>. Puisque ceci est un exemple Sage, on choisit ce &#x00AB; bazooka &#x00BB; pour tuer une mouche.<fn>Voir
+    <url href="https://fr.wiktionary.org/wiki/tuer_une_mouche_avec_un_canon"/></fn></p>
+    <sage>
+    <input>
+    Img=matrix([[-1,-1,1]])
+    solbase(Img)
+    </input>
+    </sage>
+    <p>On trouve une équation vectoriel pour ce même plan: <m>(x,y,z)=r(-1,1,0)+s(1,0,1)</m>.</p>
+    <!-- faire la matrice C -->
+    </computation>
+    </subsection>
+    <subsection>
+    <title>La solution complète à <m>A\vec{x}=\vec{b}</m>.</title>
+    <p>Les solutions à l'équation <m>A\vec{x}=\vec{0}</m> s'écrivent toutes comme des combinaisons linéaires des vecteurs des vecteurs de base. Selon le nombre
+    de vecteur de base, ces solutions se trouvent sur une droite (un vecteur), un plan (deux vecteurs) ou plus généralement un hyperplan (trois vecteurs ou plus) passant
+    par l'origine. Lorsque le vecteur nul est remplacé par un vecteur <m>\vec{b}</m> quelconque, les solutions ont toujours la forme de droites, plans ou hyperplans, mais ceux-ci ne 
+    passent plus nécessairement par l'origine.</p>
+    <!-- ... -->
     </subsection>
     <!-- Mettre dans sous-section Ax=b
     <example>

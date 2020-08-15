@@ -160,27 +160,32 @@
     </example>
     <p>Évidement, ces deux exemples peuvent se résoudre facilement en ne considérant que la géométrie du système. Toutefois, lorsque le nombre d'équations et d'inconnues devient plus élevé,
     l'avantage de la méthode algébrique devient plus évidente.</p>
-    <example>
+    <example xml:id="ex-4eq3inc">
     <title>Des systèmes à quatre équations et trois inconnues</title>
     <statement>
     <p>Soit <m>A=\begin{pmatrix} 2&amp; -3&amp; 1 \\ 
                             6&amp; 0&amp; 4\\ 
                             6 &amp; 9&amp; 5\\ 
-                            -6&amp; 9 &amp; -3\end{pmatrix}</m> et les vecteurs <m>\vec{b}_1=\begin{pmatrix} 5\\ 3\\ -9\\ -15\end{pmatrix}, \vec{b}_2=\begin{pmatrix}3\\4\\1\\-9\end{pmatrix}</m>.
+                            -6&amp; 9 &amp; -3\end{pmatrix}</m>,<m>B=\begin{pmatrix} 1&amp; 6&amp; -3 \\ 
+                            \frac{4}{3}&amp; 8&amp; -4\\ 
+                            \frac{1}{3} &amp; 2&amp; -1\\ 
+                            -3&amp; -18 &amp; 9\end{pmatrix}</m> et les vecteurs <m>\vec{b}_1=\begin{pmatrix} 5\\ 3\\ -9\\ -15\end{pmatrix}, \vec{b}_2=\begin{pmatrix}3\\4\\1\\-9\end{pmatrix}</m>.
                             On cherche la solution des systèmes suivants:
                             <ol>
                             <li><m>A\vec{x}=\vec{b}_1</m>,</li>
-                            <li><m>A\vec{x}=\vec{b}_2</m>.</li>
+                            <li><m>A\vec{x}=\vec{b}_2</m>,</li>
+                            <li><m>B\vec{x}=\vec{b}_1</m>,</li>
+                            <li><m>B\vec{x}=\vec{b}_2</m>.</li>
                             </ol>
     </p>
     </statement>
     <solution>
-    <p>Les systèmes sont équivalents à la matrice augmetée
+    <p>Les systèmes avec la matrice <m>A</m> sont équivalents à la matrice augmetée
     <me>
-    \begin{pmatrix} 2&amp; -3&amp; 1 &amp;|&amp; 5&amp;3 \\ 
-                            6&amp; 0&amp; 4 &amp;|&amp; 3&amp; 4\\ 
-                            6 &amp; 9&amp; 5 &amp;|&amp; -9&amp;1 \\ 
-                            -6&amp; 9 &amp; -3 &amp;|&amp;-15&amp;-9\end{pmatrix}</me>.
+    \begin{array}{rrr|rr} 2&amp; -3&amp; 1 &amp; 5&amp;3 \\ 
+                            6&amp; 0&amp; 4 &amp; 3&amp; 4\\ 
+                            6 &amp; 9&amp; 5 &amp; -9&amp;1 \\ 
+                            -6&amp; 9 &amp; -3 &amp;-15&amp;-9\end{array}</me>.
     On peut résoudre simultanément ces systèmes puisque la matrice est la même. On a
     <md>
     <mrow>
@@ -223,6 +228,7 @@
     <md>
     <mrow>x&amp;=-\frac{2}{3}z+\frac{1}{2}</mrow>
     <mrow>y&amp;=-\frac{1}{9}z-\frac{4}{3}</mrow>
+    <mrow>z&amp;=z \text{(libre)}</mrow>
     </md>.
     L'ensemble solution est donc l'ensemble des points <m>(x,y,z)</m> tels que 
     <md>
@@ -233,6 +239,36 @@
     On reconnait ici l'équation d'une droite de vecteur directeur <m>\vecddd{-\frac{2}{3}}{-\frac{1}{9}}{1}</m> passant par le point <m>\vecddd{\frac{1}{2}}{-\frac{4}{3}}{0}</m>.
     </p>
     </solution>
+    <solution>
+    <p>Les systèmes avec la matrice <m>B</m> sont équivalents à la matrice augmetée
+    <me>
+    \left(\begin{array}{rrr|rr} 1&amp; 6&amp; -3 &amp; 5&amp;3 \\ 
+                            \frac{4}{3}&amp; 8&amp; -4&amp; 3&amp; 4\\ 
+                            \frac{1}{3} &amp; 2&amp; -1 &amp; -9&amp;1 \\ 
+                            -3&amp; -18 &amp; 9 &amp;-15&amp;-9\end{array}\right)</me>.
+                            </p>.
+                            L'échelonnage est fait à l'exercice <xref ref="exo-4eq3inc"/>. On obtient la matrice
+                            <m>
+                            \left(\begin{array}{rrr|rr}
+1 &amp; 6 &amp; -3 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)
+                            </m>.
+    <p>Cette fois, le vecteur <m>\vec{b}_1</m> est celui pour lequel il n'y a pas de solution, car la deuxième ligne n'est pas compatible. Pour le vecteur <m>\vec{b}_2</m>,
+    des solutions existent. Les variables <m>x</m> et <m>y</m> sont libres. On a donc
+    <md>
+    <mrow>x&amp;= 3-6y+3z</mrow>
+    <mrow>y&amp;=y \text{(libre)}</mrow>
+    <mrow>z&amp;=z \text{(libre)}</mrow>
+    </md>. L'ensemble solution est donc composé de tous les vecteurs <m>(x,y,z)</m> tels que
+    <md><mrow>\vecddd{x}{y}{z}&amp;=\vecddd{3-6y+3z}{y}{z}</mrow>
+    <mrow>&amp;=\vecddd{3}{0}{0}+y\vecddd{-6}{1}{0}+z\vecddd{3}{0}{1}</mrow>
+    </md>.
+    </p>
+    <p>On reconnait l'équation vectoriel d'un plan de vecteurs directeurs <m>(-6,1,0)</m> et <m>(3,0,1)</m> passant par le point <m>(3,0,0)</m>.</p>
+   </solution>
     </example>
     <p>On résume la procédure pour obtenir les solutions d'un système d'équations linéaires  dans l'algorithme <xref ref="algo-SELsol"/>.</p>
     <algorithm xml:id="algo-SELsol">
@@ -258,7 +294,6 @@
     </statement>
     </algorithm>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
-    <!-- SAGE   ATTEnTTION, solve_right donne une solution, même si infinité. Revenir la dessus plus tard -->
     <computation xml:id="sageex-nbsol">
     <title>Aucune et une infinité de solutions avec Sage</title>
     <p>On a vu à l'exemple <xref ref="sageex-GJ"/> qu'on peut résoudre les systèmes d'équations avec Sage, avec l'une des commandes <c>rref()</c> ou <c>solve_right()</c>.
@@ -317,7 +352,6 @@
     indiquent souvent quelle(s) ligne(s) du code cause(nt) un problème.</p>
     </statement>
     </insight>
-    <!-- Sous-section théorie : rang, var pivot, var libre etc. -->
     </subsection>
     <subsection xml:id="ssec-rang">
     <title>Le rang d'une matrice</title>
