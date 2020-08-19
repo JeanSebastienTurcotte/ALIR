@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                     -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-SELgeo">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+<!--    <exercise xml:id="exo-">
+            <statement>
+                La question.
+            </statement>
+            <hint>
+                Un indice.
+            </hint>
+            <answer>
+                La réponse.
+            </answer>
+            <solution>
+                La solution.
+            </solution>
+    </exercise>  -->
+    <exercise xml:id="exo-prodvec">
+    <title> Le produit vectoriel</title>
+    <introduction><p>Dans cet exercice, on s'intéresse à trouver les vecteurs de <m>\R^3</m> qui sont perpendiculaires à deux vecteurs données. Essentiellement, on cherche à trouver le vecteur normal au
+    plan engendré par les deux vecteurs donnés.</p></introduction>
+    <task xml:id="exo-prodveca">
+    <statement><p>Soit <m>\vec{u}=(1,1,1),\vec{v}=(2,3,4)</m>. On cherche <m>\vec{w}=(w_1,w_2,w_3)</m> tel que <m>\pscal{w}{u}=0</m> et <m>\pscal{w}{v}=0</m>. Écrire le système d'équations linéaires associé à ces 
+    équations et le résoudre.</p></statement>
+    </task>
+    <task>
+    <statement><p>Soit <m>\vec{u}=(3,1,2),\vec{v}=(-2,1,5)</m>. On cherche <m>\vec{w}=(w_1,w_2,w_3)</m> tel que <m>\pscal{w}{u}=0</m> et <m>\pscal{w}{v}=0</m>. Écrire le système d'équations linéaires associé à ces 
+    équations et le résoudre.</p></statement>
+    </task>
+    <task xml:id="exo-prodvecb"><statement><p>Dans les deux calculs précédents, quelle est la plus petite valeur positive de la variable libre qui fait en sorte que les entrées du vecteur <m>\vec{w}</m> sont toutes entières? Quels sont ces
+    vecteurs <m>\vec{w}</m>?</p></statement></task>
+    <task><statement><p>Refaire les parties <xref ref="exo-prodveca"/> et <xref ref="exo-prodvecb"/> en remplaçant le vecteur <m>\vec{u}</m> par un vecteur quelconque <m>\vec{u}=(u_1,u_2,u_3)</m>. Compléter les cellulles Sage ci-dessous pour faire  les calculs  </p>
+    <sage>
+    <input>
+var("u1,u2,u3")
+u=vector([u1,u2,u3])
+v=vector([2,3,4])
+R.&lt;u1,u2,u3>=QQ[]    
+    </input>
+    </sage>
+    <sage>
+        <input>
+var("u1,u2,u3")
+u=vector([u1,u2,u3])
+v=vector([-2,1,5])
+R.&lt;u1,u2,u3>=QQ[]    
+    </input>
+    </sage>
+    <p>Sélectionner à nouveau une valeur pour <m>w_3</m> qui évite les fractions.</p>
+    </statement></task>
+    <task><statement><p>Refaire les parties <xref ref="exo-prodveca"/> et <xref ref="exo-prodvecb"/> en remplaçant les vecteurs <m>\vec{u},\vec{v}</m> par un vecteur quelconque <m>\vec{u}=(u_1,u_2,u_3),\vec{v}=(v_1,v_2,v_3)</m>. Compléter les cellulles Sage ci-dessous pour faire  les calculs  </p>
+    <sage>
+    <input>
+var("u1,u2,u3,v1,v2,v3")
+u=vector([u1,u2,u3])
+v=vector([v1,v2,v3])
+R.&lt;u1,u2,u3>=QQ[]    
+    </input>
+    </sage>
+    <sage>
+        <input>
+var("u1,u2,u3")
+u=vector([u1,u2,u3])
+v=vector([v1,v2,v3])
+R.&lt;u1,u2,u3,v1,v2,v3>=QQ[]    
+    </input>
+    </sage>
+    <p>Sélectionner à nouveau une valeur pour <m>w_3</m> qui évite les fractions.</p>
+    </statement></task>
+    <conclusion><p>Le vecteur <m>\vec{w}=\left(-u_{3} v_{2} + u_{2} v_{3},\,u_{3} v_{1} - u_{1} v_{3},\,-u_{2} v_{1} + u_{1} v_{2}\right)</m> est appelé le produit vectoriel de <m>\vec{u}</m> et <m>\vec{v}</m>, et
+    est noté <m>\vec{w}=\vec{u}\times \vec{v}</m>. On y reviendra à la section <xref ref="sec-prodvec"/>.</p>
+    <p>Ce vecteur a été obtenu en prenant la variable libre dans le système d'équations linéaires comme étant égale à <m>w_3=u_2v_1-u_1v_2</m> pour éliminer une fraction. Il se peut toutefois que ce nombre soit nul.
+    Dans la section <xref ref="sec-prodvec"/>, on montrera que ce n'est en réalité pas un problème.</p></conclusion>
+    </exercise>
+    <exercise>
+    <statement><p>On considère la matrice <me>A=\matcolt{1}{2}{3}{-1}{4}{3}{2}{4}{x^2-3}</me>. Déterminer les  solutions de base en fonction de <m>x</m>.</p></statement>
+    </exercise>
+    <exercise>
+    <statement><p>On considère la matrice <me>B=\begin{pmatrix} x&amp; x-1&amp; y \\
+                                                             2&amp; 0&amp; -6\\
+                                                             3&amp; 0&amp; -9\end{pmatrix}</me>. Déterminer les  solutions de base en fonction de <m>x</m> et <m>y</m>.</p></statement>
+    </exercise>
+    <exercise><statement><p>Un plan a comme équation <m>2x+5y-10z=0</m>. En fonction de ce plan, que représente la solution homogène à l'équation <m>\begin{pmatrix} 2&amp; 5&amp; -10\end{pmatrix}\vecddd{x}{y}{z}=0</m>? Donner cette solution.</p></statement>
+    <answer><p>C'est le même plan, sous forme vectoriel. Les vecteurs directeurs sont les solutions de base.</p></answer>
+    </exercise>
+    <exercise><statement>Un plan a comme équation <m>2x+5y-10z=20</m>.En fonction de ce plan, que représente la solution générale à l'équation <m>\begin{pmatrix} 2&amp; 5&amp; -10\end{pmatrix}\vecddd{x}{y}{z}=20</m>?  Donner cette solution. </statement></exercise>
+    <exercise><statement><p>Soit <m>R</m> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve la solution de base à l'équation <m>R\vec{x}=\vec{0}</m> et la solution particulière
+    à l'équation <m>R\vec{x}=\vec{b}</m>. Entrer sur la figure les valeurs pour la matrice <m>R</m> et le vecteur <m>\vec{b}</m> qui correspondent à cette géométrie.</p>
+<figure xml:id="fig-rrefgeo1">
+    <caption>La géométrie de l'équation <m>R\vec{x}=\vec{b}</m>, version 1</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-exo-rrefgeo1">
+        <slate aspect="1:1" source="code/geogebra/exo-rrefgeo1.ggb"
+        surface="geogebra" xml:id="slate-exo-rrefgeo1">
+            setCoordSystem(-8, 8,-8,8,-8,8);
+          </slate>
+        <instructions>
+          <p><alert>Instructions pour la figure interactive:</alert> Compléter les six valeurs de la matrice augmentée. Un clic sur &#x00AB; Vérifier la réponse &#x00BB; validera la réponse. Ensuite, un clic sur
+          &#x00AB; Nouveau problème &#x00BB; permet d'en essayer une version différente.</p>
+        </instructions>
+        </interactive>
+    </figure>
+    </statement>
+    <!-- Pour la solution, distinguer trois cas :  Si s=0, si s est de la forme (1,0) et si s est de la forme (x,1) -->
+    </exercise>
+        <exercise><statement><p>Soit <m>R</m> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve la solution de base à l'équation <m>R\vec{x}=\vec{0}</m> et un point <m>P</m> appartenant à
+        l'ensemble solution de l'équation <m>R\vec{x}=\vec{b}</m>. Entrer sur la figure les valeurs pour la matrice <m>R</m> et le vecteur <m>\vec{b}</m> qui correspondent à cette géométrie.</p>
+<figure xml:id="fig-rrefgeo2">
+    <caption>La géométrie de l'équation <m>R\vec{x}=\vec{b}</m>, version 2</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-exo-rrefgeo2">
+        <slate aspect="1:1" source="code/geogebra/exo-rrefgeo2.ggb"
+        surface="geogebra" xml:id="slate-exo-rrefgeo2">
+            setCoordSystem(-8, 8,-8,8,-8,8);
+          </slate>
+        <instructions>
+          <p><alert>Instructions pour la figure interactive:</alert> Compléter les six valeurs de la matrice augmentée. Un clic sur &#x00AB; Vérifier la réponse &#x00BB; validera la réponse. Ensuite, un clic sur
+          &#x00AB; Nouveau problème &#x00BB; permet d'en essayer une version différente.</p>
+        </instructions>
+        </interactive>
+    </figure>
+    </statement>
+    <!-- Pour la solution, distinguer trois cas :  Si s=0, si s est de la forme (1,0) et si s est de la forme (x,1) -->
+    </exercise>
+        <exercise><statement><p>Soit <m>R</m> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve un vecteur <m>\vec{v}</m> parallèle à la solution de base à l'équation <m>R\vec{x}=\vec{0}</m> et un point <m>P</m> appartenant à
+        l'ensemble solution de l'équation <m>R\vec{x}=\vec{b}</m>. Entrer sur la figure les valeurs pour la matrice <m>R</m> et le vecteur <m>\vec{b}</m> qui correspondent à cette géométrie.</p>
+<figure xml:id="fig-rrefgeo3">
+    <caption>La géométrie de l'équation <m>R\vec{x}=\vec{b}</m>, version 3</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-exo-rrefgeo3">
+        <slate aspect="1:1" source="code/geogebra/exo-rrefgeo3.ggb"
+        surface="geogebra" xml:id="slate-exo-rrefgeo3">
+            setCoordSystem(-8, 8,-8,8,-8,8);
+          </slate>
+        <instructions>
+          <p><alert>Instructions pour la figure interactive:</alert> Compléter les six valeurs de la matrice augmentée. Un clic sur &#x00AB; Vérifier la réponse &#x00BB; validera la réponse. Ensuite, un clic sur
+          &#x00AB; Nouveau problème &#x00BB; permet d'en essayer une version différente.</p>
+        </instructions>
+        </interactive>
+    </figure>
+    </statement>
+    <!-- Pour la solution, distinguer trois cas :  Si v=0, si v est de la forme (x,0) et si v est de la forme (x,y) -->
+    </exercise>
+    <exercise><task><statement><p>Donner une transformation telle que son image est égale à ses zéros.</p></statement>
+    <hint><p>Une <m>2\times 2</m> suffit.</p></hint></task>
+    </exercise>
+    <exercise>
+    <introduction><p>Les matrices ci-dessous sont des matrices <m>L</m>, obtenues par exemple avec la fonction <c>matL</c>. Pour chaque matrice,
+    donner une matrice échelonnée réduite <m>R</m> qui possède la matrice <m>L</m> comme sous matrice.
+    </p></introduction>
+    <task><statement><p><m>L_1\vecddd{1}{-1}{2}</m></p></statement></task>
+    <task><statement><p><m>L_2\left(\begin{array}{rr}
+-1 &amp; 0 \\
+1 &amp; 0
+\end{array}\right)</m></p></statement></task>
+    <task><statement><p><m>L_3\left(\begin{array}{rrr}
+-\frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\
+-1 &amp; -2 &amp; 0
+\end{array}\right)</m></p></statement></task>
+    <task><statement><p><m>L_4\left(\begin{array}{rrrr}
+2 &amp; 1 &amp; 1 &amp; 0 \\
+1 &amp; -\frac{1}{2} &amp; -1 &amp; -\frac{1}{2} \\
+-1 &amp; -2 &amp; 2 &amp; 0
+\end{array}\right)</m></p></statement></task>
+    </exercise>
+    <exercise><introduction><p>Soit <m>A,B</m> des transformations linéaires non nulles telles que <m>AB=O</m>.</p></introduction>
+    <task><statement><p>Que peut-on dire de l'image de <m>B</m> par rapport aux zéros de <m>A</m>?</p></statement>
+    <answer><p>On a <m>Im(B)\subseteq Z(A)</m>.</p></answer>
+    </task>
+    <task><statement><p>Donner des exemples de transformations <m>A,B</m> non nulles de taille <m>2\times 2</m> telles que <m>AB=0</m> et determiner les zéros de <m>A</m> et l'image de <m>B</m>. Vérifier la relation de l'exercice précédent.</p></statement></task>
+    <task><statement><p>Donner des exemples de transformations <m>A,B</m> non nulles de taille <m>3\times 3</m> telles que <m>AB=0</m> et telles que l'image de <m>B</m> n'est pas égale aux zéros de <m>A</m>. </p></statement></task>
+    </exercise>
+   <exercise> <introduction>
+    <p>Donner, si possible, une matrice qui a comme solution(s) de base les vecteurs suivants. Dans l'impossibilité de le faire, expliquer pourquoi.</p>
+    </introduction>
+    <task><statement><p>Le vecteur <m>\vec{s}=(1,-1,1)</m>.</p></statement></task>
+    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,1,0),vec{s}_2=(-1,0,1)</m>.</p></statement></task>
+    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,0,0),vec{s}_2=(0,2,1)</m>.</p></statement></task>
+    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,0),vec{s}_2=(0,1),vec{s}_3=(1,1)</m>.</p></statement></task>
+    <task><statement><p>Le vecteurs <m>\vec{s}=(-2,3,1,0,0)</m>.</p></statement></task>
+    <task><statement><p>Le vecteurs <m>\vec{s}_1=(-3,1,0,0,0),vec{s}_2=(2,0,1,1,0),vec{s}_3=(-4,0,-1,0,1)</m>.</p></statement></task>
+    </exercise>
+    <exercise xml:id="exo-Ax0sev"><statement><p>Démontrer la proposition <xref ref="prop-Ax0sev"/> et la proposition <xref ref="prop-imasev"/>.</p></statement></exercise>
+    <exercise><statement><p>Voici un énoncé et sa &#x00AB; démonstration &#x00BB;.</p>
+    <p><alert>Énoncé: </alert>Soit <m>A\vec{x}=\vec{0}</m>. Cette équation a une infinité de solution.</p>
+    <p><alert>Démonstration:</alert> On sait qu'il existe au moins une solution à l'équation. La proposition <xref ref="prop-Ax0sev"/> dit que tout multiple d'une solution est aussi une solution. Il y en a donc
+    une infinité.</p>
+    
+    <p>Trouver l'erreur dans l'argument ci-dessus.</p></statement></exercise>
+    <exercise xml:id="exo-imgalg">
+    <introduction><p>Pour chaque matrice ci-dessous, déterminer l'image de la transformation associée.</p></introduction>
+    <task><statement><p><m>\left(\begin{array}{rrr}
+-15 &amp; 12 &amp; -5 \\
+-15 &amp; 10 &amp; -5 \\
+9 &amp; -2 &amp; 3
+\end{array}\right)</m></p></statement></task>
+<task><statement><p><m>\left(\begin{array}{rrr}
+-1 &amp; -2 &amp; -1 \\
+2 &amp; 4 &amp; 2 \\
+-4 &amp; 2 &amp; -2
+\end{array}\right)</m></p></statement></task>
+<task><statement><p><m>\left(\begin{array}{rrr}
+4 &amp; 0 &amp; 8 \\
+-8 &amp; -18 &amp; 13 \\
+9 &amp; 3 &amp; -14
+\end{array}\right)</m></p></statement></task>
+<task><statement><p><m>\left(\begin{array}{rrr}
+-1 &amp; -1 &amp; -2 \\
+-3 &amp; -3 &amp; -6 \\
+4 &amp; 4 &amp; 8
+\end{array}\right)</m></p></statement></task>
+<task><statement><p><m>\left(\begin{array}{rrr}
+-1 &amp; 1 &amp; -7 \\
+1 &amp; -1 &amp; 2 \\
+-1 &amp; 1 &amp; -7
+\end{array}\right)</m></p></statement></task>
+<task><statement><p><m>\left(\begin{array}{rrr}
+4 &amp; 6 &amp; -20 \\
+-1 &amp; 2 &amp; 1 \\
+2 &amp; 1 &amp; 0
+\end{array}\right)</m></p></statement></task>
+    </exercise>
+    <exercisegroup>
+    <title>Exercices Sage</title>
+    <introduction><p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p></introduction>
+    <exercise>
+    <title>La solution homogène</title>
+    <statement><p>La fonction <c>solbase</c> retourne les vecteurs de base de l'équation <m>A\vec{x}=\vec{0}</m>. Si on veut la solution homogène, il faut prendre les combinaisons linéaires de ces solutions.</p>
+    <p>Dans cet exercice, on crée une fonction <c>solh</c> qui pour une matrice <m>A</m>, va retourner la solution homogène. La fonction fera appel à la fonction <c>solbase</c>. On retranscrit ci-dessous <c>matL</c> et <c>solbase</c>. </p>
+    <sage>
+    <input>
+def matL(A):
+    R=A.rref()  #Si la matrice n'est pas ERL, on l'échelonne
+    r=A.rank()  #On détermine le rang. Ceci permet de savoir combien de lignes nulles il y a.
+    Rnonnulles=R.matrix_from_rows(list(range(r)))   #On ne conserve de R que les lignes non nulles. list(range(r))=[0,1,...,r]
+    L=Rnonnulles.matrix_from_columns(R.nonpivots()) #De la matrice Rnonnulles, on extrait les colonnes non pivots pour former L
+    return(L)  #On renvoie la matrice L comme réponse
+#######################
+def solbase(A):
+    if A.rank()==A.ncols(): #Si toutes les variables sont pivots
+        return "Il n'y a pas de solution de base. La seule solution à Ax=0 est le vecteur nul"
+    else:
+        R=A.rref() #On réduit la matrice A
+        r=R.rank() #Le rang de la matrice R
+        piv=R.pivots() #La position des pivots de R
+        libres=R.nonpivots() #la position des variables libres
+        L=matL(A) #On va chercher la matrice L
+        Ilibre=identity_matrix(len(libres)) #La matrice identité de la taille du nombre de variables libres
+        S=[] #Une liste vide qui contiendra les vecteurs s_i
+        for i in range(len(libres)): #On va créer successivement les len(libres) vecteurs de base
+            vL=L.column(i) #On extrait la colonne i de la matrice L
+            vI=Ilibre.column(i) #On extrait la colonne i de la matrice Ilibre
+            #On veut maintenant placer les valeurs de vL et vI dans un vecteur s_i. Il est plus simple d'utiliser les listes Sage et de convertir en vecteur par la suite. La taille 
+            #d'un vecteur s_i est n
+            s=[] #une liste vide qui sera le vecteur s_i au terme de la boucle suivante
+            k,l=0,0 #Pour itérer sur les la colonne vL et vI
+            for j in range(A.ncols()): #la longueur du vecteur s_i est la même que le nombre de colonnes de A
+                if j in piv: #Si on est dans une entrée pivot
+                    s.append(-vL[k])# On ajoute l'entrée, en pensant de prendre le négatif
+                    k+=1 #on itère pour passer à l'entrée suivante
+                else: #Si j est une entrée libre
+                    s.append(vI[l])# On ajoute l'entrée
+                    l+=1 #on itère pour passer à l'entrée suivante
+            s=vector(s) #on transforme la liste s en vecteur
+            S.append(s) # et on l'ajoute à la liste des solutions de base
+        return(S)    
+    </input>
+    </sage>
+    <p>Écrire la fonction <c>solh</c> ci-dessous.</p>
+    <sage><input></input></sage>
+    </statement>
+    <solution>
+    <p>Voici le code solution pour la fonction <c>solh</c>.</p>
+    <listing>
+    <caption>La fonction pour la solution homogène</caption>
+    <program language="sage">
+    def solh(A):
+    base=solbase(A)
+    if base=="Il n'y a pas de solution de base. La seule solution à Ax=0 est le vecteur nul":
+        zvec=zero_vector(A.ncols())
+        print("La solution de base est ",zvec)
+        return zvec
+    else:
+        nb=len(base)
+        #solh=""
+        message="La solution de base est "
+        for i in range(nb-1):
+            message+="k_%d*%s + " % ((i+1),str(base[i]))
+            #message+=solh
+        message+="k_%d*%s" % ((nb),str(base[-1]))
+        solh=message.replace("La solution de base est ","")
+        print(message)
+        return solh
+        </program>
+    </listing>
+    </solution>
+    </exercise>
+    <exercise><statement><p>Utiliser Sage pour trouver l'image des matrices de l'exercice <xref ref="exo-imgalg"/>.</p></statement></exercise>
+    </exercisegroup>
+</exercises>
