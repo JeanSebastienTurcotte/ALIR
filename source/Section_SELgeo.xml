@@ -308,7 +308,7 @@ alors l'équation <m>A\vec{x}=\vec{0}</m> peut s'interpréter comme le système 
 </md>.
     </p>
     <p>Géométriquement, cela signifie que le vecteur solution <m>\vec{x}</m> est perpendiculaire à chaque ligne de la matrice. On vérifie ce fait dans l'exemple suivant.</p>
-    <example>
+    <example xml:id="ex-zerosperplignes">
     <title>Les zéros sont perpendiculaires aux lignes de la matrices</title>
     <statement><p>On considère les matrices <m>A,B</m> et <m>C</m> ci-dessous:
     <md>
@@ -407,6 +407,13 @@ show(C.rref())
     de la droite engendrée par les lignes de <m>C</m>, avec les zéros de la transformation linéaire sur le plan perpendiculaire à cette droite.</p>
     </solution>
     </example>
+    <p>On fait de cette propriété une proposition.</p>
+    <proposition xml:id="prop-zerosperplignes"/>
+    <title>Les zéros sont perpendiculaires aux lignes de la matrice</title>
+    <statement><p>Soit <m>A</m> une matrice de taille <m>m\times n</m>, <m>\vec{a}_i</m> la ligne <m>i</m> de la matrice et
+    <m>\vec{z}</m> un vecteur tel que <m>A\vec{z}=\vec{0}</m>.</p>
+    <p>Alors <m>\vec{z}\cdot \vec{a}_i=0</m>, c'est-à-dire les zéros de la matrice sont perpendiculaires à ses lignes.</p></statement>
+    <proof><p>La preuve est essentiellement faites dans la discussion qui précède l'exemple <xref ref="ex-zerosperplignes"/>.</p></proof>
 <p>On résume la procédure de l'exemple <xref ref="ex-sousmatriceIL"/> pour trouver les solutions de base dans l'algorithme qui suit.</p>
 <algorithm xml:id="algo-solbase">
 <title>Les solutions de base à partir de la sous-matrice <m>L</m></title>
@@ -736,7 +743,7 @@ solbase(R)
      </figure>
     </solution>
     </example>
-    <p>Les vecteurs de l'image possèdent une propriété similaire à <xref ref="prop-Ax0sec">celle </xref>de l'ensemble des zéros.</p>
+    <p>Les vecteurs de l'image possèdent une propriété similaire à <xref ref="prop-Ax0sev">celle </xref>de l'ensemble des zéros.</p>
     <proposition xml:id="prop-imasev">
     <title>L'image d'une transformation est fermée pour l'addition et la multiplication par un scalaire</title>
 <statement><p>Soit <m>A</m> la matrice d'une transformation linéaire, <m>c\in \R</m> et <m>\vec{b}_1,\vec{b}_2</m> des vecteurs tels que <m>A\vec{x}=\vec{b}_1</m> et <m>A\vec{x}=\vec{b}_2</m> possèdent au moins
@@ -786,6 +793,7 @@ show("rref(C)=",C.echelon_form())
     <p>On trouve les mêmes deux conditions <m>2b_1+b_2=0</m> et <m>b_1+b_3=0</m> sur le vecteur <m>\vec{b}</m> que lors de l'exemple <xref ref="ex-imgalg"/>. La solution
     sera bien sûr encore la droite de vecteur directeur <m>(-1,2,1)</m>.</p>
     </computation>
+    <remark xml:id="rem-spancolonne">
     <p>Le lecteur astucieux aura peut-être remarqué que les vecteurs directeurs des droites de l'image des matrices <m>P</m> et <m>C</m> de cette sous-section étaient
     un multiple d'une colone de ces matrices. Le lecteur encore plus astucieux aura peut-être même remarqué que les vecteurs directeurs du plan de l'image de la matrice
     <m>B</m> trouvés à l'exemple calculatoire <xref ref="sageex-imgalg"/> sont des combinaisons linéaires de deux des colonnes de la matrice. En effet,
@@ -797,8 +805,8 @@ show("rref(C)=",C.echelon_form())
     colonnes de la matrice <m>A</m></xref>. L'ensemble des <m>\vec{b}</m> s'écrivant comme ces combinaisons linéaires sont constitue donc l'image de la transformation <m>A</m>. 
     </p>
     <p>Il semble toutefois qu'il n'est pas nécessaire d'utiliser toutes les colonnes pour engendrer l'image, comme le montre les images des matrices <m>P,C</m> et <m>B</m>.
-    La  section <xref provisional="sec-ssespfond"/> va donner la réponse à cette question.
-    </p>
+    La  section <xref provisional="sec-bases4ssesp"/> va donner la réponse à cette question.
+    </p></remark>
     </subsection>
     <subsection xml:id="sssec-solgen">
     <title>La solution générale à <m>A\vec{x}=\vec{b}</m>.</title>

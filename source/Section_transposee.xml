@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-transposee">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title>Les quatre sous-espaces fondamentaux d'une matrice </title>
+    <introduction xml:id= "intro-transposee">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Dans la section <xref ref="sec-SELgeo"/>, on a vu une <xref ref="prop-zerosperplignes">-proposition</xref> comme quoi les lignes d'une matrice <m>A</m> sont perpendiculaires au zéros de la transformation linéaire associée à <m>A</m>.
+    On peut se demander si les colonnes d'une matrice sont aussi perpendiculaires à un ensemble de vecteurs spécifique.</p>
+    <p>Dans cette section, on introduit la notion de matrice transposée. On y définit aussi les quatres (sous) espaces dits fondamentaux en lien avec une matrice, soit l'espace ligne, l'espace colonne, l'espace nul et l'espace
+    nul gauche.</p>
+    </introduction>
+    
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    <subsection xml:id="ssec-transpose">
+    <title>La transposée d'une matrice</title>
+    <p>Pour répondre à la question en introduction, on s'imagine que les colonnes de la matrices sont les lignes d'une autre matrices. Alors ces colonnes sont perpendiculaires aux zéros de cette nouvelle transformation linéaire.
+    Ceci motive la définition suivante.</p>
+    <definition xml:id="def-transposee">
+    <statement><p>Soit <m>A=\begin{pmatrix}
+a_{1\, 1}&amp;a_{1\, 2}&amp;\cdots &amp; a_{1\, n}\\
+a_{2\, 1}&amp;a_{2\, 2}&amp;\cdots &amp; a_{2\, n}\\
+\vdots  &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}\\
+\end{pmatrix}</m> une matrice de taille <m>m\times n</m>. La transposée de la matrice <m>A</m>, notée <m>A^T</m>, est la matrice
+<me>
+A^T=\begin{pmatrix}
+a_{1\, 1}&amp;a_{2\, 1}&amp;\cdots &amp; a_{m\, 1}\\
+a_{1\, 2}&amp;a_{2\, 2}&amp;\cdots &amp; a_{m\, 2}\\
+\vdots  &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
+\end{pmatrix}
+</me>où les lignes sont devenues des colonnes et les colonnes sont devenues des lignes. On a donc
+<me>
+(a^T_{i\, j})=a_{j\, i}
+</me>.</p></statement>
+<aside><title>En passant</title>La matrice transposée est parfois aussi notée avec la lettre &#x00AB; t &#x00BB; minuscule, ou encore avec un apostrophe &#x2b9; .</aside>
+    </definition>
+    <p>On regarde quelques exemples de matrices et de leur transposée.</p>
+    <example>
+    <title>La transposée de certaines matrices</title>
+    <statement><p>Soit 
+    <ol>
+    <li><p><m>A=\matcold{1}{2}{-1}{1}</m></p></li>
+    <li><p><m>B=\matcolt{1}{4}{0}{-1}{1}{-2}{3}{5}{6}</m></p></li>
+    <li><p><m>C=\begin{pmatrix} 1 &amp;2 \\ 3&amp; 4\\ 5 &amp; 6 \\ 7&amp; 8\\ 9&amp; 0 \end{pmatrix}</m></p></li>
+    </ol>.
+    On cherche la transposée de ces matrices.
+    </p></statement>
+    <solution>
+    <p>On procède en convertissant les colonnes en lignes. Soit <m>\vec{a}_1=\vecd{1}{2}</m> et <m>\vec{a}_2=\vecd{-1}{1}</m>. On a alors
+    <me>
+    A=\begin{pmatrix} \lvert&amp; \lvert \\ \vec{a}_1 &amp; \vec{a}_2 \\ \lvert&amp; \lvert \end{pmatrix}
+    </me>. La matrice transposée est la matrice 
+   <md> <mrow>A^T&amp;=\begin{pmatrix}\rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_1 &amp; \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}\\
+                                  \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_2 &amp; \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}\end{pmatrix}</mrow>
+             &amp;=\matcold{1}{-1}{2}{1}
+    </md>.</p>
+    </solution>
+    <solution><p>Cette fois, on convertit les lignes en colonnes. Soit <m>\vec{b}_1=(1,-1,3)</m>, <m>\vec{b}_2=(4,1,5)</m> et <m>\vec{b}_3=(0,-2,6)</m>. On a alors 
+    <me>
+    B=\begin{pmatrix}\rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{b}_1 &amp; \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}\\
+                                  \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{b}_2 &amp; \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}\\
+                                  \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{b}_3 &amp; \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}\end{pmatrix}
+    </me>. La matrice transposée est la matrice
+    <md> <mrow>A^T&amp;=\begin{pmatrix} \lvert&amp; \lvert &amp; \lvert \\ \vec{b}_1 &amp; \vec{b}_2 &amp; \vec{b}_3\\ \lvert&amp; \lvert &amp; \lvert \end{pmatrix}</mrow>
+             &amp;=\matcolt{1}{-1}{3}{4}{1}{5}{0}{-2}{6}
+    </md>.
+    </p></solution>
+    <solution><p>Qu'on transforme les lignes en colonnes ou les colonnes en lignes, le résultat sera le même. Tant que la correspondance <m>\vec{l}_i\leftrightarrow \vec{c}_i</m> est respectée, soit que la ligne <m>i</m>
+    devienne la colonne <m>i</m> et vice-versa, on obtient la transposée. Pour la matrice <m>C</m>, la transposée est
+    <me>
+    C^T=\begin{pmatrix} 1&amp; 3&amp; 5&amp;7&amp;9 \\ 2&amp; 4&amp; 6&amp;8&amp;0 \end{pmatrix}
+    </me>.</p></solution>
+    </example>
+    <p>La transposée possède les propriétés suivantes.</p>
+    <proposition xml:id="prop-transposeeprop">
+    <title>Les propriétés de la transposée</title>
+    <statement>
+    <p>Soit <m>A,B</m> des matrices <m>m\times n</m>, <m>C</m> une matrice <m>n\times p</m> et <m>k</m> un scalaire. Alors
+    <ol>
+    <li><p><m>(A^T)^T=A</m>;</p></li>
+    <li><p><m>(kA)^T=kA^T</m>;</p></li>
+    <li><p><m>(A+B)^T=A^T+B^T</m>;</p></li>
+    <li><p><m>(AC)^T=C^TA^T</m>;</p></li>
+    <li><p>si <m>m=n</m> et que <m>A</m> est inversible, on a <m>(A^{-1})^T=(A^T)^{-1}</m>.</p></li>
+    </ol>
+    </p></statement>
+    <proof>
+    <p>Les lignes de <m>A^T</m> sont les colonnes de <m>A</m>. Si on transpose à nouveau, ces lignes redeviendront des colonnes. On aura alors la matrice <m>A</m>.</p>
+    </proof>
+    <proof>
+    <p>Selon la <xref ref="def-matprodscal">définition</xref> du produit d'une matrice par un scalaire, chaque entrée de la matrice <m>A</m> est multipliée par <m>k</m>. Lorsqu'on transpose, on peut
+    mettre en évidence le nombre <m>k</m> de chaque entrée de la matrice pour retrouver <m>cA^T</m>.</p>
+    </proof>
+    <proof><p>De manière similaire, la somme de deux matrices se fait entrée par entrée avec les entrées correspondantes. Que l'on transpose avant ou après la somme ne change pas le résultat final.</p></proof>
+    <proof><p>D'abord, une analyse des dimensions. Le produit <m>AC</m> est le produit d'une matrice <m>m\times n</m> par une matrice <m>n\times p</m>. Le résultat sera donc une matrice <m>m\times p</m>. Une fois transposée,
+    on aura une matrice <m>p\times m</m>. De l'autre côté, les matrices <m>C^T</m> et <m>A^T</m> sont respectivement des matrices de taille <m>p\times n</m> et <m>n\times m</m>. Leur produit sera donc lui aussi de taille
+    <m>p\times m</m>.</p>
+    <p>On note par <m>\vec{a}_j</m> les lignes de la matrice <m>A</m> et par <m>\vec{c}_i</m> les colonnes de la matrice <m>C</m>.
+    Selon la <xref ref="def-matmatprod">définition</xref> du produit matriciel, la matrice <m>(AC)^T </m>s'écrit
+    <md>
+    <mrow>(AC)^T&amp;=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A\vec{c}_1 &amp; A\vec{c}_2 &amp;\cdots &amp; A\vec{c}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}^T</mrow>
+     <mrow>&amp;=\begin{pmatrix}\rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; A\vec{c}_1 &amp; \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} \\
+                                \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; A\vec{c}_2 &amp; \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}  \\
+                                &amp; \vdots &amp; \\
+                                \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; A\vec{c}_p\end{pmatrix}</mrow>
+    </md>.
+    Ainsi, l'entrée en position <m>i,j</m> de la matrice <m>(AC)^T</m> est donnée par le produit scalaire des vecteurs <m>\vec{a}_j</m> et <m>\vec{c}_i</m>, c'est-à-dire
+    <m>(AC)^T_{i\,j}=\vec{a}_j\cdot \vec{c}_i</m>.</p>
+    <p>De l'autre côté, la matrice <m>C^TA^T</m> s'écrit comme
+    <me>
+    C^TA^T=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     C^T\vec{a}_1 &amp; C^T\vec{a}_2 &amp;\cdots &amp; C^T\vec{a}_m \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}
+    </me>, car les colonnes de <m>A^T</m> sont les lignes de la matrice <m>A</m>. De plus, comme les lignes de <m>C^T</m> sont les colonnes de <m>C</m>, on a que l'entrée en position <m>i, j</m> de la matrice <m>C^TA^t</m> est égale au produit sclaire entre les vecteurs
+    <m>\vec{c}_i</m> et <m>\vec{a}_j</m>, c'est-à-dire <m>(C^TA^T)_{i\, j}= \vec{c}_i\cdot \vec{a}_j</m>. Comme le produit scalaire est commutatif, l'égalité est démontrée.</p>
+    </proof>
+    <proof><p>D'abord, on remarque que <m>I^T=I</m> si <m>I</m> est la matrice identité. Puisque <m>A</m> est inversible, on a
+    <m>AA{-1}=I</m>. En transposant cette égalité, on obtient <m>(AA^{-1})^T=I</m> et en utilisant la propriété <m>(AC)^T=C^TA^T</m>, on obtient que <m>(A^{-1})^TA^T=I</m>. 
+    La matrice <m>A^T</m> est donc inversible et comme l'inverse d'une matrice est <xref ref="prop-inverseunique"/>, on a
+    <me>
+    (A^{-1})^T=(A^T)^{-1}
+    </me>.</p></proof>
+    </proposition>
+    <p>Il faut attendre encore un peu avant de voir l'utilité géométrique de la matrice transposée. On peut toutefois donner un aperçu de la section <xref provisional="Section sur les projections"/> avec l'exemple suivant.</p>
+    <example xml:id="ex-projorthomat">
+    <title>La projection orthogonale</title>
+    <statement><p>À l'exercice <xref ref="exo-vectranspose"/>, on avait introduit la notion de transposée, mais avec les vecteurs. En considérant par défaut un vecteur <m>\vec{u}</m> comme étant debout<fn>Bien qu'on
+    les écrive souvent couchés, on préfère considérer les vecteurs comme des colonnes dû au produit matrice vecteur représentant l'image du vecteur par la transformation linéaire. </fn>, on note par
+    <m>v^T</m> la matrice <m>1\times n</m> qui consiste en le vecteur <m>\vec{v}</m> couché.</p>
+    <p>En particulier, on a étudié la transformation <m>uv^T</m> et constaté que le rang de cette transformation était égal à <m>1</m>. On s'intéresse au cas où <m>\vec{u}=\vec{v}</m> et à la
+    transformation associée à la matrice <m>\vec{u}\vec{u}^T</m>.</p>
+    </statement>
+    <solution>
+    <p>On pose <m>A=\vec{u}\vec{u}^T</m>. On a
+    <md>
+    <mrow>A\vec{x}&amp;=(\vec{u}\vec{u}^T)\vec{x}</mrow>
+    <mrow>&amp;=\vec{u}(\vec{u}^T\vec{x}) &amp; &amp;\text{En voyant les vecteurs comme des matrices, on utilise l'associativité}</mrow>
+    <mrow>&amp;=\vec{u}(\pscal{u}{x}) &amp; &amp; \text{selon l'exercice }<xref ref="exo-vectranspose"/></mrow>
+    <mrow>&amp;=(\pscal{u}{x}) \vec{u} &amp;&amp; \text{selon la propriété} <xref ref="li-propprodscal-multscal"/></mrow>
+    </md>.</p>
+   <p> La dernière ligne rappelle la <xref ref="eq-projortho">projection orthogonale</xref> du vecteur <m>\vec{x}</m> sur le vecteur <m>\vec{u}</m>. Il manque toutefois la division
+    par <m>\vec{u}\cdot \vec{u}=\norm{\vec{u}^2</m>. Si toutefois <m>\vec{u}</m> est unitaire, alors la matrice <m>A\vec{x}=(\vec{u}\vec{u}^T)=\text{proj}_\vec{u}(\vec{x})=\vec{x}_{\vec{u}}</m>.
+    Dans le cas général, on ajuste la formule pour avoir
+    <men xml:id="eq-projorthouuT">
+    \text{proj}_\vec{u} (\vec{x})= \frac{\vec{u}\vec{u}^T}{\norm{\vec{u}}} \vec{u}
+    </men>.
+    Une formule apparente à celle-ci apparaitra dans la section <xref provisional="section sur les projections"/>.</p>
+    </solution></example>
+    <p>L'exemple <xref ref="ex-projorthomat"/> motive la définition suivante.</p>
+    <definition xml:id="def-projorthomat">
+    <title>La matrice d'une projection orthogonale</title>
+    <p>Soit <m>\vec{u}</m> un vecteur quelconque et soit <m>\hat{u}</m> un vecteur unitaire dans la même direction que <m>\vec{u}</m>. La projection orthogonale sur <m>\vec{u}</m>
+    peut être représentée par la matrice
+    <men xml:id="eq-projorthomat">
+    P_\vec{u}=\hat{u}\hat{u}^T
+    </men>.</p>
+    <p>On appelle la matrice de l'équation <xref ref="eq-projorthomat"/> la matrice standard de la projection.</p>
+    </definition>
+    <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
+    <computation>
+    <title>La transposée sur Sage</title>
+    <p>Évidemment, Sage possède une fonction pour obtenir la transposée d'une matrice. La commande <c>A.transpose()</c> permet d'obtenir la matrice <m>A^T</m>. La commande s'utilise aussi sous la forme
+    <c>transpose(A)</c>.</p>
+    <sage>
+    <input>
+    A=random_matrix(QQ,3,4)
+    show("A=",A)
+    AT=A.transpose()
+    show("A^T=",AT)
+    show("A^T=",transpose(A))
+    </input>
+    </sage>
+    <p>Pour utiliser la forme transposée d'un vecteur, il faut d'abord le redéfinir comme une matrice.</p>
+    <sage>
+    <input>
+    u=vector([1,2])
+    show("u=",u)
+    umat=column_matrix([u]) #Pour nous, les vecteurs sont des colonnes. La fonction matrix de Sage fonctionne en ligne. On utilise donc column_matrix
+    show("umat=",umat)
+    umatT=umat.transpose()
+    show("umatT=",umatT)
+    uuT=umat*umatT
+    show("uuT=",uuT)
+    </input>
+    </sage>
+    </computation>
+    </subsection>
+    <subsection xml:id="sssec-4esp">
+    <title>Quatre ensembles particulier de vecteurs</title>
+    <p>Dans la section <xref ref="sec-SELgeo"/>, on a définit les zéros et l'image d'une transformation linéaire. On a aussi remarqué que les lignes de la matrices 
+    sont toujours perpendiculaires aux zéros de la transformations linéaires. On commence cette sous-section en cherchant un ensemble de vecteurs qui seraient perpendiculaires aux colonnes
+    d'une matrice, si un tel ensemble existe.</p>
+    
+    <p>L'idée est de passer par la transposée. Comme les colonnes de la matrices <m>A</m> deviennent des lignes dans la matrice <m>A^T</m>, il semble que celles-ci devraient être perpendiculaires
+    aux zéros de la transformation linéaire associée à la matrice <m>A^T</m>.</p>
+    <example>
+    <title>La relation entre les lignes, colonnes et zéros d'une matrice</title>
+    <statement>
+    <p>Soit <m>A=\begin{pmatrix} 1&amp; 1&amp; -1\\ 4&amp; 4 &amp;-4 \end{pmatrix}</m> une matrice. On pose <m>\vec{l}_1</m>,<m>\vec{l}_2</m> respectivement
+    les lignes de la matrice <m>A</m> et <m>\vec{1}</m>,<m>\vec{2}</m> et <m>\vec{3}</m> respectivement les colonnes de la matrice <m>A</m>. On cherche tous les vecteurs qui sont perpendiculaires à
+    la fois à <m>\vec{l}_1</m> et <m>\vec{l}_2</m> et tous les vecteurs qui sont perpendiculaires à la fois à <m>\vec{1}</m>,<m>\vec{2}</m> et <m>\vec{3}</m>.</p>
+    </statement>
+    <solution>
+    <p>On sait que les lignes sont perpendiculaires aux zéros de la matrice <m>A</m>. Il suffit donc de trouver les solutions de base à l'équation <m>A\vec{x}=\vec{0}</m> et de prendre
+    toutes les combinaisons linéaires de ceux-ci. On utilise Sage pour faire les calculs.</p>
+    <sage>
+    <input>
+    A=matrix([[1,1,-1],[4,4,-4]])
+    rrefA=A.rref()
+    show("rref(A)=",rrefA)
+    </input>
+    </sage>
+    <p>La première variable est pivot et les deux autres sont libres. On a donc deux solutions de base qui sont
+    <md>
+    <mrow>\vec{s}_1&amp;=\vecddd{-1}{1}{0}</mrow>
+    <mrow>\vec{}_2&amp;=\vecddd{1}{0}{1}</mrow>
+    </md>.</p>
+    <p>Tout vecteur s'écrivant sous la forme la forme <m>a\vec{s}_1+b\vec{s}_2</m> est donc perpendiculaire aux lignes de la matrice <m>A</m>. Pour les colonnes, on regarde les solutions de base à l'équation <m>A^T\vec{x}=\vec{0}</m>.
+    </p>
+    <sage>
+    <input>
+    AT=A.transpose()
+    rrefAT=AT.rref()
+    show("rref(A^T)=",rrefAT)
+    </input>
+    </sage>
+    <p>La première variable est pivot et la seconde est libre. Il y a donc une solution de base qui est
+    <me>
+    \vec{r}=\vecd{-4}{1}
+    </me>.</p>
+    <p>Tout vecteur s'écrivant comme un multiple de <m>\vec{r}</m> est donc perpendiculaire aux lignes de la matrice <m>A^T</m> et donc, aux colonnes de <m>A</m>.</p>
+    </solution>
+    </example>
+    <p>On définit maintenant quatre sous-espaces associés à la matrice <m>A</m>. Pour l'instant, on peut interpréter le mot sous-espace comme étant des sous-ensembles de <m>\R^m</m> et 
+    <m>\R^n</m>. Dans le chapitre <xref provisional="chapitre espace vectoriel"/>, on formalisera ces notions.</p>
+    <definition xml:id="def-4espaces">
+    <title>Les sous-espaces fondamentaux d'une matrice</title>
+    <statement>
+    <p>Soit <m>A</m> une matrice de taille <m>m\times n</m>. On définit
+    <dl>
+    <li> 
+    <title>L'espace nul</title>
+    <p>L'espace nul est formé de l'ensemble de tous les vecteurs qui satisfont l'équation <m>A\vec{x}=\vec{0}</m>. Ces vecteurs sont les zéros de la transformation associée à <m>A</m>.
+    C'est un sous-espace de e <m>\R^n</m>. Il est formé de toutes les combinaisons linéaires des solutions de base de la matrice <m>A</m> et du vecteur nul. On le note <m>\mathcal{N}(A)</m>.</p>
+    <p>On appelle parfois l'espace nul le noyau (en anglais, on dit &#x00AB; kernel &#x00BB;).</p>
+    </li>
+    <li><title>L'espace colonne</title>
+    <p>L'espace colonne est formé de l'ensemble des vecteurs <m>\vec{b}</m> pour lesquels il existe au moins une solution à l'équation <m>A\vec{x}=\vec{b}</m>. Ce sont les vecteurs
+    dans l'image de la transformation associée à <m>A</m>. C'est un sous-espace de <m>\R^m</m>. Il est formé de toutes les combinaisons linéaires des colonnes de la matrice <m>A</m>. On le 
+    note <m>\mathcal{C}(A)</m>.</p>
+    </li>
+    <li>
+    <title>L'espace ligne</title>
+    <p>L'espace ligne est formé par les combinaisons linéaires des lignes de la matrice <m>A</m>. Il correspond à l'espace colonne de la matrice <m>A^T</m>. C'est donc l'ensemble des vecteurs dans l'image
+    de la transformation associée à la transposée de la matrice <m>A</m>. C'est un sous-espace de <m>R^n</m>. On le note <m>\mathcal{L}(A)</m> ou simplement <m>\mathcal{C}(A^T)</m>.</p>
+    </li>
+    <li><title>L'espace nul gauche</title>
+    <p>L'espace nul gauche est simplement l'espace nul de la transposée. On le note <m>\mathcal{N}(A^T)</m>. C'est un sous-espace de <m>R^m</m>. </p>
+    </li>
+    </dl>
+    </p>
+    </statement>
+    </definition>
+    <p>Ces quatre sous-espaces sont en étroites relation, dont certaines ont déjà été constatées. On en explore quelques-unes dans les exemples qui suivent. D'autres seront 
+    formulées aux chapitre <xref provisional="chapitre espace vectoriel"/>.</p>
+    <example xml:id="ex-4esp1">
+    <title>Les quatres espaces de certaines matrices</title>
+    <statement>
+    <p>On considère les matrices 
+    <md>
+    <mrow>A=\begin{pmatrix} 1 &amp; 1 \\ -1&amp;0 \\ 0&amp; 1 \end{pmatrix}</mrow>
+    <mrow>B=\matcolt{1}{-1}{3}{3}{-5}{-1}{2}{-2}{6}</mrow>
+    <mrow>C=\begin{pmatrix} 1&amp; 1&amp;1&amp; 1\\
+                            2&amp; -2&amp;-1&amp; 1\end{pmatrix}</mrow>
+    </md>.
+    On cherche à déterminer les quatre sous-espaces fondamentaux de ces matrices.
+    </p>
+    </statement>
+    <solution><p>Les vecteurs de l'espace nul sont les combinaisons linéaires des solutions spéciales de la matrice <m>A</m>.</p>
+    <sage>
+    <input>
+    A=matrix([[1,1],[-1,0],[0,1]])
+    rrefA=A.rref()
+    show("rref(A)=",rrefA)
+    </input>
+    </sage>
+    <p> En utilisant Sage, on trouve que toutes les variables sont pivots. Il n'y a pas de solutions spéciales, l'espace nul est constitué du vecteur nul seulement. Ainsi
+    <m>\mathcal{N}(A)=\{(0,0)\}</m>.</p>
+    <p>L'espace colonne est composé des combinaisons linéaires des colonnes de la matrice <m>A</m>. C'est donc l'ensemble des points dans <m>\R^3</m> tels 
+    que <m>(x,y,z)=a(1,-1,0)+b(1,0,1)</m>. On reconnait un plan avec comme vecteurs directeurs les colonnes de <m>A</m>. On aurait aussi pu procéder avec un vecteur <m>\vec{b}</m>
+    et échelonner la matrice <m>(A|\vec{b})</m>. On utilise Sage pour effectuer ce calcul.</p>
+    <sage>
+    <input>
+    R.&lt;b1,b2,b3>=QQ[]
+    Aaug=matrix([[1,1,b1],[-1,0,b2],[0,1,b3]]) # On ne peut pas utiliser .augment() et échelonner avec (b1,b2,b3)
+    rrefAaug=Aaug.echelon_form()
+    show("rref(A|b)=",rrefAaug)
+    </input>
+    </sage>
+    <p>On trouve <m>-b_1-b_2+b_3=0</m>, ce qui fait de l'image un plan de vecteur normal <m>\vec{n}=(-1,-1,1)</m>. À noter que ce vecteur est bel et bien perpendiculaire aux vecteurs colonnes
+    de la matrice. On parle donc en effet du même plan.</p>
+    <p>L'espace ligne est composé des combinaisons linéaires des lignes de la matrices. C'est donc l'ensemble des vecteurs qui s'écrivent comme 
+    <m>a(1,1)+b(-1,0)+c(0,1)</m>. Or, ces vecteurs sont dans <m>\R^2</m>, un plan. Deux vecteurs devraient être suffisants pour le générer. En effet, puisque
+    <m>(1,1)=-(-1,0)+(0,1)</m>, on peut simplement dire que l'espace ligne est constitué des vecteurs <m>b(-1,0)+c(0,1)</m>. Ces vecteurs sont en fait <m>\R^2</m> au complet.</p>
+    <p>Finalement, l'espace nul gauche. Celui-ci est fait des solutions à l'équation <m>A^T\vec{x}=\vec{0}</m>. Toujours avec Sage, on obtient</p>
+    <sage>
+    <input>
+    AT=A.transpose()
+    rrefAT=AT.rref()
+    show("rref(A^T)=",rrefAT)
+    </input>
+    </sage>
+    <p>une seule variable libre, la troisième. La solutin de base est <m>\vec{s}=(-1,-1,1)</m>. On remarque que ce vecteur est le même que le vecteur normal du plan de l'espace colonne de la matrice <m>A</m>.
+    Cela est dû au fait que les vecteurs de l'espace nul d'une matrice sont perpendiculaires aux lignes de la matrice et que <m>\mathcal{C}(A)=\mathcal{L}(A^T)</m>.</p>
+    </solution>
+    <solution><p>Dans la solution précédente, il fut nécessaire d'augmenter la matrice <m>A</m> du vecteur <m>\vec{b}</m> et de calculer la forme échelonner réduite des matrices <m>A</m> et 
+    <m>A^T</m> pour caractériser les quatre sous-espaces. On effectue donc ces calculs immédiatement avec Sage pour ensuite aller chercher l'information nécessaire sur les espaces.</p>
+    <sage>
+    <input>
+    R.&lt;b1,b2,b3>=QQ[]
+    B=matrix([[1,3,2],[-1,-5,-2],[3,-1,6]])
+    Baug=matrix([[1,3,2,b1],[-1,-5,-2,b2],[3,-1,6,b3]])
+    BT=B.transpose()
+    rrefBaug=Baug.echelon_form()
+    rrefBT=BT.rref()
+    show("rref(B|b)=",rrefBaug)
+    show("rref(B^T)=",rrefBT)
+    </input>
+    </sage>
+    <p>Le rang de la matrice <m>B</m> est deux. Il y a donc une variable libre. L'espace nul est donc composée des multiples du vecteur <m>\vec{s}=(-2,0,1)</m>. L'espace colonne est généré par les colonnes de la matrices <m>A</m>.
+    Ce sont donc l'ensemble des vecteurs <m>(x,y,z)</m> tels que <m>(x,y,z)=a(1,-1,3)+b(3,-5,-1)+c(2,-2,6)</m>. Avec la forme augmentée, on remarque que l'image correspond au plan d'équation <m>-8x-5y+z=0</m>. Comme le plan est
+    à deux dimensions et qu'il y a trois colonnes, on comprend que l'une d'entre elle est inutile dans les combinaisons linéaires. Comme de fait, on peut facilement constater que la troisième colonne est égale à deux fois la première.
+    On peut alors simplifier l'espace colonne sous forme paramétrique comme étant l'ensemble des combinaisons linéaires des deux premières colonnes de la matrice <m>B</m>: <m>(x,y,z)=a(1,-1,3)+b(3,-5,-1)</m>. </p>
+    <p>L'espace ligne est quant à lui composé des combinaisons linéaires des lignes de <m>B</m>: <m>(x,y,z)=a(1,3,2)+b(-1,-5,-2)+c(3,-1,6)</m>. L'espace nul gauche est obtenu à partir de la matrice transposée. Celle-ci, sous
+    forme échelonnée, possède une variable libre. L'espace nul gauche est donc composé de tous les multiples du vecteur <m>\vec{r}=(-8,-5,1)</m>. On reconnait encore une fois le vecteur normal du plan de l'image (espace colonne).
+    </p>
+    <p>L'espace colonne est un plan, un espace à deux dimensions et l'espace nul gauche est une droite, un espace à une dimension. Ensemble, les dimensions de ces deux espaces totalisent trois, la dimension de <m>\R^m=\R^3</m>.
+    L'espace ligne lui possède trois vecteurs et l'espace nul est une droite. Si on additionne ces dimensions, on obtient quatre. Comme l'une des colonnes n'était pas nécessaire dans les combinaisons linéaires pour l'espace
+    colonne, on se doute que quelque chose de similaire pourrait se produire avec les lignes. La dernière ligne de la forme échelonnée réduite de <m>B</m> est nulle. On peut avoir une bonne idée des opérations qui ont été faites
+    pour arriver à cette ligne en regardant la colonne augmentée en <m>\vec{b}</m>. La dernière entrée est <m>-8b_1-5b_2+b_3</m>. Il semble donc que pour éliminer la ligne trois, on a ajouté <m>-8</m> fois la ligne un et <m>-5</m>
+    fois la ligne deux. On aurait donc <m>L_3=8L_1+5L_2</m>. On vérifie facilement que c'est le cas avec Sage.</p>
+    <sage>
+    <input>
+    8*B.row(0)+5*B.row(1)==B.row(2)
+    </input>
+    </sage>
+    <p>Avec cette remarque, on peut réécrire l'espace ligne comme étant les combinaisons linéaires des deux premières lignes de la matrice <m>B</m>: <m>(x,y,z)=a(1,3,2)+b(-1,-5,-2)</m>. Encore une fois donc,
+    la dimension de l'espace ligne (<m>2</m>) additionée à la dimension de l'espace nul (<m>1</m>) donne cette fois la dimension de <m>R^n=R^3</m>.</p>
+    <p>Cette relation s'avère toujours vraie et sera démontrée plus spécifiquement à la section <xref provisional="section sur les bases"/>.</p>
+    </solution>
+    <solution>
+    <p>On utilise la même stratgie que pour la matrice <m>B</m>.</p>
+    <sage>
+    <input>
+    R.&lt;b1,b2>=QQ[]
+    C=matrix([[1,1,1,1],[2,-2,-1,1]])
+    Caug=matrix([[1,1,1,1,b1],[2,-2,-1,1,b2]])
+    CT=C.transpose()
+    rrefCaug=Caug.echelon_form()
+    rrefCT=CT.rref()
+    show("rref(C|b)=",rrefCaug)
+    show("rref(C^T)=",rrefCT)
+    </input>
+    </sage>
+    <p>La rang de la matrice <m>C</m> est égal à <m>2</m>. Il y a deux variables libres, <m>x_3</m> et <m>x_4</m>. Les solutions spéciales sont
+    <m>\vec{s}_1=(-\frac{1}{4},-\frac{3}{4},1,0)</m> et <m>\vec{s}_2=(-\frac{3}{4},-\frac{1}{4},0,1)</m>. L'espace nul est donc le plan de <m>\R^n=\R^4</m> engendré par ces deux vecteurs.</p>
+    <p>Selon la forme échelonnée réduite de la matrice augmentée, il n'y a aucune restriction sur les vecteurs de l'image de la transformation associée à <m>C</m>. L'image est donc <m>\R^m=\R^2</m>. Comme il y a quatre
+    colonnes dans la matrice <m>C</m>, on se doute que deux d'entre elles sont inutiles pour les combinaisons linéaires. Pour l'instant, on se contente de remarquer que deux vecteurs non parallèles de <m>\R^2</m> suffisent pour 
+    engendrer le plan qu'est <m>\R^2</m>. L'espace colonne est donc <m>\R^2</m> au complet.</p>
+    <p>L'espace ligne est composé des vecteurs étant combinaison linéaire des lignes de la matrice <m>C</m>: <m>(x_1,x_2,x_3,x_4)=a(1,1,1,1)+b(2,-1,-1,1)</m>. C'est aussi un plan dans <m>\R^n=\R^4</m>. On remarque une
+    fois de plus que la somme de la dimension de l'espace nul (<m>2</m>)et dela dimension de l'espace ligne (<m>2</m>) est égale à la dimension de l'espace <m>\R^n=\R^4</m>. De plus,
+    les vecteurs <m>\vec{s}_1,\vec{s_2}</m> sont perpendiculaires aux lignes de la matrice <m>C</m>.</p>
+    <p>Finalement, on se tourne vers la tranposée pour anaylyser l'espace nul gauche. Comme il n'y a aucune variable libre, le seul élément de l'espace nul est le vecteur <m>(0,0)</m>. C'est un espace de dimension <m>0</m> (un point).
+    Additionnée à la dimension de l'espace colonne (<m>2</m>), on obtient la dimension de l'espace complet <m>\R^m=\R^2</m>.</p>
+    </solution>
+    </example>
+    <p>On énonce de manière informelle les relations entre les quatres sous-espaces. On formalisera  le tout lors de l'énoncé du théorème <xref provisional="thm-fondlinalg"/>.</p>
+    <proposition xml:id="prop-fondlinalg">
+    <title>Relation entre les sous-espaces fondamentaux.</title>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m>. Alors
+    <ol>
+    <li><p>Si <m>\vec{x}\in \mathcal{N}(A)</m>,  et si <m>\vec{y}\in \mathcal{L}(A)</m>, alors <m>\pscal{x}{y}=0</m>. </p></li>
+    <li><p>Si la dimension de <m>\mathcal{L}(A)</m> est <m>r</m>, alors la dimension de <m>\mathcal{N}(A)</m> est <m>n-r</m>.</p></li>
+    <li><p>Si <m>\vec{x}\in \mathcal{N}(A^T)</m>,  et si <m>\vec{y}\in \mathcal{C}(A)</m>, alors <m>\pscal{x}{y}=0</m>. </p></li>
+    <li><p>Si la dimension de <m>\mathcal{C}(A)</m> est <m>r</m>, alors la dimension de <m>\mathcal{N}(A^T)</m> est <m>m-r</m>.</p></li>
+    </ol>
+    </p>
+    </proposition>
+    <proof><p>On reporte la démonstration au théorème <xref provisional="thm-fondlinalg"/>.</p></proof>
+    <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
+    <computation>
+    <title>Les quatres espaces avec Sage</title>
+    <p>Il est possible avec Sage de déterminer les espaces fondamentaux d'une matrice. Dans la section <xref ref="sec-SELgeo"/>, on a créé une fonction <c>solbase</c> qui fait essentiellement ce travail pour l'espace nul.
+    On peut maintenant utiliser la commande <c>A.right_kernel(basis="pivot")</c> pour effectuer cela. On utilise <c>right_kernel</c> pour le noyau droite, car Sage a une préférence pour les lignes et son noyau est par
+    défaut le noyau gauche, notre espace nul gauche. L'argument <c>basis="pivot"</c> permet d'obtenir ce qu'on a appelé les solutions de base.</p><p> On reprend les trois matrices de l'exemple <xref ref="ex-4esp1"/>. On note que pour des raisons techniques, il faut ajouter <c>QQ</c> dans la définition de la matrice.
+    </p>
+    <sage>
+    A=matrix(QQ,[[1,1],[-1,0],[0,1]])
+    B=matrix(QQ,[[1,3,2],[-1,-5,-2],[3,-1,6]])
+    C=matrix(QQ,[[1,1,1,1],[2,-2,-1,1]])
+    show(A.right_kernel(basis="pivot"))
+    show(B.right_kernel(basis="pivot"))
+    show(C.right_kernel(basis="pivot"))
+    </sage>
+    <p>Ce qu'on obtient de Sage est un peu étrange. D'abord, le terme <c>Rowspan_Q</c> signifie l'espace engendré par les lignes de la matrice qui vient après. On comprend que les solutions de bases sont retournées dans une matrice.
+    On peut obtenir seulement les solutions de base en ajoutant l'option <c>.basis()</c>.</p>
+    <sage>
+    <input>
+    show(A.right_kernel(basis="pivot").basis())
+    show(B.right_kernel(basis="pivot").basis())
+    show(C.right_kernel(basis="pivot").basis())
+    </input>
+    </sage>
+    <p>Lorsque la base est vide, comme pour la matrice <m>A</m>, il faut comprendre qu'il n'y a pas de solution de base. Il  ne faut toutefois pas oublier que le vecteur nul fait toujours partie de l'espace nul.</p>
+    <p>On procède de manière similaire pour l'espace colonne. On remarquera toutefois que les vecteurs obtenus ne sont pas nécessairement les mêmes que ceux de l'exemple <xref ref="ex-4esp1"/>. Dans
+    la section <xref provisional="section sur les bases"/>, on aura une manière systématique pour choisir les vecteurs qui génèrent l'espace colonne. En attendant, on fait confiance à Sage.</p>
+    <sage>
+    <input>
+    show(A.column_space().basis())
+    show(B.column_space().basis())
+    show(C.column_space().basis())    
+    </input>
+    </sage>
+    <p>Une commande similaire pour l'espace ligne, avec la même remarque que précédemment sur la différence entre les vecteurs obtenus lors de l'exemple <xref ref="ex-4esp1"/> et ceux obtenus par Sage.</p>
+    <sage>
+    <input>
+    show(A.row_space().basis())
+    show(B.row_space().basis())
+    show(C.row_space().basis())    
+    </input>
+    </sage>
+    <p>Finalement, l'espace nul gauche.</p>
+    <sage>
+    <input>
+    show(A.left_kernel(basis="pivot").basis())
+    show(B.left_kernel(basis="pivot").basis())
+    show(C.left_kernel(basis="pivot").basis())
+    </input>
+    </sage>
+    </computation>
+    </subsection>
+    <conclusion xml:id="concl-transposee">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les éléments importants de cette section sont:
+    <ul>
+    <li><p>La <xref ref="def-transposee">matrice transposée</xref> et ses <xref ref="prop-transposeeprop">propriétés</xref>.</p></li>
+    <li><p>La <xref ref="def-projorthomat">matrice standard</xref> d'une projection orthogonale.</p></li>
+    <li><p>La définition des <xref ref="def-4espaces">quatres sous-espaces fondamentaux</xref> d'une matrice.</p></li>
+    <li><p>Les <xref ref="prop-fondlinalg">relations </xref> entre ces quatre sous-espaces.</p></li>
+    </ul>
+    </p>
+    <p> De plus avec Sage, on a vu la commande <c>transpose()</c> pour obtenir la transposée d'une matrice. De plus, les commandes <c>right_kernel(basis="pivot").basis()</c>,<c>column_space().basis()</c>,<c>row_space().basis()</c> et <c>left_kernel(basis="pivot").basis()</c>
+    permettent d'obtenir respectivement une base des espaces nul, colonne, ligne et nul gauche. La notion de base d'un espace sera précisée dans la section <xref provisional="section sur les bases"/>.</p>
+    </conclusion>
+   <!--Inclure les exercices de la section ci-dessous--> 
+</section>
+<!-- ajouter le rang de la tranposée = rang de A -->
+<!-- exercice pour montrer que Au\cdot v= u\cdot A^Tv  faire référence à "exo-vectranspose" -->
+<!-- exos matrices symétriques -->
+<!-- exo sage pour créer une fonction qui donne la matrice standard de la projection -->
+<!-- exo nulgauche Le terme gauche vient du fait qu'il est possible de le voir comme l'ensemble des solutions
+    à l'équation <m>\vec{x}^TA=\vec{0}^T</m> montrer cet équation -->
