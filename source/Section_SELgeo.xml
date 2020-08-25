@@ -24,7 +24,7 @@
     <p>On considère une matrice <m>m\times n</m> et le système d'équations linéaires <m>A\vec{x}=\vec{0}</m>. Un tel système est souvent appelé homogène.
     <aside><title>En passant</title> Le mot homogène a malheureusement plusieurs significations en mathématiques. Souvent utilisé pour signifier que le 
     membre de droite d'une équation (ou un système) est nul (comme ici), il peut aussi faire référence à une fonction homogène. On ne devrait pas rencontrer d'autres 
-    utilisation du mot dans ces notes. </aside>
+    utilisations du mot dans ces notes. </aside>
     Géométriquement, les solutions à ce système représentent l'ensemble
     des valeurs <m>\vec{x}</m> du domaine (<m>\R^n</m>) qui sont envoyées sur le vecteur nul de l'image (<m>\R^m</m>). Comme on l'a remarqué à la proposition <xref ref="prop-transfolinprop"/>,
     le vecteur <m>\vec{0}\in \R^n</m> est toujours une solution de ce système. De plus, si la matrice <m>A</m> est carrée et inversible, c'est la <xref ref="thm-delamatriceinversev1">seule solution</xref>.</p>
@@ -52,7 +52,7 @@
         <instructions>
           <p><alert>Instructions pour la figure interactive:</alert> L'interaction suivante permet de visualiser les zéros des transformations linéaires <m>A</m> et <m>B</m>. Il est possible de déplacer le point <m>P</m> afin de 
           modifier le vecteur <m>\vec{u}</m>. Son image par la transformation choisie (<m>A</m> par défaut) est affichée, en rouge. Un clic sur le bouton &#x00AB; Point <m>P</m> fixé sur l'espace solution &#x00BB;
-          va faire en sorte que <m>P</m> ne puisse être déplacer que sur des points où l'image du vecteur <m>\vec{u}</m> libre sera  nulle. Un clic sur le bouton
+          va faire en sorte que <m>P</m> ne puisse être déplacé que sur des points où l'image du vecteur <m>\vec{u}</m> libre sera  nulle. Un clic sur le bouton
           &#x00AB;Point <m>P</m> libre &#x00BB; libèrera le point <m>P</m> pour qu'il puisse prendre n'importe quelle valeur à nouveau. </p>
         </instructions>
         </interactive>
@@ -97,7 +97,7 @@ show("rref(Baug)=",Baug.rref())
     l'origine  de vecteurs directeurs <m>\vec{u}=(2,1,0),\vec{v}=(-3,0,1)</m>.</p>
     </solution>
     </example>
-    <p>Les zéros d'une transformation linéaire possède une propriété particulièrement utile. Celle-ci fait l'objet de la proposition suivante.</p>
+    <p>Les zéros d'une transformation linéaire possèdent une propriété particulièrement utile. Celle-ci fait l'objet de la proposition suivante.</p>
     <proposition xml:id="prop-Ax0sev">
     <title>Les zéros d'une transformation linéaire sont fermés pour l'addition et la multiplication par un scalaire</title>
     <statement><p>Soit <m>A</m> la matrice d'une transformation linéaire, <m>c\in \R</m> et <m>\vec{u},\vec{v}</m> des vecteurs tels que <m>A\vec{u}=A\vec{v}=\vec{0}</m>.
@@ -110,24 +110,24 @@ show("rref(Baug)=",Baug.rref())
     <proof><p>Voir l'exercice <xref provisional="exo-Ax0sev"/></p></proof>
     </proposition>
     <p>Si on s'attarde aux solutions des systèmes <m>A\vec{x}=\vec{0}</m> pour les matrices <m>3\times 3</m> de l'exemple <xref ref="ex-zerosgeo"/>, on peut y détecter une 
-    forme particulière au niveau des variables libres. Plus spécifiquement, pour l'exemple dont les solutions étaient contenues dans le plans de vecteurs directeurs
+    forme particulière au niveau des variables libres. Plus spécifiquement, pour l'exemple dont les solutions étaient contenues dans le plan de vecteurs directeurs
     <m>\vec{u}=(2,1,0),\vec{v}=(-3,0,1)</m>, les variables libres étaient <m>y,z</m>. Ces variables valent respectivement <m>1,0</m> dans le vecteur <m>\vec{u}</m> et <m>0,1</m> dans
     le vecteur <m>\vec{v}</m>. Cette remarque permet d'établir une autre manière de voir les solutions à un système d'équations linéaires <m>A\vec{x}=\vec{0}</m>.</p>
     <definition xml:id="def-solbase">
     <title>Les solutions de base à un système <m>A\vec{x}=\vec{0}</m>.</title>
     <statement>
     <p>Soit <m>A</m> une matrice quelconque telle que l'équation <m>A\vec{x}=\vec{0}</m> possède plus d'une solution. On nomme les &#x00AB; solutions de base &#x00BB; 
-    les solutions obtenues lorsqu'exactement une des variables libre est égale à <m>1</m> et les autres sont nulles.<fn>On verra à la section <xref provisional="sec-base"/>
+    les solutions obtenues lorsqu'exactement une des variables libres est égale à <m>1</m> et les autres sont nulles.<fn>On verra à la section <xref provisional="sec-base"/>
     que l'expression &#x00AB; de base &#x00BB; est reliée à la notion de base d'un espace vectoriel.</fn></p>
     <p> Il y a autant de solutions de base que de variables libres. Si la matrice <m>A</m> ne possède pas de variables libres, la seule solution à l'équation
     <m>A\vec{x}=\vec{0}</m> est le vecteur <m>\vec{0}</m>. Celui-ci n'est pas &#x00AB; spécial &#x00BB;.</p>
-    <p>L'ensemble de toutes les combinaisons linéaires des solutions de base additionné du vecteur <m>nul</m> est appelé la solution homogène 
+    <p>L'ensemble de toutes les combinaisons linéaires des solutions de base additionnées du vecteur <m>nul</m> est appelé la solution homogène 
     et est notée <m>\vec{x}_h</m>.</p>
     </statement>
     </definition>
     <p>Les solutions de base sont un exemple du concept de base d'un espace, qui sera défini dans le chapitre <xref provisional="chap-espvec"/>. L'ensemble des combinaisons linéaires
-    des solutions de base décrit le lieu &#x00AB; géométrique &#x00AB; où se trouve tous les zéros d'une transformation linéaire.  Dépendamment du nombre de ces solutions,
-    ce lieu peut être une droite, un plan, un espace tridimensionel ou un autre espace de dimension supérieure.</p>
+    des solutions de base décrit le lieu &#x00AB; géométrique &#x00AB; où se trouvent tous les zéros d'une transformation linéaire.  Dépendamment du nombre de ces solutions,
+    ce lieu peut être une droite, un plan, un espace tridimensionnel ou un autre espace de dimension supérieure.</p>
     <p>Par la nature des opérations élémentaires, toute solution à l'équation <m>A\vec{x}=\vec{0}</m> doit satisfaire le système équivalent menant à la solution paramétrique
     des combinaisons linéaires des solutions de base. Ainsi, ces combinaisons génèrent toutes les solutions.</p>
     <p>On regarde maintenant des solutions de base de matrices échelonnées réduites.</p>
@@ -195,7 +195,7 @@ show("rref(Baug)=",Baug.rref())
     <p>Dans cet exemple, toutes les variables sont pivots. Il n'y a donc pas de solutions de base. La seule solution à l'équation <m>D\vec{x}=\vec{0}</m> est le vecteur nul. Donc <m>\vec{x}_h=\vec{0}</m>.</p>
     </solution>
     </example>
-    <p>Il ne semble pas être pratique de devoir réécrire à chaque fois les équations du systèmes pour trouver les solutions de base. On peut toutefois directement lire
+    <p>Il ne semble pas être pratique de devoir réécrire à chaque fois les équations du système pour trouver les solutions de base. On peut toutefois directement lire
     ces solutions à partir de la matrice.</p>
     <example xml:id="ex-solbase2">
     <title>Lecture des solutions de base à partir de la matrice</title>
@@ -235,8 +235,8 @@ show("rref(Baug)=",Baug.rref())
   </figure>
   </solution>
     </example>
-    <p>Avec l'exemple précédent, on peut distinguer deux matrices à l'intérieure d'une matrice échelonnée réduite. En ne tenant pas compte des lignes nulles, on détecte
-    dans les colonnes pivots une occurence de la matrice identité. Toujours sans tenir compte des lignes nulles, les colonnes libres donnent lieu à une matrice, notée <m>L</m> (pour libre).
+    <p>Avec l'exemple précédent, on peut distinguer deux matrices à l'intérieur d'une matrice échelonnée réduite. En ne tenant pas compte des lignes nulles, on détecte
+    dans les colonnes pivots une occurrence de la matrice identité. Toujours sans tenir compte des lignes nulles, les colonnes libres donnent lieu à une matrice, notée <m>L</m> (pour libre).
     Cette matrice contient l'information des solutions de base. On l'illustre à l'aide d'un exemple.
     </p>
     <example xml:id="ex-sousmatriceIL">
@@ -459,7 +459,7 @@ show("La matrice formée à partir de l'intersection des lignes 2,3 et des colon
 </input>
 </sage>
 </li>
-<li><p>Parfois, on ne sait pas quelles seront les entrées d'un vecteur, ou on veut construit un vecteur en étape, une entrée à la fois. Pour effectuer cela,
+<li><p>Parfois, on ne sait pas quelles seront les entrées d'un vecteur, ou on veut construire un vecteur en étape, une entrée à la fois. Pour effectuer cela,
 on utilisera plutôt une liste Sage, que l'on convertira en vecteur par la suite. Par exemple, si on dispose d'une liste <c>l1=[1,3,4]</c> et d'une autre liste
 <c>l2=[2,4,6]</c> et qu'on veut créer les vecteurs qui prennent leurs valeurs en alternant d'une liste à l'autre, on fera</p>
 <sage>
@@ -494,8 +494,7 @@ show("v1+v2=",v1+v2)
 </p>
 <p>On débute avec la création de la fonction qui retourne la matrice <m>L</m>. On se pose dans un premier temps la question suivante: est-ce que la matrice <m>L</m> existe toujours?
 Dans l'algorithme, on élimine les lignes de zéros et on ne garde que les colonnes libres. Que faire si toutes les lignes sont nulles ou si toutes les colonnes sont pivots?
-Dans ces cas, il n'y a pas de matrice <m>L</m>, mais l'interprétation est différente au niveau des solutions de base. Lorsque toutes les lignes sont nulles, toutes les variables
-sont libres et donc, l'ensemble solution est constitué de tous les vecteurs de l'espace <m>R\^n</m>. Si au contraire toutes les variables sont pivots, alors il n'y a pas de 
+Dans ces cas, il n'y a pas de matrice <m>L</m>, mais l'interprétation est différente au niveau des solutions de base. Lorsque toutes les lignes sont nulles, toutes les variables sont libres et l'ensemble solution est donc constitué de tous les vecteurs de l'espace <m>R\^n</m>. Si au contraire toutes les variables sont pivots, alors il n'y a pas de 
 solutions de base. La seule solution à <m>A\vec{x}=\vec{0}</m> est le vecteur nul. C'est dans ce deuxième cas qu'il faudra dire à notre fonction qu'il n'y a pas de solutions de base.
 </p>
 <p>Pour le cas où la matrice est nulle, selon l'algorithme <xref ref="algo-solbase"/>, les solutions spéciales devraient sortir correctement et correspondre aux
@@ -566,7 +565,7 @@ solbase(R)
     <p>L'équation <m>A\vec{x}=\vec{0}</m> a toujours une solution. Parfois, elle en a une infinité. Lorsqu'on remplace le vecteur nul par un vecteur quelconque, l'équation
     <men xml:id="eq-Axb" symbol="star">A\vec{x}=\vec{b}</men> peut ne pas avoir de solutions. Étant donnée une matrice <m>A</m>, pour quel(s) vecteur(s) <m>\vec{b}</m> est-ce que l'équation
     <xref ref="eq-Axb"/> possède au moins une solution?</p>
-    <p>Géométriquement parlant, quels sont les vecteurs qui sont atteints par la transformation linéaire <m>A</m>, c'est-à-dire, quels sont les vecteurs qui forment l'image de cette transformation. On explore quelques cas
+    <p>Géométriquement parlant, quels sont les vecteurs qui sont atteints par la transformation linéaire <m>A</m>, c'est-à-dire, quels sont les vecteurs qui forment l'image de cette transformation? On explore quelques cas
     dans l'exemple suivant.</p>
     <example xml:id="ex-imggeo">
     <title>L'image de transformations géométriques: dynamique</title>
@@ -761,7 +760,7 @@ une solution.
     <!-- watch for progress on https://trac.sagemath.org/ticket/23715 -->
     <title>L'image de transformations linéaire et Sage</title>
     <p>Sage ne pourra pas travailler directement avec les variables comme <m>b_1,b_2,b_3</m> si on ne l'aide pas un peu. Pour déterminer l'image d'une transformation 
-    avec Sage, trois ajustements seront nécessaire. Leur raison d'être est liée au fonctionnement du logiciel et dépasse le niveau du manuel. On se contente d'appliquer la solution. On constate
+    avec Sage, trois ajustements seront nécessaires. Leur raison d'être est liée au fonctionnement du logiciel et dépasse le niveau du manuel. On se contente d'appliquer la solution. On constate
     l'ajout d'une ligne <c>R.&lt;b1,b2,b3>=QQ[]</c> au code. De plus, la colonne augmentée est inscrite à même la matrice. Finalement, on note l'utilisation de la fonction <c>echelon_form()</c> plutôt que le standard <c>rref()</c>. Avec 
     ces  ajustements, on peut obtenir la forme échelonnée réduite de la matrice avec le vecteur <m>\vec{b}</m> variables.</p>
     <p>On procède avec les matrices <m>B,C</m> de l'exemple <xref ref="ex-imggeo"/>.</p>
@@ -795,14 +794,14 @@ show("rref(C)=",C.echelon_form())
     </computation>
     <remark xml:id="rem-spancolonne">
     <p>Le lecteur astucieux aura peut-être remarqué que les vecteurs directeurs des droites de l'image des matrices <m>P</m> et <m>C</m> de cette sous-section étaient
-    un multiple d'une colone de ces matrices. Le lecteur encore plus astucieux aura peut-être même remarqué que les vecteurs directeurs du plan de l'image de la matrice
+    un multiple d'une colonne de ces matrices. Le lecteur encore plus astucieux aura peut-être même remarqué que les vecteurs directeurs du plan de l'image de la matrice
     <m>B</m> trouvés à l'exemple calculatoire <xref ref="sageex-imgalg"/> sont des combinaisons linéaires de deux des colonnes de la matrice. En effet,
     <md>
     <mrow>\vecddd{-1}{1}{0}&amp;=-\frac{1}{3}\vecddd{1}{-2}{-1}-\frac{1}{3}\vecddd{2}{-1}{1}</mrow>
     <mrow>\vecddd{1}{0}{1}&amp;=-\frac{1}{3}\vecddd{1}{-2}{-1}+\frac{2}{3}\vecddd{2}{-1}{1}</mrow>
     </md>.
-    Pour comprendre cela, on se rappelle que le produit <m>A\vec{x}</m> peut être interprétée comme <xref ref="eq-matvecprodgen">les combinaisons linéaire des
-    colonnes de la matrice <m>A</m></xref>. L'ensemble des <m>\vec{b}</m> s'écrivant comme ces combinaisons linéaires sont constitue donc l'image de la transformation <m>A</m>. 
+    Pour comprendre cela, on se rappelle que le produit <m>A\vec{x}</m> peut être interprété comme <xref ref="eq-matvecprodgen">les combinaisons linéaire des
+    colonnes de la matrice <m>A</m></xref>. L'ensemble des <m>\vec{b}</m> s'écrivant comme ces combinaisons linéaires  constitue donc l'image de la transformation <m>A</m>. 
     </p>
     <p>Il semble toutefois qu'il n'est pas nécessaire d'utiliser toutes les colonnes pour engendrer l'image, comme le montre les images des matrices <m>P,C</m> et <m>B</m>.
     La  section <xref provisional="sec-bases4ssesp"/> va donner la réponse à cette question.
@@ -810,12 +809,12 @@ show("rref(C)=",C.echelon_form())
     </subsection>
     <subsection xml:id="sssec-solgen">
     <title>La solution générale à <m>A\vec{x}=\vec{b}</m>.</title>
-    <p>Les solutions à l'équation <m>A\vec{x}=\vec{0}</m> s'écrivent toutes comme des combinaisons linéaires des vecteurs des vecteurs de base. Selon le nombre
+    <p>Les solutions à l'équation <m>A\vec{x}=\vec{0}</m> s'écrivent toutes comme des combinaisons linéaires des vecteurs de base. Selon le nombre
     de vecteur de base, ces solutions se trouvent sur une droite (un vecteur), un plan (deux vecteurs) ou plus généralement un hyperplan (trois vecteurs ou plus) passant
     par l'origine. Lorsque le vecteur nul est remplacé par un vecteur <m>\vec{b}</m> quelconque, les solutions ont toujours la forme de droites, plans ou hyperplans, mais ceux-ci ne 
     passent plus nécessairement par l'origine. Il est possible d'écrire toutes les solutions à l'équation <m>A\vec{x}=\vec{b}</m> comme la translation des solutions
     à l'équation <m>A\vec{x}=\vec{0}</m>, un peu à l'image de la figure <xref ref="fig-planquelconque"/>.</p>
-    <p>En fait, si on suit la démarche de la section <xref ref="sec-SELtheo"/> lorsqu'il y a infinité de solutions,, c'est précisément ce qui se passait lorsqu'on isolait les variables
+    <p>En fait, si on suit la démarche de la section <xref ref="sec-SELtheo"/> lorsqu'il y a infinité de solutions, c'est précisément ce qui se passait lorsqu'on isolait les variables
     pivots en fonction des variables libres. On ne fait donc que faire le lien avec la première sous-section.</p>
     <example xml:id="ex-solgen">
     <title>Des systèmes à quatre équations et trois inconnues, prise deux</title>
