@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                     -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-transposee">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
+            <statement>
+                <p>La première lettre de la question.</p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>
+    </task>
+    </exercise>
+    -->
+    <exercise><introduction><p>Soit <m>A=\matcold{1}{3}{-2}{-1},B=\matcold{3}{1}{2}{5},C=\begin{pmatrix} 2&amp; -2&amp;3 \\ 0&amp; 2&amp;1 \end{pmatrix}</m> et <m>D=\begin{pmatrix} 7 &amp;-1\\ 2&amp; 4\\ 1&amp;0  \end{pmatrix}</m>.
+    Calculer si possible les expressions suivantes ou expliquer pourquoi ce n'est pas possible.</p></introduction>
+    <task><p><m> A^T </m></p></task>
+    <task><p><m>4A-5B^T </m></p></task>
+    <task><p><m> C^T</m></p></task>
+    <task><p><m> C^T+D</m></p></task>
+    <task><p><m> A^TC </m></p></task>
+    <task><p><m> AC^T</m></p></task>
+    <task><p><m> C^TB^T </m></p></task>
+    <task><p><m> BD</m></p></task>
+    <task><p><m> BD^T</m></p></task>
+    <task><p><m> DB</m></p></task>
+    <task><p><m> D^TB</m></p></task>
+    <task><p><m> CC^T </m></p></task>
+    <task><p><m> C^TC</m></p></task>
+    <task><p><m>CD </m></p></task>
+    <task><p><m> C^TD^T</m></p></task>
+    <task><p><m> DC </m></p></task>
+   <task><p><m> D^TC^T </m></p></task>
+    </exercise>
+    <exercise><statement><p>Montrer que si <m>A</m> est une matrice quelconque de taille <m>m\times n</m>, alors <m>B=AA^T</m> et <m>C=A^TA</m> sont définies. Donner aussi la taille des matrices <m>B</m> et <m>C</m>.</p></statement></exercise>
+    <exercise xml:id="exo-prodscaltransposee">
+    <introduction> Soit <m>A</m> une matrice <m>m\times n</m>. On considère l'équation <men xml:id="eq-prodscaltransposee">A\vec{x}\cdot \vec{y}=\vec{x}\cdot A^T\vec{y}</men>.</introduction>
+    <task><statement><p>Quelles doivent être les dimensions des vecteurs <m>\vec{x},\vec{y}</m> pour que l'équation <xref ref="eq-prodscaltransposee" symbol="star"/> soit bien définie?</p></statement></task>
+    <task><statement><p>Démontrer l'équation <xref ref="eq-prodscaltransposee" symbol="star"/>.</p></statement></task>
+    </exercise>
+    <exercise>
+    <title>Les matrices symétriques</title>
+    <introduction>
+    <p>Soit <m>S</m> une matrice carrée <m>n\times n</m>. On dit que la matrice <m>S</m> est symétrique si <me>S=S^T</me>.</p>
+    </introduction>
+    <task><statement><p>Donner deux exemples de matrices symétriques de taille <m>2\times 2</m> et un exemple de taille <m>3\times 3</m>.</p></statement></task>
+    <task><statement><p>Soit <m>A</m> une matrice quelconque. Montrer que <m>S=AA^T</m> est une matrice symétrique.</p></statement></task>
+    <task><introduction><p>Une matrice carrée <m>X</m> est antisymétrique si <m>X^T=-X</m>.</p></introduction>
+    <task><statement><p>Donner deux exemples de matrices antisymétriques de taille <m>2\times 2</m> et un exemple de taille <m>3\times 3</m>.</p></statement></task>
+    <task><statement><p>Que doivent valoir les éléments sur la diagonale d'une matrice antisymétrique? Pourquoi?</p></statement></task>
+    <task><introduction><p>Soit <m>A</m> une matrice quelconque. On pose <m>S=A+A^T</m> et <m>X=A-A^T</m>.</p></introduction>
+    <task><statement><p>Montrer que <m>S</m> est une matrice symétrique.</p></statement></task>
+    <task><statement><p>Montrer que <m>X</m> est une matrice antisymétrique.</p></statement></task>
+    <task><statement><p>Montrer que toute matrice <m>A</m> peut s'écrire comme la somme d'une matrice symétrique et d'une matrice antisymétrique.</p></statement></task>
+    </task>
+    </task>
+    </exercise>
+    <exercise><statement><p>Soit <m>A,B</m> deux matrices symétriques. Montrer que <m>AB</m> est symétrique si et seulement si <m>AB=BA</m>.</p></statement></exercise>
+    <exercise><introduction><p>On s'intéresse aux matrices <m>A</m> telles que les colonnes sont composées de vecteurs orthogonaux entre eux.</p></introduction>
+    <task><statement><p>Soit <m>\vec{u}=(1,2)</m> et <m>\vec{u}_{\perp}</m> son vecteur perpendiculaire. On considère la matrice <m>A</m> dont les colonnes sont <m>\vec{u}</m> et <m>\vec{u}_{\perp}</m>.
+    Calculer <m>A^TA</m>. Qu'y a-t-il de particulier?
+    </p></statement></task>
+    <task><statement>Répéter la partie précédente avec <m>\vec{u}=(a,b)</m>.</statement></task>
+    <task><statement>Soit <m>A</m> une matrice <m>n\times n</m> telles que ses colonnes sont orthogonales entre elles. Montrer que <m>A^TA</m> est une matrice dont les seules entrées non nulles se situent sur la diagonale principale.</statement></task>
+    </exercise>
+    <exercise><introduction><p>On considère les matrices de permutation  définies à l'exercice <xref ref="exo-matpermudef"/>.</p></introduction>
+    <task><statement><p>Montrer que si <m>P</m> est une matrice de permutation <m>2\times 2</m>, alors <m>P^T=P^{-1}</m>.</p></statement></task>
+    <task><statement><p>Utiliser le code de l'exercice <xref ref="exosage-permmatrices"/> pour montrer que les matrices de permutation <m>P</m> de taille <m>3\times 3</m> et <m>4\times 4</m> ont cette propriété.</p></statement></task>
+    <task><introduction><p>On veut montrer que pour une matrice de permutation <m>P</m>, on a <m>P^T=P^{-1}</m>.</p></introduction>
+    <task><statement><p>Montrer que les matrices élémentaires de type <m>L_i\leftrightarrow L_j</m> ont cette propriété.</p></statement></task>
+    <task><statement><p>Utiliser l'exercice <xref ref="exo-matpermuelem"/> pour montrer qu'une matrice de permutation <m>P</m> quelconque possède la propriété <m>P^T=P^{-1}</m>.<aside><title>En passant</title> Une matrice
+    pour laquelle la transposée est son inverse est dite orthogonale. Ces matrices seront très importante dans le chapitre <xref provisional="chapitre orthogonal"/>.</aside></p></statement></task>
+    </task>
+   </exercise>
+</exercises>
