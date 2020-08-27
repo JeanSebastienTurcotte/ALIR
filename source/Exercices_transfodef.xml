@@ -730,6 +730,26 @@
             </p>
             </solution>
     </exercise>
+    <exercise xml:id="exo-matentreeij">
+    <statement><p>Soit <m>A</m> une matrice. On sait que <m>A\vec{e}_j</m> donne la colonne <m>j</m> de la matrice. Comment obtenir l'entrée en position <m>i,j</m>?</p></statement>
+    <hint><p>Considérer le produit scalaire de <m>A\vec{e}_j</m> avec un vecteur bien choisi.</p></hint>
+    <solution><p>On doit extraire de la colonne <m>j</m> l'entrée en position <m>i</m>. Si on effectue le produit scalaire avec un vecteur <m>\vec{e}_i</m> de bonne dimension, on aura 
+    le résultat souhaité. </p>
+    <p>On remarque aussi que la matrice n'a pas besoin d'être carrée. La cellule Sage ci-dessous permet de tester avec une matrice rectangle.</p>
+    <sage>
+    <input>
+    A=random_matrix(QQ,3,5)
+    show(A)
+    #On veut l'entrée 2,4 par exemple
+    e4=vector([0,0,0,1,0])
+    f2=vector([0,1,0]) #On utilise f car la dimension est différente, et si on voulait l'entrée 2,2 on ne pourrait pas prendre le même e2
+    show("a_{2,4}=",A*e4*f2)
+    #On peut aussi effectuer un test logique
+    show("a_{2,4}=",A*e4*f2==A[1][3])  #On rappelle que l'entrée 2,4 est notée A[1][3] sur Sage
+    </input>
+    </sage>
+    </solution>
+    </exercise>
     <exercise xml:id="exo-transfocomp">
             <statement>
                 <p>Dans l'exemple <xref ref="ex-transfocomp"/>, on a composé deux transformations linéaires en exécutant les opérations successivement. 
@@ -827,7 +847,7 @@
                 pour tout vecteur compatible <m>\vec{u}</m>. Démontrer que <m>A=B</m>.</p>
             </statement>
             <hint>
-                <p>On peut procéder de façon semblable au numéro précédent, en choisissant les vecteurs de la base canonique. 
+                <p>On peut procéder de façon semblable au numéro <xref ref="exo-reptransfomatunique"/>, en choisissant les vecteurs de la base canonique. 
                 En effet, l'équation <xref ref="eq-matvecprodgen"/> nous indique que si l'on choisit le vecteur <m>(1,0,\ldots , 0)</m> comme <m>\vec{u}</m>, on obtiendra la première colonne de la matrice.
                 Cela mènera rapidement à une contradiction.</p>
             </hint>
@@ -850,6 +870,55 @@
                 Donc, les matrices <m>A</m> et <m>B</m> doivent être égales puisque chacune de leurs colonnes sont égales. 
                 </p>
             </solution>
+                </exercise>
+    <exercise xml:id="exo-matprodscalzero">
+    <introduction><p>On considère une matrice <m>A</m> et l'équation <m>(A\vec{u})\cdot \vec{v}=0</m>.</p></introduction>
+    <task><statement><p>On suppose d'abord que <m>A</m> est une matrice <m>2\times 2</m>. Si <m>(A\vec{u})\cdot \vec{u}=0</m> pour tous les vecteurs de <m>\R^2</m>, est-ce que <m>A=O</m>? Démontrer ou donner un contre exemple.</p></statement>
+    <hint><p>Une rotation particulière</p></hint>
+    <solution><p>Non, ce n'est pas suffisant pour que <m>A</m> soit la matrice nulle. Si <m>A=R_{90^{\circ}}</m>, alors <m>A\vec{u}</m> est toujours perpendiculaire à <m>\vec{u}</m> et 
+    donc <m>(A\vec{u})\cdot \vec{u}=0</m>. Pourtant dans ce cas, <m>A=\matcold{0}{1}{-1}{0}</m>.</p></solution>
+    </task>
+    <task><statement><p>Si maintenant on a <m>A</m> une matrice  de dimension <m>m\times n</m> et que <m>(A\vec{u})\cdot \vec{v}=0</m> pour tous les vecteurs <m>\vec{u}\in\R^n</m> et tous les vecteurs <m>\vec{v}\in\R^m</m>, est-ce que 
+    <m>A=O</m>? Démontrer ou donner un contre exemple.</p> </statement>
+    <hint><p>Utiliser l'exercice <xref provisional="exo-matentreeij"/>.</p></hint>
+    <solution>
+    <p>Cette fois c'est suffisant. On regarde colonne par colonne la matrice <m>A</m>. On sait que <m>A\\vec{e}_1=\vec{a}_1,A\vec{e}_2=\vec{a}_2,\ldots ,A\vec{e}_n=\vec{a}_n</m> où <m>\vec{e}_1,\vec{e}_2,\ldots \vec{e}_n</m> sont les 
+    vecteurs standards <m>(1,0,\ldots, 0),(0,1,0,\ldots ,0),\ldots ,(0,\ldots ,0,1)</m> et <m>\vec{a}_1,\vec{a}_2,\ldots \vec{a}_n</m> sont 
+    respectivement les colonnes un et deux de la matrice. De plus, on sait par l'exercice <xref provisional="exo-matentreeij"/> que l'entrée en position <m>i,j</m> est donnée par
+    <m>A\vec{e_j}\cdot \vec{e}_i</m>. Or par hypothèse, l'équation <m>(A\vec{u})\cdot \vec{v}=0</m>  pour tous les vecteurs de <m>\R^n</m>. La matrice <m>A</m> est donc la matrice nulle.</p>
+    </solution>
+    </task>
+    </exercise>
+    <exercise xml:id="exo-matprodscalegal">
+    <introduction><p>On considère deux matrices <m>A,B</m> de même dimensions et des vecteurs <m>\vec{u},\vec{v}</m> tels que l'équation <me>(A\vec{u})\cdot\vec{v}=(B\vec{u})\cdot\vec{v}</me>
+    est bien définie.</p></introduction>
+    <task><statement><p>Trouver deux matrices différentes non nulles et deux vecteurs différents (aussi non nuls) qui satisfont cette équation.</p></statement>
+    <hint><p>Prendre <m>\vec{u}=-\vec{v}</m> dans <m>\R^2</m> et considérer deux rotations spécifiques.</p></hint>
+    <answer><p>On prend <m>A=R_{90^{\circ}}=\matcold{0}{1}{-1}{0}</m>,<m>B=R_{-90^{\circ}}=\matcold{0}{-1}{1}{0}</m> et <m>\vec{u}=(a,b)</m>, <m>\vec{v}=(-a,-b)</m> où <m>a,b</m> ne sont
+    pas tous les deux nuls.</p></answer>
+    <solution>
+    <p>On prend <m>A=R_{90^{\circ}}=\matcold{0}{1}{-1}{0}</m>,<m>B=R_{-90^{\circ}}=\matcold{0}{-1}{1}{0}</m> et <m>\vec{u}=(a,b)</m>, <m>\vec{v}=(-a,-b)</m> où <m>a,b</m> ne sont
+    pas tous les deux nuls.</p>
+    <p>Puisque les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sont parallèles, une rotation de <m>90^{\circ}</m> sur <m>\vec{u}</m> fera en sorte que <m>A\vec{u}</m> et <m>\vec{v}</m> seront
+    perpendiculaires. De même, une rotation de <m>-90^{\circ}</m> sur <m>\vec{u}</m> fera en sorte que <m>B\vec{u}</m> et <m>\vec{v}</m> seront
+    perpendiculaires.</p>
+    <p>Dans les deux cas, <m>(A\vec{u})\cdot\vec{v}=(B\vec{u})\cdot\vec{v}=0</m></p>
+    </solution>
+    </task>
+    <task><statement><p>Montrer que si <m>(A\vec{u})\cdot\vec{v}=(B\vec{u})\cdot\vec{v}</m> pour tous les vecteurs <m>\vec{u},\vec{v}</m> compatibles, alors <m>A=B</m>.</p></statement>
+    <solution><p>On réécrit l'équation en utilisant les propriétés du produit scalaire pour obtenir
+    <md>
+    <mrow>(A\vec{u})\cdot\vec{v}&amp;=(B\vec{u})\cdot\vec{v}</mrow>
+    <mrow>0&amp;=(B\vec{u})\cdot\vec{v}-(A\vec{u})\cdot\vec{v}</mrow>
+    <mrow>&amp;=(B\vec{u}-A\vec{u})\cdot\vec{v}</mrow>
+    <mrow>&amp;=(B-A)\vec{u}\cdot\vec{v}</mrow>
+    </md>.
+    </p>
+    <p>
+    La matrice <m>B-A</m> est donc telle que pour tout vecteur <m>\vec{u},\vec{v}</m>, l'équation <m>(B-A)\vec{u}\cdot \vec{v}=0</m>. En utilisant l'exercice <xref ref="exo-matprodscalzero"/>, on conclut
+    que <m>B-A=O</m> et donc que <m>A=B</m>.
+    </p></solution>
+    </task>
     </exercise>
     <exercise xml:id="exo-matsommelignes">
             <statement>
