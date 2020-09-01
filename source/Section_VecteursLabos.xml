@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Activités et laboratoires </title>
+    <introduction xml:id= "intro-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p>
+    </introduction>
+    <project>
+    <title>De la géométrie particulièrement hasardeuse</title>
+    <introduction><p>La fonction <c>choice([])</c> de Sage permet d'obtenir un des éléments dans la liste <c>[ ]</c> de manière aléatoire. Par exemple, on simule un lancer de dé dans la cellulle ci-dessous.</p>
+    <sage>
+    <input>
+    choice([1,2,3,4,5,6])
+    </input>
+    </sage>
+    <p>Le résultat change entre chaque clic du bouton évaluer.</p>
+    <p>La fonction <c>triangle(n)</c> définie ci-dessous utilise la fonction <c>choice()</c> pour sélectionner de manière aléatoire un sommet d'un triangle équilatéral centré à l'origine. On note ce point <m>P</m>. On effectue ensuite le jeu suivant:
+    <ol>
+    <li><p>On sélectionne un sommet du triangle <m>S</m>, au hasard avec la fonction <c>choice()</c>.</p></li>
+    <li><p>On calcule le point <m>Q</m>, situé à mi chemin entre <m>P</m> et <m>S</m>.</p></li>
+    <li><p>Le point <m>Q</m> devient le nouveau point <m>P</m>.</p></li>
+    <li><p>On répète ce processus <m>n</m> fois et on affiche le graphique de tous les points ainsi obtenus.</p></li>
+    </ol>
+    </p>
+    </introduction>
+    <task>
+    <statement><p>Dans la fonction triangle ci-dessous, il faut compléter la ligne <c>####### À COMPLÉTER #######</c> afin de calculer le point <m>Q</m>. Une fois cela effectué, appeler exécuter la commande <c>triangle(10)</c> afin
+    de générer dix tours de ce jeu. Le résultat devrait ressembler à la figure <xref ref="fig-chaos10"/>, sans nécessairement lui être identique dû au hasard.</p>
+    <figure xml:id="fig-chaos10">
+    <caption>Dix tours du petit jeu</caption>
+    <image source="images/chaos10.svg">
+    <description>Un triangle équilatéral est tracé en noir ainsi que les dix premiers tours de jeu décrit ci-haut</description>
+    </image>
+    </figure>
+    <sage>
+    <input>
+def triangle(n):
+    A=vector([0,1])
+    B=vector([-sqrt(3)/2,-1/2])
+    C=vector([sqrt(3)/2,-1/2]) #Trois points d'un triangle équilatéral centré à l'origine
+    graph=point(A,size=30,color="black")+point(B,size=30,color="black")+point(C,size=30,color="black")+line([A,B],color="black")+line([A,C],color="black")+line([B,C],color="black")
+    P=[] #Une liste vide 
+    P.append(choice([A,B,C])) #Le point initial
+    for i in range(n):
+        S=choice([A,B,C])  #Le sommet de l'étape
+        ####### À COMPLÉTER #######   #Le point Q
+        P.append(Q) #Le nouveau point devient le point de départ du prochain tour
+    graph+=point(P,color="black")
+    return graph
+triangle(10)
+    </input>
+    </sage>
+    </statement>
+    <hint>
+    <p>Utiliser la cellule suivante pour comprendre comme la boucle <c>for i in range(n)</c> fonctionne.</p>
+    <sage>
+    <input>
+    P=[]
+    P.append(choice(["A","B","C"]))
+    for i in range(10):
+        print("On est à i=",i)
+        print("Voici ce que contient P",P)
+        print("On ajoute A,B ou C à P")
+        P.append(choice(["A","B","C"]))
+        print("Voici encore une fois P, on est toujours à i=%d" % i, P)
+        print("Fin de l'itération i=",i)
+    print("Voila, c'est termné! Voici le P final:",P)
+    </input>
+    </sage>
+    </hint>
+    </task>
+    <task><introduction><p>On va maintenant regarder ce qui se passe lorsque le nombre de points devient suffisamment grand.</p></introduction>
+    <task>
+    <statement><p>Évaluer la cellule ci-dessous plusieurs fois pour voir le résultat des <m>100</m> premiers tours de jeu. À quoi ressemblera la figure avec davantage (<m>10000</m>?) de points? Tenter une prédiction
+    avant de tester <m>10000</m> points.</p>
+    <sage>
+    <input>
+    triangle(100)
+    </input>
+    </sage>
+    </statement>
+    </task>
+    <task><statement><p>Évaluer la cellule suivante. Attention, cela peut prendre un certain temps.</p>
+    <sage>
+    <input>
+    triangle(10000)
+    </input>
+    </sage></statement>
+    </task>
+    <task><statement><p>Dans le cas présent, on prend le point milieu entre <m>P</m> et <m>S</m>. Que se passe-t-il si on prend un rapport plus petit ou plus grand que <m>1\2</m>. Par exemple, si on prenait
+    <m>Q</m> au <m>2/3</m> du segment <m>PS</m>, qu'obtiendrait-on après <m>10000</m> tours? Tenter de faire une prédiction et modifier le code de la simulation en le copiant dans les cellules ci-dessous.</p>
+    <sage>
+    <input>
+    #Essayer des rapports plus petits que 1/2
+    </input>
+    </sage>
+    <sage>
+    <input>
+    #Essayer des rapports plus grands que 1/2
+    </input>
+    </sage>
+    <p>Que se passe t-il si le point Q est en dehors du segment <m>PS</m>?</p>
+    <sage>
+    <input>
+    #Essayer d'envoyer Q hors du segment PS
+    </input>
+    </sage>
+    </statement>
+    </task>
+    </task>
+    <task><statement><p>On explore maintenant d'autres généralisations. Voici des figures représentant certaines de ces généralisations.</p>
+    <p>Trouver une variante du jeu qui produit un effet intéressant. Il est possible de s'inspirer de  ou de simplement reproduire  ces figures.</p>
+    <sage><intput>
+    
+    </intput></sage>
+    <figure>
+    <caption>Un triangle coloré</caption>
+    <image source="images/chaoscouleurs.svg">
+    <description>Un triangle comme celui du jeu est illustré, mais cette fois-ci les régions sont colorées en rouge, vert et bleu.</description>
+    </image>
+    </figure>
+        <figure>
+    <caption>Des pentagones hors de soi</caption>
+    <image source="images/chaospentaext.svg">
+    <description>Un pentagone est illustré, avec ce qui semble être une variante du jeu. Cette fois, les régions touchées sont à l'extérieur du pentagone.</description>
+    </image>
+    </figure>
+        <figure>
+    <caption>Un hexagone aventureux</caption>
+    <image source="images/chaoshexaexplo.svg">
+    <description>Un tout petit hexagone apparait au centre avec ce qui semble être une variante du jeu. Cette fois, les points semblent diverger.</description>
+    </image>
+    </figure>
+    </statement>
+    </task>
+    </project>
+</section>
