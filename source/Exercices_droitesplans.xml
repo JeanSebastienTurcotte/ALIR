@@ -169,6 +169,104 @@
             </solution>
             </task>
     </exercise>
+        <exercise xml:id="exo-vecperp">
+            <introduction>
+                <p>Dans la proposition <xref ref="pro-vecperp"/>, nous avons introduit le vecteur perpendiculaire <m>\vec{v}_{\perp}</m>. 
+                Pour chacune des propositions suivantes, en développer d'abord une compréhension géométrique et ensuite la démontrer algébriquement.</p>
+                <figure>
+                    <caption> </caption>
+                    <interactive xml:id="geo-exo-vecperp" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="slate-geo-exo-vecperp" surface="geogebra" source="code/geogebra/exo-vecperp.ggb" aspect="1:1">
+                            setCoordSystem(-3, 3, -3, 3);
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            Utiliser les outils de cette figure interactive pour vous aider.  
+                        </instructions>
+                    </interactive>
+                </figure>
+            </introduction>
+            <task>
+            <statement>
+                <p>On obtient le vecteur <m>\vec{v}_{\perp}</m> à partir de <m>\vec{v}</m> en lui faisant faire une rotation de <m>90</m> degrés dans le sens anti-horaire. </p>
+            </statement>
+            <solution>
+                <p>Il y a seulement deux vecteurs perpendiculaires à un vecteur donné dans <m>\R^2</m>. Il faut alors simplement déterminer que la proposition <xref ref="pro-vecperp"/>
+                définit bien le vecteur obtenu à partir de <m>\vec{v}</m> en lui faisant faire une rotation de <m>90</m> degrés dans le sens anti-horaire. On observe sur le dessin que
+                c'est le cas. On pourra le démontrer algébriquement facilement en considérant que si <m>v_1</m> et <m>v_2</m> sont positifs, alors <m>\vec{v}</m> sera dans le premier quadrant.
+                Ainsi, <m>\vec{v}_{\perp}=(-v_2, v_1)</m> aura une valeur négative en <m>x</m> et positive en <m>y</m> et est donc dans le deuxième quadrant. On voit donc clairement que la rotation
+                <m>90^\circ</m> s'est effectuée dans le sens horaire.
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>\norm{\vec{v}}=\norm{\vec{v}_{\perp}}</m></p>
+            </statement>
+            <solution>
+                <p>Dès qu'on accepte le résultat précédent, cette proposition est évidente géométriquement. Les deux vecteurs sont de même longueur. 
+                On le démontre algébriquement.
+                <md>
+                            <mrow> \norm{\vec{v}} &amp; =\norm{(v_1,v_2)}</mrow>
+                            <mrow> &amp; =\sqrt{v_1^2+v_2^2}</mrow>
+                            <mrow> &amp; =\sqrt{v_2^2+v_1^2}</mrow>
+                            <mrow> &amp; =\sqrt{(-v_2)^2+v_1^2}</mrow>
+                            <mrow> &amp; =\norm{(-v_2,v_1)}</mrow>
+                            <mrow> &amp; =\norm{\vec{v}_{\perp}}</mrow>
+                </md>
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>\vec{v}\cdot\vec{v}_{\perp}=0</m></p>
+            </statement>
+            <solution>
+                <p>On observe géométriquement que ces vecteurs sont perpendiculaires. Cela est équivalent de dire que leur produit scalaire est nul.
+                On le démontre algébriquement.
+                <md>
+                            <mrow> \vec{v}\cdot\vec{v}_{\perp} &amp; =(v_1,v_2)\cdot(-v_2,v_1)</mrow>
+                            <mrow> &amp; =v_1*(-v_2)+v_2*v_1</mrow>
+                            <mrow> &amp; =-v_1v_2+v_1v_2</mrow>
+                            <mrow> &amp; =0</mrow>
+                </md>
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>(k\vec{v})_{\perp}=k(\vec{v}_{\perp})</m> quel que soit le scalaire <m>k</m></p>
+            </statement>
+            <solution>
+                <p>La figure interactive permet de visualiser très efficacement cette proposition. Voici la démonstration algébrique.
+                <md>
+                            <mrow> (k\vec{v})_{\perp} &amp; =\big(k(v_1,v_2)\big)_{\perp}</mrow>
+                            <mrow> &amp; =(kv_1,kv_2)_{\perp}</mrow>
+                            <mrow> &amp; =(-kv_2,kv_1)</mrow>
+                            <mrow> &amp; =k(-v_2,v_1)</mrow>
+                            <mrow> &amp; =k(\vec{v}_{\perp})</mrow>
+                </md>
+                </p>
+            </solution>
+            </task>
+            <task>
+            <statement>
+                <p><m>(\vec{u}+\vec{v})_{\perp}=\vec{u}_{\perp}+\vec{v}_{\perp}</m></p>
+            </statement>
+            <solution>
+                <p>Cette dernière proposition est plus difficile à visualiser géométriquement, mais sa démonstration algébrique est assez facile.
+                <md>
+                            <mrow> (\vec{u}+\vec{v})_{\perp} &amp; =\big((u_1,u_2)+(v_1,v_2)\big)_{\perp}</mrow>
+                            <mrow> &amp; =(u_1+v_1,u_2+v_2)_{\perp}</mrow>
+                            <mrow> &amp; =\big(-(u_2+v_2),u_1+v_1\big)</mrow>
+                            <mrow> &amp; =\big((-u_2)+(-v_2),u_1+v_1\big)</mrow>
+                            <mrow> &amp; =(-u_2,u_1)+(-v_2,v_1)</mrow>
+                            <mrow> &amp; =\vec{u}_{\perp}+\vec{v}_{\perp}</mrow>
+                </md>
+                </p>
+            </solution>
+            </task>
+    </exercise>
     <exercise xml:id="exo-angledroites">
             <statement>
                 <p>L'angle entre deux droites est définies comme étant l'angle  <m>\theta\in\left[0,\frac{\pi}{2}\right]</m> obtenu en calculant l'angle entre les vecteurs directeurs des droites, ou son
