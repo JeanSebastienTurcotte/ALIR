@@ -855,7 +855,7 @@
                 De même, les deux triangles formant les bases du prisme sont parallèles et donc les vecteurs parallèles sont égaux.
                 Par exemple, <m>\vecl{AC}=\vecl{ED}</m>.</p>
                 <p>Donc, pour exprimer le déplacement correspondant à <m>\vecl{AC}+\vecl{AE}</m>, il faut considérer que <m>\vecl{AE}=\vecl{CD}</m>  et donc 
-                que <m>\vecl{AC}+\vecl{AE}=\vecl{AC}+\vecl{CD}=\vecl{AD}</m>, en utilisant la Loi de Chasles <xref provisional = "Loi de Chasles"/>. </p>
+                que <m>\vecl{AC}+\vecl{AE}=\vecl{AC}+\vecl{CD}=\vecl{AD}</m>, en utilisant la Loi de Chasles <xref ref ="li-axiomesgeo-Chasles"/>. </p>
                 <p>Finalement, remarquer qu'il y a parfois plusieurs réponses possibles.</p>
             </hint>
             <answer>
@@ -1142,9 +1142,14 @@
         <caption>La conversion d'un angle de degrés à radians</caption>
         <program language="sage">
             <input>
-                def radians(theta):
+                def radians(theta): #Pour convertir theta degrés en radians
                     theta=theta*2*pi/360
                     return theta
+                radians(45)
+                radians(90)
+                radians(340)
+                radians(-60)
+                radians(400)
             </input>
         </program>
         </listing></li>
@@ -1153,9 +1158,14 @@
         <caption>La conversion d'un angle de radians à degrés</caption>
         <program language="sage">
             <input>
-                def degres(theta):
+                def degres(theta): #Pour convertir theta radians en degrés
                     theta=theta*360/(2*pi)
                     return theta
+                degres(pi/4)
+                degres(pi/2)
+                degres(7*pi/5)
+                degres(-6*pi/7)
+                degres(13*pi/6)
             </input>
         </program>
         </listing></li>
@@ -1164,7 +1174,7 @@
         <caption>La conversion d'un angle en degrés à l'intervalle <m>[0,360[</m></caption>
         <program language="sage">
             <input>
-              def degres360(theta):
+              def degres360(theta): #Prend un angle en degrés et le ramène à son équivalent entre 0 et 360
                   if theta&gt;=0 and theta&lt; 360:
                       return theta
                   else:
@@ -1176,6 +1186,9 @@
                           while theta&lt;0:
                                   theta=theta+360
                           return theta  
+              degres360(390)
+              degres360(-60)
+              degres360(1988)
             </input>
         </program>
         </listing></li>
@@ -1184,7 +1197,7 @@
         <caption>La conversion d'un angle en radians à l'intervalle <m>[0,2\pi[</m></caption>
         <program language="sage">
             <input>
-                def radians2pi(theta):
+                def radians2pi(theta): #Prend un angle en radians et le ramène à son équivalent entre 0 et 2pi
                     if theta &gt;=0 and theta &lt;2*pi:
                         return theta
                     else:
@@ -1196,12 +1209,27 @@
                             while theta &lt;0:
                                     theta=theta+2*pi
                             return theta 
-                            
+                radians2pi(7*pi/2)
+                radians2pi(19*pi/6)
+                radians2pi(-5*pi/3)
+                radians2pi(2020*pi/4)
             </input>
         </program>
         </listing></li>
         </ol>
     </p>
+    <p>On peut ensuite convertir n'importe quel angle et le ramener sur un intervalle plius conventionel en combinant ces fonctions.</p>
+    <listing>
+    <caption>Vérifications demandées</caption>
+    <program language="sage">
+    <input>
+    show("$\\frac{-2020\pi}{3}\equiv$",degres360(degres(-2020*pi/3))) #On convertit en degres et ensuite on ramène dans l'intervalle 0-360
+    show("$\\frac{-109\pi}{5}\equiv$",degres360(degres(-109*pi/5))) #On convertit en degres et ensuite on ramène dans l'intervalle 0-360
+    show("$2020^\circ\equiv$",radians2pi(radians(2020))) #On convertit en degres et ensuite on ramène dans l'intervalle 0-360
+    show("$-1988^\circ\equiv$",radians2pi(radians(-1988))) #On convertit en degres et ensuite on ramène dans l'intervalle 0-360
+    </input>
+    </program>
+    </listing>
     </solution>
     </exercise>
     </exercisegroup>
