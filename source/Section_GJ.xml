@@ -428,13 +428,13 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      <p>Les matrices élémentaires sont toutes inversibles. De plus, si 
      <ol><li><p>
      <m>E_{L_i\leftrightarrow L_j}</m> est la matrice élémentaire qui change la ligne <m>i</m> avec 
-     la ligne <m>j</m>, alors <m>E_{i\leftrightarrow j}^{-1}=E_{i\leftrightarrow j}</m></p></li>
+     la ligne <m>j</m>, alors <m>E_{L_i\leftrightarrow L_j}^{-1}=E_{L_i\leftrightarrow L_j}</m></p></li>
      <li><p><m>E_{rL_i}</m> est la matrice qui multiplie la ligne <m>i</m> par <m>r\neq 0</m>, alors <m>E_{rL_i}^{-1}=E_{\frac{1}{r}L_i}</m>.</p></li>
-     <li><p><m>E_{L_i+rL_j}</m> est la matrice élémentaire qui ajoute à la ligne <m>i\quad r</m> fois a ligne <m>j</m>, alors <m>E_{L_i+rL_j}^{-1}=E_{L_i-rL_j}</m>. </p></li>
+     <li><p><m>E_{L_i+rL_j}</m> est la matrice élémentaire qui ajoute à la ligne <m>i</m>, <m>r</m> fois la ligne <m>j</m>, alors <m>E_{L_i+rL_j}^{-1}=E_{L_i-rL_j}</m>. </p></li>
      </ol></p>
      </statement>
      <proof>
-     <p>Voir l'exercice <xref provisional="exo-mateleminverse"/>.</p>
+     <p>Voir l'exercice <xref ref="exo-mateleminverse"/>.</p>
      </proof>
      </proposition>
      <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
@@ -463,7 +463,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      Aaug=A.augment(e) #On remarque que l'augmentation n'est qu'une colonne supplémentaire. Il faut se rappeler que la dernière colonne représente le vecteur.
      Aaugm=A.augment(e,subdivide=True) #On peut demander à Sage de distinguer la partie augmentée
      show(E1*Aaug)
-     show(E1*aaugm)
+     show(E1*Aaugm)
      </input>
      </sage>
      <p>Comme chacune des étapes suivantes est effectuée après les précédentes, il est important de bien faire les multiplications.</p>
@@ -487,7 +487,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <title>Forme échelonnée réduite d'une matrice</title>
     <statement>
     <p>Soit <m>A</m> une matrice de taille <m>m\times n</m>. Le premier élément non nul de chaque ligne est appelé le pivot de cette ligne.</p>
-    <p>On dit que <m>A</m> est échelonnée réduite si elle satisfait chacun des caractéristiques suivantes:</p>
+    <p>On dit que <m>A</m> est échelonnée réduite si elle satisfait chacune des caractéristiques suivantes:</p>
     <list xml:id="li-rref">
     <title>Condition pour être échelonnée réduite</title>
     <ol>
@@ -502,7 +502,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <definition xml:id="def-pivlib">
     <title>Pivots, variables liées et variables libres</title>
     <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> et <m>B</m> sa forme échelonnée réduite. <fn>La proposition <xref ref="prop-erlunique"/> confirmera qu'il n'y
-     a qu'une forme rref pour une matrice donnée.</fn> Si la colonne <m>j</m> de la matrice <m>B</m> contient un pivot, on dit que la colonne <m>j</m> est une colonne pivot pour la matrice <m>A</m> et que
+     a qu'une forme échelonnée réduite pour une matrice donnée.</fn> Si la colonne <m>j</m> de la matrice <m>B</m> contient un pivot, on dit que la colonne <m>j</m> est une colonne pivot pour la matrice <m>A</m> et que
      la variable <m>x_j</m> est une variable pivot, ou liée.</p>
      
      <p>Les variables qui ne sont pas des variables liées sont dites libres.</p></statement>
@@ -600,8 +600,8 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     suite de ces opérations contient un <m>1</m> en position <m>i</m>, la première entrée non nulle, et doit nécessairement avoir des <m>0</m> en-dessous. La forme rref est aussi unique dans ce cas.
     </p></li>
     <li><p>On suppose que pour une matrice de taille <m>m\times n</m>, la forme rref est unique.</p></li>
-    <li><p>Soit <m>A</m> une matrice de taille <m>m\times (n-1)</m> et soit <m>B,C</m> deux matrices échelonnée rédutuite équivalente à <m>A.</m> De plus, on pose
-    <m>A^{'}</m> la matrice que l'on obtient de  <m>A</m> en supprimant la dernière colonne. Peu importe la chaines d'opérations élémentaires menant à <m>B</m> ou <m>C</m>,
+    <li><p>Soit <m>A</m> une matrice de taille <m>m\times (n+1)</m> et soit <m>B,C</m> deux matrices échelonnée réduites équivalentes à <m>A.</m> De plus, on pose
+    <m>A^{'}</m> la matrice que l'on obtient de  <m>A</m> en supprimant la dernière colonne. Peu importe la chaine d'opérations élémentaires menant à <m>B</m> ou <m>C</m>,
     la matrice <m>A^{'}</m> est aussi transformée sous une forme échelonnée réduite lorsque ces opérations sont appliquées à <m>A</m>. </p>
     <p>
     Parce que <m>A^{'}</m> est une matrice de taille <m>m\times n</m>, l'hypothèse d'induction affirme que sa forme rref est unique. Donc si <m>B</m> et <m>C</m> sont différentes,
@@ -611,7 +611,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     pas nécessairement la seule. Dans tous les cas, la proposition <xref ref="prop-opelemsol"/> dit que <m>B\vec{x}=\vec{0}</m> et <m>C\vec{x}=\vec{0}</m>. En particulier
     <m>(B-C)\vec{x}=\vec{0}</m>. En rappelant l'équation <xref ref="eq-matvecprodgen"/> et le fait que les <m>n</m> premières colonnes des matrices <m>B</m> et <m>C</m> concordent,
     la seule équation qui reste dans le produit <m>(B-C)\vec{x}=\vec{0}</m> est <m>x_{n+1}\vecl{(b-c)}_{n+1}=\vec{0}</m>.</p>
-    <p>Si <m>\vecl{(b-c)}_{n+1}=\vec{b}_n-\vec{c}_{n+1}=\vec{0}</m>, alors les colonnes <m>n+1</m> des matrices <m>B</m> et <m>C</m> sont aussi égales, donnant <m>B=C</m> et 
+    <p>Si <m>\vecl{(b-c)}_{n+1}=\vec{b}_{n+1}-\vec{c}_{n+1}=\vec{0}</m>, alors les colonnes <m>n+1</m> des matrices <m>B</m> et <m>C</m> sont aussi égales, donnant <m>B=C</m> et 
     l'unicité de la forme échelonnée réduite. Sinon, comme les matrices <m>B</m> et <m>C</m> sont rref, elles doivent n'avoir que des <m>0</m> et un <m>1</m>.
     Ce <m>1</m> est forcément à la même position, car une des conditions d'être rref est que les lignes de <m>0</m> soit dans le bas de la matrice. Les <m>1</m> se trouvent donc sous la dernière ligne de <m>A^{'}</m> ayant un pivot.
     Dans ce cas aussi, la dernière colonne concorde et on a <m>B=C</m>.</p>
@@ -631,9 +631,10 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <ol>
     <li xml:id="li-GJpivdown"><p>Si <m>i</m> n'est pas encore défini, on pose <m>i=1</m>. Si <m>i=m</m>, on saute à l'étape <xref ref="li-GJpivup"/>. Sinon, si <m>i&lt;m</m>, on augmente <m>i</m> de <m>1</m>.</p>
     <ol>
-    <li><p>Si possible, échanger la ligne <m>i</m> avec une autre ligne de sorte à avoir un pivot non nul dans la colonne la plus à gauche possible.</p></li>
+    <li><p>Si possible, échanger la ligne <m>i</m> avec une autre ligne (<m>j>i</m>) de sorte à avoir un pivot non nul dans la colonne la plus à gauche possible.</p></li>
     <li xml:id="li-GJpiv1"><p>Si nécessaire, multiplier la nouvelle ligne <m>i</m> par la constante appropriée pour avoir son pivot égal à <m>1</m>.</p></li>
-    <li><p>Utiliser l'opération <m>rL_i+L_j\rightarrow L_j</m> pour que chaque entrée sous le pivot. (<m>j&lt;i</m>). </p></li>
+    <li><p>Utiliser l'opération <m>rL_i+L_j\rightarrow L_j</m> pour que chaque entrée sous le pivot. (<m>j&lt;i</m>).
+    </p></li>
     <li><p>Retourner à l'étape <xref ref="li-GJpivdown"/></p></li>
     </ol></li>
     <li xml:id="li-GJpivup">
@@ -695,7 +696,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
                                3&amp;10&amp;-1&amp;|&amp;1\end{pmatrix}</me>
     </p></li>  
     <li><p>On veut maintenant avoir des <m>0</m> sous le pivot de la ligne un. Ici, il n'y a qu'une opération à effectuer, car la deuxième ligne a déjà son <m>0</m>. On utilise 
-    l'opération <m>-3L_1+L3\rightarrow L_3</m>.
+    l'opération <m>-3L_1+L_3\rightarrow L_3</m>.
     <me>\begin{pmatrix}
                                1&amp;3&amp;2&amp;|&amp;3\\
                                0&amp; -7&amp;-5&amp;|&amp;2 \\
@@ -708,7 +709,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
                                </ol></li>
     <li><p>On a maintenant <m>i=2</m>.</p>
     <p><ol>
-    <li><p>Les entrées de la seconde colonnes à partir de la ligne deux ne sont pas toutes nulles, il y aura donc un pivot dans la colonne deux. Techniquement, l'algorithme
+    <li><p>Les entrées de la seconde colonne à partir de la ligne deux ne sont pas toutes nulles, il y aura donc un pivot dans la colonne deux. Techniquement, l'algorithme
     dit de passer à l'étape suivante et de multiplier par <m>-\frac{1}{7}</m>. On se sert ici de la remarque <xref ref="rem-GJeff"/> pour simplifier les calculs, en permutant les lignes deux et trois.
     <me>\begin{pmatrix}
                                1&amp;3&amp;2&amp;|&amp;3\\
@@ -784,7 +785,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </p>
     <p>Ceci complète l'algorithme de Gauss-Jordan, la matrice étant échelonnée réduite. On peut y lire la solution <m>(x,y,z)=(34,-1,1)</m>.</p>
     </solution></example>
-    <p>On poursuit avec un autre exemple relié avec l'exemple <xref ref="ex-opelem"/>. Cette fois-ci, on se contente d'échelonner la matrice en écrivant les opérations élémentaires,
+    <p>On poursuit avec un autre exemple relié à l'exemple <xref ref="ex-opelem"/>. Cette fois-ci, on se contente d'échelonner la matrice en écrivant les opérations élémentaires,
     sans préciser les étapes de l'algorithme.</p>
     <example xml:id="ex-GJchaine">
     <title>Gauss-Jordan: chaine d'équivalences</title>
@@ -865,7 +866,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <me>
     \matcold{3}{1}{-5}{2}\overset{3L_2+5L_1\rightarrow L_2}{\sim}\matcold{3}{1}{0}{11}
     </me>.
-    L'opération permet d'obtenir le <m>0</m> sous le pivot de la ligne un, sans avoir à mettre se pivot égal à <m>1</m>, ce qui aurait introduit une fraction dans la seconde colonne.
+    L'opération permet d'obtenir le <m>0</m> sous le pivot de la ligne un, sans avoir à mettre ce pivot égal à <m>1</m>, ce qui aurait introduit une fraction dans la seconde colonne.
     </p>
     <p>Bien que permises, on fait le choix d'éviter ces opérations. On voudra de toute manière déléguer beaucoup des calculs à l'ordinateur. On choisit donc de se concentrer sur les
     opérations élémentaires. Il peut toutefois être possible d'éviter les fractions avec les opérations élémentaires, comme dans l'exemple suivant.
@@ -926,7 +927,7 @@ show("Les pivots sont en position ", A.pivots())
     <li><p>La définition d'un <xref ref="def-SEL">système d'équations linéaires</xref> et la matrice associée au SEL.</p></li>
     <li><p>Les <xref ref="def-opelem">opérations</xref> et les <xref ref="def-matelem">matrices</xref> élémentaires.</p></li>
     <li><p>Le fait que les opérations élémentaires préservent les solutions d'un système.</p></li>
-    <li><p>La notion de <xref ref="def-mataug">matrices augmentée</xref>.</p></li>
+    <li><p>La notion de <xref ref="def-mataug">matrice augmentée</xref>.</p></li>
     <li><p>La notion de variable <xref ref="def-pivlib"> pivot et libre </xref> et la <xref ref="def-matrref">forme échelonnée réduite</xref> d'une matrice.</p></li>
     <li><p><xref ref="algo-GJ">L'algorithme de Gauss-Jordan</xref>, pour échelonner des matrices.</p></li>
     </ul>
