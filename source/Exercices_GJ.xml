@@ -106,7 +106,7 @@
             <p><me>E_{L_4-4L_1}=\begin{pmatrix}
             1&amp;0&amp;0&amp;0&amp;0\\
             0&amp;1&amp;0&amp;0&amp;0\\
-            0&amp;0&amp;1&amp;0&amp;1\\
+            0&amp;0&amp;1&amp;0&amp;0\\
             -4&amp;0&amp;0&amp;1&amp;0\\
             0&amp;0&amp;0&amp;0&amp;1
             \end{pmatrix}</me></p>
@@ -726,11 +726,62 @@
 1 &amp; 3 &amp; 1 &amp; 1 \\
 2 &amp; x &amp; 1 &amp; -1 \\
 0 &amp; 2 &amp; -1 &amp; 2
-\end{array}\right)</me>. Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait en sorte qu'il est nécessaire d'effectuer une opération élémentaire du
-type <m>L_i\leftrightarrow L_j</m>?</p>
+\end{array}\right)</me>. 
+Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait en sorte qu'il est nécessaire d'effectuer l'opération élémentaire <m>L_2\leftrightarrow L_3</m>?</p>
    </statement>
-   <answer><p>L</p></answer>
-   <solution><p>L</p></solution>
+   <answer><p>La solution est <me>\vecddd{x}{y}{z}=\vecddd{-\frac{19}{2}}{\frac{5}{2}}{3}</me>
+   dans le cas où <m>x=6</m>.</p></answer>
+   <solution><p>On commence l'algorithme de Gauss-Jordan et on verra à quel moment cette opération serait nécessaire et quelle valeur de <m>x</m> cela prendra.
+   <me>\left(\begin{array}{rrr|r}
+1 &amp; 3 &amp; 1 &amp; 1 \\
+2 &amp; x &amp; 1 &amp; -1 \\
+0 &amp; 2 &amp; -1 &amp; 2
+\end{array}\right)\matsimilc{1}{-2}{2}\left(\begin{array}{rrr|r}
+1 &amp; 3 &amp; 1 &amp; 1 \\
+0 &amp; x-6 &amp; -1 &amp; -3 \\
+0 &amp; 2 &amp; -1 &amp; 2
+\end{array}\right)</me>
+   On constate déjà à ce stade que la deuxième ligne pourrait être un pivot dans le cas où <m>x-6\neq 0</m>. 
+   Inversement, il sera impossible que cette ligne soit un pivot si <m>x-6=0</m> et il faudra faire l'opération élémentaire <m>L_2\leftrightarrow L_3</m>.
+   On pose donc <m>x=6</m> et on poursuit avec cette opération et le reste de l'algorithme.
+   <md>
+    <mrow>\left(\begin{array}{rrr|r}
+1 &amp; 3 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; -3 \\
+0 &amp; 2 &amp; -1 &amp; 2
+\end{array}\right)&amp;\matsimile{2}{3}\left(\begin{array}{rrr|r}
+1 &amp; 3 &amp; 1 &amp; 1 \\
+0 &amp; 2 &amp; -1 &amp; 2 \\
+0 &amp; 0 &amp; -1 &amp; -3
+\end{array}\right)</mrow>
+    <mrow>&amp;\matsimils{2}{\frac{1}{2}}\left(\begin{array}{rrr|r}
+1 &amp; 3 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; -1/2 &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; -3
+\end{array}\right)</mrow>
+    <mrow>&amp;\matsimilc{2}{-3}{1}\left(\begin{array}{rrr|r}
+1 &amp; 0 &amp; 5/2 &amp; -2 \\
+0 &amp; 1 &amp; -1/2 &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; -3
+\end{array}\right)</mrow>
+    <mrow>&amp;\matsimils{3}{-1}\left(\begin{array}{rrr|r}
+1 &amp; 0 &amp; 5/2 &amp; -2 \\
+0 &amp; 1 &amp; -1/2 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 3
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{3}{-\frac{5}{2}}{1}\left(\begin{array}{rrr|r}
+1 &amp; 0 &amp; 0 &amp; -19/2 \\
+0 &amp; 1 &amp; -1/2 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 3
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{3}{\frac{1}{2}}{2}\left(\begin{array}{rrr|r}
+1 &amp; 0 &amp; 0 &amp; -19/2 \\
+0 &amp; 1 &amp; 0 &amp; 5/2 \\
+0 &amp; 0 &amp; 1 &amp; 3
+\end{array}\right)</mrow>
+    </md>
+    La solution est donc <m>\vecddd{x}{y}{z}=\vecddd{-\frac{19}{2}}{\frac{5}{2}}{3}</m>.
+   </p></solution>
    </exercise>
     <exercise>
     <introduction>
@@ -747,29 +798,29 @@ type <m>L_i\leftrightarrow L_j</m>?</p>
     Si <m>a\neq 0</m>, on peut donc se servir de l'algorithme de Gauss-Jordan pour échelonner en gardant le <m>a</m> comme premier pivot. 
     On n'aura pas à permuter les lignes entre elles.
     <md>
-    <mrow>\begin{matrix}
+    <mrow>\begin{pmatrix}
     a &amp; c\\
     b &amp; d
-    \end{matrix}&amp;\matsimils{1}{\frac{1}{a}}\begin{matrix}
+    \end{pmatrix}&amp;\matsimils{1}{\frac{1}{a}}\begin{pmatrix}
     1 &amp; \frac{c}{a}\\
     b &amp; d
-    \end{matrix}</mrow>
-    <mrow>&amp;\matsimilc{1}{-b}{2}\begin{matrix}
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{1}{-b}{2}\begin{pmatrix}
     1 &amp; \frac{c}{a}\\
     0 &amp; \frac{ad-bc}{a}
-    \end{matrix}</mrow>
-    <mrow>&amp;\matsimils{1}{\frac{a}{ad-bc}\begin{matrix}
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{1}{\frac{a}{ad-bc}}\begin{pmatrix}
     1 &amp; \frac{c}{ad-bc}\\
     0 &amp; 1
-    \end{matrix}</mrow>
-    <mrow>&amp;\matsimilc{2}{-\frac{c}{ad-bc}}{1}\begin{matrix}
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-\frac{c}{ad-bc}}{1}\begin{pmatrix}
     1 &amp; 0\\
     0 &amp; 1
-    \end{matrix}</mrow>
+    \end{pmatrix}</mrow>
     </md>
     La seule hypothèse additionnelle est que <m>ad-bc\neq 0</m> puisqu'on retrouve cette expression au dénominateur.
     On a vu à la section <xref ref="sec-matinverse"/> que les matrices <m>2 \times 2</m> étaient inversibles à condition que cette quantité soit non-nulle.
-    Nous verrons au chapitre <xref provisionnal="chap-determinants"/> qu'il s'agit du déterminant d'une matrice <m>2 \times 2</m>. 
+    Nous verrons au chapitre <xref provisional="chap-determinants"/> qu'il s'agit du déterminant d'une matrice <m>2 \times 2</m>. 
     </p></solution>
     </task>
     <task>
@@ -780,25 +831,25 @@ type <m>L_i\leftrightarrow L_j</m>?</p>
     <solution><p>
     Si <m>a=0</m>, on peut donc se servir de l'algorithme de Gauss-Jordan pour échelonner en commençant par permuter les deux lignes.
     <md>
-    <mrow>\begin{matrix}
+    <mrow>\begin{pmatrix}
     0 &amp; c\\
     b &amp; d
-    \end{matrix}&amp;\matsimile{1}{2}\begin{matrix}
+    \end{pmatrix}&amp;\matsimile{1}{2}\begin{pmatrix}
     b &amp; d\\
     0 &amp; c
-    \end{matrix}</mrow>
-    <mrow>&amp;\matsimils{1}{\frac{1}{b}}\begin{matrix}
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{1}{\frac{1}{b}}\begin{pmatrix}
     1 &amp; \frac{d}{b}\\
     0 &amp; c
-    \end{matrix}</mrow>
-    <mrow>&amp;\matsimils{2}{\frac{1}{c}}\begin{matrix}
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{2}{\frac{1}{c}}\begin{pmatrix}
     1 &amp; \frac{d}{b}\\
     0 &amp; 1
-    \end{matrix}</mrow>
-    <mrow>&amp;\matsimilc{2}{-\frac{d}{b}}{1}\begin{matrix}
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-\frac{d}{b}}{1}\begin{pmatrix}
     1 &amp; 0\\
     0 &amp; 1
-    \end{matrix}</mrow>
+    \end{pmatrix}</mrow>
     </md>
     Les deux hypothèses additionnelles sont que <m>b\neq 0</m> et <m>c\neq 0</m> puisqu'on retrouve ces expressions au dénominateur.</p></solution>
     </task>
@@ -817,10 +868,59 @@ type <m>L_i\leftrightarrow L_j</m>?</p>
     <hint>
     <p>Il suffit d'appliquer chaque opération élémentaire à la matrice <m>A</m> et vérifier la condition.</p>
     </hint>
+    <solution><p>
+    On procède comme suggéré dans l'indication. 
+    On vérifie donc pour chacune des trois opérations élémentaires que l'on obtient encore la condition.
+    <me>\begin{pmatrix}
+    a &amp; c\\
+    b &amp; d
+    \end{pmatrix}\matsimile{1}{2}\begin{pmatrix}
+    b &amp; d\\
+    a &amp; c
+    \end{pmatrix}</me>
+    La condition est:<m>bc-ad\neq 0</m> qui est entièrement équivalente à <m>ad-bc\neq 0</m> en réorganisant les termes.</p>
+    <p>La seconde opération de multiplication par un scalaire doit être vérifiée pour chaque ligne.
+    <me>\begin{pmatrix}
+    a &amp; c\\
+    b &amp; d
+    \end{pmatrix}\matsimils{1}{k}\begin{pmatrix}
+    ka &amp; kc\\
+    b &amp; d
+    \end{pmatrix}</me>
+    et
+    <me>\begin{pmatrix}
+    a &amp; c\\
+    b &amp; d
+    \end{pmatrix}\matsimils{2}{k}\begin{pmatrix}
+    a &amp; c\\
+    kb &amp; kd
+    \end{pmatrix}</me>
+    La condition est donc: <me>ka*d-b*kc=kad-kbc=k(ad-bc)\neq 0</me> ou bien <me>a*kd-kb*c=kad-kbc=k(ad-bc)\neq 0</me> 
+    qui sont toutes les deux équivalentes à <m>ad-bc\neq 0</m>, pourvu que <m>k \neq 0</m>, ce qui est le cas par la définition <xref ref="def-opelem"/>.</p>
+    <p>Finalement, la dernière opération élémentaire doit également être vérifiée pour chaque ligne.
+    <me>\begin{pmatrix}
+    a &amp; c\\
+    b &amp; d
+    \end{pmatrix}\matsimilc{1}{k}{2}\begin{pmatrix}
+    a &amp; c\\
+    b+ka &amp; d+kc
+    \end{pmatrix}</me>
+    et
+    <me>\begin{pmatrix}
+    a &amp; c\\
+    b &amp; d
+    \end{pmatrix}\matsimils{2}{k}{1}\begin{pmatrix}
+    a+kb &amp; c+kd\\
+    b &amp; d
+    \end{pmatrix}</me>
+    La condition est donc: <me>a*(d+kc)-(b+ka)*c=(ad-bc)+kac-kac=ad-bc\neq 0</me> ou bien <me>(a+kb)*d-b*(c+kd)=(ad-bc)+kbd-kbd=(ad-bc)\neq 0</me> 
+    qui sont toutes les deux exactements pareilles <m>ad-bc\neq 0</m>.
+    </p>
+    </solution>
     </exercise>
     <exercise xml:id="exo-sel3x3geo">
     <introduction>
-    <p>Dans le début de la sous-section <xref ref="sssec-SELdef"/>, on a établit qu'un système à deux équations et deux inconnues devait avoit aucune, une seule ou une infinité
+    <p>Dans le début de la sous-section <xref ref="sssec-SELdef"/>, on a établit qu'un système à deux équations et deux inconnues devait avoir aucune, une seule ou une infinité
     de solutions, en faisant le parallèle avec la géométrie des droites. Dans cet exercice, on essaie de faire la même chose avec des plans. </p>
     </introduction>
     <task>
@@ -831,16 +931,63 @@ type <m>L_i\leftrightarrow L_j</m>?</p>
     <statement>
     <p>Quelle peut être la position relative de deux plans dans l'espace? Illustrer tous les cas possibles.</p>
     </statement>
+    <solution><p>On peut avoir deux plans parallèles distincts, parallèles confondus ou sécants. 
+    Les illustrations sont à venir.</p></solution>
     </task>
     <task>
     <statement><p>Combien de solutions peut-il y avoir à l'équation <m>A\vec{x}=\vec{b}</m> si <m>A</m> est une matrice <m>2\times 3</m></p>? Donner un exemple pour chaque cas possible.</statement>
+    <solution><p>Il peut y avoir soit une infinité de solutions ou aucune solution. Il n'y aura jamais de solution unique.
+    Géométriquement, il y a deux façons d'avoir une infinité de solutions: deux plans sécants 
+    (les solutions seront sur la droite formée par l'intersection des deux plans) ou deux plans parallèles confondus (les solutions seront l'ensemble des plans confondus).
+    L'équation n'aura pas de solution si elle représente deux plans parallèles distincts.
+    On donne un exemple pour chaque cas possible:</p>
+    <p>Le système
+     <me>\begin{pmatrix}1&amp;1&amp;1\\1&amp;0&amp;0\end{pmatrix}\vecddd{x}{y}{z}=\vecd{3}{0}</me>
+    représente deux plans sécants ayant une infinité de solutions.</p>
+    <p>Le système
+    <me>\begin{pmatrix}1&amp;1&amp;1\\2&amp;2&amp;2\end{pmatrix}\vecddd{x}{y}{z}=\vecd{3}{6}</me>
+    représente deux plans parallèles confondus ayant une infinité de solutions.</p>
+    <p>Le système
+    <me>\begin{pmatrix}1&amp;1&amp;1\\2&amp;2&amp;2\end{pmatrix}\vecddd{x}{y}{z}=\vecd{3}{0}</me>
+    représente deux plans parallèles distincts n'ayant aucune solution.
+    </p></solution>
     </task>
     </task>
     <task><introduction><p>On considère maintenant trois plans dans l'espace.</p></introduction>
-    <task><statement><p>Quelle peut être la position relative de trois plans dans l'espaces?</p></statement></task>
-    <task><statement><p>Déduire géométriquement que le système <m>A\vec{x}=\vec{b}</m> possède aucune, une seule ou une infinité de solutions.</p></statement></task>
-    <task xml:id="exo-solimpinf"><statement><p>Expliquer algébriquement pourquoi si <m>\vec{u}\neq \vec{v}</m> sont des solutions au système <m>A\vec{x}=\vec{b}</m> (peu importe la taille de la
-    matrice <m>A</m>!), alors il existe une infinité de solutions.</p></statement></task>
+    <task><statement><p>Quelle peut être la position relative de trois plans <em>distincts</em> dans l'espace?</p></statement>
+    <solution><p>Trois plans dans l'espace peuvent être :
+    <ol>
+    <li><p>tous parallèles distincts</p></li>
+    <li><p>deux parallèles distincts et le troisième sécant aux deux</p></li>
+    <li><p>aucunement parallèles, mais sécants deux à deux</p></li>
+    <li><p>sécants tous les trois sur une droite</p></li>
+    <li><p>sécants tous les trois sur un point.</p></li>
+    </ol></p></solution></task>
+    <task><statement><p>Déduire géométriquement que le système <m>A\vec{x}=\vec{b}</m> possède aucune, une seule ou une infinité de solutions.</p></statement>
+    <solution><p>On reprend les différentes situations décrites et attribue le nombre de solutions :
+    <ol>
+    <li><p>Tous parallèles distincts: aucune solution.</p></li>
+    <li><p>Deux parallèles distincts et le troisième sécant aux deux: aucune solution.</p></li>
+    <li><p>Aucunement parallèles, mais sécants deux à deux: aucune solution.</p></li>
+    <li><p>Sécants tous les trois sur une droite: infinité de solutions.</p></li>
+    <li><p>Sécants tous les trois sur un point: une seule solution.</p></li>
+    </ol></p></solution></task>
+    <task xml:id="exo-solimpinf"><statement><p>Expliquer algébriquement pourquoi si <m>\vec{u}\neq \vec{v}</m> sont des solutions au système <m>A\vec{x}=\vec{b}</m> 
+    (peu importe la taille de la matrice <m>A</m>!), alors il existe une infinité de solutions.</p></statement>
+    <solution><p>Si <m>\vec{u}\neq \vec{v}</m> sont des solutions au système <m>A\vec{x}=\vec{b}</m>, alors on peut écrire <m>A\vec{u}=\vec{b}</m> et <m>A\vec{v}=\vec{b}</m>.
+    Ainsi, on peut créer une infinité de solutions <m>\vec{x}</m> :
+    <me>\vec{x}=k_1\vec{u}+k_2\vec{v}\text{.}</me>
+    où <m>k_2=1-k_1</m>
+    <md>
+    <mrow>A\vec{x}&amp;=A(k_1\vec{u}+k_2\vec{v})</mrow>
+    <mrow>&amp;=k_1A\vec{u}+k_2A\vec{v}</mrow>
+    <mrow>&amp;=k_1\vec{b}+k_2\vec{b}</mrow>
+    <mrow>&amp;=k_1\vec{b}+(1-k_1)\vec{b}</mrow>
+    <mrow>&amp;=k_1\vec{b}+\vec{b}-k_1\vec{b}</mrow>
+    <mrow>&amp;=\vec{b}</mrow>
+    </md>
+    On a donc la possibilité de créer une infinité de différentes solutions en posant différentes valeurs de <m>k_1\in\R</m> et <m>k_2=1-k_1</m>.
+    </p></solution></task>
     </task>
     </exercise>
     <exercise>
@@ -851,26 +998,222 @@ type <m>L_i\leftrightarrow L_j</m>?</p>
     <statement>
     <p><m>\matcold{1}{1}{3}{2}</m></p>
     </statement>
+    <answer><p><me>\matcold{1}{1}{3}{2}^{-1}=\begin{pmatrix}
+    -2&amp; 3\\
+    1&amp; -1
+    \end{pmatrix}</me></p></answer>
+    <solution><p><md>
+    <mrow>\begin{pmatrix}
+    1&amp; 3&amp;|&amp; 1&amp; 0\\
+    1&amp; 2&amp;|&amp; 0&amp; 1
+    \end{pmatrix}&amp;\matsimilc{1}{-}{2}\begin{pmatrix}
+    1&amp; 3&amp;|&amp; 1&amp; 0\\
+    0&amp; -1&amp;|&amp; -1&amp; 1
+    \end{pmatrix}
+    </mrow> 
+   <mrow>&amp;\matsimils{2}{-1}\begin{pmatrix}
+    1&amp; 3&amp;|&amp; 1&amp; 0\\
+    0&amp; 1&amp;|&amp; 1&amp; -1
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-3}{1}\begin{pmatrix}
+    1&amp; 0&amp;|&amp; -2&amp; 3\\
+    0&amp; 1&amp;|&amp; 1&amp; -1
+    \end{pmatrix}</mrow>
+    </md>
+    L'inverse de cette matrice est donc:
+    <me>\matcold{1}{1}{3}{2}^{-1}=\begin{pmatrix}
+    -2&amp; 3\\
+    1&amp; -1
+    \end{pmatrix}</me></p></solution>
     </task>
         <task>
     <statement>
     <p><m>\matcold{1}{2}{-3}{0}</m></p>
     </statement>
+    <answer><p><me>\matcold{1}{2}{-3}{0}^{-1}=\begin{pmatrix}
+    0&amp; \frac{1}{2}\\
+    -\frac{1}{3}&amp; \frac{1}{6}
+    \end{pmatrix}</me></p></answer>
+    <solution><p><md>
+    <mrow>\begin{pmatrix}
+    1&amp; -3&amp;|&amp; 1&amp; 0\\
+    2&amp; 0&amp;|&amp; 0&amp; 1
+    \end{pmatrix}&amp;\matsimilc{1}{-2}{2}\begin{pmatrix}
+    1&amp; -3&amp;|&amp; 1&amp; 0\\
+    0&amp; 6&amp;|&amp; -2&amp; 1
+    \end{pmatrix}
+    </mrow> 
+   <mrow>&amp;\matsimils{2}{\frac{1}{6}}\begin{pmatrix}
+    1&amp; -3&amp;|&amp; 1&amp; 0\\
+    0&amp; 1&amp;|&amp; -\frac{1}{3}&amp; \frac{1}{6}
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{3}{1}\begin{pmatrix}
+    1&amp; -3&amp;|&amp; 0&amp; \frac{1}{2}\\
+    0&amp; 1&amp;|&amp; -\frac{1}{3}&amp; \frac{1}{6}
+    \end{pmatrix}</mrow>
+    </md>
+    L'inverse de cette matrice est donc:
+    <me>\matcold{1}{2}{-3}{0}^{-1}=\begin{pmatrix}
+    0&amp; \frac{1}{2}\\
+    -\frac{1}{3}&amp; \frac{1}{6}
+    \end{pmatrix}</me></p></solution>
     </task>
         <task>
     <statement>
     <p><m>\matcold{0}{4}{-1}{5}</m></p>
     </statement>
+    <answer><p><me>\matcold{0}{4}{-1}{5}^{-1}=\begin{pmatrix}    
+    \frac{5}{4}&amp; \frac{1}{4}\\
+    -1&amp; 0
+    \end{pmatrix}</me></p></answer>
+    <solution><p><md>
+    <mrow>\begin{pmatrix}
+    0&amp; -1&amp;|&amp; 1&amp; 0\\
+    4&amp; 5&amp;|&amp; 0&amp; 1
+    \end{pmatrix}&amp;\matsimile{1}{2}\begin{pmatrix}    
+    4&amp; 5&amp;|&amp; 0&amp; 1\\
+    0&amp; -1&amp;|&amp; 1&amp; 0
+    \end{pmatrix}
+    </mrow> 
+    <mrow>&amp;\matsimils{1}{\frac{1}{4}}\begin{pmatrix}    
+    1&amp; \frac{5}{4}&amp;|&amp; 0&amp; \frac{1}{4}\\
+    0&amp; -1&amp;|&amp; 1&amp; 0
+    \end{pmatrix}</mrow>
+   <mrow>&amp;\matsimils{2}{-}\begin{pmatrix}    
+    1&amp; \frac{5}{4}&amp;|&amp; 0&amp; \frac{1}{4}\\
+    0&amp; 1&amp;|&amp; -1&amp; 0
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-\frac{5}{4}}{1}\begin{pmatrix}    
+    1&amp; 0&amp;|&amp; \frac{5}{4}&amp; \frac{1}{4}\\
+    0&amp; 1&amp;|&amp; -1&amp; 0
+    \end{pmatrix}</mrow>
+    </md>
+    L'inverse de cette matrice est donc:
+    <me>\matcold{0}{4}{-1}{5}^{-1}=\begin{pmatrix}    
+    \frac{5}{4}&amp; \frac{1}{4}\\
+    -1&amp; 0
+    \end{pmatrix}</me></p></solution>
     </task>
         <task>
     <statement>
     <p><m>\matcolt{-1}{2}{3}{-2}{1}{-1}{0}{3}{4}</m></p>
-    </statement>
+    </statement>    
+    <answer><p><me>\matcolt{-1}{2}{3}{-2}{1}{-1}{0}{3}{4}^{-1}=\begin{pmatrix} 
+    -\frac{7}{9}&amp; -\frac{8}{9}&amp; \frac{2}{3}\\
+    -\frac{1}{9}&amp; \frac{4}{9}&amp; -\frac{1}{3}\\
+    \frac{5}{9}&amp; \frac{7}{9}&amp; -\frac{1}{3}
+    \end{pmatrix}</me></p></answer>
+    <solution><p><md>
+    <mrow>\begin{pmatrix} 
+    -1&amp; -2&amp; 0&amp;|&amp; 1&amp; 0&amp; 0\\
+    2&amp; 1&amp; 3&amp;|&amp; 0&amp; 1&amp; 0\\
+    3&amp; -1&amp; 4&amp;|&amp; 0&amp; 0&amp; 1
+    \end{pmatrix}&amp;\matsimils{1}{-}\begin{pmatrix} 
+    1&amp; 2&amp; 0&amp;|&amp; -1&amp; 0&amp; 0\\
+    2&amp; 1&amp; 3&amp;|&amp; 0&amp; 1&amp; 0\\
+    3&amp; -1&amp; 4&amp;|&amp; 0&amp; 0&amp; 1
+    \end{pmatrix}
+    </mrow> 
+    <mrow>&amp;\matsimilc{1}{-2}{2}\begin{pmatrix} 
+    1&amp; 2&amp; 0&amp;|&amp; -1&amp; 0&amp; 0\\
+    0&amp; -3&amp; 3&amp;|&amp; 2&amp; 1&amp; 0\\
+    3&amp; -1&amp; 4&amp;|&amp; 0&amp; 0&amp; 1
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{1}{-3}{3}\begin{pmatrix} 
+    1&amp; 2&amp; 0&amp;|&amp; -1&amp; 0&amp; 0\\
+    0&amp; -3&amp; 3&amp;|&amp; 2&amp; 1&amp; 0\\
+    0&amp; -7&amp; 4&amp;|&amp; 3&amp; 0&amp; 1
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{2}{-\frac{1}{3}}\begin{pmatrix} 
+    1&amp; 2&amp; 0&amp;|&amp; -1&amp; 0&amp; 0\\
+    0&amp; 1&amp; -1&amp;|&amp; -\frac{2}{3}&amp; -\frac{1}{3}&amp; 0\\
+    0&amp; -7&amp; 4&amp;|&amp; 3&amp; 0&amp; 1
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-2}{1}\begin{pmatrix} 
+    1&amp; 0&amp; 2&amp;|&amp; \frac{1}{3}&amp; \frac{2}{3}&amp; 0\\
+    0&amp; 1&amp; -1&amp;|&amp; -\frac{2}{3}&amp; -\frac{1}{3}&amp; 0\\
+    0&amp; -7&amp; 4&amp;|&amp; 3&amp; 0&amp; 1
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{7}{3}\begin{pmatrix} 
+    1&amp; 0&amp; 2&amp;|&amp; \frac{1}{3}&amp; \frac{2}{3}&amp; 0\\
+    0&amp; 1&amp; -1&amp;|&amp; -\frac{2}{3}&amp; -\frac{1}{3}&amp; 0\\
+    0&amp; 0&amp; -3&amp;|&amp; -\frac{5}{3}&amp; -\frac{7}{3}&amp; 1
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{3}{-\frac{1}{3}}\begin{pmatrix} 
+    1&amp; 0&amp; 2&amp;|&amp; \frac{1}{3}&amp; \frac{2}{3}&amp; 0\\
+    0&amp; 1&amp; -1&amp;|&amp; -\frac{2}{3}&amp; -\frac{1}{3}&amp; 0\\
+    0&amp; 0&amp; 1&amp;|&amp; \frac{5}{9}&amp; \frac{7}{9}&amp; -\frac{1}{3}
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{3}{-2}{1}\begin{pmatrix} 
+    1&amp; 0&amp; 0&amp;|&amp; -\frac{7}{9}&amp; -\frac{8}{9}&amp; \frac{2}{3}\\
+    0&amp; 1&amp; -1&amp;|&amp; -\frac{2}{3}&amp; -\frac{1}{3}&amp; 0\\
+    0&amp; 0&amp; 1&amp;|&amp; \frac{5}{9}&amp; \frac{7}{9}&amp; -\frac{1}{3}
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{3}{}{2}\begin{pmatrix} 
+    1&amp; 0&amp; 0&amp;|&amp; -\frac{7}{9}&amp; -\frac{8}{9}&amp; \frac{2}{3}\\
+    0&amp; 1&amp; 0&amp;|&amp; -\frac{1}{9}&amp; \frac{4}{9}&amp; -\frac{1}{3}\\
+    0&amp; 0&amp; 1&amp;|&amp; \frac{5}{9}&amp; \frac{7}{9}&amp; -\frac{1}{3}
+    \end{pmatrix}</mrow>
+    </md>
+    L'inverse de cette matrice est donc:
+    <me>\matcolt{-1}{2}{3}{-2}{1}{-1}{0}{3}{4}^{-1}=\begin{pmatrix} 
+    -\frac{7}{9}&amp; -\frac{8}{9}&amp; \frac{2}{3}\\
+    -\frac{1}{9}&amp; \frac{4}{9}&amp; -\frac{1}{3}\\
+    \frac{5}{9}&amp; \frac{7}{9}&amp; -\frac{1}{3}
+    \end{pmatrix}</me></p></solution>
     </task>
      <task>
     <statement>
     <p><m>\matcolt{0}{0}{-1}{2}{0}{0}{1}{-1}{0}</m></p>
     </statement>
+    <answer><p><me>\matcolt{0}{0}{-1}{2}{0}{0}{1}{-1}{0}^{-1}=\begin{pmatrix} 
+    0&amp; 0&amp; -1\\
+    \frac{1}{2}&amp; \frac{1}{2}&amp; 0\\
+    0&amp; -1&amp; 0
+    \end{pmatrix}</me></p></answer>
+    <solution><p><md>
+    <mrow>\begin{pmatrix} 
+    0&amp; 2&amp; 1&amp;|&amp; 1&amp; 0&amp; 0\\
+    0&amp; 0&amp; -1&amp;|&amp; 0&amp; 1&amp; 0\\
+    -1&amp; 0&amp; 0&amp;|&amp; 0&amp; 0&amp; 1
+    \end{pmatrix}&amp;\matsimile{1}{3}\begin{pmatrix} 
+    -1&amp; 0&amp; 0&amp;|&amp; 0&amp; 0&amp; 1\\
+    0&amp; 0&amp; -1&amp;|&amp; 0&amp; 1&amp; 0\\
+    0&amp; 2&amp; 1&amp;|&amp; 1&amp; 0&amp; 0
+    \end{pmatrix}
+    </mrow> 
+    <mrow>&amp;\matsimils{1}{-}\begin{pmatrix} 
+    1&amp; 0&amp; 0&amp;|&amp; 0&amp; 0&amp; -1\\
+    0&amp; 0&amp; -1&amp;|&amp; 0&amp; 1&amp; 0\\
+    0&amp; 2&amp; 1&amp;|&amp; 1&amp; 0&amp; 0
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimile{2}{3}\begin{pmatrix} 
+    1&amp; 0&amp; 0&amp;|&amp; 0&amp; 0&amp; -1\\
+    0&amp; 2&amp; 1&amp;|&amp; 1&amp; 0&amp; 0\\
+    0&amp; 0&amp; -1&amp;|&amp; 0&amp; 1&amp; 0
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{2}{\frac{1}{2}}\begin{pmatrix} 
+    1&amp; 0&amp; 0&amp;|&amp; 0&amp; 0&amp; -1\\
+    0&amp; 1&amp; \frac{1}{2}&amp;|&amp; \frac{1}{2}&amp; 0&amp; 0\\
+    0&amp; 0&amp; -1&amp;|&amp; 0&amp; 1&amp; 0
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{3}{-}\begin{pmatrix} 
+    1&amp; 0&amp; 0&amp;|&amp; 0&amp; 0&amp; -1\\
+    0&amp; 1&amp; \frac{1}{2}&amp;|&amp; \frac{1}{2}&amp; 0&amp; 0\\
+    0&amp; 0&amp; 1&amp;|&amp; 0&amp; -1&amp; 0
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{3}{-\frac{1}{2}}{2}\begin{pmatrix} 
+    1&amp; 0&amp; 0&amp;|&amp; 0&amp; 0&amp; -1\\
+    0&amp; 1&amp; 0&amp;|&amp; \frac{1}{2}&amp; \frac{1}{2}&amp; 0\\
+    0&amp; 0&amp; 1&amp;|&amp; 0&amp; -1&amp; 0
+    \end{pmatrix}</mrow>
+    </md>
+    L'inverse de cette matrice est donc:
+    <me>\matcolt{0}{0}{-1}{2}{0}{0}{1}{-1}{0}^{-1}=\begin{pmatrix} 
+    0&amp; 0&amp; -1\\
+    \frac{1}{2}&amp; \frac{1}{2}&amp; 0\\
+    0&amp; -1&amp; 0
+    \end{pmatrix}</me></p></solution>
     </task>
     </exercise>
     <exercise>
@@ -890,14 +1233,14 @@ type <m>L_i\leftrightarrow L_j</m>?</p>
     <p>Pour trouver la matrice <m>A</m>, on peut utiliser une démarche similaire à l'exemple <xref ref="ex-GJchaine"/> pour échelonner la matrice augmentée <m>(A^{-1}|I)\sim \cdots \sim (I| A)</m>.
     On a 
     <md>
-    <mrow>\begin{array}{rrr|rrr}1&amp;0&amp;0 &amp;1 &amp; 0&amp; 0\\
+    <mrow>\left(\begin{array}{rrr|rrr}1&amp;0&amp;0 &amp;1 &amp; 0&amp; 0\\
                                 1&amp;1&amp;0&amp;0&amp;1&amp;0\\
-                                1&amp;1&amp;1&amp;0&amp;0&amp;1\end{array}&amp;\substack{-L_1+L_2\rightarrow L_2 \\ -L_1+L_3\rightarrow L_3 \\ \sim}\begin{array}{rrr|rrr}1&amp;0&amp;0 &amp;1 &amp; 0&amp; 0\\
+                                1&amp;1&amp;1&amp;0&amp;0&amp;1\end{array}\right)&amp;\substack{-L_1+L_2\rightarrow L_2 \\ -L_1+L_3\rightarrow L_3 \\ \sim}\left(\begin{array}{rrr|rrr}1&amp;0&amp;0 &amp;1 &amp; 0&amp; 0\\
                                 0&amp;1&amp;0&amp;-1&amp;1&amp;0\\
-                                0&amp;1&amp;1&amp;-1&amp;0&amp;1\end{array}</mrow>
-                <mrow>&amp;\matsimile{2}{-}{3}\begin{array}{rrr|rrr}1&amp;0&amp;0 &amp;1 &amp; 0&amp; 0\\
+                                0&amp;1&amp;1&amp;-1&amp;0&amp;1\end{array}\right)</mrow>
+                <mrow>&amp;\matsimilc{2}{-}{3}\left(\begin{array}{rrr|rrr}1&amp;0&amp;0 &amp;1 &amp; 0&amp; 0\\
                                 0&amp;1&amp;0&amp;-1&amp;1&amp;0\\
-                                0&amp;0&amp;1&amp;0&amp;-1&amp;1\end{array}</mrow>
+                                0&amp;0&amp;1&amp;0&amp;-1&amp;1\end{array}\right)</mrow>
     </md>.
     </p>
     </solution>
@@ -906,6 +1249,25 @@ type <m>L_i\leftrightarrow L_j</m>?</p>
     <statement>
     <p>On considère la matrice <m>\matcold{x}{1}{x}{x}</m>. Pour quelle(s) valeurs de <m>x</m> est-ce que la matrice possède un seul pivot?</p>
     </statement>
+    <answer><p><m>x=0</m> et <m>x=1</m></p></answer>
+    <solution><p>Afin de répondre à cette question, on va échelonner la matrice et voir sous quelles conditions elle ne possèdera qu'un seul pivot.
+    <md>
+    <mrow>\begin{pmatrix}
+    x&amp; x\\
+    1&amp; x
+    \end{pmatrix}&amp;\matsimile{1}{2}\begin{pmatrix}
+    1&amp; x\\
+    x&amp; x
+    \end{pmatrix}
+    </mrow> 
+    <mrow>&amp;\matsimilc{1}{-x}{2}\begin{pmatrix}
+    1&amp; x\\
+    0&amp; x-x^2
+    \end{pmatrix}</mrow>
+    </md>
+    Pour n'avoir qu'un seul pivot, il faut que <m>x-x^2=x(1-x)=0</m>. 
+    Cela arrivera pour deux valeurs de <m>x</m>, soient <m>x=0</m> et <m>x=1</m>.
+    </p></solution>
     </exercise>
     <exercisegroup>
     <title>Exercices Sage</title>
@@ -960,10 +1322,10 @@ show(elementary_matrix(5,row1=3,row2=0,scale=-4))
     <input>
 A=matrix([[3,2,-5,4],[0,8,2,0],[1,-7,5,0],[2,3,1,-1]])# La matrice
 b=vector([-1,3,-2,5]) #Le vecteur
-sol=(A.augment(b).rref()) La matrice augmentée échelonnée réduite
+sol=(A.augment(b).rref()) #La matrice augmentée échelonnée réduite
 show(sol)
 vecsol=sol.column(-1) #-1 permet d'avoir la dernière colonne
-pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty devant le print fait en sorte que les fractions soit debouts    
+pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty devant le print fait en sorte que les fractions soient debout
     </input>
     </program>
     </listing></solution>
@@ -972,12 +1334,12 @@ pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty dev
         <statement>
     <p>Les systèmes <m>A\vec{x}=\vec{b_i}</m> où <m>A=\begin{pmatrix} 0&amp;1&amp;4&amp;-1&amp;2&amp;7\\-1&amp;3&amp;3&amp;1&amp;12&amp;3\\11&amp;0&amp;2&amp;5&amp;0&amp;-4\\9&amp;5&amp;-1&amp;11&amp;-7&amp;4\\1&amp;2&amp;3&amp;-4&amp;5&amp;7\\-3&amp;2&amp;5&amp;7&amp;8&amp;-13\end{pmatrix}</m>
     et
-    <md>
-    <mrow>\vec{b}_1&amp;=\begin{pmatrix} 1\\2\\3\\4\\5\\6  \end{pmatrix}</mrow>
-    <mrow>\vec{b}_2&amp;=\begin{pmatrix} 6\\5\\4\\3\\2\\1  \end{pmatrix}</mrow>
-    <mrow>\vec{b}_3&amp;=\begin{pmatrix} 1\\-2\\3\\-4\\5\\-6 \end{pmatrix}</mrow>
-    <mrow>\vec{b}_4&amp;=\begin{pmatrix} -6\\5\\-4\\3\\-2\\1 \end{pmatrix}</mrow>
-    </md></p>
+    <me>
+    \vec{b}_1=\begin{pmatrix} 1\\2\\3\\4\\5\\6  \end{pmatrix}\text{, }
+    \vec{b}_2=\begin{pmatrix} 6\\5\\4\\3\\2\\1  \end{pmatrix}\text{, }
+    \vec{b}_3=\begin{pmatrix} 1\\-2\\3\\-4\\5\\-6 \end{pmatrix}\text{ et }
+    \vec{b}_4=\begin{pmatrix} -6\\5\\-4\\3\\-2\\1 \end{pmatrix}
+    </me></p>
         <sage>
     <input>
     </input>
@@ -1025,25 +1387,36 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
     <task>
         <statement>
     <p>Le système
-    <md>
+    <md alignment="alignat">
     <mrow>x_1&amp;{}+{}&amp;x_2&amp;{}+{}&amp;x_3&amp;{}+{}&amp;x_4&amp;{}={}&amp;1</mrow>
     <mrow>x_1&amp;{}+{}&amp;2x_2&amp;{}+{}&amp;3x_3&amp;{}+{}&amp;4x_4&amp;{}={}&amp;2</mrow>
     <mrow>x_1&amp;{}+{}&amp;4x_2&amp;{}+{}&amp;9x_3&amp;{}+{}&amp;16x_4&amp;{}={}&amp;3</mrow>
     <mrow>x_1&amp;{}+{}&amp;8x_2&amp;{}+{}&amp;27x_3&amp;{}+{}&amp;64x_4&amp;{}={}&amp;4</mrow>
-    </md>.
-    </p>
+    </md>.</p>
             <sage>
     <input>
     </input>
     </sage>
     </statement>
-    <answer><p>À venir</p></answer>
-    <solution><p>À venir</p></solution>
-    </task>
+    <answer><p><m>(x_1,x_2,x_3,x_4)=\left(-\frac{5}{6}, 3, -\frac{3}{2}, \frac{1}{3}\right)</m></p></answer>
+    <solution><listing>
+    <caption>Le code solution</caption>
+    <program language="sage">
+    <input>
+A=matrix([[1,1,1,1],[1,2,3,4],[1,4,9,16],[1,8,27,64]])# La matrice
+b=vector([1,2,3,4]) #Le vecteur
+show(A.augment(b)) #Optionnel: pour vérifier qu'on a bien écrit le système dans Sage
+sol=(A.augment(b).rref()) #La matrice augmentée échelonnée réduite
+show(sol)
+vecsol=sol.column(-1) #-1 permet d'avoir la dernière colonne
+pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty devant le print fait en sorte que les fractions soient debout    
+    </input>
+    </program>
+    </listing></solution></task>
     <task>
         <statement>
     <p>Le système
-    <md>
+    <md alignment="alignat">
     <mrow>x_1&amp;{}-{}&amp;x_2&amp;{}+{}&amp;x_3&amp;{}-{}&amp;x_4&amp;{}={}&amp;1</mrow>
     <mrow>x_1&amp;{}-{}&amp;2x_2&amp;{}+{}&amp;3x_3&amp;{}-{}&amp;4x_4&amp;{}={}&amp;-2</mrow>
     <mrow>x_1&amp;{}-{}&amp;4x_2&amp;{}+{}&amp;9x_3&amp;{}-{}&amp;16x_4&amp;{}={}&amp;3</mrow>
@@ -1057,8 +1430,20 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
     </input>
     </sage>
     </statement>
-    <answer><p>À venir</p></answer>
-    <solution><p>À venir</p></solution>
+    <answer><p><m>(x_1,x_2,x_3,x_4)=\left(\frac{107}{6},39,\frac{61}{2},\frac{25}{3}\right)</m></p></answer>
+    <solution><listing>
+    <caption>Le code solution</caption>
+    <program language="sage">
+    <input>
+A=matrix([[1,-1,1,-1],[1,-2,3,-4],[1,-4,9,-16],[1,-8,27,-64]])# La matrice
+b=vector([1,-2,3,-4]) #Le vecteur
+show(A.augment(b)) #Optionnel: pour vérifier qu'on a bien écrit le système dans Sage
+sol=(A.augment(b).rref()) #La matrice augmentée échelonnée réduite
+show(sol)
+vecsol=sol.column(-1) #-1 permet d'avoir la dernière colonne
+pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty devant le print fait en sorte que les fractions soient debout    </input>
+    </program>
+    </listing></solution>
     </task>
     </task>
     <task><introduction><p>en utilisant la commande <c>solve_right</c>.</p></introduction>
@@ -1076,8 +1461,18 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
     </input>
     </sage>
     </statement>
-    <answer><p>À venir</p></answer>
-    <solution><p>À venir</p></solution>
+    <answer><p><m>(x_1,x_2,x_3,x_4)=\left(-\frac{5}{6}, 3, -\frac{3}{2}, \frac{1}{3}\right)</m></p></answer>
+    <solution><listing>
+    <caption>Le code solution</caption>
+    <program language="sage">
+    <input>
+A=matrix([[1,1,1,1],[1,2,3,4],[1,4,9,16],[1,8,27,64]])# La matrice
+b=vector([1,2,3,4]) #Le vecteur
+sol=(A.solve_right(b))
+pretty_print("La solution est (x_1,x_2,x_3,x_4)=",sol)   
+    </input>
+    </program>
+    </listing></solution>
     </task>
     <task>
         <statement>
@@ -1093,8 +1488,18 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
     </input>
     </sage>
     </statement>
-    <answer><p>À venir</p></answer>
-    <solution><p>À venir</p></solution>
+    <answer><p><m>(x_1,x_2,x_3,x_4)=\left(\frac{107}{6},39,\frac{61}{2},\frac{25}{3}\right)</m></p></answer>
+    <solution><listing>
+    <caption>Le code solution</caption>
+    <program language="sage">
+    <input>
+A=matrix([[1,-1,1,-1],[1,-2,3,-4],[1,-4,9,-16],[1,-8,27,-64]])# La matrice
+b=vector([1,-2,3,-4]) #Le vecteur
+sol=(A.solve_right(b))
+pretty_print("La solution est (x_1,x_2,x_3,x_4)=",sol)
+    </input>
+    </program>
+    </listing></solution>
     </task>
     </task>
     </exercise>
@@ -1113,6 +1518,28 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
     </input>
     </sage>
     </statement>
+    <solution>
+    <listing>
+    <caption>Le code solution permettant de trouver l'équation et de tracer la parabole et les trois points</caption>
+    <program language="sage">
+    <input>
+P=vector([-1,22])
+Q=vector([2,19])
+R=vector([3,34])
+A=matrix([[P[0]^2,P[0],1],[Q[0]^2,Q[0],1],[R[0]^2,R[0],1]])
+v=vector([P[1],Q[1],R[1]])
+sol=A.solve_right(v)
+print("L'équation de la parabole est ",sol[0]*x^2+sol[1]*x+sol[2])
+para=plot(sol[0]*x^2+sol[1]*x+sol[2],(x,-2,4))
+#On trace les points et on les identifie de belle façon
+ptP=plot(point(P))+text('  P(%s,%s)'%(P[0],P[1]),P,horizontal_alignment='left')
+ptQ=plot(point(Q))+text('  Q(%s,%s)'%(Q[0],Q[1]),Q,horizontal_alignment='left')
+ptR=plot(point(R))+text('  R(%s,%s)'%(R[0],R[1]),R,horizontal_alignment='left')
+show(para+ptP+ptQ+ptR)
+    </input>
+    </program>
+    </listing>
+    </solution>
     </task>
     <task>
     <statement><p>On veut maintenant créer une fonction qui va retourner l'équation d'une parabole passant par trois points donnés. La fonction doit d'abord vérifier si
