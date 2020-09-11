@@ -11,7 +11,51 @@
 <exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-SELtheo">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>
     <exercise xml:id="exo-4eq3inc">
-    <statement><p>Reprendre le système <m>(B|b_1\,b_2)</m> de l'exempl <xref ref="ex-4eq3inc"/> et effectuer l'échelonnage.</p></statement>
+    <statement><p>Reprendre le système <m>(B|b_1\,b_2)</m> de l'exemple <xref ref="ex-4eq3inc"/> et effectuer l'échelonnage.</p></statement>
+    <answer><p><me>\left(\begin{array}{rrr|rr} 
+    1&amp; 6&amp; -3 &amp; 0&amp;3 \\ 
+    0&amp; 0&amp; 0&amp;  1 &amp; 0 \\ 
+    0 &amp; 0&amp; 0 &amp; 0 &amp;0 \\ 
+    0&amp; 0 &amp; 0 &amp; 0&amp; 0 \end{array}\right)</me></p></answer>
+    <solution><p>On commence avec la matrice du système <m>(B|b_1\,b_2)</m> et on effectue l'échelonnage.
+    <md>
+    <mrow>\left(\begin{array}{rrr|rr} 
+    1&amp; 6&amp; -3 &amp; 5&amp;3 \\ 
+    \frac{4}{3}&amp; 8&amp; -4&amp; 3&amp; 4\\ 
+    \frac{1}{3} &amp; 2&amp; -1 &amp; -9&amp;1 \\ 
+    -3&amp; -18 &amp; 9 &amp;-15&amp;-9\end{array}\right)
+    &amp;\substack{3L_2\rightarrow L_2 \\ 3L_3\rightarrow L_3 \\-\frac{1}{3}L_4\rightarrow L_4\\ \sim}
+    \left(\begin{array}{rrr|rr} 
+    1&amp; 6&amp; -3 &amp; 5&amp;3 \\ 
+    4&amp; 24&amp; -12&amp; 9&amp; 12 \\ 
+    1 &amp; 6&amp; -3 &amp; -27&amp;3 \\ 
+    1&amp; 6 &amp; -3 &amp; 5&amp; 3 \end{array}\right)</mrow>
+    <mrow>&amp;\substack{-4L_1+L_2\rightarrow L_2 \\ -L_1+L_3\rightarrow L_3 \\-L_1+L_4\rightarrow L_4\\ \sim}
+    \left(\begin{array}{rrr|rr} 
+    1&amp; 6&amp; -3 &amp; 5&amp;3 \\ 
+    0&amp; 0&amp; 0&amp;  -11 &amp; 0 \\ 
+    0 &amp; 0&amp; 0 &amp; -32&amp;0 \\ 
+    0&amp; 0 &amp; 0 &amp; 0&amp; 0 \end{array}\right)</mrow>
+    <mrow>&amp;\substack{-\frac{1}{11}L_2\rightarrow L_2 \\ -\frac{1}{32}L_3\rightarrow L_3 \\ \sim}
+    \left(\begin{array}{rrr|rr} 
+    1&amp; 6&amp; -3 &amp; 5&amp;3 \\ 
+    0&amp; 0&amp; 0&amp;  1 &amp; 0 \\ 
+    0 &amp; 0&amp; 0 &amp; 1 &amp;0 \\ 
+    0&amp; 0 &amp; 0 &amp; 0&amp; 0 \end{array}\right)</mrow>
+    <mrow>&amp;\substack{-5L_2+L_1\rightarrow L_1 \\-L_2+L_3\rightarrow L_3 \\ \sim}
+    \left(\begin{array}{rrr|rr} 
+    1&amp; 6&amp; -3 &amp; 0&amp;3 \\ 
+    0&amp; 0&amp; 0&amp;  1 &amp; 0 \\ 
+    0 &amp; 0&amp; 0 &amp; 0 &amp;0 \\ 
+    0&amp; 0 &amp; 0 &amp; 0&amp; 0 \end{array}\right)</mrow>
+    </md>
+    La matrice augmentée du système une fois échelonnée donne donc:
+    <me>\left(\begin{array}{rrr|rr} 
+    1&amp; 6&amp; -3 &amp; 0&amp;3 \\ 
+    0&amp; 0&amp; 0&amp;  1 &amp; 0 \\ 
+    0 &amp; 0&amp; 0 &amp; 0 &amp;0 \\ 
+    0&amp; 0 &amp; 0 &amp; 0&amp; 0 \end{array}\right)</me>.
+    </p></solution>
     </exercise>
     <exercise>
     <introduction><p>On considère les quatre systèmes d'équations linéaires suivants:
@@ -36,8 +80,109 @@
     </p>
     <p>Dans chaque cas, donner toutes les valeurs de <m>a,b</m> telles que</p>
     </introduction>
-    <task><statement>Les SELs n'ont pas de solutions;</statement></task>
-    <task><statement>Les SELs ont une infinité de solutions.</statement></task>
+    <task><statement>Les SELs n'ont pas de solution;</statement>
+    <answer><p><ol>
+    <li><p><m>a=6</m> et <m>b\neq 2</m></p></li>
+    <li><p><m>b=3a</m> et <m>a\neq 4</m></p></li>
+    <li><p><m>a=\pm \sqrt{3}</m> et <m>b\neq a</m></p></li>
+    <li><p><m>b\neq -2a</m></p></li>
+    </ol></p></answer>
+    <solution><p>Pour déterminer les valeurs de <m>a</m> et de <m>b</m> ne permettant d'avoir aucune solution, 
+    il faut échelonner les matrices de ces systèmes et bien interpréter les résultats. 
+    On se rappelle, par l'algorithme <xref ref="algo-SELsol"/>, qu'un pivot dans la partie augmentée de la matrice échelonnée réduite indique l'absence de solution.
+    <ol>
+    <li><p><md alignment="alignat">
+    <mrow> x&amp;{}-{}&amp;3y&amp;{}={}&amp;1 </mrow>
+    <mrow> 2x&amp;{}-{}&amp;ay&amp;{}={}&amp;b </mrow>
+    </md>
+    On donne la matrice augmentée associée et on l'échelonne:
+    <md>
+    <mrow>\left(\begin{array}{rr|r} 
+    1&amp; -3&amp; 1\\ 
+    2&amp; -a&amp; b\end{array}\right)&amp;\matsimilc{1}{-2}{2}
+    \left(\begin{array}{rr|r} 
+    1&amp; -3&amp; 1\\ 
+    0&amp; 6-a&amp; b-2\end{array}\right)</mrow>
+    </md>
+    Pour avoir un pivot dans la partie augmentée, il faut que <m>a=6</m> et que <m>b\neq 2</m>. 
+    </p></li>
+    <li><p><md alignment="alignat">
+    <mrow> x&amp;{}-{}&amp;3y&amp;{}={}&amp;1 </mrow>
+    <mrow> ax&amp;{}-{}&amp;by&amp;{}={}&amp;4 </mrow>
+    </md>
+    On donne la matrice augmentée associée et on l'échelonne:
+    <md>
+    <mrow>\left(\begin{array}{rr|r} 
+    1&amp; -3&amp; 1\\ 
+    a&amp; -b&amp; 4\end{array}\right)&amp;\matsimilc{1}{-a}{2}
+    \left(\begin{array}{rr|r} 
+    1&amp; -3&amp; 1\\ 
+    0&amp; 3a-b&amp; 4-a\end{array}\right)</mrow>
+    </md>
+    Pour avoir un pivot dans la partie augmentée, il faut que <m>3a-b=0\Rightarrow b=3a</m> et que <m>a\neq 4</m>. </p></li>
+    <li><p><md alignment="alignat">
+    <mrow> x&amp;{}-{}&amp;ay&amp;{}={}&amp;1 </mrow>
+    <mrow> ax&amp;{}-{}&amp;3y&amp;{}={}&amp;b </mrow>
+    </md>
+    On donne la matrice augmentée associée et on l'échelonne:
+    <md>
+    <mrow>\left(\begin{array}{rr|r} 
+    1&amp; -a&amp; 1\\ 
+    a&amp; -3&amp; b\end{array}\right)&amp;\matsimilc{1}{-a}{2}
+    \left(\begin{array}{rr|r} 
+    1&amp; -a&amp; 1\\ 
+    0&amp; a^2-3&amp; b-a\end{array}\right)</mrow>
+    </md>
+    Pour avoir un pivot dans la partie augmentée, il faut que <m>a^2-3=0\Rightarrow a=\pm \sqrt{3}</m> et que <m>b\neq a</m>. </p></li>
+    <li><p><md alignment="alignat">
+    <mrow> x&amp;{}-{}&amp;3y&amp;{}={}&amp;a </mrow>
+    <mrow> -2x&amp;{}+{}&amp;6y&amp;{}={}&amp;b </mrow>
+    </md>
+    On donne la matrice augmentée associée et on l'échelonne:
+    <md>
+    <mrow>\left(\begin{array}{rr|r} 
+    1&amp; -3&amp; a\\ 
+    -2&amp; 6&amp; b\end{array}\right)&amp;\matsimilc{1}{2}{2}
+    \left(\begin{array}{rr|r} 
+    1&amp; -3&amp; a\\ 
+    0&amp; 0&amp; 2a+b\end{array}\right)</mrow>
+    </md>
+    Pour avoir un pivot dans la partie augmentée, il faut que <m>2a+b\neq 0 \Rightarrow b\neq -2a</m>. </p></li>
+    </ol></p></solution>
+    </task>
+    <task><statement>Les SELs ont une infinité de solutions.</statement>
+    <answer><p><ol>
+    <li><p><m>a=6</m> et <m>b=2</m></p></li>
+    <li><p><m>b=3a</m> et <m>a=4</m></p></li>
+    <li><p><m>a=\pm \sqrt{3}</m> et <m>b=a</m></p></li>
+    <li><p><m>b=-2a</m></p></li>
+    </ol></p></answer>
+    <solution><p>
+    Pour déterminer les valeurs de <m>a</m> et de <m>b</m> permettant d'avoir une infinité de solutions, 
+    il faut échelonner les matrices de ces systèmes et bien interpréter les résultats. 
+    On ne refera pas l'échelonnage car il a déjà été fait pour trouver les situations sans solutions précédemment.
+    On se rappelle, par l'algorithme <xref ref="algo-SELsol"/>, qu'une absence de pivot dans la partie augmentée ainsi que la présence d'une variable libre impliquera l'infinité de solutions.
+    Puisque les SELs de cet exercice ont tous deux équations et deux variables, il faut donc absolument que la seconde ligne comporte uniquement des zéros une fois échelonnée.
+    <ol>
+    <li><p><me>\left(\begin{array}{rr|r} 
+    1&amp; -3&amp; 1\\ 
+    0&amp; 6-a&amp; b-2\end{array}\right)</me>
+    Pour avoir la deuxième ligne seulement constituée de zéros, il faut que <m>a=6</m> et que <m>b=2</m>. 
+    </p></li>
+    <li><p><me>\left(\begin{array}{rr|r} 
+    1&amp; -3&amp; 1\\ 
+    0&amp; 3a-b&amp; 4-a\end{array}\right)</me>
+    Pour avoir la deuxième ligne seulement constituée de zéros, il faut que <m>3a-b=0\Rightarrow b=3a</m> et que <m>a=4</m>. </p></li>
+    <li><p><me>\left(\begin{array}{rr|r} 
+    1&amp; -a&amp; 1\\ 
+    0&amp; a^2-3&amp; b-a\end{array}\right)</me>
+    Pour avoir la deuxième ligne seulement constituée de zéros, il faut que <m>a^2-3=0\Rightarrow a=\pm \sqrt{3}</m> et que <m>b=a</m>. </p></li>
+    <li><p><me>\left(\begin{array}{rr|r} 
+    1&amp; -3&amp; a\\ 
+    0&amp; 0&amp; 2a+b\end{array}\right)</me>
+    Pour avoir la deuxième ligne seulement constituée de zéros, il faut que <m>2a+b\neq 0 \Rightarrow b=-2a</m>. </p></li>
+    </ol></p></solution>
+    </task>
     </exercise>
     <exercise>
     <statement><p>Considérer à nouveau la matrice
@@ -47,9 +192,36 @@
 2 &amp; x &amp; 1 &amp; -1 \\
 0 &amp; 2 &amp; -1 &amp; 2
 \end{array}\right)
-    </me> de l'exerice <xref ref="exo-forceechange"/>. Quelle devrait être la valeur de <m>x</m> pour que le rang de la matrice soit égal à <m>2</m>? Dans ce cas-ci, est-ce que le
+    </me> de l'exercice <xref ref="exo-forceechange"/>. Quelle devrait être la valeur de <m>x</m> pour que le rang de la matrice soit égal à <m>2</m>? Dans ce cas-ci, est-ce que le
     système possède une solution, une infinité de solutions ou aucune solution?
     </p></statement>
+    <answer><p><m>x=8</m> et aucune solution</p></answer>
+    <solution><p>On recommence l'algorithme de Gauss-Jordan et on verra quelle valeur de <m>x</m> cela prendra pour que la matrice soit de rang <m>2</m>.
+    <me>\left(\begin{array}{rrr|r}
+    1 &amp; 3 &amp; 1 &amp; 1 \\
+    2 &amp; x &amp; 1 &amp; -1 \\
+    0 &amp; 2 &amp; -1 &amp; 2
+    \end{array}\right)\matsimilc{1}{-2}{2}\left(\begin{array}{rrr|r}
+    1 &amp; 3 &amp; 1 &amp; 1 \\
+    0 &amp; x-6 &amp; -1 &amp; -3 \\
+    0 &amp; 2 &amp; -1 &amp; 2
+    \end{array}\right)</me>
+    Pour que la matrice soit de rang <m>2</m>, il faut absolument éliminer une ligne entière.
+    En observant que les valeurs de la troisième colonnes sont les mêmes dans les deuxième et troisième lignes, 
+    on réalise que le seul moyen qu'une de ces deux lignes s'élimine est que les valeurs de la deuxième colonne correspondent aussi.
+    Bref, il faut que <m>x-6=2 \Rightarrow x=8</m>. 
+    <me>\left(\begin{array}{rrr|r}
+    1 &amp; 3 &amp; 1 &amp; 1 \\
+    0 &amp; 2 &amp; -1 &amp; -3 \\
+    0 &amp; 2 &amp; -1 &amp; 2
+    \end{array}\right)\matsimilc{2}{-}{3}\left(\begin{array}{rrr|r}
+    1 &amp; 3 &amp; 1 &amp; 1 \\
+    0 &amp; 2 &amp; -1 &amp; -3 \\
+    0 &amp; 0 &amp; 0 &amp; 5
+    \end{array}\right)</me>
+    On observe que la matrice est de rang <m>2</m> mais qu'il y a un pivot additionnel dans la partie augmentée. 
+    Cela signifie qu'il n'y a aucune solution.
+    </p></solution>
     </exercise>
     <exercise>
     <statement><p>Considérer maintenant la matrice
@@ -62,24 +234,93 @@
     </me>. Quelle devrait être la valeur de <m>x</m> pour que le rang de la matrice soit égal à <m>2</m>? Dans ce cas-ci, est-ce que le
     système possède une solution, une infinité de solutions ou aucune solution?
     </p></statement>
+    <answer><p><m>x=1</m> et infinité de solutions</p></answer>
+    <solution><p>On commence l'algorithme de Gauss-Jordan et on verra quelle valeur de <m>x</m> cela prendra pour que la matrice soit de rang <m>2</m>.
+    <md>
+    <mrow>\left(\begin{array}{rrr|r}
+2 &amp; x &amp; -1 &amp; 2 \\
+4 &amp; 2 &amp; -2 &amp; 4 \\
+0 &amp; 3 &amp; 1 &amp; 2
+\end{array}\right)&amp;\matsimils{1}{\frac{1}{2}}\left(\begin{array}{rrr|r}
+1 &amp; \frac{x}{2} &amp; -\frac{1}{2} &amp; 1 \\
+4 &amp; 2 &amp; -2 &amp; 4 \\
+0 &amp; 3 &amp; 1 &amp; 2
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{1}{-4}{2}\left(\begin{array}{rrr|r}
+1 &amp; \frac{x}{2} &amp; -\frac{1}{2} &amp; 1 \\
+0 &amp; 2-2x &amp; 0 &amp; 0 \\
+0 &amp; 3 &amp; 1 &amp; 2
+\end{array}\right)</mrow>
+</md>
+    Pour que la matrice soit de rang <m>2</m>, il faut absolument éliminer une ligne entière.
+    Il est clair que la deuxième ligne s'éliminera uniquement si <m>x=1</m>.
+    <me>\left(\begin{array}{rrr|r}
+1 &amp; \frac{1}{2} &amp; -\frac{1}{2} &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 3 &amp; 1 &amp; 2
+\end{array}\right)\matsimile{2}{3}\left(\begin{array}{rrr|r}
+1 &amp; \frac{1}{2} &amp; -\frac{1}{2} &amp; 1 \\
+0 &amp; 3 &amp; 1 &amp; 2 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)</me>
+    On observe que la matrice est de rang <m>2</m> et qu'il n'y a pas de pivot additionnel dans la partie augmentée. 
+    Cela signifie qu'il y a une infinité de solutions.
+    </p></solution>
     </exercise>
     <exercise>
     <introduction>
     <p>Pour chaque matrice échelonnée réduite ci-dessous, donner l'ensemble solution. De plus, lorsque possible, déterminer une solution pour laquelle la variable <m>x_1</m> est 
     égale à <m>3</m>.</p>
     </introduction>
-        <task><introduction><m>
+        <task><statement><m>
     \left(\begin{array}{rr|r}
 0 &amp; 1 &amp; -2 \\
 0 &amp; 0 &amp; 0
 \end{array}\right)
-    </m></introduction></task>
-    <task><introduction><m>
+    </m></statement>
+    <answer>
+    <p><me>\vecd{x}{y}=x\vecd{1}{0}+\vecd{0}{-2}</me>
+    et
+    <me>\vecd{x}{y}=\vecd{3}{-2}</me></p>
+    </answer>
+    <solution>
+    <p>La seule ligne non nulle se résume à l'équation <m>y=-2</m>. 
+    La variable <m>x</m> est libre puisqu'il n'y a pas de pivot dans la première colonne.
+    On écrit donc:
+    <md>
+    <mrow>x&amp;=x \text{ (libre)}</mrow>
+    <mrow>y&amp;=-2</mrow>
+    </md>.
+    L'ensemble solution est donc:
+    <me>\vecd{x}{y}=\vecd{x}{-2}=x\vecd{1}{0}+\vecd{0}{-2}</me>.
+    En posant <m>x=3</m>, on obtient une solution particulière:
+    <me>\vecd{x}{y}=\vecd{3}{-2}</me>.
+    </p>
+    </solution>
+    </task>
+    <task><statement><m>
     \left(\begin{array}{rr|r}
 1 &amp; 0 &amp; -2 \\
 0 &amp; 0 &amp; 0
 \end{array}\right)
-    </m></introduction></task>
+    </m></statement>
+    <answer>
+    <p><me>\vecd{x}{y}=\vecd{-2}{0}+y\vecd{0}{1}</me>
+    et il est impossible de donner une solution telle que <m>x=3</m>.</p>
+    </answer>
+    <solution>
+    <p>La seule ligne non nulle se résume à l'équation <m>x=-2</m>. 
+    La variable <m>y</m> est libre puisqu'il n'y a pas de pivot dans la deuxième colonne.
+    On écrit donc:
+    <md>
+    <mrow>x&amp;=-2</mrow>
+    <mrow>y&amp;=y  \text{ (libre)}</mrow>
+    </md>.
+    L'ensemble solution est donc:
+    <me>\vecd{x}{y}=\vecd{-2}{y}=\vecd{-2}{0}+y\vecd{0}{1}</me>.
+    La valeur de la variable <m>x</m> étant déjà fixée par le système, c'est impossible de donner une solution telle que <m>x=3</m>.
+    </p>
+    </solution></task>
     <task>
     <statement>
     <m>\left(\begin{array}{rrr|r}
@@ -88,6 +329,29 @@
 0 &amp; 0 &amp; 0 &amp; 0
 \end{array}\right)</m>
     </statement>
+    <answer>
+    <p><me>\vecddd{x}{y}{z}=z\vecddd{1}{-2}{1}+\vecddd{-\frac{28}{3}}{\frac{29}{3}}{0}</me>
+    et
+    <me>\vecddd{x}{y}{z}=\vecddd{3}{-15}{\frac{37}{3}}</me></p>
+    </answer>
+    <solution>
+    <p>Les deux lignes non-nulles se résument aux équations <m>x-z=-\frac{28}{3}</m> et <m>y+2z=\frac{29}{3}</m>. 
+    La variable <m>z</m> est libre puisqu'il n'y a pas de pivot dans la troisième colonne.
+    On écrit donc:
+    <md>
+    <mrow>x&amp;=z-\frac{28}{3}</mrow>
+    <mrow>y&amp;=-2z+\frac{29}{3}</mrow>
+    <mrow>z&amp;=z \text{ (libre)}</mrow>
+    </md>.
+    L'ensemble solution est donc:
+    <me>\vecddd{x}{y}{z}=\vecddd{z-\frac{28}{3}}{-2z+\frac{29}{3}}{z}=z\vecddd{1}{-2}{1}+\vecddd{-\frac{28}{3}}{\frac{29}{3}}{0}</me>.
+    En posant <m>x=3</m>, on obtient une solution particulière pour laquelle il faut travailler un peu.
+    <me>\vecddd{3}{y}{z}=z\vecddd{1}{-2}{1}+\vecddd{-\frac{28}{3}}{\frac{29}{3}}{0}</me>
+    On observe de l'équation correspondant à la variable <m>x</m> que <m>3=z-\frac{28}{3} \Rightarrow z=3+\frac{28}{3}=\frac{37}{3}</m>.
+    Ainsi, la solution particulière donne:
+    <me>\vecddd{x}{y}{z}=\frac{37}{3}\vecddd{1}{-2}{1}+\vecddd{-\frac{28}{3}}{\frac{29}{3}}{0}=\vecddd{3}{-15}{\frac{37}{3}}</me>.
+    </p>
+    </solution>
     </task>
     <task>
     <statement>
@@ -97,6 +361,26 @@
 0 &amp; 0 &amp; 0 &amp; 0
 \end{array}\right)</m>
     </statement>
+    <answer>
+    <p><me>\vecddd{x}{y}{z}=x\vecddd{1}{0}{0}+\vecddd{0}{-1}{1}</me>
+    et
+    <me>\vecddd{x}{y}{z}=\vecddd{3}{-1}{1}</me></p>
+    </answer>
+    <solution>
+    <p>Les deux lignes non-nulles se résument aux équations <m>y=-1</m> et <m>z=1</m>. 
+    La variable <m>x</m> est libre puisqu'il n'y a pas de pivot dans la première colonne.
+    On écrit donc:
+    <md>
+    <mrow>x&amp;=x \text{ (libre)}</mrow>
+    <mrow>y&amp;=-1</mrow>
+    <mrow>z&amp;=1</mrow>
+    </md>.
+    L'ensemble solution est donc:
+    <me>\vecddd{x}{y}{z}=\vecddd{x}{-1}{1}=x\vecddd{1}{0}{0}+\vecddd{0}{-1}{1}</me>.
+    En posant <m>x=3</m>, on obtient une solution particulière:
+    <me>\vecddd{x}{y}{z}=\vecddd{3}{-1}{1}</me>.
+    </p>
+    </solution>
     </task>
     <task>
     <statement>
@@ -106,13 +390,55 @@
 0 &amp; 0 &amp; 0 &amp; 0
 \end{array}\right)</m>
     </statement>
+    <answer>
+    <p><me>\vecddd{x}{y}{z}=z\vecddd{0}{-2}{1}+\vecddd{1}{-1}{0}</me>
+    et il est impossible de donner une solution telle que <m>x=3</m>.</p>
+    </answer>
+    <solution>
+    <p>Les deux lignes non-nulles se résument aux équations <m>x=1</m> et <m>y+2z=-1</m>. 
+    La variable <m>z</m> est libre puisqu'il n'y a pas de pivot dans la troisième colonne.
+    On écrit donc:
+    <md>
+    <mrow>x&amp;=1</mrow>
+    <mrow>y&amp;=-2z-1</mrow>
+    <mrow>z&amp;=z \text{ (libre)}</mrow>
+    </md>.
+    L'ensemble solution est donc:
+    <me>\vecddd{x}{y}{z}=\vecddd{1}{-2z-1}{z}=z\vecddd{0}{-2}{1}+\vecddd{1}{-1}{0}</me>.
+    La valeur de la variable <m>x</m> étant déjà fixée par le système, c'est impossible de donner une solution telle que <m>x=3</m>.
+    </p>
+    </solution>
     </task>
     <task><statement>
     <m>\left(\begin{array}{rrr|r}
 1 &amp; 0 &amp; 2 &amp; -2 \\
 0 &amp; 1 &amp; 2 &amp; 0
 \end{array}\right)</m>
-    </statement></task>
+    </statement>
+    <answer>
+    <p><me>\vecddd{x}{y}{z}=z\vecddd{-2}{-2}{1}+\vecddd{-2}{0}{0}</me>
+    et
+    <me>\vecddd{x}{y}{z}=\vecddd{3}{5}{-\frac{5}{2}}</me></p>
+    </answer>
+    <solution>
+    <p>Les deux seules lignes se résument aux équations <m>x+2z=-2</m> et <m>y+2z=0</m>. 
+    La variable <m>z</m> est libre puisqu'il n'y a pas de pivot dans la troisième colonne.
+    On écrit donc:
+    <md>
+    <mrow>x&amp;=-2z-2</mrow>
+    <mrow>y&amp;=-2z</mrow>
+    <mrow>z&amp;=z \text{ (libre)}</mrow>
+    </md>.
+    L'ensemble solution est donc:
+    <me>\vecddd{x}{y}{z}=\vecddd{-2z-2}{-2z}{z}=z\vecddd{-2}{-2}{1}+\vecddd{-2}{0}{0}</me>.
+    En posant <m>x=3</m>, on obtient une solution particulière pour laquelle il faut travailler un peu.
+    <me>\vecddd{3}{y}{z}=z\vecddd{-2}{-2}{1}+\vecddd{-2}{0}{0}</me>
+    On observe de l'équation correspondant à la variable <m>x</m> que <m>3=-2z-2 \Rightarrow z=\frac{3+2}{-2}=-\frac{5}{2}</m>.
+    Ainsi, la solution particulière donne:
+    <me>\vecddd{x}{y}{z}=-\frac{5}{2}\vecddd{-2}{-2}{1}+\vecddd{-2}{0}{0}=\vecddd{3}{5}{-\frac{5}{2}}</me>.
+    </p>
+    </solution>
+    </task>
     <task>
     <statement><m>
     \left(\begin{array}{rrrr|r}
@@ -122,6 +448,34 @@
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
 \end{array}\right)
     </m></statement>
+    <answer>
+    <p><me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=x_3\begin{pmatrix}-\frac{1}{2}\\ -\frac{1}{2}\\ 1\\ 0\end{pmatrix}+x_4\begin{pmatrix}-2\\ 1\\ 0\\ 1\end{pmatrix}</me>
+    et
+    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=\begin{pmatrix}3\\ 0\\ -2\\ -1\end{pmatrix}</me></p>
+    </answer>
+    <solution>
+    <p>Les deux lignes non nulles se résument aux équations <m>x_1+\frac{1}{2}x_3+2x_4=0</m> et <m>x_2+\frac{1}{2}x_3-x_4=0</m>. 
+    Les variables <m>x_3</m> et <m>x_4</m> sont libres puisqu'il n'y a pas de pivot dans les troisième et quatrième colonnes.
+    On écrit donc:
+    <md>
+    <mrow>x_1&amp;=-\frac{1}{2}x_3-2x_4</mrow>
+    <mrow>x_2&amp;=-\frac{1}{2}x_3+x_4</mrow>
+    <mrow>x_3&amp;=x_3 \text{ (libre)}</mrow>
+    <mrow>x_4&amp;=x_4 \text{ (libre)}</mrow>
+    </md>.
+    L'ensemble solution est donc:
+    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=\begin{pmatrix}-\frac{1}{2}x_3-2x_4\\ -\frac{1}{2}x_3+x_4\\ x_3\\ x_4\end{pmatrix}
+    =x_3\begin{pmatrix}-\frac{1}{2}\\ -\frac{1}{2}\\ 1\\ 0\end{pmatrix}+x_4\begin{pmatrix}-2\\ 1\\ 0\\ 1\end{pmatrix}</me>.
+    En posant <m>x_1=3</m>, on obtient une solution particulière pour laquelle il faut travailler un peu.
+    <me>\begin{pmatrix}3\\ x_2\\ x_3\\ x_4\end{pmatrix}=x_3\begin{pmatrix}-\frac{1}{2}\\ -\frac{1}{2}\\ 1\\ 0\end{pmatrix}+x_4\begin{pmatrix}-2\\ 1\\ 0\\ 1\end{pmatrix}</me>
+    On observe de l'équation correspondant à la variable <m>x_1</m> que <m>3=-\frac{1}{2}x_3-2x_4</m>.
+    Il existe une infinité de valeurs de <m>x_3</m> et <m>x_4</m> qui pourraient fonctionner. 
+    On choisit des valeurs entières pour simplifier les calculs.
+    Ainsi, en posant <m>x_3=-2</m> et <m>x_4=-1</m>, la solution particulière donne:
+    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=-2\begin{pmatrix}-\frac{1}{2}\\ -\frac{1}{2}\\ 1\\ 0\end{pmatrix}-\begin{pmatrix}-2\\ 1\\ 0\\ 1\end{pmatrix}
+    =\begin{pmatrix}3\\ 0\\ -2\\ -1\end{pmatrix}</me>.
+    </p>
+    </solution>
     </task>
     <task>
     <statement><m>
@@ -132,6 +486,33 @@
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
 \end{array}\right)
     </m></statement>
+    <answer>
+    <p><me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=x_2\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}+x_4\begin{pmatrix}-1\\ 0\\ -2\\ 1\end{pmatrix}</me>
+    et
+    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=\begin{pmatrix}3\\ 0\\ 6\\ -3\end{pmatrix}</me></p>
+    </answer>
+    <solution>
+    <p>Les deux lignes non nulles se résument aux équations <m>x_1+3x_4=0</m> et <m>x_3+2x_4=0</m>. 
+    Les variables <m>x_2</m> et <m>x_4</m> sont libres puisqu'il n'y a pas de pivot dans les deuxième et quatrième colonnes.
+    On écrit donc:
+    <md>
+    <mrow>x_1&amp;=-x_4</mrow>
+    <mrow>x_2&amp;=x_2 \text{ (libre)}</mrow>
+    <mrow>x_3&amp;=-2x_4</mrow>
+    <mrow>x_4&amp;=x_4 \text{ (libre)}</mrow>
+    </md>.
+    L'ensemble solution est donc:
+    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=\begin{pmatrix}-x_4\\ x_2\\ -2x_4\\ x_4\end{pmatrix}
+    =x_2\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}+x_4\begin{pmatrix}-1\\ 0\\ -2\\ 1\end{pmatrix}</me>.
+    En posant <m>x_1=3</m>, on obtient une solution particulière pour laquelle il faut travailler un peu.
+    <me>\begin{pmatrix}3\\ x_2\\ x_3\\ x_4\end{pmatrix}=x_2\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}+x_4\begin{pmatrix}-1\\ 0\\ -2\\ 1\end{pmatrix}</me>
+    On observe de l'équation correspondant à la variable <m>x_1</m> que <m>3=-x_4\Rightarrow x_4=-3</m>.
+    Il existe quand même une infinité de solutions puisque la variable <m>x_2</m> n'est pas fixée. 
+    On pose donc <m>x_2=0</m> et la solution particulière est:
+    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=0\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}-3\begin{pmatrix}-1\\ 0\\ -2\\ 1\end{pmatrix}
+    =\begin{pmatrix}3\\ 0\\ 6\\ -3\end{pmatrix}</me>.
+    </p>
+    </solution>
     </task>
         <task>
     <statement><m>
@@ -142,6 +523,8 @@
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
 \end{array}\right)
     </m></statement>
+    <answer><p>Aucune solution n'existe.</p></answer>
+    <solution><p>Puisque la matrice échelonnée réduite a un pivot dans sa partie augmentée, il n'existe aucune solution à ce système.</p></solution>
     </task>
     </exercise>
     <exercise>
@@ -155,6 +538,52 @@
     <mrow>\mathcal{P}_2 &amp;: &amp; -x+5y+z&amp;=3</mrow>
     </md>;
     </statement>
+    <answer><p>L'intersection de ces plans est la droite d'équation:
+    <md><mrow>\mathcal{D} &amp;: &amp; \vecddd{x}{y}{z}&amp;=c\vecddd{\frac{23}{13}}{\frac{2}{13}}{1}+\vecddd{-\frac{14}{13}}{\frac{5}{13}}{0} &amp; c\in\R</mrow></md>.
+    </p></answer>
+    <solution><p>Les équations normales de ces deux plans constituent un SEL à deux équations et trois inconnues.
+    On construit la matrice augmentée du système et on l'échelonne pour pouvoir déterminer la ou les solutions, s'il y a lieu.
+    <md>
+    <mrow>\left(\begin{array}{rrr|r}
+2 &amp; 3 &amp; -4 &amp; -1 \\
+-1 &amp; 5 &amp; 1 &amp; 3
+\end{array}\right)&amp;\matsimile{1}{2}\left(\begin{array}{rrr|r}
+-1 &amp; 5 &amp; 1 &amp; 3\\
+2 &amp; 3 &amp; -4 &amp; -1 
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimils{1}{-}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+2 &amp; 3 &amp; -4 &amp; -1 
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{1}{-2}{2}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+0 &amp; 13 &amp; -2 &amp; 5 
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimils{2}{\frac{1}{13}}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+0 &amp; 1 &amp; -\frac{2}{13} &amp; \frac{5}{13} 
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{5}{1}\left(\begin{array}{rrr|r}
+1 &amp; 0 &amp; -\frac{23}{13}&amp; -\frac{14}{13}\\
+0 &amp; 1 &amp; -\frac{2}{13} &amp; \frac{5}{13} 
+\end{array}\right)</mrow>
+    </md>
+    Les deux lignes se résument aux équations <m>x-\frac{23}{13}z=-\frac{14}{13}</m> et <m>y-\frac{2}{13}z=\frac{5}{13}</m>. 
+    La variable <m>z</m> est libre puisqu'il n'y a pas de pivot dans la troisième colonne.
+    On écrit donc:
+    <md>
+    <mrow>x&amp;=\frac{23}{13}z-frac{14}{13}</mrow>
+    <mrow>y&amp;=\frac{2}{13}z+\frac{5}{13}</mrow>
+    <mrow>z&amp;=z \text{ (libre)}</mrow>
+    </md>.
+    L'ensemble solution est donc:
+    <me>
+    \vecddd{x}{y}{z}=\vecddd{\frac{23}{13}z-\frac{14}{13}}{\frac{2}{13}z+\frac{5}{13}}{z}=z\vecddd{\frac{23}{13}}{\frac{2}{13}}{1}+\vecddd{-\frac{14}{13}}{\frac{5}{13}}{0}
+    </me>.
+    On reconnait dans cette solution l'équation d'une droite.
+    Ainsi, l'intersection des deux plans <m>\mathcal{P}_1</m> et <m>\mathcal{P}_2</m> est une droite d'équation vectorielle:
+    <md><mrow>\mathcal{D} &amp;: &amp; \vecddd{x}{y}{z}&amp;=c\vecddd{\frac{23}{13}}{\frac{2}{13}}{1}+\vecddd{-\frac{14}{13}}{\frac{5}{13}}{0} &amp; c\in\R</mrow></md>.
+    </p></solution>
     </task>
     <task>
     <statement>
@@ -164,6 +593,57 @@
     <mrow>\mathcal{P}_3 &amp;: &amp; x+8y-3z&amp;=1</mrow>
     </md>;
     </statement>
+    <answer><p>L'intersection de ces trois plans n'existe pas.
+    Ils sont donc sécants deux à deux, mais pas tous les trois ensembles.</p></answer>
+    <solution><p>Les équations normales de ces trois plans constituent un SEL à trois équations et trois inconnues.
+    On construit la matrice augmentée du système et on l'échelonne pour pouvoir déterminer la ou les solutions, s'il y a lieu.
+    <md>
+    <mrow>\left(\begin{array}{rrr|r}
+2 &amp; 3 &amp; -4 &amp; -1 \\
+-1 &amp; 5 &amp; 1 &amp; 3 \\
+1 &amp; 8 &amp; -3 &amp; 1
+\end{array}\right)&amp;\matsimile{1}{2}\left(\begin{array}{rrr|r}
+-1 &amp; 5 &amp; 1 &amp; 3\\
+2 &amp; 3 &amp; -4 &amp; -1 \\
+1 &amp; 8 &amp; -3 &amp; 1
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimils{1}{-}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+2 &amp; 3 &amp; -4 &amp; -1 \\
+1 &amp; 8 &amp; -3 &amp; 1
+\end{array}\right)</mrow>
+<mrow>&amp;\substack{-2L_1+L_2\rightarrow L_2 \\ -L_1+L_3\rightarrow L_3 \\ \sim}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+0 &amp; 13 &amp; -2 &amp; 5 \\
+0 &amp; 13 &amp; -2 &amp; 4
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{-}{3}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+0 &amp; 13 &amp; -2 &amp; 5 \\
+0 &amp; 0 &amp; 0 &amp; -1
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimils{3}{-}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+0 &amp; 13 &amp; -2 &amp; 5 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimils{2}{\frac{1}{13}}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+0 &amp; 1 &amp; -\frac{2}{13} &amp; \frac{5}{13} \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{5}{1}\left(\begin{array}{rrr|r}
+1 &amp; 0 &amp; -\frac{23}{13}&amp; -\frac{14}{13}\\
+0 &amp; 1 &amp; -\frac{2}{13} &amp; \frac{5}{13} \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right)</mrow>
+    </md>
+    Noter qu'on aurait pu procéder différemment pour l'échelonnage, 
+    mais qu'on voulait profiter des étapes d'échlonnage déjà effectuées précédemments dans l'étude de l'intersection des plans <m>\mathcal{P}_1</m> et <m>\mathcal{P}_2</m>.
+    La matrice échelonnée réduite possédant un pivot dans sa partie augmentée.
+    Il n'y a donc aucune solution.
+    Les trois plans sont donc sécants deux à deux, mais pas tous les trois ensembles.
+    </p></solution>
     </task>
     <task>
     <statement>
@@ -173,14 +653,176 @@
     <mrow>\mathcal{P}_3 &amp;: &amp; x+8y-3z&amp;=2</mrow>
     </md>.
     </statement>
+    <answer><p>L'intersection de ces trois plans est la droite d'équation:
+    <md><mrow>\mathcal{D} &amp;: &amp; \vecddd{x}{y}{z}&amp;=c\vecddd{\frac{23}{13}}{\frac{2}{13}}{1}+\vecddd{-\frac{14}{13}}{\frac{5}{13}}{0} &amp; c\in\R</mrow></md>.
+    </p></answer>
+    <solution><p>Les équations normales de ces trois plans constituent un SEL à trois équations et trois inconnues.
+    On construit la matrice augmentée du système et on l'échelonne pour pouvoir déterminer la ou les solutions, s'il y a lieu.
+    <md>
+    <mrow>\left(\begin{array}{rrr|r}
+2 &amp; 3 &amp; -4 &amp; -1 \\
+-1 &amp; 5 &amp; 1 &amp; 3 \\
+1 &amp; 8 &amp; -3 &amp; 2
+\end{array}\right)&amp;\matsimile{1}{2}\left(\begin{array}{rrr|r}
+-1 &amp; 5 &amp; 1 &amp; 3\\
+2 &amp; 3 &amp; -4 &amp; -1 \\
+1 &amp; 8 &amp; -3 &amp; 2
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimils{1}{-}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+2 &amp; 3 &amp; -4 &amp; -1 \\
+1 &amp; 8 &amp; -3 &amp; 2
+\end{array}\right)</mrow>
+<mrow>&amp;\substack{-2L_1+L_2\rightarrow L_2 \\ -L_1+L_3\rightarrow L_3 \\ \sim}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+0 &amp; 13 &amp; -2 &amp; 5 \\
+0 &amp; 13 &amp; -2 &amp; 5
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{-}{3}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+0 &amp; 13 &amp; -2 &amp; 5 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimils{3}{-}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+0 &amp; 13 &amp; -2 &amp; 5 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimils{2}{\frac{1}{13}}\left(\begin{array}{rrr|r}
+1 &amp; -5 &amp; -1 &amp; -3\\
+0 &amp; 1 &amp; -\frac{2}{13} &amp; \frac{5}{13} \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{5}{1}\left(\begin{array}{rrr|r}
+1 &amp; 0 &amp; -\frac{23}{13}&amp; -\frac{14}{13}\\
+0 &amp; 1 &amp; -\frac{2}{13} &amp; \frac{5}{13} \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)</mrow>
+    </md>
+    Les deux lignes non nulles se résument aux équations <m>x-\frac{23}{13}z=-\frac{14}{13}</m> et <m>y-\frac{2}{13}z=\frac{5}{13}</m>. 
+    La variable <m>z</m> est libre puisqu'il n'y a pas de pivot dans la troisième colonne.
+    On écrit donc:
+    <md>
+    <mrow>x&amp;=\frac{23}{13}z-frac{14}{13}</mrow>
+    <mrow>y&amp;=\frac{2}{13}z+\frac{5}{13}</mrow>
+    <mrow>z&amp;=z \text{ (libre)}</mrow>
+    </md>.
+    L'ensemble solution est donc:
+    <me>
+    \vecddd{x}{y}{z}=\vecddd{\frac{23}{13}z-\frac{14}{13}}{\frac{2}{13}z+\frac{5}{13}}{z}=z\vecddd{\frac{23}{13}}{\frac{2}{13}}{1}+\vecddd{-\frac{14}{13}}{\frac{5}{13}}{0}
+    </me>.
+    On reconnait dans cette solution l'équation d'une droite.
+    Ainsi, l'intersection des trois plans <m>\mathcal{P}_1</m> et <m>\mathcal{P}_2</m> est une droite d'équation vectorielle:
+    <md><mrow>\mathcal{D} &amp;: &amp; \vecddd{x}{y}{z}&amp;=c\vecddd{\frac{23}{13}}{\frac{2}{13}}{1}+\vecddd{-\frac{14}{13}}{\frac{5}{13}}{0} &amp; c\in\R</mrow></md>.
+    </p></solution>
     </task>
     </exercise>
     <exercise>
     <introduction>
     <p>Trouver l'intersection des droites suivantes, si possible.</p>
     </introduction>
-    <task><statement><p>La droite <m>\mathcal{D}_1 : \vecddd{x}{y}{z}=\vecddd{1}{-3}{5}+k_1\vecddd{-5}{3}{4}</m> et la droite <m>\mathcal{D}_2 : \vecddd{x}{y}{z}=\vecddd{6}{-6}{1}+k_2\vecddd{-9}{5}{-1}</m></p></statement></task>
-    <task><statement><p>La droite <m>\mathcal{D}_1 : \vecddd{x}{y}{z}=\vecddd{3}{3{0}+k_1\vecddd{5}{4}{-1}</m> et la droite <m>\mathcal{D}_2 : \vecddd{x}{y}{z}=\vecddd{0}{-4}{-3}+k_2\vecddd{-3}{-7}{-3}</m></p></statement></task>
+    <task><statement><p>La droite <m>\mathcal{D}_1 : \vecddd{x}{y}{z}=k_1\vecddd{-5}{3}{4}+\vecddd{1}{-3}{5}</m> </p> 
+    <p>et la droite <m>\mathcal{D}_2 : \vecddd{x}{y}{z}=k_2\vecddd{-9}{5}{-1}+\vecddd{6}{-6}{1}</m></p></statement>
+    <answer><p>L'intersection de ces droites est le point :
+    <me>\vecddd{x}{y}{z}=\vecddd{6}{-6}{1}</me>.
+    </p></answer>
+    <solution><p>Les équations vectorielles de ces deux droites cachent un système à trois équations et deux inconnues. 
+    En effet, en les mettant égales et en écrivant les équations séparément pour chaque variable, on obtiendra un système qu'on écrit de la façon standard.
+    <md>
+    <mrow>\vecddd{x}{y}{z}&amp;=\vecddd{x}{y}{z}</mrow>
+    <mrow>k_1\vecddd{-5}{3}{4}+\vecddd{1}{-3}{5}&amp;=k_2\vecddd{-9}{5}{-1}+\vecddd{6}{-6}{1}</mrow>
+    <mrow>\begin{cases}-5k_1+1&amp;=-9k_2+6 \\
+    3k_1-3&amp;=5k_2-6\\
+    4k_1+5&amp;=-k_2+1\end{cases}</mrow>
+    <mrow>\begin{cases}-5k_1+9k_2&amp;=5 \\
+    3k_1-5k_2&amp;=-3\\
+    4k_1+k_2&amp;=-4\end{cases}</mrow>
+    </md>
+    On construit la matrice augmentée du système et on l'échelonne pour pouvoir déterminer la ou les solutions, s'il y a lieu.
+    Attention, les inconnues sont <m>k_1</m> et <m>k_2</m> plutôt que les variables habituelles.
+    <md>
+    <mrow>\left(\begin{array}{rr|r}
+-5 &amp; 9 &amp; 5 \\
+3 &amp; -5 &amp; -3 \\
+4 &amp; 1 &amp; -4 
+\end{array}\right)&amp;\matsimile{1}{3}\left(\begin{array}{rr|r}
+4 &amp; 1 &amp; -4 \\
+3 &amp; -5 &amp; -3 \\
+-5 &amp; 9 &amp; 5
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{-}{1}\left(\begin{array}{rr|r}
+1 &amp; 6 &amp; -1 \\
+0 &amp; -23 &amp; 0 \\
+0 &amp; 39 &amp; 0
+\end{array}\right) &amp;&amp; \text{(ces deux premières étapes évitent d'introduire des fractions)}</mrow>
+<mrow>&amp;\substack{-\frac{1}{23}L_2\rightarrow L_2 \\ \frac{1}{39}L_3\rightarrow L_3 \\ \sim}\left(\begin{array}{rr|r}
+1 &amp; 6 &amp; -1 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 0
+\end{array}\right)</mrow>
+<mrow>&amp;\substack{-6L_2+L_1\rightarrow L_1 \\ -L_2+L_3\rightarrow L_3 \\ \sim}\left(\begin{array}{rr|r}
+1 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0
+\end{array}\right)</mrow>
+    </md>
+    Les deux lignes se résument aux équations <m>k_1=-1</m> et <m>k_2=0</m>.
+    En remplaçant dans une ou l'autre des équations vectorielles intiales, on obtient le point:
+    <me>\vecddd{x}{y}{z}=\vecddd{6}{-6}{1}</me>
+    Ainsi, l'intersection des deux droites <m>\mathcal{D}_1</m> et <m>\mathcal{D}_2</m> est un point.
+    </p></solution>
+    </task>
+    <task><statement><p>La droite <m>\mathcal{D}_1 : \vecddd{x}{y}{z}=k_1\vecddd{5}{4}{-1}+\vecddd{3}{3}{0}</m> </p> 
+    <p>et la droite <m>\mathcal{D}_2 : \vecddd{x}{y}{z}=k_2\vecddd{-3}{-7}{-3}+\vecddd{0}{-4}{-3}</m></p></statement>
+    <answer><p>L'intersection de ces droites est le point :
+    <me>\vecddd{x}{y}{z}=\vecddd{3}{3}{0}</me>.
+    </p></answer>
+    <solution><p>Les équations vectorielles de ces deux droites cachent un système à trois équations et deux inconnues. 
+    En effet, en les mettant égales et en écrivant les équations séparément pour chaque variable, on obtiendra un système qu'on écrit de la façon standard.
+    <md>
+    <mrow>\vecddd{x}{y}{z}&amp;=\vecddd{x}{y}{z}</mrow>
+    <mrow>k_1\vecddd{5}{4}{-1}+\vecddd{3}{3}{0}&amp;=k_2\vecddd{-3}{-7}{-3}+\vecddd{0}{-4}{-3}</mrow>
+    <mrow>\begin{cases}5k_1+3&amp;=-3k_2+0 \\
+    4k_1+3&amp;=-7k_2-4\\
+    -k_1+0&amp;=-3k_2-3\end{cases}</mrow>
+    <mrow>\begin{cases}5k_1+3k_2&amp;=-3 \\
+    4k_1+7k_2&amp;=-7\\
+    -k_1+3k_2&amp;=-3\end{cases}</mrow>
+    </md>
+    On construit la matrice augmentée du système et on l'échelonne pour pouvoir déterminer la ou les solutions, s'il y a lieu.
+    Attention, les inconnues sont <m>k_1</m> et <m>k_2</m> plutôt que les variables habituelles.
+    <md>
+    <mrow>\left(\begin{array}{rr|r}
+5 &amp; 3 &amp; -3 \\
+4 &amp; 7 &amp; -7 \\
+-1 &amp; 3 &amp; -3 
+\end{array}\right)&amp;\matsimilc{2}{-}{1}\left(\begin{array}{rr|r}
+1 &amp; -4 &amp; 4 \\
+4 &amp; 7 &amp; -7 \\
+-1 &amp; 3 &amp; -3 
+\end{array}\right)</mrow>
+<mrow>&amp;\substack{-4L_1+L_2\rightarrow L_2 \\ L_1+L_3\rightarrow L_3 \\ \sim}\left(\begin{array}{rr|r}
+1 &amp; -4 &amp; 4 \\
+0 &amp; 23 &amp; -23 \\
+0 &amp; -1 &amp; 1 
+\end{array}\right)</mrow>
+<mrow>&amp;\substack{\frac{1}{23}L_2\rightarrow L_2 \\ -L_3\rightarrow L_3 \\ \sim}\left(\begin{array}{rr|r}
+1 &amp; -4 &amp; 4 \\
+0 &amp; 1 &amp; -1 \\
+0 &amp; 1 &amp; -1 
+\end{array}\right)</mrow>
+<mrow>&amp;\substack{4L_2+L_1\rightarrow L_1 \\ -L_2+L_3\rightarrow L_3 \\ \sim}\left(\begin{array}{rr|r}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; -1 \\
+0 &amp; 0 &amp; 0 
+\end{array}\right)</mrow>
+    </md>
+    Les deux lignes se résument aux équations <m>k_1=0</m> et <m>k_2=-1</m>.
+    En remplaçant dans une ou l'autre des équations vectorielles intiales, on obtient le point:
+    <me>\vecddd{x}{y}{z}=\vecddd{3}{3}{0}</me>
+    Ainsi, l'intersection des deux droites <m>\mathcal{D}_1</m> et <m>\mathcal{D}_2</m> est un point.
+    </p></solution>
+    </task>
     </exercise>
     <exercise>
     <introduction>
@@ -189,43 +831,129 @@
     </introduction>
     <task>
     <statement><p>Les solutions sont
-    <me>(x,y)=(2,0)+t(0,1)</me>.</p></statement>
+    <me>(x,y)=t(0,1)+(2,0)</me>.</p></statement>
     <answer>
     <p><m>\left(\begin{array}{rr|r} 1&amp; 0&amp; 2 \\ 0&amp;0&amp;0 \end{array}\right)</m></p>
-    </answer></task>
+    </answer>
+    <solution><p>On doit essentiellement reconstruire le système à partir de la solution.
+    <md>
+    <mrow>\vecd{x}{y}&amp;=t\vecd{0}{1}+\vecd{2}{0}</mrow>
+    <mrow>\vecd{x}{y}&amp;=\vecd{2}{t}</mrow>
+    <mrow>x&amp;=2</mrow>
+    <mrow>y&amp;=t \text{ (libre)}</mrow>
+    </md>
+    Pour avoir une variable libre, il faut avoir une ligne de zéros (la deuxième pour respecter les conditions d'une matrice échelonnée réduite <xref ref="li-rref"/>).
+    La première ligne sera donc simplement constituée pour communiquer l'information que <m>x=2</m>.
+    L'unique bonne réponse est donc:
+    <me>\left(\begin{array}{rr|r} 1&amp; 0&amp; 2 \\ 0&amp;0&amp;0 \end{array}\right)</me>.
+    </p></solution>
+    </task>
     <task>
     <statement><p>Les solutions sont
-    <me>(x,y)=(0,4)+t(1,0)</me>.</p></statement>
+    <me>(x,y)=t(1,0)+(0,4)</me>.</p></statement>
     <answer>
     <p><m>\left(\begin{array}{rr|r} 0&amp; 1&amp; 4 \\ 0&amp;0&amp;0 \end{array}\right)</m></p>
-    </answer></task>
+    </answer>
+    <solution><p>On doit essentiellement reconstruire le système à partir de la solution.
+    <md>
+    <mrow>\vecd{x}{y}&amp;=t\vecd{1}{0}+\vecd{0}{4}</mrow>
+    <mrow>\vecd{x}{y}&amp;=\vecd{t}{4}</mrow>
+    <mrow>x&amp;=t \text{ (libre)}</mrow>
+    <mrow>y&amp;=4</mrow>
+    </md>
+    Pour avoir une variable libre, il faut avoir une ligne de zéros (la deuxième pour respecter les conditions d'une matrice échelonnée réduite <xref ref="li-rref"/>).
+    La première ligne sera donc simplement constituée pour communiquer l'information que <m>y=4</m>.
+    L'unique bonne réponse est donc:
+    <me>\left(\begin{array}{rr|r} 0&amp; 1&amp; 4 \\ 0&amp;0&amp;0 \end{array}\right)</me>.
+    </p></solution>
+    </task>
     <task>
     <statement><p>Les solutions sont
-    <me>(x,y)=(2,0)+t(-1,1)</me>.</p></statement>
+    <me>(x,y)=t(-1,1)+(2,0)</me>.</p></statement>
     <answer>
     <p><m>\left(\begin{array}{rr|r} 1&amp; 1&amp; 2 \\ 0&amp;0&amp;0 \end{array}\right)</m></p>
     </answer>
+    <solution><p>On doit essentiellement reconstruire le système à partir de la solution.
+    <md>
+    <mrow>\vecd{x}{y}&amp;=t\vecd{-1}{1}+\vecd{2}{0}</mrow>
+    <mrow>\vecd{x}{y}&amp;=\vecd{2-t}{t}</mrow>
+    <mrow>x&amp;=2-t </mrow>
+    <mrow>y&amp;=t \text{ (libre)}</mrow>
+    </md>
+    La première ligne sera donc simplement constituée pour communiquer l'information que <m>x=2-t\Rightarrow x=2-y \Rightarrow x+y=2</m>.
+    L'unique bonne réponse est donc:
+    <me>\left(\begin{array}{rr|r} 1&amp; 1&amp; 2 \\ 0&amp;0&amp;0 \end{array}\right)</me>.
+    </p></solution>
     </task>
-        <task>
+    <task>
     <statement><p>Les solutions sont
-    <me>(x,y)=(3,0)+t(-6,3)</me>.</p></statement>
+    <me>(x,y)=t(-6,3)+(3,0)</me>.</p></statement>
     <answer>
     <p><m>\left(\begin{array}{rr|r} 1&amp; 2&amp; 3 \\ 0&amp;0&amp;0 \end{array}\right)</m></p>
     </answer>
+    <solution><p>On doit essentiellement reconstruire le système à partir de la solution.
+    <md>
+    <mrow>\vecd{x}{y}&amp;=t\vecd{-6}{3}+\vecd{3}{0}</mrow>
+    <mrow>\vecd{x}{y}&amp;=t'\vecd{-2}{1}+\vecd{3}{0} \text{ on pose }t'=3t \text{ pour obtenir une variable libre}</mrow>
+    <mrow>\vecd{x}{y}&amp;=\vecd{-2t'+3}{t'}</mrow>
+    <mrow>x&amp;=-2t'+3 </mrow>
+    <mrow>y&amp;=t' \text{ (libre)}</mrow>
+    </md>
+    La première ligne sera donc simplement constituée pour communiquer l'information que <m>x=-2t'+3\Rightarrow x=-2y+3 \Rightarrow x+2y=3</m>.
+    L'unique bonne réponse est donc:
+    <me>\left(\begin{array}{rr|r} 1&amp; 2&amp; 3 \\ 0&amp;0&amp;0 \end{array}\right)</me>.
+    </p></solution>
     </task>
         <task>
     <statement><p>Les solutions sont
-    <me>(x,y)=(21,4)+t(5,1)</me>.</p></statement>
+    <me>(x,y)=t(5,1)+(21,4)</me>.</p></statement>
     <answer>
     <p><m>\left(\begin{array}{rr|r} 1&amp; -5&amp; 1 \\ 0&amp;0&amp;0 \end{array}\right)</m></p>
     </answer>
+    <solution><p>On doit essentiellement reconstruire le système à partir de la solution.
+    Ici, on fait face à une difficulté additionnelle du fait qu'aucune des variables ne pourra être simplement égale à la variable libre.
+    Cela est du au fait qu'une équation vectorielle peut avoir n'importe quel point sur l'objet comme point de départ.
+    On doit donc trouver un point sur la droite où la coordonnée en <m>y</m> est égale à <m>0</m>.
+    <me>(x,0)=t(5,1)+(21,4)\Rightarrow \begin{cases}x&amp;=5t+21\\0&amp;=t+4\end{cases}</me>
+    <me>t=-4\Rightarrow x=5*(-4)+21=1</me>
+    Ainsi, on peut réécrire l'équation de départ ainsi:
+    <me>(x,y)=t(5,1)+(1,0)</me>.
+    <md>
+    <mrow>\vecd{x}{y}&amp;=t\vecd{5}{1}+\vecd{1}{0}</mrow>
+    <mrow>\vecd{x}{y}&amp;=\vecd{5t+1}{t}</mrow>
+    <mrow>x&amp;=5t+1 </mrow>
+    <mrow>y&amp;=t \text{ (libre)}</mrow>
+    </md>
+    La première ligne sera donc simplement constituée pour communiquer l'information que <m>x=5t+1\Rightarrow x=5y+1 \Rightarrow x-5y=1</m>.
+    L'unique bonne réponse est donc:
+    <me>\left(\begin{array}{rr|r} 1&amp; -5&amp; 1 \\ 0&amp;0&amp;0 \end{array}\right)</me>.
+    </p></solution>
     </task>
             <task>
     <statement><p>Les solutions sont
-    <me>(x,y)=(3,4)+t(8,4)</me>.</p></statement>
+    <me>(x,y)=t(8,4)+(3,4)</me>.</p></statement>
     <answer>
     <p><m>\left(\begin{array}{rr|r} 1&amp; -2&amp; -5 \\ 0&amp;0&amp;0 \end{array}\right)</m></p>
     </answer>
+    <solution><p>On doit essentiellement reconstruire le système à partir de la solution.
+    Ici, on fait face à une difficulté additionnelle du fait qu'aucune des variables ne pourra être simplement égale à la variable libre.
+    Cela est du au fait qu'une équation vectorielle peut avoir n'importe quel point sur l'objet comme point de départ.
+    On doit donc trouver un point sur la droite où la coordonnée en <m>y</m> est égale à <m>0</m>.
+    <me>(x,0)=t(8,4)+(3,4)\Rightarrow \begin{cases}x&amp;=8t+3\\0&amp;=4t+4\end{cases}</me>
+    <me>t=-1\Rightarrow x=8*(-1)+3=-5</me>
+    Ainsi, on peut réécrire l'équation de départ ainsi:
+    <me>(x,y)=t(8,4)+(-5,0)</me>.
+    <md>
+    <mrow>\vecd{x}{y}&amp;=t\vecd{8}{4}+\vecd{-5}{0}</mrow>
+    <mrow>\vecd{x}{y}&amp;=t'\vecd{2}{1}+\vecd{-5}{0} \text{ on pose }t'=4t \text{ pour obtenir une variable libre}</mrow>
+    <mrow>\vecd{x}{y}&amp;=\vecd{2t'-5}{t'}</mrow>
+    <mrow>x&amp;=2t'-5 </mrow>
+    <mrow>y&amp;=t' \text{ (libre)}</mrow>
+    </md>
+    La première ligne sera donc simplement constituée pour communiquer l'information que <m>x=2t'-5\Rightarrow x=2y-5 \Rightarrow x-2y=-5</m>.
+    L'unique bonne réponse est donc:
+    <me>\left(\begin{array}{rr|r} 1&amp; -2&amp; -5 \\ 0&amp;0&amp;0 \end{array}\right)</me>.
+    </p></solution>
     </task>
     <task><statement>
     <p>Les points <m>(-1,1)</m> et <m>(1,5)</m> sont des solutions.</p>

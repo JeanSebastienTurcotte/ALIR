@@ -1542,8 +1542,10 @@ show(para+ptP+ptQ+ptR)
     </solution>
     </task>
     <task>
-    <statement><p>On veut maintenant créer une fonction qui va retourner l'équation d'une parabole passant par trois points donnés. La fonction doit d'abord vérifier si
-    une telle parabole existe et si c'est le cas, retourner son équation. Tester la fonction avec la réponse à la partie précédente.</p>
+    <statement><p>On veut maintenant créer une fonction qui va retourner l'équation d'une parabole passant par trois points donnés. 
+    La fonction doit d'abord vérifier si les trois points sont différents et ensuite  retourner son équation. 
+    Tester la fonction avec la réponse à la partie précédente et avec des points pareils. 
+    Finalement, observer le résultat lorsqu'on calcule l'équation pour trois points alignés.</p>
             <sage>
     <input>
     </input>
@@ -1557,8 +1559,8 @@ show(para+ptP+ptQ+ptR)
 def eqparapoints(P1,P2,P3):
     v1=P2-P1
     v2=P3-P1
-    if v2[1]-v1[1]==v2[0]-v1[0]:
-        print("Les points sont sur une même droite, pas une parabole")
+    if P1==P2 or P1==P3 or P2==P3:
+        print("Il faut fournir trois points différents pour définir une parabole.")
     else:
         #On veut résoudre ax^2+bx+c=y avec x,y=P1,P2,P3. On résoute le système A(a,b,c)=v où v=(y1,y2,y3)
         A=matrix([[P1[0]^2,P1[0],1],[P2[0]^2,P2[0],1],[P3[0]^2,P3[0],1]])
@@ -1568,10 +1570,14 @@ def eqparapoints(P1,P2,P3):
 P1=vector([-1,22])
 P2=vector([2,19])
 P3=vector([3,34])
-eqparapoints(P1,P2,P3)    
+P4=(P1+P2)/2
+eqparapoints(P1,P2,P3)
+eqparapoints(P1,P1,P3) #On teste avec deux points pareils
+eqparapoints(P1,P2,P4) #On teste avec trois points sur une droite
     </input>
     </program>
     </listing>
+    <p>On remarque que l'équation obtenue pour trois points alignés est l'équation d'une droite.</p>
     </solution>
     </task>
     </exercise>
