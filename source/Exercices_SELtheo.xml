@@ -826,7 +826,7 @@
     </exercise>
     <exercise>
     <introduction>
-    <p>Des solutions à un système d'équations linéaires <m>A\vec{x}=\vec{b}</m> où <m>A</m> est une matrice <m>2\times 2</m>  sont données ci-dessous. Donner toutes 
+    <p>Des solutions à un système d'équations linéaires <m>A\vec{x}=\vec{b}</m> où <m>A</m> est une matrice <m>2\times 2</m> non-nulle sont données ci-dessous. Donner toutes 
     les formes augmentées de matrices échelonnées réduites équivalentes à <m>(A|\vec{b})</m>.</p>
     </introduction>
     <task>
@@ -958,12 +958,54 @@
     <task><statement>
     <p>Les points <m>(-1,1)</m> et <m>(1,5)</m> sont des solutions.</p>
     </statement>
-    <hint><p>Il y a deux matrices échelonnées réduites qui peuvent mener à ce scénario.</p></hint>
+    <answer>
+    <p><m>\left(\begin{array}{rr|r}1&amp; -\frac{1}{2}&amp; -\frac{3}{2} \\ 0&amp;0&amp;0 \end{array}\right)</m></p>
+    </answer>
+    <solution><p>On doit d'abord créer la droite passant par ce deux points. 
+    Il existe une infinité de vecteurs directeurs valables (pourvus qu'ils soient tous parallèles) et de points de départ (pourvu qu'ils soient sur la droite).
+    Par contre, les choix évidents sont de prendre un des points donnés et le vecteur les reliant.
+    On a appris, des lettres précédentes, qu'on veut un vecteur avec une composante égale à <m>1</m> et idéalement un point de départ où cette même variable aura un <m>0</m>.
+    <me>\vec{v}'=(1,5)-(-1,1)=(2,4)=2(1,2)\Rightarrow \vec{v}=(1,2)</me>
+    et 
+    <me>\mathcal{D}: (x,y)=t'(1,2)+(-1,1)=t(1,2)+(1,2)+(-1,1)=t(1,2)+(0,3)</me>
+    Ainsi,
+    <md>
+    <mrow>\vecd{x}{y}&amp;=t\vecd{1}{2}+\vecd{0}{3}</mrow>
+    <mrow>\vecd{x}{y}&amp;=\vecd{t}{2t+3}</mrow>
+    <mrow>x&amp;=t \text{ (libre)}</mrow>
+    <mrow>y&amp;=2t+3 </mrow>
+    </md>
+    La première ligne sera donc simplement constituée pour communiquer l'information que <m>y=2t+3\Rightarrow y=2x+3 \Rightarrow 2x-y=-3</m>.
+    Cela donne une matrice qui n'est pas échelonnée réduite alors on fait l'opération nécessaire:
+    <me>\left(\begin{array}{rr|r} 2&amp; -1&amp; -3 \\ 0&amp;0&amp;0 \end{array}\right)</me>\matsimils{1}{\frac{1}{2}}\left(\begin{array}{rr|r} 1&amp; -\frac{1}{2}&amp; -\frac{3}{2} \\ 0&amp;0&amp;0 \end{array}\right).
+    L'unique bonne réponse est donc:
+    <me>\left(\begin{array}{rr|r}1&amp; -\frac{1}{2}&amp; -\frac{3}{2} \\ 0&amp;0&amp;0 \end{array}\right)</me>.
+    </p></solution>
     </task>
     <task><statement>
     <p>Les points <m>(-1,1)</m> et <m>(1,1)</m> sont des solutions.</p>
     </statement>
-    <hint><p>Il y a deux matrices échelonnées réduites qui peuvent mener à ce scénario.</p></hint>
+    <answer>
+    <p><m>\left(\begin{array}{rr|r} 0 &amp; 1 &amp; 1 \\ 0&amp;0&amp;0 \end{array}\right)</m></p>
+    </answer>
+    <solution><p>On doit d'abord créer la droite passant par ce deux points. 
+    Il existe une infinité de vecteurs directeurs valables (pourvus qu'ils soient tous parallèles) et de points de départ (pourvu qu'ils soient sur la droite).
+    Par contre, les choix évidents sont de prendre un des points donnés et le vecteur les reliant.
+    On a appris, des lettres précédentes, qu'on veut un vecteur avec une composante égale à <m>1</m> et idéalement un point de départ où cette même variable aura un <m>0</m>.
+    <me>\vec{v}'=(1,1)-(-1,1)=(2,0)=2(1,0)\Rightarrow \vec{v}=(1,0)</me>
+    et 
+    <me>\mathcal{D}: (x,y)=t'(1,0)+(-1,1)=t(1,0)+(1,0)+(-1,1)=t(1,0)+(0,1)</me>
+    Ainsi,
+    <md>
+    <mrow>\vecd{x}{y}&amp;=t\vecd{1}{0}+\vecd{0}{1}</mrow>
+    <mrow>\vecd{x}{y}&amp;=\vecd{t}{1}</mrow>
+    <mrow>x&amp;=t \text{ (libre)}</mrow>
+    <mrow>y&amp;=1 </mrow>
+    </md>
+    La première ligne sera donc simplement constituée pour communiquer l'information que <m>y=1</m>.
+    L'unique bonne réponse est donc:
+    <me>\left(\begin{array}{rr|r} 0 &amp; 1 &amp; 1 \\ 0&amp;0&amp;0 \end{array}\right)</me>.
+    </p></solution>
     </task>
     </exercise>
     <exercise>
@@ -974,49 +1016,251 @@
     <statement>
     <m>\matcold{1}{3}{3}{1}</m>
     </statement>
+    <answer><p><m>r=2</m></p></answer>
+    <solution><p>On doit échelonner la matrice et donner le nombre de pivots.
+    <md>
+    <mrow>\begin{pmatrix} 1 &amp; 3\\ 3 &amp; 1\end{pmatrix}&amp;\matsimilc{1}{-3}{2}\begin{pmatrix} 1 &amp; 3\\ 0 &amp; -8\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{2}{-\frac{1}{8}}\begin{pmatrix} 1 &amp; 3\\ 0 &amp; 1\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-3}{1}\begin{pmatrix} 1 &amp; 0\\ 0 &amp; 1\end{pmatrix}</mrow>
+    </md>
+    La matrice est donc de rang <m>2</m>, puisque sa forme échelonnée réduite possède deux pivots.</p></solution>
     </task>
     <task>
     <statement>
     <m>\matcold{1}{3}{2}{6}</m>
     </statement>
+    <answer><p><m>r=1</m></p></answer>
+    <solution><p>On doit échelonner la matrice et donner le nombre de variables pivots, selon la définition <xref ref="def-rang"/>.
+    <md>
+    <mrow>\begin{pmatrix} 1 &amp; 2\\ 3 &amp; 6\end{pmatrix}&amp;\matsimilc{1}{-3}{2}\begin{pmatrix} 1 &amp; 2\\ 0 &amp; 0\end{pmatrix}</mrow>
+    </md>
+    La matrice est donc de rang <m>1</m>, puisque sa forme échelonnée réduite possède un seul pivot.</p></solution>
     </task>
     <task>
     <statement>
     <m>\matcolt{1}{2}{3}{4}{5}{6}{7}{8}{9}</m>
     </statement>
+    <answer><p><m>r=2</m></p></answer>
+    <solution><p>On doit échelonner la matrice et donner le nombre de pivots.
+    <md>
+    <mrow>\begin{pmatrix} 
+    1 &amp; 4 &amp; 7\\ 
+    2 &amp; 5 &amp; 8 \\ 
+    3 &amp; 6 &amp; 9\end{pmatrix}&amp;\substack{-2L_1+L_2\rightarrow L_2 \\ -3L_1+L_3\rightarrow L_3 \\ \sim}\begin{pmatrix} 
+    1 &amp; 4 &amp; 7\\ 
+    0 &amp; -3 &amp; -6 \\ 
+    0 &amp; -6 &amp; -12\end{pmatrix}</mrow>
+    <mrow>&amp;\substack{-\frac{1}{3}L_2\rightarrow L_2 \\ -\frac{1}{6}L_3\rightarrow L_3 \\ \sim}\begin{pmatrix} 
+    1 &amp; 4 &amp; 7\\ 
+    0 &amp; 1 &amp; 2 \\ 
+    0 &amp; 1 &amp; 2\end{pmatrix}</mrow>
+    <mrow>&amp;\substack{-4L_2+L_1\rightarrow L_1 \\ -L_2+L_3\rightarrow L_3 \\ \sim}\begin{pmatrix} 
+    1 &amp; 0 &amp; -1\\ 
+    0 &amp; 1 &amp; 2 \\ 
+    0 &amp; 0 &amp; 0\end{pmatrix}</mrow>
+    </md>
+    La matrice est donc de rang <m>2</m>, puisque sa forme échelonnée réduite possède deux pivots.</p></solution>
     </task>
     <task>
     <statement><p>La matrice <m>R_{\theta}</m>, représentant une rotation de <m>\theta</m> degrés dans <m>\R^2</m>.</p></statement>
+    <answer><p><m>r=2</m></p></answer>
+    <solution><p>Plutôt que d'échelonner la matrice de rotation <xref ref="eq-rotr2"/> comportant une variable, on choisit de se servir du théorème 
+    de la matrice inverse <xref ref="thm-delamatriceinversev2"/>. 
+    Ce dernier spécifie que si une matrice carrée est inversible, alors elle est de rang maximal.
+    Or, on a appris dans la section <xref ref="sec-matinverse"/> que les rotations sont des transformations linéaires inversibles. 
+    On avait même trouvé que <m>R_{\theta}^{-1}=R_{-\theta}</m>.
+    Ainsi, cette matrice <m>2 \times 2</m> est de rang maximal donc <m>2</m>.</p></solution>
     </task>
     <task>
     <statement>
     <p>La matrice <m>S</m> d'une réflexion quelconque dans <m>\R^3</m>.</p>
     </statement>
+    <answer><p><m>r=3</m></p></answer>
+    <solution><p>On n'a même pas développé de forme générale pour une réflexion quelconque dans <m>\R^3</m>, on ne peut donc pas échelonner la matrice <m>S</m>.
+    On choisit donc de se servir encore du théorème de la matrice inverse <xref ref="thm-delamatriceinversev2"/>. 
+    Ce dernier spécifie que si une matrice carrée est inversible, alors elle est de rang maximal.
+    Or, on a appris que les réflexions sont des transformations linéaires inversibles. 
+    On avait même trouvé que <m>S^{-1}=S</m>, peu importe l'axe de réflexion.
+    Ainsi, cette matrice <m>3 \times 3</m> est de rang maximal donc <m>3</m>.</p></solution>
     </task>
-    <task><statement><p>La matrice <m>P_z</m> qui envoie tout vecteur <m>(x,y,z)</m> sur le vecteur <m>(x,y,0)</m>.</p></statement></task>
-    <task><statement><p>La matrice <m>P_{xz}</m> qui envoie tout vecteur <m>(x,y,z)</m> sur le vecteur <m>(0,y,0)</m>.</p></statement></task>
+    <task><statement><p>La matrice <m>P_z</m> qui envoie tout vecteur <m>(x,y,z)</m> sur le vecteur <m>(x,y,0)</m>.</p></statement>
+    <answer><p><m>r=2</m></p></answer>
+    <solution><p>On pourrait déduire le rang en réfléchissant au fait qu'on perd une dimension dans ce genre de projection.
+    Cependant, on peut facilement construire cette matrice en se souvenant du fait que les colonnes d'une matrice de transformation linéaire 
+    correspondent aux images des vecteurs de la base canonique sous cette transformation tel qu'utilisé entre autres dans l'exemple <xref ref="ex-transfomatrice"/>.
+    Puisque <m>T(x,y,z)=(x,y,0)</m>, il est immédiat que:
+    <me>T\vecddd{1}{0}{0}=\vecddd{1}{0}{0}, T\vecddd{0}{1}{0}=\vecddd{0}{1}{0} \text{ et }T\vecddd{0}{0}{1}=\vecddd{0}{0}{0}</me>.
+    La matrice est donc
+    <me>T=\begin{pmatrix} 
+    1 &amp; 0 &amp; 0\\ 
+    0 &amp; 1 &amp; 0 \\ 
+    0 &amp; 0 &amp; 0\end{pmatrix}</me>
+    qui est déjà échelonnée et de rang <m>2</m>.</p></solution></task>
+    <task><statement><p>La matrice <m>P_{xz}</m> qui envoie tout vecteur <m>(x,y,z)</m> sur le vecteur <m>(0,y,0)</m>.</p></statement>
+    <answer><p><m>r=1</m></p></answer>
+    <solution><p>On pourrait déduire le rang en réfléchissant au fait qu'on perd deux dimensions dans ce genre de projection.
+    Cependant, on peut facilement construire cette matrice en se souvenant du fait que les colonnes d'une matrice de transformation linéaire 
+    correspondent aux images des vecteurs de la base canonique sous cette transformation tel qu'utilisé entre autres dans l'exemple <xref ref="ex-transfomatrice"/>.
+    Puisque <m>T(x,y,z)=(0,y,0)</m>, il est immédiat que:
+    <me>T\vecddd{0}{0}{0}=\vecddd{1}{0}{0}, T\vecddd{0}{1}{0}=\vecddd{0}{1}{0} \text{ et }T\vecddd{0}{0}{1}=\vecddd{0}{0}{0}</me>.
+    La matrice est donc
+    <me>T=\begin{pmatrix} 
+    0 &amp; 0 &amp; 0\\ 
+    0 &amp; 1 &amp; 0 \\ 
+    0 &amp; 0 &amp; 0\end{pmatrix}\matsimile{1}{2}\begin{pmatrix} 
+    0 &amp; 1 &amp; 0\\ 
+    0 &amp; 0 &amp; 0 \\ 
+    0 &amp; 0 &amp; 0\end{pmatrix}</me>
+    qui une fois échelonnée est clairement de rang <m>1</m>.</p></solution></task>
     </exercise>
     <exercise xml:id="exo-rangechelon">
    <introduction>Pour chaque énoncé, donner au moins deux matrices échelonnées réduites qui satisfont l'énoncé. S'il n'y en a pas deux, expliquer pourquoi et s'il y en a
    plus de deux, déterminer combien.</introduction>
-   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>2\times 2</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>2\times 2</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>2\times 2</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>3\times 3</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>3\times 3</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>3\times 3</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>3</m> et de taille <m>3\times 3</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>3\times 2</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>3\times 2</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>3\times 2</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>3</m> et de taille <m>3\times 2</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>2\times 3</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>2\times 3</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>2\times 3</m>.</p></statement></task>
-   <task><statement><p>Les matrices sont de rang <m>3</m> et de taille <m>2\times 3</m>.</p></statement></task>
+   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>2\times 2</m>.</p></statement>
+   <answer><p>Il existe une infinité de matrices de ce type ayant la forme <m>\begin{pmatrix} 1 &amp; k\\ 0 &amp; 0\end{pmatrix}, k\in\R</m>.
+   On en donne deux.
+   <me>\begin{pmatrix} 1 &amp; 0\\ 0 &amp; 0\end{pmatrix} \text{ et} \begin{pmatrix} 1 &amp; 1\\ 0 &amp; 0\end{pmatrix}</me>
+   La matrice <m>\begin{pmatrix} 0 &amp; 1\\ 0 &amp; 0\end{pmatrix}</m> correspond aussi aux critères, mais a une forme différente des autres.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>2\times 2</m>.</p></statement>
+   <answer><p>La seule réponse valable est la matrice nulle:
+   <m>\begin{pmatrix} 0 &amp; 0\\ 0 &amp; 0\end{pmatrix}</m>. Il est impossible de n'avoir aucun pivot si il y a des valeurs non nulles.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>2\times 2</m>.</p></statement>
+   <answer><p>La seule réponse valable est la matrice identité:
+   <m>\begin{pmatrix} 1 &amp; 0\\ 0 &amp; 1\end{pmatrix}</m>. 
+   Toute matrice carrée de rang maximal est inversible et donc on peut faire des opérations élémentaires et arriver à la matrice identité 
+   (voir l'exercice <xref ref="exo-matinversibleeqid"/>).
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>3\times 3</m>.</p></statement>
+   <answer><p>Il existe une infinité de matrices de ce type de la forme <me>\begin{pmatrix}1&amp;a&amp; b\\ 0 &amp; 0 &amp; 0\\ 0 &amp; 0&amp; 0\end{pmatrix}, a,b\in\R</me> 
+   ou de la forme <me>\begin{pmatrix} 0 &amp; 1 &amp; k\\ 0 &amp; 0 &amp; 0\\ 0 &amp; 0&amp; 0\end{pmatrix}, k\in\R</me>
+   On en donne deux.
+   <me>\begin{pmatrix}1&amp;0&amp; 0\\ 0 &amp; 0 &amp; 0\\ 0 &amp; 0&amp; 0\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 0 &amp; 1 &amp; 0\\ 0 &amp; 0 &amp; 0\\ 0 &amp; 0&amp; 0\end{pmatrix}</me>
+   La matrice <m>\begin{pmatrix} 0 &amp; 0 &amp; 1\\ 0 &amp; 0 &amp; 0\\ 0 &amp; 0&amp; 0\end{pmatrix}</m> correspond aussi aux critères, mais est unique de cette forme.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>3\times 3</m>.</p></statement>
+   <answer><p>La seule réponse valable est la matrice nulle:
+   <m>\begin{pmatrix} 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0\end{pmatrix}</m>. 
+   Il est impossible de n'avoir aucun pivot si il y a des valeurs non nulles.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>3\times 3</m>.</p></statement>
+   <answer><p>Il existe une infinité de matrices de ce type de la forme 
+   <me>\begin{pmatrix}1&amp;0&amp; a\\ 0 &amp; 1 &amp; b\\ 0 &amp; 0&amp; 0\end{pmatrix}, a,b\in\R</me>.
+   On en donne deux.
+   <me>\begin{pmatrix}1&amp;0&amp; 0\\ 0 &amp; 1 &amp; 0\\ 0 &amp; 0&amp; 0\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 1 &amp; 0 &amp; 1\\ 0 &amp; 1 &amp; 1\\ 0 &amp; 0&amp; 0\end{pmatrix}</me>
+   La matrice <m>\begin{pmatrix} 0 &amp; 1 &amp; 0\\ 0 &amp; 0 &amp; 1\\ 0 &amp; 0&amp; 0\end{pmatrix}</m> correspond aussi aux critères, mais est unique de cette forme.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>3</m> et de taille <m>3\times 3</m>.</p></statement>
+   <answer><p>La seule réponse valable est la matrice identité:
+   <m>\begin{pmatrix} 1 &amp; 0 &amp; 0\\ 0 &amp; 1 &amp; 0\\ 0 &amp; 0&amp; 1\end{pmatrix}</m>>. 
+   Toute matrice carrée de rang maximal est inversible et donc on peut faire des opérations élémentaires et arriver à la matrice identité 
+   (voir l'exercice <xref ref="exo-matinversibleeqid"/>).
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>3\times 2</m>.</p></statement>
+   <answer><p>Il existe une infinité de matrices de ce type de la forme <me>\begin{pmatrix} 1 &amp; k\\ 0 &amp; 0\\ 0&amp; 0\end{pmatrix}, k\in\R</me>
+   On en donne deux.
+   <me>\begin{pmatrix}1&amp;0\\ 0 &amp; 0 \\ 0 &amp; 0\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 1 &amp; 1\\ 0 &amp; 0\\ 0&amp; 0\end{pmatrix}</me>
+   La matrice <m>\begin{pmatrix} 0 &amp; 1\\ 0 &amp; 0\\ 0&amp; 0\end{pmatrix}</m> correspond aussi aux critères, mais est unique de cette forme.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>3\times 2</m>.</p></statement>
+   <answer><p>La seule réponse valable est la matrice nulle:
+   <m>\begin{pmatrix} 0 &amp; 0\\ 0 &amp; 0\\ 0 &amp; 0\end{pmatrix}</m>. 
+   Il est impossible de n'avoir aucun pivot si il y a des valeurs non nulles.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>3\times 2</m>.</p></statement>
+   <answer><p>La seule matrice possible est <m>\begin{pmatrix} 1 &amp; 0\\ 0 &amp; 1\\ 0&amp; 0\end{pmatrix}</m>.
+   Toute autre forme pourrait être ramenée à celle-ci en utilisant une des trois opérations élémentaires.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>3</m> et de taille <m>3\times 2</m>.</p></statement>
+   <answer><p>Aucune matrice répond à ces critères.
+   En effet, pour avoir un rang de <m>3</m>, il faut y avoir trois pivots. 
+   Les pivots correspondant aux colonnes, il est impossible d'y arriver avec seulement deux colonnes.</p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>2\times 3</m>.</p></statement>
+   <answer><p>Il existe une infinité de matrices de ce type de la forme <me>\begin{pmatrix}1&amp;a&amp; b\\ 0 &amp; 0&amp; 0\end{pmatrix}, a,b\in\R</me> 
+   ou de la forme <me>\begin{pmatrix} 0 &amp; 1 &amp; k\\ 0 &amp; 0&amp; 0\end{pmatrix}, k\in\R</me>
+   On en donne deux.
+   <me>\begin{pmatrix}1&amp;0&amp; 0\\ 0 &amp; 0&amp; 0\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 0 &amp; 1 &amp; 0\\ 0 &amp; 0&amp; 0\end{pmatrix}</me>
+   La matrice <m>\begin{pmatrix} 0 &amp; 0 &amp; 1\\ 0 &amp; 0&amp; 0\end{pmatrix}</m> correspond aussi aux critères, mais est unique de cette forme.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>2\times 3</m>.</p></statement>
+   <answer><p>La seule réponse valable est la matrice nulle:
+   <m>\begin{pmatrix} 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0\end{pmatrix}</m>. 
+   Il est impossible de n'avoir aucun pivot si il y a des valeurs non nulles.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>2\times 3</m>.</p></statement>
+   <answer><p>Il existe une infinité de matrices de ce type de la forme 
+   <me>\begin{pmatrix}1&amp;0&amp; a\\ 0 &amp; 1 &amp; b\end{pmatrix}, a,b\in\R</me>.
+   On en donne deux.
+   <me>\begin{pmatrix}1&amp;0&amp; 0\\ 0 &amp; 1 &amp; 0\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 1 &amp; 0 &amp; 1\\ 0 &amp; 1 &amp; 1\end{pmatrix}</me>
+   La matrice <m>\begin{pmatrix} 0 &amp; 1 &amp; 0\\ 0 &amp; 0 &amp; 1\end{pmatrix}</m> correspond aussi aux critères, mais est unique de cette forme.
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>3</m> et de taille <m>2\times 3</m>.</p></statement>
+   <answer><p>Aucune matrice répond à ces critères.
+   En effet, pour avoir un rang de <m>3</m>, il faut y avoir trois pivots. 
+   Les pivots devant être sur des lignes différentes, il faut en avoir trois pour y arriver.</p></answer></task>
     </exercise>
     <exercise>
-    <statement><p>Refaire l'exercice <xref ref="exo-rangechelon"/>, cette fois sans avoir des matrices échelonnées réduites.</p></statement>
+    <introduction><p>Refaire l'exercice <xref ref="exo-rangechelon"/>, cette fois sans que les réponses soient des matrices échelonnées réduites.
+    Nul besoin de redonner les explications qui seront les mêmes.</p></introduction>
+    <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>2\times 2</m>.</p></statement>
+    <hint><p>Essentiellement, on reprend toutes nos réponses de l'exercice <xref ref="exo-rangechelon"/> et on donne une matrice non échelonnée correspondante.
+    On rappelle que pour qu'une ligne non-nulle devienne nulle lorsqu'échelonnée, il faut qu'elle soit multiple d'une autre ligne ou, plus généralement,
+    combinaison linéaire des autres lignes.
+    Il existe bien entendu une infinité de réponses possibles.
+    </p></hint>
+   <answer><p><me>\begin{pmatrix} 1 &amp; 2\\ 2 &amp; 4\end{pmatrix} \text{ et} \begin{pmatrix} 0 &amp; 7\\ 0 &amp; 0\end{pmatrix}</me>
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>2\times 2</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix} 0 &amp; 0\\ 0 &amp; 0\end{pmatrix}</me></p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>2\times 2</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix} 1 &amp; 3\\ 1 &amp; 4\end{pmatrix} \text{ et} \begin{pmatrix} 2 &amp; 0\\ 0 &amp; 2\end{pmatrix}</me>
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>3\times 3</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix}1&amp;2&amp; 3\\ 2 &amp; 4 &amp; 6\\ 3 &amp; 6&amp; 9\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 0 &amp; 0 &amp; 9\\ 0 &amp; 0 &amp; 2\\ 0 &amp; 0&amp; -1\end{pmatrix}</me>
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>3\times 3</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix} 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0\end{pmatrix}</me>
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>3\times 3</m>.</p></statement>
+   <answer><p>
+   <me>\begin{pmatrix}1&amp;1&amp; 1\\ 1 &amp; 2 &amp; 2\\ 3 &amp; 3&amp; 3\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 0 &amp; 1 &amp; 1\\ 0 &amp; 1 &amp; 2\\ 0 &amp; 3&amp; 3\end{pmatrix}</me>
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>3</m> et de taille <m>3\times 3</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix}1&amp;1&amp; 1\\ 1 &amp; 2 &amp; 3\\ 3 &amp; 5&amp; 11\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 9 &amp;  0&amp; 0\\ 0 &amp; 5 &amp; 0\\ 0 &amp; 0&amp; 3\end{pmatrix}</me>
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>3\times 2</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix}1&amp;2\\ 2 &amp; 4 \\ 3 &amp; 6\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 1 &amp; 1\\ 2 &amp; 2\\ 3&amp; 3\end{pmatrix}</me>
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>3\times 2</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix} 0 &amp; 0\\ 0 &amp; 0\\ 0 &amp; 0\end{pmatrix}</me>
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>3\times 2</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix}1&amp;2\\ 1 &amp; 4 \\ 2 &amp; 6\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 1 &amp; 1\\ 1 &amp; 2\\ 3&amp; 3\end{pmatrix}</me>
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>3</m> et de taille <m>3\times 2</m>.</p></statement>
+   <answer><p>Aucune matrice répond à ces critères.</p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>1</m> et de taille <m>2\times 3</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix}1&amp;2&amp; 3\\ 2 &amp; 4&amp; 6\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 0 &amp; 1 &amp; 2\\ 0 &amp; 2&amp; 4\end{pmatrix}</me></p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>0</m> et de taille <m>2\times 3</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix} 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0\end{pmatrix}</me>
+   </p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>2</m> et de taille <m>2\times 3</m>.</p></statement>
+   <answer><p><me>\begin{pmatrix}1&amp;1&amp; 1\\ 1 &amp; 2 &amp; 1\end{pmatrix} \text{ et} 
+   \begin{pmatrix} 0 &amp; 1 &amp; 1\\ 0 &amp; 1 &amp; 2\end{pmatrix}</me></p></answer></task>
+   <task><statement><p>Les matrices sont de rang <m>3</m> et de taille <m>2\times 3</m>.</p></statement>
+   <answer><p>Aucune matrice répond à ces critères.</p></answer></task>
     </exercise>
 <exercise>
 <introduction>
@@ -1025,20 +1269,114 @@
                                                                   \star &amp; \star &amp; \star\end{pmatrix}</m> 
     par des entiers non nuls afin que la matrice soit</p>
 </introduction>
-<task><statement> de rang <m>2</m>;</statement></task>
-<task><statement> équivalente à la matrice identité.</statement></task>
+<task><statement><p>de rang <m>2</m>;</p></statement>
+<answer><p><me>\begin{pmatrix} 
+1&amp; -2&amp; 2 \\
+3&amp; 1 &amp; -4 \\
+1 &amp; -2 &amp; 2\end{pmatrix}</me></p></answer>
+<solution><p>Pour être de rang <m>2</m>, il faut que la dernière ligne soit complètement remplacée par des zéros lorsqu'on fera l'échelonnage.
+En effet, les deux premières lignes n'étant pas multiples l'une de l'autre, on aura deux pivots. 
+Une façon simple d'y arriver est de donner une ligne qui soit égale à une des deux autres ou même un multiple. 
+La dernière façon serait qu'elle soit une combinaison linéaire de ces lignes. On y va simplement.
+<md>
+<mrow>\begin{pmatrix} 
+1&amp; -2&amp; 2 \\
+3&amp; 1 &amp; -4 \\
+1 &amp; -2 &amp; 2\end{pmatrix}&amp;\substack{-3L_1+L_2\rightarrow L_2 \\ -L_1+L_3\rightarrow L_3 \\ \sim}\begin{pmatrix} 
+1&amp; -2&amp; 2 \\
+0&amp; 7 &amp; -10 \\
+0 &amp; 0 &amp; 0\end{pmatrix}</mrow>
+<mrow>&amp;\matsimils{\frac{1}{7}}{2}\begin{pmatrix} 
+1&amp; -2&amp; 2 \\
+0&amp; 1 &amp; -\frac{10}{7} \\
+0 &amp; 0 &amp; 0\end{pmatrix}</mrow>
+<mrow>&amp;\matsimilc{2}{2}{1}\begin{pmatrix} 
+1&amp; 0&amp; -\frac{6}{7} \\
+0&amp; 1 &amp; -\frac{10}{7} \\
+0 &amp; 0 &amp; 0\end{pmatrix}</mrow>
+</md>
+Cette matrice échelonnée réduite a deux pivots.
+Elle est donc de rang <m>2</m>.
+</p></solution></task>
+<task><statement><p>équivalente à la matrice identité.</p></statement>
+<answer><p><me>\begin{pmatrix} 
+1&amp; -2&amp; 2 \\
+3&amp; 1 &amp; -4 \\
+1 &amp; -2 &amp; 3\end{pmatrix}</me></p></answer>
+<solution><p>Pour être équivalente à la matrice identité, il faut qu'elle soit de rang <m>3</m> et donc de rang maximal.
+Pour être de rang <m>3</m>, il faut que les trois lignes ne soient pas combinables pour être éliminées entièrement.
+Ce concept se nomme <em>indépendance linéaire</em> et sera élaboré plus en détails au chapitre <xref provisional="chap-bases"/>.
+<md>
+<mrow>\begin{pmatrix} 
+1&amp; -2&amp; 2 \\
+3&amp; 1 &amp; -4 \\
+1 &amp; -2 &amp; 3\end{pmatrix}&amp;\substack{-3L_1+L_2\rightarrow L_2 \\ -L_1+L_3\rightarrow L_3 \\ \sim}\begin{pmatrix} 
+1&amp; -2&amp; 2 \\
+0&amp; 7 &amp; -10 \\
+0 &amp; 0 &amp; 1\end{pmatrix}</mrow>
+<mrow>&amp;\matsimils{\frac{1}{7}}{2}\begin{pmatrix} 
+1&amp; -2&amp; 2 \\
+0&amp; 1 &amp; -\frac{10}{7} \\
+0 &amp; 0 &amp; 1\end{pmatrix}</mrow>
+<mrow>&amp;\matsimilc{2}{2}{1}\begin{pmatrix} 
+1&amp; 0&amp; -\frac{6}{7} \\
+0&amp; 1 &amp; -\frac{10}{7} \\
+0 &amp; 0 &amp; 1\end{pmatrix}</mrow>
+<mrow>&amp;\substack{\frac{6}{7}L_3+L_1\rightarrow L_1 \\ \frac{10}{7}L_3+L_2\rightarrow L_2 \\ \sim}\begin{pmatrix} 
+1&amp; 0&amp; 0 \\
+0&amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1\end{pmatrix}</mrow>
+</md>
+Cette matrice échelonnée réduite est la matrice identité.
+La matrice initiale lui est donc équivalente.
+</p></solution></task>
 </exercise>
-<exercise>
+<exercise xml:id="exo-rangcomblin">
 <introduction>
-<p> Soit <m>A</m> une matrice <m>m\times n</m>.</p>
+<p> Soit <m>A</m> une matrice carrée d'ordre <m>n</m>.</p>
 </introduction>
 <task><introduction><p>On s'intéresse aux lignes de la matrice <m>A</m></p></introduction>
-<task><statement><p>Si <m>A</m> possède deux lignes identiques, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement></task>
-<task><statement><p>Si <m>A</m> possède deux lignes parallèles, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement></task>
-<task><statement><p>Si <m>A</m> possède une ligne qui est une combinaison linéaire des autres lignes, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement></task>
+<task><statement><p>Si <m>A</m> possède deux lignes identiques, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement>
+<solution><p>On se contente d'une preuve en mots puisque l'on ne gagnera rien en termes de clarté si on écrit des matrices <m>n\times n</m> arbitraires au long.
+On rappelle quand même la définition du rang <xref ref="def-rang"/>, la remarque <xref ref="rem-ranglignenulle"/> par rapport aux lignes 
+ainsi que la proposition <xref ref="prop-rangmaximal"/> sur le rang maximal.</p>
+<p>Si la matrice <m>A</m> possède deux lignes identiques (disons <m>L_i</m> et <m>L_j</m>),
+alors par la seule opération élémentaire visant à éliminer le premier élément (<m>-L_j+L_i\rightarrow L_i</m>), on éliminera toute la ligne.
+Une matrice ayant une ligne de zéros ne peut avoir de pivots sur cette ligne. 
+Elle ne peut donc pas avoir <m>n</m> pivots puisqu'on n'a jamais plus qu'un pivot par ligne.</p></solution></task>
+<task><statement><p>Si <m>A</m> possède deux lignes parallèles, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement>
+<solution><p>Si on a deux lignes parallèles, alors la preuve est exactement la même que précédemment, 
+mais on utilise l'opération <m>-kL_j+L_i\rightarrow L_i</m> où <m>k</m> est la facteur de parallélisme.
+La ligne entière deviendra nulle et la preuve se fait de façon identique.</p></solution></task>
+<task><statement><p>Si <m>A</m> possède une ligne qui soit une combinaison linéaire des autres lignes, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement>
+<solution><p>Si <m>A</m> possède une ligne (disons <m>L_i</m>) qui est une combinaison linéaire des autres lignes (disons <m>L_{j_1}, L_{j_2},\dots, L_{j_{n-1}}</m>),
+alors, on peut écrire: <me>L_i=k_1L_{j_1}+k_2L_{j_2}+\dots+k_{n-1}L_{j_{n-1}}</me>
+On utilise ensuite les opérations élémentaires successives suivantes:
+<md>
+<mrow>-k_1L_{j_1}+L_i\rightarrow &amp; L_i</mrow>
+<mrow>-k_2L_{j_2}+L_i\rightarrow &amp; L_i</mrow>
+<mrow>&amp;\vdots</mrow>
+<mrow>-k_{n-1}L_{j_{n-1}}+L_i\rightarrow &amp; L_i</mrow>
+</md>
+Au bout de ce processus, on aura inévitablement une ligne de zéros là où était <m>L_i</m>.
+Le reste de la preuve est identique.</p></solution></task>
 </task>
 <task>
-<statement><p>Refaire les questions précédentes en remplaçant ligne par colonne dans chaque énoncé.</p></statement>
+<introduction><p>Refaire les questions précédentes en remplaçant ligne par colonne dans chaque énoncé.</p></introduction>
+<task><statement><p>Si <m>A</m> possède deux <em>colonnes</em> identiques, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement>
+<solution><p>On se contente d'une preuve en mots puisque l'on ne gagnera rien en termes de clarté si on écrit des matrices <m>n\times n</m> arbitraires au long.
+On rappelle quand même la définition du rang <xref ref="def-rang"/>, la remarque <xref ref="rem-ranglignenulle"/> par rapport aux lignes 
+ainsi que la proposition <xref ref="prop-rangmaximal"/> sur le rang maximal.</p>
+<p>Si la matrice <m>A</m> possède deux colonnes identiques, alors lorsqu'on fera des opérations élémentaire visant à obtenir un pivot sur la première des deux colonnes 
+et des zéros en haut et en bas, l'effet de ces opérations sera le même sur les éléments de la deuxième colonne.
+On se retrouvera donc avec deux colonnes identiques avec un pivot sur la première mais pas de pivot sur la seconde.
+Ainsi, on ne peut avoir le rang maximal puisqu'on va manquer de colonnes.</p></solution></task>
+<task><statement><p>Si <m>A</m> possède deux <em>colonnes</em> parallèles, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement>
+<solution><p>Les opérations que l'on fait pour obtenir un pivot sur la première colonne et des zéros en haut et en bas du pivot amèneront également 
+une seule valeur non-nulle sur la deuxième colonne.
+Il est donc impossible d'avoir un pivot sur cette seconde colonne.</p></solution></task>
+<task><statement><p>Si <m>A</m> possède une <em>colonne</em> qui soit une combinaison linéaire des autres <em>colonnes</em>, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement>
+<solution><p>La solution suivra.<!-- à compléter--></p></solution></task>
 </task>
 <task><statement><p>Déduire des énoncés précédents la troisième version du théorème de la matrice inverse <xref provisional="thm-delamatriceinverse"/>.
 </p>
@@ -1057,34 +1395,75 @@
     </ol>
     </p></statement>
     </theorem></statement>
+    <solution><p>Il n'y a rien à ajouter. 
+    On a démontré les deux points additionnels dans cette version du théorème.</p></solution>
     </task>
 </exercise>
 <exercise>
-<statement><p>Montrer en trouvant l'inverse qu'une matrice carrée <m>n\times n</m> de rang <m>n</m> est inversible. Ceci constitue une preuve alternative
+<statement><p>Montrer, en trouvant son inverse, qu'une matrice carrée <m>n\times n</m> de rang <m>n</m> est inversible. Ceci constitue une preuve alternative
 de l'implication rang <m>n</m> implique inverse faite au théorème <xref ref="thm-delamatriceinversev2"/>.</p></statement>
 <answer>
-<p>L'inverse est <m>A^{-1}=E_kE_{k-1}\cdots E_2E1</m>.</p>
+<p>L'inverse est <m>A^{-1}=E_kE_{k-1}\cdots E_2E_1</m>.</p>
 </answer>
 <solution>
-
+<p>On se souvient, par la définition du rang <xref ref="def-rang"/>, qu'une matrice carrée <m>n\times n</m> de rang <m>n</m> et donc de rang maximal a <m>n</m> pivots.
+Cela signifie que sa forme échelonnée réduite est l'identité.
+Ainsi, il est possible de trouver des matrices élémentaires inversibles <m>E_1, E_2, \dots , E_k</m> telles que la matrice <m>A</m> peut être échelonnée jusqu'à donner l'identité.
+On a donc:<me>E_kE_{k-1}\cdots E_2E_1A=I</me>.
+Cela implique que la matrice inverse de <m>A</m> est la multiplication des matrices élémentaires:
+<me>A^{-1}=E_kE_{k-1}\cdots E_2E_1</me>
+</p>
 </solution>
 </exercise>
 <exercise xml:id="exo-vectranspose"><!-- C'est vraiment le style d'exercice qu'on veut construire. On commence avec un exemple simple et on généralise tranquillement  intuition -> rigueur -->
 <introduction><p>Dans cet exercice, on considère un vecteur <m>\vec{u}</m> comme une matrice <m>u</m> ayant une seule colonne. Une matrice ayant une seule ligne est quant à elle
 notée <m>v^T</m><fn><p>Le <m>T</m> en exposant est lié avec la notion de transposée, qui sera définie plus loin. </p></fn>, où <m>\vec{v}</m> est le vecteur représentant la ligne.</p></introduction>
 <task><introduction><p>Considérer la matrice <m>u=\begin{pmatrix} 2 \\ 1\end{pmatrix}</m> et la matrice <m>v^T=(3 \, 4)</m>.</p></introduction>
-<task><statement><p>Quel est le rang des matrice <m>u</m> et <m>v^T</m>?</p></statement></task>
-<task><statement><p>Comparer les produits <m>uv^T</m> et <m>v^Tu</m>. Quelle autre opération le produit <m>v^Tu</m> représente-t-il?</p></statement></task>
-<task><statement><p>Quel est le rang de des matrices <m>v^Tu</m> et <m>uv^T</m>? </p></statement></task></task>
+<task><statement><p>Quel est le rang des matrices <m>u</m> et <m>v^T</m>?</p></statement>
+<answer><p><m>rg(u)=1</m> et <m>rg(v^T)=1</m></p></answer></task>
+<task><statement><p>Comparer les produits <m>uv^T</m> et <m>v^Tu</m>. Quelle autre opération le produit <m>v^Tu</m> représente-t-il?</p></statement>
+<solution><p>On calcule les produits:
+<me>uv^T=\begin{pmatrix} 2 \\ 1\end{pmatrix}(3 \, 4)=\begin{pmatrix} 2*3&amp; 2*4 \\ 1*3&amp; 1*4\end{pmatrix}=\begin{pmatrix} 6&amp; 8 \\ 3&amp; 4\end{pmatrix}</me>
+et
+<me>v^Tu=(3 \, 4)\begin{pmatrix} 2 \\ 1\end{pmatrix}=(3*2+4*1)=(10)</me>.
+Le premier résultat est donc une matrice <m>2 \times 2</m> et le deuxième une "matrice" <m>1 \times 1</m>.
+On comprend que le deuxième résultat a beau être entre parenthèses, une matrice qui ne possède qu'une ligne et une colonne est en réalité un nombre, souvent appelé un scalaire.
+Cette opération correspond donc au produit scalaire.
+</p></solution></task>
+<task><statement><p>Quel est le rang des matrices <m>v^Tu</m> et <m>uv^T</m>? </p></statement>
+<answer><p><m>rg(v^Tu)=1</m> et <m>rg(uv^T)=1</m></p></answer>
+<solution><p>Le rang de <m>v^Tu</m> est de <m>1</m> puisque c'est un nombre non-nul qui est donc par le fait même un pivot.
+Le rang de <m>uv^T</m> s'obtiendra de diverses façons (échelonner ou bien utiliser le théorème de la matrice inverse <xref ref="thm-delamatriceinversev3"/>).
+On voit immédiatement que la matrice <m>uv^T=\begin{pmatrix} 6&amp; 8 \\ 3&amp; 4\end{pmatrix}</m> a deux lignes (ou colonnes) parallèles.
+Par le théorème, elle n'est donc pas de rang maximal. 
+Elle est de rang <m>1</m>.
+</p></solution></task></task>
 <task><statement><p>Utiliser Sage pour vérifier le rang de <m>uv^T</m> pour différents vecteurs de <m>\R^2</m>.</p>
 <sage>
 <input>
 
 </input>
 </sage>
-</statement></task>
-<task><statement><p>Si <m>\vec{u},\vec{v}</m> sont n'importe quel vecteur non nul de <m>\R^2</m>, quel est le rang du produit <m>uv^T</m>?</p></statement></task>
-<task><statement><p>Si <m>\vec{u},\vec{v}</m> sont n'importe quel vecteur non nul de <m>\R^n</m>, quel est le rang du produit <m>uv^T</m>?</p></statement></task>
+</statement>
+<solution><listing>
+    <caption>Le code solution pour les vecteurs initiaux</caption>
+    <program language="sage">
+    <input>
+u=matrix([[2],[1]])
+vT=matrix([[3,4]])
+uvT=u*vT
+show(uvT)
+show(rank(uvT))
+    </input>
+    </program>
+    </listing>
+<p>On remarque qu'il suffit de remplacer les vecteurs initiaux par d'autres vecteurs pour tester.
+On laisse les observations à l'étudiant.</p>
+</solution></task>
+<task><statement><p>Si <m>\vec{u},\vec{v}</m> sont n'importe quel vecteur non nul de <m>\R^2</m>, quel est le rang du produit <m>uv^T</m>?</p></statement>
+<answer><p>Le rang est toujours de <m>1</m>. </p></answer></task>
+<task><statement><p>Si <m>\vec{u},\vec{v}</m> sont n'importe quel vecteur non nul de <m>\R^n</m>, quel est le rang du produit <m>uv^T</m>?</p></statement>
+<answer><p>Le rang est toujours de <m>1</m>. </p></answer></task>
 </exercise>
 <!-- exercice style strang uvt rang 1 et rang(AB)<= rang(A)rang(B)  p.146-->
 <exercise>
@@ -1101,23 +1480,83 @@ Considérer les matrices
 <mrow>C=&amp;\matcold{1}{a}{b}{ab}</mrow>
 </md>.
 </p></introduction>
-<task><statement><p>Quel est le rang des matrices <m>A,B</m> et <m>C</m>?</p></statement></task>
-<task><statement><p>Quel est le rang des matrices <m>AB</m> et <m>AC</m>?</p></statement></task>
+<task><statement><p>Quel est le rang des matrices <m>A,B</m> et <m>C</m>?</p></statement>
+<answer><p><m>rg(A)=1</m>, <m>rg(B)=2</m> et <m>rg(C)=1</m></p></answer>
+<solution><p>On se sert à chaque fois du théorème de la matrice inverse <xref ref="thm-delamatriceinversev3"/> plutôt que d'échelonner et de compter le nombre de pivots.
+On a que <m>rg(A)=1</m> puisque la deuxième ligne est le double de la première (parallèles et donc combinaison linéaire de la première ligne).
+On peut écrire <m>L_2=2L_1</m>.</p>
+<p>On a que <m>rg(B)=2</m> puisque les lignes ne sont pas parallèles et donc pas combinaison linéaire.</p>
+<p>Finalement, on a que <m>rg(C)=1</m> puisque la deuxième ligne est un multiple de la première (parallèles et donc combinaison linéaire de la première ligne).
+On peut écrire <m>L_2=aL_1</m>.</p></solution></task>
+<task><statement><p>Quel est le rang des matrices <m>AB</m> et <m>AC</m>?</p></statement>
+<answer><p><m>rg(AB)=1</m> et <m>rg(AC)=1</m></p></answer>
+<solution><p>Calculons d'abord les produits demandés.
+<md>
+<mrow>AB&amp;=\matcold{1}{2}{2}{4}\matcold{1}{2}{2}{5}</mrow>
+<mrow>&amp;=\matcold{5}{10}{12}{24}</mrow>
+</md>
+et
+<md>
+<mrow>AC&amp;=\matcold{1}{2}{2}{4}\matcold{1}{a}{b}{ab}</mrow>
+<mrow>&amp;=\matcold{2a+1}{4a+2}{2ab+b}{4ab+2b}</mrow>
+</md>
+Les rangs de ces deux matrices sont de <m>1</m> puisque dans les deux cas, la deuxième ligne est multiple de la première.
+En effet, tant pour <m>AB</m> que pour <m>AC</m>, on a <m>L_2=2L_1</m>.
+</p></solution></task>
 </task>
 <task><introduction><p>Dans l'exercice <xref provisional="Exercice decomposition en rang, section espaces fondamentaux?"/>, on montrera un cas plus général du fait suivant:
 Si <m>A</m> est de rang <m>1</m>, alors il existe deux vecteurs <m>\vec{u},\vec{v}</m> tels que <m>A=uv^t</m>. On utilise ce fait dans cet exercice.
 </p></introduction>
 <task>
-<statement><p>Soit <m>A=uv^t</m> et <m>B=rs^t</m> deux matrices de rang <m>1</m>. Montrer que <m>AB=(\pscal{vt}{r})us^t</m>.</p></statement>
+<statement><p>Soit <m>A=uv^T</m> et <m>B=rs^T</m> deux matrices de rang <m>1</m>. Montrer que <m>AB=(\pscal{v^T}{r})us^T</m>.</p></statement>
+<solution><p><md>
+<mrow>AB&amp;=(uv^T)(rs^T)</mrow>
+<mrow>&amp;=u(v^Tr)s^T &amp;&amp; \text{car le produit matriciel est associatif } <xref ref="li-assoprodmat"/></mrow>
+<mrow>&amp;=u(\pscal{v^T}{r})s^T &amp;&amp; \text{par les conclusions de l'exercice } <xref ref="exo-vectranspose"/></mrow>
+<mrow>&amp;=(\pscal{v^T}{r})us^T &amp;&amp; \text{par la propriété 3 du produit matriciel } <xref ref="li-assoscalprodmat"/></mrow>
+</md>
+On a pu sortir en avant du produit matriciel le produit scalaire puisque son résultat est un scalaire.</p></solution>
 </task>
-<task><statement><p>Si aucun des vecteurs <m>\vec{u},\vec{v},\vec{r},\vec{s}</m> ne peut être nul, quelle est la condition pour que <m>rg(AB)=0</m>?</p></statement></task>
+<task><statement><p>Si aucun des vecteurs <m>\vec{u},\vec{v},\vec{r},\vec{s}</m> ne peut être nul, quelle est la condition pour que <m>rg(AB)=0</m>?</p></statement>
+<solution><p>Il faut que le produit scalaire <m>(\pscal{v^T}{r})</m> soit nul et donc que les vecteurs <m>\vec{v}</m> et <m>\vec{r}</m> soient orthogonaux.
+De cette façon, le produit <m>AB</m> donnera la matrice nulle qui est la seule matrice de rang <m>0</m>.</p></solution></task>
 </task>
 <task><statement><p>Montrer que si la colonne <m>\vec{b}_j</m> de la matrice <m>B</m> est une combinaison linéaire des colonnes précédentes de la matrice <m>B</m>,
 alors la colonne <m>j</m> de la matrice <m>AB</m> est la même combinaison linéaire des colonnes précédentes de <m>AB</m>. 
 </p>
-<p>Ceci implique que la matrice <m>AB</m> ne peut pas avoir plus de colonnes pivots que la matrice <m>B</m>.</p></statement></task>
+<p>Ceci implique que la matrice <m>AB</m> ne peut pas avoir plus de colonnes pivots que la matrice <m>B</m>.</p></statement>
+<solution><p>On écrit d'abord la colonne <m>\vec{b}_j</m> comme une combinaison linéaire des colonnes précédentes:
+<me>\vec{b}_j=k_1\vec{b}_1+k_2\vec{b}_2+\cdots+k_{j-1}\vec{b}_{j-1}</me>.
+On écrit ensuite le produit <m>AB</m> suivant la définition <xref ref="eq-matmatproddef"/>:
+<md>
+<mrow>AB&amp;=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\vec{b}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}</mrow>
+     <mrow>&amp;=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots  &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\vec{b}_j &amp;\cdots &amp; A\vec{b}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}</mrow>
+     <mrow>&amp;=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots  &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\big(k_1\vec{b}_1+k_2\vec{b}_2+\cdots+k_{j-1}\vec{b}_{j-1}\big) &amp;\cdots &amp; A\vec{b}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}</mrow>
+     <mrow>&amp;=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots  &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; k_1(A\vec{b}_1)+k_2(A\vec{b}_2)+\cdots+k_{j-1}(A\vec{b}_{j-1}) &amp;\cdots &amp; A\vec{b}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}&amp;\text{par la propriété 3 du produit matriciel } <xref ref="li-assoscalprodmat"/></mrow>
+</md>
+La colonne <m>j</m> de la matrice <m>AB</m> est donc la même combinaison linéaire des colonnes <m>1</m> à <m>j-1</m> de <m>AB</m>.
+</p></solution></task>
 <task><statement><p>Conclure que <m>rg(AB)\leq rg(B)</m>. L'exercice <xref provisional="Quand on aura la transposé, rg(BtAt)\leq rg(At)"/> viendra compléter ce résultat
-pour avoir <m>rg(AB)\leq rg(A)rg(B)</m>.</p></statement></task>
+pour avoir <m>rg(AB)\leq rg(A)rg(B)</m>.</p></statement>
+<solution><p>C'est une conséquence directe de ce qu'on vient de montrer et des preuves de l'exercice <xref ref="exo-rangcomblin"/>.
+<!-- à compléter-->
+</p></solution></task>
 </exercise>
 <exercise>
 <introduction>
@@ -1135,13 +1574,98 @@ A=\begin{pmatrix}
 <task>
 <statement>
 <p>rang <m>1</m>;</p>
-</statement></task>
+</statement>
+<answer><p><me>
+A=\begin{pmatrix}
+1 &amp; -\frac{1}{3} &amp; 3 \\
+3 &amp; -1 &amp; 9 \\
+\frac{2}{3} &amp; -\frac{2}{9} &amp; 2
+\end{pmatrix}
+</me></p></answer>
+<solution><p>Une matrice de rang <m>1</m> possède des lignes qui sont toutes multiples les unes des autres.
+Ainsi, lorsqu'on échelonne, on obtiendra des zéros sur les deux lignes du bas et donc un seul pivot.
+Un exemple de réponse, obtenue en remplissant les valeurs pour que toutes les lignes soient parallèles est:
+<me>
+A=\begin{pmatrix}
+1 &amp; -\frac{1}{3} &amp; 3 \\
+3 &amp; -1 &amp; 9 \\
+\frac{2}{3} &amp; -\frac{2}{9} &amp; 2
+\end{pmatrix}
+</me>.
+La matrice échelonnée donne:
+<me>
+A\sim\begin{pmatrix}
+1 &amp; -\frac{1}{3} &amp; 3 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0
+\end{pmatrix}
+</me>
+qui a clairement un seul pivot.
+</p></solution>
+</task>
 <task><statement>
 <p>rang <m>2</m>;</p>
-</statement></task>
+</statement>
+<answer><p><me>
+A=\begin{pmatrix}
+1 &amp; -\frac{1}{3} &amp; 3 \\
+3 &amp; -1 &amp; 10 \\
+\frac{2}{3} &amp; -\frac{2}{9} &amp; 2
+\end{pmatrix}
+</me></p></answer>
+<solution><p>Une matrice de rang <m>2</m> possède des lignes qui, lorsqu'on utilise des opérations élémentaires doivent éliminer complètement une des trois lignes.
+Cela peut se faire en ayant deux lignes parallèles (notre approche) ou en ayant une ligne qui soit combinaison linéaire des deux autres.
+Ainsi, lorsqu'on échelonne, on obtiendra des zéros sur la ligne du bas et des pivots sur les deux autres lignes. 
+Le second pivot peut se retrouver dans la deuxième ou troisième colonne. 
+Un exemple de réponse est:
+<me>
+A=\begin{pmatrix}
+1 &amp; -\frac{1}{3} &amp; 3 \\
+3 &amp; -1 &amp; 10 \\
+\frac{2}{3} &amp; -\frac{2}{9} &amp; 2
+\end{pmatrix}
+</me>.
+La matrice échelonnée donne:
+<me>
+A\sim\begin{pmatrix}
+1 &amp; -\frac{1}{3} &amp; 0 \\
+0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0
+\end{pmatrix}
+</me>
+qui a clairement deux pivots.</p></solution></task>
 <task><statement>
 <p>rang <m>3</m>;</p>
-</statement></task>
+</statement>
+<answer><p><me>
+A=\begin{pmatrix}
+1 &amp; -\frac{1}{3} &amp; 3 \\
+3 &amp; -1 &amp; 10 \\
+\frac{2}{3} &amp; -\frac{2}{9} &amp; 2
+\end{pmatrix}
+</me></p></answer>
+<solution><p>Une matrice de rang <m>3</m> possède des lignes qui, lorsqu'on utilise des opérations élémentaires doivent ne jamais pouvoir s'éliminer complètement.
+Pour ce faire, il faut qu'aucune des lignes ne soit combinaison linéaire des autres lignes.
+On verra plus loin au chapitre <xref provisional="chap-bases"/> que ce qu'on veut c'est que ces lignes soient linéairement indépendantes.
+Les opérations élémentaires vont nécessairement amener l'échelonnage à la matrice identité. 
+Cependant, il peut être difficile de voir quelles valeurs on doit avoir pour que ce soit le cas.
+Un exemple de réponse est:
+<me>
+A=\begin{pmatrix}
+1 &amp; -1 &amp; 3 \\
+3 &amp; -1 &amp; 9 \\
+1 &amp; -1 &amp; 2
+\end{pmatrix}
+</me>.
+La matrice échelonnée donne:
+<me>
+A\sim\begin{pmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{pmatrix}
+</me>
+qui a clairement trois pivots.</p></solution></task>
 </exercise>
 <exercise>
 <introduction>
@@ -1159,54 +1683,181 @@ A=\begin{pmatrix}
 <task>
 <statement>
 <p>rang <m>1</m>;</p>
-</statement></task>
+</statement>
+<answer><p>C'est impossible.</p></answer>
+<solution><p>Il est impossible d'obtenir un seul pivot puisque les deux premières lignes ne seront jamais parallèles, peu importe ce qu'on met à l'emplacement de l'étoile.
+</p></solution></task>
 <task><statement>
 <p>rang <m>2</m>;</p>
-</statement></task>
+</statement>
+<answer><p><me>
+A=\begin{pmatrix}
+2 &amp; 1 &amp; -1 \\
+-1 &amp; -1 &amp; 1 \\
+-5 &amp; -5 &amp; 5
+\end{pmatrix}
+</me></p></answer>
+<solution><p>Une matrice de rang <m>2</m> possède des lignes qui, lorsqu'on utilise des opérations élémentaires, doivent éliminer complètement une des trois lignes.
+Cela peut se faire en ayant deux lignes parallèles (notre approche) ou en ayant une ligne qui soit combinaison linéaire des deux autres.
+Ainsi, lorsqu'on échelonne, on obtiendra des zéros sur la ligne du bas et des pivots sur les deux autres lignes. 
+Le second pivot peut se retrouver dans la deuxième ou troisième colonne. 
+Un exemple de réponse est:
+<me>
+A=\begin{pmatrix}
+2 &amp; 1 &amp; -1 \\
+-1 &amp; -1 &amp; 1 \\
+-5 &amp; -5 &amp; 5
+\end{pmatrix}
+</me>.
+La matrice échelonnée donne:
+<me>
+A\sim\begin{pmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; -1 \\
+0 &amp; 0 &amp; 0
+\end{pmatrix}
+</me>
+qui a clairement deux pivots.</p></solution></task>
 <task><statement>
 <p>rang <m>3</m>;</p>
-</statement></task>
+</statement>
+<answer><p><me>
+A=\begin{pmatrix}
+2 &amp; 1 &amp; -1 \\
+-1 &amp; -1 &amp; 1 \\
+-4 &amp; -4 &amp; 5
+\end{pmatrix}
+</me></p></answer>
+<solution><p>Une matrice de rang <m>3</m> possède des lignes qui, lorsqu'on utilise des opérations élémentaires doivent ne jamais pouvoir s'éliminer complètement.
+Pour ce faire, il faut qu'aucune des lignes ne soit combinaison linéaire des autres lignes.
+On verra plus loin au chapitre <xref provisional="chap-bases"/> que ce qu'on veut c'est que ces lignes soient linéairement indépendantes.
+Les opérations élémentaires vont nécessairement amener l'échelonnage à la matrice identité. 
+Cependant, il peut être difficile de voir quelles valeurs on doit avoir pour que ce soit le cas.
+Un exemple de réponse est:
+<me>
+A=\begin{pmatrix}
+2 &amp; 1 &amp; -1 \\
+-1 &amp; -1 &amp; 1 \\
+-4 &amp; -4 &amp; 5
+\end{pmatrix}
+</me>.
+La matrice échelonnée donne:
+<me>
+A\sim\begin{pmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{pmatrix}
+</me>
+qui a clairement trois pivots.</p></solution>
+</task>
 </exercise>
 <exercise>
 <introduction>
-<p>Dans cet exercice, on cherche à préciser davantage le nombre de solutions possible qu'une équation matricielle peut avoir en fonction de son rang et de ses dimensions.</p>
+<p>Dans cet exercice, on cherche à préciser davantage le nombre de solutions possibles qu'une équation matricielle peut avoir en fonction de son rang et de ses dimensions.</p>
 </introduction>
 <task><introduction><p>Donner, si possible, des exemples de matrices échelonnées  réduites <m>R</m> augmentées d'un vecteur <m>\vec{c}</m> qui satisfont les conditions suivantes.</p></introduction>
 <task><introduction><p>La matrice <m>R</m> est carrée et le système <m>R\vec{x}=\vec{c}</m> possède:</p></introduction>
-<task><statement><p>Une solution unique;</p></statement></task>
-<task><statement><p>Aucune solution;</p></statement></task>
-<task><statement><p>Une infinité de solutions.</p></statement></task>
+<task><statement><p>Une solution unique;</p></statement>
+<answer><p><me>\left(\begin{array}{rr|r}
+1 &amp; 0 &amp; -2 \\
+0 &amp; 1 &amp; 5
+\end{array}\right)</me></p></answer></task>
+<task><statement><p>Aucune solution;</p></statement>
+<answer><p><me>\left(\begin{array}{rr|r}
+1 &amp; 1 &amp; -2 \\
+0 &amp; 0 &amp; 1
+\end{array}\right)</me></p></answer></task>
+<task><statement><p>Une infinité de solutions.</p></statement>
+<answer><p><me>\left(\begin{array}{rr|r}
+1 &amp; 1 &amp; -2 \\
+0 &amp; 0 &amp; 0
+\end{array}\right)</me></p></answer></task>
 </task>
-<!--   -->
 <task><introduction><p>La matrice <m>R</m> est <m>3\times 5</m>, de rang <m>3</m> et le système <m>R\vec{x}=\vec{c}</m> possède:</p></introduction>
-<task><statement><p>Une solution unique;</p></statement></task>
-<task><statement><p>Aucune solution;</p></statement></task>
-<task><statement><p>Une infinité de solutions.</p></statement></task>
+<task><statement><p>Une solution unique;</p></statement>
+<answer><p>Impossible. Il y aura nécessairement des variables libres.</p></answer></task>
+<task><statement><p>Aucune solution;</p></statement><answer><p>Impossible. 
+On ne peut avoir de pivot additionnel dans la partie augmentée puisqu'il n'y a que trois lignes et la matrice <m>R</m> étant déjà de rang <m>3</m>, 
+on ne peut avoir de ligne de zéros.</p></answer></task>
+<task><statement><p>Une infinité de solutions.</p></statement><answer><p><me>\left(\begin{array}{rrrrr|r}
+1 &amp; 0 &amp;2 &amp; 1 &amp; 2 &amp; 1 \\
+0 &amp; 1 &amp;1 &amp; 1 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp;0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right)</me></p></answer></task>
 </task>
-<!--  -->
 <task><introduction><p>La matrice <m>R</m> est <m>5\times 3</m>, de rang <m>3</m> et le système <m>R\vec{x}=\vec{c}</m> possède:</p></introduction>
-<task><statement><p>Une solution unique;</p></statement></task>
-<task><statement><p>Aucune solution;</p></statement></task>
-<task><statement><p>Une infinité de solutions.</p></statement></task>
+<task><statement><p>Une solution unique;</p></statement>
+<answer><p><me>\left(\begin{array}{rrr|r}
+1 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 &amp; -1 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)</me></p></answer></task>
+<task><statement><p>Aucune solution;</p></statement>
+<answer><p><me>\left(\begin{array}{rrr|r}
+1 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 &amp; -1 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)</me></p></answer></task>
+<task><statement><p>Une infinité de solutions.</p></statement>
+<answer><p>Impossible. Si la matrice <m>R</m> n'a que <m>3</m> colonnes et qu'elle doit être de rang <m>3</m>, il ne reste pas d'espace pour une colonne 
+non pivot et donc il est impossible d'avoir une variable libre.</p></answer>
 </task>
-<!--   -->
+</task>
 <task><introduction><p>La matrice <m>R</m> est <m>3\times 5</m>, de rang <m>2</m> et le système <m>R\vec{x}=\vec{c}</m> possède:</p></introduction>
-<task><statement><p>Une solution unique;</p></statement></task>
-<task><statement><p>Aucune solution;</p></statement></task>
-<task><statement><p>Une infinité de solutions.</p></statement></task>
+<task><statement><p>Une solution unique;</p></statement>
+<answer><p>Impossible. Il y aura nécessairement des variables libres.</p></answer></task>
+<task><statement><p>Aucune solution;</p></statement>
+<answer><p><me>\left(\begin{array}{rrrrr|r}
+1 &amp; 0 &amp;2 &amp; 1 &amp; 2 &amp; 1 \\
+0 &amp; 1 &amp;1 &amp; 1 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp;0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right)</me></p></answer></task>
+<task><statement><p>Une infinité de solutions.</p></statement>
+<answer><p><me>\left(\begin{array}{rrrrr|r}
+1 &amp; 0 &amp;2 &amp; 1 &amp; 2 &amp; 1 \\
+0 &amp; 1 &amp;1 &amp; 1 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp;0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)</me></p></answer></task>
 </task>
-<!--  -->
 </task>
 <task><introduction><p>Soit <m>A</m> une matrice <m>m\times n</m> de rang <m>r</m>. Déterminer et expliquer le nombre de solutions possibles au
 système <m>A\vec{x}=\vec{b}</m> selon les conditions suivantes. </p></introduction>
-<task><statement><p>On a <m>r=m</m> et <m>r=n</m>, c'est-à-dire une matrice carrée et inversible .</p></statement></task>
-<task><statement><p>On a <m>r=m</m> et <m>r&lt;n</m>, c'est-à-dire une matrice &#x00AB; large &#x00BB;.</p></statement></task>
-<task><statement><p>On a <m>r&lt;m</m> et <m>r=n</m>, c'est-à-dire une &#x00AB; grande &#x00BB; matrice .</p></statement></task>
-<task><statement><p>On a <m>r&lt;m</m> et <m>r&lt;n</m>, c'est-à-dire une matrice qui n'est pas de rang maximal pour sa taille. .</p></statement></task></task>
+<task><statement><p>On a <m>r=m</m> et <m>r=n</m>, c'est-à-dire une matrice carrée et inversible .</p></statement>
+<solution><p>Il y aura toujours une solution unique puisque la matrice a <m>m=n=r</m> pivots et donc aucune variable libre. 
+Le vecteur étant de dimension <m>m</m>, il n'y a pas d'espace pour un pivot additionnel dans la partie augmentée.
+On peut même isoler la solution puisque la matrice est inversible: <m>\vec{x}=A^{-1}\vec{b}</m></p></solution></task>
+<task><statement><p>On a <m>r=m</m> et <m>r&lt;n</m>, c'est-à-dire une matrice &#x00AB; large &#x00BB;.</p></statement>
+<solution><p>Puisque l'on a plus de colonnes que de lignes, on a de l'espace pour des colonnes non pivots.
+Cela veut dire qu'on aura une infinité de solutions, s'il y en a.
+Également, le vecteur étant de dimension <m>m=r</m>, il n'y a pas d'espace pour un pivot additionnel dans la partie augmentée. 
+On aura donc toujours une infinité de solutions.</p></solution></task>
+<task><statement><p>On a <m>r&lt;m</m> et <m>r=n</m>, c'est-à-dire une &#x00AB; grande &#x00BB; matrice .</p></statement>
+<solution><p>Puisque l'on a plus de lignes que de colonnes, mais que <m>n=r</m>, chaque colonne contient un pivot. Il n'y a donc pas de variable libre.
+Par contre, il est possible d'avoir un pivot additionnel dans la partie augmentée, ce qui mènerait à aucune solution.
+Sinon, il y aura une solution unique.</p></solution></task>
+<task><statement><p>On a <m>r&lt;m</m> et <m>r&lt;n</m>, c'est-à-dire une matrice qui n'est pas de rang maximal pour sa taille.</p></statement>
+<solution><p>Dans ce cas, il va obligatoirement y avoir au moins une variable libre puisque <m>r&lt;n</m>. 
+Cela mène donc à une infinité de solutions.
+Cependant, si il y a un pivot additionnel dans la partie augmentée, ce qui est possible puisque <m>r&lt;m</m>, on aura aucune solution.</p></solution></task></task>
 </exercise>
 <exercise>
-<statement><p>Soit <m>A</m> une matrice quelconque et <m>b</m> un vecteur tel que le système <m>A\vec{x}=\vec{b}</m> est compatible. De plus, soit <m>B</m> une matrice de format approprié
+<statement><p>Soit <m>A</m> une matrice quelconque et <m>\vec{b}</m> un vecteur tel que le système <m>A\vec{x}=\vec{b}</m> est compatible. De plus, soit <m>B</m> une matrice de format approprié
 telle que <m>ABA=A</m>. Montrer que <m>\vec{x}=B\vec{b}</m> est une solution à l'équation <m>A\vec{x}=\vec{b}</m>. Une telle matrice est souvent appelé un inverse généralisé de la matrice <m>A</m>.</p></statement>
+<hint><p>Si <m>A\vec{x}=\vec{b}</m> a des solutions, poser <m>\vec{y}</m> une de ces solutions. On a donc <m>A\vec{y}=\vec{b}</m>.</p></hint>
+<solution><p>On démontre que <m>\vec{x}=B\vec{b}</m> est une solution en remplaçant dans le membre de gauche de l'équation <m>A\vec{x}=\vec{b}</m> 
+et en montrant que c'est bien égal à <m>\vec{b}</m>.
+<md>
+<mrow>A\vec{x}&amp;=AB\vec{b} </mrow>
+<mrow>&amp;=AB(A\vec{y}) &amp;&amp;\text{ car } A\vec{y}=\vec{b}</mrow>
+<mrow>&amp;=(ABA)\vec{y}</mrow>
+<mrow>&amp;=A\vec{y} &amp;&amp;\text{ car } ABA=A</mrow>
+<mrow>&amp;=\vec{b}  &amp;&amp;\text{ car } A\vec{y}=\vec{b}</mrow>
+</md></p></solution>
 </exercise>
 <exercisegroup>
     <title>Exercices Sage</title>
@@ -1227,6 +1878,24 @@ telle que <m>ABA=A</m>. Montrer que <m>\vec{x}=B\vec{b}</m> est une solution à 
 </input>
 </sage>
 </statement>
+<answer><p><me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4 \end{pmatrix}=t\begin{pmatrix}-\frac{31}{63}\\ \frac{130}{63}\\ \frac{52}{63}\\ 1 \end{pmatrix}+\begin{pmatrix}-\frac{32}{63}\\ \frac{59}{63}\\ \frac{74}{63}\\ 0 \end{pmatrix}</me></p></answer>
+<solution><p>On utilise la méthode plus prudente avec la matrice échelonnée réduite du système augmenté.
+Sinon, on risquerait d'obtenir une solution unique même s'il y a une infinité de solution.</p>
+<listing>
+    <caption>Le code solution</caption>
+    <program language="sage">
+    <input>
+A=matrix([[5,-3,2,7],[3,0,3,-1],[6,2,1,-2],[2,-1,-6,8],[8,-1,0,6]])
+b=vector([-3,2,0,-9,-5])
+show((A.augment(b,subdivide=True))) #Pour vérifier qu'on a le bon système
+show((A.augment(b,subdivide=True)).rref())
+    </input>
+    </program>
+    </listing>
+<p>On interprète cette solution ainsi:
+<me>\begin{cases}x_1+\frac{31}{63}x_4=-\frac{32}{63}\\ x_2-\frac{130}{63}x_4=\frac{59}{63}\\ x_3-\frac{52}{63}x_4=\frac{74}{63}\\ x_4=t \in \R \text{ (libre)} \end{cases}</me>
+<me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4 \end{pmatrix}=\begin{pmatrix}-\frac{31}{63}t-\frac{32}{63}\\ \frac{130}{63}t+\frac{59}{63}\\ \frac{52}{63}t+\frac{74}{63}\\ t \end{pmatrix}</me>
+<me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4 \end{pmatrix}=t\begin{pmatrix}-\frac{31}{63}\\ \frac{130}{63}\\ \frac{52}{63}\\ 1 \end{pmatrix}+\begin{pmatrix}-\frac{32}{63}\\ \frac{59}{63}\\ \frac{74}{63}\\ 0 \end{pmatrix}</me></p></solution>
 </task>
 <task><statement>
 <m>\left(\begin{array}{rrrr|r}
@@ -1241,6 +1910,21 @@ telle que <m>ABA=A</m>. Montrer que <m>\vec{x}=B\vec{b}</m> est une solution à 
 </input>
 </sage>
 </statement>
+<answer><p>Il n'y a aucune solution à ce système.</p></answer>
+<solution><p>On utilise la méthode plus prudente avec la matrice échelonnée réduite du système augmenté.
+Sinon, on risquerait d'obtenir une solution unique même s'il y a une infinité de solution.</p>
+<listing>
+    <caption>Le code solution</caption>
+    <program language="sage">
+    <input>
+A=matrix([[2,-4,-1,3],[1,0,4,1],[1,2,-4,-1],[0,1,7,4],[4,-1,0,7]])
+b=vector([-1,-12,5,4,-1])
+show((A.augment(b,subdivide=True)))
+show((A.augment(b,subdivide=True)).rref())
+    </input>
+    </program>
+    </listing>
+<p>Il n'y a donc aucune solution à ce système puisqu'il y a un pivot dans la partie augmentée.</p></solution>
 </task>
 <task><statement>
 <p><md alignment="alignat">
@@ -1252,14 +1936,107 @@ telle que <m>ABA=A</m>. Montrer que <m>\vec{x}=B\vec{b}</m> est une solution à 
 <input>
 </input>
 </sage></p>
-</statement></task>
+</statement>
+<answer><p><me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4 \\ x_5\end{pmatrix}=
+s\begin{pmatrix}\frac{15}{2}\\ \frac{51}{10}\\ \frac{43}{10}\\ 1\\ 0 \end{pmatrix}
++t\begin{pmatrix}-\frac{1}{4}\\ -\frac{7}{20}\\ -\frac{11}{20}\\ 0\\ 1 \end{pmatrix}
++\begin{pmatrix}-\frac{13}{4}\\-\frac{67}{20}\\ -\frac{51}{20}\\ 0\\ 0 \end{pmatrix}</me></p></answer>
+<solution><p>On utilise la méthode plus prudente avec la matrice échelonnée réduite du système augmenté.
+Sinon, on risquerait d'obtenir une solution unique même s'il y a une infinité de solution.</p>
+<listing>
+    <caption>Le code solution</caption>
+    <program language="sage">
+    <input>
+A=matrix([[3,-5,0,3,-1],[-2,3,-1,4,0],[-3,0,5,1,2]])
+b=vector([7,-1,-3])
+show((A.augment(b,subdivide=True)))
+show((A.augment(b,subdivide=True)).rref())
+    </input>
+    </program>
+    </listing>
+<p>On interprète cette solution ainsi:
+<me>\begin{cases}x_1-\frac{15}{2}x_4+\frac{1}{4}x_5=-\frac{13}{4}\\ x_2-\frac{51}{10}x_4+\frac{7}{20}x_5=-\frac{67}{20}\\ x_3-\frac{43}{10}x_4+\frac{11}{20}x_5=-\frac{51}{20}\\ x_4=s \in \R \text{ (libre)} \\ x_5=t \in \R \text{ (libre)}\end{cases}</me>
+<me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4 \\ x_5\end{pmatrix}=\begin{pmatrix}\frac{15}{2}s-\frac{1}{4}t-\frac{13}{4}\\ \frac{51}{10}s-\frac{7}{20}t-\frac{67}{20}\\ \frac{43}{10}s-\frac{11}{20}t-\frac{51}{20}\\ s\\ t \end{pmatrix}</me>
+<me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4 \\ x_5\end{pmatrix}=
+s\begin{pmatrix}\frac{15}{2}\\ \frac{51}{10}\\ \frac{43}{10}\\ 1\\ 0 \end{pmatrix}
++t\begin{pmatrix}-\frac{1}{4}\\ -\frac{7}{20}\\ -\frac{11}{20}\\ 0\\ 1 \end{pmatrix}
++\begin{pmatrix}-\frac{13}{4}\\-\frac{67}{20}\\ -\frac{51}{20}\\ 0\\ 0 \end{pmatrix}</me></p></solution>
+
+</task>
 </exercise>
-<exercise><statement><p>Utiliser la commande <c>rank</c> et la proposition <xref ref="prop-rangmcomp"/> pour déterminer si les systèmes de l'exercice précédent sont compatibles.</p></statement></exercise>
+<exercise><statement><p>Utiliser la commande <c>rank</c> et la proposition <xref ref="prop-rangmcomp"/> pour déterminer si les systèmes de l'exercice précédent sont compatibles.</p></statement>
+<solution><p>On sait déjà que des trois systèmes de l'exercice précédent, seul le deuxième est incompatible.
+On le montrera en calculant le rang de la matrice <m>A</m> et le rang de la matrice augmentée. 
+Si ces rangs sont égaux, le système est compatible.</p>
+<listing>
+    <caption>Le code solution pour la lettre (a)</caption>
+    <program language="sage">
+    <input>
+A=matrix([[5,-3,2,7],[3,0,3,-1],[6,2,1,-2],[2,-1,-6,8],[8,-1,0,6]])
+b=vector([-3,2,0,-9,-5])
+show(rank(A)==rank(A.augment(b,subdivide=True))) #si on obtient True, cela veut dire que les rangs sont égaux et donc le système est compatible
+    </input>
+    </program>
+    </listing>
+<listing>
+    <caption>Le code solution pour la lettre (b)</caption>
+    <program language="sage">
+    <input>
+A=matrix([[2,-4,-1,3],[1,0,4,1],[1,2,-4,-1],[0,1,7,4],[4,-1,0,7]])
+b=vector([-1,-12,5,4,-1])
+show(rank(A)==rank(A.augment(b,subdivide=True)))
+    </input>
+    </program>
+    </listing>
+<listing>
+    <caption>Le code solution pour la lettre (c)</caption>
+    <program language="sage">
+    <input>
+A=matrix([[3,-5,0,3,-1],[-2,3,-1,4,0],[-3,0,5,1,2]])
+b=vector([7,-1,-3])
+show(rank(A)==rank(A.augment(b,subdivide=True)))
+    </input>
+    </program>
+    </listing>
+</solution>
+</exercise>
 <exercise>
 <task>
 <statement>
 <p>Utiliser Sage pour répondre algébriquement aux questions de l'exercice <xref ref="exo-eqmatgeo"/>.</p>
-</statement></task>
+</statement>
+<hint><p>On doit solutionner <m>n^2</m> équations avec <m>n^2</m> inconnues lorsqu'on veut résoudre algébriquement ce genre d'équations matricielles.
+Pour faire cela avec Sage de façon efficace, on doit demander à Sage de parcourir les matrices et créer ces équations en les plaçant dans une liste. 
+Cette tâche est assez difficile.
+Essayer de comprendre le code suivant et l'adapter pour résoudre les autres équations de l'exercice.
+</p>
+<listing>
+    <caption>Le code solution pour la lettre (a)</caption>
+    <program language="sage">
+    <input>
+var("a","b","c","d") #nos variables 
+A=matrix([[a,c],[b,d]]) #une matrice 2 par 2 quelconque
+show(A)
+A2=A^2 #on l'élève au carré pour créer l'équation
+show(A2)
+Id=identity_matrix(2) # on la mettra égale à l'identité
+eq=[]  #une liste vide pour nos équations
+for i in range(A2.nrows()):  #pour chaque ligne de A2
+    for j in range(A2.ncols()): #pour chaque colonne de A2
+        eq.append(A2[i,j]==Id[i,j]) #on ajoute l'équation correspondant à cette ligne et colonne
+sol=solve(eq,a,b,c,d,solution_dict=True) #on résout ces équations en mettant la commande pour donner la réponse dans la forme voulue
+show(sol)
+matsol=[] 
+for solpart in sol:
+    matsol.append(column_matrix(len(solpart)/2,len(solpart)/2,list(solpart.values())))
+    </input>
+    </program>
+    </listing>
+</hint>
+<solution>
+<p>À venir.</p>
+</solution>
+</task>
 <task><statement><p>Répondre à la même question avec des matrices <m>3\times 3</m>.</p></statement></task>
 </exercise>
 <exercise>

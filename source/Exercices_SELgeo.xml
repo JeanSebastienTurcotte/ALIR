@@ -26,18 +26,71 @@
     </exercise>  -->
     <exercise xml:id="exo-prodvec">
     <title> Le produit vectoriel</title>
-    <introduction><p>Dans cet exercice, on s'intéresse à trouver les vecteurs de <m>\R^3</m> qui sont perpendiculaires à deux vecteurs données. Essentiellement, on cherche à trouver le vecteur normal au
-    plan engendré par les deux vecteurs donnés.</p></introduction>
+    <introduction><p>Dans cet exercice, on s'intéresse à trouver les vecteurs de <m>\R^3</m> qui sont perpendiculaires à deux vecteurs donnés. 
+    Essentiellement, on cherche à trouver le vecteur normal au plan engendré par les deux vecteurs donnés.</p></introduction>
     <task xml:id="exo-prodveca">
-    <statement><p>Soit <m>\vec{u}=(1,1,1),\vec{v}=(2,3,4)</m>. On cherche <m>\vec{w}=(w_1,w_2,w_3)</m> tel que <m>\pscal{w}{u}=0</m> et <m>\pscal{w}{v}=0</m>. Écrire le système d'équations linéaires associé à ces 
-    équations et le résoudre.</p></statement>
+    <statement><p>Soit <m>\vec{u}=(1,1,1),\vec{v}=(2,3,4)</m>. On cherche <m>\vec{w}=(w_1,w_2,w_3)</m> tel que <m>\pscal{w}{u}=0</m> et <m>\pscal{w}{v}=0</m>. 
+    Écrire le système d'équations linéaires associé à ces équations et le résoudre.</p></statement>
+    <answer><p><m>\vec{w}_h=k(1,-2,1)</m> avec <m>k \in \R</m></p></answer>
+    <solution><p>On écrit les équations obtenues en remplaçant par les vecteurs donnés et le vecteur quelconque <m>\vec{w}</m>.
+    <md>
+    <mrow>\pscal{w}{u}=0 &amp; \Rightarrow (w_1,w_2,w_3)\cdot (1,1,1) =0</mrow>
+    <mrow>\pscal{w}{v}=0 &amp; \Rightarrow (w_1,w_2,w_3)\cdot (2,3,4) =0</mrow>
+    <mrow>&amp;\begin{cases} w_1+w_2+w_3=0 \\2w_1+3w_2+4w_3=0\end{cases}</mrow>
+    </md>
+    La matrice <m>A=\begin{pmatrix}1 &amp; 1 &amp; 1 \\ 2 &amp; 3 &amp; 4\end{pmatrix}</m> et le vecteur <m>\vec{w}=\vecddd{w_1}{w_2}{w_3}</m> résument le système d'équations
+    linéaires dans l'équation matricielle <m>A\vec{w}=\vec{0}</m>. 
+    C'est un système homogène. On va donc l'échelonner sans la partie augmentée.
+    <md>
+    <mrow>\begin{pmatrix}1 &amp; 1 &amp; 1 \\ 2 &amp; 3 &amp; 4\end{pmatrix}&amp;\matsimilc{1}{-2}{2}\begin{pmatrix}1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; 2\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-}{1}\begin{pmatrix}1 &amp; 0 &amp; -1 \\ 0 &amp; 1 &amp; 2\end{pmatrix}</mrow>
+    </md>
+    Il n'y a qu'une seule variable libre ici, la troisième (<m>w_3</m>). Les équations restantes sont
+    <md>
+    <mrow>w_1-w_3&amp;=0</mrow>
+    <mrow>w_2+2w_3&amp;=0</mrow>
+    <mrow>w_3&amp;=w_3 \, \text{(libre)}</mrow>
+    </md>.</p>
+    <p>Si on pose <m>w_3=1</m>, on obtient la solution de base <m>\vec{w}=(1,-2,1)</m>.
+    La solution homogène est donc <m>\vec{w}_h=k(1,-2,1)</m> avec <m>k \in \R</m>.
+    </p></solution>
     </task>
-    <task>
+    <task xml:id="exo-prodvecb">
     <statement><p>Soit <m>\vec{u}=(3,1,2),\vec{v}=(-2,1,5)</m>. On cherche <m>\vec{w}=(w_1,w_2,w_3)</m> tel que <m>\pscal{w}{u}=0</m> et <m>\pscal{w}{v}=0</m>. Écrire le système d'équations linéaires associé à ces 
     équations et le résoudre.</p></statement>
+    <answer><p><m>\vec{w}_h=k(\frac{3}{5},-\frac{19}{5},1)</m> avec <m>k \in \R</m></p></answer>
+    <solution><p>On écrit les équations obtenues en remplaçant par les vecteurs donnés et le vecteur quelconque <m>\vec{w}</m>.
+    <md>
+    <mrow>\pscal{w}{u}=0 &amp; \Rightarrow (w_1,w_2,w_3)\cdot (3,1,2) =0</mrow>
+    <mrow>\pscal{w}{v}=0 &amp; \Rightarrow (w_1,w_2,w_3)\cdot (-2,1,5) =0</mrow>
+    <mrow>&amp;\begin{cases} 3w_1+w_2+2w_3=0 \\-2w_1+w_2+5w_3=0\end{cases}</mrow>
+    </md>
+    La matrice <m>A=\begin{pmatrix}3 &amp; 1 &amp; 2 \\ -2 &amp; 1 &amp; 5\end{pmatrix}</m> et le vecteur <m>\vec{w}=\vecddd{w_1}{w_2}{w_3}</m> résument le système d'équations
+    linéaires dans l'équation matricielle <m>A\vec{w}=\vec{0}</m>. 
+    C'est un système homogène. On va donc l'échelonner <em>sans</em> la partie augmentée.
+    <md>
+    <mrow>\begin{pmatrix}3 &amp; 1 &amp; 2 \\ -2 &amp; 1 &amp; 5\end{pmatrix}&amp;\matsimilc{2}{}{1}\begin{pmatrix}1 &amp; 2 &amp; 7 \\ -2 &amp; 1 &amp; 5\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{1}{2}{2}\begin{pmatrix}1 &amp; 2 &amp; 7 \\ 0 &amp; 5 &amp; 19\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{2}{\frac{1}{5}}\begin{pmatrix}1 &amp; 2 &amp; 7 \\ 0 &amp; 1 &amp; \frac{19}{5}\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-2}{1}\begin{pmatrix}1 &amp; 0 &amp; -\frac{3}{5} \\ 0 &amp; 1 &amp; \frac{19}{5}\end{pmatrix}</mrow>
+    </md>
+    Il n'y a qu'une seule variable libre ici, la troisième (<m>w_3</m>). Les équations restantes sont
+    <md>
+    <mrow>w_1-\frac{3}{5}w_3&amp;=0</mrow>
+    <mrow>w_2+\frac{19}{5}w_3&amp;=0</mrow>
+    <mrow>w_3&amp;=w_3 \, \text{(libre)}</mrow>
+    </md>.</p>
+    <p>Si on pose <m>w_3=1</m>, on obtient la solution de base <m>\vec{w}=(\frac{3}{5},-\frac{19}{5},1)</m>.
+    La solution homogène est donc <m>\vec{w}_h=k(\frac{3}{5},-\frac{19}{5},1)</m> avec <m>k \in \R</m>.
+    </p></solution>
     </task>
-    <task xml:id="exo-prodvecb"><statement><p>Dans les deux calculs précédents, quelle est la plus petite valeur positive de la variable libre qui fait en sorte que les entrées du vecteur <m>\vec{w}</m> sont toutes entières? Quels sont ces
-    vecteurs <m>\vec{w}</m>?</p></statement></task>
+    <task><statement><p>Dans les deux calculs précédents, quelle est la plus petite valeur positive de la variable libre qui fait en sorte que les entrées du vecteur <m>\vec{w}</m> sont toutes entières? Quels sont ces
+    vecteurs <m>\vec{w}</m>?</p></statement>
+    <answer><p><ol>
+    <li><p><m>w_3=1</m> et <m>\vec{w}=(1,-2,1)</m></p></li>
+    <li><p><m>w_3=5</m> et <m>\vec{w}=(3,-19,5)</m></p></li>
+    </ol></p></answer>
+    </task>
     <task><statement><p>Refaire les parties <xref ref="exo-prodveca"/> et <xref ref="exo-prodvecb"/> en remplaçant le vecteur <m>\vec{u}</m> par un vecteur quelconque <m>\vec{u}=(u_1,u_2,u_3)</m>. Compléter les cellulles Sage ci-dessous pour faire  les calculs  </p>
     <sage>
     <input>
@@ -56,43 +109,246 @@ R.&lt;u1,u2,u3>=QQ[]
     </input>
     </sage>
     <p>Sélectionner à nouveau une valeur pour <m>w_3</m> qui évite les fractions.</p>
-    </statement></task>
-    <task><statement><p>Refaire les parties <xref ref="exo-prodveca"/> et <xref ref="exo-prodvecb"/> en remplaçant les vecteurs <m>\vec{u},\vec{v}</m> par un vecteur quelconque <m>\vec{u}=(u_1,u_2,u_3),\vec{v}=(v_1,v_2,v_3)</m>. Compléter les cellulles Sage ci-dessous pour faire  les calculs  </p>
+    </statement>
+    <solution>
+    <listing>
+    <caption>Le code solution pour la lettre (a)</caption>
+    <program language="sage">
+    <input>
+var("u1,u2,u3")
+u=vector([u1,u2,u3])
+v=vector([2,3,4])
+R.&lt;u1,u2,u3>=QQ[]
+A=matrix([u,v])
+rrefA=A.echelon_form()
+show("rref(A)=",rrefA.simplify_full()) #On utilise la fonction simplify_full() pour que les fractions soient réduites
+    </input>
+    </program>
+    </listing>
+    <p>On choisit la valeur <m>w_3=3u_1-2u_2</m> pour obtenir le vecteur à valeurs entières <m>\vec{w}=(4u_2-3u_3,-4u_1+2u_3,3u_1-2u_2)</m>.</p>
+    <listing>
+    <caption>Le code solution pour la lettre (b)</caption>
+    <program language="sage">
+    <input>
+var("u1,u2,u3")
+u=vector([u1,u2,u3])
+v=vector([-2,1,5])
+R.&lt;u1,u2,u3>=QQ[]
+A=matrix([u,v])
+rrefA=A.echelon_form()
+show("rref(A)=",rrefA.simplify_full()) 
+    </input>
+    </program>
+    </listing>
+    <p>On choisit la valeur <m>w_3=u_1+2u_2</m> pour obtenir le vecteur à valeurs entières <m>\vec{w}=(5u_2-u_3,-5u_1-2u_3,u_1+2u_2)</m>.</p>
+    </solution></task>
+    <task><statement><p>Refaire la partie <xref ref="exo-prodveca"/> en remplaçant les vecteurs <m>\vec{u},\vec{v}</m> par un vecteur quelconque <m>\vec{u}=(u_1,u_2,u_3),\vec{v}=(v_1,v_2,v_3)</m>. Compléter la cellulle Sage ci-dessous pour faire  les calculs  </p>
     <sage>
     <input>
 var("u1,u2,u3,v1,v2,v3")
 u=vector([u1,u2,u3])
 v=vector([v1,v2,v3])
-R.&lt;u1,u2,u3>=QQ[]    
-    </input>
-    </sage>
-    <sage>
-        <input>
-var("u1,u2,u3")
-u=vector([u1,u2,u3])
-v=vector([v1,v2,v3])
-R.&lt;u1,u2,u3,v1,v2,v3>=QQ[]    
+R.&lt;u1,u2,u3,v1,v2,v3>=QQ[] 
     </input>
     </sage>
     <p>Sélectionner à nouveau une valeur pour <m>w_3</m> qui évite les fractions.</p>
-    </statement></task>
+    </statement>
+    <solution>
+    <listing>
+    <caption>Le code solution</caption>
+    <program language="sage">
+    <input>
+var("u1,u2,u3,v1,v2,v3")
+u=vector([u1,u2,u3])
+v=vector([v1,v2,v3])
+R.&lt;u1,u2,u3,v1,v2,v3>=QQ[] 
+A=matrix([u,v])
+rrefA=A.echelon_form()
+show("rref(A)=",rrefA.simplify_full())
+    </input>
+    </program>
+    </listing>
+    <p>On choisit la valeur <m>w_3=-u_{2} v_{1} + u_{1} v_{2}</m> pour obtenir le vecteur à valeurs entières <m>\vec{w}=\left(-u_{3} v_{2} + u_{2} v_{3},\,u_{3} v_{1} - u_{1} v_{3},\,-u_{2} v_{1} + u_{1} v_{2}\right)</m>.</p>
+    </solution>
+    </task>
     <conclusion><p>Le vecteur <m>\vec{w}=\left(-u_{3} v_{2} + u_{2} v_{3},\,u_{3} v_{1} - u_{1} v_{3},\,-u_{2} v_{1} + u_{1} v_{2}\right)</m> est appelé le produit vectoriel de <m>\vec{u}</m> et <m>\vec{v}</m>, et
     est noté <m>\vec{w}=\vec{u}\times \vec{v}</m>. On y reviendra à la section <xref provisional="sec-prodvec"/>.</p>
-    <p>Ce vecteur a été obtenu en prenant la variable libre dans le système d'équations linéaires comme étant égale à <m>w_3=u_2v_1-u_1v_2</m> pour éliminer une fraction. Il se peut toutefois que ce nombre soit nul.
+    <p>Ce vecteur a été obtenu en prenant la variable libre dans le système d'équations linéaires comme étant égale à <m>w_3=u_1v_2-u_2v_1</m> pour éliminer une fraction. Il se peut toutefois que ce nombre soit nul.
     Dans la section <xref provisional="sec-prodvec"/>, on montrera que ce n'est en réalité pas un problème.</p></conclusion>
     </exercise>
     <exercise>
-    <statement><p>On considère la matrice <me>A=\matcolt{1}{2}{3}{-1}{4}{3}{2}{4}{x^2-3}</me>. Déterminer les  solutions de base en fonction de <m>x</m>.</p></statement>
+    <statement><p>On considère la matrice <me>A=\matcolt{1}{2}{3}{-1}{4}{3}{2}{4}{x^2-3}</me>. 
+    Déterminer les  solutions de base en fonction de <m>x</m>.</p></statement>
+    <answer>
+    <p>Si <m>x \neq \pm 3</m>, alors <m>\vec{s}=\vec{0}</m>.</p>
+    <p>Si <m>x = \pm 3</m>, alors <m>\vec{s}=\vecddd{-2}{0}{1}</m>.</p>
+    </answer>
+    <solution>
+    <p>Pour trouver les solutions, il faut échelonner la matrice.
+    Puisqu'on cherche les solutions de base, il n'est pas nécessaire d'échelonner la matrice augmentée du système puisque cette colonne sera toujours nulle.
+    <md>
+    <mrow>\begin{pmatrix} 1&amp; -1&amp; 2 \\
+                          2&amp; 4&amp; 4\\
+                          3&amp; 3&amp; x^2-3\end{pmatrix}&amp;\substack{-2L_1+L_2\rightarrow L_2 \\ -3L_1+L_3\rightarrow L_3 \\ \sim}
+          \begin{pmatrix} 1&amp; -1&amp; 2 \\
+                          0&amp; 6&amp; 0\\
+                          0&amp; 6&amp; x^2-9\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{2}{\frac{1}{6}}
+          \begin{pmatrix} 1&amp; -1&amp; 2 \\
+                          0&amp; 1&amp; 0\\
+                          0&amp; 6&amp; x^2-9\end{pmatrix}</mrow>
+    <mrow>&amp;\substack{L_2+L_1\rightarrow L_1 \\ -6L_2+L_3\rightarrow L_3 \\ \sim}
+          \begin{pmatrix} 1&amp; 0&amp; 2 \\
+                          0&amp; 1&amp; 0\\
+                          0&amp; 0&amp; x^2-9\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{3}{-\frac{2}{x^2-9}}{1}
+          \begin{pmatrix} 1&amp; 0&amp; 0 \\
+                          0&amp; 1&amp; 0\\
+                          0&amp; 0&amp; x^2-9\end{pmatrix}</mrow>
+    </md>
+    La dernière étape n'est possible que si <m>x^2-9\neq 0</m>. 
+    Cela nous amène à séparer les solutions possibles en deux groupes, selon les valeurs de <m>x</m>.</p>
+    <p>D'abord, si <m>x^2-9\neq 0 \Leftrightarrow (x-3)(x+3) \neq 0 \Leftrightarrow x \neq \pm 3</m>, alors, toutes les variables sont pivots
+    et le système <m>A\vec{x}=\vec{0}</m> a une seule solution qui est le vecteur nul. 
+    On a donc <m>\vec{s}=\vec{0}</m>.</p>
+    <p>Ensuite, si <m>x=3</m>, alors la matrice échelonnée devient: 
+    <me>\begin{pmatrix} 1&amp; 0&amp; 2 \\
+                          0&amp; 1&amp; 0\\
+                          0&amp; 0&amp; 0\end{pmatrix}</me>
+    et on lit le vecteur solution de base dans la colonne pivot en changeant le signe des valeurs et en posant la variable pivot à <m>1</m> : <m>\vec{s}=\vecddd{-2}{0}{1}</m>.</p>
+    <p>Finalement, si <m>x=-3</m>, la matrice échelonnée est la même et donc la solution de base est la même.</p>
+    </solution>
     </exercise>
     <exercise>
-    <statement><p>On considère la matrice <me>B=\begin{pmatrix} x&amp; x-1&amp; y \\
-                                                             2&amp; 0&amp; -6\\
-                                                             3&amp; 0&amp; -9\end{pmatrix}</me>. Déterminer les  solutions de base en fonction de <m>x</m> et <m>y</m>.</p></statement>
+    <statement><p>On considère la matrice 
+    <me>B=\begin{pmatrix} 
+    x&amp; x-1&amp; y \\
+    2&amp; 0&amp; -6\\
+    3&amp; 0&amp; -9
+    \end{pmatrix}</me>. 
+    Déterminer les  solutions de base en fonction de <m>x</m> et <m>y</m>.</p></statement>
+    <answer>
+    <p>Si <m>x \neq 0</m> et <m>x\neq 1</m>, alors <m>\vec{s}=\vecddd{3}{-\frac{3x+y}{x-1}}{1}</m>.</p>
+    <p>Si <m>x \neq 0</m>, <m>x=1</m> et <m>y\neq -3</m>, alors <m>\vec{s}=\vecddd{0}{1}{0}</m>.</p>
+    <p>Si <m>x \neq 0</m>, <m>x=1</m> et <m>y=-3</m>, alors <m>\vec{s}_1=\vecddd{3}{0}{1}</m> et <m>\vec{s}_2=\vecddd{0}{1}{0}</m>.</p>
+    <p>Si <m>x=0</m>, alors <m>\vec{s}=\vecddd{3}{y}{1}</m>.</p>
+    </answer>
+    <solution>
+    <p>Pour trouver les solutions, il faut échelonner la matrice.
+    Puisqu'on cherche les solutions de base, il n'est pas nécessaire d'échelonner la matrice augmentée du système puisque cette colonne sera toujours nulle.
+    <md>
+    <mrow>\begin{pmatrix} 
+    x&amp; x-1&amp; y \\
+    2&amp; 0&amp; -6\\
+    3&amp; 0&amp; -9
+    \end{pmatrix}&amp;\substack{\frac{1}{2}L_2\rightarrow L_2 \\ \frac{1}{3}L_3\rightarrow L_3 \\ \sim}
+    \begin{pmatrix} 
+    x&amp; x-1&amp; y \\
+    1&amp; 0&amp; -3\\
+    1&amp; 0&amp; -3
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-}{3}
+          \begin{pmatrix} 
+    x&amp; x-1&amp; y \\
+    1&amp; 0&amp; -3\\
+    0&amp; 0&amp; 0
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimile{1}{2}
+          \begin{pmatrix} 
+    1&amp; 0&amp; -3\\
+    x&amp; x-1&amp; y \\
+    0&amp; 0&amp; 0\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{3}{-x}{1}
+          \begin{pmatrix} 
+    1&amp; 0&amp; -3\\
+    0&amp; x-1&amp; 3x+y \\
+    0&amp; 0&amp; 0\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimils{2}{\frac{1}{x-1}}
+          \begin{pmatrix} 
+    1&amp; 0&amp; -3\\
+    0&amp; 1&amp; \frac{3x+y}{x-1} \\
+    0&amp; 0&amp; 0\end{pmatrix}</mrow>
+    </md>
+    Les deux dernières étapes ne sont possibles que si <m>x\neq 0</m>, puis si <m>x\neq 1</m>. 
+    Cela nous amène à séparer les solutions possibles en trois groupes, selon les valeurs de <m>x</m>.</p>
+    <p>D'abord, si <m>x \neq 0</m> et <m>x\neq 1</m>, alors, on lit le vecteur solution de base dans la colonne pivot en changeant le signe des valeurs et en posant la variable pivot à <m>1</m>: 
+    <m>\vec{s}=\vecddd{3}{-\frac{3x+y}{x-1}}{1}</m>.</p>
+    <p>Ensuite, si <m>x=1</m>, alors, la matrice échelonnée devient: 
+    <md>
+    <mrow>\begin{pmatrix} 1&amp; 0&amp; -3\\
+    0&amp; 0&amp; 3+y \\
+    0&amp; 0&amp; 0\end{pmatrix}&amp;\matsimils{2}{\frac{1}{3+y}}\begin{pmatrix} 
+    1&amp; 0&amp; -3\\
+    0&amp; 0&amp; 1 \\
+    0&amp; 0&amp; 0\end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{3}{1}\begin{pmatrix} 
+    1&amp; 0&amp; 0\\
+    0&amp; 0&amp; 1 \\
+    0&amp; 0&amp; 0\end{pmatrix}</mrow>
+    </md>
+    Cette avant-dernière étape n'est possible que si <m>y\neq -3</m>. 
+    Dans ce cas, le vecteur solution de base est <m>\vec{s}=\vecddd{0}{1}{0}</m>, car les variables non-pivots sont forcées à être égales à <m>0</m>.
+    Autrement, si <m>y=-3</m>, alors la matrice échelonnée devient:
+    <me>\begin{pmatrix} 1&amp; 0&amp; -3\\
+    0&amp; 0&amp; 0 \\
+    0&amp; 0&amp; 0\end{pmatrix}</me>.
+    On a maintenant deux variables pivots et une seule non-pivot.
+    Les vecteurs solutions de base sont donc: <m>\vec{s}_1=\vecddd{3}{0}{1}</m> et <m>\vec{s}_2=\vecddd{0}{1}{0}</m>.
+    On les a obtenus en posant alternativement chaque variable libre égale à <m>1</m> et <m>0</m>.</p>
+    <p>Finalement, si <m>x=0</m>, la matrice échelonnée devient:
+    <me>\begin{pmatrix} 
+    1&amp; 0&amp; -3\\
+    0&amp; -1&amp; y \\
+    0&amp; 0&amp; 0\end{pmatrix}\matsimils{2}{-}\begin{pmatrix} 
+    1&amp; 0&amp; -3\\
+    0&amp; 1&amp; -y \\
+    0&amp; 0&amp; 0\end{pmatrix}</me>.
+    On lit le vecteur solution de base dans la colonne pivot en changeant le signe des valeurs et en posant la variable pivot à <m>1</m>: 
+    <m>\vec{s}=\vecddd{3}{y}{1}</m>.
+    </p>
+    </solution>
     </exercise>
-    <exercise><statement><p>Un plan a comme équation <m>2x+5y-10z=0</m>. En fonction de ce plan, que représente la solution homogène à l'équation <m>\begin{pmatrix} 2&amp; 5&amp; -10\end{pmatrix}\vecddd{x}{y}{z}=0</m>? Donner cette solution.</p></statement>
-    <answer><p>C'est le même plan, sous forme vectoriel. Les vecteurs directeurs sont les solutions de base.</p></answer>
+    <exercise xml:id="exo-eqvecsolhomo"><statement><p>Un plan a comme équation <m>2x+5y-10z=0</m>. En fonction de ce plan, que représente la solution homogène à l'équation <m>\begin{pmatrix} 2&amp; 5&amp; -10\end{pmatrix}\vecddd{x}{y}{z}=0</m>? Donner cette solution.</p></statement>
+    <answer><p>L'équation vectorielle de ce plan. La solution homogène est:
+    <me>\vec{x}_h=a\vecddd{-\frac{5}{2}}{1}{0}+b\vecddd{5}{0}{1}\text{ avec } a,b\in\R</me></p></answer>
+    <solution><p>Puisque l'équation sous forme matricielle représente la même équation, il s'agit du même plan.
+    La solution homogène correspondra à l'équation vectorielle de ce plan passant par l'origine.
+    Les vecteurs directeurs seront donnés par les solutions de base.
+    La matrice échelonnée sera:
+    <me>\begin{pmatrix} 
+    2&amp; 5&amp; -10\end{pmatrix}\matsimils{1}{\frac{1}{2}}\begin{pmatrix} 
+    1&amp; \frac{5}{2}&amp; -5\end{pmatrix}</me>.
+    On l'interprète en posant que les variables libres <m>y</m> et <m>z</m> respectivement égales à <m>1,0</m> puis à <m>0,1</m>.
+    Les vecteurs solutions de base sont donc: <m>\vec{s}_1=\vecddd{-\frac{5}{2}}{1}{0}</m> et <m>\vec{s}_2=\vecddd{5}{0}{1}</m>.
+    La solution homogène est : <me>\vec{x}_h=a\vecddd{-\frac{5}{2}}{1}{0}+b\vecddd{5}{0}{1}\text{ avec } a,b\in\R</me>
+    Le plan est donc décrit par l'équation vectorielle : 
+    <me>\mathcal{P}: \vecddd{x}{y}{z}=a\vecddd{-\frac{5}{2}}{1}{0}+b\vecddd{5}{0}{1}\text{ avec } a,b\in\R</me>.
+    </p></solution>
     </exercise>
-    <exercise><statement>Un plan a comme équation <m>2x+5y-10z=20</m>.En fonction de ce plan, que représente la solution générale à l'équation <m>\begin{pmatrix} 2&amp; 5&amp; -10\end{pmatrix}\vecddd{x}{y}{z}=20</m>?  Donner cette solution. </statement></exercise>
+    <exercise><statement>Un plan a comme équation <m>2x+5y-10z=20</m>. 
+    En fonction de ce plan, que représente la solution générale à l'équation <m>\begin{pmatrix} 2&amp; 5&amp; -10\end{pmatrix}\vecddd{x}{y}{z}=20</m>?  
+    Donner cette solution. </statement>
+    <answer><p>L'équation vectorielle de ce plan. La solution générale est:
+    <me>\vec{x}_g=\vec{x}_h+\vec{x}_p=a\vecddd{-\frac{5}{2}}{1}{0}+b\vecddd{5}{0}{1}+\vecddd{10}{0}{0}\text{ avec } a,b\in\R</me></p></answer>
+    <solution><p>Puisque l'équation sous forme matricielle représente la même équation, il s'agit du même plan.
+    La solution générale correspondra à l'équation vectorielle de ce plan passant par un point de départ qui correspond à la solution particulière.
+    Les vecteurs directeurs seront donnés par les solutions de base.
+    La matrice augmentée échelonnée sera:
+    <me>\begin{pmatrix} 
+    2&amp; 5&amp; -10 &amp;| &amp; 20\end{pmatrix}\matsimils{1}{\frac{1}{2}}\begin{pmatrix} 
+    1&amp; \frac{5}{2}&amp; -5 &amp; | &amp; 10\end{pmatrix}</me>.
+    La solution homogène, qui a déjà été trouvée à l'exercice <xref ref="exo-eqvecsolhomo"/>, est : 
+    <me>\vec{x}_h=a\vecddd{-\frac{5}{2}}{1}{0}+b\vecddd{5}{0}{1}\text{ avec } a,b\in\R</me>.
+    La solution particulière est obtenue de la matrice augmentée en posant toutes les variables libres égales à <m>0</m>.
+    Puisque seule la première variable est pivot, c'est donc elle qui prendra la seule valeur dans la partie augmentée.
+    La solution particulière est donc:
+    <me>\vec{x}_p=\vecddd{10}{0}{0}</me>.
+    La solution générale est :
+    <me>\vec{x}_g=\vec{x}_h+\vec{x}_p=a\vecddd{-\frac{5}{2}}{1}{0}+b\vecddd{5}{0}{1}+\vecddd{10}{0}{0}\text{ avec } a,b\in\R</me>.
+    Le plan est donc décrit par l'équation vectorielle : 
+    <me>\mathcal{P}: \vecddd{x}{y}{z}=a\vecddd{-\frac{5}{2}}{1}{0}+b\vecddd{5}{0}{1}+\vecddd{10}{0}{0}\text{ avec } a,b\in\R</me>.
+    </p></solution>
+    </exercise>
     <exercise><statement><p>Soit <m>R</m> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve la solution de base à l'équation <m>R\vec{x}=\vec{0}</m> et la solution particulière
     à l'équation <m>R\vec{x}=\vec{b}</m>. Entrer sur la figure les valeurs pour la matrice <m>R</m> et le vecteur <m>\vec{b}</m> qui correspondent à cette géométrie.</p>
 <figure xml:id="fig-rrefgeo1">
@@ -150,9 +406,10 @@ R.&lt;u1,u2,u3,v1,v2,v3>=QQ[]
     </statement>
     <!-- Pour la solution, distinguer trois cas :  Si v=0, si v est de la forme (x,0) et si v est de la forme (x,y) -->
     </exercise>
-    <exercise><task><statement><p>Donner une transformation telle que son image est égale à ses zéros.</p></statement>
-    <hint><p>Une <m>2\times 2</m> suffit.</p></hint></task>
+    <exercise><statement><p>Donner une transformation telle que son image est égale à ses zéros.</p></statement>
+    <hint><p>Une <m>2\times 2</m> suffit.</p></hint>
     </exercise>
+    <!--
     <exercise>
     <introduction><p>Les matrices ci-dessous sont des matrices <m>L</m>, obtenues par exemple avec la fonction <c>matL</c>. Pour chaque matrice,
     donner une matrice échelonnée réduite <m>R</m> qui possède la matrice <m>L</m> comme sous matrice.
@@ -172,6 +429,7 @@ R.&lt;u1,u2,u3,v1,v2,v3>=QQ[]
 -1 &amp; -2 &amp; 2 &amp; 0
 \end{array}\right)</m></p></statement></task>
     </exercise>
+    -->
     <exercise><introduction><p>Soit <m>A,B</m> des transformations linéaires non nulles telles que <m>AB=O</m>.</p></introduction>
     <task><statement><p>Que peut-on dire de l'image de <m>B</m> par rapport aux zéros de <m>A</m>?</p></statement>
     <answer><p>On a <m>Im(B)\subseteq Z(A)</m>.</p></answer>
@@ -183,11 +441,11 @@ R.&lt;u1,u2,u3,v1,v2,v3>=QQ[]
     <p>Donner, si possible, une matrice qui a comme solution(s) de base les vecteurs suivants. Dans l'impossibilité de le faire, expliquer pourquoi.</p>
     </introduction>
     <task><statement><p>Le vecteur <m>\vec{s}=(1,-1,1)</m>.</p></statement></task>
-    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,1,0),vec{s}_2=(-1,0,1)</m>.</p></statement></task>
-    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,0,0),vec{s}_2=(0,2,1)</m>.</p></statement></task>
-    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,0),vec{s}_2=(0,1),vec{s}_3=(1,1)</m>.</p></statement></task>
+    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,1,0),\vec{s}_2=(-1,0,1)</m>.</p></statement></task>
+    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,0,0),\vec{s}_2=(0,2,1)</m>.</p></statement></task>
+    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,0),\vec{s}_2=(0,1),\vec{s}_3=(1,1)</m>.</p></statement></task>
     <task><statement><p>Le vecteurs <m>\vec{s}=(-2,3,1,0,0)</m>.</p></statement></task>
-    <task><statement><p>Le vecteurs <m>\vec{s}_1=(-3,1,0,0,0),vec{s}_2=(2,0,1,1,0),vec{s}_3=(-4,0,-1,0,1)</m>.</p></statement></task>
+    <task><statement><p>Le vecteurs <m>\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0),\vec{s}_3=(-4,0,-1,0,1)</m>.</p></statement></task>
     </exercise>
     <exercise xml:id="exo-Ax0sev"><statement><p>Démontrer la proposition <xref ref="prop-Ax0sev"/> et la proposition <xref ref="prop-imasev"/>.</p></statement></exercise>
     <exercise><statement><p>Voici un énoncé et sa &#x00AB; démonstration &#x00BB;.</p>
