@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-cofacteurs">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Les mineurs et les cofacteurs </title>
+    <introduction xml:id= "intro-cofacteurs">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+     <p>Dans la section <xref ref="sec-det2x2"/>, on a obtenu une formule générale pour le déterminant d'une matrice <m>2\times 2</m>. On s'intéresse maintenant à l'équivalent pour
+     une matrice <m>3\times 3</m>. La formule en soi ne sera pas particulièrement utile, mais les idées pour y arriver permettront d'obtenir des outils théoriques qui serviront plus tard.</p>
+     <p>Dans cette section, on introduit les notions de mineur, de  cofacteur, le développement de Laplace du déterminant.</p>
+    </introduction>
+    <subsection xml:id="ssec-det3x3formule">
+    <title>Une formule pour le cas <m>3\times 3</m></title>
+    <p>Avec une matrice <m>3\times 3</m>, le déterminant s'obtient en échelonnant la matrice, au moins jusqu'à l'obtention d'une forme triangulaire. Dans cette sous-section, on utilise
+    plutôt les propriétés du déterminant pour montrer que 
+    
+    <men xml:id="eq-det3x3temp" tag="star">\begin{vmatrix} a_{1,1}&amp;a_{1,2}&amp;a_{1,3}\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}=a_{1,1}a_{2,2}a_{3,3}+a_{1,2}a_{2,3}a_{3,1}+a_{1,3}a_{2,1}a_{3,2}-a_{1,3}a_{2,2}a_{3,1}-a_{1,1}a_{2,3}a_{3,2}-a_{1,2}a_{2,1}a_{3,3}</men>.</p>
+                        <p>Il semble, avec raison, plus difficile de retenir cette formule que de faire le calcul en échelonnant comme à la section <xref ref="sec-detgen"/>. En analysant toutefois la structure
+                        de l'équation <xref ref="eq-det3x3temp"/>, on sera en mesure de l'analyser. Dans un premier temps, on appliquer la formule pour calculer le déterminant d'une matrice. </p>
+    <example>
+    <title>Le déterminant d'une matrice <m>3\times 3</m> avec la formule</title>
+    <statement>
+    <p>On considère la matrice de l'exemple <xref ref="ex-det3x3-1"/>. On vérifie que le déterminant calculé avec la formule <xref ref="eq-det3x3temp"/> correspond à celui calculé précédemment.</p>
+    </statement>
+    <solution>
+    <p>Il suffit d'appliquer la formule pour obtenir <!-- \matcolt{1}{2}{-1} {3}{2}{0} {1}{-4}{2}-->
+    <md>
+    <mrow>\det(A)&amp;=1*2*2+3*(-4)*(-1)+1*2*0-1*2*(-1)-1*(-4)*0-3*2*2</mrow>
+    <mrow>\det(A)&amp;=4+12+0-(-2)-0-12</mrow>
+    <mrow>\det(A)&amp;=6</mrow>
+    </md>. Ceci correspond bien au déterminant calculé à l'exemple <xref ref="ex-det3x3-1"/>.</p>
+    </solution>
+    </example>
+    <p>On revient à la formule maintenant. Celle-ci peut-être démontrée en utilisant les propriétés des déterminants. On en fait l'objet de la proposition suivante.</p>
+    <proposition xml:id="prop-det3x3avecprop">
+    <title>La formule pour le cas <m>3\times 3</m></title>
+    <statement><p>
+    Soit <m>A=\begin{pmatrix} a_{1,1}&amp;a_{1,2}&amp;a_{1,3}\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{pmatrix}</m> une matrice <m>3\times 3</m>. Alors 
+    <men xml:id="eq-det3x3">
+       \begin{vmatrix} a_{1,1}&amp;a_{1,2}&amp;a_{1,3}\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}=a_{1,1}a_{2,2}a_{3,3}+a_{1,2}a_{2,3}a_{3,1}+a_{1,3}a_{2,1}a_{3,2}-a_{1,3}a_{2,2}a_{3,1}-a_{1,1}a_{2,3}a_{3,2}-a_{1,2}a_{2,1}a_{3,3}                 
+    </men>.
+    </p></statement>
+    <proof>
+    <p>Dans la proposition <xref ref="prop-detestfact"/>, on a essentiellement utilisé les opérations sur les lignes pour arriver à montrer que le déterminant d'une matrice <m>2\times 2</m> était <m>ad-bc</m>. On a du faire plusieurs
+    cas en fonction des nombres valant <m>0</m>, car on voulait utilisé la division. Pour le cas <m>3\times 3</m>, on a accès à plus de propriétés du déterminant ce qui devrait faciliter la tâche. Une démarche similaire aurait
+    pu être fait aussi pour le cas <m>2\times 2</m> et sera l'objet de l'exercice <xref ref="exo-det2x2avecprop"/>.</p>
+    
+    <p>L'astuce est de considérer la première ligne <m>\vec{l}_1=(a_{1,1},a_{1,2},a_{1,3})</m> et de la réécrire comme étant une somme de trois vecteurs: 
+    <me>
+    (a_{1,1},a_{1,2},a_{1,3})=(a_{1,1},0,0)+(0,a_{1,2},0)+(0,0,a_{1,3})
+    </me>.
+    On a alors
+    <md>
+    <mrow>\begin{vmatrix} a_{1,1}&amp;a_{1,2}&amp;a_{1,3}\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}&amp;=\begin{vmatrix} a_{1,1}+0+0&amp;0+a_{1,2}+0&amp;0+0+a_{1,3}\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}</mrow>
+    <mrow>&amp;=\begin{vmatrix} a_{1,1}&amp;0&amp;0\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}+\begin{vmatrix} 0&amp;a_{1,2}&amp;0\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}+\begin{vmatrix} 0&amp;0&amp;a_{1,3}\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}&amp; &amp;\text{selon } <xref ref="li-detsomme"/></mrow>
+    <mrow>&amp;=a_{1,1}\begin{vmatrix} 1&amp;0&amp;0\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}+a_{1,2}\begin{vmatrix} 0&amp;1&amp;0\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}+a_{1,3}\begin{vmatrix} 0&amp;0&amp;1\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}&amp; &amp;\text{selon } <xref ref="li-detr"/></mrow>
+     <mrow number="yes" xml:id="eq-det3x3min1">&amp;=a_{1,1}\begin{vmatrix} 1&amp;0&amp;0\\
+                        0&amp;a_{2,2}&amp;a_{2,3}\\
+                        0&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}+a_{1,2}\begin{vmatrix} 0&amp;1&amp;0\\
+                        a_{2,1}&amp;0&amp;a_{2,3}\\
+                        a_{3,1}&amp;0&amp;a_{3,3}\end{vmatrix}+a_{1,3}\begin{vmatrix} 0&amp;0&amp;1\\
+                        a_{2,1}&amp;a_{2,2}&amp;0\\
+                        a_{3,1}&amp;a_{3,2}&amp;0\end{vmatrix}&amp; &amp;\text{en éliminant avec } <xref ref="li-detk"/></mrow>
+    <mrow number="yes" xml:id="eq-det3x3min2">&amp;=a_{1,1}\begin{vmatrix} 1&amp;0&amp;0\\
+                        0&amp;a_{2,2}&amp;a_{2,3}\\
+                        0&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}-a_{1,2}\begin{vmatrix} 1&amp;0&amp;0\\
+                        0&amp;a_{2,1}&amp;a_{2,3}\\
+                        &amp;a_{3,1}&amp;a_{3,3}\end{vmatrix}-a_{1,3}\begin{vmatrix} 1&amp;0&amp;0\\
+                        0&amp;a_{2,2}&amp;a_{2,1}\\
+                        0&amp;a_{3,2}&amp;a_{3,1}\end{vmatrix}&amp; &amp;\text{selon } <xref ref="li-detp"/></mrow>
+    <mrow>&amp;=a_{1,1}\begin{vmatrix} a_{2,2}&amp; a_{2,3}\\
+                                       a_{3,2}&amp; a_{3,3}\end{vmatrix}-a_{1,2}\begin{vmatrix} a_{2,1}&amp; a_{2,3}\\
+                                       a_{3,1}&amp; a_{3,3}\end{vmatrix}-a_{1,3}\begin{vmatrix} a_{2,2}&amp; a_{2,1}\\
+                                       a_{3,2}&amp; a_{3,1}\end{vmatrix}&amp;&amp;\text{selon l'exercice} <xref provisional="exo-detsousmatrice"/></mrow>
+    <mrow>&amp;=a_{1,1}(a_{2,2}a_{3,3}-a_{2,3}a_{3,2})-a_{1,2}(a_{2,1}a_{3,3}-a_{3,1}a_{2,3})-a_{1,3}(a_{2,2}a_{3,1}-a_{3,2}a_{2,1})&amp;&amp;\text{selon la formule } <xref ref="li-det2x2formule"/></mrow>
+    <mrow>&amp;=a_{1,1}a_{2,2}a_{3,3}-a_{1,1}a_{2,3}a_{3,2}-a_{1,2}a_{2,1}a_{3,3}+a_{1,2}a_{3,1}a_{2,3}-a_{1,3}a_{2,2}a_{3,1}+a_{1,3}a_{3,2}a_{2,1}</mrow>
+    <mrow>&amp;=a_{1,1}a_{2,2}a_{3,3}+a_{1,2}a_{3,1}a_{2,3}+a_{1,3}a_{3,2}a_{2,1}-a_{1,3}a_{2,2}a_{3,1}-a_{1,1}a_{2,3}a_{3,2}-a_{1,2}a_{2,1}a_{3,3}&amp;&amp;\text{en réarrangeant les termes}</mrow>
+    </md>.
+    </p>
+    <p>On obtient donc la même formule qu'à l'équation <xref ref="eq-det3x3temp"/> plus haut.</p>
+    </proof>
+    </proposition>
+    <p>Encore une fois, il convient de répéter qu'il n'est pas nécessaire de retenir cette formule. Même la façon de procéder est en quelque sorte fastidieuse et demande un certain effort pour généraliser au cas <m>n\times n</m>. On 
+    peut toutefois étudier l'allure de la formule et en déduire certaines propriétés. Ces propriétés aideront à donner une méthode alternative dans la sous-section suivante.</p>
+    </subsection>
+    <subsection xml:id="sssec-mincof">
+    <title>Les mineurs et les cofacteurs</title>
+    <p>On essaie maintenant d'analyser en détails la formule <xref ref="eq-det3x3"/> afin de trouver une manière dela généraliser. Dans un premier temps, on peut remarquer que la formule est composée de six termes, qui sont
+    eux-même fait de trois facteurs. Parmi ces six termes, trois sont affectés d'un signe positif et les trois autres d'un signe négatif. De plus, chaque terme contient exactement un terme de chaque ligne et de chaque colonne 
+    de la matrice. En effet, dans le terme <m>a_{1,3}a_{3,2}a_{2,1}</m>, la ligne <m>1</m> n'apparait qu'au facteur <m>a_{1,3}</m> et les lignes <m>2</m> et <m>3</m> respectivement aux facteurs <m>a_{2,1}</m> et <m>a_{3,2}</m>, 
+    alors que la colonne <m>1</m> apparait seulement au terme <m>a_{2,1}</m> et les colonnes <m>2</m> et <m>3</m> respectivement aux facteurs <m>a_{3,2}</m> et <m>a_{1,3}</m>.</p>
+    <p>D'ailleurs, on peut comprendre le fait qu'il y a six termes dans la formule en comptant le nombre de manières de sélectionner les entrées de la matrice afin d'avoir un représentant de chaque ligne et chaque colonne.
+    <ol>
+    <li><p>On choisit un élément de la ligne <m>1</m>. On a trois choix.</p></li>
+    <li><p>On choisit ensuite un élément de la ligne <m>2</m>. On n'a seulement deux choix, car on ne peut pas prendre la même colonne que pour la ligne <m>1</m>.</p></li>
+    <li><p>Finalement, il ne reste qu'un élément disponible pour la troisième ligne.</p></li>
+    <li><p>On multiplie ensemble ces possibilités pour obtenir <m>3*2*1=6</m>. </p></li>
+    <li><p>Pour le cas <m>2\times 2</m>, on aurait <m>2*1=2</m> possibilité, ce qui correspond bien au nombre de termes dans la formule <xref ref="li-det2x2formule"/>.</p></li>
+    <li><p>En général, on devrait avoir <m>n(n-1)\cdots 2*1=n!</m> termes dans la formules. Déjà pour le cas <m>4\times 4</m>, cela représente 24 termes.</p></li>
+    </ol></p>
+    <p>On comprend maintenant d'où vient le nombre de termes et on sait comment les choisir. En fait, si on se permet de faire une permutation de colonnes additionnelle
+    dans le dernier terme de l'équation <xref ref="eq-det3x3min2"/>, on arrive à (noter le changement de signe du troisième terme et la permutation des colonnes deux et trois)
+    <md>
+    <mrow>\begin{vmatrix} a_{1,1}&amp;a_{1,2}&amp;a_{1,3}\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}&amp;=\begin{vmatrix} a_{1,1}+0+0&amp;0+a_{1,2}+0&amp;0+0+a_{1,3}\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}=a_{1,1}\begin{vmatrix} 1&amp;0&amp;0\\
+                        0&amp;a_{2,2}&amp;a_{2,3}\\
+                        0&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}-a_{1,2}\begin{vmatrix} 1&amp;0&amp;0\\
+                        0&amp;a_{2,1}&amp;a_{2,3}\\
+                        &amp;a_{3,1}&amp;a_{3,3}\end{vmatrix}+a_{1,3}\begin{vmatrix} 1&amp;0&amp;0\\
+                        0&amp;a_{2,1}&amp;a_{2,2}\\
+                        0&amp;a_{3,1}&amp;a_{3,2}\end{vmatrix}</mrow>
+    <mrow number="yes" xml:id="eq-det3x3min3">&amp;=a_{1,1}\begin{vmatrix} a_{2,2}&amp; a_{2,3}\\
+                                       a_{3,2}&amp; a_{3,3}\end{vmatrix}-a_{1,2}\begin{vmatrix} a_{2,1}&amp; a_{2,3}\\
+                                       a_{3,1}&amp; a_{3,3}\end{vmatrix}+a_{1,3}\begin{vmatrix} a_{2,1}&amp; a_{2,2}\\
+                                       a_{3,1}&amp; a_{3,2}\end{vmatrix}</mrow>
+    </md>.</p>
+    <p>En comparant les déterminants <m>2\times 2</m> de l'équation <xref ref="eq-det3x3min3"/> avec les entrées des matrices de l'équation <xref ref="eq-det3x3min1"/>, on arrive à la définition suivante. </p>
+    <definition xml:id="def-mineurs">
+    <title>Les mineurs</title>
+    <p>Soit <m>A</m> une matrice carrée de taille <m>n\times n</m>. On note <m>A_{i,j}</m> la matrice obtenue de <m>A</m> en supprimant la ligne <m>i</m> et la colonne <m>j</m>. On apelle le mineur de la position <m>i,j</m>, ou encore
+    le mineur de l'élément <m>a_{i,j}</m> le déterminant de la matrice <m>A_{i,j}</m>.</p>
+    </definition>
+    <example xml:id="ex-min3x3">
+    <title>Trois mineurs d'une matrice <m>3\times 3</m></title>
+    <statement>
+    <p>On considère une matrice <m>3\times 3</m> quelconque et on veut calculer les mineurs de la première ligne.</p>
+    </statement>
+    <solution>
+    <p>Si <me>A=\begin{pmatrix} a_{1,1}&amp;a_{1,2}&amp;a_{1,3}\\
+                        a_{2,1}&amp;a_{2,2}&amp;a_{2,3}\\
+                        a_{3,1}&amp;a_{3,2}&amp;a_{3,3}\end{pmatrix}</me>, alors
+    <md>
+    <mrow> A_{1,1}&amp;=\begin{pmatrix}a_{2,2} &amp;a_{2,3} \\a_{3,2}&amp;a_{3,3} \end{pmatrix}</mrow>
+    <mrow> A_{1,2}&amp;=\begin{pmatrix}a_{2,1} &amp;a_{2,3} \\a_{3,1}&amp;a_{3,3} \end{pmatrix}</mrow>
+    <mrow> A_{1,3}&amp;=\begin{pmatrix}a_{2,1} &amp;a_{2,2} \\a_{3,1}&amp;a_{3,2} \end{pmatrix}</mrow>
+    </md> et leur déterminant respectif est <m>\det(A_{1,1}=a_{2,2}a_{3,3}-a_{2,3}a_{3,2},\det(A_{1,2}=a_{2,1}a_{3,3}-a_{3,1}a_{2,3}</m> et <m>\det(A_{1,3}=a_{2,1}a_{3,2}-a_{3,1}a_{2,2}</m>.</p>
+    </solution>
+    </example>
+    <p>Les trois mineurs obtenus à l'exemple précédent correspondent à ceux des matrices <m>2\times 2</m> de l'équation <xref ref="eq-det3x3min3"/>. On passe maintenant aux signes des termes de l'équation <xref ref="eq-det3x3min3"/>. 
+    En particulier, les termes avec <m>a_{1,1}</m> et <m>a_{1,3}</m> sont multipliés par <m>1</m> alors que celui avec <m>a_{1,2}</m> est multiplié par <m>-1</m>. L'idée est de partir de l'équation <xref ref="eq-det3x3min1"/>
+    et de permuter les colonnes pour que la première ligne et la première colonne soit composées du vecteur <m>(1,0,0)</m>, mais que l'ordre relatif des autres colonnes soit préservé. Ce n'était pas le cas pour le dernier terme de l'équation
+    <xref ref="eq-det3x3min2"/>, car la dernière matrice a la colonne des <m>a_{i,1}</m> après celle des <m>a_{i,2}</m>. Une permutation supplémentaire a permis d'obtenir le résultat voulu à l'équation <xref ref="eq-det3x3min3"/>.</p>
+    <p>En général, le nombre de permutations de colonne requis pour satisfaire cette contrainte est égal à <m>j-1</m>, menant alors au signe <m>(-1)^{j-1}=(-1)^(1+j)</m>. On préfère écrire l'exposant comme <m>1+j</m> pour des raisons qui deviendront claires sous peu.
+    On veut maintenant introduire la notion de cofacteur. Pour cela, on généralise l'idée ci-dessus d'envoyer une entrée de la matrice à la position <m>1,1</m> sans changer l'ordre relatif des lignes et colonnes.</p>
+    <example>
+    <title>Déplacer une entrée dans une matrice</title>
+    <statement><p>Soit <m>A=\matcolt{a_{1,1}}{0}{a_{1,3}}{a_{2,1}}{0}{a_{2,3}}{0}{1}{0}</m> une matrice quelconque avec la troisième ligne et la deuxième colonne ne contenant que des zéros sauf la valeur <m>1</m> à l'intersection.
+    On veut, à l'aide d'opérations élémentaires sur les lignes et/ou sur les colonnes (voir l'exercice <xref provisional="Exercice sur les opelem colonne"/>), déplacer le <m>1</m> en position <m>1,1</m> sans 
+    changer l'ordre relatif des lignes et des colonnes pour les autres entrées</p></statement>
+    <solution><p>On utilise Sage pour faire les calculs. La multiplication à gauche d'une matrice <m>M</m> par une matrice de type <m>E_{L_i\leftrightarrow L_j}</m> a pour effet d'échanger les 
+    lignes <m>i,j</m> de <m>M</m> alors que la multiplication à droite par cette même matrice échangera les colonnes <m>i,j</m>. On utilise Sage pour faire le calcul.</p>
+    <sage>
+    <input>
+    A=matrix([[a_11,0,a_13],[a_21,0,a_23],[0,1,0]])
+    show(A)
+    #On commence par placer le 1 à la première ligne, sans égard à l'ordre relatif
+    A1=elementary_matrix(3,row1=0,row2=2)*A
+    show(A1)
+    # On place ensuite le 1 à la première colonne, toujours sans égard à l'ordre relatif
+    A2=A1*elementary_matrix(3,row1=0,row2=1)
+    show(A2)
+    </input>
+    </sage>
+    <p>Si on regarde attentivement les entrées de la matrice <m>A2</m>, on constate que l'ordre relative des lignes <m>1,2</m> n'est pas respecté, mais que celui des colonnes <m>1,3</m> l'est. Il faut 
+    donc faire une autre permutation des lignes pour avoir le résultat voulu.</p>
+    <sage>
+    A3=elementary_matrix(3,row1=1,row2=2)*A2
+    show(A3)
+    </sage>
+    <p>Au total, on a eu besoin de trois matrices élémentaires pour faire le travail.</p>
+    </solution>
+    </example>
+    <p>Maintenant, la définition du cofacteur.</p>
+    <definition xml:id="def-cofact">
+    <title>Les cofacteurs</title>
+    <statement><p>Soit <m>A</m> une matrice carrée de taille <m>n\times n</m> et <m>A_{i,j}</m> le mineur de la position <m>i,j</m>. Le cofacteur de la position <m>i,j</m>, noté <m>C_{i,j}</m> est le nombre
+    <me>
+    C_{i,j}=(-1)^{i+j}\det(A_{i,j})
+    </me>.</p></statement>
+    </definition>
+    <p>Le terme <m>(-1)^{i+j}</m> est lié au nombres de permutations nécessaires pour envoyer l'entrée en position <m>i,j</m> à la position <m>1,1</m>. Les détails sont faits à l'exercice <xref provisional="exo-cof-iplusjmoins2"/>. </p>
+    <example>
+    <title>Trois cofacteurs d'une matrice <m>3\times 3</m></title>
+    <statement>
+    <p>On considère une matrice <m>3\times 3</m> quelconque et on veut calculer les cofacteurs de la première ligne.</p>
+    </statement>
+    <solution>
+    <p>On a
+    <md>
+    <mrow> C_{1,1}=(-1)^(1+1)\det(A_{1,1})=1*(a_{2,2}a_{3,3}-a_{2,3}a_{3,2}) </mrow>
+    <mrow> C_{1,2}=(-1)^(1+2)\det(A_{1,2})=-1*(a_{2,1}a_{3,3}-a_{3,1}a_{2,3}) </mrow>
+    <mrow> C_{1,3}=(-1)^(1+3)\det(A_{1,3})=1*(a_{2,1}a_{3,2}-a_{3,1}a_{2,2}) </mrow>
+    </md>
+    où les mineurs ont été calculés à l'exemple <xref ref="ex-min3x3"/>.</p>
+    </solution>
+    </example>
+    <p>En regardant les cofacteurs, on se rend compte qu'on est très près de la formule <xref ref="eq-det3x3"/> pour l'équation d'un déterminant. En fait, devant chaque cofacteur, il ne manque que l'entrée <m>a_{1,j}</m>. On a donc pour une matrice <m>A</m> de taille <m>3\times 3</m>
+    <me>
+    \det(A)=a_{1,1}\det(A_{1,1})-a_{1,2}\det(A_{1,2})+a_{1,3}\det(A_{1,3})
+    </me>.</p>
+    <p>Il n'y a rien de spécial avec la ligne <m>1</m>, on pourrait dans la preuve de la proposition <xref ref="prop-det3x3avecprop"/> se servir d'une autre ligne ou même d'une colonne et arriver au même résultat. Au final,
+    on obtient le résultat suivant.</p>
+    <proposition xml:id="prop-detcofact">
+    <title>Le développement de Laplace du déterminant <m>n\times n</m></title>
+    <statement>
+    <p>Soit <m>A</m> une matrice <m>n\times n</m> et <m>\det(A_{i,j})</m> et <m>C_{i,j}</m> respectivement le mineur et le cofacteur de la position <m>i,j</m>. Alors pour tout <m>1\leq i\leq n</m> on a
+    <men xml:id="eq-detcofact">
+    \det(A)=\sum_{j=1}^n a_{i,j}C_{i,j}=\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(A_{i,j})
+    </men>. C'est le développement selon la ligne <m>i</m>.</p>
+    <p>On a aussi pour tout <m>1\leq j\leq n</m> le développement selon la colonne j: <me>
+    \det(A)=\sum_{i=1}^n a_{i,j}C_{i,j}=\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(A_{i,j})
+    </me>.</p>
+    </statement>
+    <proof>
+    <p>On fait la preuve pour les lignes, celle des colonnes étant presque identique.</p> <p>On montre que la fonction <m>D(A)=\sum_{j=1}^n a_{i,j}C_{i,j}=\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(A_{i,j})</m>
+    satisfait les propriétés <xref first="li-detI" last="li-detk"/>.</p>
+    <p>Dans un premier temps, si <m>A=I_{n+1}</m> est la matrice identité de taille <m>n+1</m>, alors le seul terme qui reste dans la fonction <m>D(A)</m> est <m>a_{i,i}(-1)^{i+i}\det(A_{i,i})</m>. La sous matrice
+    <m>A_{i,i}</m> est la matrice identité de taille <m>n\times n</m> et son déterminant vaut <m>1</m>. Comme <m>(-1)^{}{i+i}=(-1)^{2i}=1</m> et que <m>a_{1,1}=1</m>, on a bien <m>D(I)=1</m>.</p>
+    <p>Soit maintenant <m>B</m> une matrice de taille <m>(n+)1\times (n+1)</m> obtenue à partir de <m>A</m> en multipliant la ligne <m>k</m> par <m>r</m>. On distingue deux cas. D'abord, si <m>k=i</m>, la ligne choisie pour
+    le développement, alors <m>b_{i,j}=ra_{i,j}</m> et donc
+    <md>
+    <mrow>D(B)&amp;=\sum_{j=1}^n b_{i,j}(-1)^{i+j}\det(B_{i,j})</mrow>
+    <mrow>&amp;=\sum_{j=1}^n ra_{i,j}(-1)^{i+j}\det(A_{i,j})&amp;&amp; \text{car les lignes de }A\text{ et }B\text{ sont égales sauf en position } i</mrow>
+    <mrow>&amp;=r\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(A_{i,j})</mrow>
+    <mrow>&amp;=rD(A)</mrow>
+    </md>. Enfin si <m>k\neq i</m>, alors chaque sous matrice <m>B_{i,j}</m> est égale à la sous-matrice <m>A_{i,j}</m>, sauf pour une ligne qui a été multipliée par <m>r</m>. Ainsi,
+    <md>
+    <mrow>D(B)&amp;=\sum_{j=1}^n b_{i,j}(-1)^{i+j}\det(B_{i,j}</mrow>
+    <mrow>&amp;=\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(B_{i,j}&amp;&amp; \text{ car les lignes } i \text{ des matrices sont égales}</mrow>
+    <mrow>&amp;=\sum_{j=1}^n a_{i,j}(-1)^{i+j}r\det(A_{i,j}&amp;&amp;\text{ selon }<xref ref="li-detr"/></mrow>
+    <mrow>&amp;=r\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(A_{i,j}</mrow>
+    <mrow>&amp;=rD(A)</mrow>
+    </md>.
+    La propriété <xref ref="li-detr"/> est ainsi respectée.</p>
+    <p>On regarde maintenant ce qui se passe si <m>B</m> est obtenue de <m>A</m> en permutant deux lignes. On distingue aussi deux cas. D'abord, si les lignes permutées ne sont pas celle avec laquelle on développe.
+    Dans ce cas, on aura <m>\det(B_{i,j}=-\det(A_{i,j}</m>, car les sous-matrices sont les mêmes à un inversion de ligne près. </p>
+    <p>Toutefois si les lignes <m>i</m> et <m>k</m> ont été échangées, on procède comme suit. On suppose que <m>1\leq i&lt; k\leq n</m>. Si c'est l'inverse, l'idée est similaire. Soit <m>\vec{a}_i</m> la ligne <m>i</m> de la matrice <m>A</m>, maintenant en position
+    <m>k</m> dans la matrice <m>B</m>. On veut la remettre en ordre dans la sous matrice <m>B_{i,j}</m>. Cela prendra <m>k-i-1</m> permutations. Par exemple, si <m>i=3</m> et <m>k=7</m>, les lignes de <m>B</m> sont
+    <m>(\vec{a}_1,\vec{a}_{2},\vec{a}_{7},\vec{a}_{4},\vec{a}_{5},\vec{a}_{6},\vec{a}_{3},\ldots , \vec{a}_n)</m>. Si on enlève la troisième ligne et qu'on veut réordonner les autres lignes, il faudra <m>5</m> permutations:
+    <md>
+    <mrow>(\vec{a}_1,\vec{a}_{2},\cancel{\vec{a}_{7}},\vec{a}_{4},\vec{a}_{5},\vec{a}_{6},\vec{a}_{3},\ldots , \vec{a}_n)&amp; \rightarrow(\vec{a}_1,\vec{a}_{2},\cancel{\vec{a}_{7}},\vec{a}_{4},\vec{a}_{5},\vec{a}_{3},\vec{a}_{6})</mrow>
+    <mrow>&amp;\rightarrow (\vec{a}_1,\vec{a}_{2},\cancel{\vec{a}_{7}},\vec{a}_{4},\vec{a}_{3},\vec{a}_{5},\vec{a}_{6},\ldots , \vec{a}_n)</mrow>
+    <mrow>&amp;\rightarrow  (\vec{a}_1,\vec{a}_{2},\cancel{\vec{a}_{7}},\vec{a}_{3},\vec{a}_{4},\vec{a}_{5},\vec{a}_{6},\ldots , \vec{a}_n) </mrow>
+    </md>.
+    On a donc <m>\det(B_{i,j})=(-1)^{k-i-1)\det(A_{k,j})</m> et ainsi,
+    <md>
+    <mrow>D(B)&amp;=\sum_{j=1}^n b_{i,j}(-1)^{i+j}\det(B_{i,j})</mrow>
+    <mrow>&amp;=\sum_{j=1}^n a_{k,j}(-1)^{i+j}(-1)^{k-i-1}\det(A_{k,j})</mrow>
+    <mrow>&amp;=\sum_{j=1}^n a_{k,j}(-1)^(i+j+k-i-1)\det(A_{k,j})</mrow>
+    <mrow>&amp;=\sum_{j=1}^n a_{k,j}(-1)^(k+j)(-1)\det(A_{k,j})</mrow>
+    <mrow>&amp;=-\sum_{j=1}^n a_{k,j}(-1)^(k+j)\det(A_{k,j})</mrow>
+    <mrow>&amp;=-D(A)</mrow>
+    </md>.
+    La fonction <m>D</m> respecte donc la propriété <xref ref="li-detp"/>.
+    </p>
+    <p>La dernière partie consiste à montrer que la propriété <xref ref="li-detk"/> est satisfaite. Si <m>B</m> est obtenue de <m>A</m> en ajoutant <m>r</m> fois la ligne <m>s</m> et <m>C</m> est obtenue en remplaçant la ligne
+    <m>t</m> de <m>A</m> par sa ligne <m>s</m>. On remarque alors deux choses:
+    <ul>
+    <li><p><m>\det(C)=0</m>, car la matrice contient deux fois la ligne <m>s</m>. </p></li>
+    <li><p>On a <m>A_{t,j}=B_{t,j}=C_{t,j}</m>.</p></li>
+    </ul>
+    </p>
+    <p>On distingue une fois de plus deux cas. Si <m>i\neq t</m>, alors <m>B_{i,k}=A_{i,k}</m> et on a <m>D(B)=D(A)</m>. Si toutefois <m>i=t</m>, alors
+    <md>
+    <mrow>D(B)&amp;=\sum_{j=1}^n b_{t,j}(-1)^(t+j)\det(B_{t,j})</mrow>
+    <mrow>&amp;=\sum_{j=1}^n (ra_{s,j}+a_{t,j})(-1)^(t+j)\det(B_{t,j})&amp;&amp;\text{par construction de} B</mrow>
+    <mrow>&amp;=\sum_{j=1}^n ra_{s,j}(-1)^(t+j)\det(B_{t,j})+\sum_{j=1}^n a_{t,j})(-1)^(t+j)\det(B_{t,j})&amp;&amp;\text{en séparant la somme intérieure}</mrow>
+    <mrow>&amp;=r\sum_{j=1}^n a_{s,j}(-1)^(t+j)\det(B_{t,j})+\sum_{j=1}^n a_{t,j})(-1)^(t+j)\det(B_{t,j})</mrow>
+    <mrow>&amp;=r\sum_{j=1}^n a_{s,j}(-1)^(t+j)\det(C_{t,j})+\sum_{j=1}^n a_{t,j})(-1)^(t+j)\det(A_{t,j})&amp;&amp;\text{selon la remarque ci-dessus}</mrow>
+    <mrow>&amp;=r\sum_{j=1}^n a_{s,j}(-1)^(t+j)\det(C_{t,j})+D(A)</mrow>
+    <mrow>&amp;=r\sum_{j=1}^n c_{t,j}(-1)^(t+j)\det(C_{t,j})+D(A)&amp;&amp;\text{car la ligne} t \tex{de } C \text{ est la ligne } s \text{ de } A </mrow>
+    <mrow>&amp;=r\det(C)+\det(A)</mrow>
+    <mrow>&amp;=\det(A)&amp;&amp;\text{ car } \det(C)=0</mrow>
+    </md>.
+   Ainsi <m>D(A)</m> satisfait la propriété <xref ref="li-detk"/>. </p>
+    </proof>
+    </proposition>
+    <p>En général, les cofacteurs constituent une manière vraiement inefficace de calculer un déterminant. Toutefois, pour le cas <m>3\times 3</m>, ils peuvent s'avérer plus rapide que le calcul par Gauss-Jordan.
+    Autre avantage, qui sera utile dans le chapitre <xref provisional="chap-propre"/>, est lorsque le déterminant contient des variables. Les cofacteurs ne nécessitant pas de division, on n'a pas de supposition à faire quand au fait que la variable pourrait 
+    être nulle lors d'une division. On regarde un exemple de calcul d'un déterminant <m>3\times 3</m> avec la méthode des cofacteurs.</p>
+    <example xml:id="ex-detcofact">
+    <title>Le développement du déterminant par les cofacteurs</title>
+    <statement>
+    <p>Soit <me>A=\begin{pmatrix} 5&amp; 0&amp; -3\\
+                                 2&amp; -2&amp; 3\\
+                                 1&amp; 0&amp; 4\end{pmatrix}</me>. On veut calculer son déterminant en utilisant la méthode des cofacteurs.</p>
+    </statement>
+    <solution>
+    <p>En regardant la matrice, on constate que la seconde colonne ne contient qu'une entrée non nulle, en position <m>2,2</m>. Si on fait un développement sur la deuxième colonne, il ne restera de l'équation <xref ref="eq-detcofact"/> que 
+    ce terme non nul:
+    <me>
+    \det(A)=a_{1,2}C_{1,2}+a_{2,2}C_{2,2}+a_{3,2}C_{3,2}=a_{2,2}C_{2,2}
+    </me>.
+    On calcule <m>C_{2,2}=(-1)^{2+2}}\det(A_{i,j})=det(A_{i,j})</m> en calculant le déterminant de la sous matrice obtenue en enlevant la deuxième ligne et la deuxième colonne:
+    <me>
+    \begin{vmatrix}
+    5&amp; -3\\ 
+    1&amp;4
+    \end{vmatrix}=23
+    </me>.</p>
+    <p>On a donc <m>\det(A)=-2*23=-46</m>. Sage pourra confirmer ce résultat.</p>
+    <sage>
+    <input>
+    A=matrix([[5,0,-3],[2,-2,3],[1,0,4]])
+    show("det(A)=",A.determinant())
+    </input>
+    </sage>
+    </solution>
+    </example>
+    <p>La proposition <xref ref="prop-detcofact"/> montre que la fonction déterminant existe. On peut toutefois se demander si elle est unique. Il pourrait en effet y avoir plus d'une fonction qui satsisfait la définition 
+    <xref ref="def-determinant"/>. On peut maintenant montrer que le déterminant est unique.</p>
+    <proposition xml:id="prop-detunique">
+    <title>Le déterminant d'une matrice est unique</title>
+    <statement>
+    <p>Soit <m>A</m> une matrice <m>n\times n</m> et soit <m>D_1(A),D_2(A)</m> deux fonctions qui satisfont les propriétés <xref first="li-detI" last="li-detk"/>. Alors <m>D_1(A)=D_2(A)</m>.
+    On peut donc parler sans problème du déterminant de <m>A</m>.</p>
+    </statement>
+    <proof>
+    <p>Le calcul repose sur le fait que, peu importe la fonction déterminant, les propriétés <xref first="li-detI" last="li-detk"/> font en sorte que le déterminant des matrices élémentaires est le même. De plus, une fonction qui 
+    satisfait ces propriétés satisfait aussi toutes celles de la section <xref ref="sec-detgen"/>, en particulier la propriété du produit dans la proposition <xref ref="prop-detmatelem"/>. Finalement, on aura besoin du fait que la forme échelonnée réduite d'une matrice est unique, telle que démontré à la proposition
+    <xref ref="prop-erlunique"/>.</p>
+    <p>On fixe une manière d'échelonner la matrice <m>A</m> jusqu'à sa forme échelonnée réduite <m>R</m>. Ceci implique qu'il existe une suite de matrices élémentaires <m>E_1,E_2,\ldots , E_k</m> telles que
+    <me>
+    R=E_kE_{k-1}\cdots E_1A
+    </me>. Comme les matrices élémentaires sont inversibles et son aussi des matrices élémentaires, on peut alors écrire
+    <me>
+    A=F_1F_2\cdots F_kR
+    </me> où <m>F_i=E_i^{-1}</m>. On a donc
+    <md>
+    <mrow>D_1(A)&amp;=D_1(F_1F_2\cdots F_kR)</mrow>
+    <mrow>&amp;=D_1(F_1)D_1(F_2)\cdots D_1(F_k)D_1(R)</mrow>
+    </md>
+    et
+        <md>
+    <mrow>D_2(A)&amp;=D_2(F_1F_2\cdots F_kR)</mrow>
+    <mrow>&amp;=D_2(F_1)D_2(F_2)\cdots D_2(F_k)D_2(R)</mrow>
+    </md>.
+    </p>
+    <p>Comme la matrice ERL est unique, on a <m>D_1(A)=D_2(A)</m>. Si on utilise une autre chaine de matrices pour arriver à <m>R</m>, on aura quand même <m>D_1(A)=D_2(A)</m> pour cette autre chaine.</p>
+    </proof>
+    </proposition>
+    <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
+    <computation>
+    <title>Les cofacteurs et Sage</title>
+    <statement>
+    <p>Sage ne possède pas de fonction pour calculer les cofacteurs d'une matrice. On peut toutefois les calculer manuellement à l'aide de quelques commandes simples. En particulier, on peut accéder à une sous-matrice de <m>A</m>
+    à l'aide de la commande <c>A[L1,L2]</c>, où <c>L1,L2</c> sont des listes des lignes (<c>L1</c>) et des colonnes (<c>L2</c>) que l'on veut garder.Par exemple, pour afficher la matrice <m>A_{2,3}</m> d'une matrice <m>3\times 3</m>,
+    on procède comme suit.</p>
+    <sage>
+    <input>
+    A=random_matrix(QQ,3,3)
+    show("A=",A)
+    A23=A[[0,2],[0,1]] #Encore une fois, on rappelle que Sage commence ses indices à zéro et donc, pour éliminer la deuxième ligne , on garde les lignes sage 0 et 2 et pour  éliminer la troisème colonne, on garde les colonne 0 et 1
+    show("A_{2,3}=",A23)
+    </input>
+    </sage>
+    <p>On peut ensuite calculer le cofacteur de cet élément en réécrivant la formule.</p>
+    <sage>
+    cof23=(-1)^(2+3)*A23.determinant()  #l'exposant du (-1) n'a pas à étre modifié lui
+    show(cof23)
+    </sage>
+    <p>On peut ensuite calculer le déterminant, en utilisant le développement selon une ligne ou une colonne spécifique.</p>
+    <sage>
+    <input>
+    #Puisqu'on a déjà A23, on choisit de procéder avec la ligne 2
+    A21=A[[0,2],[1,2]]
+    cof21=(-1)^(2+1)*A21.determinant()
+    A22=A[[0,2],[0,2]]
+    cof22=(-1)^(2+2)*A22.determinant()
+    det=A[1,0]*cof21+A[1,1]*cof22+A[1,2]*cof23
+    show("det=",det)
+    show("Le déterminant directement avec Sage: ", A.determinant())
+    </input>
+    </sage>
+    </statement>
+    </computation>
+    </subsection>
+    <subsection xml:id="sssec-adjointe">
+    <title>La matrice adjointe</title>
+    <p>On termine cette section avec la notion de matrice adjointe. Cette matrice, encore une fois plus utile en théorie qu'en pratique, donne une formule pour l'inverse d'une matrice en fonction des cofacteurs.
+    Elle permettra toutefois d'avoir une manière simple de calculer l'inverse d'une matrice <m>2\times 2</m>.</p>
+    <definition xml:id="def-matadjointe">
+    <title>La matrice adjointe</title>
+    <statement><p>Soit <m>A</m> une matrice carrée d'ordre <m>n</m> et <m>C</m> la matrice telle que <m>c_{i,j}=(-1)^{i+j}\det(A_{i,j})</m>, le cofacteur de la position <m>i,j</m> de la matrice <m>A</m>. La matrice
+    adjointe de <m>A</m> est la matrice <me> \text{adj}(A)=C^T</me></p></statement>
+    </definition>
+    <p>On calcule à titre d'exemple la matrice adjointe d'une matrice <m>3\times 3</m> spécifique et d'une matrice <m>2\times 2</m> arbitraire.</p>
+    <example xml:id="ex-matadjointe">
+    <title>Exemple de matrice adjointe</title>
+    <statement>
+    <p>On considère la matrice <m>A=\begin{pmatrix} 5&amp; 0&amp; -3\\
+                                 2&amp; -2&amp; 3\\
+                                 1&amp; 0&amp; 4\end{pmatrix}</m> de l'exemple <xref ref="ex-detcofact"/> et la matrice <m>D=\matcold{a}{b}{c}{d}</m>. On cherche la matrice adjointe de chacune de ces matrices.</p>
+    </statement>
+    <solution>
+    <p>On utilise Sage pour calculer chacun des cofacteurs de la matrice. Investiguer pourquoi on ne fait pas <c>Lignes=liste</c>, mais plutôt <c>.copy()</c>.</p>
+    <sage>
+    <input>
+    A=matrix([[5,0,5],[2,-2,3],[1,0,4]])
+    listcof=[]# La liste de cofacteurs
+    liste=list(range(3)) #Une liste contenant [0,1,2]
+    for i in range(3):
+        Lignes=liste.copy()
+        Lignes.remove(i)
+        for j in range(3):
+            Colonnes=liste.copy()
+            Colonnes.remove(j)
+            listcof.append((-1)^{i+j}*A[Lignes,Colonnes].determinant())
+    C=matrix(3,3,listcof)
+    show("adj(A)=",C.transpose())
+    </input>
+    </sage>
+    </solution>
+    <solution>
+    <p>Pour une matrice <m>2\times 2</m>, les cofacteurs sont simples à calculer directement. On a 
+    <md>
+    <mrow>C_{1,1}&amp;=d</mrow>
+    <mrow>C_{1,2}&amp;=-b</mrow>
+    <mrow>C_{2,1}&amp;=-c</mrow>
+    <mrow>C_{2,2}&amp;=a</mrow>
+    </md>. La matrice adjointe est donc
+    <me>
+    adj(D)=\matcold{d}{-b}{-c}{a}
+    </me>.</p>
+    </solution>
+    </example>
+    <p>La principale utilité de la matrice adjointe est théorique et est est en lien avec la matrice inverse. </p>
+    <proposition>
+    <title>L'adjointe et l'inverse d'une matrice</title>
+    <statement>
+    <p>
+    Soit <m>A</m> une matrice carrée inversible de taille <m>n\times n</m> et <m>\text{adj}(A)</m> sa matrice adjointe. Alors
+    <men xml:id="eq-matinversecofact">
+    A^{-1}=\frac{1}{\det(A)}\text{adj}(A)
+    </men>.
+    On obtient une formule pour l'inverse qui dépend des entrées de la matrice. En particulier, pour le cas d'une matrice <m>2\times 2</m>, on a
+    <me>
+    \begin{pmatrix}
+    a&amp; c\\ b&amp; d
+    \end{pmatrix}^{-1}=\frac{1}{ad-bc}\begin{pmatrix}
+    d&amp; -c\\ -b&amp; a
+    \end{pmatrix}
+    </me> que l'on avait déjà obtenue à la section <xref ref="sec-matinverse"/> à l'équation <xref ref="eq-matinverse2x2"/>.
+    </p>
+    </statement>
+    <proof>
+    <p>On réarrange un peu l'équation en multipliant par <m>A</m> de chaque côté pour démontrer plutôt
+    <me>
+    \det(A)I=A\text{adj}(A)=AC^T
+    </me> où <m>C</m> est la matrice des cofacteurs.</p>
+ <p>On analyse colonne par colonne le produit <m>A\text{adj}(A)</m>. Selon la définition du produit matriciel, la première colonne est
+ <m>A\begin{pmatrix}C_{1,1}\\C_{1,2}\\\vdots \\ C_{n,1} \end{pmatrix}</m>(on constate l'effet de la tranposition sur la colonne de <m>C^T</m> en remarquant qu'on a tous les cofacteurs de la ligne <m>1</m>). On procède maintenant
+ ligne par ligne pour obtenir les entrées de ce produit matrice vecteur. D'abord
+ <md>
+ <mrow>(AC^T)_{1,1}&amp;=a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+\cdots +a_{1,n}C_{1,n}</mrow>
+ <mrow>&amp;=\det(A)</mrow>
+ </md> et donc, la première entrée correspond au déterminant de <m>A</m>. Pour chaque entrée <m>i</m> plus grande ou égale à deux, on obtient <m>0</m>. En effet, pour <m>i=2</m>, on obtient
+  <md>
+ <mrow>(AC^T)_{2,1}&amp;=a_{2,1}C_{1,1}+a_{2,2}C_{1,2}+\cdots +a_{2,n}C_{1,n}</mrow>
+ </md>.
+ Évidemment, les cofacteurs n'ont pas changés, mais les termes qui les multiplient ne correspondent pas au déterminant de <m>A</m>. Toutefois, si on considère la matrice <m>B</m> obtenue à partir de <m>A</m> en remplaçant
+ sa première ligne par sa deuxième, alors l'équation <me>a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+\cdots +a_{1,n}C_{1,n}=\det(B)</me> et ce déterminant est nul puisque la matrice <m>B</m> contient deux lignes identiques.
+ </p>
+ <p>Le raisonnement est analogue pour les autres colonnes de la matrice, le déterminant de <m>A</m> se trouvant toujours en position <m>i=j</m>. Le produit <m>AC^T</m> vaut donc
+ <md>
+ <mrow>AC^T&amp;=\begin{pmatrix} \det(A)&amp; 0&amp;\cdots &amp; 0\\
+                           0&amp; \det(A) &amp; \cdots &amp; 0\\
+                           \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+                           0&amp; 0&amp; \cdots &amp; \det(A)\end{pmatrix}</mrow>
+                           <mrow>&amp;=\det(A)I</mrow>
+ </md>, ce qui complète a preuve.</p>
+    </proof>
+    </proposition>
+    <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
+    <computation>
+    <title>Ĺa matrice adjointe et Sage</title>
+    <statement>
+    <p>Sage n'avait pas de commande directe pour calculer les cofacteurs, mais il en possède une pour la matrice adjointe. En anglais, il est plus courant d'utiliser le terme &#x00AB;adjugate &#x00BB;, ainsi la commande
+    est <c>A.adjugate()</c>. On l'utilise pour valider le calcul à l'example <xref ref="ex-matadjointe"/>.</p>
+    <sage>
+    <input>
+    A=matrix([[5,0,5],[2,-2,3],[1,0,4]])
+    adjA=A.adjugate()
+    show("adj(A)=",adjA)
+    show("AC^T=",A*adjA)
+    show("det(A)",A.determinant())
+    </input>
+    </sage>
+    </statement>
+    </computation>
+    </subsection>
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-cofacteurs">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les points importants de cette section sont:
+    <ul>
+    <li><p>La notion de <xref ref="def-mineurs" text="custom">mineurs</xref> et de <xref ref="def-cofact" text="custom">cofacteurs</xref>;</p></li>
+    <li><p><xref ref="prop-detcofact" text="custom">Le développement de Laplace</xref> du déterminant; </p></li>
+    <li><p>La <xref ref="def-matadjointe" text="custom">matrice adjointe</xref>;</p></li>
+    <li><p>L'équation de <xref ref="eq-matinversecofact" text="custom"> l'inverse d'une matrice</xref> en lien avec ses cofacteurs.</p></li>
+    </ul>
+    De plus avec Sage, la commande <c>.adjugate()</c> permet de calculer la matrice ajointe d'une matrice.
+    </p>
+    </conclusion>
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_cofacteurs.xml"/>
+</section>
+<!-- exo matrice telle que l'inverse a toutes ses entrées entiers , partir de U et faire op elem -->

@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                     -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-detgen">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
+            <statement>
+                <p>La première lettre de la question.</p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>
+    </task>
+    </exercise>
+    -->
+    <exercise>
+    <introduction><p>Étant donné le volume des figures suivantes, déterminer la valeur des déterminants demandés.</p></introduction>
+    <task>
+    <introduction>
+    <p>Le parallélépipède engendré par les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> illustré à la figure <xref ref="fig-det3x3geo-1"/> a pour volume <m>5\text{u}^3</m>.</p>
+    <figure xml:id="fig-det3x3geo-1">
+    <caption>Un parallélépipède</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%" xml:id="geog-det3x3geo-1">
+    <slate aspect="1:1" source="code/geogebra/det3x3geo-1.ggb" surface="geogebra" xml:id="slate-det3x3geo-1">
+    setCoordsSystem(-10,10,-10,10,-10,10)
+    </slate>
+    <instructions><p><alert>Instructions pour la figure interactive:</alert> Il est possible de déplacer le solide afin de visualiser les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> et leur orientation pour être en mesure de calculer les déterminants demandés.</p></instructions>
+    </interactive>
+    </figure>
+    </introduction>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{u},\vec{v},\vec{w})</m>?</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{v},\vec{u},\vec{w})</m>?</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{w},\vec{u},\vec{v})</m>?</p>
+    </statement>
+    </task>
+    </task>
+    <task>
+    <introduction>
+    <p>Le prisme obtenu du parrallélépipède engendré par les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> illustré à la figure <xref ref="fig-det3x3geo-2"/> a pour volume <m>8\text{u}^3</m>.</p>
+    <figure xml:id="fig-det3x3geo-2">
+    <caption>Un prisme</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%" xml:id="geog-det3x3geo-2">
+    <slate aspect="1:1" source="code/geogebra/det3x3geo-2.ggb" surface="geogebra" xml:id="slate-det3x3geo-2">
+    setCoordsSystem(-10,10,-10,10,-10,10)
+    </slate>
+    <instructions><p><alert>Instructions pour la figure interactive:</alert> Il est possible de déplacer le solide afin de visualiser les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> et leur orientation pour être en mesure de calculer les déterminants demandés.</p></instructions>
+    </interactive>
+    </figure>
+    </introduction>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{u},\vec{v},\vec{w})</m>?</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{v},\vec{u},\vec{w})</m>?</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{w},\vec{u},\vec{v})</m>?</p>
+    </statement>
+    </task>
+    </task>
+    <task>
+    <introduction>
+    <p>La pyramide obtenue du parrallélépipède engendré par les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> illustré à la figure <xref ref="fig-det3x3geo-3"/> a pour volume <m>4\text{u}^3</m>.</p>
+    <figure xml:id="fig-det3x3geo-3">
+    <caption>Une pyramide</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%" xml:id="geog-det3x3geo-3">
+    <slate aspect="1:1" source="code/geogebra/det3x3geo-3.ggb" surface="geogebra" xml:id="slate-det3x3geo-3">
+    setCoordsSystem(-10,10,-10,10,-10,10)
+    </slate>
+    <instructions><p><alert>Instructions pour la figure interactive:</alert> Il est possible de déplacer le solide afin de visualiser les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> et leur orientation pour être en mesure de calculer les déterminants demandés.</p></instructions>
+    </interactive>
+    </figure>
+    </introduction>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{u},\vec{v},\vec{w})</m>?</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{v},\vec{u},\vec{w})</m>?</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{w},\vec{u},\vec{v})</m>?</p>
+    </statement>
+    </task>
+    </task>
+        <task>
+    <introduction>
+    <p>Le tetraèdre obtenu du parrallélépipède engendré par les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> illustré à la figure <xref ref="fig-det3x3geo-4"/> a pour volume <m>10\text{u}^3</m>.</p>
+    <figure xml:id="fig-det3x3geo-4">
+    <caption>Un tétraèdre</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%" xml:id="geog-det3x3geo-4">
+    <slate aspect="1:1" source="code/geogebra/det3x3geo-4.ggb" surface="geogebra" xml:id="slate-det3x3geo-4">
+    setCoordsSystem(-10,10,-10,10,-10,10)
+    </slate>
+    <instructions><p><alert>Instructions pour la figure interactive:</alert> Il est possible de déplacer le solide afin de visualiser les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> et leur orientation pour être en mesure de calculer les déterminants demandés.</p></instructions>
+    </interactive>
+    </figure>
+    </introduction>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{u},\vec{v},\vec{w})</m>?</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{v},\vec{u},\vec{w})</m>?</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Que vaut <m>\det(\vec{w},\vec{u},\vec{v})</m>?</p>
+    </statement>
+    </task>
+    </task>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Utiliser la figure interactive suivante pour déterminer l'orientation du repère  <m>\langle \vec{u},\vec{v},\vec{w}\rangle</m> dans <m>\R^3</m> de manière géométrique.</p>
+    <figure xml:id="fig-exooriR3">
+    <caption>L'orientation de trois vecteurs</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%" xml:id="geog-exooriR3">
+    <slate aspect="1:1" source="code/geogebra/exooriR3.ggb" surface="geogebra" xml:id="slate-exooriR3">
+    applet.setCoordsSystem(-10,10,-10,10,-10,10)
+    </slate>
+    <instructions><p><alert>Instructions pour la figure interactive:</alert> Déplacer le graphique en trois dimensions afin de visualiser les trois vecteurs <m>\vec{u},\vec{v}\vec{w}</m>, respectivement en rouge,vert et bleu. Il est possible de faire apparaitre le plan 
+    engendré par les vecteurs <m>\vec{u}</m> et <m> \vec{v}</m> en appuyant sur le texte. Pour valider la réponse, entrer un nombre positif si l'orientation du repère est positive et un nombre négatif si l'orientation est négative et appuyer sur
+    &#x00AB;Vérifier la réponse &#x00BB;. Un clic sur &#x00AB; Nouveau problème &#x00BB; permet de générer une nouvelle version de l'exercice.</p></instructions></interactive>
+    </figure>    
+    </statement>
+    </exercise>
+    <exercise>
+    <introduction><p>Dans cet exercice, on s'intéresse à l'orientation d'un repère <m>\langle \vec{u},\vec{v},\vec{w}\rangle</m> et à l'angle entre <m>\vec{w}</m> et <m>\vec{u}\times \vec{v}</m>, le produit vectoriel de <m>\vec{u}</m> et <m>\vec{v}</m> </p>
+    </introduction>
+    <task xml:id="exo-oriprodvec">
+    <introduction>
+    <p>On considère <m>\vec{u}=(1,1,1)</m>,<m>\vec{v}=(-1,1,0)</m> et <m>\vec{w}=(2,3,4)</m>.</p>
+    </introduction>
+    <task>
+    <statement><p>Déterminer l'orientation du repère  <m>\langle \vec{u},\vec{v},\vec{w}\rangle</m>.</p></statement>
+    </task>
+    <task>
+    <statement>
+    <p>Calculer <m>\vec{u}\times\vec{v}</m>.</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Calculer l'angle entre <m>\vec{w}</m> et <m>\vec{u}\times\vec{v}</m>.</p>
+    </statement>
+    </task>
+    </task>
+    <task>
+    <statement><p>Répéter l'étape <xref ref="exo-oriprodvec"/> avec les vecteurs <m>\vec{u}=(1,-1,1),\vec{v}=(0,1,1)</m> et <m>\vec{w}=(-1,3,-1)</m></p></statement>
+    </task>
+    <task><statement><p>Formuler une hypothèse entre la relation du troisième vecteur d'un repère et le produit vectoriel des deux premiers vecteurs de ce repère.</p></statement></task>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Montrer que la propriété <xrer ref="li-detp"/> peut-être déduite à partir des propriétés <xref ref="li-detr"/> et <xref ref="li-detk"/>.</p>
+    </statement>
+    <hint><p>Voir l'exercice <xref ref="exo-opelemperm"/>.</p></hint>
+    </exercise>
+    <exercise xml:id="exo-detveccomblin">
+    <statement>
+    <p>Démontrer la propriété <xref ref="li-detveccomblin"/>.</p>
+    </statement>
+    </exercise>
+    <exercise xml:id="exo-preuvedettranspo">
+    <introduction>
+    <p>Dans cet exercice, on veut montrer que <m>\det(A^T)=\det(A)</m>, donnant ainsi une preuve à la propriété <xref ref="li-dettransposee"/>.</p>
+    </introduction>
+    <task>
+    <statement>
+    <p>Montrer que si <m>A</m> est une matrice élémentaire, alors le résultat est valide.</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Démontrer maintenant la propriété <xref ref="li-dettransposee"/>.</p>
+    </statement>  
+    <hint><p>Distinguer le cas inversible du cas non inversible et passer à une décomposition en produit de matrices élémentaires pour le premier cas.</p></hint></task>
+    </exercise>
+    <exercise xml:id="exo-detsousmatrice">
+    <statement>
+    <p>Soit <m>A</m> une matrice <m>n\times n</m> telle que sa première ligne et sa première colonne sont nulles, sauf pour l'entrée <m>a_{1,1}=1</m> et soit <m>B</m> la matrice <m>(n-1)\times (n-1)</m> obtenue à partir de <m>A</m> en enlevant
+    sa première ligne et sa première colonne :
+    <me>
+    A=\begin{pmatrix}
+    1&amp; 0&amp;\cdots &amp;0\\
+    0&amp;  &amp; &amp; &amp;\\
+    \vdots &amp; &amp; B &amp;\\
+    0&amp; &amp; &amp; &amp;
+    \end{pmatrix}
+    </me>.
+    </p>
+    <p>Montrer que <m>\det(A)=\det(B)</m>.</p>
+    </statement>
+    <hint><p>Si <m>R</m> est la forme échelonnée réduite de <m>B</m>, à quoi ressemble la forme échelonnée réduite de <m>A</m>?</p></hint>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Dans la section <xref ref="sec-matinverse"/>, on démontre que le <xref ref="prop-inverseproduit">produit</xref> <m>AB</m> est inversible si et seulement si les matrices <m>A,B</m> sont inversibles. Donner une preuve alternative de ce résultat
+    en utilisant les déterminants.</p>
+    </statement>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>Dans l'exercice <xref ref="exo-vecparadet"/>, on utilise le déterminant pour savoir si trois points sont alignés ou si deux vecteurs sont parallèles. On s'intéresse ici à l'équivalent dans <m>\R^3</m>.</p>
+    </introduction>
+    <task>
+    <statement><p>Dans quelle(s) circonstances géométrique est-ce qu'un déterminant <m>3\times 3</m> est nul?</p></statement>
+    <answer><p>Si les vecteurs sont sur une même droite ou un même plan.</p></answer>
+    </task>
+    <task>
+    <statement>
+    <p>
+    On vérifie que trois points sont alignés dans <m>\R^2</m> en calculant un déterminant. Ce déterminant vaut zéro si les points sont alignés. Pour faire l'équivalent à trois dimensions, on considère quatre points.
+    Que signifie le déterminant nul obtenu à partir de ces quatre points?
+    </p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Formuler l'énoncé précédent en termes de vecteurs.</p>
+    </statement>
+    </task>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Donner un argument géométrique au fait que le déterminant n'est défini que pour des matrices carrées.</p>
+    </statement>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Soit <m>A(a_1,a_2),B(b_1,b_2)</m> et <m>C(c_1,c_2)</m> les coordonnées d'un triangle dans <m>\R^2</m>. On sait qu'on peut calculer l'aire du triangle <m>ABC</m> avec un déterminant <m>\det(\vecl{AB},\vecl{AC})</m> par exemple.</p>
+    <p>Montrer que l'aire du triangle peut aussi être obtenu à l'aide du déterminant
+    <me>
+    \frac{1}{2}\begin{vmatrix}
+    1&amp;1&amp;1\\
+    a_1&amp;b_1&amp;c_1\\
+    a_2&amp;b_2&amp;c_2
+    \end{vmatrix}
+    </me>.
+    </p>
+    </statement>
+    </exercise>
+    <exercise>
+    <task>
+    <statement><p>Montrer que 
+    <me>
+    \begin{vmatrix}
+    1&amp;1&amp;1\\
+    x&amp; y&amp;z\\
+    x^2&amp;y^2&amp;z^2
+    \end{vmatrix}=(y-x)(z-x)(z-y)
+    </me></p></statement>
+    <hint><p>Rendre la matrice triangulaire</p></hint>
+    </task>
+    <task>
+    <statement><p>Montrer que 
+    <me>
+    \begin{vmatrix}
+    1&amp;1&amp;1&amp;1\\
+    x&amp; y&amp;z&amp;w\\
+    x^2&amp;y^2&amp;z^2&amp;w^2\\
+    x^3&amp;y^3&amp;z^3&amp;w^3
+    \end{vmatrix}=(y-x)(z-x)(w-x)(z-y)(w-y)(w-z)
+    </me></p></statement>
+    </task>
+    <task>
+    <introduction><p>Considérer le déterminant
+    <me>
+    \begin{vmatrix}
+    1&amp;1&amp;\cdots &amp; 1\\
+    x_1&amp; x_2&amp;\cdots &amp; x_{n+1}\\
+    x_1^2&amp;x_2^2&amp;\cdots&amp;x_{n+1}^2\\
+    \vdots &amp; \vdots &amp;\ddots &amp; \vdots\\
+    x_1^n&amp;x_2^n&amp;\cdots&amp;x_{n+1}^n\\
+    \end{vmatrix}
+    </me>.</p></introduction>
+    <task>
+    <statement><p>En se basant sur les calculs précédents, combien de facteur y aura-t-il dans ce déterminant et que devraient-ils être?</p></statement>
+    </task>
+    <task><statement><p>Démontrer l'hypothèse de la partie ci-dessus.</p></statement></task>
+    </task>    
+    </exercise>
+    <exercise xml:id="exo-detortho">
+    <introduction><p>Une matrice est dite orthogonale si <m>QQ^T=I</m>, c'est-à-dire que son inverse est égale à sa transposée.</p></introduction>
+    <task>
+    <statement><p>Montrer que les matrices de rotation et de réflexion dans <m>\R^2</m> sont orthogonales.</p></statement>
+    </task>
+    <task><statement><p>Quelles sont les valeurs possibles pour le déterminant d'une matrice orthogonale?</p></statement></task>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Une matrice antisymétrique est une matrice <m>A</m> telle que <m>A=-A^T</m>. Si <m>A</m> est une matrice antisymétrique de taille <m>n\times n</m> où <m>n</m> est impair, montrer que
+    <m>\det(A)=0</m>. Pourquoi est-ce que ça ne fonctionne pas dans le cas où <m>n</m> est pair?</p>
+    </statement>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>Dans cet exercice, on regarde l'aire, le volume ou l'hypervolume du solide engendré par un ensemble de vecteurs.</p>
+    </introduction>
+    <task>
+    <statement>
+    <p>Soit <m>\vec{u},\vec{v}\in\R^2</m>. Montrer que l'aire du parallélogramme engendré par ces vecteurs est 
+    <me>
+    \sqrt{\begin{vmatrix}
+    \pscal{u}{u} &amp;\pscal{u}{v}\\
+    \pscal{v}{u} &amp; \pscal{v}{v}
+    \end{vmatrix}}
+    </me>.</p>
+    </statement>
+    </task>
+    <task><statement><p>Soit <m>\vec{u},\vec{v}\in\R^3</m>. Montrer que le volume du parallélépipède engendré par ces vecteurs est 
+    <me>
+    \sqrt{\begin{vmatrix}
+    \pscal{u}{u} &amp;\pscal{u}{v}&amp; \pscal{u}{w}\\
+    \pscal{v}{u} &amp; \pscal{v}{v}&amp; \pscal{v}{w}\\
+    \pscal{w}{u} &amp; \pscal{w}{v}&amp; \pscal{w}{w}\\
+    \end{vmatrix}}
+    </me>.</p></statement></task>
+    <task>
+    <statement>
+    <p>Généraliser les résultats précédents pour montrer que
+    <me>
+    \sqrt{\begin{vmatrix}
+    \pscal{u_1}{u_1} &amp;\pscal{u_1}{u_2}&amp;\cdots &amp; \pscal{u_1}{u_n}\\
+    \pscal{u_2}{u_1} &amp; \pscal{u_2}{u_2}&amp; \cdots &amp;\pscal{u_2}{u_n}\\
+    \vdots&amp; \vdots&amp; \ddots &amp; \vdots \\
+    \pscal{u_n}{u_1} &amp; \pscal{u_n}{u_2}&amp;\cdots &amp; \pscal{u_n}{u_n}\\
+    \end{vmatrix}}
+    </me>
+    est égal à l'hypervolume de solide à <m>n</m> dimensions engendré par les vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n</m>. </p>
+    </statement>
+    </task>
+    </exercise>
+    <exercise>
+    <title>La méthode de Cramer</title>
+    <statement>
+    <p>Généraliser les idées de l'exercices <xref ref="exo-cramer2x2"/> pour exprimer la solution à un système d'équations linéaires <m>A\vec{x}=\vec{b}</m>, où <m>A</m> est une matrice <m>n\times n</m>, en fonction 
+    de déterminants.</p>
+    <p>On note que cette méthode n'est pas très pratique au niveau calculatoire, car elle exige le calcul d'un grand nombre de déterminants. Elle est toutefois efficace dans le cas <m>2\times 2</m>. </p>
+    </statement>
+    </exercise>
+    <exercisegroup>
+    <title>Exercices Sage</title>
+    <introduction><p>Les exercices qui suivent sont faits pour être réalisés avec Sage. Évidemment, il y a plusieurs manières possibles d'arriver à la réponse.</p></introduction>
+    <exercise>
+    <statement><p>On considère la suite de matrices 
+    <md>
+    <mrow>A_1&amp;=(1)</mrow>
+    <mrow>A_2&amp;=\begin{pmatrix} 1&amp; 1\\ 1&amp;2  \end{pmatrix}</mrow>
+    <mrow>A_3&amp;=\begin{pmatrix} 1&amp; 1&amp; 1\\ 1&amp;2 &amp;2 \\ 1&amp;2 &amp; 3\end{pmatrix}</mrow>
+    <mrow>\vdots &amp;= \vdots </mrow>
+    <mrow>A_n&amp;=\begin{pmatrix} 1&amp;1&amp;1&amp;\cdots &amp; 1\\ 1&amp;2&amp;2&amp; \cdots &amp; 2\\ 1&amp; 2&amp;3&amp; \cdots &amp; 3\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 1&amp; 2&amp; 3&amp; \cdots &amp; n \end{pmatrix}</mrow>
+    </md>. Utiliser Sage pour formuler une hypothèse sur la valeur de <m>\det(A_n)</m> et démontrer ensuite le résultat. </p></statement>
+    <answer><p>Le déterminant est toujours égal à <m>1</m>.</p></answer>
+    <solution>
+    <p>Voici une manière d'obtenir l'hypothèse.</p>
+    <listing>
+    <caption>Le code solution de l'exercice</caption>
+    <program language="sage">
+    <input>
+def matexo(n):
+    L=[] #On se définit une liste vide dans laquelle on va mettre les lignes de la matrice
+    for i in range(n):  #On crée chaque ligne de la matrice
+        v=[j+1 for j in range(i+1)]  #Les premières entrées de la ligne valent 1,2,3,...
+        for j in range(n-(i+1)): #Pour les colonnes restantes, les entrées valent le numéro de la ligne (i+1 car Sage commence à 0)
+            v.append(i+1)   
+        L.append(v)  #On ajoute la ligne à la liste
+    return matrix(L)   #On retourne la matrice
+for k in range(6):
+    show(matexo(k+1))
+    show("det(A_%d)=" % (k+1),matexo(k+1).determinant())
+    </input>
+    </program>
+    </listing>
+    <p>Pour faire la démonstration, on peut procéder par induction, ou par calcul direct.</p>
+    <p>Si <m>n=1</m>, alors de manière évidente on a <m>\det((1))=1</m>. On suppose que <m>\det(A_{n-1})=1</m>. En utilisant l'opération <m>-L_1+L_i\rightarrow L_i</m> sur chaque ligne sous la première, on obtient
+    <me>
+    \begin{pmatrix} 1&amp;1&amp;1&amp;\cdots &amp; 1\\ 1&amp;2&amp;2&amp; \cdots &amp; 2\\ 1&amp; 2&amp;3&amp; \cdots &amp; 3\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 1&amp; 2&amp; 3&amp; \cdots &amp; n \end{pmatrix}=
+    \begin{pmatrix} 1&amp;1&amp;1&amp;\cdots &amp; 1\\ 0&amp;1&amp;1&amp; \cdots &amp; 1\\ 0&amp; 1&amp;2&amp; \cdots &amp; 2\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 0&amp; 1&amp; 2&amp; \cdots &amp; n-1 \end{pmatrix}
+    </me>. En utilisant l'opération <m>-L_2+L_1\rightarrow L_1</m>, on obtient maintenant
+    <md>
+    <mrow>\begin{pmatrix} 1&amp;1&amp;1&amp;\cdots &amp; 1\\ 0&amp;1&amp;1&amp; \cdots &amp; 1\\ 0&amp; 1&amp;2&amp; \cdots &amp; 2\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 0&amp; 1&amp; 2&amp; \cdots &amp; n-1 \end{pmatrix}
+    &amp;=\begin{pmatrix} 1&amp;0&amp;0&amp;\cdots &amp; 0\\ 0&amp;1&amp;1&amp; \cdots &amp; 1\\ 0&amp; 1&amp;2&amp; \cdots &amp; 2\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 0&amp; 1&amp; 2&amp; \cdots &amp; n-1 \end{pmatrix}
+    </mrow>
+    &amp;=\begin{pmatrix} 1&amp;0&amp;0&amp;\cdots &amp; 1\\ 0&amp;&amp;&amp;  &amp; \\ 0&amp; &amp;&amp; A_n &amp; \\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 0&amp; &amp; &amp;  &amp;  \end{pmatrix}
+    
+    </md>.
+    </p>
+    <p>Puisque les opérations élémentaires de type <m>kL_j+L_i\rightarrow L_i</m> ne change pas le déterminant, en utilisant l'exercice <xref ref="exo-detsousmatrice"/> on a <m>\det(A_n)=\det(A_{n-1})=1</m>, selon l'hypothèse d'induction.</p>
+    </solution>
+    </exercise>
+    <exercise>
+<statement><p>On considère la suite de matrices 
+    <md>
+    <mrow>B_1&amp;=(0)</mrow>
+    <mrow>B_2&amp;=\begin{pmatrix} 0&amp; 1\\ 1&amp;0  \end{pmatrix}</mrow>
+    <mrow>B_3&amp;=\begin{pmatrix} 0&amp; 1&amp; 1\\ 1&amp;0 &amp;1 \\ 1&amp;1 &amp; 0\end{pmatrix}</mrow>
+    <mrow>\vdots &amp;= \vdots </mrow>
+    <mrow>B_n&amp;=\begin{pmatrix} 0&amp;1&amp;1&amp;\cdots &amp; 1\\ 1&amp;0&amp;1&amp; \cdots &amp;1\\ 1&amp; 1&amp;0&amp; \cdots &amp;1\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp;\vdots \vdots\\ 1&amp; 1&amp; 1&amp; \cdots &amp; 0 \end{pmatrix}</mrow>
+    </md>. Utiliser Sage pour formuler une hypothèse sur la valeur de <m>\det(B_n)</m>.<!-- et démontrer le résultat.--> </p></statement> 
+    <answer><p>Le déterminant est <m>\det(A_n)=(-1)^{n-1}(n-1)</m>.</p></answer>
+    <solution>
+    <p>Voici une fonction permettant de créer les matrices <m>B_n</m>. Elle utilise la méthode de construction par une fonction intermédiaire <c>lambda</c>. Voir <xref provisional="Exemples sur les fonctions lambda"/>.</p>
+    <listing>
+    <caption>Le code solution pour l'exercice</caption>
+    <program language="sage">
+    <input>
+def diag0autres1(i,j):
+    if i==j:
+        return 0
+    else:
+        return 1   
+A=matrix(ZZ,5,lambda i,j: diag0autres1(i,j))
+for i in range(10):
+    show("det(A_%d)=" %(i+1), matrix(ZZ,i+1,lambda i,j: diag0autres1(i,j)).determinant())
+    </input>
+    </program>
+    </listing>
+<!-- Solutions avec les valeurs propres -->
+    </solution>
+    </exercise>
+    </exercisegroup>
+</exercises>

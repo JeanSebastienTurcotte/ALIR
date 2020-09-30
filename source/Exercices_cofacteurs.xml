@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                     -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title> 
+   <exercise xml:id="exo-det2x2avecprop">
+    <statement>
+    <p>
+    En utilisant une méthode analogue à celle de la proposition  <xref ref="prop-det3x3avecprop"/>, montrer que le déterminant d'une matrice <m>2\times 2</m> est <m>ad-bc</m>.
+    </p>
+    </statement>
+    </exercise>
+    <exercise>
+    <introduction><p>Soit <me>
+    A=\begin{pmatrix}
+    1&amp;2&amp; -3\\
+    -4&amp;5&amp;6\\
+    7&amp;-8&amp;9
+    \end{pmatrix}
+    </me>.</p>
+    <p>Calculer les cofacteurs ci-dessous.</p>
+    </introduction>
+    <task>
+    <statement>
+    <p><m>C_{1,3}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>C_{2,3}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>C_{3,1}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>C_{2,2}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>C_{3,2}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>C_{3,3}</m></p>
+    </statement>
+    </task>
+    <task><statement><p>Calculer le déterminant de la matrice <m>A</m>.</p></statement>
+    <hint><p>Peu de calculs sont nécessaires si les cofacteurs ci-dessus ont tous été calculés.</p></hint>
+    </task>
+    </exercise>
+    <exercise xml:id="exo-cof-iplusjmoins2">
+    <statement>
+    <p>Soit <m>A</m> une matrice et <m>a_{i,j}</m> l'entrée en position <m>i,j</m>. Montrer que pour amener <m>a_{i,j}</m> en position <m>1,1</m> sans changer l'ordre relatif des autres lignes et colonnes, on a besoin
+    de faire <m>i+j-2</m> permutations de lignes/colonnes.</p>
+    <p>Comme chacune de ces permutations change le déterminant par un facteur <m>-1</m>, on a <m>(-1)^{i+j-2}=(-1)^{i+j}</m>, ce qui explique la présence de ce terme dans la formule de la définition <xref ref="def-cofact"/>. </p>
+    </statement>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>On considère la suite de matrices
+    <md>
+    <mrow>A_2&amp;=\begin{pmatrix}2&amp;1\\1&amp;2  \end{pmatrix}</mrow>
+    <mrow>A_3&amp;=\begin{pmatrix} 2&amp;1&amp;0\\ 1&amp;2&amp;1\\ 1&amp;1&amp;2 \end{pmatrix}</mrow>
+    <mrow>A_4&amp;=\begin{pmatrix} 2&amp;1&amp;0&amp;0\\ 1&amp;2&amp;1&amp;0\\ 1&amp;1&amp;2 &amp;1\\ 1&amp;1&amp;1&amp;2\end{pmatrix}</mrow>
+    </md>
+    ou en général la matrice <m>A_n</m> est une matrice <m>n\times n</m> dont la diagonale principale vaut <m>2</m>, toutes les entrées sous la diagonales valent <m>1</m> et la diagonale au-dessus de la principale a aussi toutes ses entrées égalent à <m>1</m>.</p>
+    </introduction>
+    <task>
+    <statement>
+    <p>Calculer <m>\det(A_2), \det(A_3)</m>.</p>
+    </statement>
+    </task>
+    <task><statement><p>Montrer qu'on a <m>\det(A_4)=\det(A_3)+\det(A_2)</m>.</p></statement></task>
+    <task><statement><p>Montrer qu'en général, <m>\det(A_n)=\det(A_{n-1})+\det(A_{n-2})</m> lorsque <m>n\geq 4</m>.</p></statement></task>
+    <task><statement><p>Calculer à l'aide de cette relation les déterminant des matrices <m>A_5,A_6,\ldots, A_{10}</m>. Ces nombres sont-ils familiers?</p></statement></task>
+    </exercise>
+    <exercise>
+    <statement><p>On considère la matrice 
+    <me>
+    M=\begin{pmatrix} -1&amp; 3&amp; 1\\ 2&amp; 0&amp;-3\\ 1&amp;1&amp;0 \end{pmatrix}
+    </me>.
+    Déterminer l'inverse de la matrice à l'aide de la formule <xref ref="eq-matinversecofact"/>.
+    </p></statement>
+    </exercise>
+    <exercise>
+    <title>Aussi appelé, comment construire des matrices gentilles</title>
+    <introduction>
+    <p>Dans cet exercice, on considère une matrice <m>A</m> quelconque dont les entrées sont toutes des entiers. Est-ce que la matrice inverse sera aussi composée d'entiers? La cellulle Sage suivante montre qu'en général,
+    ce n'est pas le cas.</p>
+    <sage>
+    <input>
+    A=random_matrix(ZZ,3,3)
+    show("A=",A)
+    show("A^{-1}=",A.inverse())
+    </input>
+    </sage>
+    </introduction>
+    <task>
+    <statement>
+    <p>Si <m>\det(A)=-1</m> ou <m>\det(A)=1</m>, montrer que toutes les entrées de <m>A^{-1}</m> seront des entiers.</p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p>Si <m>A</m> et <m>A^{-1}</m> sont toutes les deux composées d'entiers, montrer que <m>\det(A)=\pm 1</m>.</p>
+    </statement>
+    </task>
+    <task><statement>
+    <p>Dans un examen, un professeur veut faire calculer l'inverse d'une matrice à ses étudiants. Il ne veut pas que cet inverse soit trop complexe et veut éviter les fractions. Décrire comment obtenir une matrice <m>A</m>
+    qui sera composée d'entiers et telle que l'inverse sera aussi composée d'entiers.</p>
+    </statement>
+    <hint><p>Considérer la proposion <xref ref="prop-detmattriang"/>, les opérations élémentaires et la première partie de cet exercice.</p></hint>
+    </task>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Soit <m>Q</m> une matrice orthogonale, c'est-à-dire une matrice telle que <m>Q^{-1}=Q^T</m>. Montrer que <m>\text{adj}(Q)=\pm Q^T</m>.</p>
+    </statement>
+    <hint>
+    <p>Utiliser l'exercice <xref ref="exo-detortho"/>.</p>
+    </hint>
+    </exercise>
+    <exercise xml:id="exo-eqdroitedet">
+<statement><p>Soit <m>P(x_1,y_1)</m> et <m>Q(x_2,y_2)</m> deux points distincts de <m>\R^2</m>. Montrer que l'équation de la droite passant par ces points est donné par
+<me>
+\begin{vmatrix}
+1&amp; x&amp; y\\
+1&amp; x_1&amp; y_1\\
+1&amp; x_2&amp; y_2
+\end{vmatrix}
+</me>.</p></statement>
+    </exercise>
+    <exercise>
+    <statement><p>Soit <m>P(x_1,y_1,z_1),Q(x_2,y_2,z_2)</m> et <m>R(x_3,y_3,z_3)</m> trois points non alignés de <m>\R^3</m>. Généraliser l'idée de l'exercice <xref ref="exo-eqdroitedet"/> pour obtenir l'équation du
+    plan passant par ces trois points. </p></statement>
+    </exercise>
+    <exercise>
+    <title>La parabole (re)revisitée</title>
+    <statement>
+    <p>Dans les exercices <xref ref="exo-parabolesage"/> et <xref ref="exo-parabolerevisitee"/>, on a donné des méthodes vectorielles et matricielles pour trouver l'équation d'une parabole. Montrer que si
+    <m>P(x_1,y_1),Q(x_2,y_2)</m> et <m>R(x_3,y_3)</m> sont trois points non alignés de <m>\R^2</m>, alors l'équation de la parabole <m>y=ax^2+bx+c</m> qui passe par ces trois points est donnée par 
+    <me>
+    \begin{vmatrix}
+    1 &amp; x   &amp; x^2  &amp; y\\
+    1 &amp; x_1 &amp; x_1^2&amp; y_1\\
+    1 &amp; x_2 &amp; x_2^2&amp; y_2\\
+    1 &amp; x_3 &amp; x_3^2&amp; y_3
+    \end{vmatrix}
+    </me>.
+    </p>
+    </statement>
+    </exercise>
+    <exercisegroup>
+    <title>
+    Exercices Sage
+    </title>
+    <introduction>
+    <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Évidemment, il y a  plus d'une manière d'arriver à la réponse.</p>
+    </introduction>
+    <exercise>
+<statement><p>On considère la suite de matrices 
+    <md>
+    <mrow>B_1&amp;=(0)</mrow>
+    <mrow>B_2&amp;=\begin{pmatrix} 0&amp; 1\\ 1&amp;0  \end{pmatrix}</mrow>
+    <mrow>B_3&amp;=\begin{pmatrix} 0&amp; 1&amp; 0\\ 1&amp;0 &amp;1 \\ 0&amp;1 &amp; 0\end{pmatrix}</mrow>
+    <mrow>\vdots &amp;= \vdots </mrow>
+    <mrow>B_n&amp;=\begin{pmatrix} 0&amp;1&amp;0&amp;\cdots &amp; 0&amp;0\\ 1&amp;0&amp;0&amp; \cdots &amp;0&amp; 0\\ 0&amp; 1&amp;0&amp; \cdots &amp;0&amp; 0\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp;\vdots &amps; \vdots\\ 0&amp; 0&amp; 0&amp; \cdots &amp;1 &amp; 0 \end{pmatrix}</mrow>
+    </md>. Utiliser Sage pour formuler une hypothèse sur la valeur de <m>\det(B_n)</m> et démontrer le résultat. </p></statement>
+    <hint><p>Calculer <m>\det(B_1),\det(B_2),\det(B_3)</m> et <m>\det(B_4)</m>. Vérifier que <m>\det(B_4)=-B_2</m> et qu'en général, on a 
+    <me>
+    \det(B_n)=-\det(B_{n-2})
+    </me>.</p></hint>
+    <answer><p>Si <m>n</m> est impair, alors <m>\det(B_n)=0</m>. Lorsque <m>n</m> est pair et divisible par quatre, alors <m>\det(B_n)=1</m> et si <m>n</m> est pair, mais non divisible par quatre, alors <m>\det(B_n)=-1</m>.</p></answer>
+    <solution>
+    <p>Voici une fonction permettant de créer les matrices <m>B_n</m>. Elle utilise la méthode de construction par une fonction intermédiaire <c>lambda</c>. Voir <xref provisional="Exemples sur les fonctions lambda"/>.</p>
+    <listing>
+    <caption>Le code solution pour l'exercice</caption>
+    <program language="sage">
+    <input>
+def diagsecond(i,j):
+    if abs(i-j)==1:
+        return 1
+    else:
+        return 0    
+B=matrix(ZZ,4,lambda i,j: diagsecond(i,j))
+for i in range(10):
+    show("det(B_%d)=" %(i+1), matrix(ZZ,i+1,lambda i,j: diagsecond(i,j)).determinant())    
+    </input>
+    </program>
+    </listing>
+    <p>On remarque facilement que les premiers déterminants satisfont la relation et on tente maintenant de la démontrer. On développe le déterminant de <m>B_n</m> selon la première ligne. On aura
+    <md>
+    <mrow>\det(B_n)&amp;=\begin{vmatrix}
+    0&amp;1&amp;0&amp;\cdots &amp;0&amp;0\\
+    1&amp;0&amp;1&amp;\cdots &amp;0&amp;0\\
+    \vdots&amp;\vdots &amp;\vdots &amp; \ddots &amp;\vdots&amp; \vdots\\
+    0&amp;0&amp;0&amp;\cdots &amp; 1&amp;0
+    \end{vmatrix}</mrow>
+    <mrow>&amp;=C_{1,2}</mrow>
+    <mrow>&amp;=(-1)^(1+2)\det(B_{1,2})</mrow>
+    <mrow>&amp;=-\begin{vmatrix}
+    1&amp;1&amp;0&amp;\cdots &amp;0&amp;0\\
+    0&amp;0&amp;1&amp;\cdots &amp;0&amp;0\\
+    \vdots&amp;\vdots &amp;\vdots &amp; \ddots &amp;\vdots&amp; \vdots\\
+    0&amp;0&amp;0&amp;\cdots &amp; 1&amp;0
+    \end{vmatrix}</mrow>
+    <intertext><p>Ce déterminant a <m>n-1</m> lignes et colonnes. On développe ensuite ce déterminant selon la première colonne.</p></intertext>
+    <mrow>
+    
+    &amp;=-\begin{vmatrix}
+    0&amp;1&amp;0&amp;\cdots &amp;0&amp;0\\
+    1&amp;0&amp;1&amp;\cdots &amp; 0&amp;0\\
+    \vdots &amp;\vdots &amp;\vdots&amp; \ddots &amp;\vdots&amp; \vdots\\
+    0&amp;0&amp;0&amp;\cdots &amp; 1&amp;0
+    \end{vmatrix}</mrow>
+    <intertext><p>Ce déterminant a maintenant <m>n-2</m> lignes et colonnes et correspond exactement à <m>\det(B_{n-2})</m>.</p></intertext>
+    <mrow>
+    &amp;=-\det(B_{n-2})
+    </mrow>
+    </md>.
+    </p>
+    </solution>
+    </exercise> 
+    <exercise>
+<statement><p>On considère la suite de matrices 
+    <md>
+    <mrow>F_1&amp;=(2)</mrow>
+    <mrow>F_2&amp;=\begin{pmatrix} 2&amp; 1\\ 1&amp;2  \end{pmatrix}</mrow>
+    <mrow>F_3&amp;=\begin{pmatrix} 2&amp; 1&amp; 0\\ 1&amp;2 &amp;0 \\ 0&amp;1 &amp; 2\end{pmatrix}</mrow>
+    <mrow>\vdots &amp;= \vdots </mrow>
+    <mrow>F_n&amp;=\begin{pmatrix} 2&amp;1&amp;0&amp;\cdots &amp; 0\\ 1&amp;2&amp;1&amp; \cdots &amp;0\\ 0&amp; 1&amp;2&amp; \cdots &amp;0\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp;\vdots \\ 0&amp; 0&amp; 0&amp; \cdots &amp; 2 \end{pmatrix}</mrow>
+    </md>. Montrer en utilisant Sage que <m>\det(F_n)=2\det(F_{n-1})-\det(F_{n-2})</m> et démontrer algébriquement ce résultat. </p></statement> 
+    <solution>
+    <p>Voici une fonction permettant de créer les matrices <m>F_n</m>. Elle utilise la méthode de construction par une fonction intermédiaire <c>lambda</c>. Voir <xref provisional="Exemples sur les fonctions lambda"/>.</p>
+    <listing>
+    <caption>Le code solution pour l'exercice</caption>
+    <program language="sage">
+    <input>
+def matrice121(i,j):
+    if i==j:
+        return 2
+    elif abs(i-j)==1:
+        return 1
+    else:
+        return 0
+F=matrix(ZZ,5,lambda i,j: matrice121(i,j))
+for i in range(10):
+    show("det(F_%d)=" %(i+1), matrix(ZZ,i+1,lambda i,j: matrice121(i,j)).determinant())
+    </input>
+    </program>
+    </listing>
+<p>Similairement à l'exercice précédent, on développe selon la première ligne. On aura alors
+<md>
+<mrow>
+\det(F_n)&amp;=\begin{vmatrix} 2&amp;1&amp;0&amp;\cdots &amp; 0\\ 1&amp;2&amp;1&amp; \cdots &amp;0\\ 0&amp; 1&amp;2&amp; \cdots &amp;0\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp;\vdots \\ 0&amp; 0&amp; 0&amp; \cdots &amp; 2 \end{vmatrix}
+</mrow>
+<mrow>&amp;=2C_{1,1}+C_{1,2}</mrow>
+</md>.
+</p>
+<p>On remarque que la matrice que l'on obtient pour <m>C_{1,1}</m> est égale à <m>F_{n-1}</m>. Pour <m>C_{1,2}</m>, on a
+<md>
+<mrow>C_{1,2}&amp;=(-1)^{1+2}\det(F_{1,2})</mrow>
+<mrow>&amp;=-\begin{vmatrix}  
+1&amp;1&amp;0&amp;\cdots &amp;0\\
+0&amp; 3&amp;1&amp;\cdots &amp; 0\\
+0&amp;1&amp; 3&amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp;\vdots \\
+0&amp;0&amp;0&amp;\cdots &amp; 3
+\end{vmatrix}</mrow>
+<intertext><p>où la dernière matrice est de taille <m>(n-1)\times (n-1)</m>. On la développe selon sa première colonne pour obtenir</p></intertext>
+<mrow>&amp;=-\begin{vmatrix}  
+3&amp;1&amp;0&amp;\cdots &amp;0\\
+1&amp; 3&amp;1&amp;\cdots &amp; 0\\
+0&amp;1&amp; 3&amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp;\vdots \\
+0&amp;0&amp;0&amp;\cdots &amp; 3
+\end{vmatrix}</mrow>
+<intertext><p>où cette fois-ci la matrice est de taille <m>(n-2)\times (n-2)</m>. On a donc</p></intertext>
+<mrow>&amp;=-\det(F_{n-2})</mrow>
+</md>.
+</p>
+<p>En combinant toutes les informations, on a <m>\det(F_n)=2\det(F_{n-1})-\det(F_{n-1})</m>.</p>
+    </solution>
+    </exercise>
+    </exercisegroup>
+</exercises>
