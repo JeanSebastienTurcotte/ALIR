@@ -30,46 +30,370 @@
     -->
     <exercise xml:id="exo-transpose"><introduction><p>Soit <m>A=\matcold{1}{3}{-2}{-1},B=\matcold{3}{1}{2}{5},C=\begin{pmatrix} 2&amp; -2&amp;3 \\ 0&amp; 2&amp;1 \end{pmatrix}</m> et <m>D=\begin{pmatrix} 7 &amp;-1\\ 2&amp; 4\\ 1&amp;0  \end{pmatrix}</m>.
     Calculer si possible les expressions suivantes ou expliquer pourquoi ce n'est pas possible.</p></introduction>
-    <task><p><m> A^T </m></p></task>
-    <task><p><m>4A-5B^T </m></p></task>
-    <task><p><m> C^T</m></p></task>
-    <task><p><m> C^T+D</m></p></task>
-    <task><p><m> A^TC </m></p></task>
-    <task><p><m> AC^T</m></p></task>
-    <task><p><m> C^TB^T </m></p></task>
-    <task><p><m> BD</m></p></task>
-    <task><p><m> BD^T</m></p></task>
-    <task><p><m> DB</m></p></task>
-    <task><p><m> D^TB</m></p></task>
-    <task><p><m> CC^T </m></p></task>
-    <task><p><m> C^TC</m></p></task>
-    <task><p><m>CD </m></p></task>
-    <task><p><m> C^TD^T</m></p></task>
-    <task><p><m> DC </m></p></task>
-   <task><p><m> D^TC^T </m></p></task>
+    <task><statement><p><m> A^T </m></p></statement>
+    <answer>
+    <p><m>\matcold{1}{-2}{3}{-1}</m></p>
+    </answer>
+    </task>
+    <task><statement><p><m>4A-5B^T </m></p></statement>
+    <answer><p><m>\begin{pmatrix}
+-11 &amp; -13 \\
+2 &amp; -29
+\end{pmatrix}</m></p></answer>
+<solution><p>La matrice <m>4A=\left(\begin{array}{rr}
+4 &amp; -8 \\
+12 &amp; -4
+\end{array}\right)</m> et la matrice <m>5B^T=\left(\begin{array}{rr}
+15 &amp; 5 \\
+10 &amp; 25
+\end{array}\right)</m>. Ces matrices sont de formats compatibles pour l'addition et donc 
+<me>
+4A-5B^T=\begin{pmatrix}
+-11 &amp; -13 \\
+2 &amp; -29
+\end{pmatrix}
+</me>
+</p></solution>
+    </task>
+    <task><statement><p><m> C^T</m></p></statement>
+    <answer><p><m>\left(\begin{array}{rr}
+2 &amp; 0 \\
+-2 &amp; 2 \\
+3 &amp; 1
+\end{array}\right)</m></p></answer>
+    </task>
+    <task><statement><p><m> C^T+D</m></p></statement>
+    <answer><p><m>\left(\begin{array}{rr}
+9 &amp; -1 \\
+0 &amp; 6 \\
+4 &amp; 1
+\end{array}\right)</m></p></answer>
+    <solution><p>La matrice <m>C^T=\left(\begin{array}{rr}
+2 &amp; 0 \\
+-2 &amp; 2 \\
+3 &amp; 1
+\end{array}\right)</m> est une matrice de taille <m>3\times 2</m> et la matrice <m>D</m> est aussi une matrice de taille <m>3\times 2</m>, qui sont ainsi compatibles pour l'addition. On a alors
+<me>
+C^T+D=\left(\begin{array}{rr}
+9 &amp; -1 \\
+0 &amp; 6 \\
+4 &amp; 1
+\end{array}\right)
+</me></p></solution>
+    </task>
+    <task><statement><p><m> A^TC </m></p></statement>
+    <answer><p><m>\left(\begin{array}{rrr}
+2 &amp; 4 &amp; 6 \\
+-4 &amp; 2 &amp; -7
+\end{array}\right)</m></p></answer>
+<solution><p>La matrice <m>A^T</m> est une matrice de taille <m>2\times 2</m> et la matrice <m>C</m> est une matrice de taille <m>2\times 3</m>. Ces formats sont compatibles pour la multiplication <m>A^TC</m> et on a 
+<md>
+<mrow>A^TC&amp;=\matcold{1}{-2}{3}{-1}\begin{pmatrix} 2&amp; -2&amp;3 \\ 0&amp; 2&amp;1 \end{pmatrix}</mrow>
+<mrow>&amp;=\left(\begin{array}{rrr}
+2 &amp; 4 &amp; 6 \\
+-4 &amp; 2 &amp; -7
+\end{array}\right)
+</mrow></md>
+</p></solution>
+    </task>
+    <task><statement><p><m> AC^T</m></p></statement>
+    <answer><p>C'est impossible.</p></answer>
+    <solution><p>La matrice <m>A</m> est de format <m>2\times 2</m> et la matrice <m>C^T</m> est de format <m>3\times 2</m>. Ces formats ne sont pas compatibles dans l'ordre <m>AC^T</m>.</p></solution>
+    </task>
+    <task><statement><p><m> C^TB^T </m></p></statement>
+    <answer><p><m>
+\left(\begin{array}{rr}
+6 &amp; 2 \\
+-2 &amp; 8 \\
+11 &amp; 8
+\end{array}\right)</m></p></answer>
+<solution>
+<p>La matrice <m>C^T</m> est de format <m>3\times 2</m> et la matrice <m>B^T</m> est de format <m>2\times 2</m>. Ces formats sont compatibles pour la multiplication <m>C^TB^T</m>. On a 
+<md>
+<mrow>C^TB^T&amp;=\left(\begin{array}{rr}
+2 &amp; 0 \\
+-2 &amp; 2 \\
+3 &amp; 1
+\end{array}\right)\left(\begin{array}{rr}
+3 &amp; 1 \\
+2 &amp; 5
+\end{array}\right)</mrow>
+<mrow>&amp;=\left(\begin{array}{rr}
+6 &amp; 2 \\
+-2 &amp; 8 \\
+11 &amp; 8
+\end{array}\right)</mrow>
+</md>.
+</p>
+</solution>
+    </task>
+    <task><statement><p><m> BD</m></p></statement>
+    <answer>C'est impossible</answer>
+    <solution><p>Le format des matrices <m>B</m> et <m>D</m> ne sont pas compatibles pour la multiplication.</p></solution>
+    </task>
+    <task><statement><p><m> BD^T</m></p></statement>
+    <answer><p><m>\left(\begin{array}{rrr}
+19 &amp; 14 &amp; 3 \\
+2 &amp; 22 &amp; 1
+\end{array}\right)</m></p></answer>
+<solution>
+<p>Les matrices <m>B=\matcold{3}{1}{2}{5}</m> et <m>D^T=\left(\begin{array}{rrr}
+7 &amp; 2 &amp; 1 \\
+-1 &amp; 4 &amp; 0
+\end{array}\right)</m> sont compatibles pour la multiplication. On a alors
+<me>
+BD^T=\matcold{3}{1}{2}{5}\left(\begin{array}{rrr}
+7 &amp; 2 &amp; 1 \\
+-1 &amp; 4 &amp; 0
+\end{array}\right)=\left(\begin{array}{rrr}
+19 &amp; 14 &amp; 3 \\
+2 &amp; 22 &amp; 1
+\end{array}\right)
+</me>.</p>
+</solution>
+    </task>
+    <task><statement><p><m> DB</m></p></statement>
+    <answer><p><m>\left(\begin{array}{rr}
+20 &amp; 9 \\
+10 &amp; 24 \\
+3 &amp; 2
+\end{array}\right)</m></p></answer>
+<solution><p>Les matrices <m>D</m> et <m>B</m> sont compatibles pour la multiplication. On a
+<me>
+DB=\left(\begin{array}{rr}
+20 &amp; 9 \\
+10 &amp; 24 \\
+3 &amp; 2
+\end{array}\right)
+</me>.
+</p></solution>
+    </task>
+    <task><statement><p><m> D^TB</m></p></statement>
+    <answer><p>C'est impossible</p></answer>
+    <solution><p>Les matrices <m>D^T</m>, de format <m>2\times 3</m> et <m>B</m>, de format <m>2\times 2</m> ne sont pas compatibles pour la multiplication.</p></solution>
+    </task>
+    <task><statement><p><m> CC^T </m></p></statement>
+    <answer><p><m>\left(\begin{array}{rr}
+17 &amp; -1 \\
+-1 &amp; 5
+\end{array}\right)</m></p></answer>
+<solution><p>Une matrice est toujours compatible avec la multiplication par sa transposée. On a 
+<md>
+<mrow>CC^T&amp;=\begin{pmatrix} 2&amp; -2&amp;3 \\ 0&amp; 2&amp;1 \end{pmatrix}\left(\begin{array}{rr}
+2 &amp; 0 \\
+-2 &amp; 2 \\
+3 &amp; 1
+\end{array}</mrow>
+<mrow>&amp;=\left(\begin{array}{rr}
+17 &amp; -1 \\
+-1 &amp; 5
+\end{array}\right)</mrow>
+</md>.</p></solution>
+    </task>
+    <task><statement><p><m> C^TC</m></p></statement>
+    <answer><p><m>
+\left(\begin{array}{rrr}
+4 &amp; -4 &amp; 6 \\
+-4 &amp; 8 &amp; -4 \\
+6 &amp; -4 &amp; 10
+\end{array}\right)</m></p></answer>
+<solution><p>Une matrice est toujours compatible avec la multiplication par sa transposée. On a 
+<md>
+<mrow>C^TC&amp;=\left(\begin{array}{rr}
+2 &amp; 0 \\
+-2 &amp; 2 \\
+3 &amp; 1
+\end{array}\begin{pmatrix} 2&amp; -2&amp;3 \\ 0&amp; 2&amp;1 \end{pmatrix}</mrow>
+<mrow>&amp;=\left(\begin{array}{rrr}
+4 &amp; -4 &amp; 6 \\
+-4 &amp; 8 &amp; -4 \\
+6 &amp; -4 &amp; 10
+\end{array}\right)</mrow>
+</md>.</p></solution>
+</task>
+    <task><statement><p><m>CD </m></p></statement>
+    <answer><p><m>\left(\begin{array}{rr}
+13 &amp; -10 \\
+5 &amp; 8
+\end{array}\right)</m></p></answer>
+<solution><p>La matrice <m>C</m> est de taille <m>2\times 3</m> et la matrice <m>D</m> est taille <m>3\times 2</m>, qui sont compatibles pour la multiplication. Ainsi
+<me>
+CD=\left(\begin{array}{rr}
+13 &amp; -10 \\
+5 &amp; 8
+\end{array}\right)
+</me>.</p></solution>
+</task>
+    <task><statement><p><m> C^TD^T</m></p></statement>
+    <answer>
+    <p><m>\left(\begin{array}{rrr}
+14 &amp; 4 &amp; 2 \\
+-16 &amp; 4 &amp; -2 \\
+20 &amp; 10 &amp; 3
+\end{array}\right)</m></p>
+    </answer>
+    <solution><p>La matrice <m>C^T</m> est de format <m>3\times 2</m> et la matrice <m>D^T</m> est de taille <m>2\times 3</m>, qui sont compatibles pour la multiplication. Ainsi,
+    <md>
+    <mrow>C^TD^T&amp;=\left(\begin{array}{rr}
+2 &amp; 0 \\
+-2 &amp; 2 \\
+3 &amp; 1
+\end{array}\left(\begin{array}{rrr}
+7 &amp; 2 &amp; 1 \\
+-1 &amp; 4 &amp; 0
+\end{array}\right)</mrow>
+<mrow>&amp;=\left(\begin{array}{rrr}
+14 &amp; 4 &amp; 2 \\
+-16 &amp; 4 &amp; -2 \\
+20 &amp; 10 &amp; 3
+\end{array}\right)</mrow>
+    </md></p></solution>
+    </task>
+    <task><statement><p><m> DC </m></p></statement>
+    <answer><p><m>
+\left(\begin{array}{rrr}
+14 &amp; -16 &amp; 20 \\
+4 &amp; 4 &amp; 10 \\
+2 &amp; -2 &amp; 3
+\end{array}\right)</m></p></answer>
+<solution><p>Les matrices <m>D</m> et <m>C</m> sont compatibles pour la multiplication et donc
+<me>
+DC=
+\left(\begin{array}{rrr}
+14 &amp; -16 &amp; 20 \\
+4 &amp; 4 &amp; 10 \\
+2 &amp; -2 &amp; 3
+\end{array}\right)
+</me>.</p></solution>
+    </task>
+    <task><statement><p><m> D^TC^T </m></p></statement>
+    <answer><p><m>\left(\begin{array}{rr}
+13 &amp; 5 \\
+-10 &amp; 8
+\end{array}\right)</m></p></answer>
+<solution>
+<p>La matrice <m>D^T</m> est de format <m>2\times 3</m> et la matrice <m>C^T</m> est de format <m>3\times 2</m>, qui fait du produit <m>D^TC^T</m> compatible pour la multiplication. Ainsi
+<md>
+<mrow>D^TC^T&amp;=\left(\begin{array}{rrr}
+7 &amp; 2 &amp; 1 \\
+-1 &amp; 4 &amp; 0
+\end{array}\right)\left(\begin{array}{rr}
+2 &amp; 0 \\
+-2 &amp; 2 \\
+3 &amp; 1
+\end{array}</mrow>
+<mrow>&amp;=\left(\begin{array}{rr}
+13 &amp; 5 \\
+-10 &amp; 8
+\end{array}\right)</mrow>
+</md></p>
+</solution>
+    </task>
     </exercise>
-    <exercise><statement><p>Montrer que si <m>A</m> est une matrice quelconque de taille <m>m\times n</m>, alors <m>B=AA^T</m> et <m>C=A^TA</m> sont définies. Donner aussi la taille des matrices <m>B</m> et <m>C</m>.</p></statement></exercise>
+    <exercise><statement><p>Montrer que si <m>A</m> est une matrice quelconque de taille <m>m\times n</m>, alors <m>B=AA^T</m> et <m>C=A^TA</m> sont définies. Donner aussi la taille des matrices <m>B</m> et <m>C</m>.</p></statement>
+    <solution><p>Puisque <m>A</m> est de taille <m>m\times n</m>, sa transposée est de taille <m>n\times m</m>. Le produit <m>A_{m,n}A^T_{n,m}}</m> est donc bien défini pour la multiplication et donnera une matrice <m>B</m> de taille <m>m\times m</m>.
+    À l'inverse, le produit <m>A_{n,m}^TA_{m,n}</m>, aussi bien défini, donnera une matrice <m>C</m> de taille <m>n\times n</m>.</p></solution>
+    </exercise>
     <exercise xml:id="exo-prodscaltransposee">
     <introduction> Soit <m>A</m> une matrice <m>m\times n</m>. On considère l'équation <men xml:id="eq-prodscaltransposee">A\vec{x}\cdot \vec{y}=\vec{x}\cdot A^T\vec{y}</men>.</introduction>
-    <task><statement><p>Quelles doivent être les dimensions des vecteurs <m>\vec{x},\vec{y}</m> pour que l'équation <xref ref="eq-prodscaltransposee" symbol="star"/> soit bien définie?</p></statement></task>
-    <task><statement><p>Démontrer l'équation <xref ref="eq-prodscaltransposee" symbol="star"/>.</p></statement></task>
+    <task><statement><p>Quelles doivent être les dimensions des vecteurs <m>\vec{x},\vec{y}</m> pour que l'équation <xref ref="eq-prodscaltransposee" symbol="star"/> soit bien définie?</p></statement>
+    <hint><p>Pour la démonstration, utiliser l'exercice <xref ref="exo-vectranspose"/>.</p></hint>
+    <answer><p>Le vecteur <m>\vec{x}</m> doit être dans <m>\R^n</m>. Le produit <m>A\vec{x}</m> est un vecteur de <m>\R^m</m> et donc <m>\vec{y}\in\R^m</m>.</p></answer></task>
+    <task><statement><p>Démontrer l'équation <xref ref="eq-prodscaltransposee" symbol="star"/>.</p></statement>
+    <solution><p>Avec les vecteurs de dimension approprié, on  réécrit le produit scalaire comme suit:
+    <md>
+    <mrow>A\vec{x}\cdot\vec{y}&amp;=(A\vec{x})^T\vec{y}&amp; &amp;\text{ selon } <xref ref="exo-vectranspose"/></mrow>
+    <intertext><p>On a utilisé le fait que <m>\vec{u}\cdot\vec{v}=u^T\vec{v}</m> avec <m>\vec{u}=A\vec{x}</m>.</p></intertext>
+    <mrow>&amp;=(\vec{x}^TA^T)\vec{y} &amp; &amp; \text{ selon } <xref ref="prop-transposeeprop"/></mrow>
+    <mrow>&amp;=\vec{x}^T(A^T\vec{y}) &amp;&amp;\text{ selon l'associativité }</mrow>
+    <mrow>&amp;=\vec{x}\cdot A^T\vec{y} &amp;&amp; \text{ en utilisant à nouveau } <xref ref="exo-vectranspose"/> </mrow>
+    <mrow></mrow>
+    </md>.
+    </p></solution>
+    </task>
     </exercise>
        <exercise>
        <statement><p>On considère des matrices <m>A,B</m> telles que <m>A\vec{u}\cdot\vec{v}=\vec{u}\cdot (B\vec{v})</m> pour tous les vecteurs <m>\vec{u},\vec{v}</m> de taille compatible.
        Montrer que <m>B=A^T</m>
        </p></statement>
    <hint><p>Utiliser les exercices <xref ref="exo-matprodscalegal"/> et <xref ref="exo-prodscaltransposee"/>.</p></hint>
+   <solution><p>On réécrit l'équation pour avoir
+  <md>
+  <mrow>A\vec{u}\cdot\vec{v}&amp;=(B^T\vec{u})\cdot \vec{v}&amp;&amp; \text{ selon l'exercice } <xref ref="exo-prodscaltransposee"/></mrow>
+  </md>.
+  Selon l'exercice <xref ref="exo-matprodscalegal"/>, la matrice <m>B^T=A</m>, car l'égalité tient pour tous les vecteurs de taille compatible. Ainsi, <m>B=(B^T)^T=A^T</m>.
+  </p></solution>
    </exercise>
    <exercise>
    <introduction>
-   <p>Pour chaque vecteur ci-dessous, déterminer la matrice de la projection orthogonale sur ce vecteur.</p>
+   <p>Pour chaque vecteur ci-dessous, déterminer la matrice standard de la projection orthogonale sur ce vecteur.</p>
    </introduction>
    <task>
    <statement><p><m>\vec{u}_1=\left(\frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2}\right)</m></p></statement>
-   <statement><p><m>\vec{u}_2=(\frac{1}{2},\frac{\sqrt{3}}{2})</m></p></statement>
-   <statement><p><m>\vec{u}_3=(3,-4)</m></p></statement>
-   <statement><p><m>\vec{u}_4=(\cos(\theta),\sin(\theta))</m></p></statement>
-   <statement><p><m>\vec{u}_5=\left(\frac{4}{9},\frac{4}{9},\frac{7}{9}\right)</m></p></statement>
+   <answer><p><m>\begin{pmatrix} 
+   \frac{1}{2}&amp; -\frac{1}{2}\\
+   -\frac{1}{2}&amp; \frac{1}{2}
+   \end{pmatrix}</m></p></answer>
+   <solution><p>Le vecteur <m>\vec{u}_1</m> est unitaire. La matrice standard de projection orthogonale sur <m>\vec{u}_1</m> est 
+   <md>
+   <mrow>\vec{u}_1\vec{u}_1^T&amp;=\vecd{\frac{\sqrt{2}}{2}}{-\sqrt{2}}{2}}\left(\frac{\sqrt{2}}{2}\,\,-\frac{\sqrt{2}}{2}\right)</mrow>
+   <mrow>&amp;=\begin{pmatrix} 
+   \frac{1}{2}&amp; -\frac{1}{2}\\
+   -\frac{1}{2}&amp; \frac{1}{2}
+   \end{pmatrix}</mrow>
+   </md>.</p></solution></task>
+   <task><statement><p><m>\vec{u}_2=(\frac{1}{2},\frac{\sqrt{3}}{2})</m></p></statement>
+   <answer><p><m>\left(\begin{array}{rr}
+\frac{1}{4} &amp; \frac{1}{4} \, \sqrt{3} \\
+\frac{1}{4} \, \sqrt{3} &amp; \frac{3}{4}
+\end{array}\right)</m></p></answer>
+<solution><p>Le vecteur <m>\vec{u}_2</m> est unitaire. La matrice standard de projection orthogonale sur <m>\vec{u}_2</m> est 
+<md>
+<mrow>\vec{u}_2\vec{u}^T&amp;=\vecd{\frac{1}{2}}{\frac{\sqrt{3}}{2}}\begin{pmatrix}\frac{1}{2} &amp; \frac{\sqrt{3}{2}}\end{pmatrix}</mrow>
+<mrow>&amp;=\left(\begin{array}{rr}
+\frac{1}{4} &amp; \frac{1}{4} \, \sqrt{3} \\
+\frac{1}{4} \, \sqrt{3} &amp; \frac{3}{4}
+\end{array}\right)</mrow>
+</md></p></solution></task>
+   <task><statement><p><m>\vec{u}_3=(3,-4)</m></p></statement>
+   <answer><p><m>\left(\begin{array}{rr}
+\frac{9}{25} &amp; -\frac{12}{25} \\
+-\frac{12}{25} &amp; \frac{16}{25}
+\end{array}\right)</m></p></answer>
+<solution><p>Ici, le vecteur <m>\vec{u}_3</m> n'est pas unitaire, on doit commencer par calculer <m>\hat{u}_3=\left(\frac{3}{5},\,-\frac{4}{5}\right)</m>. La matrice standard de projection orthogonale sur <m>\vec{u}_3</m> est
+<md>
+<mrow>\hat{u}_3\hat{u}_3^T&amp;=\vecd{\frac{3}{5}}{-\frac{4}{5}}\begin{pmatrix}\frac{3}{5} &amp; -\frac{4}{5}\end{pmatrix}</mrow>
+<mrow>&amp;=\left(\begin{array}{rr}
+\frac{9}{25} &amp; -\frac{12}{25} \\
+-\frac{12}{25} &amp; \frac{16}{25}
+\end{array}\right)</mrow>
+</md>
+</p></solution></task>
+   <task><statement><p><m>\vec{u}_4=(\cos(\theta),\sin(\theta))</m></p></statement>
+   <answer><p><m>\begin{pmatrix} \cos^2(\theta) &amp;\cos(\theta)\sin(\theta)\\
+                                  \cos(\theta)\sin(\theta)&amp; \sin^2(\theta)\end{pmatrix}</m></p></answer>
+   <solution><p>Le vecteur est unitaire. La matrice que l'on obtiendra représente la projection orthogonale dans la direction <m>\theta</m>. Elle est égale à
+   <md>
+   <mrow>\vec{u}_4\vec{u}_4^T&amp;=\vecd{\cos(\theta)}{\sin(\theta)}\begin{pmatrix} \cos(\theta)&amp; \sin(\theta)\end{pmatrix}</mrow>
+   <mrow>&amp;=\begin{pmatrix} \cos^2(\theta) &amp;\cos(\theta)\sin(\theta)\\
+                                  \cos(\theta)\sin(\theta)&amp; \sin^2(\theta)\end{pmatrix}</mrow>
+   </md></p></solution></task>
+   <task><statement><p><m>\vec{u}_5=\left(\frac{4}{9},\frac{4}{9},\frac{7}{9}\right)</m></p></statement>
+   <answer><p><m>\left(\begin{array}{rrr}
+\frac{16}{81} &amp; \frac{16}{81} &amp; \frac{28}{81} \\
+\frac{16}{81} &amp; \frac{16}{81} &amp; \frac{28}{81} \\
+\frac{28}{81} &amp; \frac{28}{81} &amp; \frac{49}{81}
+\end{array}\right)</m></p></answer>
+<solution><p>Le vecteur <m>\vec{u}_5</m> est unitaire. C'est un vecteur de <m>\R^3</m>, mais la définition <xref ref="def-projorthomat"/> fonction indépendamment de la dimension des vecteurs. On a donc
+<md>
+<mrow>\vec{u}_5\vec{u}_5^T&amp;=\vecddd{\frac{4}{9}{\frac{4}{9}}{\frac{7}{9}}\begin{pmatrix}\frac{4}{9}&amp;\frac{4}{9}&amp;\frac{7}{9} \end{pmatrix}</mrow>
+<mrow>&amp;=\left(\begin{array}{rrr}
+\frac{16}{81} &amp; \frac{16}{81} &amp; \frac{28}{81} \\
+\frac{16}{81} &amp; \frac{16}{81} &amp; \frac{28}{81} \\
+\frac{28}{81} &amp; \frac{28}{81} &amp; \frac{49}{81}
+\end{array}\right)</mrow>
+</md>
+</p></solution>
    </task>
    </exercise>
     <exercise>
@@ -77,33 +401,180 @@
     <introduction>
     <p>Soit <m>S</m> une matrice carrée <m>n\times n</m>. On dit que la matrice <m>S</m> est symétrique si <me>S=S^T</me>.</p>
     </introduction>
-    <task><statement><p>Donner deux exemples de matrices symétriques de taille <m>2\times 2</m> et un exemple de taille <m>3\times 3</m>.</p></statement></task>
-    <task><statement><p>Soit <m>A</m> une matrice quelconque. Montrer que <m>S=AA^T</m> est une matrice symétrique.</p></statement></task>
+    <task><statement><p>Donner deux exemples de matrices symétriques de taille <m>2\times 2</m> et un exemple de taille <m>3\times 3</m>.</p></statement>
+    <solution><p>Plusieurs réponses sont possibles. Pour que <m>S=S^T</m> il faut que l'entrée en position <m>i,j</m> soit égale à celle en position <m>j,i</m>. Dans le cas <m>2\times 2</m>, n'importe quelle matrice
+    <m>S=\begin{pmatrix} a&amp;b \\ b&amp; d \end{pmatrix}</m> fera l'affaire, avec <m>a,b,d\in \R</m>. Par exemple,
+    <md>
+    <mrow>S_1&amp;=\begin{pmatrix} 1&amp;2 \\ 2&amp; 3 \end{pmatrix}</mrow>
+    <mrow>S_2&amp;=\begin{pmatrix} 0&amp;-3 \\ -3&amp; 1 \end{pmatrix}</mrow>
+    </md>sont des matrices symétriques. La même règle s'applique pour une matrice <m>3\times 3</m> et donc toute matrice de la forme <m>\begin{pmatrix} a&amp; b&amp; c\\ b&amp;e &amp; f\\ c&amp; f&amp; i \end{pmatrix}</m> sera
+    symétrique. Par exemple,
+    <md>
+    <mrow>S_3&amp;=\begin{pmatrix} 3&amp; -1&amp; 2\\ -1&amp;0 &amp; 4\\ 2&amp; 4&amp; 5 \end{pmatrix}</mrow>
+    </md> est une matrice symétrique.</p></solution></task>
+    <task><statement><p>Soit <m>A</m> une matrice quelconque. Montrer que <m>S=AA^T</m> est une matrice symétrique.</p></statement>
+    <solution><p>En utilisant la définition, on calcule 
+    <md>
+    <mrow>S^T&amp;=(AA^T)^T</mrow>
+    <mrow>   &amp;=(A^T)^TA^T&amp;&amp;\text{ selon } <xref ref="prop-transposeeprop"/></mrow>
+    <mrow>   &amp;=AA^T &amp;&amp;\text{ toujours selon} <xref ref="prop-transposeeprop"/></mrow>
+    <mrow>   &amp;=S</mrow>
+    </md>. Ainsi, la matrice <m>S</m> est symétrique.</p></solution>
+    </task>
     <task><introduction><p>Une matrice carrée <m>X</m> est antisymétrique si <m>X^T=-X</m>.</p></introduction>
-    <task><statement><p>Donner deux exemples de matrices antisymétriques de taille <m>2\times 2</m> et un exemple de taille <m>3\times 3</m>.</p></statement></task>
-    <task><statement><p>Que doivent valoir les éléments sur la diagonale d'une matrice antisymétrique? Pourquoi?</p></statement></task>
+    <task><statement><p>Donner deux exemples de matrices antisymétriques de taille <m>2\times 2</m> et un exemple de taille <m>3\times 3</m>.</p></statement>
+    <solution><p>Encore une fois ici, plusieurs réponses sont possibles. Pour que <m>X</m> soit antisymétrique, il faut que l'entrée en position <m>i,j</m> soit égale à celle en position <m>j,i</m>, mais avec le signe 
+    opposé.</p>
+    <p>En particulier, <m>x_{i,i}=-x_{i,i}</m>, ce qui fait que la diagonale doit nécessairement être nulle.</p>
+    <p>Pour les matrices <m>2\times 2</m>, toute matrice de la forme <m>\begin{pmatrix} 0&amp; -b\\b&amp; 0\end{pmatrix}</m> est antisymétrique. Par exemple, les matrices
+    <md>
+    <mrow>X_1&amp;=\begin{pmatrix} 0&amp; -3\\ 3&amp; 0\end{pmatrix}</mrow>
+    <mrow>X_2&amp;=\begin{pmatrix} 0&amp; 5\\ -5&amp; 0\end{pmatrix}</mrow>
+    </md> sont antisymétriques.</p>
+    <p>La même règle s'applique pour une matrice <m>3\times 3</m> et donc toute matrice de la forme <m>\begin{pmatrix} 0&amp; -b&amp; -c\\ b&amp;0 &amp; -f\\ c&amp; f&amp; 0 \end{pmatrix}</m> sera
+    antisymétrique. Par exemple,
+    <md>
+    <mrow>S_3&amp;=\begin{pmatrix} 0&amp; -1&amp; 2\\ 1&amp;0 &amp; 4\\ -2&amp; -4&amp; 0 \end{pmatrix}</mrow>
+    </md> est une matrice antisymétrique.</p>
+    </solution></task>
+    <task><statement><p>Que doivent valoir les éléments sur la diagonale d'une matrice antisymétrique? Pourquoi?</p></statement>
+    <answer><p><m>0</m></p></answer>
+    <solution><p>Les entrées doivent être nulles car on veut que <m>x_{i,j}=-x_{j,i}</m>. Lorsque <m>i=j</m>, on obtient <m>x_{i,i}=-x_{i,i}</m>, qui n'est possible que lorsque <m>x_{i,i}=0</m>.</p></solution></task>
     <task><introduction><p>Soit <m>A</m> une matrice quelconque. On pose <m>S=A+A^T</m> et <m>X=A-A^T</m>.</p></introduction>
-    <task><statement><p>Montrer que <m>S</m> est une matrice symétrique.</p></statement></task>
-    <task><statement><p>Montrer que <m>X</m> est une matrice antisymétrique.</p></statement></task>
-    <task><statement><p>Montrer que toute matrice <m>A</m> peut s'écrire comme la somme d'une matrice symétrique et d'une matrice antisymétrique.</p></statement></task>
+    <task><statement><p>Montrer que <m>S</m> est une matrice symétrique.</p></statement>
+        <solution><p>On applique la définition de matrice symétrique. On détermine
+    <md>
+    <mrow>S^T&amp;=(A+A^T)^T</mrow>
+    <mrow>&amp;=A^T+(A^T)^T&amp;&amp;\text{ selon } <xref ref="prop-transposeeprop"/></mrow>
+    <mrow>&amp;=A^T+A&amp;&amp; \text{ toujours selon } <xref ref="prop-transposeeprop"/></mrow>
+    <mrow>&amp;=A+A^T&amp;&amp; \text{ commutativité de l'addition}</mrow>
+    <mrow>&amp;=S</mrow>
+    </md>.
+    La matrice <m>S</m> est donc symétrique.
+    </p></solution>
+    </task>
+    <task><statement><p>Montrer que <m>X</m> est une matrice antisymétrique.</p></statement>
+<solution><p>On applique la définition de matrice symétrique. On détermine
+    <md>
+    <mrow>X^T&amp;=(A-A^T)^T</mrow>
+    <mrow>&amp;=A^T-(A^T)^T&amp;&amp;\text{ selon } <xref ref="prop-transposeeprop"/></mrow>
+    <mrow>&amp;=A^T-A&amp;&amp; \text{ toujours selon } <xref ref="prop-transposeeprop"/></mrow>
+    <mrow>&amp;=-A+A^T&amp;&amp; \text{ commutativité de l'addition}</mrow>
+    <mrow>&amp;=-(A-A^T)</mrow>
+    <mrow>&amp;=X</mrow>
+    </md>.
+    La matrice <m>x</m> est donc antisymétrique.
+    </p></solution>
+    </task>
+    <task><statement><p>Montrer que toute matrice <m>A</m> peut s'écrire comme la somme d'une matrice symétrique et d'une matrice antisymétrique.</p></statement>
+    <solution><p>Il suffit de remarquer que <m>A=\frac{A+A^T}{2}+\frac{A-A^T}{2}=\frac{S}{2}+\frac{X}{2}</m>.</p></solution>
+    </task>
     </task>
     </task>
     </exercise>
-    <exercise><statement><p>Soit <m>A,B</m> deux matrices symétriques. Montrer que <m>AB</m> est symétrique si et seulement si <m>AB=BA</m>.</p></statement></exercise>
+    <exercise><statement><p>Soit <m>A,B</m> deux matrices symétriques. Montrer que <m>AB</m> est symétrique si et seulement si <m>AB=BA</m>.</p></statement>
+    <solution>
+    <p>La preuve se fait en deux parties. Dans un premier temps, on suppose que <m>AB</m> est symétrique. On veut montrer que <m>AB=BA</m>. On a 
+    <md>
+    <mrow>AB&amp;=(AB)^T &amp;&amp;\text{ car } AB \text{ est symétrique}</mrow>
+    <mrow>&amp;=B^TA^T &amp;&amp;\text{ selon la propriété de la transposée d'un produit}</mrow>
+    <mrow>&amp;=BA &amp;&amp; \text{ car } A \text{ et } B \text{ sont symétriques}</mrow>
+    </md>. Ceci complète la première partie de la preuve.</p>
+    <p>On suppose maintenant qu'en plus d'être symétriques, les matrices <m>A,B</m> sont telles que <m>AB=BA</m>. On veut montrer que le produit est aussi symétrique. On a
+    <md>
+    <mrow>(AB)^T&amp;=B^TA^T &amp;&amp;\text{ selon la propriété de la transposée du produit}</mrow>
+    <mrow>&amp;=BA&amp;&amp; \text{ car } A \text{ et } B \text{ sont symétriques}</mrow>
+    <mrow>&amp;=AB &amp;&amp;\text{ par hypothèse, } AB=BA</mrow>
+    </md>.
+    Le produit <m>AB</m> est donc symétrique.
+    </p>
+    </solution>
+    </exercise>
     <exercise><introduction><p>On s'intéresse aux matrices <m>A</m> telles que les colonnes sont composées de vecteurs orthogonaux entre eux.</p></introduction>
     <task><statement><p>Soit <m>\vec{u}=(1,2)</m> et <m>\vec{u}_{\perp}</m> son vecteur perpendiculaire. On considère la matrice <m>A</m> dont les colonnes sont <m>\vec{u}</m> et <m>\vec{u}_{\perp}</m>.
     Calculer <m>A^TA</m>. Qu'y a-t-il de particulier?
-    </p></statement></task>
-    <task><statement>Répéter la partie précédente avec <m>\vec{u}=(a,b)</m>.</statement></task>
-    <task><statement>Soit <m>A</m> une matrice <m>n\times n</m> telles que ses colonnes sont orthogonales entre elles. Montrer que <m>A^TA</m> est une matrice dont les seules entrées non nulles se situent sur la diagonale principale.</statement></task>
+    </p></statement>
+    <answer><p><m>\left(\begin{array}{rr}
+5 &amp; 0 \\
+0 &amp; 5
+\end{array}\right)</m></p></answer>
+<solution><p>La matrice <m>A=\left(\begin{array}{rr}
+1 &amp; -2 \\
+2 &amp; 1
+\end{array}\right)</m> et sa transposée est <m>A^T=\left(\begin{array}{rr}
+1 &amp; 2 \\
+-2 &amp; 1
+\end{array}\right)</m>. Leur produit donne <m>\left(\begin{array}{rr}
+5 &amp; 0 \\
+0 &amp; 5
+\end{array}\right)</m>, une matrice diagonale. C'est aussi une matrice symétrique. </p></solution>
+    </task>
+    <task><statement>Répéter la partie précédente avec <m>\vec{u}=(a,b)</m>.</statement>
+    <answer><p><m>\left(\begin{array}{rr}
+5 &amp; 0 \\
+0 &amp; 5
+\end{array}\right)</m></p></answer>
+<solution><p>La matrice <m>A=\left(\begin{array}{rr}
+a &amp; -b \\
+b &amp; a
+\end{array}\right)</m> et sa transposée est <m>A^T=\left(\begin{array}{rr}
+a &amp; b \\
+-b &amp; a
+\end{array}\right)</m>. Leur produit donne <m>\left(\begin{array}{rr}
+a^{2} + b^{2} &amp; 0 \\
+0 &amp; a^{2} + b^{2}
+\end{array}\right)</m>, une matrice diagonale. C'est aussi une matrice symétrique. </p></solution>
+    </task>
+    <task xml:id="exo-matcolortho"><statement>Soit <m>A</m> une matrice <m>n\times n</m> telles que ses colonnes sont orthogonales entre elles. Montrer que <m>A^TA</m> est une matrice dont les seules entrées non nulles se situent sur la diagonale principale. Que valent les entrées non nulles?</statement>
+    <solution><p>On utilise la définition du produit matriciel. La colonne <m>j</m> du produit <m>A^TA</m> est donné par le produit matrice vecteut <m>A^T\vec{a}_j</m> où <m>\vec{a}_j</m> représente la colonne <m>j</m> de la matrice <m>A</m>.
+    Les entrées de ce produit matrice vecteur correspondent à l'entrée <m>i,j</m> du produit <m>A^TA</m>. On les calcule en prenant le produit scalaire des lignes de <m>A^T</m> avec le vecteur <m>\vec{a}_j</m>. Comme les lignes
+    de <m>A^T</m> sont les colonnes de <m>A</m>, on a <m>a_{i,j}=\vec{a}_i\cdot\vec{a}_j</m>. Par définition, les colonnes de la matrices <m>A</m> sont orthogonales entre elles et donc ce produit scalaire vaut <m>0</m>,
+    sauf évidemment lorsque <m>i=j</m>. Les seules entrées non nulles de <m>A^TA</m> sont donc sur la diagonale. Elle sont égale à <m>\vec{a}_i\cdot \vec{a}_i=\norm{\vec{a}_i}^2</m>.
+    </p></solution>
+    </task>
     </exercise>
     <exercise><introduction><p>On considère les matrices de permutation  définies à l'exercice <xref ref="exo-matpermudef"/>.</p></introduction>
-    <task><statement><p>Montrer que si <m>P</m> est une matrice de permutation <m>2\times 2</m>, alors <m>P^T=P^{-1}</m>.</p></statement></task>
-    <task><statement><p>Utiliser le code de l'exercice <xref ref="exosage-permmatrices"/> pour montrer que les matrices de permutation <m>P</m> de taille <m>3\times 3</m> et <m>4\times 4</m> ont cette propriété.</p></statement></task>
+    <task><statement><p>Montrer que si <m>P</m> est une matrice de permutation <m>2\times 2</m>, alors <m>P^T=P^{-1}</m>.</p></statement>
+    <solution><p>Il y a deux cas à vérfier. Le premier est <m>P_1=\begin{pmatrix} 1&amp;0\\0&amp;1</m>, la matrice identité. On vérifie facilement que <m>P_1^T=P_1=P_1^{-1}</m>. Le deuxième cas est
+    <m>P_2=\begin{pmatrix}0&amp; 1\\ 1&amp;0\end{pmatrix}</m>. On sait que c'est une matrice qui est son propre inverse, et on remarque qu'elle est symétrique. On a donc bel et bien <m>P_2^T=P_2=P_2 ^{-1}</m>.</p></solution></task>
+    <task><statement><p>Utiliser le code de l'exercice <xref ref="exosage-permmatrices"/> pour montrer que les matrices de permutation <m>P</m> de taille <m>3\times 3</m> et <m>4\times 4</m> ont cette propriété.</p></statement>
+    <solution>
+    <p>On inclut une cellule vide ici pour recopier le code de l'exercice </p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    <p>La vérification peut se faire de la manière suivante (S'assurer d'avoir copié le code de l'exercice <xref ref="exosage-permmatrices"/> et exécuter la cellule ci-dessus).</p>
+    <sage>
+    <input>
+P3=perm_matrix(3)
+P4=perm_matrix(4)
+for P in P3:
+    print("La transposée de %s est aussi l'inverse de \n %s:" % (P,P),P.transpose()==P.inverse())
+for P in P4:
+    print("La transposée de %s est aussi l'inverse de \n %s:" % (P,P),P.transpose()==P.inverse())
+    </input>
+    </sage>
+    </solution>
+    </task>
     <task><introduction><p>On veut montrer que pour une matrice de permutation <m>P</m>, on a <m>P^T=P^{-1}</m>.</p></introduction>
-    <task><statement><p>Montrer que les matrices élémentaires de type <m>L_i\leftrightarrow L_j</m> ont cette propriété.</p></statement></task>
+    <task><statement><p>Montrer que les matrices élémentaires de type <m>L_i\leftrightarrow L_j</m> ont cette propriété.</p></statement>
+    <solution><p>On considère une matrice élémentaire <m>E</m> de type <m>L_i\leftrightarrow L_j</m>. Cette matrice est obtenue de l'identité en échangeant la ligne <m>i</m> et la ligne <m>j</m> ou, de manière équivalente,
+    la colonne <m>i</m> avec la colonne <m>j</m>. Les colonnes sont orthogonales entre elle et donc, selon l'exercice <xref ref="exo-matcolortho"/>, le produit <m>E^TE=D</m>, où <m>D</m> est une matrice diagonale.
+    Comme les colonnes sont des vecteurs dont la norme vaut <m>1</m>, le même exercice permet de déduire que <m>D=I</m>. On a donc <m>E^T=E^{-1}</m>.</p></solution>
+    </task>
     <task><statement><p>Utiliser l'exercice <xref ref="exo-matpermuelem"/> pour montrer qu'une matrice de permutation <m>P</m> quelconque possède la propriété <m>P^T=P^{-1}</m>.<aside><title>En passant</title> Une matrice
-    pour laquelle la transposée est son inverse est dite orthogonale. Ces matrices seront très importante dans le chapitre <xref provisional="chapitre orthogonal"/>.</aside></p></statement></task>
+    pour laquelle la transposée est son inverse est dite orthogonale. Ces matrices seront très importante dans le chapitre <xref provisional="chapitre orthogonal"/>.</aside></p>
+    <solution><p>Soit <m>P</m> une matrice de permutation quelconque. Selon l'exercice <xref ref="exo-matpermuelem"/>, il existe des matrices élémentaires telles que <m>P=E_1E_2\cdots E_k</m>. On a
+    <md>
+    <mrow>P^T&amp;=(E_1E_2\cdots E_k)^T</mrow>
+    <mrow>&amp;=E_k^T\cdots E_2^TE_1^T &amp;&amp;\text{ selon la propriété de la transposée d'un produit }</mrow>
+    <mrow>&amp;=E_k^{-1}\cdots E_2^{-1}E_1^{-1} &amp;&amp; \text{ selon la partie précédente }</mrow>
+    <mrow> &amp;=(E_1E_2\cdots E_k)^{-1} &amp;&amp;\text{ car le produit d'inverses est égale à l'inverse du produit}</mrow>
+    <mrow>&amp;=P^{-1}</mrow>
+    </md>.</p></solution>
+    </statement></task>
     </task>
    </exercise>
 <!--################################################################################### -->
@@ -111,43 +582,364 @@
 <introduction><p>Dans cet exercice, on veut donner un sens au mot &#x00AB; gauche &#x00BB; dans l'expression espace nul gauche.</p></introduction>
 <task><statement>
  <p>On considère la matrice <m>A=\matcolt{1}{2}{3}{-1}{-2}{-3}{2}{4}{6}</m>. Déterminer tous les vecteurs dans l'espace nul gauche.</p>
-</statement></task>
-<task><statement><p>Soit <m>\vec{u}=\vecddd{x}{y}{z}</m>. Montrer que les vecteurs de l'espace nul gauche satisfont l'équation <men xml:id="eq-nulgauche" symbol="star">\vec{u}^TA=\vec{0}^T</men>.</p></statement></task>
-<task><statement><p>Soit <m>A</m> une matrice <m>m\times n</m> quelconque et <m>\vec{u}</m> une vecteur dans l'espace nul de <m>A</m>. Montrer que <m>\vec{u}</m> satisfait l'équation <xref ref="eq-nulgauche"/>.</p></statement></task>
+</statement>
+<answer>
+<p><m>\text{span}((-2,1,0),(-3,0,1))</m></p>
+</answer>
+<solution>
+<p>L'espace nul gauche consiste en l'ensemble des vecteurs <m>\vec{x}</m> tel que <m>A^T\vec{x}=\vec{0}</m>. On échelonne la matrice transposée pour arriver  aux solutions.
+<md>
+<mrow>A^T&amp;=\begin{pmatrix}1&amp; 2&amp;3\\ -1&amp;-2&amp;-3\\2&amp;4&amp;6  \end{pmatrix}</mrow>
+<mrow>&amp;\matsimilc{1}{}{2}\begin{pmatrix}1&amp; 2&amp;3\\ 0&amp;0&amp;0\\2&amp;4&amp;6  \end{pmatrix}</mrow>
+<mrow>&amp;\matsimilc{1}{-2}{3}\begin{pmatrix}1&amp; 2&amp;3\\ 0&amp;0&amp;0\\0&amp;0&amp;0  \end{pmatrix}</mrow>
+</md>.
+Il y a une variable pivot et deux variables libres. Les solutions spéciales sont <m>\vec{s}_1=(-2,1,0),\vec{s}_2=(-3,0,1)</m>. L'espace nul gauche est l'ensemble des combinaisons linéaires 
+de ces vecteurs, soit le plan <m>(x,y,z)=a\vec{s}_1+b\vec{s}_2</m>.</p>
+</solution>
+</task>
+<task><statement><p>Soit <m>\vec{u}=\vecddd{x}{y}{z}</m>. Montrer que les vecteurs de l'espace nul gauche satisfont l'équation <men xml:id="eq-nulgauche" symbol="star">\vec{u}^TA=\vec{0}^T</men>.</p></statement>
+<solution><p>On commence par vérifier que les vecteurs <m>\vec{s}_1,\vec{s}_2</m> satisfont l'équation. D'une part, on a
+<me>
+\vec{s}_1^T^TA=\begin{pmatrix} -2&amp; 1&amp; 0 \end{pmatrix}\matcolt{1}{2}{3}{-1}{-2}{-3}{2}{4}{6}=\begin{pmatrix} 0&amp;0&amp;0 \end{pmatrix}
+</me> et pour <m>\vec{s}_2</m>, on a 
+<me>
+\vec{s}_2^TA=\begin{pmatrix} -3&amp; 0&amp; 1 \end{pmatrix}\matcolt{1}{2}{3}{-1}{-2}{-3}{2}{4}{6}=\begin{pmatrix} 0&amp;0&amp;0 \end{pmatrix}
+</me>.
+</p>
+<p>Soit <m>\vec{u}</m> un vecteur de l'espace nul gauche. Alors il existe <m>a,b</m> tels que <m>\vec{u}=a\vec{s}_1+b\vec{s}_2</m>. Ainsi,
+<md>
+<mrow>\vec{u}^TA&amp;=(a\vec{s}_1+b\vec{s}_2)^TA</mrow>
+<mrow>&amp;=(a\vec{s}_1^T+b\vec{s}_2^T)A&amp;&amp; \text{propriété de la transposée d'une somme}</mrow>
+<mrow>&amp;=a\vec{s}_1^TA+b\vec{s}_2^TA</mrow>
+<mrow>&amp;=a(\vec{s}_1^TA)+b(\vec{s}_2^TA) &amp;&amp;\text{associativité du produit matriciel}</mrow>
+<mrow>&amp;=0+0</mrow>
+<mrow>&amp;=0</mrow>
+</md>.
+</p>
+</solution>
+</task>
+<task><statement><p>Soit <m>A</m> une matrice <m>m\times n</m> quelconque et <m>\vec{u}</m> une vecteur dans l'espace nul de <m>A</m>. Montrer que <m>\vec{u}</m> satisfait l'équation <xref ref="eq-nulgauche"/>.</p></statement>
+<hint><p>Considérer la proposition <xref ref="prop-zerosperplignes"/>.</p></hint>
+<solution><p> Selon la proposition <xref ref="prop-zerosperplignes"/>, les solutions à l'équation <m>A^T\vec{u}=\vec{0}</m> formant l'espace nul gauche sont
+perpendiculaires aux lignes de <m>A^T</m>, qui elles sont les colonnes de <m>A</m>. Dans le produit <m>u^TA</m>, on fait le produit scalaire de vecteur <m>\vec{u}</m> avec les colonnes de la matrice <m>A</m> et donc, le
+résultat est le vecteur nul.</p></solution>
+</task>
 </exercise>
 <exercise xml:id="exo-noyaux"><introduction><p>Pour chaque matrice ci-dessous, trouver tous les vecteurs qui sont perpendiculaires aux lignes et tous les vecteurs qui sont perpendiculaires aux colonnes.</p></introduction>
 <task><statement><p><m>A_1=\left(\begin{array}{rrrr}
 1 &amp; -3 &amp; -4 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 1 \\
 0 &amp; 0 &amp; 0 &amp; 0
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement>
+<solution><p>Pour déterminer les vecteurs perpendiculaires aux lignes, il faut, selon la proposition <xref ref="prop-zerosperplignes"/>, résoudre l'équation <m>A\vec{x}=\vec{0}</m>.
+La matrice <m>A_1</m> est échelonnée réduite. Il y a deux variables pivots et deux variables libres. Les solutions spéciales sont <m>\vec{s}_1=(3,1,0,0),\vec{s}_2=(4,0,1,0)</m>. Ainsi
+tout vecteur de la forme <m>a\vec{s}_1+b\vec{s}_2</m> sera perpendiculaire aux lignes.
+</p>
+<p>Pour trouver les vecteurs qui sont perpendiculaires aux colonnes, on transpose la matrice afin d'utiliser à nouveau la proposition <xref ref="prop-zerosperplignes"/>. Cette fois, il faut échelonner la matrice <m>A^T</m>. On a
+<md>
+<mrow>\begin{pmatrix}
+1&amp;0 &amp; 0\\
+-3&amp; 0&amp; 0\\
+-4&amp; 0&amp; 0\\
+0&amp;1&amp;0
+\end{pmatrix}&amp;\matsimilc{1}{3}{2}\begin{pmatrix}
+1&amp;0 &amp; 0\\
+0&amp; 0&amp; 0\\
+-4&amp; 0&amp; 0\\
+0&amp;1&amp;0
+\end{pmatrix}</mrow>
+<mrow>&amp;\matsimilc{1}{4}{3}\begin{pmatrix}
+1&amp;0 &amp; 0\\
+0&amp; 0&amp; 0\\
+0&amp; 0&amp; 0\\
+0&amp;1&amp;0
+\end{pmatrix}</mrow>
+<mrow>&amp;=\matsimile{2}{4}\begin{pmatrix}
+1&amp;0 &amp; 0\\
+0&amp; 1&amp; 0\\
+0&amp; 0&amp; 0\\
+0&amp;0&amp;0
+\end{pmatrix}</mrow>
+</md>.
+</p>
+<p>On a une variable libre et deux variables pivots. La solution spéciale est <m>\vec{t}=(0,0,1)</m>. Tous les vecteurs de la forme <m>(0,0,k)</m> sont perpendiculaires aux lignes de <m>A_1^T</m> et donc,
+aux colonnes de <m>A_1</m>.</p>
+</solution>
+</task>
 <task><statement><p><m>A_2=\left(\begin{array}{rrrr}
 1 &amp; 0 &amp; 0 &amp; -1 \\
 0 &amp; 1 &amp; 0 &amp; 3 \\
 0 &amp; 0 &amp; 1 &amp; -4 \\
 0 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement>
+<solution>
+<p>La matrice <m>A_2</m> est échelonnée. Il y a une variable libre et donc, une solution spéciale qui est <m>\vec{s}=(1,-3,4,1)</m>. Tout multiple de ce vecteur sera perpendiculaire aux lignes de <m>A_2</m>.</p>
+<p>Pour les colonnes, on échelonne la matrice <m>A_2^T</m> :
+<md>
+<mrow>\begin{pmatrix} 
+1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;1&amp;0&amp;0&amp;0\\
+0&amp;0&amp;1&amp;0&amp;0\\
+-1&amp;3&amp;-4&amp;0&amp;0
+\end{pmatrix}&amp;\matsimilc{1}{}{4}\begin{pmatrix} 
+1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;1&amp;0&amp;0&amp;0\\
+0&amp;0&amp;1&amp;0&amp;0\\
+0&amp;3&amp;-4&amp;0&amp;0
+\end{pmatrix}</mrow>
+<mrow>&amp;\matsimilc{2}{-3}{4}\begin{pmatrix} 
+1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;1&amp;0&amp;0&amp;0\\
+0&amp;0&amp;1&amp;0&amp;0\\
+0&amp;0&amp;-4&amp;0&amp;0
+\end{pmatrix}</mrow>
+<mrow>&amp;\matsimilc{1}{4}{4}\begin{pmatrix} 
+1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;1&amp;0&amp;0&amp;0\\
+0&amp;0&amp;1&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0
+\end{pmatrix}</mrow>
+</md>. On a deux variables libres et trois pivots. Les solutions spéciales sont <m>\vec{t}_1=(0,0,0,1,0),\vec{t}_2=(0,0,0,0,1)</m>. Tout vecteur s'écrivant comme une combinaison linéaire de ces
+deux solutions sera perpendiculaire aux lignes de <m>A_2^T</m> et donc, aux colonnes de <m>A_2</m>.</p>
+</solution>
+</task>
 <task><statement><p><m>A_3=\left(\begin{array}{rrrr}
 1 &amp; 4 &amp; 0 &amp; 1 \\
 0 &amp; 0 &amp; 1 &amp; -2 \\
 0 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement>
+<solution><p>La matrice <m>A_3</m> est échelonnée réduite. Il y a deux variables libres et deux pivots. Les solutions spéciales sont <m>\vec{s}_1=(-4,1,0,0),\vec{s}_2=(-1,0,2,1)</m>. Tout vecteur
+s'écrivant comme une combinaison linéaire de ces solution est perpendiculaire aux lignes de <m>A_3</m>.</p>
+<p>Pour les colonnes, on échelonne la matrice <m>A^T</m>:
+<md>
+<mrow>\begin{pmatrix} 1&amp; 0&amp;0&amp;0\\
+                      4&amp; 0 &amp;0&amp;0\\
+                      0&amp;1&amp;0&amp;0\\
+                      1&amp;-2&amp;0&amp;0\end{pmatrix}\matsimilc{1}{-4}{2}\begin{pmatrix} 1&amp; 0&amp;0&amp;0\\
+                      0&amp; 0 &amp;0&amp;0\\
+                      0&amp;1&amp;0&amp;0\\
+                      1&amp;-2&amp;0&amp;0\end{pmatrix}</mrow>
+<mrow>\matsimilc{1}{-}{4}\begin{pmatrix} 1&amp; 0&amp;0&amp;0\\
+                      0&amp; 0 &amp;0&amp;0\\
+                      0&amp;1&amp;0&amp;0\\
+                      0&amp;-2&amp;0&amp;0\end{pmatrix}</mrow>
+<mrow>\matsimile{2}{3}\begin{pmatrix} 1&amp; 0&amp;0&amp;0\\
+                      0&amp; 1 &amp;0&amp;0\\
+                      0&amp;0&amp;0&amp;0\\
+                      0&amp;-2&amp;0&amp;0\end{pmatrix}</mrow>
+<mrow>\matsimilc{2}{2}{4}\begin{pmatrix} 1&amp; 0&amp;0&amp;0\\
+                      0&amp; 1 &amp;0&amp;0\\
+                      0&amp;0&amp;0&amp;0\\
+                      0&amp;0&amp;0&amp;0\end{pmatrix}</mrow>
+</md>.
+</p>
+<p>Il y a deux variables libres et deux variables pivots. Les solutions spéciales sont <m>\vec{t}_1=(0,0,1,0),\vec{t}_2=(0,0,0,1)</m>. Tout vecteur s'écrivant comme une combinaison linéaire de ces
+deux solutions sera perpendiculaire aux lignes de <m>A_3^T</m> et donc, aux colonnes de <m>A_3</m>.</p>
+</solution>
+</task>
 </exercise>
-<exercise><statement>Pour chaque description ci-dessous, donner une matrice qui la satisfait.</statement>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-1}{2}</m>.</p></statement></task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-1}{2}</m>.</p></statement></task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace ligne seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-3}{1}</m>.</p></statement></task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul gauche seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-3}{1}</m>.</p></statement></task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs parallèles à <m>\vec{u}=\vecddd{-1}{2}{1}</m>.</p></statement></task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul seulement les vecteurs parallèles à <m>\vec{u}=\vecddd{-1}{2}{1}</m>.</p></statement></task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs qui sont des combinaisons linéaires des vecteurs  <m>\vec{u}=\vecddd{-1}{2}{1}, \vec{v}=\vecddd{2}{1}{2}</m>.</p></statement></task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul seulement les vecteurs qui sont des combinaisons linéaires des vecteurs  <m>\vec{u}=\vecddd{-1}{2}{1}, \vec{v}=\vecddd{2}{1}{2}</m>.</p></statement></task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace ligne seulement les vecteurs qui sont des combinaisons linéaires des vecteurs <m>\vec{u}=\vecddd{1}{0}{3},\vec{v}=\vecddd{1}{1}{0}</m>.</p></statement></task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul gauche seulement les vecteurs qui sont des combinaisons linéaires des vecteurs <m>\vec{u}=\vecddd{1}{0}{3},\vec{v}=\vecddd{1}{1}{0}</m>.</p></statement></task>
+<exercise><introduction>Pour chaque description ci-dessous, donner une matrice qui la satisfait.</introduction>
+<task><statement><p>La matrice est <m>m\times n</m> avec <m>m\leq n</m>, ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-1}{2}</m>.</p></statement>
+<solution><p>La manière la plus simple est de mettre le vecteur <m>\vec{u}</m> dans les colonnes d'une matrice jusqu'à ce que <m>2=m\leq n</m>. Un exemple est donc <m>\matcold{-1}{2}{-1}{2}</m>. L'espace colonne
+étant l'ensemble des combinaisons linéaires des colonnes de la matrice, cette matrice respecte la condition que son espace colonne ne contient que les vecteurs parallèles à <m>\vec{u}</m> puisque les colonnes sont toutes
+égales à <m>\vec{u}</m>. De manière générale, on aurait pu avoir n'importe quelle matrice de la forme
+<me>
+\begin{pmatrix} -k_1&amp; -k_2&amp; \cdots &amp;-k_n\\  2k_1&amp; 2k_2&amp; \cdots &amp;2k_n\\\end{pmatrix}
+</me>
+où <m>k_1,k_2,\ldots , k_n\in \R\backslash\{0\}</m> et <m>n\geq 2</m>.
+</p></solution>
+</task>
+<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-1}{2}</m>.</p></statement>
+<solution>
+<p>Dans d'autres mots, on veut que la solution spéciale à l'équation <m>A\vec{x}=\vec{0}</m> soit un multiple du vecteur <m>\vec{u}</m>. Le vecteur <m>\vec{s}=\left(-\frac{1}{2},1\right)</m> satisfait cette 
+contrainte. La matrice échelonné réduite la plus simple qui correspond à cette situation serait <m>\begin{pmatrix} 1&amp; \frac{1}{2}\\ 0&amp; 0  \end{pmatrix}</m>. Pour respecter la condition de n'avoir aucune entrée
+égale à zéro, il suffit de prendre un multiple de la ligne un et de l'ajouter à la ligne deux. L'exemple le plus simple serait de copier la ligne  un à la ligne deux
+<me>
+\begin{pmatrix} 1&amp; \frac{1}{2}\\1&amp; \frac{1}{2}  \end{pmatrix}
+</me>
+. De manière générale, toute matrice de la forme <m>\begin{pmatrix} k_1&amp; \frac{k_1}{2}\\k_2&amp; \frac{k_2}{2}  \end{pmatrix}</m> ferait l'affaire.  </p>
+</solution>
+</task>
+<task><statement><p>La matrice <m>m\times n</m> avec <m>m=n+2</m> ne contient aucune entrée égale à zéro et possède comme espace ligne seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-3}{1}</m>.</p></statement>
+<solution><p>Il doit y avoir deux colonnes car l'espace ligne est dans <m>\R^2</m>. Il y aura donc quatre lignes pour satisfaire <m>m=n+2=2+2</m>. La manière la plus simple est de copier le vecteur <m>\vec{u}</m>
+aux quatre lignes de la matrice. De manière générale, toute matrice de la forme
+<me>
+\begin{pmatrix}
+-3k_1&amp; 1k_1\\
+-3k2_&amp; 1k_2\\
+-33k_&amp; 1k_3\\
+-43k_&amp; 1k_4\\
+\end{pmatrix}
+</me> où <m>k_1,k_2,k_3,k_4\in \R\backslash\{0\} </m> fera l'affaire.</p></solution>
+</task>
+<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul gauche seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-3}{1}</m>.</p></statement>
+<solution><p>De manière similaire à la matrice trouvée pour que l'espace nul soit composé uniquement des multiples de <m>(-1,2)</m>, on montre que la matrice
+<m>
+\begin{pmatrix}
+1 &amp; 3\\
+0&amp; 0
+\end{pmatrix}
+</m> aura comme espace <alert>nul</alert> les multiples du vecteurs <m>\vec{u}=(-3,1)</m>. On ajoute à la ligne deux un multiple de la ligne un pour avoir en général
+<me>
+A=\begin{pmatrix} k_1&amp; 3k_1\\k_2&amp; 3k_2  \end{pmatrix}
+</me>. Puisque l'espace nul gauche est <m>\mathcal{N}(A^T)</m>, si on prend comme matrice <m>B=A^T</m>, son espace nul gauche va correspondre à l'espace nul de <m>(A^T)^T=A</m> et aura les conditions requises. Toute matrice
+de la forme <m>\begin{pmatrix} k_1&amp; k_2\\3k_1&amp; 3k_2  \end{pmatrix}</m> fera l'affaire.
+</p></solution>
+</task>
+<task><statement><p>La matrice <m>3\times 2</m> ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs parallèles à <m>\vec{u}=\vecddd{-1}{2}{1}</m>.</p></statement>
+<solution><p>L'idée est la même qu'avant, toute matrice de la forme <m>\begin{pmatrix} -k_1&amp; -k_2\\ 2k_1&amp; 2k_2 \\ k_1&amp; k_2</m> fera l'affaire.</p></solution>
+</task>
+<task><statement><p>La matrice est carrée, ne contient aucune entrée égale à zéro, les lignes ne sont pas parallèles entre elles et possède comme espace nul seulement les vecteurs parallèles à <m>\vec{u}=\vecddd{-1}{2}{1}</m>.</p></statement>
+<solution><p>Encore ici, on cherche une matrice qui dont la forme échelonnée n'aura qu'une solution de base. La matrice échelonnée réduite
+<me>
+\begin{pmatrix}
+1&amp;0&amp;1\\
+0&amp;1&amp;-2\\
+0&amp;0&amp;0
+\end{pmatrix}
+</me> a pour seule solution spéciale le vecteur <m>\vec{u}</m>. Pour éliminer les zéros, on fait des opérations élémentaires sur les lignes. Par exemple,
+<md>
+<mrow>\begin{pmatrix}
+1&amp;0&amp;1\\
+0&amp;1&amp;-2\\
+0&amp;0&amp;0
+\end{pmatrix}&amp;\matsimilc{2}{}{1}\begin{pmatrix}
+1&amp;1&amp;-1\\
+0&amp;1&amp;-2\\
+0&amp;0&amp;0
+\end{pmatrix}</mrow>
+<mrow>&amp;\matsimilc{1}{}{2}\begin{pmatrix}
+1&amp;1&amp;-1\\
+1&amp;2&amp;-3\\
+0&amp;0&amp;0
+\end{pmatrix}</mrow>
+<mrow>&amp;\matsimilc{1}{}{3}\begin{pmatrix}
+1&amp;1&amp;-1\\
+1&amp;2&amp;-3\\
+1&amp;1&amp;-1
+\end{pmatrix}</mrow>
+<intertext><p>Une étape de plus est requise pour ne pas avoir la troisième ligne parallèle à la première.</p></intertext>
+<mrow>&amp;\matsimilc{2}{}{3}\begin{pmatrix}
+1&amp;1&amp;-1\\
+1&amp;2&amp;-3\\
+2&amp;3&amp;-4
+\end{pmatrix}</mrow>
+</md>. Évidemment, d'autres choix de facteurs auraient pu être faits pour les opérations élémentaires.</p></solution></task>
+<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs qui sont des combinaisons linéaires des vecteurs  <m>\vec{u}=\vecddd{-1}{2}{1}, \vec{v}=\vecddd{2}{1}{2}</m>.</p></statement>
+<solution><p>Le plus simple consiste à mettre les deux vecteurs comme des colonnes d'une matrice. Ainsi,
+<m>\begin{pmatrix}-1&amp; 2\\ 2&amp;1 \\ 1&amp; 2 \end{pmatrix}</m> fait l'affaire.</p></solution>
+</task>
+<task><statement><p>La matrice carrée ne contient aucune entrée égale à zéro, aucune fration et possède comme espace nul seulement les vecteurs qui sont des combinaisons linéaires des vecteurs  <m>\vec{u}=\vecddd{-1}{2}{1}, \vec{v}=\vecddd{2}{1}{2}</m>.</p></statement>
+<solution><p>
+Les vecteurs <m>\vec{u},\vec{v}</m> n'ont pas la forme de solutions de base. Deux vecteurs pour générer l'espace nul signifie deux variables libres.  Si on suppose que <m>y,z</m> sont les variables libres, il faudrait que les vecteurs soit de la forme <m>\vec{u}^{'}=(u_1,1,0),\vec{v}^{'}=(v_1,0,1)</m> pour respecter la forme des solutions de base.
+On cherche donc comment à partir de <m>\vec{u},\vec{v}</m> on peut obtenir ces vecteurs. On veut
+<me>
+\vecddd{u_1}{1}{0}=a\vecddd{-1}{2}{1}+b\vecddd{2}{1}{2}
+</me>.
+Comme on ne se soucie pas de la première composante, on a que <m>1=2a+b</m> et <m>0=a+2b</m>. Pour le vecteur <m>\vec{v}^{'}</m>, on obtient de manière similaire les équations <m>0=2a+b</m> et <m>1=a+2b</m>. On peut résoudre simultanément ces systèmes en échelonnant la matrice augmentée
+<md>
+<mrow>\begin{array}{rr|rr}
+2&amp; 1&amp; 1 &amp;0\\
+1&amp;2&amp;0 &amp;1
+\end{array}&amp;\matsimile{1}{2}\begin{array}{rr|r}
+1&amp; 2&amp; 0&amp;1\\
+2&amp;1&amp;1&amp;0
+\end{array}</mrow>
+<mrow>&amp;\matsimilc{1}{-2}{2}\begin{array}{rr|r}
+1&amp; 2&amp; 0&amp;1\\
+0&amp;-3&amp;1&amp;-2
+\end{array}</mrow>
+<mrow>&amp;\matsimils{2}{-\frac{1}{3}}\begin{array}{rr|r}
+1&amp; 2&amp; 0&amp;1\\
+0&amp;1&amp;-\frac{1}{3}&amp;\frac{2}{3}
+\end{array}</mrow>
+<mrow>&amp;\matsimilc{2}{-2}{1}\begin{array}{rr|r}
+1&amp; 0&amp; \frac{2}{3}&amp;-\frac{1}{3}\\
+0&amp;1&amp;-\frac{1}{3}&amp;\frac{2}{3}
+\end{array}</mrow>
+</md>. Le vecteur premier vecteur est <m>\vec{u}^{'}=\frac{2}{3}\vecddd{-1}{2}{1}-\frac{1}{3}\vecddd{2}{1}{2}=\vecddd{-\frac{4}{3}}{1}{0}</m> et le deuxième vecteur est <m>\vec{v}^{'}=-\frac{1}{3}\vecddd{-1}{2}{1}+\frac{2}{3}\vecddd{2}{1}{2}=\vecddd{\frac{5}{3}}{0}{1}</m> .</p>
+<p>
+Une matrice échelonnée réduite ayant ces deux vecteurs comme solutions de base serait
+<m>\begin{pmatrix}
+1&amp; \frac{4}{3}&amp; -\frac{5}{3}\\
+0&amp; 0&amp; 0 \\
+0&amp;0&amp;0
+\end{pmatrix}</m>. Pour satisfaire les conditions d'entrées non nulles et d'absence de fractions, on peut multiplier la première ligne par trois et recopier cette ligne dans les deux autres. On a donc
+<me>
+\begin{pmatrix}
+3&amp; 4&amp; -5\\
+3&amp; 4&amp; -5 \\
+3&amp;4&amp;-5
+\end{pmatrix}
+</me></p>
+</solution></task>
+<task><statement><p>La matrice carrée ne contient aucune ligne parallèle, aucune entrée égale à zéro et possède comme espace ligne seulement les vecteurs qui sont des combinaisons linéaires des vecteurs <m>\vec{u}=\vecddd{1}{0}{3},\vec{v}=\vecddd{1}{1}{0}</m>.</p></statement>
+<solution><p>La réponse la plus simple consiste à mettre les vecteurs dans les deux première ligne d'une matrice dont la troisième sera nulle et d'utiliser les opérations élémentaires pour éliminer les zéros. On a donc
+<md>
+<mrow>\begin{pmatrix}
+1&amp; 0&amp; 3\\
+1&amp; 1&amp; 0\\
+0&amp;0&amp;0
+\end{pmatrix}&amp;\matsimilc{2}{}{1}\begin{pmatrix}
+2&amp; 1&amp; 3\\
+1&amp; 1&amp; 0\\
+0&amp;0&amp;0
+\end{pmatrix}</mrow>
+<mrow>\matsimilc{1}{}{2}\begin{pmatrix}
+2&amp; 1&amp; 3\\
+3&amp; 2&amp; 3\\
+0&amp;0&amp;0
+\end{pmatrix}</mrow>
+<mrow>\matsimilc{1}{}{3}\begin{pmatrix}
+2&amp; 1&amp; 3\\
+3&amp; 2&amp; 3\\
+2&amp;1&amp;3
+\end{pmatrix}</mrow>
+<mrow>\matsimilc{2}{}{3}\begin{pmatrix}
+2&amp; 1&amp; 3\\
+3&amp; 2&amp; 3\\
+5&amp;3&amp;6
+\end{pmatrix}</mrow>
+</md>, la dernière étape étant nécessaire pour respecter la condition que les lignes ne sont pas parallèles.</p></solution>
+</task>
+<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul gauche seulement les vecteurs qui sont des combinaisons linéaires des vecteurs <m>\vec{u}=\vecddd{1}{1}{0}{0},\vec{v}=\vecddd{1}{0}{1}{1}</m>.</p></statement>
+<solution><p>On cherche une matrice telle que la tranposée aura deux solutions de base. On commence par construire la transposée. Les vecteurs <m>\vec{u},\vec{v}</m> ont la forme de solution de base si les variables <m>x_2,x_4</m> sont libres.
+On construit donc une matrice échelonnée réduite qui aura ces vecteurs comme solution de base:
+<me>
+\begin{pmatrix}
+1&amp;-1&amp;0&amp;-1\\
+0&amp;0&amp;1&amp;-1\\
+\end{pmatrix}
+</me>.
+On peut ensuite appliquer des opérations élémentaires sur les lignes afin d'éliminer les zéros. On pourrat avoir par exemple
+<md>
+<mrow>\begin{pmatrix}
+1&amp;-1&amp;0&amp;-1\\
+0&amp;0&amp;1&amp;-1\\
+\end{pmatrix}&amp;\matsimilc{1}{}{2}\begin{pmatrix}
+1&amp;-1&amp;0&amp;-1\\
+1&amp;-1&amp;1&amp;-2\\
+\end{pmatrix}</mrow>
+<mrow>&amp;\matsimilc{2}{}{1}\begin{pmatrix}
+2&amp;-2&amp;1&amp;-3\\
+1&amp;-1&amp;1&amp;-2\\
+\end{pmatrix}</mrow>
+</md>.
+</p>
+Finalement, pour que la matrice ait comme espace nul gauche l'espace engendré par les vecteurs <m>\vec{u},\vec{v}</m>, on prend la transposée de la matrice ci-dessus :
+<me>
+\begin{pmatrix}
+2&amp;1\\
+-2&amp; -1\\
+1&amp; 1\\
+-3&amp;-2
+\end{pmatrix}
+</me></solution>
+</task>
 </exercise>
-<exercise xml:id="exo-espfondcorr"><introduction><p>Pour chaque matrice <m>A</m> ci-dessous, donner si possible des matrices <m>B,C</m> telle que <m>\mathcal{C}(A)=\mathcal{N}(B)</m> et <m>\mathcal{N}(A)=\mathcal{C}(C)</m>.</p></introduction></exercise>
+<!-- <exercise xml:id="exo-espfondcorr"><introduction><p>Pour chaque matrice <m>A</m> ci-dessous, donner si possible des matrices <m>B,C</m> telle que <m>\mathcal{C}(A)=\mathcal{N}(B)</m> et <m>\mathcal{N}(A)=\mathcal{C}(C)</m>.</p></introduction>
 <task><statement><p><m>\begin{pmatrix} 1&amp; -1 &amp; 0\\ 3&amp; 1&amp; 2 \\-2&amp; -1 &amp; -3\end{pmatrix}</m></p></statement></task>
 <task><statement><p><m>\begin{pmatrix} 1&amp;-2 \\ -5 &amp; 10 \\ 2 &amp; -4\end{pmatrix}</m></p></statement></task>
 <task><statement><p><m>\left(\begin{array}{rrr}
@@ -155,40 +947,100 @@
 -1 &amp; -1 &amp; -2 \\
 -1 &amp; 1 &amp; 0 \\
 2 &amp; -2 &amp; 1
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement></task></exercise> -->
 <exercisegroup><title>Exercices Sage</title>
 <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écire les réponses. Évidemment, il y a plusieurs manières possibles d'arriver aux réponses.</p>
 <exercise>
 <statement>
-<p>Utiliser la fonction <c>matquelc</c> de l'exemple calculatoire <xref ref="sageex-algmat"/> pour vérifier les égalités suivantes.</p>
+<p>Utiliser la fonction <c>matquelc</c> de l'exemple calculatoire <xref ref="sageex-algmat"/> pour vérifier les égalités suivantes. Recopier le code de la fonction <c>matquelc</c> ci-dessous dans un premier temps et exécuter la cellule.</p>
+<sage>
+<input>
+
+</input>
+</sage>
 <task><statement><p>Une matrice de taille <m>5\times 4</m> multipliée par sa transposée est une matrice symétrique. (La commande <c>A.is_symmetric()</c> permet de vérifier si la matrice <m>A</m> est symétrique ou non.</p>
 <sage>
 <input>
 
 
 </input>
-</sage></statement></task>
-<task><statement><p>Soit <m>A</m> une matrice quelconque. La matrice <m>A+A^T</m> est symétrique.</p>
+</sage></statement>
+<solution>
+<listing>
+<program language="sage">
+<input>
+A=matquelc(5,4,'a')
+show("A=",A)
+show("A^T=",A.transpose())
+(A*(A.transpose())).is_symmetric()
+</input>
+</program>
+</listing>
+</solution></task>
+<task><statement><p>Soit <m>A</m> une matrice <m>5\times 5</m>. La matrice <m>A+A^T</m> est symétrique.</p>
 <sage>
 <input>
 
 
 </input>
-</sage></statement></task>
-<task><statement><p>Soit <m>A</m> une matrice quelconque. La matrice <m>A-A^T</m> est antisymétrique (La commande pour antisymétrique sur Sage est <c>A.is_skew_symmetric()</c>.</p>
+</sage></statement>
+<solution>
+<listing>
+<program language="sage">
+<input>
+A=matquelc(5,5,'a')
+show("A=",A)
+show("A^T=",A.transpose())
+(A+(A.transpose())).is_symmetric()
+</input>
+</program>
+</listing>
+</solution>
+</task>
+<task><statement><p>Soit <m>A</m> une matrice <m>7\times 7</m>. La matrice <m>A-A^T</m> est antisymétrique (La commande pour antisymétrique sur Sage est <c>A.is_skew_symmetric()</c>.</p>
 <sage>
 <input>
 
 
 </input>
-</sage></statement></task>
-<task><statement><p>Vérifier les propriétés de la proposition <xref ref="prop-transposeeprop"/>.</p>
+</sage></statement>
+<solution>
+<listing>
+<program language="sage">
+<input>
+A=matquelc(7,7,'a')
+show("A=",A)
+show("A^T=",A.transpose())
+(A*(A.transpose())).is_skew_symmetric()
+</input>
+</program>
+</listing>
+</solution>
+</task>
+<task><statement><p>Vérifier les quatre premières propriétés de la proposition <xref ref="prop-transposeeprop"/> avec <m>m=4,n=5</m> et <m>p=6</m>.</p>
 <sage>
 <input>
 
 
 </input>
-</sage></statement></task>
+</sage></statement>
+<solution>
+<listing>
+<program language="sage">
+<input>
+A=matquelc(4,5,'a')
+B=matquelc(4,5,'b')
+C=matquelc(5,6,'c')
+var("k")
+show("La propriété 1 est ",(A.transpose()).transpose()==A)
+show("La propriété 2 est ",(k*A).transpose()==k*(A.transpose()))
+show("La propriété 3 est ",(A+B).transpose()==A.transpose()+B.transpose())
+show("La propriété 4 est ",(A*C).transpose()==(C.transpose())*(A.transpose()))
+</input>
+</program>
+</listing>
+</solution>
+</task>
 </statement>
 </exercise>
 <exercise>
@@ -199,8 +1051,99 @@
 
 </input>
 </sage></statement>
+<solution>
+<listing>
+<program laguage="sage">
+<input>
+A=matrix([[1,-2],[3,1]])
+B=matrix([[3,2],[1,5]])
+C=matrix([[2,-2,3],[0,2,1]])
+D=matrix([[7,-1],[2,4],[1,0]])
+show("A^T=",A.transpose())
+show("4A-5B^T=",4*A-5*B.transpose())
+show("C^T=",C.transpose())
+show("C^T+D",C.transpose()+D)
+show("A^TC",A.transpose()*C)
+show("AC^T n'est pas possible")
+show("C^TB^T=",(C.transpose())*(B.transpose()))
+show("BD n'est pas possible")
+show("BD^T=",B*(D.transpose()))
+show("DB=",D*B)
+show("D^TB n'est pas possible")
+show("CC^T=",C*(C.transpose()))
+show("C^TC=",C.transpose()*C)
+show("CD=",C*D)
+show("C^TD^T=",C.transpose()*D.transpose())
+show("DC=",D*C)
+show("D^TC^T=",D.transpose()*C.transpose())
+</input>
+</program>
+</listing>
+</solution>
 </exercise>
-<exercise><statement><p>Déterminer à la manière de l'exemple calculatoire <xref ref="sageex-espfond"/> les espaces fondamentaux des matrices des exercices <xref ref="exo-noyaux"/> et <xref ref="exo-espfondcorr"/>.</p></statement></exercise>
+<exercise><statement><p>Déterminer à la manière de l'exemple calculatoire <xref ref="sageex-espfond"/> les espaces fondamentaux des matrices de<!--s--> l'exercice<!--s--> <xref ref="exo-noyaux"/> <!--et <xref ref="exo-espfondcorr"/>-->.</p>
+<sage>
+<input>
+
+</input>
+</sage>
+</statement>
+<solution>
+<listing>
+<program language="sage">
+<input>
+A1=matrix(QQ,[[1,-3,-4,0],[0,0,0,1],[0,0,0,0]])
+A2=matrix(QQ,[[1,0,0,-1],[0,1,0,3],[0,0,1,-4],[0,0,0,0],[0,0,0,0]])
+A3=matrix(QQ,[[1,4,0,1],[0,0,1,-2],[0,0,0,0],[0,0,0,0]])
+####Pour la matrice A1####
+show("Pour la matrice A1")
+###Pour son espace nul
+show("Une base de l'espace nul est")
+show(A1.right_kernel(basis="pivot").basis())
+###Pour son espace ligne
+show("Une base de l'espace ligne est")
+show(A1.row_space().basis())
+###Pour son espace colonne
+show("Une base de l'espace colonne est")
+show(A1.column_space().basis())
+###Pour son espace nul gauche
+show("Une base de l'espace nul gauche est")
+show(A1.left_kernel(basis="pivot").basis())
+##########################################
+####Pour la matrice A1####
+show("Pour la matrice A2")
+###Pour son espace nul
+show("Une base de l'espace nul est")
+show(A2.right_kernel(basis="pivot").basis())
+###Pour son espace ligne
+show("Une base de l'espace ligne est")
+show(A2.row_space().basis())
+###Pour son espace colonne
+show("Une base de l'espace colonne est")
+show(A2.column_space().basis())
+###Pour son espace nul gauche
+show("Une base de l'espace nul gauche est")
+show(A2.left_kernel(basis="pivot").basis())
+##############################################
+####Pour la matrice A1####
+show("Pour la matrice A3")
+###Pour son espace nul
+show("Une base de l'espace nul est")
+show(A3.right_kernel(basis="pivot").basis())
+###Pour son espace ligne
+show("Une base de l'espace ligne est")
+show(A3.row_space().basis())
+###Pour son espace colonne
+show("Une base de l'espace colonne est")
+show(A3.column_space().basis())
+###Pour son espace nul gauche
+show("Une base de l'espace nul gauche est")
+show(A3.left_kernel(basis="pivot").basis())sub
+</input>
+</program>
+</listing>
+</solution>
+</exercise>
 </exercisegroup>
 </exercises>
 
