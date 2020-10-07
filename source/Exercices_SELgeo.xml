@@ -349,7 +349,7 @@ show("rref(A)=",rrefA.simplify_full())
     <me>\mathcal{P}: \vecddd{x}{y}{z}=a\vecddd{-\frac{5}{2}}{1}{0}+b\vecddd{5}{0}{1}+\vecddd{10}{0}{0}\text{ avec } a,b\in\R</me>.
     </p></solution>
     </exercise>
-    <exercise><statement><p>Soit <m>R</m> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve la solution de base à l'équation <m>R\vec{x}=\vec{0}</m> et la solution particulière
+    <exercise xml:id="exo-rrefgeo1"><statement><p>Soit <m>R</m> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve la solution de base à l'équation <m>R\vec{x}=\vec{0}</m> et la solution particulière
     à l'équation <m>R\vec{x}=\vec{b}</m>. Entrer sur la figure les valeurs pour la matrice <m>R</m> et le vecteur <m>\vec{b}</m> qui correspondent à cette géométrie.</p>
 <figure xml:id="fig-rrefgeo1">
     <caption>La géométrie de l'équation <m>R\vec{x}=\vec{b}</m>, version 1</caption>
@@ -367,6 +367,28 @@ show("rref(A)=",rrefA.simplify_full())
     </figure>
     </statement>
     <!-- Pour la solution, distinguer trois cas :  Si s=0, si s est de la forme (1,0) et si s est de la forme (x,1) -->
+    <solution><p>
+    Attention, on invite le lecteur à essayer plusieurs fois l'exercice pour arriver à comprendre les différents cas possibles avant de lire la solution.
+    Il est clair qu'il faut bien comprendre les deux concepts en présence. 
+    La partie de gauche de la matrice augmentée sera déterminée par la solution de base.
+    La partie augmentée sera déterminée par la solution particulière. 
+    On distinguera trois cas de figure.</p>
+    <p>D'abord, si le vecteur solution de base est <m>\vec{s}=\vec{0}</m>, alors on sait que la solution homogène est égale au vecteur nul.
+    La partie de gauche n'a donc pas le choix d'être la matrice identité puisque l'on a une solution unique. 
+    La partie augmentée sera simplement le vecteur de la solution particulière.
+    On a donc <m>\vec{b}=\vec{x}_p</m>.</p>
+    <p>Ensuite, si le vecteur solution de base est <m>\vec{s}=\vecd{1}{0}</m>, alors on sait que la solution homogène est une droite et donc qu'il y a une variable libre.
+    La variable libre est toujours celle pour laquelle le vecteur solution de base a une valeur de <m>1</m>. C'est donc ici <m>x</m>.
+    La partie de gauche sera donc la matrice <m>\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0\end{pmatrix}</m>, puisque c'est la seule matrice échelonnée réduite ayant <m>x</m> comme variable libre.
+    La partie augmentée sera toujours un vecteur de la forme <m>\vecd{y}{0}</m> où <m>y</m> est la deuxième composante du vecteur <m>\vec{x}_p</m>.
+    Ce vecteur sera toujours de la forme <m>\vec{x}_p=\vecd{0}{y}</m> pour être solution de l'équation matricielle <m>R\vec{x}=\vec{b}</m>.</p>
+    <p>Finalement, si le vecteur solution de base est de la forme <m>\vec{s}=\vecd{x}{1}</m>, alors on sait que la solution homogène est une droite et donc qu'il y a une variable libre.
+    La variable libre est toujours celle pour laquelle le vecteur solution de base a une valeur de <m>1</m>. C'est donc ici <m>y</m>.
+    La partie de gauche sera donc la matrice <m>\begin{pmatrix} 1 &amp; -x \\ 0 &amp; 0\end{pmatrix}</m>, puisque c'est la matrice échelonnée réduite 
+    ayant <m>y</m> comme variable libre et donnant comme solution de base le vecteur <m>\vec{s}=\vecd{x}{1}</m>.
+    La partie augmentée sera toujours le vecteur <m>\vec{b}=\vec{x}_p</m> où la première composante seulement peut être non nulle.
+    Ce sera donc toujours un vecteur de la forme <m>\vec{b}=\vecd{b_1}{0}</m>.</p> 
+    </solution>
     </exercise>
         <exercise><statement><p>Soit <m>R</m> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve la solution de base à l'équation <m>R\vec{x}=\vec{0}</m> et un point <m>P</m> appartenant à
         l'ensemble solution de l'équation <m>R\vec{x}=\vec{b}</m>. Entrer sur la figure les valeurs pour la matrice <m>R</m> et le vecteur <m>\vec{b}</m> qui correspondent à cette géométrie.</p>
@@ -385,7 +407,31 @@ show("rref(A)=",rrefA.simplify_full())
         </interactive>
     </figure>
     </statement>
-    <!-- Pour la solution, distinguer trois cas :  Si s=0, si s est de la forme (1,0) et si s est de la forme (x,1) -->
+    <solution><p>
+    Attention, on invite le lecteur à essayer plusieurs fois l'exercice pour arriver à comprendre les différents cas possibles avant de lire la solution.
+    Il est clair qu'il faut bien comprendre les deux concepts en présence. 
+    La partie de gauche de la matrice augmentée sera déterminée par la solution de base exactement comme à l'exercice <xref ref="exo-rrefgeo1"/>.
+    La partie augmentée sera déterminée par le point appartenant à l'ensemble solution. Il faudra parfois effectuer un calcul, d'autres fois lire directement la valeur. 
+    On distinguera les mêmes trois cas de figure.</p>
+    <p>D'abord, si le vecteur solution de base est <m>\vec{s}=\vec{0}</m>, alors on sait que la solution homogène est égale au vecteur nul.
+    La partie de gauche n'a donc pas le choix d'être la matrice identité puisque l'on a une solution unique. 
+    La partie augmentée sera simplement le point appartenant à l'ensemble solution.
+    On a donc <m>\vec{b}=\vecl{OP}</m>.</p>
+    <p>Ensuite, si le vecteur solution de base est <m>\vec{s}=\vecd{1}{0}</m>, alors on sait que la solution homogène est une droite et donc qu'il y a une variable libre qui est <m>x</m> dans ce cas.
+    La partie de gauche sera donc la matrice <m>\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0\end{pmatrix}</m>, puisque c'est la seule matrice échelonnée réduite ayant <m>x</m> comme variable libre.
+    La partie augmentée sera toujours un vecteur de la forme <m>\vecd{y}{0}</m> où <m>y</m> est la deuxième composante du vecteur <m>\vec{x}_p</m>.
+    Puisqu'on n'a pas cette solution particulière, mais seulement un point <m>P</m> faisant partie de l'ensemble solution, il faudra déduire sa valeur.
+    Toute solution à l'équation <m>R\vec{x}=\vec{b}</m> aura la forme:
+    <me>\vec{x}_g=\vec{x}_h+\vec{x}_p=a\vecd{1}{0}+\vecd{0}{y}\text{ avec } a\in\R</me>.
+    Ainsi, la coordonnée en <m>y</m> du point <m>P</m> nous donne directement la valeur voulue. Aucun calcul n'est nécessaire.</p>
+    <p>Finalement, si le vecteur solution de base est de la forme <m>\vec{s}=\vecd{x}{1}</m>, alors on sait que la solution homogène est une droite et donc qu'il y a une variable libre qui est <m>y</m> dans ce cas-ci.
+    La partie de gauche sera donc la matrice <m>\begin{pmatrix} 1 &amp; -x \\ 0 &amp; 0\end{pmatrix}</m>, puisque c'est la matrice échelonnée réduite 
+    ayant <m>y</m> comme variable libre et donnant comme solution de base le vecteur <m>\vec{s}=\vecd{x}{1}</m>.
+    La partie augmentée sera toujours le vecteur <m>\vec{b}=\vec{x}_p=\vecd{b_1}{0}</m> où la première composante seulement peut être non nulle.
+    Cependant, on n'a pas cette solution particulière avec la bonne forme, on en a une quelconque donnée par <m>P</m> qui est dans l'ensemble solution.
+    Il faudra donc calculer la valeur en isolant <m>b_1</m> dans l'équation:
+    <me>\vecl{OP}=a\vec{s}+\vecd{b_1}{0}\text{ avec } a\in\R</me>.</p> 
+    </solution>
     </exercise>
         <exercise><statement><p>Soit <m>R</m> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve un vecteur <m>\vec{v}</m> parallèle à la solution de base à l'équation <m>R\vec{x}=\vec{0}</m> et un point <m>P</m> appartenant à
         l'ensemble solution de l'équation <m>R\vec{x}=\vec{b}</m>. Entrer sur la figure les valeurs pour la matrice <m>R</m> et le vecteur <m>\vec{b}</m> qui correspondent à cette géométrie.</p>
@@ -404,10 +450,69 @@ show("rref(A)=",rrefA.simplify_full())
         </interactive>
     </figure>
     </statement>
-    <!-- Pour la solution, distinguer trois cas :  Si v=0, si v est de la forme (x,0) et si v est de la forme (x,y) -->
+    <solution><p>
+    Attention, on invite le lecteur à essayer plusieurs fois l'exercice pour arriver à comprendre les différents cas possibles avant de lire la solution.
+    Il est clair qu'il faut bien comprendre les deux concepts en présence. 
+    La partie de gauche de la matrice augmentée sera déterminée par la solution de base exactement comme à l'exercice <xref ref="exo-rrefgeo1"/>.
+    La partie augmentée sera déterminée par le point appartenant à l'ensemble solution. Il faudra parfois effectuer un calcul, d'autres fois lire directement la valeur. 
+    On distinguera les mêmes trois cas de figure.</p>
+    <p>D'abord, si le vecteur donné est de la forme <m>\vec{v}=\vecd{x}{0}</m>, alors on sait que le vecteur solution de base est <m>\vec{s}=\vecd{1}{0}</m>,
+    puisqu'il doit y avoir une variable libre qui est <m>x</m>, la seule variable non nulle ici.
+    Alors, on sait que la solution homogène est une droite de vecteur directeur <m>\vec{s}=\vecd{1}{0}</m>.
+    La partie de gauche sera donc la matrice <m>\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0\end{pmatrix}</m>, puisque c'est la seule matrice échelonnée réduite ayant <m>x</m> comme variable libre.
+    La partie augmentée sera toujours un vecteur de la forme <m>\vecd{y}{0}</m> où <m>y</m> est la deuxième composante du vecteur <m>\vec{x}_p</m>.
+    Puisqu'on n'a pas cette solution particulière, mais seulement un point <m>P</m> faisant partie de l'ensemble solution, il faudra déduire sa valeur.
+    Toute solution à l'équation <m>R\vec{x}=\vec{b}</m> aura la forme:
+    <me>\vec{x}_g=\vec{x}_h+\vec{x}_p=a\vecd{1}{0}+\vecd{0}{y}\text{ avec } a\in\R</me>.
+    Ainsi, la coordonnée en <m>y</m> du point <m>P</m> nous donne directement la valeur voulue. Aucun calcul n'est nécessaire.</p>
+    <p>Ensuite, si le vecteur donné est de la forme <m>\vec{v}=\vecd{0}{y}</m>, alors on sait que le vecteur solution de base est <m>\vec{s}=\vecd{0}{1}</m>, 
+    puisqu'il doit y avoir une variable libre qui est <m>y</m>, la seule variable non nulle ici.
+    Alors, on sait que la solution homogène est une droite de vecteur directeur <m>\vec{s}=\vecd{0}{1}</m>.
+    La partie de gauche sera donc la matrice <m>\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0\end{pmatrix}</m>, puisque c'est la seule matrice échelonnée réduite 
+    ayant <m>y</m> comme variable libre et pour laquelle <m>x</m> vaut <m>0</m>.
+    La partie augmentée sera toujours un vecteur de la forme <m>\vecd{x}{0}</m> où <m>x</m> est la première et seule composante du vecteur <m>\vec{x}_p</m>.
+    Puisqu'on n'a pas cette solution particulière, mais seulement un point <m>P</m> faisant partie de l'ensemble solution, il faudra déduire sa valeur.
+    Toute solution à l'équation <m>R\vec{x}=\vec{b}</m> aura la forme:
+    <me>\vec{x}_g=\vec{x}_h+\vec{x}_p=a\vecd{0}{1}+\vecd{x}{0}\text{ avec } a\in\R</me>.
+    Ainsi, la coordonnée en <m>x</m> du point <m>P</m> nous donne directement la valeur voulue. Aucun calcul n'est nécessaire.</p>
+    <p>Finalement, si le vecteur donné est de la forme <m>\vec{v}=\vecd{x}{y}</m>, alors le vecteur solution de base est de la forme <m>\vec{s}=\vecd{x}{1}</m>, 
+    puisqu'il doit y avoir une variable libre et que ça ne peut être <m>x</m> sans que la composante <m>y</m> du vecteur <m>\vec{s}</m> soit nulle.
+    On obtient la valeur de <m>x</m> à partir du fait que <m>\vec{v}=k\vec{s}</m> (ils sont parallèles). 
+    Par exemple, si <m>\vec{v}=\vecd{7}{-1}=k\vecd{x}{1}</m>, alors <m>k=-1</m> et donc <m>x=-7</m>.
+    Ainsi, on sait que la solution homogène est une droite de vecteur directeur <m>\vec{s}=\vecd{x}{1}</m>.
+    La partie de gauche sera donc la matrice <m>\begin{pmatrix} 1 &amp; -x \\ 0 &amp; 0\end{pmatrix}</m>, puisque c'est la matrice échelonnée réduite 
+    ayant <m>y</m> comme variable libre et donnant comme solution de base le vecteur <m>\vec{s}=\vecd{x}{1}</m>.
+    La partie augmentée sera toujours le vecteur <m>\vec{b}=\vec{x}_p=\vecd{b_1}{0}</m> où la première composante seulement peut être non nulle.
+    Cependant, on n'a pas cette solution particulière avec la bonne forme, on en a une quelconque donnée par <m>P</m> qui est dans l'ensemble solution.
+    Il faudra donc calculer la valeur en isolant <m>b_1</m> dans l'équation:
+    <me>\vecl{OP}=a\vec{s}+\vecd{b_1}{0}\text{ avec } a\in\R</me>.</p> 
+    </solution>
     </exercise>
     <exercise><statement><p>Donner une transformation telle que son image est égale à ses zéros.</p></statement>
     <hint><p>Une <m>2\times 2</m> suffit.</p></hint>
+    <answer><p><me>A=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}</me></p></answer>
+    <solution><p>On suit l'indication et on cherche une transformation de <m>\R^2</m> vers <m>\R^2</m>.
+    Il n'est pas facile à priori de trouver une telle transformation sans avoir une bonne intuition géométrique de ces deux concepts.
+    On rappelle que les zéros sont l'ensemble des solutions à l'équation homogène <m>A\vec{x}=\vec{0}</m>. 
+    Ce sont donc des vecteurs du plan qui sont tels que la transformation recherchée les amènera à zéro. 
+    C'est la solution homogène <m>\vec{x}_h</m> à la transformation.
+    On indique dans la question que la transformation a <em>des</em> zéros. 
+    Or, on sait que si elle en a plus d'un, elle en a une infinité. 
+    On a donc des zéros de la forme <m>\vec{x}_h=k\vec{s}</m> où <m>\vec{s}</m> est la solution de base.
+    Pour simplifier le problème, on suppose que <m>\vec{s}=\vecd{1}{0}</m>. 
+    Les zéros sont donc l'ensemble des vecteurs sur l'axe des <m>x</m>.
+    Une transformation linéaire amenant tous les vecteurs sur l'axe des <m>x</m> à l'origine a nécessairement comme première colonne des zéros.</p>
+    <p>On propose la matrice de transformation <m>A=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}</m> qui envoie le vecteur <m>\vecd{1}{0}</m> à <m>\vecd{0}{0}</m>
+    et le vecteur <m>\vecd{0}{1}</m> à <m>\vecd{1}{0}</m>.
+    On a discuté pourquoi la première colonne est formée seulement de zéros. 
+    Pourquoi amener la deuxième colonne à <m>\vecd{1}{0}</m>? 
+    La réponse est que l'on veut que l'image de la transformation soit aussi l'ensemble des vecteurs sur l'axe des <m>x</m>.
+    Avec cette transformation, on a effectivement:
+    <me>A\left(k\vecd{1}{0}\right)=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\vecd{k}{0}=\vecd{0}{0}</me>
+    et
+    <me>A\vecd{x}{y}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\vecd{x}{y}=\vecd{y}{0}</me>.
+    Ce dernier résultat constitue l'image de <m>A</m> et est clairement un vecteur sur l'axe des <m>x</m>.
+    </p></solution>
     </exercise>
     <!--
     <exercise>
@@ -429,7 +534,7 @@ show("rref(A)=",rrefA.simplify_full())
 -1 &amp; -2 &amp; 2 &amp; 0
 \end{array}\right)</m></p></statement></task>
     </exercise>
-    -->
+    
     <exercise><introduction><p>Soit <m>A,B</m> des transformations linéaires non nulles telles que <m>AB=O</m>.</p></introduction>
     <task><statement><p>Que peut-on dire de l'image de <m>B</m> par rapport aux zéros de <m>A</m>?</p></statement>
     <answer><p>On a <m>Im(B)\subseteq Z(A)</m>.</p></answer>
@@ -437,55 +542,424 @@ show("rref(A)=",rrefA.simplify_full())
     <task><statement><p>Donner des exemples de transformations <m>A,B</m> non nulles de taille <m>2\times 2</m> telles que <m>AB=0</m> et determiner les zéros de <m>A</m> et l'image de <m>B</m>. Vérifier la relation de l'exercice précédent.</p></statement></task>
     <task><statement><p>Donner des exemples de transformations <m>A,B</m> non nulles de taille <m>3\times 3</m> telles que <m>AB=0</m> et telles que l'image de <m>B</m> n'est pas égale aux zéros de <m>A</m>. </p></statement></task>
     </exercise>
+    
+    -->
    <exercise> <introduction>
     <p>Donner, si possible, une matrice qui a comme solution(s) de base les vecteurs suivants. Dans l'impossibilité de le faire, expliquer pourquoi.</p>
     </introduction>
-    <task><statement><p>Le vecteur <m>\vec{s}=(1,-1,1)</m>.</p></statement></task>
-    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,1,0),\vec{s}_2=(-1,0,1)</m>.</p></statement></task>
-    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,0,0),\vec{s}_2=(0,2,1)</m>.</p></statement></task>
-    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,0),\vec{s}_2=(0,1),\vec{s}_3=(1,1)</m>.</p></statement></task>
-    <task><statement><p>Le vecteurs <m>\vec{s}=(-2,3,1,0,0)</m>.</p></statement></task>
-    <task><statement><p>Le vecteurs <m>\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0),\vec{s}_3=(-4,0,-1,0,1)</m>.</p></statement></task>
+    <task><statement><p>Le vecteur <m>\vec{s}=(1,-1,1)</m>.</p></statement>
+    <hint><p>S'inspirer de l'exemple <xref ref="ex-zerosperplignes"/> et de la proposition <xref ref="prop-zerosperplignes"/>.</p></hint>
+    <answer><p><me>\begin{pmatrix} 
+    1&amp; 0&amp; -1\\
+    2&amp; 1&amp;  -1\\
+    3&amp; 1&amp; -2\end{pmatrix}</me></p></answer>
+    <solution><p>On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <m>\vec{s}=(1,-1,1)</m> et qui donnera la matrice suivante lorsqu'échelonnée:
+    <me>\begin{pmatrix} 
+    1&amp; 0&amp; -1\\
+    0&amp; 1&amp;  1\\
+    0&amp; 0&amp; 0\end{pmatrix}</me>.
+    On peut donner directement cette matrice échelonnée puisque l'on voit dans la solution de base que <m>x</m> ou <m>z</m> peuvent être libres. 
+    On choisit <m>z</m> puisque c'est plus facile et on met dans la colonne non pivot les valeurs correspondant à l'opposé des valeurs de <m>x</m> et de <m>y</m> dans <m>\vec{s}</m>.
+    On propose de créer la matrice initiale en faisant des combinaisons linéaires des lignes non-nulles de la matrice échelonnée.
+    On obtient, par exemple:
+    <me>\begin{pmatrix} 
+    1&amp; 0&amp; -1\\
+    2&amp; 1&amp;  -1\\
+    3&amp; 1&amp; -2\end{pmatrix}</me>.
+    On a simplement fait <m>2L_1+L_2\rightarrow L_2</m> et ensuite <m>L_1+L_2 \rightarrow L_3</m>.
+    Un calcul rapide permet de vérifier que chaque ligne est perpendiculaire à <m>\vec{s}</m> (produit scalaire égal à zéro).
+    </p></solution></task>
+    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,1,0),\vec{s}_2=(-1,0,1)</m>.</p></statement>
+    <answer><p><me>\begin{pmatrix} 
+    1&amp; -1&amp; 1\\
+    2&amp; -2&amp;  2\\
+    3&amp; -3&amp; 3\end{pmatrix}</me></p></answer>
+    <solution><p>On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <m>\vec{s}_1=(1,1,0)</m> et <m>\vec{s}_2=(-1,0,1)</m> 
+    et qui donnera la matrice suivante lorsqu'échelonnée:
+    <me>\begin{pmatrix} 
+    1&amp; -1&amp; 1\\
+    0&amp; 0&amp;  0\\
+    0&amp; 0&amp; 0\end{pmatrix}</me>.
+    On peut donner directement cette matrice échelonnée puisque l'on voit dans la solution de base que <m>y</m> et <m>z</m> sont libres, car leur composante est de 
+    <m>1</m> dans un des vecteurs de base et de <m>0</m> dans l'autre.
+    La variable <m>x</m> est donc la seule non libre. 
+    Il n'y a qu'un pivot et les valeurs sous les colonnes non pivots sont l'opposé des valeurs de <m>x</m> dans les vecteurs de base respectifs.
+    On propose de créer la matrice initiale en faisant des combinaisons linéaires de la ligne non-nulle de la matrice échelonnée.
+    On obtient, par exemple:
+    <me>\begin{pmatrix} 
+    1&amp; -1&amp; 1\\
+    2&amp; -2&amp;  2\\
+    3&amp; -3&amp; 3\end{pmatrix}</me>.
+    On a simplement fait <m>2L_1\rightarrow L_2</m> et <m>3L_1 \rightarrow L_3</m>.
+    Un calcul rapide permet de vérifier que chaque ligne est perpendiculaire à <m>\vec{s}_1=(1,1,0)</m> et <m>\vec{s}_2=(-1,0,1)</m> (produit scalaire égal à zéro).
+    </p></solution>
+    </task>
+    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,0,0),\vec{s}_2=(0,2,1)</m>.</p></statement>
+    <answer><p><me>\begin{pmatrix} 
+    0&amp; 1&amp; -2\\
+    0&amp; 2&amp;  -4\\
+    0&amp; 3&amp; -6\end{pmatrix}</me></p></answer>
+    <solution><p>On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <m>\vec{s}_1=(1,0,0)</m> et <m>\vec{s}_2=(0,2,1)</m> 
+    et qui donnera la matrice suivante lorsqu'échelonnée:
+    <me>\begin{pmatrix} 
+    0&amp; 1&amp; -2\\
+    0&amp; 0&amp; 0\\
+    0&amp; 0&amp; 0\end{pmatrix}</me>.
+    On peut donner directement cette matrice échelonnée puisque l'on voit dans la solution de base que <m>x</m> et <m>z</m> sont libres, car leur composante est de 
+    <m>1</m> dans un des vecteurs de base et de <m>0</m> dans l'autre.
+    La variable <m>y</m> est donc la seule non libre. 
+    Il n'y a qu'un pivot et les valeurs sous les colonnes non pivots sont l'opposé des valeurs de <m>y</m> dans les vecteurs de base respectifs.
+    On propose de créer la matrice initiale en faisant des combinaisons linéaires de la ligne non-nulle de la matrice échelonnée.
+    On obtient, par exemple:
+    <me>\begin{pmatrix} 
+    0&amp; 1&amp; -2\\
+    0&amp; 2&amp;  -4\\
+    0&amp; 3&amp; -6\end{pmatrix}</me>.
+    On a simplement fait <m>2L_1\rightarrow L_2</m> et <m>3L_1 \rightarrow L_3</m>.
+    Un calcul rapide permet de vérifier que chaque ligne est perpendiculaire à <m>\vec{s}_1=(1,0,0)</m> et <m>\vec{s}_2=(0,2,1)</m> (produit scalaire égal à zéro).
+    </p></solution>
+    </task>
+    <task><statement><p>Les vecteurs <m>\vec{s}_1=(1,0),\vec{s}_2=(0,1),\vec{s}_3=(1,1)</m>.</p></statement>
+    <answer><p>Impossible.</p></answer>
+    <solution><p>On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <m>\vec{s}_1=(1,0),\vec{s}_2=(0,1),\vec{s}_3=(1,1)</m>.
+    Cela est impossible puisqu'un vecteur de <m>\R^2</m> ne peut pas être à la fois perpendiculaire à trois différents vecteurs qui ne sont pas parallèles entre eux. 
+    </p></solution>
+    </task>
+    <task><statement><p>Le vecteurs <m>\vec{s}=(-2,3,1,0,0)</m>.</p></statement>
+    <answer><p><me>\begin{pmatrix} 
+    1&amp; 0&amp; 2 &amp; 0&amp; 0\\
+    2&amp; 1&amp; 1 &amp; 0&amp; 0\\
+    3&amp; 1&amp; 3 &amp; 1&amp; 0\\
+    5&amp; 2&amp; 4 &amp; 1&amp; 1\\
+    8&amp; 3&amp; 7 &amp; 2&amp; 1\end{pmatrix}</me></p></answer>
+    <solution><p>On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <m>\vec{s}=(-2,3,1,0,0)</m> et qui donnera la matrice suivante lorsqu'échelonnée:
+    <me>\begin{pmatrix} 
+    1&amp; 0&amp; 2 &amp; 0&amp; 0\\
+    0&amp; 1&amp; -3 &amp; 0&amp; 0\\
+    0&amp; 0&amp; 0 &amp; 1&amp; 0\\
+    0&amp; 0&amp; 0 &amp; 0&amp; 1\\
+    0&amp; 0&amp; 0 &amp; 0&amp; 0\end{pmatrix}</me>.
+    On peut donner directement cette matrice échelonnée puisque l'on voit dans la solution de base que <m>x_3</m> est la seule variable libre. 
+    Toutes les autres étant non libres, elles doivent être pivots.
+    On met dans la colonne non pivot les valeurs correspondant à l'opposé des valeurs de <m>x_1</m> et de <m>x_2</m> dans <m>\vec{s}</m>.
+    On propose de créer la matrice initiale en faisant des combinaisons linéaires des lignes non-nulles de la matrice échelonnée.
+    On obtient, par exemple:
+    <me>\begin{pmatrix} 
+    1&amp; 0&amp; 2 &amp; 0&amp; 0\\
+    2&amp; 1&amp; 1 &amp; 0&amp; 0\\
+    3&amp; 1&amp; 3 &amp; 1&amp; 0\\
+    5&amp; 2&amp; 4 &amp; 1&amp; 1\\
+    8&amp; 3&amp; 7 &amp; 2&amp; 1\end{pmatrix}</me>.
+    On a simplement fait <m>2L_1+L_2\rightarrow L_2</m>, ensuite <m>L_1+L_2 \rightarrow L_3</m>, puis <m>L_2+L_3 \rightarrow L_4</m> et finalement <m>L_3+L_4 \rightarrow L_5</m>.
+    Un calcul rapide permet de vérifier que chaque ligne est perpendiculaire à <m>\vec{s}</m> (produit scalaire égal à zéro).
+    </p></solution></task>
+    <task><statement><p>Les vecteurs <m>\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0),\vec{s}_3=(-4,0,-1,0,1)</m>.</p></statement>
+    <answer><p><me>\begin{pmatrix} 
+    1&amp; -1&amp; 1\\
+    2&amp; -2&amp;  2\\
+    3&amp; -3&amp; 3\end{pmatrix}</me></p></answer>
+    <solution><p>On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <m>\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0)</m> 
+    et <m>\vec{s}_3=(-4,0,-1,0,1)</m> et qui donnera la matrice suivante lorsqu'échelonnée:
+    <me>\begin{pmatrix} 
+    1&amp; 3&amp; 0 &amp; -2&amp; 4\\
+    0&amp; 0&amp; 1 &amp; -1&amp; 1\\
+    0&amp; 0&amp; 0 &amp; 0&amp; 0\\
+    0&amp; 0&amp; 0 &amp; 0&amp; 0\\
+    0&amp; 0&amp; 0 &amp; 0&amp; 0\end{pmatrix}</me>.
+    On peut donner directement cette matrice échelonnée puisque l'on voit dans la solution de base que <m>x_2</m>, <m>x_4</m> et <m>x_5</m> sont libres, 
+    car leur composante est de <m>1</m> dans un des vecteurs de base et de <m>0</m> dans les autres.
+    Les variables <m>x_1</m> et <m>x_3</m> sont donc non libres et doivent avoir un pivot.
+    Les valeurs sous les colonnes non pivots sont l'opposé des valeurs de <m>x_1</m> et <m>x_3</m> dans les vecteurs de base respectifs à ces colonnes.
+    On propose de créer la matrice initiale en faisant des combinaisons linéaires de la ligne non-nulle de la matrice échelonnée.
+    On obtient, par exemple:
+    <me>\begin{pmatrix} 
+    1&amp; 3&amp; 0 &amp; -2&amp; 4\\
+    2&amp; 6&amp; 1 &amp; -5&amp; 9\\
+    3&amp; 9&amp; 1 &amp; -7&amp; 13\\
+    5&amp; 15&amp; 2 &amp; -12&amp; 22\\
+    8&amp; 24&amp; 3 &amp; -19&amp; 35\end{pmatrix}</me>.
+    On a simplement fait <m>2L_1+L_2\rightarrow L_2</m>, ensuite <m>L_1+L_2 \rightarrow L_3</m>, puis <m>L_2+L_3 \rightarrow L_4</m> et finalement <m>L_3+L_4 \rightarrow L_5</m>.
+    Un calcul rapide (un peu long!) permet de vérifier que chaque ligne est perpendiculaire à <m>\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0),\vec{s}_3=(-4,0,-1,0,1)</m> (produit scalaire égal à zéro).
+    </p></solution>
+    </task>
     </exercise>
-    <exercise xml:id="exo-Ax0sev"><statement><p>Démontrer la proposition <xref ref="prop-Ax0sev"/> et la proposition <xref ref="prop-imasev"/>.</p></statement></exercise>
+    <exercise xml:id="exo-Ax0sev"><statement><p>Démontrer la proposition <xref ref="prop-Ax0sev"/> et la proposition <xref ref="prop-imasev"/>.</p></statement>
+    <solution><p>D'abord, on démontre la proposition <xref ref="prop-Ax0sev"/>.
+    <md>
+    <mrow>A(\vec{u}+\vec{v})&amp;=A\vec{u}+A\vec{v} &amp;&amp; \text{ par } <xref ref="li-transfosomme"/></mrow>
+    <mrow>&amp;=\vec{0}+\vec{0}</mrow>
+    <mrow>&amp;=\vec{0}</mrow>
+    </md>
+    et
+    <md>
+    <mrow>A(c\vec{u})&amp;=c(A\vec{u}) &amp;&amp; \text{ par } <xref ref="li-transfoscal"/></mrow>
+    <mrow>&amp;=c(\vec{0})</mrow>
+    <mrow>&amp;=\vec{0}</mrow>
+    </md>.
+    Ensuite, on démontre la proposition <xref ref="prop-imasev"/>.
+    Soit <m>\vec{x}_1</m>, une solution de <m>A\vec{x}=\vec{b}_1</m> et <m>\vec{x}_2</m>, une solution de <m>A\vec{x}=\vec{b}_2</m>.
+    Alors, 
+    <md>
+    <mrow>\vec{b}_1+\vec{b}_2&amp;=A\vec{x}_1+A\vec{x}_2</mrow>
+    <mrow>&amp;=A(\vec{x}_1+\vec{x}_2) &amp;&amp; \text{ par } <xref ref="li-transfosomme"/></mrow>
+    </md>.
+    Une solution à <m>A\vec{x}=\vec{b}_1+\vec{b}_2</m> est donc le vecteur <m>\vec{x}=\vec{x}_1+\vec{x}_2</m>.
+    De façon semblable, 
+    <md>
+    <mrow>c\vec{b}_1&amp;=c(A\vec{x}_1)</mrow>
+    <mrow>&amp;=A(c\vec{x}_1) &amp;&amp; \text{ par } <xref ref="li-transfoscal"/></mrow>
+    </md>.
+    Une solution à <m>A\vec{x}=c\vec{b}_1</m> est donc le vecteur <m>\vec{x}=c\vec{x}_1</m>.
+    </p></solution></exercise>
     <exercise><statement><p>Voici un énoncé et sa &#x00AB; démonstration &#x00BB;.</p>
-    <p><alert>Énoncé: </alert> Soit <m>A\vec{x}=\vec{0}</m>. Cette équation a une infinité de solution.</p>
+    <p><alert>Énoncé: </alert> Soit <m>A\vec{x}=\vec{0}</m>. Cette équation a une infinité de solutions.</p>
     <p><alert>Démonstration:</alert> On sait qu'il existe au moins une solution à l'équation. La proposition <xref ref="prop-Ax0sev"/> dit que tout multiple d'une solution est aussi une solution. Il y en a donc
     une infinité.</p>
     
-    <p>Trouver l'erreur dans l'argument ci-dessus.</p></statement></exercise>
+    <p>Trouver l'erreur dans l'argument ci-dessus.</p></statement>
+    <solution><p>Il est vrai que l'équation <m>A\vec{x}=\vec{0}</m> a au moins une solution.
+    En effet, par la proposition <xref ref="prop-transfolinprop"/>, toute équation homogène a toujours comme solution le vecteur nul <m>\vec{0}</m>.
+    Cependant, l'argument qu'on peut obtenir une infinité de solutions à partir de cette dernière en la multipliant par un scalaire oublie le fait que 
+    lorsqu'on multiplie le vecteur nul par un scalaire, il demeure le vecteur nul.
+    Bref, rien ne montre dans cette &#x00AB; démonstration &#x00BB; que l'équation a d'autres solutions que la solution triviale <m>\vec{0}</m>.</p></solution></exercise>
     <exercise xml:id="exo-imgalg">
     <introduction><p>Pour chaque matrice ci-dessous, déterminer l'image de la transformation associée.</p></introduction>
     <task><statement><p><m>\left(\begin{array}{rrr}
 -15 &amp; 12 &amp; -5 \\
 -15 &amp; 10 &amp; -5 \\
 9 &amp; -2 &amp; 3
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement>
+<answer><p><me>\mathcal{P}:\vecddd{x}{y}{z}=r\vecddd{1}{0}{2}+s\vecddd{0}{1}{-\frac{13}{5}} \text{ avec } r,s\in\R</me></p></answer>
+<solution><p>On s'inspire de l'exemple <xref ref="ex-imgalg"/> pour trouver l'image de cette transformation.
+On doit échelonner la matrice augmentée <m>(A|\vec{b})</m> et interpréter la partie de droite.
+<md>
+<mrow>\left(\begin{array}{rrr|r} -15 &amp; 12 &amp; -5&amp; b_1\\
+                                 -15 &amp; 10 &amp; -5&amp; b_2\\
+                                 9 &amp; -2 &amp; 3&amp; b_3
+                                 \end{array}\right)&amp;\matsimile{1}{2}\left(\begin{array}{rrr|r} 
+                                 -15 &amp; 10 &amp; -5&amp; b_2\\
+                                 -15 &amp; 12 &amp; -5&amp; b_1\\
+                                 9 &amp; -2 &amp; 3&amp; b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimils{1}{-\frac{1}{5}}\left(\begin{array}{rrr|r} 
+                                 3 &amp; -2 &amp; 1&amp; -\frac{1}{5}b_2\\
+                                 -15 &amp; 12 &amp; -5&amp; b_1\\
+                                 9 &amp; -2 &amp; 3&amp; b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\stackrel{5L_1+L_2\rightarrow L_2}{\stackrel{-3L_1+L_3\rightarrow L_3}{\sim}}\left(\begin{array}{rrr|r} 
+                                 3 &amp; -2 &amp; 1&amp; -\frac{1}{5}b_2\\
+                                 0 &amp; 2 &amp; 0&amp; b_1-b_2\\
+                                 0 &amp; 4 &amp; 0&amp; \frac{3}{5}b_2+b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\stackrel{L_2+L_1\rightarrow L_1}{\stackrel{-2L_2+L_3\rightarrow L_3}{\sim}}\left(\begin{array}{rrr|r} 
+                                 3 &amp; 0 &amp; 1&amp; b_1-\frac{6}{5}b_2\\
+                                 0 &amp; 2 &amp; 0&amp; b_1-b_2\\
+                                 0 &amp; 0 &amp; 0&amp; -2b_1+\frac{13}{5}b_2+b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\stackrel{\frac{1}{3}L_1\rightarrow L_1}{\stackrel{\frac{1}{2}L_2\rightarrow L_2}{\sim}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 0 &amp; \frac{1}{3}&amp; \frac{1}{3}b_1-\frac{2}{5}b_2\\
+                                 0 &amp; 1 &amp; 0&amp; \frac{1}{2}b_1-\frac{1}{2}b_2\\
+                                 0 &amp; 0 &amp; 0&amp; -2b_1+\frac{13}{5}b_2+b_3
+                                 \end{array}\right)</mrow>
+</md>
+La seule condition pour qu'on ait une solution est donnée par la dernière ligne.
+Il faut que <m>-2b_1+\frac{13}{5}b_2+b_3=0</m>, sinon il n'y aura aucune solution.
+On reconnait l'équation normale d'un plan dans <m>\R^3</m>. 
+On isole <m>b_3</m> et on remplace dans le vecteur <m>\vec{b}</m> pour trouver l'équation vectorielle.
+<me>\vec{b}=\vecddd{b_1}{b_2}{b_3}=\vecddd{b_1}{b_2}{2b_1-\frac{13}{5}b_2}=b_1\vecddd{1}{0}{2}+b_2\vecddd{0}{1}{-\frac{13}{5}}</me>
+L'image est donc le plan d'équation:
+<me>\mathcal{P}:\vecddd{x}{y}{z}=r\vecddd{1}{0}{2}+s\vecddd{0}{1}{-\frac{13}{5}} \text{ avec } r,s\in\R</me>
+</p></solution>
+</task>
 <task><statement><p><m>\left(\begin{array}{rrr}
 -1 &amp; -2 &amp; -1 \\
 2 &amp; 4 &amp; 2 \\
 -4 &amp; 2 &amp; -2
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement>
+<answer><p><me>\vec{b}\in\mathcal{P}:\vecddd{x}{y}{z}=r\vecddd{1}{-2}{0}+s\vecddd{0}{0}{1} \text{ avec } r,s\in\R</me></p></answer>
+<solution><p>On s'inspire de l'exemple <xref ref="ex-imgalg"/> pour trouver l'image de cette transformation.
+On doit échelonner la matrice augmentée <m>(A|\vec{b})</m> et interpréter la partie de droite.
+<md>
+<mrow>\left(\begin{array}{rrr|r} -1 &amp; -2 &amp; -1&amp; b_1\\
+                                 2 &amp; 4 &amp; 2&amp; b_2\\
+                                 -4 &amp; 2 &amp; -2&amp; b_3
+                                 \end{array}\right)&amp;\matsimils{1}{-}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 2 &amp; 1&amp; -b_1\\
+                                 2 &amp; 4 &amp; 2&amp; b_2\\
+                                 -4 &amp; 2 &amp; -2&amp; b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\stackrel{-2L_1+L_2\rightarrow L_2}{\stackrel{4L_1+L_3\rightarrow L_3}{\sim}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 2 &amp; 1&amp; -b_1\\
+                                 0 &amp; 0 &amp; 0&amp; 2b_1+b_2\\
+                                 0 &amp; 10 &amp; 2&amp; -4b_1+b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimile{2}{3}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 2 &amp; 1&amp; -b_1\\
+                                 0 &amp; 10 &amp; 2&amp; -4b_1+b_3\\
+                                 0 &amp; 0 &amp; 0&amp; 2b_1+b_2
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimils{2}{\frac{1}{10}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 2 &amp; 1&amp; -b_1\\
+                                 0 &amp; 1 &amp; \frac{1}{5}&amp; -\frac{2}{5}b_1+\frac{1}{10}b_3\\
+                                 0 &amp; 0 &amp; 0&amp; 2b_1+b_2
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{-2}{1}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 0 &amp; \frac{3}{5}&amp; -\frac{1}{5}b_1-\frac{1}{5}b_3\\
+                                 0 &amp; 1 &amp; \frac{1}{5}&amp; -\frac{2}{5}b_1+\frac{1}{10}b_3\\
+                                 0 &amp; 0 &amp; 0&amp; 2b_1+b_2
+                                 \end{array}\right)</mrow>
+</md>
+La seule condition pour qu'on ait une solution est donnée par la dernière ligne.
+Il faut que <m>2b_1+b_2=0</m>, sinon il n'y aura aucune solution.
+On reconnait l'équation normale d'un plan dans <m>\R^3</m>. 
+On isole <m>b_2</m> et on remplace dans le vecteur <m>\vec{b}</m> pour trouver l'équation vectorielle.
+<me>\vec{b}=\vecddd{b_1}{b_2}{b_3}=\vecddd{b_1}{-2b_1}{b_3}=b_1\vecddd{1}{-2}{0}+b_3\vecddd{0}{0}{1}</me>
+L'image est donc le plan d'équation:
+<me>\vec{b}\in\mathcal{P}:\vecddd{x}{y}{z}=r\vecddd{1}{-2}{0}+s\vecddd{0}{0}{1} \text{ avec } r,s\in\R</me>
+</p></solution>
+</task>
 <task><statement><p><m>\left(\begin{array}{rrr}
-4 &amp; 0 &amp; 8 \\
--8 &amp; -18 &amp; 13 \\
-9 &amp; 3 &amp; -14
-\end{array}\right)</m></p></statement></task>
+4 &amp; 0 &amp; 4 \\
+-2 &amp; -2 &amp; 1 \\
+2 &amp; 2 &amp; 1
+\end{array}\right)</m></p></statement>
+<answer><p><me>\vec{b}\in\R^3</me></p></answer>
+<solution><p>On s'inspire de l'exemple <xref ref="ex-imgalg"/> pour trouver l'image de cette transformation.
+On doit échelonner la matrice augmentée <m>(A|\vec{b})</m> et interpréter la partie de droite.
+<md>
+<mrow>\left(\begin{array}{rrr|r} 4 &amp; 0 &amp; 4 amp; b_1\\
+                                 -2 &amp; -2 &amp; 1&amp; b_2\\
+                                 2 &amp; 2 &amp; 1&amp; b_3
+                                 \end{array}\right)&amp;\matsimils{1}{\frac{1}{4}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 0 &amp; 1 amp; \frac{1}{4}b_1\\
+                                 -2 &amp; -2 &amp; 1&amp; b_2\\
+                                 2 &amp; 2 &amp; 1&amp; b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\stackrel{2L_1+L_2\rightarrow L_2}{\stackrel{-2L_1+L_3\rightarrow L_3}{\sim}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 0 &amp; 1 amp; \frac{1}{4}b_1\\
+                                 0 &amp; -2 &amp; 3&amp; \frac{1}{2}b_1+b_2\\
+                                 0 &amp; 2 &amp; -1&amp; -\frac{1}{2}b_1+b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{}{3}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 0 &amp; 1 amp; \frac{1}{4}b_1\\
+                                 0 &amp; -2 &amp; 3&amp; \frac{1}{2}b_1+b_2\\
+                                 0 &amp; 0 &amp; 2&amp; b_2+b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimils{3}{\frac{1}{2}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 0 &amp; 1 amp; \frac{1}{4}b_1\\
+                                 0 &amp; -2 &amp; 3&amp; \frac{1}{2}b_1+b_2\\
+                                 0 &amp; 0 &amp; 1&amp; \frac{1}{2}b_2+\frac{1}{2}b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimils{2}{-\frac{1}{2}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 0 &amp; 1 amp; \frac{1}{4}b_1\\
+                                 0 &amp; 1 &amp; -\frac{3}{2}&amp; -\frac{1}{4}b_1-\frac{1}{2}b_2\\
+                                 0 &amp; 0 &amp; 1&amp; \frac{1}{2}b_2+\frac{1}{2}b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\stackrel{-L_3+L_1\rightarrow L_1}{\stackrel{\frac{3}{2}L_3+L_2\rightarrow L_2}{\sim}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 0 &amp; 0 amp; \frac{1}{4}b_1-\frac{1}{2}b_2-\frac{1}{2}b_3\\
+                                 0 &amp; 1 &amp; 0&amp; -\frac{1}{4}b_1+\frac{1}{4}b_2+\frac{3}{4}b_3\\
+                                 0 &amp; 0 &amp; 1&amp; \frac{1}{2}b_2+\frac{1}{2}b_3
+                                 \end{array}\right)</mrow>
+</md>
+Aucune condition pour qu'on ait une solution n'est donnée par la matrice augmentée échelonnée.
+L'image est donc l'ensemble de l'espace <m>\R^3</m>.
+</p></solution>
+</task>
 <task><statement><p><m>\left(\begin{array}{rrr}
 -1 &amp; -1 &amp; -2 \\
 -3 &amp; -3 &amp; -6 \\
 4 &amp; 4 &amp; 8
-\end{array}\right)</m></p></statement></task>
-<task><statement><p><m>\left(\begin{array}{rrr}
+\end{array}\right)</m></p></statement>
+<answer><p><me>\vec{b}\in\mathcal{D}:\vecddd{x}{y}{z}=r\vecddd{-\frac{1}{4}}{-\frac{3}{4}}{1} \text{ avec } r\in\R</me></p></answer>
+<solution><p>On s'inspire de l'exemple <xref ref="ex-imgalg"/> pour trouver l'image de cette transformation.
+On doit échelonner la matrice augmentée <m>(A|\vec{b})</m> et interpréter la partie de droite.
+<md>
+<mrow>\left(\begin{array}{rrr|r} -1 &amp; -1 &amp; -2&amp; b_1\\
+                                 -3 &amp; -3 &amp; -6 &amp; b_2\\
+                                 4 &amp; 4 &amp; 8&amp; b_3
+                                 \end{array}\right)&amp;\matsimils{1}{-}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 1 &amp; 2&amp; -b_1\\
+                                 -3 &amp; -3 &amp; -6 &amp; b_2\\
+                                 4 &amp; 4 &amp; 8&amp; b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\stackrel{3L_1+L_2\rightarrow L_2}{\stackrel{-4L_1+L_3\rightarrow L_3}{\sim}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 1 &amp; 2&amp; -b_1\\
+                                 0 &amp; 0 &amp; 0 &amp; -3b_1+b_2\\
+                                 0 &amp; 0 &amp; 0&amp; 4b_1+b_3
+                                 \end{array}\right)</mrow>
+</md>
+Deux conditions pour qu'on ait une solution sont données par les deuxième et troisième lignes.
+En effet, il faut que <m>-3b_1+b_2=0</m> et <m>4b_1+b_3=0</m>.
+On place ces deux équations dans une nouvelle matrice pour en trouver la solution.
+<md>
+<mrow>\left(\begin{array}{rrr|r} -3 &amp; 1 &amp; 0 &amp; 0\\
+                                 4 &amp; 0 &amp; 1&amp; 0
+                                 \end{array}\right)&amp;\matsimils{1}{-\frac{1}{3}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; -\frac{1}{3} &amp; 0 &amp; 0\\
+                                 4 &amp; 0 &amp; 1&amp; 0
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{1}{-4}{2}\left(\begin{array}{rrr|r} 
+                                 1 &amp; -\frac{1}{3} &amp; 0 &amp; 0\\
+                                 0 &amp; \frac{4}{3} &amp; 1&amp; 0
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimils{2}{\frac{3}{4}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; -\frac{1}{3} &amp; 0 &amp; 0\\
+                                 0 &amp; 1 &amp; \frac{3}{4}&amp; 0
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{\frac{1}{3}}{1}\left(\begin{array}{rrr|r} 
+                                 1 &amp; 0 &amp; \frac{1}{4} &amp; 0\\
+                                 0 &amp; 1 &amp; \frac{3}{4}&amp; 0
+                                 \end{array}\right)</mrow>
+</md>
+La solution à ce système est:
+<me>\vecddd{b_1}{b_2}{b_3}=b_3\vecddd{-\frac{1}{4}}{-\frac{3}{4}}{1}</me>.
+On reconnait l'équation d'une droite.
+On donne son équation de façon plus standard.
+<me>\vec{b}\in\mathcal{D}:\vecddd{x}{y}{z}=r\vecddd{-\frac{1}{4}}{-\frac{3}{4}}{1} \text{ avec } r\in\R</me>
+</p></solution></task>
+<task>
+<statement><p><m>\left(\begin{array}{rrr}
 -1 &amp; 1 &amp; -7 \\
 1 &amp; -1 &amp; 2 \\
 -1 &amp; 1 &amp; -7
-\end{array}\right)</m></p></statement></task>
-<task><statement><p><m>\left(\begin{array}{rrr}
-4 &amp; 6 &amp; -20 \\
--1 &amp; 2 &amp; 1 \\
-2 &amp; 1 &amp; 0
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement>
+<answer><p><me>\vec{b}\in\mathcal{P}:\vecddd{x}{y}{z}=r\vecddd{1}{0}{1}+s\vecddd{0}{1}{0} \text{ avec } r,s\in\R</me></p></answer>
+<solution><p>On s'inspire de l'exemple <xref ref="ex-imgalg"/> pour trouver l'image de cette transformation.
+On doit échelonner la matrice augmentée <m>(A|\vec{b})</m> et interpréter la partie de droite.
+<md>
+<mrow>\left(\begin{array}{rrr|r} -1 &amp; 1 &amp; -7&amp; b_1\\
+                                 1 &amp; -1 &amp; 2&amp; b_2\\
+                                 -1 &amp; 1 &amp; -7&amp; b_3
+                                 \end{array}\right)&amp;\matsimils{1}{-}\left(\begin{array}{rrr|r} 
+                                 1 &amp; -1 &amp; 7&amp; -b_1\\
+                                 1 &amp; -1 &amp; 2&amp; b_2\\
+                                 -1 &amp; 1 &amp; -7&amp; b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\stackrel{-L_1+L_2\rightarrow L_2}{\stackrel{L_1+L_3\rightarrow L_3}{\sim}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; -1 &amp; 7&amp; -b_1\\
+                                 0 &amp; 0 &amp; -5&amp; b_1+b_2\\
+                                 0 &amp; 0 &amp; 0&amp; -b_1+b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimils{2}{-\frac{1}{5}}\left(\begin{array}{rrr|r} 
+                                 1 &amp; -1 &amp; 7&amp; -b_1\\
+                                 0 &amp; 0 &amp; 1&amp; -\frac{1}{5}b_1-\frac{1}{5}b_2\\
+                                 0 &amp; 0 &amp; 0&amp; -b_1+b_3
+                                 \end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{-7}{1}\left(\begin{array}{rrr|r} 
+                                 1 &amp; -1 &amp; 0&amp; \frac{2}{5}b_1+\frac{7}{5}b_2\\
+                                 0 &amp; 0 &amp; 1&amp; -\frac{1}{5}b_1-\frac{1}{5}b_2\\
+                                 0 &amp; 0 &amp; 0&amp; -b_1+b_3
+                                 \end{array}\right)</mrow>
+</md>
+La seule condition pour qu'on ait une solution est donnée par la dernière ligne.
+Il faut que <m>-b_1+b_3=0</m>, sinon il n'y aura aucune solution.
+On reconnait l'équation normale d'un plan dans <m>\R^3</m>. 
+On isole <m>b_3</m> et on remplace dans le vecteur <m>\vec{b}</m> pour trouver l'équation vectorielle.
+<me>\vec{b}=\vecddd{b_1}{b_2}{b_3}=\vecddd{b_1}{b_2}{b_1}=b_1\vecddd{1}{0}{1}+b_2\vecddd{0}{1}{0}</me>
+L'image est donc le plan d'équation:
+<me>\vec{b}\in\mathcal{P}:\vecddd{x}{y}{z}=r\vecddd{1}{0}{1}+s\vecddd{0}{1}{0} \text{ avec } r,s\in\R</me>
+</p></solution>
+</task>
     </exercise>
     <exercisegroup>
     <title>Exercices Sage</title>
