@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-veclabos">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Activités et laboratoires </title>
+    <introduction xml:id= "intro-veclabos">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p>
+    </introduction>
+    <project>
+    <title>De l'art géométrique</title>
+    <introduction>
+    <p>On a vu à l'exemple <xref ref="sageex-deftransfo"/> qu'on pouvait appliquer une transformation  à une liste de points. Dans ce projet, on souhaite créer une oeuvre créative à l'aide de transformation linéaire.
+    Afin de bien comprendre, on divise le projet en deux étapes.</p>
+    </introduction>
+    <task>
+    <introduction>
+    <p>Le but de cette étape est de reproduire la figure ci-dessous à partir d'une liste de points initiaux.</p>
+    <figure xml:id="fig-laboetoile">
+    <caption>Une belle étoile</caption>
+    <image xml:id="img-laboetoile">
+    <sageplot>
+####On crée les points
+P1=vector([0,1])
+P2=vector([0.22,0.31])
+P3=vector([0.95,0.31])
+P4=vector([0.36,-0.12])
+P5=vector([0.59,-0.81])
+P6=vector([0,-0.38])
+####On crée la liste des points
+Listepoints=[P1,P2,P3,P4,P5,P6]
+####On trace le polygone
+etoile=polygon(Listepoints, color="gold",edgecolor="black")
+####On fait la réflexion des points par rapport à l'axe des y
+Sy=column_matrix([[-1,0],[0,1]])
+ListepointsSy=[Sy*P for P in Listepoints]
+etoile+=polygon(ListepointsSy, color="gold",edgecolor="black")
+####On fait une rotation des points initiaux de 180 degrés
+Rpi=column_matrix([[-1,0],[0,-1]])
+ListepointsRpi=[Rpi*P for P in Listepoints]
+etoile+=polygon(ListepointsRpi, color="gold",edgecolor="black")
+####On fait une réflexion des points qui ont été obtenus par la rotation
+ListepointsSyRpi=[Sy*P for P in ListepointsRpi]
+etoile+=polygon(ListepointsSyRpi, color="gold",edgecolor="black")
+etoile   
+    </sageplot>
+    </image>
+    </figure>
+    </introduction>
+    <task>
+    <statement><p>La commande <c>polygon</c> permet de tracer un polygone à partir d'une liste de points. L'étoile de la figure <xref ref="fig-laboetoile"/> a été obtenue en utilisant également les options <c>color="gold"</c> et <c>edgecolor="black"</c>.
+    À partir de la liste de points suivants et d'une réflexion selon l'axe des <m>y</m>, créer la seconde moitié de l'étoile en arrière-plan (On peut utiliser la commande <c>Listetransformees=[T*P for P in Listepoints]</c> pour obtenir l'image
+    par la transformation <m>T</m>).</p>
+    <sage>
+    <input>
+####On crée les points
+P1=vector([0,1])
+P2=vector([0.22,0.31])
+P3=vector([0.95,0.31])
+P4=vector([0.36,-0.12])
+P5=vector([0.59,-0.81])
+P6=vector([0,-0.38])
+####On crée la liste des points
+Listepoints=[P1,P2,P3,P4,P5,P6]
+####On trace le polygone
+etoile=polygon(Listepoints, color="gold",edgecolor="black")
+etoile
+#########################################################################################
+#Compléter pour avoir la réflexion des points dans Listepoints par rapport à l'axe des y.
+#########################################################################################
+    </input>
+    </sage>
+    </statement>
+    </task>
+    <task xml:id="projet-partieavantplan"><statement>
+    <p>Pour créer la partie en avant-plan de l'étoile, on procède en deux étapes:
+    <ol>
+    <li><p>Dans un premier temps, on applique à la liste des points initiaux une rotation de <m>180^\circ</m>.</p></li>
+    <li><p>Pour l'autre partie, on applique la réflexion selon l'axe des <m>y</m> aux points après la réflexion.</p></li>
+    </ol>
+    </p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement></task>
+    <task><statement><p>En général, la composition d'une réflexion et d'une rotation n'est pas commutative, comme le montre l'exemple <xref ref="sageex-propprodmat"/>. Toutefois, dans ce cas-ci, 
+    la rotation et la réflexion le sont. Démontrer avec Sage que c'est bien le cas et utiliser ce fait pour obtenir la partie en avant-plan d'une autre manière que celle de l'étape <xref ref="projet-partieavantplan"/>.</p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement></task>
+    </task>
+    <task>
+    <statement>
+    <p>À partir d'une liste de points quelconque, créer un objet artistique. Les restrictions sont minimes, mais on demande au minimum:
+    <ul>
+    <li><p>Au moins un polygone créé à partir d'au moins huit points;</p></li>
+    <li><p>L'utilisation d'au moins deux transformations linéaires différentes.</p></li>
+    </ul>
+    </p>
+    <p>Pour le reste, utiliser couleurs et autres options au choix. La page d'aide de Sage sur les polygones peut servir de sources d'inspiration que ce soit pour des idées de figures ou d'options:  <url href="https://doc.sagemath.org/html/en/reference/plotting/sage/plot/polygon.html"/>.</p>
+    </statement>
+    </task>
+    </project>
+</section>
