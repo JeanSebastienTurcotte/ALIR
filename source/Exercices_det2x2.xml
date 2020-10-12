@@ -29,7 +29,7 @@
     </exercise>
     -->
     <exercise>
-    <introduction><p>Évaluer le déterminant <m>\det(\vec{u},\det(\vec{v}))</m> dans chacune des situations suivantes.</p></introduction>
+    <introduction><p>Évaluer le déterminant <m>\det(\vec{u},\vec{v})</m> dans chacune des situations suivantes.</p></introduction>
     <task>
     <statement><p>
     <figure>
@@ -43,6 +43,17 @@ plot(u)+plot(v,color="red")+text("$\\vec{u}$",(u[0]+0.25,u[1]-0.5),fontsize=30)+
     </image>
     </figure>
     </p></statement>
+    <answer>
+    <p><me>\det(\vec{u},\vec{v})=7</me></p>
+    </answer>
+    <solution>
+    <p>Il y a plusieurs façons de procéder et on peut toujours se servir des <xref ref="li-det2x2prop"> propriétés </xref> des déterminants pour calculer et pour vérifier notre réponse.
+    On choisit de procéder d'abord avec la <xref ref="li-det2x2formule"> formule </xref> où <m>\vec{u}=\vecd{a}{b}</m> et <m>\vec{v}=\vecd{c}{d}</m>.</p>
+    <p>On peut lire sur le graphique que <m>\vec{u}=\vecd{1}{2}</m> et <m>\vec{v}=\vecd{-2}{3}</m>.
+    <me>\det(\vec{u},\vec{v})=\begin{vmatrix}1&amp;-2 \\
+                                             2&amp;3\end{vmatrix}=1*3-2*(-2)=7</me>
+    Il est logique que cette valeur soit positive puisque le repère <m>\langle \vec{u},\vec{v}\rangle</m> est orienté positivement selon la définition <xref ref="def-orientationR2"/>.</p>
+    </solution>
     </task>
     <task>
     <statement><p>
@@ -57,6 +68,15 @@ plot(u)+plot(v,color="red")+text("$\\vec{u}$",(u[0]+0.25,u[1]-0.5),fontsize=30)+
     </image>
     </figure>
     </p></statement>
+    <answer>
+    <p><me>\det(\vec{u},\vec{v})=7</me></p>
+    </answer>
+    <solution>
+    <p>On peut lire sur le graphique que <m>\vec{u}=\vecd{5}{-1}</m> et <m>\vec{v}=\vecd{-3}{2}</m>.
+    <me>\det(\vec{u},\vec{v})=\begin{vmatrix}5&amp;-3 \\
+                                             -1&amp;2\end{vmatrix}=5*2-(-1)*(-3)=7</me>
+    Il est logique que cette valeur soit positive puisque le repère <m>\langle \vec{u},\vec{v}\rangle</m> est orienté positivement selon la définition <xref ref="def-orientationR2"/>.</p>
+    </solution>
     </task>
     <task>
     <statement><p>
@@ -71,6 +91,15 @@ plot(u)+plot(v,color="red")+text("$\\vec{u}$",(u[0]-0.25,u[1]-0.5),fontsize=30)+
     </image>
     </figure>
     </p></statement>
+    <answer>
+    <p><me>\det(\vec{u},\vec{v})=-23</me></p>
+    </answer>
+    <solution>
+    <p>On peut lire sur le graphique que <m>\vec{u}=\vecd{-2}{3}</m> et <m>\vec{v}=\vecd{7}{1}</m>.
+    <me>\det(\vec{u},\vec{v})=\begin{vmatrix}-2&amp;7 \\
+                                             3&amp;1\end{vmatrix}=(-2)*1-3*7=-23</me>
+    Il est logique que cette valeur soit négative puisque le repère <m>\langle \vec{u},\vec{v}\rangle</m> est orienté négativement selon la définition <xref ref="def-orientationR2"/>.</p>
+    </solution>
     </task>
     <task>
     <statement><p>
@@ -85,6 +114,16 @@ plot(u)+plot(v,color="red")+text("$\\vec{u}$",(u[0]-0.25,u[1]-0.5),fontsize=30)+
     </image>
     </figure>
     </p></statement>
+    <answer>
+    <p><me>\det(\vec{u},\vec{v})=0</me></p>
+    </answer>
+    <solution>
+    <p>On peut lire sur le graphique que <m>\vec{u}=\vecd{-1}{4}</m> et <m>\vec{v}=\vecd{1}{-4}=-\vec{u}</m>.
+    <me>\det(\vec{u},\vec{v})=\begin{vmatrix}-1&amp;1 \\
+                                             4&amp;-4\end{vmatrix}=(-1)*(-4)-4*1=0</me>
+    Il est logique que cette valeur soit nulle selon la propriété <xref ref="li-detcolmultautre2x2resum"/>. 
+    L'interprétation en termes de l'aire du parallélogramme est aussi logique puisqu'elle sera nulle, les deux vecteurs étant sur une même droite.</p>
+    </solution>
     </task>
     </exercise>
     <exercise><statement>
@@ -96,13 +135,19 @@ plot(u)+plot(v,color="red")+text("$\\vec{u}$",(u[0]-0.25,u[1]-0.5),fontsize=30)+
             setCoordSystem(-20, 20,-20,20,);
             showResetIcon(true);
           </slate>
-         <instructions><p><alert>Instruction pour la figure interactive:</alert> Entrer un nombre positif dans la boite si l'orientation du repère <m>\langle \vec{u},\vec{v}\rangle</m> est positive et un nombre négatif
-         si l'orienatation est négative. Un clic sur le bouton de validation vérifiera la réponse entrée, alors qu'un clic sur le bouton nouveau problème va générer une nouvelle version de l'exercice.</p></instructions>
+         <instructions><p><alert>Instructions pour la figure interactive:</alert> Entrer un nombre positif dans la boite si l'orientation du repère <m>\langle \vec{u},\vec{v}\rangle</m> est positive et un nombre négatif
+         si l'orientation est négative. Un clic sur le bouton de validation vérifiera la réponse entrée, alors qu'un clic sur le bouton nouveau problème va générer une nouvelle version de l'exercice.</p></instructions>
     </interactive>
 </figure>    
-    </statement></exercise>
+    </statement>
+    <solution><p>On conseille au lecteur de répéter l'exercice plusieurs fois avant de lire la solution pour arriver lui-même à bien discerner la différence entre un 
+    repère positif et un repère négatif. On peut s'aider de la définition <xref ref="def-orientationR2"/> et des exemples qui suivent.</p>
+    <p>Il faut essentiellement regarder le vecteur <m>\vec{u}</m> en bleu et se demander dans quel sens on doit le faire tourner pour l'amener sur le vecteur <m>\vec{v}</m> en rouge
+    en parcourant le plus petit angle entre les deux vecteurs.
+    Si on tourne dans le sens anti-horaire, l'orientation sera positive et si on tourne dans le sens horaire, l'orientation sera négative.</p></solution>
+    </exercise>
     <exercise xml:id="exo-aireparabc-ad">
-    <statement><p>Montrer que si l'orientation des vecteurs est renversé dans la figure <xref ref="fig-airepara"/>, alors l'aire du parallélogramme est <m>bc-ad</m>.</p></statement>
+    <statement><p>Montrer que si l'orientation des vecteurs est renversée dans la figure <xref ref="fig-airepara"/>, alors l'aire du parallélogramme est <m>bc-ad</m>.</p></statement>
     <hint>
     <figure xml:id="fig-aireparaneg">
     <caption>L'aire d'un parallélogramme</caption>
@@ -122,18 +167,188 @@ P
     </image>  
     </figure>
     </hint>
+    <solution><p>On utilise la figure <xref ref="fig-aireparaneg"/> de l'indice pour illustrer les calculs. 
+    On fait la démarche de la même façon que dans les notes.</p>
+    
+    <p>L'aire de ce parallélogramme peut se calculer ainsi:
+    <ol>
+    <li><p>On prend l'aire du grand rectangle de côtés <m>a+c</m> et <m>b+d</m>, ce qui donne <m>(a+c)(b+d)=ab+ad+cb+cd</m>.</p></li>
+    <li><p>On soustrait à cela l'aire des rectangles de côtés <m>a,d</m>, en jaunes sur la figure <xref ref="fig-aireparaneg"/>. 
+    Comme il y en a deux, on soustrait <m>2ad</m>.</p></li>
+    <li><p>On soustrait ensuite l'aire des triangles rectangles de côtés <m>c,d</m>, en verts sur la figure <xref ref="fig-aireparaneg"/>. 
+    Comme il y en a deux, on soustrait <m>cd</m>.</p></li>
+    <li><p>Finalement, on soustrait l'aire des triangles rectangles de côtés <m>a,b</m>, en rouge sur la figure <xref ref="fig-aireparaneg"/>. 
+    Comme il y en a deux, on soustrait <m>ab</m>.</p></li>
+    </ol>
+    </p>
+    <p>L'aire du parallélogramme est donc 
+    <me>
+    ab+ad+bc+cd-2ad-cd-ab=bc-ad
+    </me>.</p></solution>
     </exercise>
     <exercise>
     <statement>
-    <p>Pour chacun des transformation de l'exemple <xref ref="ex-mattransfor2"/>, calculer le déterminant. Calculer également le déterminant du cisaillement, défini à l'exercice <xref ref="exo-cisaillement"/>. Interpréter la réponse dans chacun des cas en lien avec la géométrie de la transformation.</p>
+    <p>Pour chacune des transformations de l'exemple <xref ref="ex-mattransfor2"/>, calculer le déterminant. 
+    Calculer également le déterminant du cisaillement, défini à l'exercice <xref ref="exo-cisaillement"/>. 
+    Interpréter la réponse dans chacun des cas en lien avec la géométrie de la transformation.</p>
     </statement>
+    <solution>
+<p>
+<me>\det(I)=\begin{vmatrix}
+1&amp;0\\
+0&amp;1
+\end{vmatrix}=1*1-0*0=1</me>
+La transformation identité laisse tout en place. 
+Le facteur de changement d'aire est donc égal à <m>1</m> puisque rien ne change.</p>
+</solution>
+<solution>
+<p>
+<me>\det(S_x)=\begin{vmatrix}
+1&amp;0\\
+0&amp;-1
+\end{vmatrix}=1*(-1)-0*0=-1</me>
+Dans une réflexion par rapport à l'axe des abscisses, l'aire de la figure transformée ne changera pas. 
+Cependant, son orientation sera inversée et donc il est logique que le facteur de changement d'aire soit de <m>1</m> mais négatif.</p>
+</solution>
+<solution>
+<p>
+<me>\det(R_{\frac{\pi}{2}})=\begin{vmatrix}
+0&amp;-1\\
+1&amp;0
+\end{vmatrix}=0*0-1*(-1)=1</me>
+Pour une rotation de <m>\frac{\pi}{2}</m> dans le sens antihoraire, il n'y a aucun changement à la figure transformée en terme d'aire ou d'orientation. 
+On ne fait que tourner la figure de <m>90^\circ</m>.
+</p>
+</solution>
+<solution>
+<p>
+<me>\det(Eh_r)=\begin{vmatrix}
+r&amp;0\\
+0&amp;1
+\end{vmatrix}=r*1-0*0=r</me>
+Un étirement horizontal de facteur <m>r</m> est une transformation linéaire qui étire horizontalement une figure. 
+Le facteur d'étirement détermine comment la figure sera étirée.
+Si il est plus grand que <m>1</m>, comme <m>2</m> par exemple, la figure sera deux fois plus large. Son aire va donc doubler.
+Si il est plus petit que <m>1</m>, comme <m>\frac{1}{2}</m> par exemple, la figure sera moins large de la moitié . Son aire diminuera de moitié.
+Dans tous les cas, le facteur de changement d'aire est donné par le facteur de l'étirement <m>r</m>.</p>
+<p>De même, un étirement vertical de facteur <m>r</m> devrait donner un facteur de changement d'aire égal à <m>r</m> suivant la même logique.
+Effectivement,
+<me>
+\det(Ev_r)=\begin{vmatrix}
+1&amp;0\\
+0&amp;r
+\end{vmatrix}=1*r-0*0=r
+</me>.
+La figure <xref ref="fig-det2x2"/> illustre comment un étirement transforme l'aire d'un carré.
+</p>
+</solution>
+<solution>
+<p>
+<me>\det(H_r)=\begin{vmatrix}
+r&amp;0\\
+0&amp;r
+\end{vmatrix}=r*r-0*0=r^2</me>
+L'homothétie de facteur <m>r</m> est une transformation représentant simultanément un étirement horizontal et un étirement vertical. 
+L'étirement horizontal occasionne un changement d'aire de facteur <m>r</m> et l'étirement vertical du même facteur <m>r</m>. 
+Si on voit l'homothétie comme la composition de ces deux transformations, il est logique que le facteur de changement d'aire global soit de <m>r*r=r^2</m>. 
+</p>
+</solution>
+<solution>
+<p>
+<me>\det(P)=\begin{vmatrix}
+0&amp;1\\
+1&amp;0
+\end{vmatrix}=0*0-1*1=-1</me>
+La permutation est une transformation linéaire qui change l'ordre des composantes d'un vecteur. 
+Il est logique que l'orientation soit inversée si on interchange les <m>x</m> et les <m>y</m> dans une figure puisqu'on l'obtiendra à l'envers.
+Cette transformation est en fait une réflexion selon l'axe <m>y=x</m> et on a déjà constaté que les réflexions ont une facteur de <m>-1</m>.
+C'est également une application directe de la propriété <xref ref="li-detp2x2resum"/> sur <m>\det(I)</m> calculé plus tôt.
+</p>
+</solution>
+<solution>
+<p>
+<md>
+<mrow>\det(\text{proj}_{\vec{w}})&amp;=\left|\frac{1}{\norm{\vec{w}}^2}\begin{pmatrix}
+w_1^2&amp; w_1w_2\\
+w_1w_2&amp; w_2^2
+\end{pmatrix}\right|</mrow>
+<mrow>&amp;=\begin{vmatrix}
+\frac{w_1^2}{\norm{\vec{w}}^2}&amp; \frac{w_1w_2}{\norm{\vec{w}}^2}\\
+\frac{w_1w_2}{\norm{\vec{w}}^2}&amp; \frac{w_2^2}{\norm{\vec{w}}^2}
+\end{vmatrix}</mrow>
+<mrow>&amp;=\frac{w_1^2}{\norm{\vec{w}}^2}*\frac{w_2^2}{\norm{\vec{w}}^2}-\frac{w_1w_2}{\norm{\vec{w}}^2}*\frac{w_1w_2}{\norm{\vec{w}}^2}</mrow>
+<mrow>&amp;=\frac{w_1^2w_2^2}{\norm{\vec{w}}^4}-\frac{w_1w_2w_1w_2}{\norm{\vec{w}}^4}</mrow>
+<mrow>&amp;=\frac{w_1^2w_2^2}{\norm{\vec{w}}^4}-\frac{w_1^2w_2^2}{\norm{\vec{w}}^4}</mrow>
+<mrow>&amp;=0</mrow>
+</md>
+La projection orthogonale sur un vecteur non nul <m>\vec{w}</m> est une transformation linéaire qui transforme une figure ou des vecteurs en les amenant sur une même droite.
+L'aire de la figure résultante sera donc toujours nulle.</p>
+<p>Remarquons qu'il aurait été possible d'utiliser la propriété <xref ref="li-detcolmultautre2x2resum"/> puisque les colonnes de la matrice de projection sont multiples l'une de l'autre.</p>
+<p>La figure <xref ref="fig-det2x2"/> illustre comment une projection produit toujours une figure d'aire nulle.</p>
+</solution>
+<solution><p>
+<me>\det(Ch_k)=\begin{vmatrix}1\amp k\\ 0 \amp 1  \end{vmatrix}=1*1-0*k=1</me>
+et
+<me>\det(Cv_k)=\begin{vmatrix}1\amp 0\\ k \amp 1  \end{vmatrix}=1*1-k*0=1</me>
+Un cisaillement vertical ou horizontal ne change pas l'aire de la figure, tel qu'illustré dans la figure <xref ref="fig-det2x2"/>.
+Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xref> de la <xref ref="def-determinant2x2"> définition </xref> du cisaillement.
+</p></solution>
     </exercise>
     <exercise>
+    <statement>
     <p>En prenant pour acquis qu'une rotation ne change pas l'aire d'une figure géométrique et que l'aire d'un parallélogramme est <m>\text{base}\times \text{hauteur}</m>, donner une preuve
-    alternative que l'aire d'un parallélogramme est <m>ad-bc</m>( lorsque les vecteurs sont orientés positivement) en ramenant le vecteur <m>\vec{u}</m> à l'origine.</p>
+    alternative que l'aire d'un parallélogramme est <m>ad-bc</m> (lorsque les vecteurs sont orientés positivement) en ramenant le vecteur <m>\vec{u}</m> sur l'axe des <m>x</m>.</p></statement>
+    <solution><p>
+    Soit deux vecteurs <m>\vec{u}=\vecd{a}{b}</m> et <m>\vec{v}=\vecd{c}{d}</m>. 
+    On veut démontrer que l'aire du parallélogramme engendré par <m>\vec{u}</m> et <m>\vec{v}</m> est <m>ad-bc</m>.
+    Si on voit le vecteur <m>\vec{u}</m> comme étant la base du parallélogramme, on peut faire une rotation de <m>-\theta_{\vec{u}}</m> pour que cette base soit sur l'axe des <m>x</m>.
+    Pour ce faire, on a besoin de la matrice de <xref ref="eq-rotr2"> rotation </xref> :
+    <me>R_{-\theta_{\vec{u}}}=\begin{pmatrix}
+ \cos(-\theta_{\vec{u}}) &amp; -\sin(-\theta_{\vec{u}})\\
+ \sin(-\theta_{\vec{u}}) &amp; \cos(-\theta_{\vec{u}})
+ \end{pmatrix}=\begin{pmatrix}
+ \cos(\theta_{\vec{u}}) &amp; \sin(\theta_{\vec{u}})\\
+ -\sin(\theta_{\vec{u}}) &amp; \cos(\theta_{\vec{u}})
+ \end{pmatrix}</me>.
+    On a utilisé les identités <m>\cos(-\theta)=\cos(\theta)</m> et <m>\sin(-\theta)=-\sin(\theta)</m>.
+    La longueur de <m>\vec{u}</m> est: <m>\norm{\vec{u}}=\sqrt{a^2+b^2}</m>.
+    Puisqu'on a besoin du sinus et du cosinus de l'angle <m>\theta_{\vec{u}}</m>, on les obtient des rapports trigonométriques du triangle rectangle où <m>a</m>
+    est le côté adjacent, <m>b</m> le côté opposé et <m>\sqrt{a^2+b^2}</m> l'hypoténuse. 
+    Ainsi, <me>\cos(\theta_{\vec{u}})=\frac{a}{\sqrt{a^2+b^2}}</me> et <me>\sin(\theta_{\vec{u}})=\frac{b}{\sqrt{a^2+b^2}}</me>.
+    La matrice devient donc:
+    <me>R_{-\theta_{\vec{u}}}=\begin{pmatrix}
+ \frac{a}{\sqrt{a^2+b^2}} &amp; \frac{b}{\sqrt{a^2+b^2}}\\
+ -\frac{b}{\sqrt{a^2+b^2}} &amp; \frac{a}{\sqrt{a^2+b^2}}
+ \end{pmatrix}</me>.
+    On multiplie le vecteur <m>\vec{v}=\vecd{c}{d}</m> par cette matrice pour obtenir le deuxième côté du parallélogramme une fois transformé avec la rotation.
+    <md>
+    <mrow>R_{-\theta_{\vec{u}}}\vec{v}&amp;=\begin{pmatrix}
+ \frac{a}{\sqrt{a^2+b^2}} &amp; \frac{b}{\sqrt{a^2+b^2}}\\
+ -\frac{b}{\sqrt{a^2+b^2}} &amp; \frac{a}{\sqrt{a^2+b^2}}
+ \end{pmatrix}\vecd{c}{d}</mrow>
+ <mrow>R_{-\theta_{\vec{u}}}\vec{v}&amp;=\begin{pmatrix}
+ \frac{a}{\sqrt{a^2+b^2}} &amp; \frac{b}{\sqrt{a^2+b^2}}\\
+ -\frac{b}{\sqrt{a^2+b^2}} &amp; \frac{a}{\sqrt{a^2+b^2}}
+ \end{pmatrix}\vecd{\frac{a}{\sqrt{a^2+b^2}}c+\frac{b}{\sqrt{a^2+b^2}}d}{-\frac{b}{\sqrt{a^2+b^2}}c+\frac{a}{\sqrt{a^2+b^2}}d}</mrow>
+    </md>
+    La hauteur du parallélogramme sera donnée par la composante en <m>y</m> de ce vecteur et la base par la longueur du vecteur <m>\vec{u}</m>.
+    Ainsi,
+    <me>\text{Aire}=b*h=\sqrt{a^2+b^2}*\left(-\frac{b}{\sqrt{a^2+b^2}}c+\frac{a}{\sqrt{a^2+b^2}}d\right)=-bc+ad=ad-bc</me>.
+    </p></solution>
     </exercise>
     <exercise>
     <statement><p>Démontrer géométriquement l'équation <xref ref="eq-detnormsin"/> pour calculer l'aire d'un parallélogramme.</p></statement>
+    <solution><p>
+    On utilise le fait que l'aire d'un parallélogramme est donnée par <m>\text{base}\times \text{hauteur}</m>.
+    Ici, la base est la longueur du vecteur <m>\vec{u}</m>.
+    La hauteur est le côté opposé à l'angle <m>\theta</m> d'un triangle formé par les deux vecteurs d'hypoténuse <m>\vec{v}</m> et de côté adjacent <m>\vec{v}_{\vec{u}}</m>.
+    Ainsi, puisque 
+    <me>\sin(\theta)=\frac{\text{opposé}}{\text{hypoténuse}}=\frac{\text{hauteur}}{\norm{\vec{v}}}</me>,
+    on a
+    <me>\text{hauteur}=\norm{\vec{v}}\sin(\theta)</me>
+    et finalement
+    <me>\text{Aire}=\text{base}\times \text{hauteur}=\norm{\vec{u}}\norm{\vec{v}}\sin(\theta)</me>.
+    </p></solution>
     </exercise>
     <exercise>
     <introduction>
@@ -143,42 +358,265 @@ P
     <statement>
     <p><m>\det(\vec{u},\vec{v})=\vec{u}_{\perp}\cdot \vec{v}</m>;</p>
     </statement>
+    <solution><p>On procède algébriquement à l'aide de la formule <xref ref="li-det2x2formule"/> en posant les vecteurs <m>\vec{u}=\vecd{a}{b}</m> et <m>\vec{v}=\vecd{c}{d}</m>.
+    On effectue le calcul à partir du membre de droite d'abord.
+    <md>
+    <mrow>\vec{u}_{\perp}\cdot \vec{v}&amp;=\vecd{a}{b}_{\perp}\cdot \vecd{c}{d}</mrow>
+    <mrow>&amp;=\vecd{-b}{a}\cdot \vecd{c}{d}</mrow>
+    <mrow>&amp;=(-b)*c+a*d</mrow>
+    <mrow>&amp;=-bc+ad</mrow>
+    <mrow>&amp;=ad-bc</mrow>
+    <mrow>&amp;=\begin{vmatrix}a&amp;c \\b&amp;d\end{vmatrix}</mrow>
+    <mrow>&amp;=\det(\vec{u},\vec{v})</mrow>
+    </md></p></solution>
     </task>
     <task>
     <statement>
     <p><m>\det(\vec{u},\vec{v})=-(\vec{u}\cdot \vec{v}_{\perp})</m>;</p>
     </statement>
+    <solution><p>On procède algébriquement à l'aide de la formule <xref ref="li-det2x2formule"/> en posant les vecteurs <m>\vec{u}=\vecd{a}{b}</m> et <m>\vec{v}=\vecd{c}{d}</m>.
+    On effectue le calcul à partir du membre de droite d'abord.
+    <md>
+    <mrow>-(\vec{u}\cdot \vec{v}_{\perp})&amp;=-\left(\vecd{a}{b}\cdot \vecd{c}{d}_{\perp}\right)</mrow>
+    <mrow>&amp;=-\left(\vecd{a}{b}\cdot \vecd{-d}{c}\right)</mrow>
+    <mrow>&amp;=-(a*(-d)+b*c)</mrow>
+    <mrow>&amp;=-(-ad+bc)</mrow>
+    <mrow>&amp;=ad-bc</mrow>
+    <mrow>&amp;=\begin{vmatrix}a&amp;c \\b&amp;d\end{vmatrix}</mrow>
+    <mrow>&amp;=\det(\vec{u},\vec{v})</mrow>
+    </md></p></solution>
     </task>
     </exercise>
-    <exercise xml:id="exo-vecparadet">
-    <statement><p>Trois points <m>A,B,C</m> de <m>\R^2</m> sont donnés. Quel serait un critère utilisant des déterminant pour savoir si les points sont alignés?</p></statement>
+    <exercise><statement><p>Comment savoir si deux vecteurs sont parallèles, à l'aide d'un déterminant?</p></statement>
+    <solution><p>Puisque le déterminant calcule l'aire du parallélogramme engendré par les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>,
+    il est clair que si le déterminant est nul, alors le parallélogramme est entièrement sur une ligne et les vecteurs sont donc parallèles.
+    Autrement dit, <m>\vec{u} \parallel \vec{v}</m> si <m>\det(\vec{u}, \vec{v})=0</m></p></solution>
     </exercise>
-    <exercise><statement><p>Comment savoir si deux vecteurs sont parallèles, à l'aide d'un déterminant?</p></statement></exercise>
+    <exercise xml:id="exo-vecparadet">
+    <statement><p>Trois points <m>A,B,C</m> de <m>\R^2</m> sont donnés. Quel serait un critère utilisant un déterminant pour savoir si les points sont alignés?</p></statement>
+    <solution><p>On considère les vecteurs <m>\vecl{AB}</m> et <m>\vecl{AC}</m> qui en général génèrent un parallélogramme de la même façon que les vecteurs 
+    <m>\vec{u}</m> et <m>\vec{v}</m> de la définition <xref ref="def-determinant2x2"/> du déterminant. 
+    Si les trois points sont alignés, alors le parallélogramme engendré par les vecteurs <m>\vecl{AB}</m> et <m>\vecl{AC}</m> sera d'aire nulle.</p>
+    <p>Bref, le critère est que les points <m>A,B,C</m> sont alignés si le déterminant des vecteurs est nul. Autrement dit, si 
+    <me>\det(\vecl{AB}, \vecl{AC})=0</me>.</p></solution>
+    </exercise>
     <exercise>
     <introduction><p>Dans cet exercice, on s'intéresse au produit vectoriel, donné par l'équation <xref ref="eq-prodvecdet2x2"/>.</p></introduction>
     <task>
     <statement><p>On fixe <m>\vec{v}=(1,2,3)</m>. Montrer que la transformation <m>T_\vec{v}(\vec{u})=\vec{u}\times\vec{v}</m> est linéaire et donner sa matrice.</p></statement>
+    <solution><p>
+    On commence par montrer que la transformation est linéaire et on calculera ensuite sa matrice.
+    On remarque que si l'on obtient sa matrice de transformation et qu'elle correspond effectivement à la transformation en termes de l'effet sur <m>(x,y,z)</m>, 
+    alors on n'aurait pas besoin de démontrer que la transformation est linéaire en vertu de la proposition <xref ref="prop-matsonttransfos"/>.
+    On le fait quand même pour le lecteur qui n'y aurait pas pensé.
+    On doit montrer que <m>T_\vec{v}</m> est linéaire en montrant que pour des vecteurs <m>\vec{u}=\vecddd{x}{y}{z}, \vec{u}'=\vecddd{x'}{y'}{z'}</m> et un scalaire <m>c\in\R</m>
+    quelconques, on a les deux propriétés de la définition <xref ref="def-transfolin"/>. 
+    Noter qu'on a décidé d'utiliser <m>\vec{u}'</m> au lieu de <m>\vec{v}</m> puisque ce dernier vecteur est déjà utilisé dans la transformation.
+    <md>
+    <mrow>T_\vec{v}(\vec{u}+\vec{u}')&amp;=(\vec{u}+\vec{u}')\times \vec{v}</mrow>
+    <mrow>&amp;=\left(\vecddd{x}{y}{z}+\vecddd{x'}{y'}{z'}\right)\times \vecddd{1}{2}{3}</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} y+y' &amp; 2 \\ z+z' &amp; 3\end{vmatrix},
+    -\begin{vmatrix} x+x' &amp; 1 \\ z+z' &amp; 3\end{vmatrix},
+    \begin{vmatrix} x+x' &amp; 1 \\ y+y' &amp; 2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} y &amp; 2 \\ z &amp; 3\end{vmatrix}+\begin{vmatrix} y' &amp; 2 \\ z' &amp; 3\end{vmatrix},
+    -\begin{vmatrix} x &amp; 1 \\ z &amp; 3\end{vmatrix}-\begin{vmatrix} x' &amp; 1 \\ z' &amp; 3\end{vmatrix},
+    \begin{vmatrix} x &amp; 1 \\ y &amp; 2\end{vmatrix}+\begin{vmatrix} x' &amp; 1 \\ y' &amp; 2\end{vmatrix}\right)
+    &amp; \text{ par } <xref ref="li-detadd2x2resum"/></mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} y &amp; 2 \\ z &amp; 3\end{vmatrix},
+    -\begin{vmatrix} x &amp; 1 \\ z &amp; 3\end{vmatrix},
+    \begin{vmatrix} x &amp; 1 \\ y &amp; 2\end{vmatrix}\right)+\left(\begin{vmatrix} y' &amp; 2 \\ z' &amp; 3\end{vmatrix},
+    -\begin{vmatrix} x' &amp; 1 \\ z' &amp; 3\end{vmatrix},
+    \begin{vmatrix} x' &amp; 1 \\ y' &amp; 2\end{vmatrix}\right)</mrow>
+    <mrow>&amp;\vecddd{x}{y}{z}\times \vecddd{1}{2}{3}+\vecddd{x'}{y'}{z'}\times \vecddd{1}{2}{3}</mrow>
+    <mrow>&amp;=\vec{u}\times\vec{v} + \vec{u}'\times\vec{v}</mrow>
+    <mrow>&amp;=T_\vec{v}(\vec{u})+T_\vec{v}(\vec{u}')</mrow>
+    </md>
+    <md>
+    <mrow>T_\vec{v}(c\vec{u})&amp;=(c\vec{u})\times \vec{v}</mrow>
+    <mrow>&amp;=\left(c\vecddd{x}{y}{z}\right)\times \vecddd{1}{2}{3}</mrow>
+    <mrow>&amp;=\vecddd{cx}{cy}{cz}\times \vecddd{1}{2}{3}</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} cy &amp; 2 \\ cz &amp; 3\end{vmatrix},
+    -\begin{vmatrix} cx &amp; 1 \\ cz &amp; 3\end{vmatrix},
+    \begin{vmatrix} cx &amp; 1 \\ cy &amp; 2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
+    <mrow>&amp;=\left(c\begin{vmatrix} y &amp; 2 \\ z &amp; 3\end{vmatrix},
+    -c\begin{vmatrix} x &amp; 1 \\ z &amp; 3\end{vmatrix},
+    c\begin{vmatrix} x &amp; 1 \\ y &amp; 2\end{vmatrix}\right)&amp; \text{ par } <xref ref="li-detr2x2resum"/></mrow>
+    <mrow>&amp;=c\left(\begin{vmatrix} y &amp; 2 \\ z &amp; 3\end{vmatrix},
+    -\begin{vmatrix} x &amp; 1 \\ z &amp; 3\end{vmatrix},
+    \begin{vmatrix} x &amp; 1 \\ y &amp; 2\end{vmatrix}\right)</mrow>
+    <mrow>&amp;=c\left(\vecddd{x}{y}{z}\times \vecddd{1}{2}{3}\right)</mrow>
+    <mrow>&amp;=c(\vec{u}\times\vec{v})</mrow>
+    <mrow>&amp;=cT_\vec{v}(\vec{u})</mrow>
+    </md>
+    On a démontré que la transformation est linéaire. 
+    Pour trouver sa matrice, il suffit de trouver l'effet de <m>T_\vec{v}</m> sur les vecteurs de base.
+    <md>
+    <mrow>T_\vec{v}\vecddd{1}{0}{0}&amp;=\vecddd{1}{0}{0} \times \vecddd{1}{2}{3}</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} 0 &amp; 2 \\ 0 &amp; 3\end{vmatrix},
+    -\begin{vmatrix} 1 &amp; 1 \\ 0 &amp; 3\end{vmatrix},
+    \begin{vmatrix} 1 &amp; 1 \\ 0 &amp; 2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
+    <mrow>&amp;=(0,-3,2)=\vecddd{0}{-3}{2}</mrow>
+    </md>
+    <md>
+    <mrow>T_\vec{v}\vecddd{0}{1}{0}&amp;=\vecddd{0}{1}{0} \times \vecddd{1}{2}{3}</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} 1 &amp; 2 \\ 0 &amp; 3\end{vmatrix},
+    -\begin{vmatrix} 0 &amp; 1 \\ 0 &amp; 3\end{vmatrix},
+    \begin{vmatrix} 0 &amp; 1 \\ 1 &amp; 2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
+    <mrow>&amp;=(3,0,-1)=\vecddd{3}{0}{-1}</mrow>
+    </md>
+    <md>
+    <mrow>T_\vec{v}\vecddd{0}{0}{1}&amp;=\vecddd{0}{0}{1} \times \vecddd{1}{2}{3}</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} 0 &amp; 2 \\ 1 &amp; 3\end{vmatrix},
+    -\begin{vmatrix} 0 &amp; 1 \\ 1 &amp; 3\end{vmatrix},
+    \begin{vmatrix} 0 &amp; 1 \\ 0 &amp; 2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
+    <mrow>&amp;=(-2,1,0)=\vecddd{-2}{1}{0}</mrow>
+    </md>
+    On les met en colonnes dans la matrice et on obtient donc:
+    <me>T_\vec{v}=\begin{pmatrix}
+    0 &amp; 3 &amp; -2 \\
+    -3 &amp; 0 &amp; 1 \\
+    2 &amp; -1 &amp; 0
+    \end{pmatrix}</me>
+    </p></solution>
     </task>
     <task>
     <statement><p>
     Refaire avec un vecteur <m>\vec{v}=(v_1,v_2,v_3)</m> quelconque.
     </p></statement>
+    <solution><p>
+    Attention, c'est exactement la même démarche que précédemment, mais avec des valeurs quelconques pour <m>\vec{v}</m>.
+    On commence par montrer que la transformation est linéaire et on calculera ensuite sa matrice.
+    On doit montrer que <m>T_\vec{v}</m> est linéaire en montrant que pour des vecteurs <m>\vec{u}=\vecddd{x}{y}{z}, \vec{u}'=\vecddd{x'}{y'}{z'}</m> et un scalaire <m>c\in\R</m>
+    quelconques, on a les deux propriétés de la définition <xref ref="def-transfolin"/>. 
+    Noter qu'on a décidé d'utiliser <m>\vec{u}'</m> au lieu de <m>\vec{v}</m> puisque ce dernier vecteur est déjà utilisé dans la transformation.
+    <md>
+    <mrow>T_\vec{v}(\vec{u}+\vec{u}')&amp;=(\vec{u}+\vec{u}')\times \vec{v}</mrow>
+    <mrow>&amp;=\left(\vecddd{x}{y}{z}+\vecddd{x'}{y'}{z'}\right)\times \vecddd{v_1}{v_2}{v_3}</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} y+y' &amp; v_2 \\ z+z' &amp; v_3\end{vmatrix},
+    -\begin{vmatrix} x+x' &amp; v_1 \\ z+z' &amp; v_3\end{vmatrix},
+    \begin{vmatrix} x+x' &amp; v_1 \\ y+y' &amp; v_2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} y &amp; v_2 \\ z &amp; 3\end{vmatrix}+\begin{vmatrix} y' &amp; v_2 \\ z' &amp; v_3\end{vmatrix},
+    -\begin{vmatrix} x &amp; v_1 \\ z &amp; v_3\end{vmatrix}-\begin{vmatrix} x' &amp; v_1 \\ z' &amp; v_3\end{vmatrix},
+    \begin{vmatrix} x &amp; v_1 \\ y &amp; v_2\end{vmatrix}+\begin{vmatrix} x' &amp; v_1 \\ y' &amp; v_2\end{vmatrix}\right)
+    &amp; \text{ par } <xref ref="li-detadd2x2resum"/></mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} y &amp; v_2 \\ z &amp; v_3\end{vmatrix},
+    -\begin{vmatrix} x &amp; v_1 \\ z &amp; v_3\end{vmatrix},
+    \begin{vmatrix} x &amp; v_1 \\ y &amp; v_2\end{vmatrix}\right)+\left(\begin{vmatrix} y' &amp; v_2 \\ z' &amp; v_3\end{vmatrix},
+    -\begin{vmatrix} x' &amp; v_1 \\ z' &amp; v_3\end{vmatrix},
+    \begin{vmatrix} x' &amp; v_1 \\ y' &amp; v_2\end{vmatrix}\right)</mrow>
+    <mrow>&amp;\vecddd{x}{y}{z}\times \vecddd{v_1}{v_2}{v_3}+\vecddd{x'}{y'}{z'}\times \vecddd{v_1}{v_2}{v_3}</mrow>
+    <mrow>&amp;=\vec{u}\times\vec{v} + \vec{u}'\times\vec{v}</mrow>
+    <mrow>&amp;=T_\vec{v}(\vec{u})+T_\vec{v}(\vec{u}')</mrow>
+    </md>
+    <md>
+    <mrow>T_\vec{v}(c\vec{u})&amp;=(c\vec{u})\times \vec{v}</mrow>
+    <mrow>&amp;=\left(c\vecddd{x}{y}{z}\right)\times \vecddd{v_1}{v_2}{v_3}</mrow>
+    <mrow>&amp;=\vecddd{cx}{cy}{cz}\times \vecddd{v_1}{v_2}{v_3}</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} cy &amp; v_2 \\ cz &amp; v_3\end{vmatrix},
+    -\begin{vmatrix} cx &amp; v_1 \\ cz &amp; v_3\end{vmatrix},
+    \begin{vmatrix} cx &amp; v_1 \\ cy &amp; v_2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
+    <mrow>&amp;=\left(c\begin{vmatrix} y &amp; v_2 \\ z &amp; v_3\end{vmatrix},
+    -c\begin{vmatrix} x &amp; v_1 \\ z &amp; v_3\end{vmatrix},
+    c\begin{vmatrix} x &amp; v_1 \\ y &amp; v_2\end{vmatrix}\right)&amp; \text{ par } <xref ref="li-detr2x2resum"/></mrow>
+    <mrow>&amp;=c\left(\begin{vmatrix} y &amp; v_2 \\ z &amp; v_3\end{vmatrix},
+    -\begin{vmatrix} x &amp; v_1 \\ z &amp; v_3\end{vmatrix},
+    \begin{vmatrix} x &amp; v_1 \\ y &amp; v_2\end{vmatrix}\right)</mrow>
+    <mrow>&amp;=c\left(\vecddd{x}{y}{z}\times \vecddd{v_1}{v_2}{v_3}\right)</mrow>
+    <mrow>&amp;=c(\vec{u}\times\vec{v})</mrow>
+    <mrow>&amp;=cT_\vec{v}(\vec{u})</mrow>
+    </md>
+    On a démontré que la transformation est linéaire. 
+    Pour trouver sa matrice, il suffit de trouver l'effet de <m>T_\vec{v}</m> sur les vecteurs de base.
+    <md>
+    <mrow>T_\vec{v}\vecddd{1}{0}{0}&amp;=\vecddd{1}{0}{0} \times \vecddd{v_1}{v_2}{v_3}</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} 0 &amp; v_2 \\ 0 &amp; v_3\end{vmatrix},
+    -\begin{vmatrix} 1 &amp; v_1 \\ 0 &amp; v_3\end{vmatrix},
+    \begin{vmatrix} 1 &amp; v_1 \\ 0 &amp; v_2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
+    <mrow>&amp;=(0,-v_3,v_2)=\vecddd{0}{-v_3}{v_2}</mrow>
+    </md>
+    <md>
+    <mrow>T_\vec{v}\vecddd{0}{1}{0}&amp;=\vecddd{0}{1}{0} \times \vecddd{v_1}{v_2}{v_3}</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} 1 &amp; v_2 \\ 0 &amp; v_3\end{vmatrix},
+    -\begin{vmatrix} 0 &amp; v_1 \\ 0 &amp; v_3\end{vmatrix},
+    \begin{vmatrix} 0 &amp; v_1 \\ 1 &amp; v_2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
+    <mrow>&amp;=(v_3,0,-v_1)=\vecddd{v_3}{0}{-v_1}</mrow>
+    </md>
+    <md>
+    <mrow>T_\vec{v}\vecddd{0}{0}{1}&amp;=\vecddd{0}{0}{1} \times \vecddd{v_1}{v_2}{v_3}</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} 0 &amp; v_2 \\ 1 &amp; v_3\end{vmatrix},
+    -\begin{vmatrix} 0 &amp; v_1 \\ 1 &amp; v_3\end{vmatrix},
+    \begin{vmatrix} 0 &amp; v_1 \\ 0 &amp; v_2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
+    <mrow>&amp;=(-v_2,v_1,0)=\vecddd{-v_2}{v_1}{0}</mrow>
+    </md>
+    On les met en colonnes dans la matrice et on obtient donc:
+    <me>T_\vec{v}=\begin{pmatrix}
+    0 &amp; v_3 &amp; -v_2 \\
+    -v_3 &amp; 0 &amp; v_1 \\
+    v_2 &amp; -v_1 &amp; 0
+    \end{pmatrix}</me>
+    </p></solution>   
     </task>
     </exercise>
     <exercise xml:id="exo-dettranspo2x2">
     <statement>
     <p>Montrer que <m>\det(A^T)=\det(A)</m> pour une matrice <m>2\times 2</m>, donnant ainsi une preuve à la proposition <xref ref="prop-dettranspo2x2"/>.</p>
     </statement>
+    <solution><p>Soit <m>A=\begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}</m>, une matrice <m>2\times 2</m> quelconque.
+    On montre l'énoncé en faisant le calcul du déterminant.
+    <md>
+    <mrow>\det(A^T)&amp;=\det \left(\begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}^T\right)</mrow>
+    <mrow>&amp;=\det \begin{pmatrix}a&amp;b \\c&amp;d\end{pmatrix} </mrow>
+    <mrow>&amp;=ad-cb &amp; \text{ par } <xref ref="li-det2x2formule"/></mrow>
+    <mrow>&amp;=ad-bc</mrow>
+    <mrow>&amp;=\det \begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}</mrow>
+    <mrow>&amp;=\det(A)</mrow>
+    </md></p></solution>
     </exercise>
     <exercise xml:id="exo-detkA2x2">
     <statement><p>Si <m>A</m> est une matrice <m>2\times 2</m>, utiliser les propriétés des déterminants pour calculer <m>\det(kA)</m>.</p></statement>
+    <answer><p><me>\det(kA)=k^2\det(A)</me></p></answer>
+    <solution><p>On veut utiliser la propriété <xref ref="li-detr2x2resum"/> qui permet de mettre en évidence une constante d'un déterminant mais une colonne à la fois.
+    On utilise donc le déterminant de la matrice <m>A</m> définit comme <m>\det(A)=\det(\vec{u},\vec{v})</m> où <m>\vec{u},\vec{v}\in \R^2</m>.
+    <md>
+    <mrow>\det(kA)&amp;=\det(k\vec{u},k\vec{v})</mrow>
+    <mrow>&amp;=k\det(\vec{u},k\vec{v})&amp; \text{ par } <xref ref="li-detr2x2resum"/></mrow>
+    <mrow>&amp;=k\big(k\det(\vec{u},\vec{v})\big)&amp; \text{ encore par } <xref ref="li-detr2x2resum"/></mrow>
+    <mrow>&amp;=k^2\det(\vec{u},\vec{v})</mrow>
+    <mrow>&amp;=k^2\det(A)</mrow>
+    </md></p></solution>
     </exercise>
     <exercise><statement>
     <p>
-    Soit <m>A</m> une matrice inversible. Utiliser la propriété <xref ref="li-detprod2x2resum"/> pour montrer que <m>\det(A^{-1})=\frac{1}{\det(A)}</m>, donnant par le fait même un preuve alternative à la proposition <xref ref="prop-detinv2x2"/>.
+    Soit <m>A</m> une matrice inversible. Utiliser la propriété <xref ref="li-detprod2x2resum"/> pour montrer que <m>\det(A^{-1})=\frac{1}{\det(A)}</m>, 
+    donnant par le fait même une preuve alternative à la proposition <xref ref="prop-detinv2x2"/>.
     </p>
-    </statement></exercise>
-    <exercise xml:id="exo-detref2x2"><statement><p>Montrer algébriquement que le déterminant d'une réflexion est égal à <m>-1</m>.</p></statement></exercise>
+    </statement>
+    <solution><p>
+    <md>
+    <mrow>&amp;\det(I)&amp;=1</mrow>
+    <mrow>\Leftrightarrow &amp;\det(AA^{-1})&amp;=1</mrow>
+    <mrow>\Leftrightarrow &amp;\det(A)\det(A^{-1})&amp;=1 &amp; \text{ par } <xref ref="li-detprod2x2resum"/></mrow>
+    <mrow>\Leftrightarrow &amp;\det(A^{-1})&amp;=\frac{1}{\det(A)} </mrow>
+    </md>
+    On peut faire la dernière étape car on sait que <m>\det(A)\neq 0</m> puisque <m>A</m> est inversible (exemple <xref ref="ex-matinverse2"/>).
+    </p></solution>
+    </exercise>
+    <exercise xml:id="exo-detref2x2"><statement><p>Montrer algébriquement que le déterminant d'une réflexion est égal à <m>-1</m>.</p></statement>
+    <solution><p>
+    Toutes les matrices de réflexion sont de la forme donnée par l'équation <xref ref="eq-refr2-2"/>.
+    On en calcule le déterminant.
+    <md>
+    <mrow>\det(S_{\theta})&amp;=\begin{vmatrix}
+    \cos(2\theta)&amp; \sin(2\theta)\\
+    \sin(2\theta) &amp; -\cos(2\theta)
+    \end{vmatrix}</mrow>
+    <mrow>&amp;=\cos(2\theta)*(-\cos(2\theta))-\sin(2\theta)*\sin(2\theta) &amp; \text{ par } <xref ref="li-det2x2formule"/></mrow>
+    <mrow>&amp;=-\cos^2(2\theta)-\sin^2(2\theta)</mrow>
+    <mrow>&amp;=-\big(\cos^2(2\theta)+\sin^2(2\theta)\big)</mrow>
+    <mrow>&amp;=-1 &amp; \text{ par l'identité trigonométrique } \cos^2(\theta)+\sin^2(\theta)=1</mrow>
+    </md>
+    </p></solution>
+    </exercise>
     <exercise>
     <introduction><p>Le triangle <m>ABC</m> ci-dessous a pour aire <m>1 \text{u}^2</m>. Calculer les déterminants suivants.</p>
     <figure xml:id="fig-exodettriangle">
@@ -194,21 +632,62 @@ P
     <statement>
     <p><m>\det(\vecl{AB},\vecl{AC})</m>;</p>
     </statement>
+    <answer><p><me>\det(\vecl{AB},\vecl{AC})=2</me></p></answer>
+    <solution><p>On sait que le déterminant donne l'aire du parallélogramme engendré par les deux vecteurs utilisés.
+    Pour un triangle, l'aire sera donnée par la moitié de la valeur du déterminant.
+    Il faut également tenir compte de l'orientation qu'on peut considérer séparément à la toute fin ou inclure dans le calcul, ce qu'on choisit de faire.
+    Ici, on sait par exemple que <m>\text{aire triangle}=\frac{1}{2}\det(\vecl{AB},\vecl{AC})</m>.
+    <me>\det(\vecl{AB},\vecl{AC})=2\times \text{aire triangle} =2*1=2</me>
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>\det(\vecl{AB},\vecl{BC})</m>;</p>
     </statement>
+    <answer><p><me>\det(\vecl{AB},\vecl{BC})=2</me></p></answer>
+    <solution><p>
+    <md>
+    <mrow>\det(\vecl{AB},\vecl{BC})&amp;=-\det(\vecl{BC},\vecl{AB}) &amp; \text{ par } <xref ref="li-detp2x2resum"/> </mrow>
+    <mrow>&amp;=-\det(\vecl{BC},-\vecl{BA}) </mrow>
+    <mrow>&amp;=\det(\vecl{BC},\vecl{BA}) &amp; \text{ par } <xref ref="li-detr2x2resum"/> </mrow>
+    <mrow>&amp;= 2\times \text{aire triangle}=2</mrow>
+    </md>
+    On constate que cela donne la même valeur et encore une fois positive.
+    On peut remarquer que l'orientation des vecteurs <m>\vecl{AB},\vecl{BC}</m> est positive si on les ramène au même point de départ 
+    et puisqu'ils forment deux côtés différents du triangle, il est logique que leur déterminant donne deux fois l'aire du triangle.
+    On aurait donc pu donner la réponse directement.
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>\det(\vecl{CA},\vecl{BC})</m>;</p>
     </statement>
+    <answer><p><me>\det(\vecl{CA},\vecl{BC})=-2</me></p></answer>
+    <solution><p>
+    <md>
+    <mrow>\det(\vecl{CA},\vecl{BC})&amp;=\det(\vecl{CA},-\vecl{CB}) </mrow>
+    <mrow>&amp;=-\det(\vecl{CA},\vecl{CB}) &amp; \text{ par } <xref ref="li-detr2x2resum"/> </mrow>
+    <mrow>&amp;= -2\times \text{aire triangle}=-2</mrow>
+    </md>
+    L'orientation des vecteurs <m>\vecl{CA},\vecl{BC}</m> est effectivement négative lorsqu'on les ramène au même point de départ.
+    </p></solution>
     </task>
     <task>
     <statement>
-    <p><m>\det(\vecl{5BA},\vecl{3CA})</m>.</p>
+    <p><m>\det(5\vecl{BA},3\vecl{CA})</m>.</p>
     </statement>
+    <answer><p><me>\det(5\vecl{BA},3\vecl{CA})=30</me></p></answer>
+    <solution><p>
+    <md>
+    <mrow>\det(5\vecl{BA},3\vecl{CA})&amp;=5\det(\vecl{BA},3\vecl{CA}) &amp; \text{ par } <xref ref="li-detr2x2resum"/> </mrow>
+    <mrow>&amp;=15\det(\vecl{BA},\vecl{CA}) &amp; \text{ par } <xref ref="li-detr2x2resum"/> </mrow>
+    <mrow>&amp;=15\det(-\vecl{AB},-\vecl{AC})  </mrow>
+    <mrow>&amp;=-15\det(\vecl{AB},-\vecl{AC}) &amp; \text{ par } <xref ref="li-detr2x2resum"/> </mrow>
+    <mrow>&amp;=15\det(\vecl{AB},\vecl{AC}) &amp; \text{ par } <xref ref="li-detr2x2resum"/> </mrow>
+    <mrow>&amp;= 15 * (2 \times \text{aire triangle})=30</mrow>
+    </md>
+    L'orientation des vecteurs <m>\vecl{CA},\vecl{BC}</m> est effectivement négative lorsqu'on les ramène au même point de départ.
+    </p></solution>
     </task>
     </exercise>
     <exercise>
@@ -218,51 +697,96 @@ P
     <p>Soit <m>\vec{u}=\vecd{3}{2}</m>.</p>
     </introduction>
     <task><statement>
-    <p>Quel est le lieu des points <m>P(x,y)</m> tels que
+    <p>Décrire le lieu des points <m>P(x,y)</m> tels que
     <me>
     \begin{vmatrix}
     3&amp; x\\ 2&amp; y
     \end{vmatrix}=0
     </me>.</p></statement>
+    <answer><p><me>P\in\mathcal{D}:\vecd{x}{y}=a\vecd{3}{2} \text{ avec } a\in\R</me></p></answer>
+    <solution><p>Puisque les déterminants sont définis en termes de vecteurs, on peut voir un point <m>P(x,y)</m> de ce lieu géométrique comme le vecteur <m>\vecl{OP}=(x,y)</m>.
+    Si le déterminant est nul, c'est que les vecteurs <m>\vec{u}</m> et <m>\vecl{OP}</m> sont parallèles, par la propriété <xref ref="li-detcolmultautre2x2resum"/>.
+    Ainsi, le lieu est l'ensemble des points sur la droite passant par l'origine parallèle à <m>\vec{u}</m>.
+    Autrement dit, l'ensemble des points sur la droite:
+    <me>P\in\mathcal{D}:\vecd{x}{y}=a\vecd{3}{2} \text{ avec } a\in\R</me></p></solution>
     </task>
     <task>
     <statement>
-    <p>Quel est le lieu des points <m>P(x,y)</m> tels que
+    <p>Décrire le lieu des points <m>P(x,y)</m> tels que
     <me>
     \begin{vmatrix}
     x&amp; 3\\ y&amp; 2
     \end{vmatrix}=0
     </me>.</p>
     </statement>
+    <answer><p><me>P\in\mathcal{D}:\vecd{x}{y}=a\vecd{3}{2} \text{ avec } a\in\R</me></p></answer>
+    <solution><p>Ce lieu sera le même que le précédent puisque les deux vecteurs doivent encore être parallèles.
+    Autrement dit, c'est l'ensemble des points sur la droite:
+    <me>P\in\mathcal{D}:\vecd{x}{y}=a\vecd{3}{2} \text{ avec } a\in\R</me></p></solution>
     </task>
     <task>
     <statement>
-    <p>Quel est le lieu des points <m>P(x,y)</m> tels que
+    <p>Décrire le lieu des points <m>P(x,y)</m> tels que
     <me>
     \begin{vmatrix}
     3&amp; x\\ 2&amp; y
     \end{vmatrix}=1
     </me>.</p>
     </statement>
+    <answer><p><me>P\in\mathcal{D}:\vecd{x}{y}=a\vecd{3}{2}+\vecd{-2}{-1} \text{ avec } a\in\R</me></p></answer>
+    <solution><p>Ce lieu est plus difficile à définir.
+    On va calculer le déterminant pour s'aider à comprendre ce que cette équation signifie.
+    <me>\begin{vmatrix}
+    3&amp; x\\ 2&amp; y
+    \end{vmatrix}=3y-2x=-2x+3y=1</me>
+    On reconnait tout de suite l'équation normale d'une droite.
+    En réalité, les deux questions précédentes donneraient la même équation mais égale à zéro (passant par l'origine).
+    Bref, on peut penser que ce déterminant représente la même droite, mais passant par un point de départ, donc translatée.
+    On choisit le point <m>(-2,-1)</m> qui correspond à des valeurs entières simples de <m>x,y</m> qui sont solution de l'équation normale.
+    Ce lieu est donc l'ensemble des points sur la droite:
+    <me>P\in\mathcal{D}:\vecd{x}{y}=a\vecd{3}{2}+\vecd{-2}{-1} \text{ avec } a\in\R</me></p></solution>
     </task>
     <task>
     <statement>
-    <p>Quel est le lieu des points <m>P(x,y)</m> tels que
+    <p>Décrire le lieu des points <m>P(x,y)</m> tels que
     <me>
     \begin{vmatrix}
     x&amp; 3\\ y&amp; 2
     \end{vmatrix}=1
     </me>.</p>
     </statement>
+    <answer><p><me>P\in\mathcal{D}:\vecd{x}{y}=a\vecd{3}{2}+\vecd{2}{1} \text{ avec } a\in\R</me></p></answer>
+    <solution><p>On va calculer le déterminant pour s'aider à comprendre ce que cette équation signifie.
+    <me>\begin{vmatrix}
+    x&amp; 3\\ y&amp; 2
+    \end{vmatrix}=2x-3y=1</me>
+    On reconnait tout de suite l'équation normale d'une droite.
+    Elle est presque identique à la précédente, mais le vecteur normal est de signe opposé.
+    Cela ne change pas la direction de la droite qui peut donc garder le même vecteur directeur. 
+    Par contre, le point de départ sera différent. 
+    On choisit le point <m>(2,1)</m> qui correspond à des valeurs entières simples de <m>x,y</m> qui sont solution de l'équation normale.
+    Ce lieu est donc l'ensemble des points sur la droite:
+    <me>P\in\mathcal{D}:\vecd{x}{y}=a\vecd{3}{2}+\vecd{2}{1} \text{ avec } a\in\R</me></p></solution>
     </task>
     </task>
     <task>
-    <statement><p>Soit <m>\vec{u}\in\R^2</m> un vecteur quelconque et <m>r\in \R</m>. Quel est le lieu des points <m>P(x,y)</m> tels que
+    <statement><p>Soit <m>\vec{u}=(u_1,u_2)\in\R^2</m> un vecteur quelconque et <m>r\in \R</m>. Décrire le lieu des points <m>P(x,y)</m> tels que
     <me>
     \begin{vmatrix}
     x&amp; u_1\\ y&amp; u_2
     \end{vmatrix}=r  
-    </me></p></statement>
+    </me>.</p></statement>
+    <answer><p><me>P\in\mathcal{D}:\vecd{x}{y}=a\vecd{u_1}{u_2}+\vecd{\frac{r}{u_2}}{0} \text{ avec } a\in\R</me></p></answer>
+    <solution><p>On utilise ce qu'on a appris dans les dernières questions pour obtenir l'équation de ce lieu géométrique qui est clairement une droite.
+    On sait que la droite est parallèle au vecteur <m>\vec{u}</m> et donc ce sera son vecteur directeur.
+    Elle passe par toutes sortes de points de départ.
+    Il suffit d'en trouver un qui satisfait l'équation normale donnée par la déterminant:
+    <me>\begin{vmatrix}
+    x&amp; u_1\\ y&amp; u_2
+    \end{vmatrix}=u_2x-u_1y=r  </me>.
+    Par exemple, on peut prendre le point <m>\vecd{\frac{r}{u_2}}{0}</m>.
+    Ce lieu est donc l'ensemble des points sur la droite:
+    <me>P\in\mathcal{D}:\vecd{x}{y}=a\vecd{u_1}{u_2}+\vecd{\frac{r}{u_2}}{0} \text{ avec } a\in\R</me></p></solution>
     </task>
     </exercise>
     <exercise>
@@ -280,7 +804,31 @@ P
     </interactive>
     </figure>
     </statement>
+    <hint><p>Définir les aires des triangles comme des déterminants de vecteurs partant tous du point <m>G</m>.</p></hint>
+    <solution><p>Comme suggéré dans l'indice, on écrit chaque aire comme un déterminant en fonction des vecteurs <m>\vecl{GA},\vecl{GB},\vecl{GC}</m>.
+    <me>\text{Aire triangle } ABG=\frac{1}{2}\det(\vecl{GA},\vecl{GB})</me>
+    <me>\text{Aire triangle } ACG=\frac{1}{2}\det(\vecl{GC},\vecl{GA})</me>
+    <me>\text{Aire triangle } BCG=\frac{1}{2}\det(\vecl{GB},\vecl{GC})</me>
+    On a choisit l'ordre des vecteurs pour que les déterminants soient tous positifs.
+    On remarque que puisque le facteur <m>\frac{1}{2}</m> est présent à chaque fois, on n'a qu'à montrer que ces trois déterminants sont égaux.
+    On utilisera l'équation du barycentre sous cette forme: <m>3\vecl{OG}=\vecl{OA}+\vecl{OB}+\vecl{OC}</m>
+    <md>
+    <mrow>\det(\vecl{GA},\vecl{GB})&amp;=-\det(\vecl{GB},\vecl{GA}) &amp; \text{ par } <xref ref="li-detp2x2resum"/></mrow>
+    <mrow>&amp;=-\det(\vecl{OB}-\vecl{OG},\vecl{GA}) &amp; \text{ par l'équation du barycentre} </mrow>
+    <mrow>&amp;=-\det(3\vecl{OG}-\vecl{OA}-\vecl{OC}-\vecl{OG},\vecl{GA})</mrow>
+    <mrow>&amp;=-\det(\vecl{OG}-\vecl{OA}+\vecl{OG}-\vecl{OC},\vecl{GA})</mrow>
+    <mrow>&amp;=-\det(\vecl{AG}+\vecl{CG},\vecl{GA})</mrow>
+    <mrow>&amp;=-\det(-\vecl{GA}-\vecl{GC},\vecl{GA})</mrow>
+    <mrow>&amp;=\det(\vecl{GA}+\vecl{GC},\vecl{GA})&amp; \text{ par } <xref ref="li-detr2x2resum"/></mrow>
+    <mrow>&amp;=\det(\vecl{GA},\vecl{GA})+\det(\vecl{GC},\vecl{GA})&amp; \text{ par } <xref ref="li-detadd2x2resum"/></mrow>
+    <mrow>&amp;=0+\det(\vecl{GC},\vecl{GA})&amp; \text{ par } <xref ref="li-detcolmultautre2x2resum"/></mrow>
+    <mrow>&amp;=\det(\vecl{GC},\vecl{GA})</mrow>
+    </md>
+    On peut faire la preuve que ce dernier déterminant est égal à <m>\det(\vecl{GB},\vecl{GC})</m> en suivant exactement les mêmes étapes.
+    </p></solution>
     </exercise>
+    
+    <!-- Je commente ce exercice pour la session A20.
     <exercise xml:id="exo-detlignesomme0">
     <introduction><p>Soit <m>A</m> une matrice <m>2\times 2</m> dont les éléments de chaque colonne somment à <m>0</m> et <m>B</m> une matrice <m>2\times 2</m> dont les éléments de chaque colonne somment à <m>1</m></p></introduction>
     <task>
@@ -288,7 +836,7 @@ P
     </task>
     <task><p>Montrer que <m>\det(B-I)=0</m>. Est-ce que cela signifie que <m>\det(B)=1</m>? Pourquoi?</p></task>
     <task><p>Si <m>C</m> est une matrice <m>2\times 2</m> telle que les éléments de chaque colonne somment à <m>r</m>, que vaut <m>\det(C-rI)</m>?</p></task>
-    </exercise>
+    </exercise>-->
     <exercise>
     <introduction>
     <p>Soit <m>A=\begin{pmatrix} -4&amp;12 \\ -8 &amp;4  \end{pmatrix}</m> et <m>B=\begin{pmatrix} 2&amp;1\\2&amp;-2 \end{pmatrix}</m>.</p>
@@ -301,17 +849,58 @@ P
     
     </input>
     </sage>
-    </statement></task>
-    <task><statement><p>Calculer le déterminant des matrices <m>A</m> et <m>B</m> ci-dessus.</p></statement></task>
+    </statement>
+    <solution><listing>
+        <caption>
+        Le code solution pour l'exercice
+        </caption>
+        <program language="sage">
+        <input>
+A=matrix([[-4,12],[-8,4]])
+B=matrix([[2,1],[2,-2]])
+AB=A*B
+moinsBA=-B*A
+show(AB)
+show(moinsBA)
+show(AB==moinsBA)
+        </input>
+        </program>
+        </listing></solution></task>
+    <task><statement><p>Calculer le déterminant des matrices <m>A</m> et <m>B</m> ci-dessus.</p></statement>
+    <answer><p><me>\det(A)=80 \text{ et } \det(B)=-6</me></p></answer>
+    <solution><listing>
+        <caption>
+        Le code solution pour l'exercice
+        </caption>
+        <program language="sage">
+        <input>
+A=matrix([[-4,12],[-8,4]])
+B=matrix([[2,1],[2,-2]])
+show(det(A))
+show(det(B))
+        </input>
+        </program>
+        </listing>
+        <p>On aurait aussi pu les calculer à la main rapidement.</p></solution></task>
     </task>
     <task><statement><p>Trouver l'erreur dans le raisonnement suivant.</p>
-    <p>Soit <m>A,B</m> deux matrice <m>2\times 2</m> telles que <m>AB=-BA</m>. En prenant les déterminant de chaque côté, on a
+    <p>Soit <m>A,B</m> deux matrices <m>2\times 2</m> telles que <m>AB=-BA</m>. En prenant les déterminants de chaque côté, on a
     <md>
-    <mrow>\det(AB)&amp;=\det(-AB)</mrow>
+    <mrow>\det(AB)&amp;=\det(-BA)</mrow>
+    <mrow>\det(A)\det(B)&amp;-\det(B)\det(A)</mrow>
     <mrow>\det(A)\det(B)&amp;-\det(A)\det(B)</mrow>
     <mrow>2\det(A)\det(B)&amp;=0</mrow>
     <mrow>\det(A)=0&amp;\text{ ou } \det(B)=0</mrow>
-    </md>.</p></statement></task>
+    </md>.</p></statement>
+    <solution><p>
+    L'erreur se trouve entre la première et la deuxième ligne.
+    Il est vrai que les deux déterminants initiaux doivent être égaux puisque les matrices sont égales.
+    Cependant, à la deuxième ligne, dans le membre de droite de l'équation, on a effectué une opération qu'on ne peut pas faire.
+    On a sorti le <em>moins</em> du déterminant. 
+    On ne peut pas faire cela car ce n'est pas une application de la propriété <xref ref="li-detr2x2resum"/> puisqu'on sortirait une constante de toutes les colonnes en même temps.
+    On a considéré cette question à l'exercice <xref ref="exo-detkA2x2"/> et on avait déterminé que <me>\det(kA)=k^2\det(A)</me>.
+    Ainsi, <me>\det(-BA)=(-1)^2\det(BA)=\det(BA)=\det(B)\det(A)</me> et l'argument ne fonctionne plus.
+    </p></solution></task>
     </exercise>
     <exercise>
     <statement><p>Les opérations élémentaires du type <m>rL_1+L_2\rightarrow L_2</m> et <m>sL_2+L_1\rightarrow L_1</m> ne change pas le déterminant selon la propriété <xref ref="li-detk"/>. Pourtant, à partir
@@ -326,41 +915,141 @@ P
 </md>.
     L'égalité n'est alors vraie que si <m>1-rs=1</m> et <m>rs-1=1</m>, ce qui est impossible. Où est le problème?
     </p></statement>
+    <solution><p>L'erreur se situe à la deuxième ligne de la preuve.
+    Tout ce qui est dit est vrai, mais on fait une erreur dans l'application de la propriété lorsqu'on l'applique essentiellement aux deux lignes en même temps.
+    En effet, on effectue l'opération <m>rL_1+L_2\rightarrow L_2</m>, ce qui donne la ligne <m>b+ra, d +rc</m>.
+    Ensuite, on effectue l'opération <m>sL_2+L_1\rightarrow L_1</m>, ce qui devrait donner la ligne <m>s(b+ra)+a, s(d +rc)+c </m> et non ce qu'on a obtenu. 
+    On refait le calcul du déterminant correctement ici en faisant ces deux opérations successivement plutôt que simultanément.
+    <md>
+    <mrow>ad-bc&amp;=\begin{vmatrix} a&amp; c\\ b&amp; d \end{vmatrix}</mrow>
+    <mrow>&amp;=\begin{vmatrix} a&amp; c\\ b+ra&amp; d +rc\end{vmatrix}</mrow>
+    <mrow>&amp;=\begin{vmatrix} s(b+ra)+a&amp; s(d +rc)+c\\ b+ra&amp; d +rc\end{vmatrix}</mrow>
+    <mrow>&amp;=\begin{vmatrix} a+sb+rsa&amp; c+sd+rsc\\ b+ra&amp; d +rc\end{vmatrix}</mrow>
+    <mrow>&amp;=(a+sb+rsa)(d+rc)-(b+ra)(c+sd+rsc)</mrow>
+    <mrow>&amp;=ad+sbd+rsad+arc+sbrc+r^2sac-(bc+rac+bsd+rasd+brsc+r^2sac)</mrow>
+    <mrow>&amp;=ad-bc</mrow>
+    </md>
+    </p></solution>
     </exercise>
-    <exercise><statement><p>Soit <m>A</m> une matrice telle qu'il existe <m>D=\begin{pmatrix}\lambda_1 &amp; 0\\ 0&amp; \lambda_2\end{pmatrix}</m> une matrice diagonale et <m>P</m> une matrice inversibles avec
+    <exercise><statement><p>Soit <m>A</m> une matrice telle qu'il existe <m>D=\begin{pmatrix}\lambda_1 &amp; 0\\ 0&amp; \lambda_2\end{pmatrix}</m> une matrice diagonale 
+    et <m>P</m> une matrice inversibles avec
     <me>
     A=PDP^{-1}
     </me>.</p>
-    <p>Calculer <m>\det(A)</m>.</p></statement></exercise>
+    <p>Calculer <m>\det(A)</m>.</p></statement>
+    <answer><p><me>\det(A)=\lambda_1\lambda_2</me></p></answer>
+    <solution><p>
+    <md>
+    <mrow>\det(A)&amp;=\det(PDP^{-1})</mrow>
+    <mrow>&amp;=\det(P)\det(D)\det(P^{-1}) &amp; \text{ par } <xref ref="li-detprod2x2resum"/> </mrow>
+    <mrow>&amp;=\det(P)\begin{vmatrix}\lambda_1 &amp; 0\\ 0&amp; \lambda_2\end{vmatrix}\det(P^{-1}) </mrow>
+    <mrow>&amp;=\det(P)\lambda_1\lambda_2\det(P^{-1}) </mrow>
+    <mrow>&amp;=\det(P)\lambda_1\lambda_2\frac{1}{\det(P)} &amp; \text{ par } <xref ref="li-detinv2x2resum"/>  </mrow>
+    <mrow>&amp;=\lambda_1\lambda_2\frac{\det(P)}{\det(P)} &amp; \text{ puisque le produit de nombres réels est commutatif }  </mrow>
+    <mrow>&amp;=\lambda_1\lambda_2  </mrow>
+    </md>
+    </p></solution>
+    </exercise>
     <exercise xml:id="exo-det2x2unpivot">
     <statement>
     <p>On considère la matrice <m>\matcold{x}{1}{x}{x}</m>. Pour quelle(s) valeurs de <m>x</m> est-ce que le déterminant de la matrice est nul?</p>
-    <p>Comparer avec les valeurs de <m>x</m> obtenues à l'exercice <xref ref="exo-det2x2unpivot"/>. Que conclure de cela?</p>
+    <p>Comparer avec les valeurs de <m>x</m> obtenues à l'exercice <xref ref="exo-mat2x2unpivot"/>. Que conclure de cela?</p>
     </statement>
+    <answer><p><m>x=0</m> et <m>x=1</m></p></answer>
+    <solution><p>
+    <me>\begin{vmatrix}x &amp; x \\ 1 &amp; x \end{vmatrix}=x*x-1*x=x^2-x=x(x-1)=0</me>
+    Le déterminant est donc nul si <m>x=0</m> ou si <m>x=1</m>.</p>
+    <p>En comparant avec l'exercice <xref ref="exo-mat2x2unpivot"/>, on remarque que ce sont les mêmes valeurs.
+    Il semble donc que pour cette matrice, avoir un déterminant nul correspond à avoir un seul pivot.</p></solution>
     </exercise>
     <exercise>
-    <statement><p>On considère le système d'équations linéaires <m>A\vec{x}=\vec{b}</m> où <m>A</m> est une matrice <m>2\times 2</m>. Si le système possède au moins une solution, quel est, en fonction du déterminant de <m>A</m>,
+    <statement><p>On considère le système d'équations linéaires <m>A\vec{x}=\vec{b}</m> où <m>A</m> est une matrice <m>2\times 2</m>. 
+    Si le système possède au moins une solution, quel est, en fonction du déterminant de <m>A</m>,
     ce qui caractérise le nombre de solutions? </p></statement>
+    <answer><p><me>\begin{cases}\text{solution unique si} &amp; \det(A)\neq 0 \\
+    \text{infinité de solutions si} &amp; \det(A) = 0\end{cases}</me></p></answer>
+    <solution><p>On affirme qu'il y a au moins une solution.
+    Ainsi, nos options sont qu'il y en a une seule ou bien une infinité.
+    D'abord, si la matrice <m>A</m> est inversible, on a <m>A\vec{x}=\vec{b} \Rightarrow \vec{x}=A^{-1}\vec{b}</m>, ce qui implique que la solution unique est obtenue par ce calcul.
+    Cela se produit lorsque le déterminant de la matrice <m>A</m> est non nul.
+    Autrement, si le déterminant est nul et que ce calcul est impossible (<m>A</m> non inversible), alors il y aura une infinité de solutions.
+    Bref, 
+    <me>\begin{cases}\text{solution unique si} &amp; \det(A)\neq 0 \\
+    \text{infinité de solutions si} &amp; \det(A) = 0\end{cases}</me></p></solution>
     </exercise>
     <exercise>
     <introduction>
     <p>Dans cet exercice, on revient sur l'équation normale d'un plan. En particulier, on a une manière simple de trouver un vecteur normal, en utilisant le produit vectoriel.</p>
-    <p>Déterminer une équation normal des plans suivants.</p>
+    <p>Déterminer une équation normale des plans suivants.</p>
     </introduction>
     <task>
     <statement>
     <p><m>\mathcal{P}_1: (x,y,z)=a(1,2,3)+b(4,5,6)+(-1,6,3)</m></p>
     </statement>
+    <answer><p><me>\mathcal{P}_1: x-2y+z=-10</me></p></answer>
+    <solution><p>On calcule d'abord le vecteur normal avec l'<xref ref="eq-prodvecdet2x2">équation</xref> du produit vectoriel. 
+    En effet, puisque l'on veut un vecteur normal au plan, on obtiendra un tel vecteur en faisant le produit vectoriel des vecteurs directeurs.
+    <md>
+    <mrow>\vec{n}&amp;=\vec{u}\times\vec{v}</mrow>
+    <mrow>&amp;=(1,2,3)\times (4,5,6)</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} 2 &amp; 5 \\ 3 &amp; 6\end{vmatrix},-\begin{vmatrix} 1 &amp; 4 \\ 3 &amp; 6\end{vmatrix},\begin{vmatrix} 1 &amp; 4 \\ 2 &amp; 5\end{vmatrix}\right)</mrow>
+    <mrow>&amp;=(-3,6,-3)</mrow>
+    </md>
+    Afin de simplifier l'équation normale, on choisit un vecteur normal parallèle au résultat mais plus simple:
+    <m>\vec{n}_1=(1,-2,1)</m>.
+    L'équation est donc:
+    <me>x-2y+z=d</me>
+    On obtient <m>d</m> en remplaçant les valeurs des variables par le point connu du plan : <m>(-1,6,3)</m>.
+    <me>-1-2*6+3=-10</me>
+    Et donc,
+    <me>\mathcal{P}_1: x-2y+z=-10</me>
+    </p></solution>
     </task>
     <task>
     <statement>
-    <p><m>\mathcal{P}_1: (x,y,z)=a(1,2,3)+b(-1,6,3)+(4,5,6)</m></p>
+    <p><m>\mathcal{P}_2: (x,y,z)=a(1,2,3)+b(-1,6,3)+(4,5,6)</m></p>
     </statement>
+    <answer><p><me>\mathcal{P}_2: 6x+3y-4z=15</me></p></answer>
+    <solution><p>On calcule d'abord le vecteur normal avec l'<xref ref="eq-prodvecdet2x2">équation</xref> du produit vectoriel. 
+    En effet, puisque l'on veut un vecteur normal au plan, on obtiendra un tel vecteur en faisant le produit vectoriel des vecteurs directeurs.
+    <md>
+    <mrow>\vec{n}&amp;=\vec{u}\times\vec{v}</mrow>
+    <mrow>&amp;=(1,2,3)\times (-1,6,3)</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} 2 &amp; 6 \\ 3 &amp; 3\end{vmatrix},-\begin{vmatrix} 1 &amp; -1 \\ 3 &amp; 3\end{vmatrix},\begin{vmatrix} 1 &amp; -1 \\ 2 &amp; 6\end{vmatrix}\right)</mrow>
+    <mrow>&amp;=(-12,-6,8)</mrow>
+    </md>
+    Afin de simplifier l'équation normale, on choisit un vecteur normal parallèle au résultat mais plus simple:
+    <m>\vec{n}_2=(6,3,-4)</m>.
+    L'équation est donc:
+    <me>6x+3y-4z=d</me>
+    On obtient <m>d</m> en remplaçant les valeurs des variables par le point connu du plan : <m>(4,5,6)</m>.
+    <me>6*4+3*5-4*6=15</me>
+    Et donc,
+    <me>\mathcal{P}_2: 6x+3y-4z=15</me>
+    </p></solution>
     </task>
     <task>
     <statement>
-    <p><m>\mathcal{P}_1: (x,y,z)=a(-1,6,3)+b(4,5,6)+(1,2,3)</m></p>
+    <p><m>\mathcal{P}_3: (x,y,z)=a(-1,6,3)+b(4,5,6)+(1,2,3)</m></p>
     </statement>
+    <answer><p><me>\mathcal{P}_3: 21x+18y-29z=-30</me></p></answer>
+    <solution><p>On calcule d'abord le vecteur normal avec l'<xref ref="eq-prodvecdet2x2">équation</xref> du produit vectoriel. 
+    En effet, puisque l'on veut un vecteur normal au plan, on obtiendra un tel vecteur en faisant le produit vectoriel des vecteurs directeurs.
+    <md>
+    <mrow>\vec{n}&amp;=\vec{u}\times\vec{v}</mrow>
+    <mrow>&amp;=(-1,6,3)\times (4,5,6)</mrow>
+    <mrow>&amp;=\left(\begin{vmatrix} 6 &amp; 5 \\ 3 &amp; 6\end{vmatrix},-\begin{vmatrix} -1 &amp; 4 \\ 3 &amp; 6\end{vmatrix},\begin{vmatrix} -1 &amp; 4 \\ 6 &amp; 5\end{vmatrix}\right)</mrow>
+    <mrow>&amp;=(21,18,-29)</mrow>
+    </md>
+    On a donc un vecteur déjà au plus simple:
+    <m>\vec{n}_3=(21,18,-29)</m>.
+    L'équation est donc:
+    <me>21x+18y-29z=d</me>
+    On obtient <m>d</m> en remplaçant les valeurs des variables par le point connu du plan : <m>(1,2,3)</m>.
+    <me>21*1+18*2-29*3=-30</me>
+    Et donc,
+    <me>\mathcal{P}_3: 21x+18y-29z=-30</me>
+    </p></solution>
     </task>
     </exercise>
     <exercise xml:id="exo-cramer2x2">
@@ -375,39 +1064,95 @@ P
     </introduction>
     <task>
     <introduction>
-    <p>Soit <m>A=\\matcold{a}{b}{c}{d}</m> la matrice du système d'équations linéaires. On considère la matrice <m>X</m> identité <m>2\times 2</m> avec la première colonne remplacée par <m>\vecd{x}{y}</m>:
+    <p>Soit <m>A=\matcold{a}{b}{c}{d}</m> la matrice du système d'équations linéaires. 
+    On considère la matrice <m>X</m> identité <m>2\times 2</m> avec la première colonne remplacée par <m>\vecd{x}{y}</m>:
     <me>
-    B_1=\matcold{x}{y}{0}{1}
+    X=\matcold{x}{y}{0}{1}
     </me>.
     </p>
     </introduction>
     <task>
     <statement>
-    <p>Calculer <m>\det(B_1)</m>.</p>
+    <p>Calculer <m>\det(X)</m>.</p>
     </statement>
+    <answer><p>\det(X)=\begin{vmatrix} x &amp; 0 \\ y &amp; 1\end{vmatrix}=x</p></answer>
     </task>
     <task><statement>
     <p>Soit <m>B_1=AX</m>. Montrer que <me>
     x=\frac{\det(B_1)}{\det(A)}=\frac{\begin{vmatrix} m&amp;c\\n&amp;d \end{vmatrix}}{\begin{vmatrix} a&amp;c\\b&amp;d \end{vmatrix}}
     </me></p>
-    </statement></task>
+    </statement>
+    <solution><p>
+    D'abord, on montre que <m>x=\frac{\det(B_1)}{\det(A)}</m>.
+    En effet, 
+    <md>
+    <mrow>B_1&amp;=AX</mrow>
+    <mrow>\det(B_1)&amp;=\det(AX)</mrow>
+    <mrow>\det(B_1)&amp;=\det(A)\det(X) &amp; \text{ par } <xref ref="li-detprod2x2resum"/>  </mrow>
+    <mrow>\frac{\det(B_1)}{\det(A)}&amp;=\det(X) </mrow>
+    <mrow>\frac{\det(B_1)}{\det(A)}&amp;=x \text{ par (a)} </mrow>
+    </md>.
+    Il faut maintenant montrer que <m>B_1=\begin{pmatrix} m&amp;c\\n&amp;d \end{pmatrix}</m>.
+    Il suffit de multiplier <m>A</m> par <m>X</m> et de remarquer qu'on obtient les membres de gauches des équations initiales.
+    <md>
+    <mrow>B_1&amp;=AX</mrow>
+    <mrow>&amp;=\matcold{a}{b}{c}{d}\matcold{x}{y}{0}{1}</mrow>
+    <mrow>&amp;=\matcold{ax+cy}{bx+dy}{c}{d}</mrow>
+    <mrow>&amp;=\matcold{m}{n}{c}{d}</mrow>
+    </md>
+    </p></solution>
+    </task>
     </task>
     <task>
     <statement>
     <p>Répéter la partie précédente avec la matrice <m>Y=\matcold{1}{0}{x}{y}</m> afin de montrer que
     <me>
-    y=\frac{\det(B_2)}{\det(A)}=\frac{\begin{vmatrix} m&amp;c\\n&amp;d \end{vmatrix}}{\begin{vmatrix} a&amp;c\\b&amp;d \end{vmatrix}}
+    y=\frac{\det(B_2)}{\det(A)}=\frac{\begin{vmatrix} a&amp;m\\b&amp;n \end{vmatrix}}{\begin{vmatrix} a&amp;c\\b&amp;d \end{vmatrix}}
     </me>
     </p>
     </statement>
+    <solution><p>
+    D'abord, on montre que <m>y=\frac{\det(B_2)}{\det(A)}</m>.
+    En effet, 
+    <md>
+    <mrow>B_2&amp;=AY</mrow>
+    <mrow>\det(B_2)&amp;=\det(AY)</mrow>
+    <mrow>\det(B_2)&amp;=\det(A)\det(Y) &amp; \text{ par } <xref ref="li-detprod2x2resum"/>  </mrow>
+    <mrow>\frac{\det(B_2)}{\det(A)}&amp;=\begin{vmatrix} 1&amp;x\\0&amp;y \end{vmatrix} </mrow>
+    <mrow>\frac{\det(B_2)}{\det(A)}&amp;=y  </mrow>
+    </md>.
+    Il faut maintenant montrer que <m>B_2=\begin{pmatrix} a&amp;m\\b&amp;n \end{pmatrix}</m>.
+    Il suffit de multiplier <m>A</m> par <m>Y</m> et de remarquer qu'on obtient les membres de gauches des équations initiales.
+    <md>
+    <mrow>B_2&amp;=AY</mrow>
+    <mrow>&amp;=\matcold{a}{b}{c}{d}\matcold{1}{0}{x}{y}</mrow>
+    <mrow>&amp;=\matcold{a}{b}{ax+cy}{bx+dy}</mrow>
+    <mrow>&amp;=\matcold{a}{b}{m}{n}</mrow>
+    </md>
+    </p></solution>
     </task>
     <task>
+    <statement>
     <p>Utiliser la méthode de Cramer pour trouver les solutions au système suivant:
         <md alignment="alignat">
    <mrow> 3&amp;x&amp;{}+{}&amp;2&amp;y&amp;{}={}&amp; 4</mrow>
    <mrow> 4&amp;x&amp;{}+{}&amp;2&amp;y&amp;{}={}&amp; 1</mrow>
     </md>.
-    </p>
+    </p></statement>
+    <answer><p><me>\vecd{x}{y}=\vecd{-3}{\frac{13}{2}}</me></p></answer>
+    <solution><p>
+    On donne d'abord toutes les matrices associées au système:
+    <me>A=\matcold{a}{b}{c}{d}=\begin{pmatrix} 3&amp;2\\4&amp;2 \end{pmatrix}</me>
+    <me>\vecd{m}{n}=\vecd{4}{1}</me>
+    Alors, 
+    <me>x=\frac{\begin{vmatrix} m&amp;c\\n&amp;d \end{vmatrix}}{\begin{vmatrix} a&amp;c\\b&amp;d \end{vmatrix}}
+    =\frac{\begin{vmatrix} 4&amp;2\\1&amp;2 \end{vmatrix}}{\begin{vmatrix} 3&amp;2\\4&amp;2 \end{vmatrix}}
+    =\frac{6}{-2}=-3</me>
+    et
+    <me>y=\frac{\begin{vmatrix} a&amp;m\\b&amp;n \end{vmatrix}}{\begin{vmatrix} a&amp;c\\b&amp;d \end{vmatrix}}
+    =\frac{\begin{vmatrix} 3&amp;4\\4&amp;1 \end{vmatrix}}{\begin{vmatrix} 3&amp;2\\4&amp;2 \end{vmatrix}}=\frac{-13}{-2}=\frac{13}{2}
+    </me>.
+    </p></solution>
     </task>
     </exercise>
     <exercisegroup>
@@ -543,9 +1288,11 @@ P
         </input>
         </program>
         </listing>
-        <p>On remarque encore une fois que les valeurs de <m>k </m> qui satisfont l'équation <m>\det(A-kI)=0</m> sont <m>a</m> et <m>b</m>. Quant aux vecteurs <m>v_1,v_2</m>, on retrouve les mêmes vecteurs qu'avec 
-        <m>a=1,b=-1</m>. Toutefois, on se rend compte que les produits matrice vecteur sont respectivement multipliés par <m>a,b</m>. Les valeurs <m>a,b</m> s'apellent les valeurs propres de la matrice <m>A</m> et les vecteurs
-        <m>\vec{v}_1,\ve{v}_2</m> sont des vecteurs propres. Ces valeurs et vecteurs propres seront étudiés au chapitre <xref provisional="chap-propre"/>.</p>
+        <p>On remarque encore une fois que les valeurs de <m>k </m> qui satisfont l'équation <m>\det(A-kI)=0</m> sont <m>a</m> et <m>b</m>. 
+        Quant aux vecteurs <m>v_1,v_2</m>, on retrouve les mêmes vecteurs qu'avec <m>a=1,b=-1</m>. 
+        Toutefois, on se rend compte que les produits matrice vecteur sont respectivement multipliés par <m>a,b</m>. 
+        Les valeurs <m>a,b</m> s'appellent les valeurs propres de la matrice <m>A</m> et les vecteurs <m>\vec{v}_1,\vec{v}_2</m> sont des vecteurs propres. 
+        Ces valeurs et vecteurs propres seront étudiés au chapitre <xref provisional="chap-propre"/>.</p>
     </solution>
     </task>
     </task>

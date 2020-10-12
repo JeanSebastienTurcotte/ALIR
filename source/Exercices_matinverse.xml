@@ -84,20 +84,22 @@
             <p>En suivant l'indication, on cherche à démontrer que si une solution <m>\vec{u}</m> existe pour chacune de ces équations, 
             il découle directement qu'une solution existe pour <m>A\vec{u}=\vec{v}</m>, peu importe le vecteur <m>\vec{v}</m>.</p>
             <p>Soit <m>\vec{v}=(v_1,v_2,\dots,v_n)\in\R^n</m>, un vecteur quelconque de dimension <m>n</m>. 
-            Alors, si il existe un unique vecteur <m>\vec{u}</m> tel qu'une matrice <m>A</m> permet d'écrire:
+            Alors, si les équations données dans la question possèdent des solutions, on peut écrire:
             <md>
-                <mrow>A\vec{u}&amp;=(1,0,\ldots, 0)</mrow>
-                <mrow>A\vec{u}&amp;=(0,1,0,\ldots, 0)</mrow>
+                <mrow>A\vec{u}_1&amp;=(1,0,\ldots, 0)</mrow>
+                <mrow>A\vec{u}_2&amp;=(0,1,0,\ldots, 0)</mrow>
                 <mrow>\vdots&amp;=\vdots</mrow>
-                <mrow>A\vec{u}&amp;=(0,\ldots, 0,1)</mrow>
+                <mrow>A\vec{u}_n&amp;=(0,\ldots, 0,1)</mrow>
             </md>
+            où les <m>\vec{u}_i</m> sont ces solutions.
             Alors,
             <md>
                 <mrow>\vec{v}&amp;=(v_1,v_2,\dots,v_n)</mrow>
                 <mrow>&amp;=(v_1,0,\dots,0)+(0,v_2,\dots,0)+\cdots+(0,0,\dots,v_n)</mrow>
                 <mrow>&amp;=v_1(1,0,\ldots, 0)+v_2(0,1,0,\ldots, 0)+\cdots+v_n(0,\ldots, 0,1)</mrow>
-                <mrow>&amp;=v_1A\vec{u}+v_2A\vec{u}+\cdots+v_nA\vec{u}</mrow>
-                <mrow>&amp;=Av_1v_2\dots v_n\vec{u}</mrow>
+                <mrow>&amp;=v_1A\vec{u}_1+v_2A\vec{u}_2+\cdots+v_nA\vec{u}_n</mrow>
+                <mrow>&amp;=A(v_1\vec{u}_1)+A(v_2\vec{u}_2)+\cdots+A(v_n\vec{u}_n)</mrow>
+                <mrow>&amp;=A(v_1\vec{u}_1+v_2\vec{u}_2+\cdots+v_n\vec{u}_n)</mrow>
                 <mrow>&amp;=A\vec{u}'</mrow>
             </md>
             Cela implique donc qu'il existe un vecteur <m>\vec{u}'</m> solution à l'équation <m>A\vec{u}'=\vec{v}</m> pour la matrice <m>A</m> et un vecteur quelconque <m>\vec{v}</m>.
