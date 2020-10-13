@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-ssesp">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Sous-espaces vectoriels </title>
+    <introduction xml:id= "intro-ssesp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>On considère deux vecteurs sur un plan. Si on prend la somme de ces deux vecteurs, est-ce que le résultat est encore sur le plan? Qu'en est-il d'un multiple d'un vecteur du plan, est-il aussi dans le plan? Un
+     objet qui possède ces propriété est dit fermé par rapport à l'addition et à la multiplication.</p>
+     <p>Un sous-espace est un espace à l'intérieur d'un autre espace. C'est une partie en général plus petite que l'espace dans lequel elle se situe, mais qui possède la même structure.</p>
+     
+     <p>Dans cette section, on définie la notion de sous-espace vectoriel. On considère des exemples géométriques et algébrique et on explore les quatre sous-espaces fondamentaux en lien avec ces nouveaux concepts.</p>
+    </introduction>
+    <subsection xml:id="ssesp">
+    <title>Sous-espace</title>
+    <p>On revient à la question d'introduction en considérant les plans
+    <md>
+    <mrow>\mathcal{P}_1:&amp; &amp;x+y+z&amp;=0</mrow>
+    <mrow>\mathcal{P}_2:&amp; &amp; x-2y+3z&amp;=6</mrow>
+    </md>.
+    Les vecteurs dans le plan <m>\mathcal{P}_1</m> sont de la forme <m>(x,y,-x-y)</m> et les vecteurs dans le plan <m>\mathcal{P}_2</m> sont de la forme <m>(x,y,6+2y-x)</m>.</p>
+    <p>Si on prend deux vecteurs de <m>\mathcal{P}_1</m>, on peut montrer que leur somme est aussi dans le plan, car
+    <me>
+    (x_1,y_1,-x_1-y_1)+(x_2,y_2,-x_2-y_2)=(x_1+x_2,y_1+y_2,-x_1-x_2-y_1-y_2)=(x_1+x_2,y_1+y_2,-(x_1+x_2)-(y_1+y_2))
+    </me>,
+    de même qu'un multiple d'un vecteur, puisque <m>k(x,y,-x-y)=(kx,ky,k(-x-y)=(kx,ky,-kx-ky)</m>.</p>
+    <p>Par contre, le plan <m>\mathcal{P}_2</m> ne possède pas ces propriétés. On peut prendre un exemple spécifique ou encore faire le cas général. Dans le cas de la somme, on a par exemple en général
+    <me>
+    (x_1,y_1,6+2y_1-x_1)+(x_2,y_2,6+2y_2-x_2)=(x_1+x_2,y_1+y_2,6+2y_1-x_1+6+2y_2-x_2)=(x_1+x_2,y_1+y_2,12+2(y_1+y_2)-(x_1+x_2))
+    </me>, alors que pour un cas spécifique avec un multiple, il suffit de prendre zéro fois le vecteur <m>(1,1,2)\in \mathcal{P}_2</m>  et de constater que <m>(0,0,0)\notin \mathcal{P}_2</m>.</p>
+    <p>Ceci motive la définition suivante.</p>
+    <definition xml:id="def-ssesp"> 
+    <title>Sous-espace vectoriel</title>
+    <statement>
+    <p>Soit <m>V</m> un ensemble de vecteurs (possiblement tous) de <m>\R^n</m>, de sorte que <m>V\subseteq \R^n</m>. On dit que <m>V</m> est un sous-espace vectoriel si les vecteurs dans <m>V</m> satisfont les propriétés suivantes:
+    <list xml:id="li-ssesp">
+    <ol>
+    <li xml:id="li-ssespsomme"><p>Si deux vecteurs sont dans <m>V</m>, alors leur somme est aussi dans <m>V</m>, c'est-à-dire si <m>\vec{u},\vec{v}\in V</m>, alors <m>\vec{u}+\vec{v}\in V</m>.</p></li>
+    <li xml:id="li-ssespmult"><p>Si un vecteur est dans <m>V</m> et qu'on le multiplie par un scalaire, alors le multiple est aussi dans <m>V</m>, c'est-à-dire si <m>k\in \R,\vec{V}\in V</m>, alors <m>k\vec{v}\in V</m>.</p></li>
+    </ol></list>
+    </p>
+    <p>On dit que l'ensemble <m>V</m> est fermé par rapport à l'addition et à la multiplication par un scalaire.</p>
+    </statement>
+    </definition>
+    <p>On débute avec des exemples de sous-espaces vectoriels.</p>
+    <example xml:id="ex-ssesp">
+    <title>Des sous-espaces vectoriels</title>
+    <statement>
+    <p>On considère les ensembles vecteurs suivants, vus comme des sous-ensemble de <m>\R^n</m> pour  <m>n</m> approprié:
+    <ol>
+    <li><p>Le plan <m>\mathcal{P}_1</m> du début de section;</p></li>
+    <li><p>Les vecteurs de la forme <m>(x,x)</m>;</p></li>
+    <li><p>L'ensemble ne contenant que le vecteur nul : <m>\{\vec{0}\}</m>;</p></li>
+    <li><p>Ĺ'espace <m>\R^n</m> au complet;</p></li>
+    <li><p>Une droite <m>\mathcal{D}</m> dans <m>\R^n</m>, passant par l'origine;</p></li>
+    <li><p>Un plan <m>\mathcal{P}</m> dans <m>\R^n</m>, passant par l'origine;</p></li>
+    <li><p>Un hyperplan dans <m>\R^n</m>, passant par l'origine.</p></li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    La démonstration est faite à même le texte en début de section.
+    </p>
+    </solution>
+    <solution>
+    <p>
+    On considère deux vecteurs <m>\vec{u}=(x_1,x_1),\vec{v}=(x_2,x_2)</m> et un scalaire <m>k\in \R</m> quelconque. On doit montrer que <m>\vec{u}+\vec{v}</m> a la même composante en <m>y</m> qu'en <m>x</m> et que
+    <m>k\vec{u}</m> aussi a cette propriété. Pour la somme, on a
+    <md>
+    <mrow>\vec{u}+\vec{v}&amp;=(x_1+x_2,x_1+x_2)</mrow>
+    </md>,
+    qui est dans <m>V</m>. Pour la multiplication par un scalaire, on a aussi
+    <md>
+    <mrow>k\vec{u}&amp;=k(x_1,x_1)</mrow>
+    <mrow>&amp;=(kx_1,kx_1)</mrow>
+    </md>,
+    également dans <m>V</m>.
+    </p>
+    </solution>
+    <solution>
+    <p>
+    Puisque le vecteur nul est le seul vecteur de l'espace, on ne peut que considérer la somme <m>\vec{0}+\vec{0}=\vec{0}\in V</m>. De même, puisque <m>k\vec{0}=\vec{0}\in V</m>, l'ensemble <m>\{\vec{0}\}</m> est un espace 
+    vectoriel. On l'appelle souvent l'espace vectoriel trivial.
+    </p>
+    </solution>
+    <solution>
+    <p>
+    À priori, cette question semble évidente, puisqu'on a défini l'addition de vecteurs et la multiplication par un scalaire composante par composante, ce qui fait qu'un vecteur de <m>\R^n</m> additionné à un autre restera 
+    un vecteur de <m>\R^n</m> et de même pour la multiplication par un scalaire. On verra à la section <xref provisional="sec-espvec"/> que la situation pourrait être plus complexe.
+    </p>
+    </solution>
+    <solution>
+    <p>
+    Une droite passant par l'origine est caractérisée par l'ensemble des multiples d'un vecteur directeur <m>\vec{u}\neq \vec{0}</m>. Un vecteur sur la droite s'écrit comme <m>\vec{v}=t\vec{u}</m> pour un certain <m>t\in \R</m>.
+    Afin de montrer que la somme de deux vecteurs sur la droite est aussi sur la droite et qu'un multiple d'un vecteur sur la droite l'est aussi, on prend <m>\vec{v}_1=t_1\vec{u}, \vec{v}_2=t_2\vec{u}</m> et <m>k\in \R</m>.
+    Il faut montrer que la somme de <m>\vec{v}_1</m> et <m>\vec{v}_2</m> s'écrit comme un multiple réel de <m>\vec{u}</m>. La même idée s'appliquera pour la multiplication du vecteur <m>\vec{v}_1</m> par <m>k</m>.
+    </p>
+    <p>Dans un premier temps, on a
+    <md>
+    <mrow>\vec{v}_1+\vec{v}_2&amp;=t_1\vec{u}+t_2\vec{u}</mrow>
+    <mrow>&amp;=(t_1+t_2)\vec{u}</mrow>
+    </md>. Comme <m>(t_1+t_2)\in \R</m>, il suit que la somme des vecteurs est sur la droite.</p>
+    <p>Pour la multiplication par le scalaire, on a
+    <md>
+    <mrow>k\vec{v}_1&amp;=kt_1\vec{u}</mrow>
+    <mrow>&amp;=(kt_1)\vec{u}</mrow>
+    </md> et puisque <m>kt_1\in \R</m>, la multiplication est aussi sur la droite.</p>
+    </solution>
+    <solution>
+    <p>
+    Voir l'exercice <xref ref="exo-ssespplan"/>.
+    </p>
+    </solution>
+    <solution>
+    <p>
+    Un hyperplan peut être écrit comme le produit scalaire d'un vecteur <m>\vec{n}</m> avec le vecteur <m>\vec{x}=(x_1,x_2,\ldots , x_n)</m>, c'est-à-dire
+    <me>
+    \vec{n}\cdot \vec{x}=d
+    </me>
+    où <m>d\in \R</m>. Si l'hyperplan passe par l'origine, alors <m>d=0</m>. Les vecteurs dans l'hyperplan sont donc l'ensemble des vecteurs <m>\vec{x}</m> tel que <m>\vec{n}\cdot \vec{x}=0</m>.
+    Soit <m>\vec{u},\vec{v}</m> des vecteurs de <m>\R^n</m> sur l'hyperplan, c'est-à-dire des vecteurs tels que <m>\vec{n}\cdot \vec{u}=0, \vec{n}\cdot \vec{v}=0</m> et soit <m>k\in \R</m> un scalaire. On a
+    <md>
+    <mrow>\vec{n}\cdot (\vec{u}+\vec{v})&amp;=\vec{n}\cdot \vec{u}+\vec{n}\cdot\vec{v}&amp;&amp;\text{selon la distributivité du produit scalaire}</mrow>
+    <mrow>&amp;=0+0 &amp;&amp; \text{ car les vecteurs } \vec{u},\vec{v} \text{ sont sur l'hyperplan}</mrow>
+    <mrow>&amp;=0</mrow>
+    </md>.
+    Le vecteur <m>\vec{u}+\vec{v}</m> est donc aussi sur l'hyperplan. Pour la multiplication par un scalaire, on a
+    <md>
+    <mrow>\vec{n}\cdot(k\vec{u})&amp;=k(\vec{n}\cdot\vec{u}) &amp;&amp; \text{ selon <xref ref="li-propprodscal"/></mrow>
+    <mrow>&amp;=k(0)</mrow>
+    <mrow>&amp;=0</mrow>
+    </md>. La multiplication par le scalaire est aussi sur l'hyperplan.</p>
+    </solution>
+    </example>
+    <p>Afin de bien comprendre que tout sous-ensemble de vecteurs n'est pas un sous-espace vectoriel, on regarde maintenant quelques non exemples. </p>
+    <example>
+    <title>Des ensembles qui ne sont pas sous-espaces vectoriels</title>
+    <statement>
+    <p>Les ensembles suivants ne sont pas des sous-esapces vectoriels de <m>\R^n</m>:
+    <ol>
+    <li><p>Le plan <m>\mathcal{P}_2</m> du début de sous-section;</p></li>
+    <li><p>Les vecteurs pour lequel au moins une des composantes est nulle. Ce sont les vecteurs sur les axes de coordonnées;</p></li>
+    <li><p>Une droite ne passant pas par l'origine.</p></li>
+    </ol></p>
+    </statement>
+    <solution>
+    <p>La solution est faite à même le texte en début de sous-section.</p>
+    </solution>
+    <solution>
+    <p>Pour des fins de simplicité, on considère l'espace comme étant <m>\R^2</m>. Si on prend les vecteurs <m>\vec{u}=(1,0)</m> et <m>\vec{v}=(0,1)</m>, alors la somme <m>\vec{u}+\vec{v}=(1,1)</m> ne
+    possède pas au moins l'une de ses composantes nulle. Elle n'est donc pas dans le sous-ensemble, ce qui fait que ce n'est pas un espace vectoriel.</p>
+    <p>Il convient de rappeler ici le conseil <xref ref="con-satisprop"/>.</p>
+    </solution>
+    <solution>
+    <p>Si la droite ne passe pas par l'origine, alors le vecteur <m>\vec{0}</m> n'est pas sur la droite. Soit <m>\vec{v}</m> un vecteur sur la droite. Si on considère la multiplication par le scalaire <m>0</m>, alors le 
+    résultat <m>0\vec{u}=\vec{0}</m> n'est pas sur la droite. Ce n'est donc pas un espace vectoriel.</p>
+    </solution>
+    </example>
+    </subsection>
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-ssesp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    
+    </conclusion>
+   <!--Inclure les exercices de la section ci-dessous--> 
+</section>
+<!-- exercice plan est un ss-espace  xml:id="exo-ssespplan"
+
