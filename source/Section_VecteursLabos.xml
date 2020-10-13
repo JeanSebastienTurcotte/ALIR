@@ -49,13 +49,14 @@ def triangle(n):
     B=vector([-sqrt(3)/2,-1/2])
     C=vector([sqrt(3)/2,-1/2]) #Trois points d'un triangle équilatéral centré à l'origine
     graph=point(A,size=30,color="black")+point(B,size=30,color="black")+point(C,size=30,color="black")+line([A,B],color="black")+line([A,C],color="black")+line([B,C],color="black")
-    P=[] #Une liste vide 
-    P.append(choice([A,B,C])) #Le point initial
+    Pliste=[] #Une liste vide 
+    P=choice([A,B,C])
+    Pliste.append(P) #Le point initial
     for i in range(n):
         S=choice([A,B,C])  #Le sommet de l'étape
         ####### À COMPLÉTER #######   #Le point Q
-        P.append(Q) #Le nouveau point devient le point de départ du prochain tour
-    graph+=point(P,color="black")
+        Pliste.append(Q) #Le nouveau point devient le point de départ du prochain tour
+    graph+=point(Pliste,color="black")
     return graph
 triangle(10)
     </input>
@@ -65,16 +66,17 @@ triangle(10)
     <p>Utiliser la cellule suivante pour comprendre comment la boucle <c>for i in range(n)</c> fonctionne.</p>
     <sage>
     <input>
-    P=[]
-    P.append(choice(["A","B","C"]))
+    Pliste=[]
+    Pliste.append(choice(["A","B","C"]))
     for i in range(10):
         print("On est à i=",i)
-        print("Voici ce que contient P",P)
+        print("Voici ce que contient P",Pliste)
+        print("Voici aussi l'entrée en position %d" % i, P[i])
         print("On ajoute A,B ou C à P")
         P.append(choice(["A","B","C"]))
-        print("Voici encore une fois P, on est toujours à i=%d" % i, P)
+        print("Voici encore une fois P, on est toujours à i=%d" % i, Pliste)
         print("Fin de l'itération i=",i)
-    print("Voila, c'est termné! Voici le P final:",P)
+    print("Voila, c'est termné! Voici le P final:",Pliste)
     </input>
     </sage>
     </hint>
@@ -97,8 +99,8 @@ triangle(10)
     </input>
     </sage></statement>
     </task>
-    <task><statement><p>Dans le cas présent, on prend le point milieu entre <m>P</m> et <m>S</m>. Que se passe-t-il si on prend un rapport plus petit ou plus grand que <m>\frac{1}{2}</m>. Par exemple, si on prenait
-    <m>Q</m> au <m>2/3</m> du segment <m>PS</m>, qu'obtiendrait-on après <m>10000</m> tours? Tenter de faire une prédiction et modifier le code de la simulation en le copiant dans les cellules ci-dessous.</p>
+    <task><statement><p>Dans le cas présent, on prend le point milieu entre <m>P</m> et <m>S</m>. Que se passe-t-il si on prenait un point <m>Q</m> sur le segment <m>PS</m>, mais avec un rapport plus petit ou plus grand que <m>\frac{1}{2}</m>. Par exemple, si on prenait
+    <m>Q</m> au <m>2/3</m> du segment <m>PS</m> (en partant de <m>P</m>), qu'obtiendrait-on après <m>10000</m> tours? Tenter de faire une prédiction et modifier le code de la simulation en le copiant dans les cellules ci-dessous.</p>
     <sage>
     <input>
     #Essayer des rapports plus petits que 1/2
@@ -112,7 +114,7 @@ triangle(10)
     <p>Que se passe t-il si le point Q est en dehors du segment <m>PS</m>?</p>
     <sage>
     <input>
-    #Essayer d'envoyer Q hors du segment PS
+    #Essayer d'envoyer Q hors du segment PS, mais toujours sur la droite contenant PS
     </input>
     </sage>
     </statement>
