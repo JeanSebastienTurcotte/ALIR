@@ -622,8 +622,10 @@
     </exercise>
     <exercise>
     <statement><p>Si <m>A</m> est une matrice <m>m\times n</m> sous forme échelonnée réduite, quel est le nombre maximal de pivots que <m>A</m> peut posséder?</p></statement>
-    <answer><p>La matrice <m>A</m> peut posséder <m>m</m> pivots au maximum.</p></answer>
-    <solution><p>La matrice <m>A</m> peut posséder <m>m</m> pivots au maximum, puisque c'est le nombre de lignes qu'elle possède. </p></solution>
+    <answer><p>La matrice <m>A</m> peut posséder <m>\text{min}(m,n)</m> pivots au maximum.</p></answer>
+    <solution><p>Si la matrice <m>A</m> est une matrice carrée, il est clair qu'elle peut avoir un nombre de pivots égal à son ordre.
+    Cependant, si elle est rectangulaire (<m>m\neq n</m>), le nombre de pivots sera limité par la valeur la plus petite entre <m>m</m> et <m>n</m>.
+    En effet, il faut avoir une ligne <em>et</em> une colonne associée à chaque pivot. </p></solution>
     </exercise>
     <exercise>
     <introduction><p>Pour chacun des cas suivants, donner une ou deux matrices échelonnées réduites de format demandé qui respectent les conditions additionnelles:</p></introduction>
@@ -692,7 +694,7 @@
         </p></answer>
     </task>
                 <task>
-    <statement><p>Des matrices <m>3\times 3</m> pour lesquelles les variables <m>x,z</m> sont libres et <m>y</m> est pivot.</p></statement>
+    <statement><p>Deux matrices <m>3\times 3</m> pour lesquelles les variables <m>x,z</m> sont libres et <m>y</m> est pivot.</p></statement>
     <answer><p><me>\begin{pmatrix}
         0 &amp; 1 &amp; 0\\ 
         0 &amp; 0 &amp; 0\\ 
@@ -705,7 +707,7 @@
         </p></answer>
     </task>
                 <task>
-    <statement><p>Des matrices <m>3\times 3</m> pour lesquelles les variables <m>y,z</m> sont libres et <m>x</m> est pivot.</p></statement>
+    <statement><p>Deux matrices <m>3\times 3</m> pour lesquelles les variables <m>y,z</m> sont libres et <m>x</m> est pivot.</p></statement>
     <answer><p><me>\begin{pmatrix}
         1 &amp; 1 &amp; 1\\ 
         0 &amp; 0 &amp; 0\\ 
@@ -718,7 +720,7 @@
         </p></answer>
     </task>
                 <task>
-    <statement><p>Des matrices <m>5\times 5</m> pour lesquelles exactements deux variables  sont pivots.</p></statement>
+    <statement><p>Deux matrices <m>5\times 5</m> pour lesquelles exactements deux variables sont pivots.</p></statement>
     <answer><p><me>\begin{pmatrix}
         1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\ 
         0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\ 
@@ -823,11 +825,11 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     1 &amp; \frac{c}{a}\\
     0 &amp; \frac{ad-bc}{a}
     \end{pmatrix}</mrow>
-    <mrow>&amp;\matsimils{1}{\frac{a}{ad-bc}}\begin{pmatrix}
-    1 &amp; \frac{c}{ad-bc}\\
+    <mrow>&amp;\matsimils{2}{\frac{a}{ad-bc}}\begin{pmatrix}
+    1 &amp; \frac{c}{a}\\
     0 &amp; 1
     \end{pmatrix}</mrow>
-    <mrow>&amp;\matsimilc{2}{-\frac{c}{ad-bc}}{1}\begin{pmatrix}
+    <mrow>&amp;\matsimilc{2}{-\frac{c}{a}}{1}\begin{pmatrix}
     1 &amp; 0\\
     0 &amp; 1
     \end{pmatrix}</mrow>
@@ -892,7 +894,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     b &amp; d\\
     a &amp; c
     \end{pmatrix}</me>
-    La condition est:<m>bc-ad\neq 0</m> qui est entièrement équivalente à <m>ad-bc\neq 0</m> en réorganisant les termes.</p>
+    La condition est: <m>bc-ad\neq 0</m> qui est entièrement équivalente à <m>ad-bc\neq 0</m> en réorganisant les termes.</p>
     <p>La seconde opération de multiplication par un scalaire doit être vérifiée pour chaque ligne.
     <me>\begin{pmatrix}
     a &amp; c\\
@@ -923,12 +925,12 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     <me>\begin{pmatrix}
     a &amp; c\\
     b &amp; d
-    \end{pmatrix}\matsimils{2}{k}{1}\begin{pmatrix}
+    \end{pmatrix}\matsimilc{2}{k}{1}\begin{pmatrix}
     a+kb &amp; c+kd\\
     b &amp; d
     \end{pmatrix}</me>
     La condition est donc: <me>a*(d+kc)-(b+ka)*c=(ad-bc)+kac-kac=ad-bc\neq 0</me> ou bien <me>(a+kb)*d-b*(c+kd)=(ad-bc)+kbd-kbd=(ad-bc)\neq 0</me> 
-    qui sont toutes les deux exactements pareilles <m>ad-bc\neq 0</m>.
+    qui sont toutes les deux exactement pareilles à <m>ad-bc\neq 0</m>.
     </p>
     </solution>
     </exercise>
@@ -1062,7 +1064,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     0&amp; 1&amp;|&amp; -\frac{1}{3}&amp; \frac{1}{6}
     \end{pmatrix}</mrow>
     <mrow>&amp;\matsimilc{2}{3}{1}\begin{pmatrix}
-    1&amp; -3&amp;|&amp; 0&amp; \frac{1}{2}\\
+    1&amp; 0&amp;|&amp; 0&amp; \frac{1}{2}\\
     0&amp; 1&amp;|&amp; -\frac{1}{3}&amp; \frac{1}{6}
     \end{pmatrix}</mrow>
     </md>
@@ -1334,7 +1336,7 @@ show(elementary_matrix(5,row1=3,row2=0,scale=-4))
     <caption>Le code solution</caption>
     <program language="sage">
     <input>
-A=matrix([[3,2,-5,4],[0,8,2,0],[1,-7,5,0],[2,3,1,-1]])# La matrice
+A=matrix([[3,2,-5,1],[0,8,2,0],[1,-7,5,0],[2,3,1,-1]])# La matrice
 b=vector([-1,3,-2,5]) #Le vecteur
 sol=(A.augment(b).rref()) #La matrice augmentée échelonnée réduite
 show(sol)

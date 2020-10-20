@@ -13,20 +13,20 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-detgen">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Le déterminant d'une matrice <m>n\times n</m> </title>
     <introduction xml:id= "intro-detgen">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    <p>Dans <m>\R^3</m>, on peut s'intéresser au facteur de changement de volume tenter de généraliser la notion de déterminant. Dans <m>\R^n</m>, la géométrie est plus difficile à imaginer. Pour ce qui
+    <p>Dans <m>\R^3</m>, on peut s'intéresser au facteur de changement de volume et ensuite tenter de généraliser la notion de déterminant. Dans <m>\R^n</m>, la géométrie est plus difficile à imaginer. Pour ce qui
     est du signe du determinant, on peut donner un sens à l'orientation dans <m>\R^3</m>, comme on le verra, mais c'est aussi plus difficile dans <m>\R^n</m>. On utilise donc les propriétés
-    de la section précédente pour définir la notion de détermiant pour les espaces plus généraux.</p>
+    de la section précédente pour définir la notion de déterminant pour les espaces plus généraux.</p>
     <p>Dans cette section, on généralise les idées de la section précédente, d'abord en considérant la géométrie dans <m>\R^3</m>, puis en donnant les résultats plus généraux pour une matrice <m>n\times n</m>.
-    On introduit la notion de déterminant d'une matrice <m>n\times n</m>, ses propriétés, </p>
+    On introduit la notion de déterminant d'une matrice <m>n\times n</m> et ses propriétés.</p>
     </introduction>
     <subsection xml:id="sssec-detR3">
-    <title>L'espace à trois dimensions: dynamique</title>
-    <p>Dans l'espace <m>\R^3</m>, une transformation linéaire envoie le cube unité sur l'équivalent tridimensionnelle du parallélogramme, appelé le parallélépipède.<aside><title>En passant</title>On écrit 
-    parfois aussi parallélipipède, pour désigner ce solide dont les six faces sont des parallélogrammes.</aside> Tout comme dans <m>\R^2</m>, il arrive que le solide transformée ne soit en fait
+    <title>L'espace à trois dimensions</title>
+    <p>Dans l'espace <m>\R^3</m>, une transformation linéaire envoie le cube unité sur l'équivalent tridimensionnel du parallélogramme, appelé le parallélépipède.<aside><title>En passant</title>On écrit 
+    parfois aussi parallélipipède, pour désigner ce solide dont les six faces sont des parallélogrammes.</aside> Tout comme dans <m>\R^2</m>, il arrive que le solide transformé ne soit en fait
     plus un solide, mais un plan ou aussi une droite. Dans ces cas-là, on dira que le volume est nul.</p>
     <p>On regarde le facteur de changement de volume de certaines transformations connues de <m>\R^3</m>.</p>
     <example>
-    <title>Le facteur de changement de volume</title>
+    <title>Le facteur de changement de volume: dynamique</title>
     <statement><p>On considère les transformations suivantes dans <m>\R^3</m> et on cherche à calculer le facteur de changement de volume.
     <md>
     <mrow>A
@@ -35,7 +35,7 @@
     &amp;=\begin{pmatrix} \cos(\theta) &amp; -\sin(\theta) &amp; 0 \\
 \sin(\theta) &amp; \cos(\theta) &amp; 0 \\
 0 &amp; 0 &amp; 1\end{pmatrix}</mrow>
-<mrow>S_{yOz}=\begin{pmatrix}
+<mrow>S_{yOz}&amp;=\begin{pmatrix}
 -1&amp; 0&amp; 0\\
 0&amp; 1 &amp; 0 \\
 0&amp; 0&amp; 1
@@ -56,20 +56,20 @@
     </interactive>
     </figure>
     </statement>
-    <solution><p>La matrice <m>A</m> est celle de l'exemple <xref ref="ex-etirementr3"/> et représente un étirement simultanée dans les directions <m>x,y</m> et <m>z</m> de facteur
-    <m>3,2</m> et <m>-4</m>, respectivement. Géométriquement, le cube unité voit l'une de ses longueur multipliée par <m>3</m>, l'autre par <m>2</m> et la dernière par <m>-4</m>.
+    <solution><p>La matrice <m>A</m> est celle de l'exemple <xref ref="ex-etirementr3"/> et représente un étirement simultané dans les directions <m>x,y</m> et <m>z</m> de facteur
+    <m>3,2</m> et <m>-4</m>, respectivement. Géométriquement, le cube unité voit l'une de ses longueurs multipliée par <m>3</m>, l'autre par <m>2</m> et la dernière par <m>-4</m>.
     Il semble donc logique que le volume du parallélépipède obtenu sera de <m>3*2*4=24</m> unités cubiques. De plus, l'intuition de la section <xref ref="sec-det2x2"/> laisse entrevoir que
     le facteur <m>-4</m> entrainera probablement un changement dans l'orientation, ce qui devrait faire du déterminant de cette matrice <m>-24</m>.</p><p>
     La seconde matrice est une matrice de rotation, plus spécifiquement celle autour de l'axe des <m>z</m>, telle que définie à l'exemple <xref ref="ex-rotR3axes"/>.
     Puisqu'une rotation ne change pas le volume, le facteur de changement de volume ici est de <m>1</m>.</p>
     <p> La matrice <m>S_{y0z}</m> est une matrice de réflexion autour du plan <m>x=0</m>, définie à l'exemple <xref ref="ex-refR3plans0"/>. Une réflexion ne changeant pas le volume, le facteur
     de changement de volume est <m>1</m>. L'exercice <xref ref="exo-detref2x2"/> laisse toutefois présager un possible changement d'orientation, si la situation dans <m>\R^2</m> se répète aussi 
-    à <m>\R^3</m>.</p></solution>
+    dans <m>\R^3</m>.</p></solution>
     </example>
     <p>On ajoute qu'à partir du facteur de changement de volume, correspondant au volume du parallélépipède, on peut aussi calculer le volume de certains solides dans l'espace. La figure interactive <xref ref="fig-det3x3paradecom"/>
     illustre les situations ci-dessous.
     <ul>
-    <li><p>Un prisme à base triangulaire peut être vu comme la moitié d'un parallélipipède. Ainsi, son volume sera la moitié du facteur de changement de volume associé au parallélépipède.</p></li>
+    <li><p>Un prisme à base triangulaire peut être vu comme la moitié d'un parallélépipède. Ainsi, son volume sera la moitié du facteur de changement de volume associé au parallélépipède.</p></li>
     <li><p>À partir d'un tel prisme, on peut séparer en coupant selon un plan pour obtenir un tetraèdre et une pyramide avec comme base un parallélogramme. Cette pyramide se décompose à son tour
     en deux tétraèdres dont le volume est égal au premier trouvé. On a alors que le volume de la pyramide est égal au <m>2/3</m> du prisme, soit le <m>1/3</m> du parallélépipède.</p></li>
     <li><p>Les tétraèdres quand à eux valent le <m>1/3</m> du prisme et donc, leur volume est égal à <m>1/6</m> fois celui du parallélépipède.</p></li>
@@ -85,7 +85,7 @@
             setCoordSystem(-6, 6,-6,6,-6,6);
             showResetIcon(true);
           </slate>
-         <instructions><p><alert>Instruction pour la figure interactive:</alert> Un parallélogramme est illustrer et modifiable à l'aide des trois vecteurs en bleu. Un clic sur le premier bouton décomposera
+         <instructions><p><alert>Instruction pour la figure interactive:</alert> Un parallélogramme est illustré et modifiable à l'aide des trois vecteurs en bleu. Un clic sur le premier bouton décomposera
          ce parallélogramme d'abord en deux prisme. Un second bouton sera alors disponible pour décomposer l'un des prismes en pyramide et en tétraèdre et finalement, un troisième bouton décomposera la pyramide en deux 
          tétraèdres.</p></instructions>
     </interactive>
@@ -97,10 +97,10 @@
 On dit que <m>\mathcal{B}</m> est orienté positivement si le repère <m>\mathcal{B}</m> satisfait à la règle de la main droite:
 <ol>
 <li><p>On se place dans le plan engendré par les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>, de sorte à ce que ceux-ci soient orientés positivement si on les voit comme des vecteurs de <m>\R^2</m>.</p></li>
-<li><p>On place sa main droite sur le vecteur <m>\vec{u}</m> de sorte à ce que la paume soit orienté vers le vecteur <m>\vec{v}</m> et les doigts pointes vers <m>\vec{u}</m>.</p></li>
+<li><p>On place sa main droite sur le vecteur <m>\vec{u}</m> de sorte à ce que la paume soit orientée vers le vecteur <m>\vec{v}</m> et les doigts pointent vers <m>\vec{u}</m>.</p></li>
 <li><p>Si le vecteur <m>\vec{w}</m> et le pouce &#x00AB;pointent&#x00BB; vers la même direction, alors l'orientation est positive. Sinon, elle est négative.</p></li>
 </ol>
-L'orientation d'un repère peut être visualisé dans la figure interactive <xref ref="fig-maindroite"/>.</p>
+L'orientation d'un repère peut être visualisée dans la figure interactive <xref ref="fig-maindroite"/>.</p>
 <figure xml:id="fig-maindroite">
 <caption>L'orientation et la règle de la main droite </caption>
     <interactive aspect="1:1" platform="geogebra" width="100%"
@@ -111,15 +111,15 @@ L'orientation d'un repère peut être visualisé dans la figure interactive <xre
             showResetIcon(true);
           </slate>
          <instructions><p><alert>Instruction pour la figure interactive:</alert> Trois vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont affichés dans <m>\R^3</m> et on s'intéresse à l'orientation du repère 
-         <m>\mathcal{B}=\langle \vec{u},\vec{v},\vec{w}\rangle</m>. Déplacer les vecteurs pour avoir une configuration souhaitée et cliquer sur les boutons &#x00AB; Afficher le plan engendré par les vecteurs <m>\vec{u},\vec{v}</m>&#x00BB; et
-         &#x00AB; Aller dans le plan engendré par les vecteurs <m>\vec{u},\vec{v}</m>&#x00BB; pour faire afficher le plan et se positionner dans le point de vue où le repère <m>\mathcal{B}_{\vec{u},\vec{v}}=\langle\vec{u},\vec{v}\rangle</m> est orienté positivement.</p>
-         <p>Une fois le plan affiché et l'orientation positionnée, un clic sur &#x00AB;L'orientation est&#x00BB; fera apparaitre l'orientation du repère des trois vecteurs. À noter que le vecteur apparaitra en pointillé si l'orientation est
+         <m>\mathcal{B}=\langle \vec{u},\vec{v},\vec{w}\rangle</m>. Déplacer les vecteurs pour avoir une configuration souhaitée et cliquer sur les boutons &#x00AB; Afficher le plan engendré par les vecteurs <m>\vec{u},\vec{v}</m> &#x00BB; et
+         &#x00AB; Aller dans le plan engendré par les vecteurs <m>\vec{u},\vec{v}</m> &#x00BB; pour faire afficher le plan et se positionner dans le point de vue où le repère <m>\mathcal{B}_{\vec{u},\vec{v}}=\langle\vec{u},\vec{v}\rangle</m> est orienté positivement.</p>
+         <p>Une fois le plan affiché et l'orientation positionnée, un clic sur &#x00AB; L'orientation est &#x00BB; fera apparaitre l'orientation du repère des trois vecteurs. À noter que le vecteur apparaitra en pointillé si l'orientation est
          négative.</p></instructions>
     </interactive>
     </figure>
 </statement>
     </definition>
-    <p>On regarde quelques exemples d'orientation. L'orientation combiné au facteur de changement de volume donnera le déterminant. On préfèrera toutefois la définition axiomatique de la prochaine sous-section, puisque pour <m>\R^n</m> on va 
+    <p>On regarde quelques exemples d'orientation. L'orientation combinée au facteur de changement de volume donnera le déterminant. On préfèrera toutefois la définition axiomatique de la prochaine sous-section, puisque pour <m>\R^n</m> on va 
     définir l'orientation selon le signe du déterminant.</p>
     <example xml:id="ex-orientationR3">
     <title>L'orientation de certains repères : dynamique</title>
@@ -141,13 +141,13 @@ L'orientation d'un repère peut être visualisé dans la figure interactive <xre
             showResetIcon(true);
           </slate>
          <instructions><p><alert>Instruction pour la figure interactive:</alert> Trois vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont affichés dans <m>\R^3</m> et on s'intéresse à l'orientation des repères 
-         <m>\mathcal{B}_1,\mathcal{B_2}</m> et <m>\mathcal{B}_3</m>. Un clic sur le bouton &#x00AB; Afficher le plan engendré par les vecteurs <m>\vec{u},\vec{v}</m>&#x00BB; permet d'afficher le plan engendrer
+         <m>\mathcal{B}_1,\mathcal{B_2}</m> et <m>\mathcal{B}_3</m>. Un clic sur le bouton &#x00AB; Afficher le plan engendré par les vecteurs <m>\vec{u},\vec{v}</m> &#x00BB; permet d'afficher le plan engendré
          par <m>\vec{u},\vec{v}</m> pour se repérer dans l'espace. </p>
          </instructions>
     </interactive>
     </figure>   
      <figure xml:id="fig-orientationex2">
-<caption>Premier ensemble de vecteurs </caption>
+<caption>Deuxième ensemble de vecteurs </caption>
     <interactive aspect="1:1" platform="geogebra" width="100%"
       xml:id="geog-orientationex2">
         <slate aspect="1:1" source="code/geogebra/orientationex2.ggb"
@@ -156,13 +156,13 @@ L'orientation d'un repère peut être visualisé dans la figure interactive <xre
             showResetIcon(true);
           </slate>
          <instructions><p><alert>Instruction pour la figure interactive:</alert> Trois vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont affichés dans <m>\R^3</m> et on s'intéresse à l'orientation des repères 
-         <m>\mathcal{B}_1,\mathcal{B_2}</m> et <m>\mathcal{B}_3</m>. Un clic sur le bouton &#x00AB; Afficher le plan engendré par les vecteurs <m>\vec{u},\vec{v}</m>&#x00BB; permet d'afficher le plan engendrer
+         <m>\mathcal{B}_1,\mathcal{B_2}</m> et <m>\mathcal{B}_3</m>. Un clic sur le bouton &#x00AB; Afficher le plan engendré par les vecteurs <m>\vec{u},\vec{v}</m> &#x00BB; permet d'afficher le plan engendré
          par <m>\vec{u},\vec{v}</m> pour se repérer dans l'espace. </p>
          </instructions>
     </interactive>
     </figure> 
      <figure xml:id="fig-orientationex3">
-<caption>Premier ensemble de vecteurs </caption>
+<caption>Troisième ensemble de vecteurs </caption>
     <interactive aspect="1:1" platform="geogebra" width="100%"
       xml:id="geog-orientationex3">
         <slate aspect="1:1" source="code/geogebra/orientationex3.ggb"
@@ -171,7 +171,7 @@ L'orientation d'un repère peut être visualisé dans la figure interactive <xre
             showResetIcon(true);
           </slate>
          <instructions><p><alert>Instruction pour la figure interactive:</alert> Trois vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont affichés dans <m>\R^3</m> et on s'intéresse à l'orientation des repères 
-         <m>\mathcal{B}_1,\mathcal{B_2}</m> et <m>\mathcal{B}_3</m>. Un clic sur le bouton &#x00AB; Afficher le plan engendré par les vecteurs <m>\vec{u},\vec{v}</m>&#x00BB; permet d'afficher le plan engendrer
+         <m>\mathcal{B}_1,\mathcal{B_2}</m> et <m>\mathcal{B}_3</m>. Un clic sur le bouton &#x00AB; Afficher le plan engendré par les vecteurs <m>\vec{u},\vec{v}</m> &#x00BB; permet d'afficher le plan engendré
          par <m>\vec{u},\vec{v}</m> pour se repérer dans l'espace. </p>
          </instructions>
     </interactive>
@@ -188,11 +188,11 @@ L'orientation d'un repère peut être visualisé dans la figure interactive <xre
     </solution>
     <solution>
     <p>Pour les vecteurs de la figure <xref ref="fig-orientationex2"/>, on constate que cette fois le repère <m>\mathcal{B}_1</m> est orienté négativement. Selon les mêmes arguments que pour la première figure,
-    on s'attend à ce que l'orientation de <m>\mathca{B}_2</m> soit positive et celle de <m>\mathcal{B}_3</m> soit négative. Ceci est vérifié en regardant dans la bonne perspective la figure <xref ref="fig-orientationex2"/>.</p>
+    on s'attend à ce que l'orientation de <m>\mathcal{B}_2</m> soit positive et celle de <m>\mathcal{B}_3</m> soit négative. Ceci est vérifié en regardant dans la bonne perspective la figure <xref ref="fig-orientationex2"/>.</p>
     </solution>
     <solution>
     <p>Pour les vecteurs de la figure <xref ref="fig-orientationex3"/>, on constate que  le repère <m>\mathcal{B}_1</m> est aussi orienté négativement. Selon les mêmes arguments que pour la première figure,
-    on s'attend à ce que l'orientation de <m>\mathca{B}_2</m> soit positive et celle de <m>\mathcal{B}_3</m> soit négative. Ceci est vérifié en regardant dans la bonne perspective la figure <xref ref="fig-orientationex3"/>.</p>
+    on s'attend à ce que l'orientation de <m>\mathcal{B}_2</m> soit positive et celle de <m>\mathcal{B}_3</m> soit négative. Ceci est vérifié en regardant dans la bonne perspective la figure <xref ref="fig-orientationex3"/>.</p>
     </solution>
     </example>
     <p>On pourrait donner une définition du déterminant <m>3\times 3</m> dans cette sous-section, mais elle serait identique à celle de la sous-section suivante, tout comme les propriétés.
@@ -226,8 +226,8 @@ des lignes de la matrice. L'équivalence entre les deux sera montrée à la prop
 d'avoir à définir des opérations sur les colonnes.</p>
     </statement>
     </definition>
-    <p>Le reste de cette section va servir à trouver une manière efficace de calculer le déterminant et de démontrer ses propriétés, les mêmes que celles de la section précédente, mais généralisées. Toutefois, une remarque
-    avant de continuer.</p>
+    <p>Le reste de cette section va servir à trouver une manière efficace de calculer le déterminant et de démontrer ses propriétés, les mêmes que celles de la section précédente, mais généralisées. 
+    Toutefois, on fait une remarque avant de continuer.</p>
     <remark xml:id="rem-existdef">
     <title>L'existence et l'unicité du déterminant</title>
     <statement><p>À priori, rien n'indique que le déterminant existe, encore moins qu'il n'y en a qu'un seul pour une matrice donnée. On peut toutefois le démontrer, entre autre grâce à Gauss-Jordan. Les détails de cette démonstration
@@ -243,44 +243,44 @@ d'avoir à définir des opérations sur les colonnes.</p>
     <p>On reproduit ici la démarche de l'exemple <xref ref="ex-opelem"/>, mais cette-fois en regardant l'effet sur le déterminant.
     <md>
     <mrow>\begin{vmatrix}
-    1&amp; 3&amp;1&amp;\\
-    2&amp; 2&amp;-4&amp;\\
-    -1&amp; 0&amp;2&amp;
-    \end{vmatrix}&amp;=\begin{vmatrix} 1&amp; 3&amp;1&amp;\\
-    0&amp; -4&amp;-6&amp;\\
-    -1&amp; 0&amp;2&amp;
-    \end{vmatrix}&amp; &amp; \text{ selon la propriété } <xref ref="li-detk"/> \text{avec l'opération} -2L_1+L_2\rightarrow L_2
+    1&amp; 3&amp;1\\
+    2&amp; 2&amp;-4\\
+    -1&amp; 0&amp;2
+    \end{vmatrix}&amp;=\begin{vmatrix} 1&amp; 3&amp;1\\
+    0&amp; -4&amp;-6\\
+    -1&amp; 0&amp;2
+    \end{vmatrix}&amp;\text{ selon la propriété } <xref ref="li-detk"/> \text{ avec l'opération } -2L_1+L_2\rightarrow L_2
     </mrow> 
-   <mrow>&amp;=\begin{vmatrix} 1&amp; 3&amp;1&amp;\\
-    0&amp; -4&amp;-6&amp;\\
-    0&amp; 3&amp;3&amp;
-    \end{vmatrix}\text{ selon la propriété } <xref ref="li-detk"/> \text{avec l'opération} L_1+L_3\rightarrow L_3</mrow>
-    <mrow>&amp;=-4\begin{vmatrix} 1&amp; 3&amp;1&amp;\\
-    0&amp; 1&amp;\frac{3}{2}&amp;\\
-    0&amp; 3&amp;3&amp;
-    \end{vmatrix}\text{ selon la propriété } <xref ref="li-detr"/> \text{avec l'opération} -\frac{1}{4}L_2\rightarrow L_2</mrow>
-    <mrow>&amp;=-4\begin{vmatrix} 1&amp; 3&amp;1&amp;\\
-    0&amp; 1&amp;\frac{3}{2}&amp;\\
-    0&amp; 0&amp;-\frac{3}{2}&amp;
-    \end{vmatrix}\text{ selon la propriété } <xref ref="li-detk"/> \text{avec l'opération} -3L_2+L_3\rightarrow L_3</mrow>
-    <mrow>&amp;=-4\pfrac{-3}{2}\begin{vmatrix} 1&amp; 3&amp;1&amp;\\
-    0&amp; 1&amp;\frac{3}{2}&amp;\\
-    0&amp; 0&amp;1&amp;
-    \end{vmatrix}\text{ selon la propriété } <xref ref="li-detr"/> \text{avec l'opération} -\frac{2}{3}L_3\rightarrow L_3</mrow>
+   <mrow>&amp;=\begin{vmatrix} 1&amp; 3&amp;1\\
+    0&amp; -4&amp;-6\\
+    0&amp; 3&amp;3
+    \end{vmatrix} &amp; \text{ selon la propriété } <xref ref="li-detk"/> \text{ avec l'opération } L_1+L_3\rightarrow L_3</mrow>
+    <mrow>&amp;=-4\begin{vmatrix} 1&amp; 3&amp;1\\
+    0&amp; 1&amp;\frac{3}{2}\\
+    0&amp; 3&amp;3
+    \end{vmatrix} &amp; \text{ selon la propriété } <xref ref="li-detr"/> \text{ avec l'opération } -\frac{1}{4}L_2\rightarrow L_2</mrow>
+    <mrow>&amp;=-4\begin{vmatrix} 1&amp; 3&amp;1\\
+    0&amp; 1&amp;\frac{3}{2}\\
+    0&amp; 0&amp;-\frac{3}{2}
+    \end{vmatrix} &amp; \text{ selon la propriété } <xref ref="li-detk"/> \text{ avec l'opération } -3L_2+L_3\rightarrow L_3</mrow>
+    <mrow>&amp;=-4\pfrac{-3}{2}\begin{vmatrix} 1&amp; 3&amp;1\\
+    0&amp; 1&amp;\frac{3}{2}\\
+    0&amp; 0&amp;1
+    \end{vmatrix} &amp; \text{ selon la propriété } <xref ref="li-detr"/> \text{ avec l'opération } -\frac{2}{3}L_3\rightarrow L_3</mrow>
     <intertext>Dans la prochaine étape, on se permet de faire deux étapes en une, ce qui permet de réduire l'écriture.</intertext>
-    <mrow tag="star" xml:id="eq-deuxopelem"> &amp;=6\begin{vmatrix} 1&amp; 3&amp;0&amp;\\
-    0&amp; 1&amp;0&amp;\\
-    0&amp; 0&amp;1&amp;
-    \end{vmatrix}\text{ selon la propriété } <xref ref="li-detk"/> \text{avec les opérations} -\frac{3}{2}L_3+L_2\rightarrow L_2, -L_3+L_1\rightarrow L_1</mrow>
-    <mrow>&amp;=6\begin{vmatrix} 1&amp; 0&amp;0&amp;\\
-    0&amp; 1&amp;0&amp;\\
-    0&amp; 0&amp;1&amp;
-    \end{vmatrix}\text{ selon la propriété } <xref ref="li-detk"/> \text{avec l'opération} -3L_2+L_1\rightarrow L_1</mrow>
+    <mrow tag="star" xml:id="eq-deuxopelem"> &amp;=6\begin{vmatrix} 1&amp; 3&amp;0\\
+    0&amp; 1&amp;0\\
+    0&amp; 0&amp;1
+    \end{vmatrix} &amp; \text{ selon la propriété } <xref ref="li-detk"/> \text{ avec les opérations } -\frac{3}{2}L_3+L_2\rightarrow L_2, -L_3+L_1\rightarrow L_1</mrow>
+    <mrow>&amp;=6\begin{vmatrix} 1&amp; 0&amp;0\\
+    0&amp; 1&amp;0\\
+    0&amp; 0&amp;1
+    \end{vmatrix} &amp; \text{ selon la propriété } <xref ref="li-detk"/> \text{ avec l'opération } -3L_2+L_1\rightarrow L_1</mrow>
     </md>.
     </p>
     <p>Le déterminant de la matrice initial vaut donc <m>6</m> fois celui de la matrice identité, qui est <m>1</m>. Ainsi
     <m>\det(A)=6</m>. À noter que lorsqu'on multiplie une ligne par <m>r</m>, le déterminant est multiplié par <m>r</m>. Si on ne veut rien changer au déterminant initial, qu'on essaie de calculer, on doit donc
-    diviser par <m>r</m>. C'est pourquoi par exemple l'opération <m>-\frac{1}{4}L_2\rightarrow L_2</m> donne un facteur <m>-4</m> devant le déterminant et non pas <m>-\frac{1}{4}</m>. </p>
+    diviser par <m>r</m>. C'est pourquoi l'opération <m>-\frac{1}{4}L_2\rightarrow L_2</m>, par exemple, donne un facteur <m>-4</m> devant le déterminant et non pas <m>-\frac{1}{4}</m>. </p>
     </solution>
     </example>
     <p>L'algoritme de Gauss-Jordan <xref ref="algo-GJ"/> fournit donc une manière de calculer un déterminant, mais il faut bien noter l'effet des opérations élémentaires sur le déterminant. Dans le dernier exemple,
@@ -295,7 +295,7 @@ d'avoir à définir des opérations sur les colonnes.</p>
     <li><p>L'opération suivante est une opération de combinaison linéaire. Elle n'a aucun effet sur le déterminant. On pourrait dire <m>d_3=1</m>.</p></li>
     <li><p>La prochaine opération consiste à échanger les lignes deux et trois. Ceci apporte un nouveau changement de signe, <m>d_4=-1</m>.</p></li>
     <li><p>S'en suit alors une autre combinaison linéaire, qui ne change pas le déterminant: <m>d_5=1</m>.</p></li>
-    <li><p>On divise la ligne trois par <m>-54</m> afin de rendr le pivot égal à <m>1</m>. Pour ne pas changer le déterminant, il faut multiplier par <m>d_6=-54</m>.</p></li>
+    <li><p>On divise la ligne trois par <m>-54</m> afin de rendre le pivot égal à <m>1</m>. Pour ne pas changer le déterminant, il faut multiplier par <m>d_6=-54</m>.</p></li>
     <li><p>Toutes les autres opérations sont des opérations de combinaisons linéaires et ne changent pas le déterminant.</p></li>
     </ol>
     </p>
@@ -305,7 +305,8 @@ d'avoir à définir des opérations sur les colonnes.</p>
     <mrow>&amp;=-108</mrow>
     </md>.</p></solution>
     </example>
-    <p>Dans les derniers exemples, la matrice échelonnée réduite était toujours l'identité. Qu'arrive-t-il au déterminant si ce n'est pas le cas? Si par exemple on veut le déterminant de la matrice échelonnée réduite
+    <p>Dans les derniers exemples, la matrice échelonnée réduite était toujours l'identité. 
+    Qu'arrive-t-il au déterminant si ce n'est pas le cas? Si par exemple, on veut le déterminant de la matrice échelonnée réduite
     <me>
     R= \begin{pmatrix} 1&amp; 0&amp; -2\\ 0&amp; 1&amp;3\\ 0&amp;0&amp;0 \end{pmatrix}
     </me>,
@@ -320,16 +321,16 @@ d'avoir à définir des opérations sur les colonnes.</p>
     <statement>
     <p>Soit <m>A</m> une matrice carrée de taille <m>n\times n</m> et soit <m>E_{L_i\leftrightarrow L_j},E_{rL_i}</m> et  <m>E_{rL_j+L_i}</m>. Alors
     <ol>
-    <li><p><m>\det(E_{L_i\leftrightarrow L_j})=-1</m>;</p></li>
     <li><p><m>\det(E_{rL_i})=r</m>;</p></li>
-    <li><p><m>E_{rL_j+L_i}=1</m></p></li>
+    <li><p><m>\det(E_{L_i\leftrightarrow L_j})=-1</m>;</p></li>
+    <li><p><m>\det(E_{rL_j+L_i})=1</m></p></li>
     <li><p>si <m>E\in\{E_{L_i\leftrightarrow L_j},E_{rL_i},E_{rL_j+L_i}\}</m> est n'importe quelle matrice élémentaire, alors <m>\det(EA)=\det(E)\det(A)</m>.</p></li>
     </ol>
     </p>
     </statement>
-    <proof><p>On démontre facilement les trois premières propriétés, car celles-ci correspondent à l'application des propriétés <xref first="li-detr" last="li-detk"/> des déterminants sur la matrice
+    <proof><p>On démontre facilement les trois premières propriétés, car celles-ci correspondent à l'application des propriétés <xref ref="li-detr"/>, <xref ref="li-detp"/> et <xref ref="li-detk"/> des déterminants sur la matrice
     identité. Pour la propriété du produit, on note que l'effet de la multiplication à gauche par une matrice élémentaire sur la matrice <m>A</m> revient à faire l'opération élémentaire sur la matrice.
-    Comme les opérations élémentaires sont les mêmes que les propriétés <xref first="li-detr" last="li-detk"/>, le résultat suit. </p></proof>
+    Comme les opérations élémentaires sont les mêmes que les propriétés <xref ref="li-detr"/>, <xref ref="li-detp"/> et <xref ref="li-detk"/>, le résultat suit. </p></proof>
     </proposition>
     <p>Avec ces résultats sur le déterminant des matrices élémentaires, on est maintenant en mesure de démontrer les propriétés des déterminants plus généralement. On en fait le résultat du théorème
     suivant.</p>
@@ -338,28 +339,28 @@ d'avoir à définir des opérations sur les colonnes.</p>
     <statement><p>Soit <m>A</m> une matrice carrée <m>n\times n</m> et <m>\det(A)</m> son déterminant. On note par <m>\vec{a}_i</m> les lignes de la matrice <m>A</m>. Alors</p>
     <list xml:id="li-detprop">
     <ol>
-    <li><p>Les premières propriétés font état du lien entre les lignes de la matrice. On les décline en trois variantes.</p></li><ol>
-        <li xml:id="li-detvecegaux"><p>Si deux lignes sont égales, soit <m>\vec{a}_i=\vec{a}_j</m> pour certaines valeurs de <m>i,j</m>, alors <m>\det(A)=0</m></p></li>
+    <li><p>Les premières propriétés font état du lien entre les lignes de la matrice. On les décline en trois variantes.</p><ol>
+        <li xml:id="li-detvecegaux"><p>Si deux lignes sont égales, soit <m>\vec{a}_i=\vec{a}_j</m> pour certaines valeurs de <m>i,j</m>, alors <m>\det(A)=0</m>.</p></li>
         <li xml:id="li-detvecpara"><p>Si deux lignes sont parallèles, soit <m>\vec{a}_i=k\vec{a}_j</m> pour certaine valeur de <m>i,j</m> et <m>k</m>, alors <m>\det(A)=0</m>.</p></li>
-        <li xml:id="li-detveccomblin"><p>Si une ligne est une combinaison linéaire des autres, soit <m>\vec{a}_i=k_1\vec{a}_1+\cdots +k_{i-1}\vec{a}_{i-1}+k_{i+1}\vec{a}_{i+1}+\cdots k_n\vec{a}_n</m>, alors <m>\det(A)=0</m>.</p></li></ol>
+        <li xml:id="li-detveccomblin"><p>Si une ligne est une combinaison linéaire des autres, soit <m>\vec{a}_i=k_1\vec{a}_1+\cdots +k_{i-1}\vec{a}_{i-1}+k_{i+1}\vec{a}_{i+1}+\cdots k_n\vec{a}_n</m>, alors <m>\det(A)=0</m>.</p></li></ol></li>
     <li xml:id="li-detvecnul"><p>Si une ligne est nulle, soit <m>\vec{a}_i=\vec{0}</m> pour une certaine valeur de <m>i</m>, alors <m>\det(A)=0</m>.</p></li>
     <li xml:id="li-detinv"><p>La matrice <m>A</m> est inversible si et seulement si <m>\det(A)\neq 0</m> et <m>\det(A^{-1})=\frac{1}{\det(A)}</m>.</p></li>
     <li xml:id="li-detproduit"><p>Le déterminant d'un produit est égal au produit des déterminants, c'est-à-dire si <m>B</m> est une autre matrice <m>n\times n</m>, alors <m>\det(AB)=\det(A)\det(B)</m>.</p></li>
     <li xml:id="li-detsomme"><p>Si une ligne est écrite comme la somme de deux vecteurs, alors <me>
     \det(\vec{a}_1,\cdots,\vec{a}_i+\vec{b},\cdots ,\vec{a}_n)=\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots,\vec{a}_n)+\det(\vec{a}_1,\cdots,\vec{b},\cdots,\vec{a}_n)
     </me>. </p></li>
-    <li xml:id="li-dettransposee"><p>Le déterminant de la transposée est égal au déterminant de la matrice original, c'est-à-dire <m>\det(A^T)=\det(A)</m>.</p></li> 
+    <li xml:id="li-dettransposee"><p>Le déterminant de la transposée est égal au déterminant de la matrice originale, c'est-à-dire <m>\det(A^T)=\det(A)</m>.</p></li> 
     </ol>
     </list></statement>
     <proof>
-    <p>On démontre les deux premières propriétés regroupées. La troisème est laissé à l'exercice <xref ref="exo-detveccomblin"/>.</p>
+    <p>On démontre les deux premières propriétés regroupées. La troisième est laissée à l'exercice <xref ref="exo-detveccomblin"/>.</p>
     <p>Si deux lignes sont identiques, on applique la propriété <xref ref="li-detp"/> sur ces lignes. Puisque cette opération ne change pas la matrice, les lignes étant identiques, on a
     <m>\det(A)=-\det(A)</m>. Ceci entraine que <m>2\det(A)=0</m> et donc, le déterminant est nul.</p>
     <p>Si une ligne est un multiple d'une autre, alors on applique d'abord <xref ref="li-detr"/> pour sortir le scalaire. On a alors
     <m>\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots, k\vec{a}_i,\cdots ,\vec{a}_n)=k\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots ,\vec{a}_i,\cdots ,\vec{a}_n)=0</m> selon la propriété précédente.</p>
     </proof>
-    <proof><p>On veut maintenant démontrer que si une ligne est nulle, alors le déterminant est nulle. Pour cela, il suffit de &#x00AB; mettre en évidence &#x00BB; un zéro de la ligne nulle pour utiliser la propriété
-    <xref ref="li-detr"/> pour avoir <m>\det(\vec{a}_1,\cdots,\vec{0},\cdots ,\vec{a}_n)=0\det(\vec{a}_1,\cdots,\vec{0},\cdots ,\vec{a}_n)=0</m></p>.
+    <proof><p>On veut maintenant démontrer que si une ligne est nulle, alors le déterminant est nul. Pour cela, il suffit de &#x00AB; mettre en évidence &#x00BB; un zéro de la ligne nulle pour utiliser la propriété
+    <xref ref="li-detr"/> pour avoir <m>\det(\vec{a}_1,\cdots,\vec{0},\cdots ,\vec{a}_n)=0\det(\vec{a}_1,\cdots,\vec{0},\cdots ,\vec{a}_n)=0</m>.</p>
     </proof>   
     <proof><p>Si <m>A</m> est inversible, alors <m>A</m> se réduit à la matrice identité par une chaine de matrices élémentaires, soit
     <me>
@@ -369,7 +370,7 @@ d'avoir à définir des opérations sur les colonnes.</p>
     établi à la proposition <xref ref="prop-detmatelem"/> pour conclure que <m>\det(A)\neq 0</m>.
     </p>
     <p>Pour montrer que <m>\det(A^{-1})=\frac{1}{\det(A)}</m>, on utilise la prochaine propriété. Bien qu'elle ne soit pas encore démontrée, sa preuve n'utilise pas la valeur explicite du déterminant de <m>A</m>
-    et donc l'argument n'est pas circulaire. Donc puisque <m>AA^{-1}=I</m>, on a selon <xref ref="li-detproduit"/> que <m>\det(AA^{-1})=\det(A)\det(A^{-1})=\det(I)=1</m> et ainsi,<m>\det(A^{-1})=\frac{1}{\det(A)}</m>. </p>
+    et donc l'argument n'est pas circulaire. Donc puisque <m>AA^{-1}=I</m>, on a selon <xref ref="li-detproduit"/> que <m>\det(AA^{-1})=\det(A)\det(A^{-1})=\det(I)=1</m> et ainsi, <m>\det(A^{-1})=\frac{1}{\det(A)}</m>. </p>
     </proof>
     <proof><p>On suppose que <m>A</m> n'est pas inversible. Alors selon la proposition <xref ref="prop-inverseproduit"/>, le produit <m>AB</m> n'est pas inversible non plus.
     Donc <m>\det(AB)=\det(A)=0</m> ce qui implique à son tour que <m>\det(AB)=\det(A)\det(B)</m>.</p>
@@ -444,13 +445,13 @@ d'avoir à définir des opérations sur les colonnes.</p>
     </ol>
     </p></statement>
     </theorem>
-    <p>Les exemples <xref ref="ex-det3x3-1"/> et <xref ref="ex-det3x3-2"/> montre que pour calculer un déterminant, on peut faire la réduction à la forme échelonnée réduite en gardant une trace des 
+    <p>Les exemples <xref ref="ex-det3x3-1"/> et <xref ref="ex-det3x3-2"/> montrent que pour calculer un déterminant, on peut faire la réduction à la forme échelonnée réduite en gardant une trace des 
     opérations effectuées. Ces traces sont en fait les déterminants des matrices élémentaires. On peut toutefois éviter de faire l'échelonnage jusqu'au bout, avec un autre résultat. Avant, une définition d'un 
     type de matrices particulier.</p>
     <definition xml:id="def-mattriang">
     <title>Les matrices triangulaires</title>
     <statement><p>Une matrice carrée est triangulaire inférieure si toutes les entrées au-dessus de la diagonale principale sont nulles. Similairement, une matrice carrée est triangulaire
-    supérieure si toutes les entrées sous la diagonale principales sont nulles. On note souvent ces matrices par les lettres <m>L</m> et <m>U</m>, de l'anglais &#x00AB; lower,upper&#x00BB;. Ci-dessous
+    supérieure si toutes les entrées sous la diagonale principales sont nulles. On note souvent ces matrices par les lettres <m>L</m> et <m>U</m>, de l'anglais &#x00AB; lower, upper&#x00BB;. Ci-dessous
     des exemples de matrices triangulaires de tailles <m>4\times 4</m>. Les entrées identifiées par <m>*</m> peuvent prendre n'importe quelle valeur.
     <md>
     <mrow>L&amp;=\begin{pmatrix} 
@@ -494,7 +495,7 @@ d'avoir à définir des opérations sur les colonnes.</p>
     </proof>
     </proposition>
     <p>On fait un exemple où on échelonne jusqu'à la forme triangulaire supérieure pour calculer le déterminant, sans nécessairement faire en sorte que les pivots soit égaux à <m>1</m>. Bien entendu, il faut quand même garder une trace des opérations faites pour s'y rendre.</p>
-    <example>
+    <example xml:id="ex-det3x3-3">
     <title>Le calcul d'un déterminant par la méthode triangulaire supérieure</title>
     <statement>
     <p>Soit <m>A=\begin{pmatrix} 2&amp; -3&amp;4\\
@@ -509,16 +510,16 @@ d'avoir à définir des opérations sur les colonnes.</p>
                                  -1&amp; 0&amp;1\end{pmatrix}</mrow>
     <mrow>&amp;\sim \begin{pmatrix} 2&amp; -3&amp;4\\
                                  0&amp; 7&amp; -3\\
-                                 -1&amp; 0&amp;1\end{pmatrix} &amp; &amp; \text{où on a fait} -2L_1+L_2\rightarrow L_2</mrow>
+                                 -1&amp; 0&amp;1\end{pmatrix} &amp; &amp; \text{ où on a fait } -2L_1+L_2\rightarrow L_2</mrow>
     <mrow>&amp;\sim \begin{pmatrix} 2&amp; -3&amp;4\\
                                  0&amp; 7&amp; -3\\
-                                 -2&amp; 0&amp;2\end{pmatrix} &amp; &amp; \text{où on a fait} 2L_3\rightarrow L_2</mrow>
+                                 -2&amp; 0&amp;2\end{pmatrix} &amp; &amp; \text{ où on a fait } 2L_3\rightarrow L_2</mrow>
     <mrow>&amp;\sim \begin{pmatrix} 2&amp; -3&amp;4\\
                                  0&amp; 7&amp; -3\\
-                                 0&amp; -3&amp;6\end{pmatrix} &amp; &amp; \text{où on a fait} L_1+L_3\rightarrow L_3</mrow>
+                                 0&amp; -3&amp;6\end{pmatrix} &amp; &amp; \text{ où on a fait } L_1+L_3\rightarrow L_3</mrow>
    <mrow>&amp;\sim \begin{pmatrix} 2&amp; -3&amp;4\\
                                  0&amp; 7&amp; -3\\
-                                 0&amp; 0&amp;\frac{33}{7}\end{pmatrix} &amp; &amp; \text{où on a fait} \frac{3}{7}L_2+L_3\rightarrow L_3</mrow>
+                                 0&amp; 0&amp;\frac{33}{7}\end{pmatrix} &amp; &amp; \text{ où on a fait } \frac{3}{7}L_2+L_3\rightarrow L_3</mrow>
    </md>.
    Le produit de la diagonale de la dernière matrice est <m>66</m>. Puisqu'on a effectué l'opération <m>2L_3\rightarrow L_3</m>, ce déterminant est deux fois plus grand que celui de <m>A</m>.
    On a donc <m>\det(A)=33</m>.</p>
