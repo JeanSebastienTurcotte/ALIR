@@ -180,7 +180,7 @@
     <li><p><me>\left(\begin{array}{rr|r} 
     1&amp; -3&amp; a\\ 
     0&amp; 0&amp; 2a+b\end{array}\right)</me>
-    Pour avoir la deuxième ligne seulement constituée de zéros, il faut que <m>2a+b\neq 0 \Rightarrow b=-2a</m>. </p></li>
+    Pour avoir la deuxième ligne seulement constituée de zéros, il faut que <m>2a+b= 0 \Rightarrow b=-2a</m>. </p></li>
     </ol></p></solution>
     </task>
     </exercise>
@@ -496,21 +496,21 @@
     Les variables <m>x_2</m> et <m>x_4</m> sont libres puisqu'il n'y a pas de pivot dans les deuxième et quatrième colonnes.
     On écrit donc:
     <md>
-    <mrow>x_1&amp;=-x_4</mrow>
+    <mrow>x_1&amp;=-3x_4</mrow>
     <mrow>x_2&amp;=x_2 \text{ (libre)}</mrow>
     <mrow>x_3&amp;=-2x_4</mrow>
     <mrow>x_4&amp;=x_4 \text{ (libre)}</mrow>
     </md>.
     L'ensemble solution est donc:
-    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=\begin{pmatrix}-x_4\\ x_2\\ -2x_4\\ x_4\end{pmatrix}
-    =x_2\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}+x_4\begin{pmatrix}-1\\ 0\\ -2\\ 1\end{pmatrix}</me>.
+    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=\begin{pmatrix}-3x_4\\ x_2\\ -2x_4\\ x_4\end{pmatrix}
+    =x_2\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}+x_4\begin{pmatrix}-3\\ 0\\ -2\\ 1\end{pmatrix}</me>.
     En posant <m>x_1=3</m>, on obtient une solution particulière pour laquelle il faut travailler un peu.
-    <me>\begin{pmatrix}3\\ x_2\\ x_3\\ x_4\end{pmatrix}=x_2\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}+x_4\begin{pmatrix}-1\\ 0\\ -2\\ 1\end{pmatrix}</me>
-    On observe de l'équation correspondant à la variable <m>x_1</m> que <m>3=-x_4\Rightarrow x_4=-3</m>.
+    <me>\begin{pmatrix}3\\ x_2\\ x_3\\ x_4\end{pmatrix}=x_2\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}+x_4\begin{pmatrix}-3\\ 0\\ -2\\ 1\end{pmatrix}</me>
+    On observe de l'équation correspondant à la variable <m>x_1</m> que <m>3=-3x_4\Rightarrow x_4=-1</m>.
     Il existe quand même une infinité de solutions puisque la variable <m>x_2</m> n'est pas fixée. 
     On pose donc <m>x_2=0</m> et la solution particulière est:
-    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=0\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}-3\begin{pmatrix}-1\\ 0\\ -2\\ 1\end{pmatrix}
-    =\begin{pmatrix}3\\ 0\\ 6\\ -3\end{pmatrix}</me>.
+    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=0\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}-\begin{pmatrix}-3\\ 0\\ -2\\ 1\end{pmatrix}
+    =\begin{pmatrix}3\\ 0\\ 2\\ -1\end{pmatrix}</me>.
     </p>
     </solution>
     </task>
@@ -703,7 +703,7 @@
     La variable <m>z</m> est libre puisqu'il n'y a pas de pivot dans la troisième colonne.
     On écrit donc:
     <md>
-    <mrow>x&amp;=\frac{23}{13}z-frac{14}{13}</mrow>
+    <mrow>x&amp;=\frac{23}{13}z-\frac{14}{13}</mrow>
     <mrow>y&amp;=\frac{2}{13}z+\frac{5}{13}</mrow>
     <mrow>z&amp;=z \text{ (libre)}</mrow>
     </md>.
@@ -752,9 +752,14 @@
 \end{array}\right)</mrow>
 <mrow>&amp;\matsimilc{2}{-}{1}\left(\begin{array}{rr|r}
 1 &amp; 6 &amp; -1 \\
+3 &amp; -5 &amp; -3 \\
+-5 &amp; 9 &amp; 5
+\end{array}\right) &amp;&amp; \text{(ces deux premières étapes évitent d'introduire des fractions)}</mrow>
+<mrow>&amp;\substack{-3L_1+L_2\rightarrow L_2 \\ 5L_1+L_3\rightarrow L_3 \\ \sim}\left(\begin{array}{rr|r}
+1 &amp; 6 &amp; -1 \\
 0 &amp; -23 &amp; 0 \\
 0 &amp; 39 &amp; 0
-\end{array}\right) &amp;&amp; \text{(ces deux premières étapes évitent d'introduire des fractions)}</mrow>
+\end{array}\right)</mrow>
 <mrow>&amp;\substack{-\frac{1}{23}L_2\rightarrow L_2 \\ \frac{1}{39}L_3\rightarrow L_3 \\ \sim}\left(\begin{array}{rr|r}
 1 &amp; 6 &amp; -1 \\
 0 &amp; 1 &amp; 0 \\
@@ -1102,7 +1107,7 @@
     Cependant, on peut facilement construire cette matrice en se souvenant du fait que les colonnes d'une matrice de transformation linéaire 
     correspondent aux images des vecteurs de la base canonique sous cette transformation tel qu'utilisé entre autres dans l'exemple <xref ref="ex-transfomatrice"/>.
     Puisque <m>T(x,y,z)=(0,y,0)</m>, il est immédiat que:
-    <me>T\vecddd{0}{0}{0}=\vecddd{1}{0}{0}, T\vecddd{0}{1}{0}=\vecddd{0}{1}{0} \text{ et }T\vecddd{0}{0}{1}=\vecddd{0}{0}{0}</me>.
+    <me>T\vecddd{1}{0}{0}=\vecddd{0}{0}{0}, T\vecddd{0}{1}{0}=\vecddd{0}{1}{0} \text{ et }T\vecddd{0}{0}{1}=\vecddd{0}{0}{0}</me>.
     La matrice est donc
     <me>T=\begin{pmatrix} 
     0 &amp; 0 &amp; 0\\ 

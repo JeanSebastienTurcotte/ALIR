@@ -655,9 +655,11 @@ show("rref(A)=",rrefA.simplify_full())
     </p></solution></task>
     <task><statement><p>Les vecteurs <m>\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0),\vec{s}_3=(-4,0,-1,0,1)</m>.</p></statement>
     <answer><p><me>\begin{pmatrix} 
-    1&amp; -1&amp; 1\\
-    2&amp; -2&amp;  2\\
-    3&amp; -3&amp; 3\end{pmatrix}</me></p></answer>
+    1&amp; 3&amp; 0 &amp; -2&amp; 4\\
+    2&amp; 6&amp; 1 &amp; -5&amp; 9\\
+    3&amp; 9&amp; 1 &amp; -7&amp; 13\\
+    5&amp; 15&amp; 2 &amp; -12&amp; 22\\
+    8&amp; 24&amp; 3 &amp; -19&amp; 35\end{pmatrix}</me></p></answer>
     <solution><p>On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <m>\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0)</m> 
     et <m>\vec{s}_3=(-4,0,-1,0,1)</m> et qui donnera la matrice suivante lorsqu'échelonnée:
     <me>\begin{pmatrix} 
@@ -827,36 +829,36 @@ L'image est donc le plan d'équation:
 <solution><p>On s'inspire de l'exemple <xref ref="ex-imgalg"/> pour trouver l'image de cette transformation.
 On doit échelonner la matrice augmentée <m>(A|\vec{b})</m> et interpréter la partie de droite.
 <md>
-<mrow>\left(\begin{array}{rrr|r} 4 &amp; 0 &amp; 4 amp; b_1\\
+<mrow>\left(\begin{array}{rrr|r} 4 &amp; 0 &amp; 4 &amp; b_1\\
                                  -2 &amp; -2 &amp; 1&amp; b_2\\
                                  2 &amp; 2 &amp; 1&amp; b_3
                                  \end{array}\right)&amp;\matsimils{1}{\frac{1}{4}}\left(\begin{array}{rrr|r} 
-                                 1 &amp; 0 &amp; 1 amp; \frac{1}{4}b_1\\
+                                 1 &amp; 0 &amp; 1 &amp; \frac{1}{4}b_1\\
                                  -2 &amp; -2 &amp; 1&amp; b_2\\
                                  2 &amp; 2 &amp; 1&amp; b_3
                                  \end{array}\right)</mrow>
 <mrow>&amp;\stackrel{2L_1+L_2\rightarrow L_2}{\stackrel{-2L_1+L_3\rightarrow L_3}{\sim}}\left(\begin{array}{rrr|r} 
-                                 1 &amp; 0 &amp; 1 amp; \frac{1}{4}b_1\\
+                                 1 &amp; 0 &amp; 1 &amp; \frac{1}{4}b_1\\
                                  0 &amp; -2 &amp; 3&amp; \frac{1}{2}b_1+b_2\\
                                  0 &amp; 2 &amp; -1&amp; -\frac{1}{2}b_1+b_3
                                  \end{array}\right)</mrow>
 <mrow>&amp;\matsimilc{2}{}{3}\left(\begin{array}{rrr|r} 
-                                 1 &amp; 0 &amp; 1 amp; \frac{1}{4}b_1\\
+                                 1 &amp; 0 &amp; 1 &amp; \frac{1}{4}b_1\\
                                  0 &amp; -2 &amp; 3&amp; \frac{1}{2}b_1+b_2\\
                                  0 &amp; 0 &amp; 2&amp; b_2+b_3
                                  \end{array}\right)</mrow>
 <mrow>&amp;\matsimils{3}{\frac{1}{2}}\left(\begin{array}{rrr|r} 
-                                 1 &amp; 0 &amp; 1 amp; \frac{1}{4}b_1\\
+                                 1 &amp; 0 &amp; 1 &amp; \frac{1}{4}b_1\\
                                  0 &amp; -2 &amp; 3&amp; \frac{1}{2}b_1+b_2\\
                                  0 &amp; 0 &amp; 1&amp; \frac{1}{2}b_2+\frac{1}{2}b_3
                                  \end{array}\right)</mrow>
 <mrow>&amp;\matsimils{2}{-\frac{1}{2}}\left(\begin{array}{rrr|r} 
-                                 1 &amp; 0 &amp; 1 amp; \frac{1}{4}b_1\\
+                                 1 &amp; 0 &amp; 1 &amp; \frac{1}{4}b_1\\
                                  0 &amp; 1 &amp; -\frac{3}{2}&amp; -\frac{1}{4}b_1-\frac{1}{2}b_2\\
                                  0 &amp; 0 &amp; 1&amp; \frac{1}{2}b_2+\frac{1}{2}b_3
                                  \end{array}\right)</mrow>
 <mrow>&amp;\stackrel{-L_3+L_1\rightarrow L_1}{\stackrel{\frac{3}{2}L_3+L_2\rightarrow L_2}{\sim}}\left(\begin{array}{rrr|r} 
-                                 1 &amp; 0 &amp; 0 amp; \frac{1}{4}b_1-\frac{1}{2}b_2-\frac{1}{2}b_3\\
+                                 1 &amp; 0 &amp; 0 &amp; \frac{1}{4}b_1-\frac{1}{2}b_2-\frac{1}{2}b_3\\
                                  0 &amp; 1 &amp; 0&amp; -\frac{1}{4}b_1+\frac{1}{4}b_2+\frac{3}{4}b_3\\
                                  0 &amp; 0 &amp; 1&amp; \frac{1}{2}b_2+\frac{1}{2}b_3
                                  \end{array}\right)</mrow>

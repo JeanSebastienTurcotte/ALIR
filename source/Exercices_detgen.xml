@@ -390,7 +390,7 @@
     </exercise>
     <exercise>
     <statement>
-    <p>Montrer que la propriété <xref ref="li-detp"/> peut-être déduite à partir des propriétés <xref ref="li-detr"/> et <xref ref="li-detk"/>.</p>
+    <p>Montrer que la propriété <xref ref="li-detp"/> peut être déduite à partir des propriétés <xref ref="li-detr"/> et <xref ref="li-detk"/>.</p>
     </statement>
     <hint><p>Voir l'exercice <xref ref="exo-opelemperm"/>.</p></hint>
     <solution><p>Suivant l'indication, on utilise les même étapes que dans l'exercice <xref ref="exo-opelemperm"/>.
@@ -430,9 +430,9 @@
     </statement>
     <solution><p>Les <xref ref="def-opelem">opérations élémentaires</xref> sont les suivantes:
     <ol>
-    <li><p>Interchanger la position de deux équations;</p></li>
-    <li><p>Multiplier une équation par une constante non nulle;</p></li>
-    <li><p>Ajouter à une équation un multiple d'une autre.</p></li>
+    <li><p>Interchanger la position de deux lignes;</p></li>
+    <li><p>Multiplier une ligne par une constante non nulle;</p></li>
+    <li><p>Ajouter à une ligne un multiple d'une autre.</p></li>
     </ol>
     Les <xref ref="def-matelem">matrices élémentaires</xref> sont donc dans ces trois catégories.
     <ol>
@@ -457,7 +457,7 @@
     <me>A=E_1^{-1}E_2^{-1}\cdots E_k^{-1}</me>
     pour des matrices élémentaires inversibles <m>E_1,E_2,\ldots , E_k</m>.
     <md>
-    <mrow>\det(A)&amp;=det(E_1^{-1}E_2^{-1}\cdots E_k^{-1})</mrow>
+    <mrow>\det(A)&amp;=\det(E_1^{-1}E_2^{-1}\cdots E_k^{-1})</mrow>
     <mrow>&amp;=\det(E_1^{-1})\det(E_2^{-1})\cdots \det(E_k^{-1}) &amp; \text{ par } <xref ref="li-detproduit"/></mrow>
     <mrow>&amp;=\det((E_1^{-1})^T)\det((E_2^{-1})^T)\cdots \det((E_k^{-1})^T) &amp; \text{ par la lettre précédente} </mrow>
     <mrow>&amp;= \det((E_k^{-1})^T)\cdots\det((E_2^{-1})^T)\det((E_1^{-1})^T) &amp; \text{ par la commutativité de la multiplication des nombres réels} </mrow>
@@ -489,12 +489,38 @@
     <p>Montrer que <m>\det(A)=\det(B)</m>.</p>
     </statement>
     <hint><p>Si <m>R</m> est la forme échelonnée réduite de <m>B</m>, à quoi ressemble la forme échelonnée réduite de <m>A</m>?</p></hint>
+    <solution><p>Comme suggéré dans l'indication, on s'attarde aux formes échelonnées réduites de <m>A</m> et de <m>B</m>. 
+    Rappelons que l'on peut calculer le déterminant d'une matrice à partir de sa forme échelonnée réduite comme dans l'exemple <xref ref="ex-det3x3-2"/>.
+    Soit <m>R</m>, la forme échelonnée réduite de <m>B</m>. 
+    Deux options sont possibles.</p> 
+    <p>D'abord, si <m>R</m> n'est pas la matrice identité, alors elle contient une ligne de zéros et sonn déterminant est nul par la propriété <xref ref="li-detvecnul"/>.
+    Le déterminant de <m>B</m> est donc aussi nul puisqu'on multiplie <m>\det(R)</m> par des constantes pour le calculer.
+    Clairement, la forme échelonnée réduite de <m>A</m> sera la matrice <m>R</m> augmentée des ligne et colonne retranchées précédemment, 
+    puisque l'on referait l'échelonnage à partir de la deuxième colonne de <m>A</m>, la première étant déjà pivot.
+    Le résultat est que la forme échelonnée réduite de <m>A</m> possèdera une ligne de zéros aussi et son déterminant sera aussi nul.
+    </p>
+    <p>Ensuite, si <m>R</m> est la matrice identité, alors <m>\det(B)</m> est obtenu en multipliant toutes les constantes obtenues des opérations élémentaires de l'échelonnage.
+    L'échelonnage de la matrice <m>A</m> n'ajoutant aucune opération élémentaire, puisque la première colonne est déjà pivot, on obtient que son déterminant sera égal
+    à <m>\det(B)</m> puisque sa forme échelonnée réduite sera également l'identité.
+    Il suit que <m>\det(A)=\det(B)</m>.
+    </p></solution>
     </exercise>
     <exercise>
     <statement>
     <p>Dans la section <xref ref="sec-matinverse"/>, on démontre que le <xref ref="prop-inverseproduit">produit</xref> <m>AB</m> est inversible si et seulement si les matrices <m>A,B</m> sont inversibles. Donner une preuve alternative de ce résultat
     en utilisant les déterminants.</p>
     </statement>
+    <solution><p>On se sert des propriétés <xref ref="li-detproduit"/> et <xref ref="li-detinv"/>.
+    <md>
+    <mrow>\det((AB)^{-1})&amp;=\frac{1}{\det(AB)}&amp; \text{ par } <xref ref="li-detinv"/></mrow>
+    <mrow>&amp;=\frac{1}{\det(A)\det(B)}&amp; \text{ par } <xref ref="li-detproduit"/></mrow>
+    <mrow>&amp;=\frac{1}{\det(A)}\frac{1}{\det(B)}</mrow>
+    <mrow>&amp;=\det(A^{-1})\det(B^{-1})&amp; \text{ par } <xref ref="li-detinv"/></mrow>
+    </md>
+    On a fait ce calcul pour démontrer que l'inverse de <m>AB</m> existe si et seulement si les inverses de <m>A</m> et de <m>B</m> existent.
+    En effet, par le théorème <xref ref="thm-delamatriceinversev4"/>, on sait qu'une matrice est inversible si et seulement si son déterminant est non nul.
+    Le calcul précédent exige que <m>\det(AB)\neq 0</m> si et seulement si <m>\det(A)\neq 0</m> et <m>\det(B)\neq 0</m> car ce sont les conditions pour que l'égalité fonctionne.
+    </p></solution>
     </exercise>
     <exercise>
     <introduction>
@@ -507,26 +533,41 @@
     <task>
     <statement>
     <p>
-    On vérifie que trois points sont alignés dans <m>\R^2</m> en calculant un déterminant. Ce déterminant vaut zéro si les points sont alignés. Pour faire l'équivalent à trois dimensions, on considère quatre points.
+    On vérifie que trois points sont alignés (colinéaires) dans <m>\R^2</m> en calculant un déterminant. 
+    Ce déterminant vaut zéro si les points sont alignés. 
+    Pour faire l'équivalent à trois dimensions, on considère quatre points.
     Que signifie le déterminant nul obtenu à partir de ces quatre points?
     </p>
     </statement>
+    <answer><p>Il signifie que les quatre points sont sur un même plan dans <m>\R^3</m>.
+    On peut affirmer que ces points sont coplanaires.</p></answer>
     </task>
     <task>
     <statement>
     <p>Formuler l'énoncé précédent en termes de vecteurs.</p>
     </statement>
+    <answer><p>Trois vecteurs <m>\vec{u},\vec{v},\vec{w}\in R^3</m> se situent dans un même plan si leur déterminant est nul, 
+    c'est-à-dire si <m>\det(\vec{u},\vec{v},\vec{w})=0</m>. 
+    On peut affirmer que ces vecteurs sont coplanaires.</p></answer>
     </task>
     </exercise>
     <exercise>
     <statement>
     <p>Donner un argument géométrique au fait que le déterminant n'est défini que pour des matrices carrées.</p>
     </statement>
+    <solution><p>Plusieurs réponses sont possibles.
+    On utilise l'argument de l'interprétation géométrique du déterminant comme un facteur de changement (d'aire, de volume, etc.).
+    Si le déterminant représente une constante associée à une transformation linéaire permettant de mesurer l'effet de la transformation linéaire en termes d'un facteur de changement,
+    alors il faut absolument que la transformation soit d'un espace vers ce même espace. 
+    En effet, comment pourrait-on parler de facteur de changement d'aire si l'on passe de <m>\R^2</m> vers <m>\R^3</m>, par exemple pour une transformation linéaire
+    représentée par une matrice <m>3\times 2</m>? Cela n'a pas de sens.
+    Il faut donc absolument avoir une matrice <m>n\times n</m> pour pouvoir parler d'un déterminant.</p></solution>
     </exercise>
     <exercise>
     <statement>
-    <p>Soit <m>A(a_1,a_2),B(b_1,b_2)</m> et <m>C(c_1,c_2)</m> les coordonnées d'un triangle dans <m>\R^2</m>. On sait qu'on peut calculer l'aire du triangle <m>ABC</m> avec un déterminant <m>\det(\vecl{AB},\vecl{AC})</m> par exemple.</p>
-    <p>Montrer que l'aire du triangle peut aussi être obtenu à l'aide du déterminant
+    <p>Soit <m>A(a_1,a_2),B(b_1,b_2)</m> et <m>C(c_1,c_2)</m> les coordonnées d'un triangle dans <m>\R^2</m>. 
+    On sait qu'on peut calculer l'aire du triangle <m>ABC</m> avec un déterminant <m>\det(\vecl{AB},\vecl{AC})</m> par exemple en le divisant par deux.</p>
+    <p>Montrer que l'aire du triangle peut aussi être obtenue à l'aide du déterminant
     <me>
     \frac{1}{2}\begin{vmatrix}
     1&amp;1&amp;1\\
@@ -536,6 +577,82 @@
     </me>.
     </p>
     </statement>
+    <solution><p>On peut faire une preuve algébrique ou bien géométrique qui seraient toutes les deux valables. 
+    On choisit ici de faire les deux pour satisfaire les préférences de tous.</p>
+    <p>Géométriquement,  il faut réfléchir à ce que représente le déterminant <me>
+    \begin{vmatrix}
+    1&amp;1&amp;1\\
+    a_1&amp;b_1&amp;c_1\\
+    a_2&amp;b_2&amp;c_2
+    \end{vmatrix}
+    </me>.
+    Les vecteurs colonnes de ce déterminant ont tous en commun une composante en <m>x</m> égale à <m>1</m>.
+    Si on se positionne pour que l'axe des <m>x</m> pointe vers nous, ce qu'on observe, c'est un triangle parallèle au plan <m>YOZ</m> formés par les points 
+    <m>A(a_1,a_2),B(b_1,b_2)</m> et <m>C(c_1,c_2)</m> positionnés de la même façon qu'ils l'étaient dans <m>\R^2</m>. 
+    Le prisme droit de hauteur <m>1</m> a comme volume la même valeur que l'aire du triangle puisqu'on le calcule en multipliant l'aire de la base par sa hauteur, qui est <m>1</m>.
+    On a démontré à la figure <xref ref="fig-det3x3paradecom"/>, que le volume d'une pyramide triangulaire vaut les deux tiers du volume du prisme dans lequel elle est encastrée.
+    Puisqu'on calcule le volume de la pyramide en divisant le déterminant par trois, on a donc la chaine d'égalités suivantes:
+    <me>\text{Aire triangle ABC }=\text{ Volume prisme droit }=\frac{3}{2}(\text{Volume de la pyramide})</me>
+    <me>=\frac{3}{2}\frac{1}{3}\begin{vmatrix}
+    1&amp;1&amp;1\\
+    a_1&amp;b_1&amp;c_1\\
+    a_2&amp;b_2&amp;c_2
+    \end{vmatrix}=\frac{1}{2}\begin{vmatrix}
+    1&amp;1&amp;1\\
+    a_1&amp;b_1&amp;c_1\\
+    a_2&amp;b_2&amp;c_2
+    \end{vmatrix}</me>.
+    </p>
+    <p>Algébriquement, on peut simplement développer les deux expressions en présence et observer qu'elles sont égales.
+    <md>
+    <mrow>\frac{1}{2}\det(\vecl{AB},\vecl{AC})&amp;=\frac{1}{2}\det(\vecl{OB}-\vecl{OA},\vecl{OC}-\vecl{OA})</mrow>
+    <mrow>&amp;=\frac{1}{2}\det((b_1,b_2)-(a_1,a_2),(c_1,c_2)-(a_1,a_2))</mrow>
+    <mrow>&amp;=\frac{1}{2}\det((b_1-a_1,b_2-a_2),(c_1-a_1,c_2-a_2))</mrow>
+    <mrow>&amp;=\frac{1}{2}\big((b_1-a_1)(c_2-a_2)-(b_2-a_2)(c_1-a_1)\big)</mrow>
+    <mrow>&amp;=\frac{1}{2}\big(b_1c_2-b_1a_2-a_1c_2+a_1a_2-c_1b_2+c_1a_2+a_1b_2-a_1a_2\big)</mrow>
+    <mrow>&amp;=\frac{1}{2}\big(b_1c_2-b_1a_2-a_1c_2-c_1b_2+c_1a_2+a_1b_2\big)</mrow>
+    </md>
+    Pour développer <me>\begin{vmatrix}
+    1&amp;1&amp;1\\
+    a_1&amp;b_1&amp;c_1\\
+    a_2&amp;b_2&amp;c_2
+    \end{vmatrix}</me>,
+    il faut échelonner la matrice pour avoir une matrice triangulaire supérieure.
+    <md>
+    <mrow>\begin{pmatrix}
+    1&amp;1&amp;1\\
+    a_1&amp;b_1&amp;c_1\\
+    a_2&amp;b_2&amp;c_2
+    \end{pmatrix}&amp;\matsimilc{1}{-a_1}{2}\begin{pmatrix}
+    1&amp;1&amp;1\\
+    0&amp;b_1-a_1&amp;c_1-a_1\\
+    a_2&amp;b_2&amp;c_2
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{1}{-a_2}{3}\begin{pmatrix}
+    1&amp;1&amp;1\\
+    0&amp;b_1-a_1&amp;c_1-a_1\\
+    0&amp;b_2-a_2&amp;c_2-a_2
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-\frac{b_2-a_2}{b_1-a_1}}{3}\begin{pmatrix}
+    1&amp;1&amp;1\\
+    0&amp;b_1-a_1&amp;c_1-a_1\\
+    0&amp;0&amp;c_2-a_2-\frac{b_2-a_2}{b_1-a_1}(c_1-a_1)
+    \end{pmatrix}</mrow>
+    </md>
+    Puisque les opérations élémentaires effectuées étaient toutes du type <xref ref="li-detk"/>, on obtient le déterminant en multipliant les éléments de la diagonale.
+    <md>
+    <mrow>\frac{1}{2}\begin{vmatrix}
+    1&amp;1&amp;1\\
+    a_1&amp;b_1&amp;c_1\\
+    a_2&amp;b_2&amp;c_2
+    \end{vmatrix}&amp;=\frac{1}{2}\left(1*(b_1-a_1)*\left(c_2-a_2-\frac{b_2-a_2}{b_1-a_1}(c_1-a_1)\right)\right)</mrow>
+    <mrow>&amp;=\frac{1}{2}\big((b_1-a_1)(c_2-a_2)-(b_2-a_2)(c_1-a_1)\big)</mrow>
+    <mrow>&amp;=\frac{1}{2}\big(b_1c_2-b_1a_2-a_1c_2+a_1a_2-c_1b_2+c_1a_2+a_1b_2-a_1a_2\big)</mrow>
+    <mrow>&amp;=\frac{1}{2}\big(b_1c_2-b_1a_2-a_1c_2-c_1b_2+c_1a_2+a_1b_2\big)</mrow>
+    </md>
+    Noter qu'on aurait pu arrêter les deux calculs deux lignes plus tôt puisqu'on avait déjà obtenu la même expression.
+    </p>
+    </solution>
     </exercise>
     <exercise>
     <task>
@@ -548,8 +665,42 @@
     \end{vmatrix}=(y-x)(z-x)(z-y)
     </me></p></statement>
     <hint><p>Rendre la matrice triangulaire</p></hint>
+    <solution><p>On suit l'indication et on calcule le déterminant en échelonnant pour avoir une matrice triangulaire supérieure.
+    <md>
+    <mrow>\begin{pmatrix}
+    1&amp;1&amp;1\\
+    x&amp; y&amp;z\\
+    x^2&amp;y^2&amp;z^2
+    \end{pmatrix}&amp;\matsimilc{1}{-x}{2}\begin{pmatrix}
+    1&amp;1&amp;1\\
+    0&amp; y-x&amp;z-x\\
+    x^2&amp;y^2&amp;z^2
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{1}{-x^2}{3}\begin{pmatrix}
+    1&amp;1&amp;1\\
+    0&amp; y-x&amp;z-x\\
+    0&amp;y^2-x^2&amp;z^2-x^2
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-(y+x)}{3}\begin{pmatrix}
+    1&amp;1&amp;1\\
+    0&amp; y-x&amp;z-x\\
+    0&amp;0 &amp;z^2-x^2-(z-x)(y-x)
+    \end{pmatrix}</mrow>
+    </md>
+    Puisque les opérations élémentaires effectuées étaient toutes du type <xref ref="li-detk"/>, on obtient le déterminant en multipliant les éléments de la diagonale.
+    <md>
+    <mrow>\begin{vmatrix}
+    1&amp;1&amp;1\\
+    x&amp; y&amp;z\\
+    x^2&amp;y^2&amp;z^2
+    \end{vmatrix}&amp;=1*(y-x)*\big(z^2-x^2-(z-x)(y-x)\big)</mrow>
+    <mrow>&amp;=(y-x)\big((z-x)(z+x)-(z-x)(y-x)\big)</mrow>
+    <mrow>&amp;=(y-x)(z-x)\big((z+x)-(y-x)\big)</mrow>
+    <mrow>&amp;=(y-x)(z-x)(z-y)</mrow>
+    </md>
+    </p></solution>
     </task>
-    <task>
+    <!--<task>
     <statement><p>Montrer que 
     <me>
     \begin{vmatrix}
@@ -559,6 +710,40 @@
     x^3&amp;y^3&amp;z^3&amp;w^3
     \end{vmatrix}=(y-x)(z-x)(w-x)(z-y)(w-y)(w-z)
     </me></p></statement>
+    <solution><p>On utilise une approche semblable et on calcule le déterminant en échelonnant pour avoir une matrice triangulaire supérieure.
+    <md>
+    <mrow>\begin{pmatrix}
+    1&amp;1&amp;1&amp;1\\
+    x&amp; y&amp;z&amp;w\\
+    x^2&amp;y^2&amp;z^2&amp;w^2\\
+    x^3&amp;y^3&amp;z^3&amp;w^3
+    \end{pmatrix}&amp;\substack{-xL_1+L_2\rightarrow L_2 \\ -x^2L_1+L_3\rightarrow L_3 \\  -x^3L_1+L_4\rightarrow L_3 \\ \sim}\begin{pmatrix}
+    1&amp;1&amp;1&amp;1\\
+    0 &amp; y-x&amp;z-x&amp;w-x\\
+    0 &amp;y^2-x^2&amp;z^2-x^2&amp;w^2-x^2\\
+    0 &amp;y^3-x^3&amp;z^3-x^3&amp;w^3-x^3
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\substack{-(y+x)L_2+L_3\rightarrow L_2 \\ -(x^2+xy+y^2)L_2+L_4\rightarrow L_3 \\ \sim}\begin{pmatrix}
+    1&amp;1&amp;1&amp;1\\
+    0 &amp; y-x&amp;z-x&amp;w-x\\
+    0 &amp;0 &amp;(z+x)(z-x)-(y+x)(z-x)&amp;(w+x)(w-x)-(y+x)(w-x)\\
+    0 &amp;0 &amp;(z-x)(z^2+zx+x^2)-(z-x)(x^2+xy+y^2)&amp;(w-x)(w^2+wx+x^2)-(w-x)(x^2+xy+y^2)
+    \end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    1&amp;1&amp;1&amp;1\\
+    0 &amp; y-x&amp;z-x&amp;w-x\\
+    0 &amp;0 &amp;(z-y)(z-x)&amp;(w-y)(w-x)\\
+    0 &amp;0 &amp;(z-x)(z^2+zx-xy-y^2)&amp;(w-x)(w^2+wx-xy-y^2)
+    \end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    1&amp;1&amp;1&amp;1\\
+    0 &amp; y-x&amp;z-x&amp;w-x\\
+    0 &amp;0 &amp;(z-y)(z-x)&amp;(w-y)(w-x)\\
+    0 &amp;0 &amp;(z-x)(z-y)(z+x)(z^2+zx-xy-y^2)&amp;(w-x)(w^2+wx-xy-y^2)
+    \end{pmatrix}</mrow>
+    </md>
+    Je pense que je me suis mélangé dans mes calculs quelque part
+    </p></solution>
     </task>
     <task>
     <introduction><p>Considérer le déterminant
@@ -572,23 +757,105 @@
     \end{vmatrix}
     </me>.</p></introduction>
     <task>
-    <statement><p>En se basant sur les calculs précédents, combien de facteur y aura-t-il dans ce déterminant et que devraient-ils être?</p></statement>
+    <statement><p>En se basant sur les calculs précédents, combien de facteurs y aura-t-il dans ce déterminant et que devraient-ils être?</p></statement>
     </task>
     <task><statement><p>Démontrer l'hypothèse de la partie ci-dessus.</p></statement></task>
-    </task>    
+    </task>  -->  
     </exercise>
     <exercise xml:id="exo-detortho">
-    <introduction><p>Une matrice est dite orthogonale si <m>QQ^T=I</m>, c'est-à-dire que son inverse est égale à sa transposée.</p></introduction>
+    <introduction><p>Une matrice est dite orthogonale si <m>QQ^T=I</m>, c'est-à-dire que son inverse est égal à sa transposée.</p></introduction>
     <task>
     <statement><p>Montrer que les matrices de rotation et de réflexion dans <m>\R^2</m> sont orthogonales.</p></statement>
+    <solution><p>On connait ces matrices.
+    Il suffit de faire le calcul. 
+    On commence par la <xref ref="eq-rotr2">matrice de rotation</xref>.
+    <md>
+    <mrow>R_{\theta}R_{\theta}^T&amp;=\begin{pmatrix}
+    \cos(\theta) &amp; -\sin(\theta)\\
+    \sin(\theta) &amp; \cos(\theta)
+    \end{pmatrix}\begin{pmatrix}
+    \cos(\theta) &amp; -\sin(\theta)\\
+    \sin(\theta) &amp; \cos(\theta)
+    \end{pmatrix}^T</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    \cos(\theta) &amp; -\sin(\theta)\\
+    \sin(\theta) &amp; \cos(\theta)
+    \end{pmatrix}\begin{pmatrix}
+    \cos(\theta) &amp; \sin(\theta)\\
+    -\sin(\theta) &amp; \cos(\theta)
+    \end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    \cos^2(\theta)+\sin^2(\theta) &amp; \cos(\theta)\sin(\theta)-\cos(\theta)\sin(\theta)\\
+    \sin(\theta)\cos(\theta)-\sin(\theta)\cos(\theta) &amp; \sin^2(\theta)+\cos^2(\theta)
+    \end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    1 &amp; 0\\
+    0 &amp; 1
+    \end{pmatrix}  \text{  par les identités trigonométriques}</mrow>
+    <mrow>&amp;=I</mrow>
+    </md>
+    On poursuit avec la <xref ref="eq-refr2-2">matrice de réflexion</xref>.
+    <md>
+    <mrow>S_{\theta}S_{\theta}^T&amp;=\begin{pmatrix}
+    \cos(2\theta)&amp; \sin(2\theta)\\
+    \sin(2\theta) &amp; -\cos(2\theta)
+    \end{pmatrix}\begin{pmatrix}
+    \cos(2\theta)&amp; \sin(2\theta)\\
+    \sin(2\theta) &amp; -\cos(2\theta)
+    \end{pmatrix}^T</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    \cos(2\theta)&amp; \sin(2\theta)\\
+    \sin(2\theta) &amp; -\cos(2\theta)
+    \end{pmatrix}\begin{pmatrix}
+    \cos(2\theta)&amp; \sin(2\theta)\\
+    \sin(2\theta) &amp; -\cos(2\theta)
+    \end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    \cos^2(2\theta)+\sin^2(2\theta) &amp; \cos(2\theta)\sin(2\theta)-\cos(2\theta)\sin(2\theta)\\
+    \sin(2\theta)\cos(2\theta)-\sin(2\theta)\cos(2\theta) &amp; \sin^2(2\theta)+\cos^2(2\theta)
+    \end{pmatrix} </mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    1 &amp; 0\\
+    0 &amp; 1
+    \end{pmatrix}  \text{  par les identités trigonométriques}</mrow>
+    <mrow>&amp;=I</mrow>
+    </md>
+    </p></solution>
     </task>
-    <task><statement><p>Quelles sont les valeurs possibles pour le déterminant d'une matrice orthogonale?</p></statement></task>
+    <task><statement><p>Quelles sont les valeurs possibles pour le déterminant d'une matrice orthogonale?</p></statement>
+    <answer><p>Il peut valoir <m>1</m> ou <m>-1</m>.</p></answer>
+    <solution><p>On utilise la définition précédente. 
+    Soit <m>Q</m>, une matrice orthogonale. Alors, on sait que <m>QQ^T=I</m>.
+    On calcule son déterminant.
+    <md>
+    <mrow>1&amp;=\det(I)</mrow>
+    <mrow>&amp;=\det(QQ^T)</mrow>
+    <mrow>&amp;=\det(Q)\det(Q^T) &amp; \text{ par } <xref ref="li-detproduit"/></mrow>
+    <mrow>&amp;=\det(Q)\det(Q) &amp; \text{ par l'exercice } <xref ref="exo-preuvedettranspo"/></mrow>
+    <mrow>&amp;=(\det(Q))^2 </mrow>
+    </md>
+    Si <m>(\det(Q))^2=1</m>, alors il n'y a que deux options, soit <m>\det(Q)=1</m> ou <m>\det(Q)=-1</m>.
+    </p></solution>
+    </task>
     </exercise>
+    <!-- Faire un exercice sur les matrices orthogonales étant des rotations ou réflexions et identifier l'angle (Papillon).-->
     <exercise>
     <statement>
     <p>Une matrice antisymétrique est une matrice <m>A</m> telle que <m>A=-A^T</m>. Si <m>A</m> est une matrice antisymétrique de taille <m>n\times n</m> où <m>n</m> est impair, montrer que
     <m>\det(A)=0</m>. Pourquoi est-ce que ça ne fonctionne pas dans le cas où <m>n</m> est pair?</p>
     </statement>
+    <solution><p>Soit <m>A</m>, une matrice antisymétrique. On utilise les propriétés des déterminants pour calculer le déterminant de <m>-A^T</m>.
+    <md>
+    <mrow>\det(A)&amp;=\det(-A^T) &amp; \text{ par hypothèse}</mrow>
+    <mrow>&amp;=(-1)^n\det(A^T) &amp; \text{ par }  <xref ref="li-detr"/></mrow>
+    <mrow>&amp;=(-1)^n\det(A) &amp; \text{ par l'exercice } <xref ref="exo-preuvedettranspo"/></mrow>
+    <mrow>&amp;=(-1)\det(A) &amp; \text{ car } n \text{ est impair}</mrow>
+    </md>
+    Et donc, si <m>\det(A)=-\det(A)</m>, alors <m>2\det(A)=0 \Rightarrow \det(A)=0</m>.
+    On remarque qu'on a utilisé la propriété <xref ref="li-detr"/> à la deuxième ligne <m>n</m> fois, une fois pour chaque ligne.
+    </p>
+    <p>Il est clair que si <m>n</m> est pair, tout ce qu'on obtient, c'est que <m>\det(A)=\det(A)</m>, ce qui est toujours vrai.</p>
+    </solution>
     </exercise>
     <exercise>
     <introduction>
@@ -604,15 +871,64 @@
     \end{vmatrix}}
     </me>.</p>
     </statement>
+    <hint><p>Considérer la matrice <me>A=\begin{pmatrix}\lvert &amp; \lvert \\ \vec{u} &amp; \vec{v} \\ \lvert &amp; \lvert \end{pmatrix}</me>
+    et sa transposée <me>A^T=\begin{pmatrix}
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{u} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{v} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}
+    \end{pmatrix}</me>
+    et remarquer que l'expression dans la racine représente le déterminant de <m>A^TA</m>.
+    </p></hint>
+    <solution><p>On suit l'indication en définissant la matrice <m>A</m> et sa transposée. 
+    Le déterminant de <m>A</m> correspond à l'aire du parallélogramme engendré par <m>\vec{u}</m> et <m>\vec{v}</m> (positive ou négative).
+    <md>
+    <mrow>\sqrt{\begin{vmatrix}
+    \pscal{u}{u} &amp;\pscal{u}{v}\\
+    \pscal{v}{u} &amp; \pscal{v}{v}
+    \end{vmatrix}}&amp;=\sqrt{\det\left(\begin{pmatrix}
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{u} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{v} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}
+    \end{pmatrix}\begin{pmatrix}\lvert &amp; \lvert \\ \vec{u} &amp; \vec{v} \\ \lvert &amp; \lvert \end{pmatrix}\right)}&amp; \text{ par } <xref ref="eq-matvecprodgeneral"/></mrow>
+    <mrow>&amp;=\sqrt{\det(A^TA)}</mrow>
+    <mrow>&amp;=\sqrt{\det(A^T)\det(A)} &amp; \text{ par } <xref ref="li-detproduit"/></mrow>
+    <mrow>&amp;=\sqrt{\det(A)\det(A)} &amp; \text{ par } <xref ref="li-dettransposee"/></mrow>
+    <mrow>&amp;=\sqrt{\det(A)^2} </mrow>
+    <mrow>&amp;=|\det(A)| </mrow>
+    <mrow>&amp;=|\det(\vec{u},\vec{v})| </mrow>
+    </md>
+    Cette expression est donc l'aire du parallélogramme.
+    </p></solution>
     </task>
     <task><statement><p>Soit <m>\vec{u},\vec{v}\in\R^3</m>. Montrer que le volume du parallélépipède engendré par ces vecteurs est 
     <me>
     \sqrt{\begin{vmatrix}
     \pscal{u}{u} &amp;\pscal{u}{v}&amp; \pscal{u}{w}\\
     \pscal{v}{u} &amp; \pscal{v}{v}&amp; \pscal{v}{w}\\
-    \pscal{w}{u} &amp; \pscal{w}{v}&amp; \pscal{w}{w}\\
+    \pscal{w}{u} &amp; \pscal{w}{v}&amp; \pscal{w}{w}
     \end{vmatrix}}
-    </me>.</p></statement></task>
+    </me>.</p></statement>
+    <solution><p>On suit l'indication en définissant la matrice 
+    <me>A=\begin{pmatrix}\lvert &amp; \lvert &amp; \lvert \\ \vec{u} &amp; \vec{v} &amp; \vec{w} \\ \lvert &amp; \lvert &amp; \lvert \end{pmatrix}</me> et sa transposée. 
+    Le déterminant de <m>A</m> correspond au volume du parallélépipède engendré par <m>\vec{u}</m>, <m>\vec{v}</m> et <m>\vec{w}</m> (positif ou négatif).
+    <md>
+    <mrow>\sqrt{\begin{vmatrix}
+    \pscal{u}{u} &amp;\pscal{u}{v}&amp; \pscal{u}{w}\\
+    \pscal{v}{u} &amp; \pscal{v}{v}&amp; \pscal{v}{w}\\
+    \pscal{w}{u} &amp; \pscal{w}{v}&amp; \pscal{w}{w}
+    \end{vmatrix}}&amp;=\sqrt{\det\left(\begin{pmatrix}
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{u} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{v} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}\\
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{w} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}
+    \end{pmatrix}\begin{pmatrix}\lvert &amp; \lvert &amp; \lvert \\ \vec{u} &amp; \vec{v} &amp; \vec{w} \\ \lvert &amp; \lvert &amp; \lvert \end{pmatrix}\right)}&amp; \text{ par } <xref ref="eq-matvecprodgeneral"/></mrow>
+    <mrow>&amp;=\sqrt{\det(A^TA)}</mrow>
+    <mrow>&amp;=\sqrt{\det(A^T)\det(A)} &amp; \text{ par } <xref ref="li-detproduit"/></mrow>
+    <mrow>&amp;=\sqrt{\det(A)\det(A)} &amp; \text{ par } <xref ref="li-dettransposee"/></mrow>
+    <mrow>&amp;=\sqrt{\det(A)^2} </mrow>
+    <mrow>&amp;=|\det(A)| </mrow>
+    <mrow>&amp;=|\det(\vec{u},\vec{v},\vec{w})| </mrow>
+    </md>
+    Cette expression est donc le volume du parallélépipède.
+    </p></solution>
+    </task>
     <task>
     <statement>
     <p>Généraliser les résultats précédents pour montrer que
@@ -621,20 +937,87 @@
     \pscal{u_1}{u_1} &amp;\pscal{u_1}{u_2}&amp;\cdots &amp; \pscal{u_1}{u_n}\\
     \pscal{u_2}{u_1} &amp; \pscal{u_2}{u_2}&amp; \cdots &amp;\pscal{u_2}{u_n}\\
     \vdots&amp; \vdots&amp; \ddots &amp; \vdots \\
-    \pscal{u_n}{u_1} &amp; \pscal{u_n}{u_2}&amp;\cdots &amp; \pscal{u_n}{u_n}\\
+    \pscal{u_n}{u_1} &amp; \pscal{u_n}{u_2}&amp;\cdots &amp; \pscal{u_n}{u_n}
     \end{vmatrix}}
     </me>
-    est égal à l'hypervolume de solide à <m>n</m> dimensions engendré par les vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n</m>. </p>
+    est égal à l'hypervolume du solide à <m>n</m> dimensions engendré par les vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n</m>. </p>
     </statement>
+    <solution><p>On continue avec la même démarche en définissant la matrice 
+    <me>A=\begin{pmatrix}\lvert &amp; \lvert &amp; \cdots &amp;\lvert \\ \vec{u}_1 &amp; \vec{u}_2 &amp; \cdots &amp; \vec{u}_n \\ \lvert &amp; \lvert &amp; \cdots &amp; \lvert \end{pmatrix}</me> et sa transposée. 
+    Le déterminant de <m>A</m> correspond à l'hypervolume du solide engendré par <m>\vec{u}</m>, <m>\vec{v}</m> et <m>\vec{w}</m> (positif ou négatif).
+    <md>
+    <mrow>\sqrt{\begin{vmatrix}
+    \pscal{u_1}{u_1} &amp;\pscal{u_1}{u_2}&amp;\cdots &amp; \pscal{u_1}{u_n}\\
+    \pscal{u_2}{u_1} &amp; \pscal{u_2}{u_2}&amp; \cdots &amp;\pscal{u_2}{u_n}\\
+    \vdots&amp; \vdots&amp; \ddots &amp; \vdots \\
+    \pscal{u_n}{u_1} &amp; \pscal{u_n}{u_2}&amp;\cdots &amp; \pscal{u_n}{u_n}
+    \end{vmatrix}}&amp;=\sqrt{\det\left(\begin{pmatrix}
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{u}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{u}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}\\
+    \vdots &amp; \vdots &amp;\vdots\\
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{u}_n &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}
+    \end{pmatrix}\begin{pmatrix}\lvert &amp; \lvert &amp; \cdots &amp;\lvert \\ \vec{u}_1 &amp; \vec{u}_2 &amp; \cdots &amp; \vec{u}_n \\ \lvert &amp; \lvert &amp; \cdots &amp; \lvert  \end{pmatrix}\right)}&amp; \text{ par } <xref ref="eq-matvecprodgeneral"/></mrow>
+    <mrow>&amp;=\sqrt{\det(A^TA)}</mrow>
+    <mrow>&amp;=\sqrt{\det(A^T)\det(A)} &amp; \text{ par } <xref ref="li-detproduit"/></mrow>
+    <mrow>&amp;=\sqrt{\det(A)\det(A)} &amp; \text{ par } <xref ref="li-dettransposee"/></mrow>
+    <mrow>&amp;=\sqrt{\det(A)^2} </mrow>
+    <mrow>&amp;=|\det(A)| </mrow>
+    <mrow>&amp;=|\det(\vec{u}_1,\vec{u}_2, \cdots , \vec{u}_n)| </mrow>
+    </md>
+    Cette expression est donc l'hypervolume de l'hyperparallélépipède (défi scrabble du jour).
+    </p></solution>
     </task>
     </exercise>
     <exercise>
     <title>La méthode de Cramer</title>
     <statement>
-    <p>Généraliser les idées de l'exercices <xref ref="exo-cramer2x2"/> pour exprimer la solution à un système d'équations linéaires <m>A\vec{x}=\vec{b}</m>, où <m>A</m> est une matrice <m>n\times n</m>, en fonction 
+    <p>Généraliser les idées de l'exercice <xref ref="exo-cramer2x2"/> pour exprimer la solution à un système d'équations linéaires <m>A\vec{x}=\vec{b}</m>, où <m>A</m> est une matrice <m>n\times n</m>, en fonction 
     de déterminants.</p>
     <p>On note que cette méthode n'est pas très pratique au niveau calculatoire, car elle exige le calcul d'un grand nombre de déterminants. Elle est toutefois efficace dans le cas <m>2\times 2</m>. </p>
     </statement>
+    <solution><p>
+    Soit une matrice <m>A</m> de format <m>n\times n</m>, un vecteur <m>\vec{b}\in\R^n</m> et l'équation <m>A\vec{x}=\vec{b}</m>.
+    Cette équation représente le système d'équations linéaires:    
+    <md>
+    <mrow>
+    a_{1\,1}x_1+a_{1\,2}x_2+\cdots a_{1\,n}x_n &amp;= b_1 \\
+    </mrow>
+    <mrow>
+    a_{2\,1}x_1+a_{2\,2}x_2+\cdots a_{2\,n}x_n &amp;= b_2 \\
+    </mrow>
+    <mrow>\vdots </mrow>
+    <mrow>
+    a_{n\,1}x_1+a_{n\,2}x_2+\cdots a_{n\,n}x_n &amp;= b_n \\
+    </mrow>
+    </md>.
+    On pose <m>\vec{a}_1=(a_{1\, 1},a_{2\,1},\ldots , a_{n\,1}),\vec{a}_2=(a_{1\, 2},a_{2\,2},\ldots , a_{n\,2}),\ldots,\vec{a}_n=(a_{1\, n},a_{2\,n},\ldots , a_{n\,n})</m>
+    et <m>\vec{b}=(b_1,b_2,\ldots , b_n)</m>, 
+    pour pouvoir énoncer la méthode de Cramer. Alors,
+    <me>
+    A=\begin{pmatrix}
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+    \vec{a}_1 &amp; \vec{a}_2 &amp; \cdots &amp; \vec{a}_n \\
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert
+    \end{pmatrix}
+    </me>
+    et les valeurs des variables sont données par
+    <me>x_1=\frac{\begin{vmatrix}
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+    \vec{b} &amp; \vec{a}_2 &amp; \cdots &amp; \vec{a}_n \\
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert
+    \end{vmatrix}}{\det(A)}, 
+    x_2=\frac{\begin{vmatrix}
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+    \vec{a}_1 &amp; \vec{b} &amp; \cdots &amp; \vec{a}_n \\
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert
+    \end{vmatrix}}{\det(A)}, \cdots , 
+    x_n=\frac{\begin{vmatrix}
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+    \vec{a}_1 &amp; \vec{a}_2 &amp; \cdots &amp; \vec{b} \\
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert
+    \end{vmatrix}}{\det(A)}</me>.
+    La preuve serait très longue à faire et suivrait le modèle de l'exercice <xref ref="exo-cramer2x2"/>.
+    On choisit de généraliser l'idée sans la démontrer algébriquement.</p></solution>
     </exercise>
     <exercisegroup>
     <title>Exercices Sage</title>
@@ -647,7 +1030,13 @@
     <mrow>A_3&amp;=\begin{pmatrix} 1&amp; 1&amp; 1\\ 1&amp;2 &amp;2 \\ 1&amp;2 &amp; 3\end{pmatrix}</mrow>
     <mrow>\vdots &amp;= \vdots </mrow>
     <mrow>A_n&amp;=\begin{pmatrix} 1&amp;1&amp;1&amp;\cdots &amp; 1\\ 1&amp;2&amp;2&amp; \cdots &amp; 2\\ 1&amp; 2&amp;3&amp; \cdots &amp; 3\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 1&amp; 2&amp; 3&amp; \cdots &amp; n \end{pmatrix}</mrow>
-    </md>. Utiliser Sage pour formuler une hypothèse sur la valeur de <m>\det(A_n)</m> et démontrer ensuite le résultat. </p></statement>
+    </md>. Utiliser Sage pour formuler une hypothèse sur la valeur de <m>\det(A_n)</m> et démontrer ensuite le résultat. </p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement>
     <answer><p>Le déterminant est toujours égal à <m>1</m>.</p></answer>
     <solution>
     <p>Voici une manière d'obtenir l'hypothèse.</p>
@@ -693,8 +1082,14 @@ for k in range(6):
     <mrow>B_2&amp;=\begin{pmatrix} 0&amp; 1\\ 1&amp;0  \end{pmatrix}</mrow>
     <mrow>B_3&amp;=\begin{pmatrix} 0&amp; 1&amp; 1\\ 1&amp;0 &amp;1 \\ 1&amp;1 &amp; 0\end{pmatrix}</mrow>
     <mrow>\vdots &amp;= \vdots </mrow>
-    <mrow>B_n&amp;=\begin{pmatrix} 0&amp;1&amp;1&amp;\cdots &amp; 1\\ 1&amp;0&amp;1&amp; \cdots &amp;1\\ 1&amp; 1&amp;0&amp; \cdots &amp;1\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp;\vdots \vdots\\ 1&amp; 1&amp; 1&amp; \cdots &amp; 0 \end{pmatrix}</mrow>
-    </md>. Utiliser Sage pour formuler une hypothèse sur la valeur de <m>\det(B_n)</m>.<!-- et démontrer le résultat.--> </p></statement> 
+    <mrow>B_n&amp;=\begin{pmatrix} 0&amp;1&amp;1&amp;\cdots &amp; 1\\ 1&amp;0&amp;1&amp; \cdots &amp;1\\ 1&amp; 1&amp;0&amp; \cdots &amp;1\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp;\vdots \vdots\\ 1&amp; 1&amp; 1&amp; \cdots &amp; 0 \end{pmatrix}</mrow>
+    </md>. Utiliser Sage pour formuler une hypothèse sur la valeur de <m>\det(B_n)</m>.<!-- et démontrer le résultat.--> </p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement> 
     <answer><p>Le déterminant est <m>\det(A_n)=(-1)^{n-1}(n-1)</m>.</p></answer>
     <solution>
     <p>Voici une fonction permettant de créer les matrices <m>B_n</m>. Elle utilise la méthode de construction par une fonction intermédiaire <c>lambda</c>. Voir <xref provisional="Exemples sur les fonctions lambda"/>.</p>

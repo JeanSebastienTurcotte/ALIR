@@ -336,7 +336,7 @@ DC=
    \end{pmatrix}</m></p></answer>
    <solution><p>Le vecteur <m>\vec{u}_1</m> est unitaire. La matrice standard de projection orthogonale sur <m>\vec{u}_1</m> est 
    <md>
-   <mrow>\vec{u}_1\vec{u}_1^T&amp;=\vecd{\frac{\sqrt{2}}{2}}{-\sqrt{2}}{2}}\left(\frac{\sqrt{2}}{2}\,\,-\frac{\sqrt{2}}{2}\right)</mrow>
+   <mrow>\vec{u}_1\vec{u}_1^T&amp;=\vecd{\frac{\sqrt{2}}{2}}{-\frac{\sqrt{2}}{2}}\left(\frac{\sqrt{2}}{2}\,\,-\frac{\sqrt{2}}{2}\right)</mrow>
    <mrow>&amp;=\begin{pmatrix} 
    \frac{1}{2}&amp; -\frac{1}{2}\\
    -\frac{1}{2}&amp; \frac{1}{2}
@@ -349,7 +349,7 @@ DC=
 \end{array}\right)</m></p></answer>
 <solution><p>Le vecteur <m>\vec{u}_2</m> est unitaire. La matrice standard de projection orthogonale sur <m>\vec{u}_2</m> est 
 <md>
-<mrow>\vec{u}_2\vec{u}^T&amp;=\vecd{\frac{1}{2}}{\frac{\sqrt{3}}{2}}\begin{pmatrix}\frac{1}{2} &amp; \frac{\sqrt{3}{2}}\end{pmatrix}</mrow>
+<mrow>\vec{u}_2\vec{u}^T&amp;=\vecd{\frac{1}{2}}{\frac{\sqrt{3}}{2}}\begin{pmatrix}\frac{1}{2} &amp; \frac{\sqrt{3}}{2}\end{pmatrix}</mrow>
 <mrow>&amp;=\left(\begin{array}{rr}
 \frac{1}{4} &amp; \frac{1}{4} \, \sqrt{3} \\
 \frac{1}{4} \, \sqrt{3} &amp; \frac{3}{4}
@@ -386,7 +386,7 @@ DC=
 \end{array}\right)</m></p></answer>
 <solution><p>Le vecteur <m>\vec{u}_5</m> est unitaire. C'est un vecteur de <m>\R^3</m>, mais la définition <xref ref="def-projorthomat"/> fonction indépendamment de la dimension des vecteurs. On a donc
 <md>
-<mrow>\vec{u}_5\vec{u}_5^T&amp;=\vecddd{\frac{4}{9}{\frac{4}{9}}{\frac{7}{9}}\begin{pmatrix}\frac{4}{9}&amp;\frac{4}{9}&amp;\frac{7}{9} \end{pmatrix}</mrow>
+<mrow>\vec{u}_5\vec{u}_5^T&amp;=\vecddd{\frac{4}{9}}{\frac{4}{9}}{\frac{7}{9}}\begin{pmatrix}\frac{4}{9}&amp;\frac{4}{9}&amp;\frac{7}{9} \end{pmatrix}</mrow>
 <mrow>&amp;=\left(\begin{array}{rrr}
 \frac{16}{81} &amp; \frac{16}{81} &amp; \frac{28}{81} \\
 \frac{16}{81} &amp; \frac{16}{81} &amp; \frac{28}{81} \\
@@ -461,7 +461,7 @@ DC=
     <mrow>&amp;=A^T-A&amp;&amp; \text{ toujours selon } <xref ref="prop-transposeeprop"/></mrow>
     <mrow>&amp;=-A+A^T&amp;&amp; \text{ commutativité de l'addition}</mrow>
     <mrow>&amp;=-(A-A^T)</mrow>
-    <mrow>&amp;=X</mrow>
+    <mrow>&amp;=-X</mrow>
     </md>.
     La matrice <m>x</m> est donc antisymétrique.
     </p></solution>
@@ -511,8 +511,8 @@ DC=
     </task>
     <task><statement>Répéter la partie précédente avec <m>\vec{u}=(a,b)</m>.</statement>
     <answer><p><m>\left(\begin{array}{rr}
-5 &amp; 0 \\
-0 &amp; 5
+a^{2} + b^{2} &amp; 0 \\
+0 &amp; a^{2} + b^{2}
 \end{array}\right)</m></p></answer>
 <solution><p>La matrice <m>A=\left(\begin{array}{rr}
 a &amp; -b \\
@@ -588,7 +588,7 @@ for P in P4:
    <solution><p>Puisqu'on peut interpréter une solution à l'équation <m>A^T\vec{x}=\vec{b}</m> comme étant
    <m>
    x_1\vec{a}_1+x_2\vec{a}_2+\cdots +x_n\vec{a}_n=\vec{b}
-   </m>, où les vecteurs <m>\ve{a}_1,\vec{a}_2,\ldots ,\vec{a}_n</m> sont les colonnes de la matrice <m>A^T</m>, on a que si une solution existe, alors <m>\vec{b}</m> est une combinaison linéaire des colonnes de <m>A^T</m>.
+   </m>, où les vecteurs <m>\vec{a}_1,\vec{a}_2,\ldots ,\vec{a}_n</m> sont les colonnes de la matrice <m>A^T</m>, on a que si une solution existe, alors <m>\vec{b}</m> est une combinaison linéaire des colonnes de <m>A^T</m>.
    Or les colonnes de <m>A^T</m> sont égales aux lignes de <m>A</m> et on sait que <m>\vec{b}</m> n'est pas une combinaison linéaire de ces lignes. Ainsi l'équation n'a pas de solutions.</p></solution>
    </exercise>
 <!--################################################################################### -->

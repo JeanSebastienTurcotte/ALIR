@@ -13,9 +13,34 @@
    <exercise xml:id="exo-det2x2avecprop">
     <statement>
     <p>
-    En utilisant une méthode analogue à celle de la proposition  <xref ref="prop-det3x3avecprop"/>, montrer que le déterminant d'une matrice <m>2\times 2</m> est <m>ad-bc</m>.
+    En utilisant une méthode analogue à celle de la proposition  <xref ref="prop-det3x3avecprop"/>, montrer que le déterminant d'une matrice <m>2\times 2</m> 
+    quelconque <m>\begin{pmatrix}a &amp; c \\ b &amp; d\end{pmatrix}</m> est <m>ad-bc</m>.
     </p>
     </statement>
+    <solution>
+    <p>Comme dans la proposition  <xref ref="prop-det3x3avecprop"/>, l'astuce est de considérer la première ligne 
+    <m>\vec{l}_1=(a, c)</m> et de la réécrire comme étant une somme de deux vecteurs: 
+    <me>
+    (a, c)=(a, 0)+(0,c)
+    </me>.
+    On a alors
+    <md>
+    <mrow>\begin{vmatrix}a &amp; c \\ b &amp; d\end{vmatrix}&amp;=\begin{vmatrix}a+0 &amp; 0+c \\ b &amp; d\end{vmatrix}</mrow>
+    <mrow>&amp;=\begin{vmatrix}a &amp; 0 \\ b &amp; d\end{vmatrix}
+    +\begin{vmatrix}0 &amp; c \\ b &amp; d\end{vmatrix}&amp; &amp;\text{selon } <xref ref="li-detsomme"/></mrow>
+    <mrow>&amp;=a\begin{vmatrix}1 &amp; 0 \\ b &amp; d\end{vmatrix}
+    +c\begin{vmatrix}0 &amp; 1 \\ b &amp; d\end{vmatrix}&amp; &amp;\text{selon } <xref ref="li-detr"/></mrow>
+    <mrow>&amp;=a\begin{vmatrix}1 &amp; 0 \\ 0 &amp; d\end{vmatrix}
+    +c\begin{vmatrix}0 &amp; 1 \\ b &amp; 0\end{vmatrix}&amp; &amp;\text{en éliminant avec } <xref ref="li-detk"/></mrow>
+    <mrow>&amp;=a*d\begin{vmatrix}1 &amp; 0 \\ 0 &amp; 1\end{vmatrix}
+    +c*b\begin{vmatrix}0 &amp; 1 \\ 1 &amp; 0\end{vmatrix}&amp; &amp;\text{selon } <xref ref="li-detr"/></mrow>
+    <mrow>&amp;=ad\begin{vmatrix}1 &amp; 0 \\ 0 &amp; 1\end{vmatrix}
+    -bc\begin{vmatrix}1 &amp; 0 \\ 0 &amp; 1\end{vmatrix}&amp; &amp;\text{selon } <xref ref="li-detp"/></mrow>
+    <mrow>&amp;=(ad-bc)\begin{vmatrix}1 &amp; 0 \\ 0 &amp; 1\end{vmatrix}</mrow>
+    <mrow>&amp;=(ad-bc)&amp; &amp;\text{car } \det(I)=1</mrow>
+    </md>.
+    </p>
+    </solution>
     </exercise>
     <exercise>
     <introduction><p>Soit <me>
@@ -31,34 +56,127 @@
     <statement>
     <p><m>C_{1,3}</m></p>
     </statement>
+    <answer><p><me>C_{1,3}=-3</me></p></answer>
+    <solution><p>
+    On utilise les définitions de <xref ref="def-mineurs" text="custom">mineurs</xref> et de <xref ref="def-cofact" text="custom">cofacteurs</xref>.
+    <md>
+    <mrow>C_{1,3}&amp;=(-1)^{1+3}\det(A_{1,3})</mrow>
+    <mrow>&amp;=(-1)^4\begin{vmatrix}
+    -4&amp;5\\
+    7&amp;-8
+    \end{vmatrix}</mrow>
+    <mrow>&amp;=(-4)*(-8)-7*5 &amp; &amp;\text{par }  <xref ref="li-det2x2formule"/></mrow>
+    <mrow>&amp;=-3</mrow>
+    </md>
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>C_{2,3}</m></p>
     </statement>
+    <answer><p><me>C_{2,3}=22</me></p></answer>
+    <solution><p>
+    On utilise les définitions de <xref ref="def-mineurs" text="custom">mineurs</xref> et de <xref ref="def-cofact" text="custom">cofacteurs</xref>.
+    <md>
+    <mrow>C_{2,3}&amp;=(-1)^{2+3}\det(A_{2,3})</mrow>
+    <mrow>&amp;=(-1)^5\begin{vmatrix}
+    1&amp;2\\
+    7&amp;-8
+    \end{vmatrix}</mrow>
+    <mrow>&amp;=(-1)*(1*(-8)-7*2) &amp; &amp;\text{par }  <xref ref="li-det2x2formule"/></mrow>
+    <mrow>&amp;=22</mrow>
+    </md>
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>C_{3,1}</m></p>
     </statement>
+    <answer><p><me>C_{3,1}=27</me></p></answer>
+    <solution><p>
+    On utilise les définitions de <xref ref="def-mineurs" text="custom">mineurs</xref> et de <xref ref="def-cofact" text="custom">cofacteurs</xref>.
+    <md>
+    <mrow>C_{3,1}&amp;=(-1)^{3+1}\det(A_{3,1})</mrow>
+    <mrow>&amp;=(-1)^4\begin{vmatrix}
+    2&amp; -3\\
+    5&amp;6
+    \end{vmatrix}</mrow>
+    <mrow>&amp;=2*6-5*(-3) &amp; &amp;\text{par }  <xref ref="li-det2x2formule"/></mrow>
+    <mrow>&amp;=27</mrow>
+    </md>
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>C_{2,2}</m></p>
     </statement>
+    <answer><p><me>C_{2,2}=30</me></p></answer>
+    <solution><p>
+    On utilise les définitions de <xref ref="def-mineurs" text="custom">mineurs</xref> et de <xref ref="def-cofact" text="custom">cofacteurs</xref>.
+    <md>
+    <mrow>C_{2,2}&amp;=(-1)^{2+2}\det(A_{2,2})</mrow>
+    <mrow>&amp;=(-1)^4\begin{vmatrix}
+    1&amp; -3\\
+    7&amp;9
+    \end{vmatrix}</mrow>
+    <mrow>&amp;=1*9-7*(-3) &amp; &amp;\text{par }  <xref ref="li-det2x2formule"/></mrow>
+    <mrow>&amp;=30</mrow>
+    </md>
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>C_{3,2}</m></p>
     </statement>
+    <answer><p><me>C_{3,2}=6</me></p></answer>
+    <solution><p>
+    On utilise les définitions de <xref ref="def-mineurs" text="custom">mineurs</xref> et de <xref ref="def-cofact" text="custom">cofacteurs</xref>.
+    <md>
+    <mrow>C_{3,2}&amp;=(-1)^{3+2}\det(A_{3,2})</mrow>
+    <mrow>&amp;=(-1)^5\begin{vmatrix}
+    1&amp; -3\\
+    -4&amp;6
+    \end{vmatrix}</mrow>
+    <mrow>&amp;=(-1)*(1*6-(-4)*(-3)) &amp; &amp;\text{par }  <xref ref="li-det2x2formule"/></mrow>
+    <mrow>&amp;=6</mrow>
+    </md>
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>C_{3,3}</m></p>
     </statement>
+    <answer><p><me>C_{3,3}=13</me></p></answer>
+    <solution><p>
+    On utilise les définitions de <xref ref="def-mineurs" text="custom">mineurs</xref> et de <xref ref="def-cofact" text="custom">cofacteurs</xref>.
+    <md>
+    <mrow>C_{3,3}&amp;=(-1)^{3+3}\det(A_{3,3})</mrow>
+    <mrow>&amp;=(-1)^6\begin{vmatrix}
+    1&amp;2\\
+    -4&amp;5
+    \end{vmatrix}</mrow>
+    <mrow>&amp;= 1*5-(-4)*2&amp; &amp;\text{par }  <xref ref="li-det2x2formule"/></mrow>
+    <mrow>&amp;=13</mrow>
+    </md>
+    </p></solution>
     </task>
     <task><statement><p>Calculer le déterminant de la matrice <m>A</m>.</p></statement>
     <hint><p>Peu de calculs sont nécessaires si les cofacteurs ci-dessus ont tous été calculés.</p></hint>
+    <answer><p><me>\det(A)=258</me></p></answer>
+    <solution><p>
+    On utilise l'équation <xref ref="eq-detcofact"/> développée selon la troisième ligne (<m>i=3</m>).
+    L'équation devient:
+    <me>\det(A)=a_{3,1}C_{3,1}+a_{3,2}C_{3,2}+a_{3,3}C_{3,3}</me>.
+    <md>
+    <mrow>\det(A)&amp;=\begin{vmatrix}
+    1&amp;2&amp; -3\\
+    -4&amp;5&amp;6\\
+    7&amp;-8&amp;9
+    \end{vmatrix}</mrow>
+    <mrow>&amp;=7*27+(-8)*6+9*13</mrow>
+    <mrow>&amp;=258</mrow>
+    </md>
+    </p></solution>
     </task>
     </exercise>
     <exercise xml:id="exo-cof-iplusjmoins2">
@@ -67,6 +185,16 @@
     de faire <m>i+j-2</m> permutations de lignes/colonnes.</p>
     <p>Comme chacune de ces permutations change le déterminant par un facteur <m>-1</m>, on a <m>(-1)^{i+j-2}=(-1)^{i+j}</m>, ce qui explique la présence de ce terme dans la formule de la définition <xref ref="def-cofact"/>. </p>
     </statement>
+    <solution><p>
+    Essentiellement, il faut procéder en échangeant toujours deux lignes ou colonnes adjacentes.
+    En commençant par les lignes, si on veut amener la ligne <m>i</m> à la ligne <m>1</m> et que toutes les autres lignes gardent le même ordre,
+    il faut permuter la ligne <m>i</m> et la ligne <m>i-1</m>, puis la nouvelle ligne <m>i-1</m> avec le ligne <m>i-2</m>, 
+    ainsi de suite jusqu'à la ligne <m>1</m>. Cela prend <m>i-1</m> opérations.</p>
+    <p>Ensuite, pour les colonnes, en suivant le même principe, on déplacera la colonne <m>j</m> à la première colonne sans changer l'ordre
+    relatif des colonnes en <m>j-1</m> opérations.
+    Toutes ces opérations étant des permutations, le déterminant est donc multiplié par un facteur <m>-1</m> à chaque fois et donc au total de 
+    <m>(-1)^{i-1}*(-1)^{j-1}=(-1)^{i+j-2}=(-1)^{i+j}</m>.</p>
+    </solution>
     </exercise>
     <exercise>
     <introduction>
@@ -76,15 +204,46 @@
     <mrow>A_3&amp;=\begin{pmatrix} 2&amp;1&amp;0\\ 1&amp;2&amp;1\\ 1&amp;1&amp;2 \end{pmatrix}</mrow>
     <mrow>A_4&amp;=\begin{pmatrix} 2&amp;1&amp;0&amp;0\\ 1&amp;2&amp;1&amp;0\\ 1&amp;1&amp;2 &amp;1\\ 1&amp;1&amp;1&amp;2\end{pmatrix}</mrow>
     </md>
-    ou en général la matrice <m>A_n</m> est une matrice <m>n\times n</m> dont la diagonale principale vaut <m>2</m>, toutes les entrées sous la diagonales valent <m>1</m> et la diagonale au-dessus de la principale a aussi toutes ses entrées égalent à <m>1</m>.</p>
+    ou en général la matrice <m>A_n</m> est une matrice <m>n\times n</m> dont la diagonale principale vaut <m>2</m>, 
+    toutes les entrées sous la diagonale valent <m>1</m> et la diagonale au-dessus de la principale a aussi toutes ses entrées égalent à <m>1</m>.</p>
     </introduction>
     <task>
     <statement>
     <p>Calculer <m>\det(A_2), \det(A_3)</m>.</p>
     </statement>
+    <answer><p><me>\det(A_2)=3</me>
+    <me>\det(A_3)=5</me>
+    </p></answer>
+    <solution><p>
+    <me>\det(A_2)=\begin{vmatrix}2&amp;1\\1&amp;2  \end{vmatrix}=2*2-1*1=3</me>
+    <md>
+    <mrow>\det(A_3)&amp;=\begin{vmatrix} 2&amp;1&amp;0\\ 1&amp;2&amp;1\\ 1&amp;1&amp;2 \end{vmatrix}</mrow>
+    <mrow>&amp;=a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+a_{1,3}C_{1,3} &amp; &amp;\text{par } <xref ref="eq-detcofact"/></mrow>
+    <mrow>&amp;=2*\begin{vmatrix} 2&amp;1\\ 1&amp;2 \end{vmatrix}-1*\begin{vmatrix} 1&amp;1\\ 1&amp;2 \end{vmatrix}+0</mrow>
+    <mrow>&amp;=2*(2*2-1*1)-1*(1*2-1*1)+0</mrow>
+    <mrow>&amp;=2*3-1*1+0</mrow>
+    <mrow>&amp;=5</mrow>
+    </md>
+    </p></solution>
     </task>
-    <task><statement><p>Montrer qu'on a <m>\det(A_4)=\det(A_3)+\det(A_2)</m>.</p></statement></task>
-    <task><statement><p>Montrer qu'en général, <m>\det(A_n)=\det(A_{n-1})+\det(A_{n-2})</m> lorsque <m>n\geq 4</m>.</p></statement></task>
+    <task><statement><p>Montrer qu'on a <m>\det(A_4)=\det(A_3)+\det(A_2)</m>.</p></statement>
+    <solution><p>
+    Bien que la question soit énoncée comme une preuve, il faut comprendre qu'on doit simplement calculer <m>\det(A_4)</m> et constater que cela donne <m>\det(A_3)+\det(A_2)</m>,
+    la somme des deux déterminants calculés plus tôt.
+    <md>
+    <mrow>\det(A_4)&amp;=\begin{vmatrix}  2&amp;1&amp;0&amp;0\\ 1&amp;2&amp;1&amp;0\\ 1&amp;1&amp;2 &amp;1\\ 1&amp;1&amp;1&amp;2 \end{vmatrix}</mrow>
+    <mrow>&amp;=a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+a_{1,3}C_{1,3}+a_{1,4}C_{1,4} &amp; &amp;\text{par } <xref ref="eq-detcofact"/></mrow>
+    <mrow>&amp;=2*\begin{vmatrix} 2&amp;1&amp;0\\ 1&amp;2 &amp;1\\ 1&amp;1&amp;2 \end{vmatrix}-1*\begin{vmatrix}  1&amp;1&amp;0\\ 1&amp;2 &amp;1\\ 1&amp;1&amp;2\end{vmatrix}+0-0</mrow>
+    <mrow>&amp;=2*\det(A_3)-\left(1*\begin{vmatrix}2 &amp;1\\ 1&amp;2\end{vmatrix}-1*\begin{vmatrix} 1&amp;1\\ 1&amp;2\end{vmatrix}+0\right)</mrow>
+    <mrow>&amp;=2*5-(2*2-1*1-(1*2-1*1))</mrow>
+    <mrow>&amp;=10-2</mrow>
+    <mrow>&amp;=8=\det(A_3)+\det(A_2)</mrow>
+    </md>
+    </p></solution>
+    </task>
+    <task><statement><p>Montrer qu'en général, <m>\det(A_n)=\det(A_{n-1})+\det(A_{n-2})</m> lorsque <m>n\geq 4</m>.</p></statement>
+    <solution><p>À venir.</p></solution>
+    </task>
     <task><statement><p>Calculer à l'aide de cette relation les déterminant des matrices <m>A_5,A_6,\ldots, A_{10}</m>. Ces nombres sont-ils familiers?</p></statement></task>
     </exercise>
     <exercise>
