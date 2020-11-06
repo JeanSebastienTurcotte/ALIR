@@ -239,12 +239,54 @@
     <mrow>&amp;=10-2</mrow>
     <mrow>&amp;=8=\det(A_3)+\det(A_2)</mrow>
     </md>
+    Pour s'aider avec la preuve de la prochaine question, on va recalculer le déterminant en utilisant la propriété <xref ref="li-detsomme"/> sur la première ligne.
+    <md>
+    <mrow>\det(A_4)&amp;=\begin{vmatrix}  2&amp;1&amp;0&amp;0\\ 1&amp;2&amp;1&amp;0\\ 1&amp;1&amp;2 &amp;1\\ 1&amp;1&amp;1&amp;2 \end{vmatrix}</mrow>
+    <mrow>&amp;=a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+a_{1,3}C_{1,3}+a_{1,4}C_{1,4} &amp; &amp;\text{par } <xref ref="eq-detcofact"/></mrow>
+    <mrow>&amp;=2*\begin{vmatrix} 2&amp;1&amp;0\\ 1&amp;2 &amp;1\\ 1&amp;1&amp;2 \end{vmatrix}-1*\begin{vmatrix}  1&amp;1&amp;0\\ 1&amp;2 &amp;1\\ 1&amp;1&amp;2\end{vmatrix}+0-0</mrow>
+    <mrow>&amp;=\begin{vmatrix} 2&amp;1&amp;0\\ 1&amp;2 &amp;1\\ 1&amp;1&amp;2 \end{vmatrix}+\begin{vmatrix} 2&amp;1&amp;0\\ 1&amp;2 &amp;1\\ 1&amp;1&amp;2 \end{vmatrix}
+    -\begin{vmatrix}  1&amp;1&amp;0\\ 1&amp;2 &amp;1\\ 1&amp;1&amp;2\end{vmatrix}</mrow>
+    <mrow>&amp;=\det(A_3)+\begin{vmatrix} 2-1&amp;1-1&amp;0\\ 1&amp;2 &amp;1\\ 1&amp;1&amp;2 \end{vmatrix}&amp; &amp;\text{ ar } <xref ref="li-detsomme"/></mrow>
+    <mrow>&amp;=\det(A_3)+\begin{vmatrix} 1&amp;0&amp;0\\ 1&amp;2 &amp;1\\ 1&amp;1&amp;2 \end{vmatrix}</mrow>
+    <mrow>&amp;=\det(A_3)+1*\begin{vmatrix}  2 &amp;1\\ 1&amp;2 \end{vmatrix}-0+0</mrow>
+    <mrow>&amp;=\det(A_3)+\det(A_2)</mrow>
+    </md>
+    Cette façon de faire met la table pour démontrer le prochain résultat.
     </p></solution>
     </task>
     <task><statement><p>Montrer qu'en général, <m>\det(A_n)=\det(A_{n-1})+\det(A_{n-2})</m> lorsque <m>n\geq 4</m>.</p></statement>
-    <solution><p>À venir.</p></solution>
+    <solution><p>
+    En gardant en tête l'exercice précédent, on développe le déterminant voulu selon la première ligne de la matrice <m>A_n</m>.
+    <md>
+    <mrow>\det(A_n)&amp;=a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+\cdots +a_{1,n}C_{1,n} &amp; &amp;\text{par } <xref ref="eq-detcofact"/></mrow>
+    <mrow>&amp;=2*\det(A_{n-1})-1*(\det(A_{n-1})\text{ avec } a_{1,1}=1)+0-0+ \cdots 0</mrow>
+    <mrow>&amp;=\det(A_{n-1})+\det(A_{n-1})-(\det(A_{n-1})\text{ avec } a_{1,1}=1)</mrow>
+    <mrow>&amp;=\det(A_{n-1})+(\det(A_{n-1})\text{ avec } a_{1,1}=1 \text{ et } a_{1,2}=0)&amp; &amp;\text{ ar } <xref ref="li-detsomme"/></mrow>
+    <mrow>&amp;=\det(A_{n-1})+1*\det(A_{n-2})-0+0+\cdots 0</mrow>
+    <mrow>&amp;=\det(A_{n-1})+\det(A_{n-2})</mrow>
+    </md>
+    </p></solution>
     </task>
-    <task><statement><p>Calculer à l'aide de cette relation les déterminant des matrices <m>A_5,A_6,\ldots, A_{10}</m>. Ces nombres sont-ils familiers?</p></statement></task>
+    <task><statement><p>Calculer à l'aide de cette relation les déterminant des matrices <m>A_5,A_6,\ldots, A_{10}</m>. Ces nombres sont-ils familiers?</p></statement>
+    <answer><p>
+    <me>A_5=13</me>
+    <me>A_6=21</me>
+    <me>A_7=34</me>
+    <me>A_8=55</me>
+    <me>A_9=89</me>
+    <me>A_{10}=144</me>
+    Cette suite de nombres est la suite de Fibonacci. 
+    </p></answer>
+    <solution><p>
+    <me>A_5=A_4+A_3=8+5=13</me>
+    <me>A_6=A_5+A_4=13+8=21</me>
+    <me>A_7=A_6+A_5=21+13=34</me>
+    <me>A_8=A_7+A_6=34+21=55</me>
+    <me>A_9=A_8+A_7=55+34=89</me>
+    <me>A_{10}=A_9+A_8=89+55=144</me>
+    Cette suite de nombres est la suite de Fibonacci. 
+    </p></solution>
+    </task>
     </exercise>
     <exercise>
     <statement><p>On considère la matrice 
@@ -253,6 +295,52 @@
     </me>.
     Déterminer l'inverse de la matrice à l'aide de la formule <xref ref="eq-matinversecofact"/>.
     </p></statement>
+    <answer><p><me>A^{-1}=\begin{pmatrix}
+    -\frac{3}{10} &amp; -\frac{1}{10} &amp; \frac{9}{10}\\
+    \frac{3}{10} &amp; \frac{1}{10} &amp; \frac{1}{10}\\
+    -\frac{1}{5}&amp; -\frac{2}{5} &amp; \frac{3}{5}
+    \end{pmatrix}</me></p></answer>
+    <solution><p>
+    Pour utiliser la formule <xref ref="eq-matinversecofact"/>, il nous faut d'abord calculer le déterminant de la matrice <m>A</m>.
+    <md>
+    <mrow>\det(A)&amp;=\begin{vmatrix}  
+    -1&amp; 3&amp; 1\\ 
+     2&amp; 0&amp;-3\\ 
+     1&amp;1&amp;0 \end{vmatrix}</mrow>
+    <mrow>&amp;=a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+a_{1,3}C_{1,3} &amp; &amp;\text{par } <xref ref="eq-detcofact"/></mrow>
+    <mrow>&amp;=(-1)*\begin{vmatrix} 0&amp;-3\\ 1&amp;0 \end{vmatrix}-3*\begin{vmatrix} 2&amp; -3\\ 1&amp;0 \end{vmatrix}+1*\begin{vmatrix} 2&amp; 0\\ 1&amp;1 \end{vmatrix}</mrow>
+    <mrow>&amp;=(-1)*3-3*3+1*2</mrow>
+    <mrow>&amp;=-10</mrow>
+    </md>
+    Ensuite, il faut calculer la <xref ref="def-matadjointe" text="custom">matrice adjointe</xref> en utilisant les <xref ref="def-mineurs" text="custom">mineurs</xref> 
+    et les <xref ref="def-cofact" text="custom">cofacteurs</xref>.
+    <md>
+    <mrow>A^{-1}&amp;=\frac{1}{\det(A)}\text{adj}(A)</mrow>
+    <mrow>&amp;=\frac{1}{-10}\text{adj}(A)</mrow>
+    <mrow>&amp;=-\frac{1}{10}C^T</mrow>
+    <mrow>&amp;=-\frac{1}{10}\big((-1)^{i+j}\det(A_{i,j})\big)^T</mrow>
+    <mrow>&amp;=-\frac{1}{10}\begin{pmatrix}
+    \begin{vmatrix}0&amp;-3\\ 1&amp;0\end{vmatrix}&amp; -\begin{vmatrix}2&amp;-3\\ 1&amp;0\end{vmatrix}&amp; \begin{vmatrix}2&amp;0\\ 1&amp;1\end{vmatrix}\\
+    -\begin{vmatrix}3&amp;1\\ 1&amp;0\end{vmatrix}&amp; \begin{vmatrix}-1&amp;1\\ 1&amp;0\end{vmatrix}&amp; -\begin{vmatrix}-1&amp;3\\ 1&amp;1\end{vmatrix}\\
+    \begin{vmatrix}3&amp;1\\ 0&amp;-3\end{vmatrix}&amp; -\begin{vmatrix}-1&amp;1\\ 2&amp;-3\end{vmatrix}&amp; \begin{vmatrix}-1&amp;3\\ 2&amp;0\end{vmatrix}
+    \end{pmatrix}^T</mrow>
+    <mrow>&amp;=-\frac{1}{10}\begin{pmatrix}
+    3 &amp; -3 &amp; 2\\
+    1 &amp; -1 &amp; 4\\
+    -9&amp; -1 &amp; -6
+    \end{pmatrix}^T</mrow>
+    <mrow>&amp;=-\frac{1}{10}\begin{pmatrix}
+    3 &amp; 1 &amp; -9\\
+    -3 &amp; -1 &amp; -1\\
+    2&amp; 4 &amp; -6
+    \end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    -\frac{3}{10} &amp; -\frac{1}{10} &amp; \frac{9}{10}\\
+    \frac{3}{10} &amp; \frac{1}{10} &amp; \frac{1}{10}\\
+    -\frac{1}{5}&amp; -\frac{2}{5} &amp; \frac{3}{5}
+    \end{pmatrix}</mrow>
+    </md>
+    </p></solution>
     </exercise>
     <exercise>
     <title>Aussi appelé, comment construire des matrices gentilles</title>
@@ -269,19 +357,38 @@
     </introduction>
     <task>
     <statement>
-    <p>Si <m>\det(A)=-1</m> ou <m>\det(A)=1</m>, montrer que toutes les entrées de <m>A^{-1}</m> seront des entiers.</p>
+    <p>Si <m>\det(A)=-1</m> ou <m>\det(A)=1</m>, montrer que toutes les entrées de <m>A^{-1}</m> seront des entiers. </p>
     </statement>
+    <solution><p>En utilisant la formule <xref ref="eq-matinversecofact"/>, on voit rapidement que la seule façon d'introduire des fractions dans le calcul 
+    de l'inverse est en multipliant par <m>\frac{1}{\det(A)}</m>. 
+    En effet, puisque la matrice <m>A</m> ne contient que des entiers, tous les cofacteurs permettant de calculer la matrice adjointe seront des entiers 
+    puisqu'on les obtient à l'aide de la définition <xref ref="def-cofact"/>. 
+    Bref, toutes les entrées de l'inverse seront des entiers.</p></solution>
     </task>
     <task>
     <statement>
     <p>Si <m>A</m> et <m>A^{-1}</m> sont toutes les deux composées d'entiers, montrer que <m>\det(A)=\pm 1</m>.</p>
     </statement>
+    <solution><p>
+    Encore par la formule <xref ref="eq-matinversecofact"/>, on voit que si <m>A</m> n'est que formée d'entiers, la matrice des cofacteurs ne sera que constituée 
+    d'entiers et ces entiers seront tous divisés par <m>\det(A)</m>.
+    Si le résultat, <m>A^{-1}</m> est lui aussi seulement constitué d'entiers, il faut absolument que <m>\det(A)</m> par lequel on a divisé soit <m>1</m> ou <m>-1</m>.
+    Sinon, on aurait créé des fractions dans <m>A^{-1}</m>, ce qui contredit l'hypothèse.
+    </p></solution>
     </task>
     <task><statement>
     <p>Dans un examen, un professeur veut faire calculer l'inverse d'une matrice à ses étudiants. Il ne veut pas que cet inverse soit trop complexe et veut éviter les fractions. Décrire comment obtenir une matrice <m>A</m>
     qui sera composée d'entiers et telle que l'inverse sera aussi composée d'entiers.</p>
     </statement>
     <hint><p>Considérer la proposion <xref ref="prop-detmattriang"/>, les opérations élémentaires et la première partie de cet exercice.</p></hint>
+    <solution><p>Il faut d'abord créer une matrice triangulaire supérieure ne contenant que des entiers telle que le produit des éléments de sa diagonale va donner <m>1</m> ou <m>-1</m>.
+    Par la proposion <xref ref="prop-detmattriang"/>, il s'agit du déterminant de cette matrice.
+    On obtient une matrice non triangulaire supérieure (avec des éléments non-nuls partout si on le veut) en effectuant des opérations élémentaires ne changeant pas
+    le déterminant par une constance. 
+    On peut donc utiliser les permutations ou les combinaisons linéaires, mais pas les multiples de lignes. 
+    La matrice ainsi créée a comme déterminant <m>1</m> ou <m>-1</m> et ne contient que des entiers.</p>
+    <p>On conclut en utilisant la première partie de l'exercice qui nous garanti qu'une matrice ayant un déterminant de <m>1</m> ou <m>-1</m>
+    ne contenant que des entiers aura un inverse ne contenant que des entiers aussi.</p></solution>
     </task>
     </exercise>
     <exercise>
@@ -291,28 +398,77 @@
     <hint>
     <p>Utiliser l'exercice <xref ref="exo-detortho"/>.</p>
     </hint>
+    <solution><p>Par l'exercice <xref ref="exo-detortho"/>, on sait que la matrice orthogonale <m>Q</m> est telle que <m>\det(Q)=\pm 1</m>.
+    Par l'équation <xref ref="eq-matinversecofact"/>, on sait que 
+    <me>Q^{-1}=\frac{1}{\det(Q)}\text{adj}(Q)</me>.
+    Ainsi, on a
+    <md>
+    <mrow>\text{adj}(Q)&amp;=\det(Q)Q^{-1}</mrow>
+    <mrow>&amp;=\det(Q)Q^T &amp;&amp; \text{ par l'hypothèse d'orthogonalité de }Q</mrow>
+    <mrow>&amp;=\pm Q^T &amp;&amp; \text{ par l'exercice }<xref ref="exo-detortho"/></mrow>
+    </md>.
+    </p></solution>
     </exercise>
     <exercise xml:id="exo-eqdroitedet">
-<statement><p>Soit <m>P(x_1,y_1)</m> et <m>Q(x_2,y_2)</m> deux points distincts de <m>\R^2</m>. Montrer que l'équation de la droite passant par ces points est donné par
-<me>
-\begin{vmatrix}
-1&amp; x&amp; y\\
-1&amp; x_1&amp; y_1\\
-1&amp; x_2&amp; y_2
-\end{vmatrix}
-</me>.</p></statement>
+    <statement><p>Soit <m>P(x_1,y_1)</m> et <m>Q(x_2,y_2)</m> deux points distincts de <m>\R^2</m>. 
+    Montrer que l'équation de la droite passant par ces points est donnée par
+    <me>0=\begin{vmatrix}
+    1&amp; x&amp; y\\
+    1&amp; x_1&amp; y_1\\
+    1&amp; x_2&amp; y_2
+    \end{vmatrix}
+    </me>.</p></statement>
+    <solution><p>
+    On choisit de développer le déterminant pour voir si l'on obtient une expression correspondant à l'équation de cette droite.
+    <md>
+    <mrow>0&amp;=\begin{vmatrix}
+    1&amp; x&amp; y\\
+    1&amp; x_1&amp; y_1\\
+    1&amp; x_2&amp; y_2
+    \end{vmatrix}</mrow>
+    <mrow>0&amp;=a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+a_{1,3}C_{1,3} &amp; &amp;\text{par } <xref ref="eq-detcofact"/></mrow>
+    <mrow>0&amp;=1*\begin{vmatrix} x_1&amp; y_1\\ x_2&amp; y_2\end{vmatrix}-x*\begin{vmatrix} 1&amp; y_1\\ 1&amp; y_2\end{vmatrix}+y*\begin{vmatrix} 1&amp; x_1 \\1&amp; x_2 \end{vmatrix}</mrow>
+    <mrow>0&amp;=1*(x_1y_2-x_2y_1)-x*(y_2-y_1)+y*(x_2-x_1)</mrow>
+    <mrow>x*(y_2-y_1)-y*(x_2-x_1)&amp;=x_1y_2-x_2y_1</mrow>
+    </md>
+    Cette expression nous rappelle l'équation normale <xref ref="eq-normale2"/> d'une droite dans <m>\R^2</m>.
+    Le vecteur normal serait donc <m>\vec{n}=(y_2-y_1,-(x_2-x_1))</m>. 
+    On sait qu'on peut retrouver un vecteur directeur ainsi:
+    <md>
+    <mrow>\vec{v}&amp;=\vec{n}_\perp</mrow>
+    <mrow>&amp;=(y_2-y_1,-(x_2-x_1))_\perp</mrow>
+    <mrow>&amp;=(x_2-x_1,y_2-y_1) &amp;&amp;\text{ par } <xref ref="pro-vecperp"/></mrow>
+    <mrow>&amp;=(x_2,y_2)-(x_1,y_1)</mrow>
+    <mrow>&amp;=\vecl{OQ}-\vecl{OP}</mrow>
+    <mrow>&amp;=\vecl{PQ}</mrow>
+    </md>.
+    Le membre de gauche de l'équation normale correspond à l'expression obtenue lorsqu'on construit l'équation normale avec le produit scalaire 
+    entre le vecteur normal et le vecteur <m>\vecl{PA}</m> avec <m>A(x,y)</m> un point quelconque de la droite. En effet,
+    <md>
+    <mrow>0&amp;=\vec{n}\cdot\vecl{PA}</mrow>
+    <mrow>0&amp;=(y_2-y_1,-(x_2-x_1))\cdot (x-x_1,y-y_1)</mrow>
+    <mrow>0&amp;=(y_2-y_1)*(x-x_1)-(x_2-x_1)*(y-y_1)</mrow>
+    <mrow>0&amp;=  x*(y_2-y_1)-x_1y_2+x_1y_1-y*(x_2-x_1)+x_2y_1-x_1y_1</mrow>
+    <mrow>0&amp;=  x*(y_2-y_1)-x_1y_2-y*(x_2-x_1)+x_2y_1</mrow>
+    <mrow>x_1y_2-x_2y_1 &amp;=  x*(y_2-y_1)-y*(x_2-x_1)</mrow>
+    </md>
+    ce qui est exactement ce qu'on avait obtenu pour en développant le déterminant intial.
+    </p></solution>
     </exercise>
+    <!-- On commente ces exercices pour la session A20
     <exercise>
     <statement><p>Soit <m>P(x_1,y_1,z_1),Q(x_2,y_2,z_2)</m> et <m>R(x_3,y_3,z_3)</m> trois points non alignés de <m>\R^3</m>. Généraliser l'idée de l'exercice <xref ref="exo-eqdroitedet"/> pour obtenir l'équation du
     plan passant par ces trois points. </p></statement>
+    <solution><p>
+    On choisit de commencer en construisant l'équation normale d'un plan dans <m>\R^3</m>.
+    </p></solution>
     </exercise>
     <exercise>
     <title>La parabole (re)revisitée</title>
     <statement>
     <p>Dans les exercices <xref ref="exo-parabolesage"/> et <xref ref="exo-parabolerevisitee"/>, on a donné des méthodes vectorielles et matricielles pour trouver l'équation d'une parabole. Montrer que si
     <m>P(x_1,y_1),Q(x_2,y_2)</m> et <m>R(x_3,y_3)</m> sont trois points non alignés de <m>\R^2</m>, alors l'équation de la parabole <m>y=ax^2+bx+c</m> qui passe par ces trois points est donnée par 
-    <me>
-    \begin{vmatrix}
+    <me>0=\begin{vmatrix}
     1 &amp; x   &amp; x^2  &amp; y\\
     1 &amp; x_1 &amp; x_1^2&amp; y_1\\
     1 &amp; x_2 &amp; x_2^2&amp; y_2\\
@@ -321,7 +477,7 @@
     </me>.
     </p>
     </statement>
-    </exercise>
+    </exercise>-->
     <exercisegroup>
     <title>
     Exercices Sage
