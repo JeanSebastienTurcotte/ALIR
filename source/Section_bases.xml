@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-bases">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Base d'un espace vectoriel </title>
+    <introduction xml:id= "intro-bases">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Jusqu'à maintenant, on a fait plusieurs suppositions, naturelles peut-être, mais qu'il convient de clarifier. Par exemple, quand on écrit un vecteur <m>\vec{v}=(2,3)</m>, que signifient les nombres <m>2,3</m>. On
+    a vu qu'ils font implicitement référence aux vecteurs <m>\vec{e}_1=(1,0),\vec{e}_2=(0,1)</m>, dans le sens où <m>\vec{v}=2\vec{e}_1+3\vec{e}_2</m>. Des questions demeurent. Pourquoi ces vecteurs? Est-ce que la manière
+    d'écrire <m>\vec{v}</m> comme une combinaison linéaire de <m>\vec{e}_1,\vec{e}_2</m> est unique?</p>
+    <p>Étant donné un sous-espace vectoriel égale au <m>\vspan</m> d'un certain nombres de vecteurs, est-ce que tous les vecteurs sont nécessaires pour engendrer le sous-espace? On a déjà vu la réponse à cette question
+    quand on a parlé des espaces ligne et colonne. S'il y a trois lignes à une matrice, sont espace ligne peut s'écrire de manière évidente comme le <m>\vspan</m> des trois lignes, mais on a aussi remarqué que parfois seuls deux
+    ou même une ligne est nécessaire. Comment décrire un sous-espace vectoriel comme un <m>\vspan</m> de manière efficace?</p>
+    <p>On a aussi souvent parlé de dimension, en s'appuyant beaucoup sur la géométrie. Une droite est un objet à une dimension, un plan est un objet à deux dimensions et ainsi de suite. Ces descriptions sont intuitives, mais 
+    lorsqu'on parle de sous-espace quelconque, peut-on définir sa dimension sans avoir accès à sa géométrie?</p>
+    <p>Dans cette section, on introduit la notion de base d'un (sous) espace, la notion de d'indépendance linéaire et la notion de dimension. On revient aussi aux quatre espaces afin de déterminer une manière de décrire ceux-ci
+    efficacement.</p>
+    </introduction>
+    <subsection>
+    <title>
+    Indépendance linéaire
+    </title>
+    <p>Étant donné un ensemble de vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> de <m>\R^n</m> et un vecteur <m>\vec{u}</m> aussi dans <m>\R^n</m>, peut-on écrire <m>\vec{u}</m> comme un combinaison linéaire
+    des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_n</m>? Si oui, est-ce qu'il n'y a qu'une seule manière? On reconnait ici une question qui se répond avec les techniques du chapitre <xref ref="chap-SEL"/>.</p>
+    <example xml:id="ex-comblinuni">
+    <title>Combinaisons linéaires et unicité</title>
+    <statement>
+    <p>On considère les vecteurs <m>\vec{v}_1=(1,1,-3),\vec{v}_2=(3,-5,2),\vec{v}_3=(-1,7,-8)</m> ainsi que les vecteurs <m>\vec{u}_1=(2,2,2),\vec{u}_2=(-2,6,-5)</m>.
+    Est-ce que les vecteurs <m>\vec{u}_1,\vec{u}_2</m> s'écrivent comme une combinaison linéaire des vecteurs <m>\vec{v}_1=(1,1,-3),\vec{v}_2=(3,-5,2),\vec{v}_3=(-1,7,-8)</m>? De manière unique?? De manière unique?</p>
+    </statement>
+<solution>
+    <p>On rechercher l'existence de constantes <m>a,b,c</m> telles que
+    <me>
+    \vecddd{2}{2}{2}=a\vecddd{1}{1}{-3}+b\vecddd{3}{-5}{2}+c\vecddd{-1}{7}{-8}
+    </me>
+    et de constantes <m>x,y,z</m> telles que 
+    <me>
+    \vecddd{-2}{6}{-5}=a\vecddd{1}{1}{-3}+b\vecddd{3}{-5}{2}+c\vecddd{-1}{7}{-8}
+    </me>.
+    </p>
+    <p>Sous forme matricielle, avec <m>A=\begin{pmatrix}1&amp;3&amp;-1\\1&amp;-5&amp; 7\\ -3&amp;2&amp;-8\end{pmatrix}</m>, les systèmes d'équations linéaires équivalents à la matrice augmentée
+    <m>(A|\vec{u}_1 ~ \vec{u}_2)</m>. Avec Sage,</p>
+    <sage>
+    <input>
+    A=matrix([[1,3,-1],[1,-5,7],[-3,2,-8]])
+    u1=vector([2,2,2])
+    u2=vector([-2,6,-5])
+    B=column_matrix([u1,u2])
+    Aaug=A.augment(B,subdivide=True)
+    show(Aaug.rref())
+    </input>
+    <output>
+\left(\begin{array}{rrr|rr}
+1 &amp; 0 &amp; 2 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; -1 &amp; 0 &amp; -1 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right)
+    </output>
+    </sage>
+    <p>on trouve la solution à ces systèmes en échelonnant la matrice :
+    <me>
+    (A|\vec{u}_1 ~ \vec{u}_2)=\left(\begin{array}{rrr|rr}
+1 &amp; 0 &amp; 2 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; -1 &amp; 0 &amp; -1 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right)
+    </me>. Le vecteur <m>\vec{u}_1</m> ne s'écrit pas comme une combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m>. Il n'est donc pas dans l'espace colonne de la matrice <m>A</m>. Par contre le vecteur <m>\vec{u}_2</m> lui en
+    fait partie. Il y a même une infinité de manière de l'écrire. Par exemple, on a <m>\vec{u}_2=\vec{v}_1-\vec{v}_2</m>, mais aussi <m>\vec{u}_2=3\vec{v}_1-2\vec{2}-\vec{v}_3</m>.</p>
+    <p>En observant la matrice augmentée (ou l'expression  de la solution), on peut arriver à la conclusion que si le troisième vecteur n'était pas là, on pourrait quand même écrire le vecteur <m>\vec{u}_2</m> et qui plus est, la solution serait unique.</p>
+    </solution>
+    </example>
+    <p>La première question  à laquelle on veut répondre est celle au sujet de l'unicité de l'écriture. Étant donné un ensemble de vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_n</m> et un vecteur <m>\vec{u}\in \vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_n)</m>,
+    quand peut-on être assuré de l'unicité de la combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> qui produit <m>\vec{u}</m>. Il s'avère que pour répondre à cette question, il suffit de regarder la 
+    réponse avec le vecteur nul. On sait que le vecteur nul peut toujours s'écrire comme <m>\vec{0}=0v_1+0v_2+\cdots+ 0 v_k</m>. Si c'est la seule manière, alors les autres vecteurs s'écriront aussi de manière unique.</p>
+    <proposition xml:id="prop-soluniquezero">
+    <title>Unicité des combinaisons linéaires dans le <m>\vspan</m></title>
+    <statement><p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> des vecteurs de <m>\R^n</m>. Si la seule combinaison linéaire de ces vecteurs qui produit le vecteur nul est la combinaison triviale, alors tous les vecteurs dans
+    <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)</m> s'écrivent de manière unique comme une combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m>. Mathématiquement, si la seule solution à l'équation
+    <me>
+    c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_kvec{v}_k=0
+    </me>
+    est la solution où <m>c_1=c_2=\cdots = c_k=0</m>, alors l'écriture <m>\vec{u}=d_1\vec{v}_1+d_2\vec{v}_2+\cdots + d_k\vec{v}_k</m> est unique pour tout vecteur <m>\vec{u}\in \vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k).</m>
+    </p></statement>
+    <proof>
+    <p>On suppose qu'il existe <m>d_1,d_2,\ldots , d_k</m> et <m>d^{'}_1,d^{'}_2,\ldots , d^{'}_k</m> telles que
+    <me>
+    \vec{u}=d_1\vec{v}_1+d_2\vec{v}_2+\cdots + d_k\vec{v}_k
+    </me>
+    et <me>
+    \vec{u}=d^{'}_1\vec{v}_1+d^{'}_2\vec{v}_2+\cdots + d^{'}_k\vec{v}_k
+    </me>. On peut alors écrire le vecteur nul comme
+    <md>
+    <mrow>\vec{0}&amp;\vec{u}-\vec{u}</mrow>
+    <mrow>&amp;=d_1\vec{v}_1+d_2\vec{v}_2+\cdots + d_k\vec{v}_k-(d^{'}_1\vec{v}_1+d^{'}_2\vec{v}_2+\cdots + d^{'}_k\vec{v}_k)</mrow>
+    <mrow>&amp;=(d_1-d^{'}_1)\vec{v}_1+(d_2-d^{'}_2)\vec{v}_2+\cdots + (d_k-d^{'}_k)\vec{v}_k</mrow>
+    </md>.
+    Comme l'écriture du vecteur nul est unique par hypothèse, il suit que <m>d_1=d_1^{'}, d_2=d^{'}_2,\ldots , d_k=d^{'}_k</m> et que l'écriture de <m>\vec{u}</m> est aussi unique.
+    </p>
+    </proof>
+    </proposition>
+    <p>En particulier, si chaque écriture est unique, aucun des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> ne peut être écrit comme une combinaison linéaire des autres, puisque l'écriture <m>\vec{v}_i=\vec{v}_i</m> doit être unique. Cette
+    observation motive la définition importante d'indépendance linéaire, mais d'abord, un exemple concret de cette observation.</p>
+    <example>
+    <title>Écriture unique et vecteur nul</title>
+    <statement>
+    <p>On reprend les vecteurs <m>\vec{v}_1=(1,1,-3),\vec{v}_2=(3,-5,2),\vec{v}_3=(-1,7,-8)</m>. On détermine les solutions à l'équation <m>c_1\vec{v}_1+c_2\vec{v}_2+c_3\vec{v}_3=\vec{0}</m>. On s'attend évidemment à avoir
+    une infinité de solution puisque l'écriture du vecteur <m>\vec{u}_2</m> de l'exemple <xref ref="ex-comblinuni"/> n'était pas unique. </p>
+    </statement>
+    <solution>
+    <p>Pour résoudre le problème, on peut échelonner la matrice <m>A=\begin{pmatrix}1&amp;3&amp;-1\\1&amp;-5&amp; 7\\ -3&amp;2&amp;-8\end{pmatrix}</m>, travail qui a déjà été fait à l'exemple <xref ref="ex-comblinuni"/>. On obtient
+    <m>\left(\begin{array}{rrr}
+1 &amp; 0 &amp; 2  \\
+0 &amp; 1 &amp; -1 \\
+0 &amp; 0 &amp; 0 
+\end{array}\right)</m>. Tel qu'attendu, on a infinité de solutions, car il y a des variables libres. En particulier, le vecteur nul peut s'écrire comme <m>-2\vec{v}_1+v_2+v_3=\vec{0}</m>.</p>
+    </solution>
+    </example>
+    <p>L'importance de l'unicité de l'écriture motive la définition d'indépendance linéaire.</p>
+    <definition xml:id="def-indlin">
+    <title>Indépendance linéaire</title>
+    <statement>
+    <p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots \vec{v}_k</m> un ensemble de vecteurs de <m>\R^n</m>. L'ensemble est dit linéairement indépendant (on dit parfois aussi que les vecteurs sont linéairement indépendants) si
+    la seule solution à l'équation 
+        <me>
+    c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_kvec{v}_k=0
+    </me>
+    est la solution triviale où <m>c_1=c_2=\cdots =c_k=0</m>.
+    </p>
+    <p>Dans le cas contraire, on dit que l'ensemble de vecteurs est linéairement dépendant (on dit parfois aussi que les vecteurs sont linéairement dépendants).</p>
+    </statement>
+    </definition>
+    <remark>
+    <title>L'indépendance (linéaire)</title>
+    <statement><p>Il arrive souvent qu'on ne mentionne pas le terme linéairement dans l'expression linéairement indépendant. Puisqu'on a qu'un seul type d'indépendance, le contexte est toujours celui de l'indépendance 
+    linéaire.</p></statement>
+</remark>
+    <example>
+    <title>L'indépendance linéaire de deux vecteurs spécifiques</title>
+    <statement>
+    <p>On considère deux des trois vecteurs de l'exemple <xref ref="ex-comblinuni"/>, à savoir les vecteurs <m>\vec{v}_1=(1,1,-3),\vec{v}_2=(3,-5,2)</m>. On montre que ces vecteurs sont linéairements indépendants.</p>
+    </statement>
+    <solution><p>Pour résoudre l'équation <m>c_1\vec{v}_1+c_2\vec{v}_2=\vec{0}</m>, on utilise  la forme échelonnée réduite de la matrice 
+    <m>A=\begin{pmatrix}1&amp;3\\1&amp;-5\\ -3&amp;2\end{pmatrix}</m>. On obtient alors <m>\left(\begin{array}{rr|r}
+1 &amp; 0 &amp; 0  \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 
+\end{array}\right)</m>, qui donne comme unique solution <m>c_1=c_2=0</m>. Les vecteurs sont donc linéairement indépendants.</p></solution>
+    </example>
+    <p>On poursuit avec un exemple plus théorique, qui permet d'obtenir d'autres ensembles de vecteurs à partir d'un ensemble donné.</p>
+    <example>
+    <title>Combinaisons linéaires de vecteurs linéairement indépendants</title>
+    <statement>
+    <p>Soit <m>\vec{u},\vec{v}</m> deux vecteurs formant un ensemble linéairement indépendant. On montre que l'ensemble formé des vecteurs
+    <m>\vec{w}_1=\vec{u}+\vec{v},\vec{w}_2=\vec{u}-\vec{v}</m> est aussi linéairement indépendant.</p>
+    </statement>
+    <solution>
+    <p>On tente d'écrire le vecteur nul comme une combinaison linéaire des vecteurs <m>\vec{w}_1,\vec{w}_2</m>. On a
+    <md>
+    <mrow> 0&amp;=c_1\vec{w}_1+c_2\vec{w}_2</mrow>
+    <mrow> &amp;=c_1(\vec{u}+\vec{v})+c_2(\vec{u}-\vec{v})</mrow>
+    <mrow> &amp;=c_1\vec{u}+c_1\vec{v}+c_2\vec{u}-c_2\vec{v}</mrow>
+    <mrow> &amp;=(c_1+c_2)\vec{u}+(c_1-c_2)\vec{v}</mrow>
+    </md>.
+    Parce que <m>\vec{u},\vec{v}</m> forment un ensemble indépendant, on peut conclure que <m>c_1+c_2=0</m> et <m>c_1-c_2=0</m>, car la seule combinaison linéaire de ces vecteurs qui donne le vecteur nul est la combinaison
+    triviale. De ces nouvelles contraintes, on déduit que <m>c_1=-c_2</m> et <m>c_1=c_2</m>, ce qui n'est possible que lorsque <m>c_1=c_2=0</m>. Ainsi, l'ensemble composé des vecteurs <m>\vec{w}_1,\vec{w}_2</m> es tlinéairement indépendant.
+    </p>
+    </solution>
+    </example>
+    <p>On peut representer l'équation représentan l'indépendance linéaire sous forme matricielle. On obtient alors une proposition utilisant le rang d'une matrice.</p>
+    <proposition xml:id="prop-indeprang">
+    <title>Indépendance linéaire et rang</title>
+    <statement>
+    <p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> un ensemble de vecteurs de <m>\R^n</m> et soit <m>V</m> la matrice contenant les vecteurs <m>\vec{v}_i</m> dans ses colonnes. Alors l'ensemble des vecteurs
+    <m>\vec{v}_i</m> est linéairement indépendant si et seulement si <m>rg(V)=k</m>.</p>
+    </statement>
+    <proof>
+    <p>On commence avec l'implication que si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> est un ensemble de vecteurs linéairement indépendant, alors le rang de la matrice <m>V</m> vaut <m>1</m>. </p>
+    <p>Puisque l'équation <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_kvec{v}_k=0</m> possède une solution unique, cela signifie que toutes les colonnes sont pivots dans la forme échelonnée réduite de la matrice <m>V</m>, car 
+    il ne peut pas y avoir de variables libres. Ainsi <m>rg(V)=k</m>.</p>
+    <p>On regarde maintenant l'implication du rang égal à <m>k</m> sur l'indépendance des vecteurs <m>\vec{v}_i</m>.</p>
+    <p>À l'inverse de l'argument précédent, si le rang de la matrice est égal à <m>k</m>, alors toutes les colonnes sont pivots. Dans l'équation matricielle <m>V\vec{x}=\vec{0}</m>, il n'y aura pas de variables libres et donc
+    la solution sera unique et sera celle où <m>\vec{x}=0</m>. Ainsi, la seule combinaison linéaire des vecteurs  <m>\vec{v}_i</m> donnant le vecteur nul est la combinaison linéaire triviale et donc, l'ensemble
+    <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> est un ensemble linéairement indépendant.</p>
+    </proof>
+    </proposition>
+    <p>On regarde maintenant des cas particuliers d'ensembles linéairement indépendant, afin de simplifier le critère d'indépendance pour ces cas.</p>
+    <proposition xml:id="prop-indep2-3">
+    <title>Indépendance linéaire pour deux ou trois vecteurs</title>
+    <statement>
+    <p>Soit <m>\vec{u},\vec{v},\vec{w}</m> des vecteurs de <m>\R^n</m>. Alors
+    <ul>
+    <li><p>Les vecteurs <m>\vec{u},\vec{v}</m> sont linéairement indépendants si et seulement si ils ne sont pas parallèles;</p></li>
+    <li><p>Les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> sont linéairement indépendants si et seulement s'ils ne sont pas sur un même plan.</p></li>
+    </ul></p>
+    <p>Ceci permet rapidement de tester l'indépendance de deux ou trois vecteurs, en particulier, on pourra utiliser le <xref ref="" text="custom">déterminant</xref> à cet effet.</p>
+    </statement>
+    <solution>
+    <p>On commence avec des vecteurs linéairement indépendants et on tente de montrer que les vecteurs ne peuvent pas être parallèles.</p>
+    <p>Soit <m>\vec{u},\vec{v}</m> des vecteurs linéairement indépendant. Si les vecteurs étaient parallèles, par exemple <m>\vec{u}=k\vec{v}</m>, alors on pourrait écrire <m>\vec{u}-k\vec{v}=\vec{0}</m>, ce qui donnerait une
+    combinaison non triviale des vecteurs <m>\vec{u},\vec{v}</m> donnant le vecteur nul. Comme les vecteurs sont indépendants par hypothèse, alors c'est impossible.</p>
+    <p>On poursuit maintenant avec deux vecteurs non parallèles et on montre qu'ils doivent être indépendant.</p>
+    <p>Soit <m>\vec{u},\vec{v}</m> des vecteurs non parallèles. Si ces vecteurs étaient linéairement dépendants, alors il existeraient <m>c_1,c_2</m> pas tous les deux nuls tels que <m>c_1\vec{u}+c_2\vec{v}=\vec{0}</m>. On suppose
+    que <m>c_1\neq 0</m>, l'argument est le même si <m>c_1=0</m> mais <m>c_2\neq 0</m> en inversantle rôle de <m>\vec{u}</m> et <m>\vec{v}</m>. On peut donc écrire <m>\vec{u}=-\frac{c_2}{c_1}\vec{v}</m>, ce qui entraine que les vecteurs sont parallèles,
+    contredisant l'hypothèse initiale. Il faut donc que les vecteurs soient indépendants.</p> 
+    </solution>
+    <solution>
+    <p>On commence avec trois vecteurs indépendants et on montre que ces vecteurs ne sont pas sur un même plan. De manière similaire à la partie précédente, on suppose que les vecteurs sont sur un même plan. On peut dans un premier
+    temps supposer qu'aucune paire de vecteurs n'est parallèle, car la partie précédente entraine que les vecteurs seraient dépendants. Comme aucun vecteur n'est parallèles, on peut prendre les vecteurs <m>\vec{u},\vec{v}</m>
+    comme vecteurs directeurs du plan. Il existe donc <m>c_1,c_2</m> tels que <m>\vec{w}=c_1\vec{u}+c_2\vec{v}</m>, car <m>\vec{w}</m> est dans le plan de ces vecteurs. Or en écrivant <m>c_1\vec{u}+c_2\vec{v}-\vec{w}=\vec{0}</m>, on obtient 
+    une combinaison linéaire non triviale des vecteurs <m>\vec{u},\vec{v},\vec{w}</m> donnant le vecteur nul, ce qui est impossible, car les vecteurs sont indépendants par hypothèse.</p>
+    <p>En contrepartie, si on suppose que les vecteurs ne sont pas sur un même plan et qu'on considère une combinaison linéaire des vecteurs <m>\vec{u},\vec{v},\vec{w}</m> donnant le vecteur nul, par exemple <m>c_1\vec{u}+c_2\vec{v}+c_2\vec{w}=\vec{0}</m>.
+    <p>On sait qu'au moins l'une de ces constante est non nulle. On suppose que <m>c_1</m> est non nulle, l'argument sera similaire dans les autres cas. On peut alors isoler
+    <m>\vec{u}=-\frac{c_2}{c_1}\vec{v}-\frac{c_3}{c_1}\vec{w}</m>. Or ceci signifie que <m>\vec{u}</m> est une combinaison linéaire des vecteurs <m>\vec{v},\vec{w}</m> et donc serait dans le même plan que ces vecteurs, ce qui contredit l'hypothèse initiale.
+    Ainsi, les vecteurs sont indépendants.</p>
+    </p>
+    </solution>
+    </proposition>
+    <p>La généralisation naturelle de ces situations est donnée dans la proposition suivante.</p>
+<proposition xml:id="prop-indepspan">
+<title>Indépendance linéaire et espace engendré</title>
+<statement><p>Soit <m>\vec{v}_1,\vec{v}_2,\vec{v}_k\in \R^n</m> des vecteurs formant un ensemble linéairement indépendant et soit <m>\vec{v}\in \R^n</m>. Alors l'ensemble
+<m>\vec{v}_1,\vec{v}_2,\vec{v}_k,\vec{v}</m> est linéairement indépendant si et seulement si <m>\vec{v}\notin \vspan(\vec{v}_1,\vec{v}_2,\vec{v}_k)</m>.</p>
+<p>Si <m>\vec{v}\notin \vspan(\vec{v}_1,\vec{v}_2,\vec{v}_k)</m>, cela signifie en particulier que les espaces engendrés par <m>\vec{v}_1,\vec{v}_2,\vec{v}_k</m> et par<m>\vec{v}_1,\vec{v}_2,\vec{v}_k,\vec{v}</m> sont différents.</p>
+</statement>
+<proof><p>Voir l'exercice <xref provisional="exo-indepspan"/>.</p></proof>
+</proposition>
+  <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
+  <computation>
+  <title>Sage et l'indépendance linéaire</title>
+  </computation>
+  <statement>
+  <p>Pour vérifier si un ensemble de vecteurs est linéairement indépendant, il existe plusieurs options. La première consiste à utiliser la <xref ref="def-indlin" text="custom">définition</xref>.
+  On peut alors résoudre l'équation <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_kvec{v}_k=0</m> en utilisant les techniques du chapitre <xref ref="chap-SEL"/> et valider avec la définition <xref ref="def-indlin"/>.</p>
+  <sage>
+  <input>
+v1=vector([1,1,-3])
+v2=vector([3,-5,2])
+A=column_matrix([v1,v2])
+b=vector([0,0,0])
+Aaug=A.augment(b,subdivide=True)
+show(Aaug)
+show(Aaug.rref()) 
+  </input>
+  </sage>
+  <p>On peut aussi utiliser la proposition <xref ref="prop-indprang"/> et simplement calculer le rang de la matrice <m>A</m> dans la cellule Sage précédente.</p>
+  <sage>
+  <input>
+  show(A.rank())
+  </input>
+  </sage>
+  <p>Puisque ce rang correspond au nombre de vecteurs, les vecteurs sont linéairement indépendants.</p>
+  <p>Une autre manière un peu plus complexe consiste à utiliser la commande <c>.linear_dependance</c>. Elle nécessite toutefois la création d'un espace vectoriel sous-jacent, concept qui sera défini dans la prochaine section.
+  On en montre toutefois un exemple et les premières lignes seront clarifiés dans la section suivante.</p>
+  <sage>
+  <input>
+ #On crée l'espace vectoriel
+V=QQ^3
+#On crée l'ensemble des vecteurs
+v1=vector([1,1,-3])
+v2=vector([3,-5,2])
+L=[v1,v2]
+#On vérifie la dépendance
+show(V.linear_dependence(L))
+  </input>
+  </sage>
+  <p>Le résultat est un ensemble vide, signifiant qu'il n'y a pas de dépendance linéaire. Afin de comparer avec un exemple où il y aurait dépendance, on ajoute deux vecteurs supplémentaires à la liste L.</p>
+  <sage>
+  v3=v1+2*v2
+  v4=vector([1,-3,2])
+  L.append(v3,v4)
+  show(V.linear_dependence(L))
+  </sage>
+  <p>Le résultat est une possible combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\vec{v}_3,\vec{v}_4</m> donnant le vecteur nul. Dans ce cas-ci, on a <m>\vec{v}_1+2\vec{v}_2-\vec{v}_3=\vec{0}</m>, puisque <m>\vec{v}_3=\vec{v}_1+\vec{v}_2</m> a été défini ainsi.</p>
+  <p>Finalement, on peut utiliser la proposition <xref ref="prop-indepspan"/>. Les commandes utilisent également des concepts de la section suivante.</p>
+  <sage>
+  <input>
+#On crée l'espace vectoriel
+V=QQ^3
+#On crée les vecteurs
+v1=vector([1,1,-3])
+v2=vector([3,-5,2])
+L=[v1,v2]
+v3=v1+2*v2
+v4=vector([1,-3,2])
+Lv3=[v1,v2,v3]
+Lv4=[v1,v2,v4]
+#On sait de l'exemple précédent que L est linéairement indépendant.
+#On veut vérifier sil'ajout de v3 ou v4 préserve l'indépendance. Pour cela, on vérifie si le span de L est le même que le span de L+v3 et L+v4
+show(V.span(L)==V.span(Lv3)) 
+#Comme les span sont égaux, les vecteurs sont dépendants.
+show(V.span(L)==V.span(Lv4))
+#Comme les span sont différents, les vecteurs sont indépendants.
+  </input>
+  </sage>
+  </statement>
+    </subsection>
+    <subsection xml:id="sssec-bases">
+    <title>Base d'un sous-espace vectoriel</title>
+    <p>On connait maintenant comment garantir l'unicité de l'écriture d'un vecteur en termes des combinaisons linéaires d'un ensemble de vecteurs. Si ces vecteurs forment un ensemble linéairement indépendant, alors il y a unicité.
+    Cette propriété est attryante, car lorsque l'ensemble de vecteur est clair, il n'y a qu'une représentation possible pour écrire les autres vecteurs en fonction de cet ensemble. Bien entendu, on ne peut pas toujours écrire un vecteur
+    comme une combinaison linéaire des vecteurs dans l'ensemble. Il faut qu'il soit dans le <m>\vspan</m> pour que ce soit possible. On arrive donc à la définition de base d'un sous-espace vectoriel.</p>
+    <definition xml:id="def-base">
+    <title>Base d'un espace vectoriel</title>
+    <statement>
+    <p>Soit <m>V</m> un sous-espace vectoriel et soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> un ensemble de vecteurs dans <m>V</m>. On dit que ces vecteurs forment une base de <m>V</m> si
+    <ol>
+    <li><p>les vecteurs génèrent <m>V</m>, c'est-à-dire <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)=V</m>;</p></li>
+    <li><p>les vecteurs forment un ensemble linéairement indépendant.</p></li>
+    </ol></p>
+    </statement>
+    <p>On commence avec quelques exemples de sous-espaces vectoriels et des bases de ces sous-espaces.</p>
+    <example>
+    <title>Base de sous-espaces vectoriels</title>
+    <statement>
+    <p>On considère quelques-uns des sous-espaces vectoriel de l'exemple <xref ref="ex-ssesp"/>, soit 
+    <ol>
+        <li><p>Le plan <m>\mathcal{P}_1: x+y+z=0</m> du début de section;</p></li>
+    <li><p>Les vecteurs de la forme <m>(x,x)</m>;</p></li>
+    <li><p>L'ensemble ne contenant que le vecteur nul : <m>\{\vec{0}\}</m>;</p></li>
+    <li><p>Ĺ'espace <m>\R^n</m> au complet.</p></li></ol>
+    On cherche à déterminer une base pour chacun de ces exemples.
+    </p>
+    </statement>
+    <solution>
+    <p>On sait que pour générer un plan dans, on doit avoir deux vecteurs non parallèles (et donc indépendants!). En isolant <m>z</m> dans l'équation normale du plan <m>x=-y-z</m>, on peut écrire les points du plan comme les points
+    <md>
+    <mrow>\vecddd{x}{y}{z}&amp;=\vecddd{-y-z}{y}{z}</mrow>
+    <mrow>                &amp;=\vecddd{-y}{y}{0}+\vecddd{-z}{0}{z}</mrow>
+    <mrow>                &amp;=y\vecddd{-1}{1}{0}+z\vecddd{-1}{0}{1}</mrow>
+    </md>.
+    On obtient deux vecteurs <m>\vec{u}=(-1,1,0)</m> et <m>\vec{v}=(-1,0,1)</m> tels que <m>\vspan(\vec{u},\vec{v})=\mathcal{P}_1</m>. Puisque les vecteurs sont non parallèles, ils sont indépendants (proposition <xref ref="prop-indep2-3"/>. Ces vecteurs forment donc
+    une base du plan <m>\mathcal{P}_1</m>.</p>
+    </solution>
+    <solution>
+    <p>Les vecteurs de la forme <m>(x,x)</m> peuvent tous s'écrire comme un multiple de <m>(1,1)</m>. Ainsi, ce vecteur génère le sous-espace vectoriel. Comme la seule combinaison linéaire de ce vecteur donnant le vecteur nul est
+    <m>0(1,1)=(0,0)</m>, ce vecteur est linéairement indépendant (est-ce qu'un vecteur seul est toujours linéairement indépendant? Voir l'exercice <xref provisional="exo-unveclinind"/>). Il forme donc une base de ce sous-espace.</p>
+    </solution>
+    <solution>
+    <p>Le vecteur nul engendre par défaut le vecteur nul, puisque <m>k\vec{0}=\vec{0}</m> pour tout scalaire <m>k</m>. Par contre, pour la même raison, il n'est pas linéairement indépendant. Ce n'est donc pas une base. En fait,
+    le sous-espace vectoriel <m>\{\vec{0}\}</m> est le seul sous-espace qui ne possède pas de base.</p>
+    </solution>
+    <solution><p>On sait qu'on peut décomposer un vecteur de <m>\R^n</m> comme une combinaison linéaire des vecteurs <m>e_1=(1,0,\ldots ,0),e_2=(0,1,\ldots ,0),\ldots ,e_n=(0,0,\ldots ,1)</m>. Ces vecteurs engendrent donc
+    <m>\R^n</m>. De plus, si on les place dans les colonnes d'une matrice, on obtient la matrice identité, de rang <m>n</m>. Les vecteurs sont alors linéairement indépendants et forment ainsi une base de <m>\R^n</m>.</p></solution>
+    </example>
+    </definition>
+    </subsection>
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-bases">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    
+    </conclusion>
+   <!--Inclure les exercices de la section ci-dessous--> 
+</section>
+<!-- preuve alternative de prop-soluniquezero avec la proposition ref="prop-solgen" -->
+<!-- exercice montrer que matrice V des vecteurs v1,v2,...,vk en ligne est de rg k ssi lin indep hint: utiliser prop-indeprang et transposee -->
+<!-- un vec lin indep ssi pas nul -->

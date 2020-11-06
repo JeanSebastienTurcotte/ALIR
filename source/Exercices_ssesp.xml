@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                     -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-ssesp">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
+            <statement>
+                <p>La première lettre de la question.</p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>
+    </task>
+    </exercise>
+    -->
+    <exercise>
+    <introduction>
+    <p>Montrer que chacun des sous-ensembles ci-dessous est un sous-espace vectoriel en utilisant la définition <xref ref="def-ssesp"/>.</p>
+    </introduction>
+    <task>
+    <statement>
+    <p><m>\{(x,y)~|~ x=-3y\}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>\{(x,y,z)~|~ x=y\}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>\{(x,y,z)~|~ x=y \text{ et } z=-y\}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>\{(x_1,x_2,x_3,x_4)~|~ x_1+x_2+x_3+x_4=0\}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>\{(x,y,z)~|~ x^2+y^2+z^2=0\}</m></p>
+    </statement>
+    </task>
+    </exercise>
+    <exercise>
+<introduction>
+    <p>Montrer que chacun des sous-ensembles ci-dessous n'est pas un sous-espace vectoriel en utilisant la définition <xref ref="def-ssesp"/>.</p>
+    </introduction>
+    <task>
+    <statement>
+    <p><m>\{(x,y)~|~ xy=1\}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>\{(x,y,z)~|~ x^2+y^2-z^2=0\}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>\{(x,y,z)~|~ x^2+y^2+z^2=1\}</m></p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+    <p><m>\{(x,y,z)~|~ x=y \text{ et } z\geq y+x\}</m></p>
+    </statement>
+    </task>
+    </exercise>
+    <exercise xml:id="exo-ssespplan"><statement><p>Compléter la preuve de l'exemple <xref ref="ex-ssesp"/> en montrant qu'un plan passant par l'origine est un sous-espace vectoriel, en utilisant la définition.  </p></statement></exercise>
+    <exercise><statement><p>Soit <m>a\vec{u}+b\vec{v}+\vecl{OA}</m> un plan. Est-ce que ce plan peut être un espace vectoriel? Pourquoi?</p></statement>
+    <answer><p>Oui</p></answer>
+    </exercise>
+    <exercise>
+    <statement>
+    <introduction>
+    <p>Soit <m>U,V</m> des sous-espaces vectoriels de <m>\R^n</m>. Montrer que les ensembles suivants sont aussi des sous-espaces vectoriels.</p>
+    </introduction>
+    <task xml:id="exo-UcapVssesp">
+    <statement>
+    <p>L'ensemble des vecteurs qui sont à la fois dans <m>U</m> et dans <m>V</m>, noté 
+    <me>U\bigcap V=\{\vec{v}\in \R^n~|~ \vec{v}\in U \text{ et } \vec{v}\in V\}</me>.</p>
+    <p>Donner un exemple géométrique de sous-espaces vectoriels <m>U,V</m> et <m>U\bigcap V</m> dans <m>\R^3</m>.</p>
+    </statement>
+    </task>
+    <task xml:id="exo-UplusVssesp">
+    <statement>
+    <p>L'ensemble des vecteurs qui s'écrivent comme la somme d'un vecteur dans <m>U</m> et d'un vecteur dans <m>V</m>, noté 
+    <me>U+V=\{\vec{w}\in \R^n~|~ \vec{w}=\vec{u}+\vec{v} \text{ avec }\vec{u}\in U \text{ et } \vec{v}\in V\}</me>.</p>
+    <p>Donner un exemple géométrique de sous-espaces vectoriels <m>U,V</m> et <m>U+ V</m> dans <m>\R^3</m>.</p>
+    </statement>
+    </task>
+    </statement>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>On considère trois sous-espaces vectoriels <m>U,V</m> et <m>W</m> tels que <m>U\subseteq W</m> et <m>V\subseteq W</m>, c'est-à-dire que <m>W</m> contient tous les vecteurs de <m>u</m> et tous les vecteurs de <m>U</m>.
+    </p></introduction>
+    <task><statement><p>
+    Montrer que l'ensemble <m>U+V</m> défini à l'exercice <xref ref="exo-UplusVssesp"/> est aussi inclu dans <m>W</m>, soit <m>U+V\subseteq W</m>.</p><p>Cela signifie que <m>U+V</m> est le plus petit ensemble qui contienne tous les vecteurs de <m>U</m> et de <m>V</m>.</p>
+    </statement></task>
+    <task><statement><p>Donner un exemple de sous-espaces vectoriels <m>U,V,W</m> de <m>\R^3</m> tels que <m>U\subseteq W, V\subseteq W</m>, mais <m>U+V\neq W</m>. </p></statement></task>
+    </exercise>
+    <exercise><introduction><p>Soit <m>U,V</m> des sous-espaces vectoriels. On veut montrer que le complément orthogonal de l'ensemble <m>U+V</m> (défini à l'exercice <xref ref="exo-UplusVssesp"/>) est égal à l'intersection (défini à l'exercice <xref ref="exo-UcapVssesp"/>) des 
+    compléments orthogonaux de <m>U</m> et <m>V</m>, c'est-à-dire
+    <me>
+    (U+V)^{\perp}=U^{\perp}\bigcap V^{\perp}
+    </me>.
+    On sépare l'argument en deux parties.</p></introduction>
+    <task>
+    <statement>
+    <p>Montrer que si <m>\vec{w}\in (U+V)^{\perp}</m>, alors <m>\vec{w}\in U^{\perp}</m> et <m>\vec{w}\in V^{\perp}</m>. Conclure que cela implique que <m>(U+V)^{\perp}\subseteq U^{\perp}\bigcap V^{\perp}</m>.</p>
+    </statement>
+    <hint>
+    <p>Si <m>\vec{w}\in (U+V)^{\perp}</m>, alors pour tout vecteur <m>\vec{u}\in U,\vec{v}\in V</m>, on a <m>\vec{w}\cdot(\vec{u}+\vec{v})=0</m>. Sélectionner à tour de rôles les bons vecteurs de <m>U,V</m> pour montrer que
+    <m>\vec{w}\in U^{\perp}</m> et <m>\vec{w}\in V^{\perp}</m>.</p>
+    </hint>
+      </task>
+      <task><statement>
+      <p>Montrer maintenant que si <m>\vec{w}\in U^{\perp}\bigcap V^{\perp} </m>, alors <m>\vec{w}\in (U+V)^{\perp}</m>. Conclure que cela implique que <m>(U+V)^{\perp}\supseteq U^{\perp}\bigcap V^{\perp}</m> et donc, avec
+      la partie précédente, on a bien <m>(U+V)^{\perp}=U^{\perp}\bigcap V^{\perp}</m>.</p>
+      </statement></task>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>Soit <m>U,V</m> des sous-espaces vectoriels de <m>\R^n</m>. On définit l'union de <m>U</m> et <m>V</m> comme étant l'ensemble des vecteurs qui sont soit dans <m>U</m>, soit dans <m>V</m> (potentiellement les deux), noté 
+    <me>U\bigcup V=\{\vec{v}\in \R^n~|~ \vec{v}\in U \text{ ou } \vec{v}\in V\}</me>. </p>
+    </introduction>
+    <task>
+    <statement>
+    <p>Est-ce que <m>U\bigcup V</m> est un sous-espace vectoriel? Si oui, démontrer et si non, donner un exemple de sous-espaces <m>U,V</m> tels que l'union n'en n'est pas un.</p>
+    </statement>
+    </task>
+    <task><statement><p>Peu importe la réponse à la partie précédente, donner des exemples de sous-espaces vectoriels <m>U,V</m> dans <m>\R^3</m> tels que <m>U\bigcap V</m> est un aussi sous-espace
+    vectoriel.</p></statement></task>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>Soit <m>A</m> une matrice carrée.</p>
+    </introduction>
+    <task>
+    <statement>
+    <p>Montrer que les solutions à l'équation <m>A\vec{x}=\vec{x}</m> forment un espace vectoriel.</p>
+    </statement>
+    <hint><p>Reformuler afin d'écrire l'ensemble solution comme l'espace nul d'une matrice.</p></hint>
+    </task>
+    <task>
+    <statement>
+    <p>Soit <m>\lambda\in \R</m> un nombre réel. Montrer que les solutions à l'équation <m>A\vec{x}=\lambda\vec{x}</m> forment un espace vectoriel.</p>
+    </statement>
+    </task>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Soit <m>A,B</m> deux matrices <m>m\times n</m>. Montrer que l'ensemble solution à l'équation 
+    <me>
+    A\vec{x}=B\vec{x}
+    </me>
+    est un sous-espace vectoriel.</p>
+    </statement>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m> et soit <m>V\subseteq R^n, W\subseteq R^m</m> des sous-espaces vectoriels.</p></introduction><task><statement><p> Montrer que l'ensemble
+    <me>
+    \{\vec{v}\in \R^n ~|~ A\vec{v}\in W\}
+    </me>
+    est un sous-espace vectoriel de <m>\R^n</m>.
+    </p>
+    <p>Ceci dit qu'un sous-espace vectoriel dans l'image provient d'un sous-espace vectoriel dans le domaine.</p>
+    </statement></task>
+    <task><statement><p>
+    Montrer que l'ensemble
+    <me>
+    \{\vec{w}\in R^m~|~ A\vec{v}=\vec{w} \text{ pour un certain } \vec{v}\in V\}
+    </me>
+    est un sous-espace vectoriel.
+    </p>
+    <p>Ceci dit que l'image d'un sous-espace vectoriel par une transformation linéaire est un sous-espace vectoriel.</p>
+    </statement></task>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Soit <m>V</m> un sous-espace vectoriel. Quel est le seul vecteur qui est à la fois dans <m>V</m> et dans son complément orthogonal?</p>
+    </statement>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Soit <m>V</m> un sous-espace vectoriel. Montrer que <m>V\subseteq(V^{\perp})^{\perp}</m>.</p>
+    <p>En fait, on a que <m>V=(V^{\perp})^{\perp}</m>, mais l'autre inclusion est plus difficile à démontrer. On le fera avec les outils de la section <xref ref="sec-bases"/>.</p>
+    </statement>
+    </exercise>
+    <exercise>
+    <statement><p>Dans cet exercice, on s'intéresse à deux sous-espaces <m>V,W</m> tels que <m>\vec{v}*\vec{w}=0</m> pour tout <m>\vec{v}\in V, \vec{w}\in W</m>.</p>
+    <p>Donner un exemple de sous-espaces <m>V,W</m> possédant cette propriété, mais tels que <m>V\neq W^{\perp}</m> et <m>V\neq \{\vec{0}\}\neq W</m>.</p></statement>
+    <hint><p>Penser à <m>\R^3</m>. Un plan et une droite ayant comme vecteur directeur le vecteur normal du plan ont cette propriété, mais sont des compléments orthogonaux. Il faut penser un peu plus petit que le plan </p></hint>
+    </exercise>
+    <exercise>
+    <statement>
+    <p>Soit <m>A</m> une matrice carrée <xref ref="exo-matsym" text="custom">symétrique</xref> et <m>V</m> un sous-espace vectoriel tels que <m>A\vec{v}\in V</m> pour tout <m>\vec{v}\in V</m>. Montrer que
+    <m>A\vec{u}\in V^{\perp}</m> pour tout vecteur <m>\vec{u}\in V^{\perp}</m>.
+    </p>
+    </statement>
+    <hint>
+    <p>Utiliser l'exercice <xref ref="exo-prodscaltransposee"/>.</p>
+    </hint>
+    <solution>
+    <p>Soit <m>\vec{u}\in V^{\perp},\vec{v}\in V</m> et soit <m>\vec{w}=A\vec{v}</m>. On note que <m>\vec{w}\in V</m> par hypothèse. Afin de vérifier que <m>A\vec{u}</m> est aussi dans <m>V^{\perp}</m>, on calcule le 
+    produit scalaire entre <m>A\vec{u}</m> et <m>\vec{v}</m>. On a alors
+    <md>
+    <mrow>A\vec{u}\cdot \vec{v}&amp;=\vec{u}\cdot A^T\vec{v} &amp;&amp;\text{ selon l'exercice } <xref ref="exo-prodscaltransposee"/> </mrow>
+    <mrow>&amp;=\vec{u}\cdot A\vec{v} &amp;&amp;\text{car } A \text{ est symétrique}</mrow>
+    <mrow>&amp;=\vec{u}\cdot\vec{w}</mrow>
+    <mrow>&amp;=0 &amp;&amp; \text{ car } \vec{w} \text{ est dans } V</mrow>
+    </md>.
+    
+    Ainsi, le vecteur <m>A\vec{u}</m> est perpendiculaire à tous les vecteurs dans <m>V</m> et donc, <m>A\vec{u}\in V^{\perp}</m>.</p>
+    </solution>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_n</m> un ensemble de vecteurs et <m>\vec{u}</m> un vecteur différent des vecteurs <m>\vec{v}_i</m>. On cherche à caractériser l'effet de l'ajout du vecteur <m>\vec{u}</m>
+    au <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_n)</m>.</p>
+    </introduction>
+    <task>
+    <introduction>
+    <p>On considère les vecteurs <m>\vec{v}_1=(1,2,1),\vec{v}_2=(-1,3,1)</m> ainsi que les vecteurs <m>\vec{u}_1=(2,4,2),\vec{u}_2=(3,1,1),\vec{u}_3=(3,1,2)</m>.</p>
+    </introduction>
+    <task>
+    <statement><p>Comparer <m>\vspan(\vec{v}_1)</m> avec <m>\vspan(\vec{v}_1,\vec{u}_1)</m>. Sont-ils égaux, différents, l'un inclus dans l'autre?</p></statement>
+    </task>
+    <task>
+    <statement><p>Comparer <m>\vspan(\vec{v}_1,\vec{v}_2)</m> avec <m>\vspan(\vec{v}_1,\vec{v}_2,\vec{u}_1)</m>. Sont-ils égaux, différents, l'un inclus dans l'autre?</p></statement>
+    </task>
+    <task>
+    <statement><p>Comparer <m>\vspan(\vec{v}_1)</m> avec <m>\vspan(\vec{v}_1,\vec{u}_2)</m>. Sont-ils égaux, différents, l'un inclus dans l'autre?</p></statement>
+    </task>
+    <task>
+    <statement><p>Comparer <m>\vspan(\vec{v}_1,\vec{v}_2)</m> avec <m>\vspan(\vec{v}_1,\vec{v}_2,\vec{u}_2)</m>. Sont-ils égaux, différents, l'un inclus dans l'autre?</p></statement>
+    </task>
+    <task>
+    <statement><p>Comparer <m>\vspan(\vec{v}_1)</m> avec <m>\vspan(\vec{v}_1,\vec{u}_3)</m>. Sont-ils égaux, différents, l'un inclus dans l'autre?</p></statement>
+    </task>
+    <task>
+    <statement><p>Comparer <m>\vspan(\vec{v}_1,\vec{v}_2)</m> avec <m>\vspan(\vec{v}_1,\vec{v}_2,\vec{u}_3)</m>. Sont-ils égaux, différents, l'un inclus dans l'autre?</p></statement>
+    </task>
+    </task>
+    <task>
+    <statement><p>Montrer que <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_n)=\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_n,\vec{u})</m> si et seulement si <m>\vec{u}\in\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_n)</m>.</p></statement>
+    </task>
+    </exercise>
+    <exercise>
+    <introduction><p>Soit <m>A</m> et <m>B</m> deux matrices équivalentes par une suite d'opérations élémentaires. </p></introduction>
+    <task><statement>
+    <p>Montrer que <m>\mathcal{L}(A)=\mathcal{L}(B)</m>.</p></statement>
+    <hint><p>La généralisation de l'exercice <xref ref="exo-vspanvw"/> peut être utile. </p></hint></task>
+    <task><statement><p> Montrer que <m>\mathcal{N}(A)=\mathcal{N}(B)</m>.</p></statement>
+    <hint><p>Il est possible d'utiliser la partie précédente et la proposition <xref ref="prop-espfondcomportho"/>.</p></hint>
+    </task>
+    <task><statement><p>Est-ce que <m>\mathcal{C}(A)=\mathcal{C}(B)</m>?</p></statement></task></exercise>
+    <exercise>
+    <introduction><p>Pour chacune des matrices <m>A_i</m> ci-dessous, déterminer une matrice <m>C_i</m> telle que <m>\mathcal{C}(A_i)=\mathcal{N}(C_i)</m>, à la manière de l'exercice <xref ref="ex-espcolcommenul"/>.</p></introduction>
+    <task><statement><p><m>\left(\begin{array}{rrr}
+-1 &amp; 4 &amp; 1 \\
+1 &amp; -4 &amp; -4 \\
+-1 &amp; 4 &amp; 6 \\
+1 &amp; -4 &amp; -3
+\end{array}\right)</m></p></statement></task>
+    <task><statement><p><m>\left(\begin{array}{rrr}
+1 &amp; -3 &amp; 7 \\
+-1 &amp; 4 &amp; -9 \\
+2 &amp; -3 &amp; 8 \\
+0 &amp; 3 &amp; -6
+\end{array}\right)</m></p></statement></task>
+    <task><statement><p><m>\left(\begin{array}{rrrr}
+1 &amp; 1 &amp; -2 &amp; 3 \\
+-3 &amp; -2 &amp; 5 &amp; -8 \\
+3 &amp; 2 &amp; -5 &amp; 8
+\end{array}\right)</m></p></statement></task>
+    <task><statement><p><m>\left(\begin{array}{rrrr}
+7 &amp; -8 &amp; -2 &amp; 7 \\
+-3 &amp; 1 &amp; -4 &amp; -3 \\
+4 &amp; 0 &amp; 8 &amp; 4 \\
+3 &amp; -4 &amp; -2 &amp; 3
+\end{array}\right)</m></p></statement></task>
+    </exercise>
+    <exercise><statement><p>Que peut-on dire des quatre espaces fondamentaux d'une matrice <xref ref="exo-matsym" text="custom">symétrique</xref>?</p></statement></exercise>
+    <exercise><introduction><p>Soit <m>A,B</m> deux matrices compatibles pour le produit <m>AB</m>.</p></introduction>
+    <task>
+    <statement><p>Montrer que <m>\mathcal{N}(B)\subseteq \mathcal{N}(AB)</m>. </p></statement>
+    </task>
+    <task><statement><p>Montrer que <m>\mathcal{C}(AB)\subseteq\mathcal{C}(A)</m>.</p></statement></task>
+    <task>
+    <statement><p>Montrer que <m>\mathcal{N}(B)= \mathcal{N}(AB)</m> lorsque <m>A</m> est une matrice carrée inversible. </p></statement>
+    </task>
+    <task><statement><p>Montrer que <m>\mathcal{C}(AB)=\mathcal{C}(A)</m> lorsque <m>B</m> est une matrice carrée inversible.</p></statement></task>
+    </exercise>
+</exercises>

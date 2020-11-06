@@ -40,7 +40,7 @@
     <definition xml:id="def-ssesp"> 
     <title>Sous-espace vectoriel</title>
     <statement>
-    <p>Soit <m>V</m> un ensemble de vecteurs (possiblement tous) de <m>\R^n</m>, de sorte que <m>V\subseteq \R^n</m>. On dit que <m>V</m> est un sous-espace vectoriel si les vecteurs dans <m>V</m> satisfont les propriétés suivantes:
+    <p>Soit <m>V</m> un ensemble non vide de vecteurs (possiblement tous) de <m>\R^n</m>, de sorte que <m>V\subseteq \R^n</m>. On dit que <m>V</m> est un sous-espace vectoriel si les vecteurs dans <m>V</m> satisfont les propriétés suivantes:
     <list xml:id="li-ssesp">
     <ol>
     <li xml:id="li-ssespsomme"><p>Si deux vecteurs sont dans <m>V</m>, alors leur somme est aussi dans <m>V</m>, c'est-à-dire si <m>\vec{u},\vec{v}\in V</m>, alors <m>\vec{u}+\vec{v}\in V</m>.</p></li>
@@ -165,13 +165,348 @@
     résultat <m>0\vec{u}=\vec{0}</m> n'est pas sur la droite. Ce n'est donc pas un espace vectoriel.</p>
     </solution>
     </example>
+    <p>Des exemples importants de sous-espaces vectoriels sont les ensembles solutions à un système d'équations linéaires homogènes, correspondant aux zéros de la transformation linéaire associée.</p>
+    <proposition xml:id="prop-Ax0ssesp">
+    <title>Les zéros d'une transformation forment un sous-espace vectoriel</title>
+    <statement><p>Soit <m>A</m> la matrice <m>m\times n</m> d'une transformation linéaire. Alors les solutions à l'équation linéaire <me>A\vec{x}=\vec{0}</me> forment un sous-espace vectoriel de <m>\R^n</m>.</p></statement>
+    <proof><p>En fait, cette proposition est une reformulation de la proprosition <xref ref="prop-Ax0sev"/></p></proof>
+    </proposition>
+    <p>Un résultat en apparence évidente, mais qui aura son utilité à plus d'une reprise est de considérer l'ensemble de toutes les combinaisons linéaires obtenues à partir d'un ensemble de vecteur. Dans la section
+    <xref ref="sec-droitesplans"/>, on a appelé ce concept le <m>\vspan</m> des vecteurs. C'est un sous-espace vectoriel.</p>
+    <proposition xml:id="prop-vspanssespvec">
+    <title>L'espace engendré est un sous-espace vectoriel</title>
+    <statement>
+    <p>Soit <m>\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n</m> des vecteurs quelconques. L'ensemble des combinaisons linéaires de ces vecteurs, noté <m>\vspan(\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n)</m>, introduit à la définition
+    <xref ref="def-span"/> est un sous-espace vectoriel.</p>
+    </statement>
+    <proof>
+    <p>On vérifie directement les propriétés. Soit <m>\vec{v}_1,\vec{v}_2</m> des vecteurs dans l'espace engendré <m>\vspan(\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n)</m>. Puisque
+    <m>\vec{v}_1,\vec{v}_2</m> sont une combinaison linéaire de vecteurs dans l'espace engendré, on peut écrire
+    <md>
+    <mrow>\vec{v}_1&amp;=a_1\vec{u}_1+a_2\vec{u}_2+\cdots + a_n\vec{u}_n</mrow>
+     <mrow>\vec{v}_2&amp;=b_1\vec{u}_1+b_2\vec{u}_2+\cdots + b_n\vec{u}_n</mrow>
+    </md>.
+    On a donc
+    <md>
+    <mrow>\vec{v}_1+\vec{2}&amp;=a_1\vec{u}_1+a_2\vec{u}_2+\cdots + a_n\vec{u}_n+b_1\vec{u}_1+b_2\vec{u}_2+\cdots + b_n\vec{u}_n</mrow>
+    <mrow>&amp;=(a_1+b_1)\vec{u}_1+(a_2+b_2)\vec{u}_2+\cdots + (a_n+b_n)\vec{u}_n</mrow>
+    </md>
+    qui est aussi une combinaison linéaire des vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n</m>. Ainsi, <m>\vec{v}_1+\vec{v}_2</m> est dans <m>\vspan(\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n)</m>.
+    </p>
+    <p>De même, si <m>c\in \R</m>, alors
+    <md>
+    <mrow>c\vec{v}_1&amp;=c(a_1\vec{u}_1+a_2\vec{u}_2+\cdots + a_n\vec{u}_n)</mrow>
+    <mrow>&amp;=ca_1\vec{u}_1+ca_2\vec{u}_2+\cdots + ca_n\vec{u}_n</mrow>
+    </md>,
+    également combinaison linéaire et donc dans l'espace engendré.
+    </p>
+    </proof>
+    </proposition>
+    <p>En combinant les propositions précédentes, on peut arriver à caractériser les sous-espaces d'une manière géométrique. Puisque tout espace engendré par un ensemble de vecteurs est un sous-espace, il suit que
+    les droites, plans et en général hyerplans passant par l'origine sont des sous-espaces vectoriels. On verra aussi à la prochaine section que, mis à part le sous-espace composé uniquement du vecteur nul, tout sous-espace
+    peut être vu comme l'espace engendré par un certain nombre de vecteurs. Les sous-espaces ne sont donc qu'un autre terme utilisé pour décrire droites, plans et hyperplan.<fn><p>En fait, on verra plus tard qu'on peut considérer des 
+    espaces plus arbitraires que <m>\R^n</m> et que les mots droites et plans n'auront plus de sens dans ces espaces.</p></fn></p>
+    <p>Les sous-espaces vectoriels possèdent certaines propriétés communes à tous. La plus importante est certainement la présence du vecteur nul.</p>
+    <proposition>
+    <title>Le vecteur nul fait partie de tous les sous-espaces vectoriels</title>
+    <statement><p>Soit <m>V</m> un sous-espace vectoriel. Alors <m>\vec{0}\in V</m>.</p>
+    <p>Géométriquement, ceci signifie que les droites, plans et hyperplans sont des sous-espaces seulement s'ils passent par l'origine.</p>
+    </statement>
+    <proof><p>On prend un vecteur <m>\vec{v}</m> quelconque dans <m>V</m>. Puisque <m>V</m> est un sous-espace, la propriété <xref ref="li-ssespmult"/> dit que les multiples de <m>\vec{v}</m> sont aussi dans le sous-espace.
+    Il suffit alors de considérer le multiple <m>0\vec{v}=\vecc{0}</m>.</p></proof>
+    </proposition>
+    <p>D'autres propriétés seront explorées dans les exercices.</p>
+    <p>On termine avec une définition importante pour la suite, qui introduit le concept de complément orthogonal.</p>
+    <definition xml:id="def-comportho">
+    <title>Le complément orhogonal</title>
+    <statement><p>Soit <m>V</m> un sous-ensemble de <m>\R^n</m>. On définit le complément orhtogonal de <m>V</m> comme étant l'ensemble des vecteurs <m>\vec{u}</m> dans <m>\R^n</m> tels que <m>\vec{u}</m> est orthogonal
+    à tous les vecteurs de <m>V</m>. On le note
+    <me>
+    V^{\perp}=\{\vec{u}\in\R^n ~|~ \vec{u}\cdot\vec{v}=0 \text{ pour tout } \vec{v}\in V\}
+    </me>.</p></statement>
+    </definition>
+    <p>On regarde des exemples géométriques de compléments orthogonaux.</p>
+    <example>
+    <title>Compléments orthogonaux de droites et plans</title>
+    <statement>
+    <p>On considère les ensembles suivants:
+    <md>
+    <mrow>\mathcal{D}_1&amp;: &amp; (x,y)&amp;=c(2,1)</mrow>
+    <mrow>\mathcal{D}_2&amp;: &amp;(x,y,z)&amp;=t(1,2,-3)</mrow>
+    <mrow>\mathcal{P}&amp;: &amp; (x,y,z)&amp;=a(1,2,-1)+b(-1,3,1)</mrow>
+    </md>. On cherche le complément orthogonal de chacun de ces ensembles de points.</p>
+    </statement>
+    <proof>
+    <p>Les points sur <m>\mathcal{D}_1</m> sont caractérisés comme étant des multiples du vecteur directeur de la droite, soit <m>\vec{v}=(1,2,-3)</m>. Dans <m>\R^3</m>, tout vecteur perpendiculaire à un de ces multiples sera de la forme <m>k(-1,2)</m>.
+    Le complément orthogonal de la droite est donc aussi une droite, perpendiculaire à <m>\mathcal{D}_1</m>. Son équation vectorielle est <m>(x,y)=k(-1,2)</m>.</p>
+    </proof>
+    <proof><p>Les points sur <m>\mathcal{D}_2</m> sont caractérisés comme étant des multiples du vecteur directeur de la droite, soit <m>\vec{v}=(2,1)</m>. Dans <m>\R^2</m>, tout vecteur perpendiculaire à un de ces multiples sera sur le plan
+    d'équation normale <m>x+2y-3z=0</m>, dont le vecteur normal est le vecteur directeur de <m>\mathcal{D}_2</m>.</p></proof>
+    <proof>
+    <p>Les points sur le plan <m>\mathcal{P}</m> sont tous perpendiculaires aux points sur la droite ayant comme vecteur directeur le vecteur normal du plan. On peut calculer ce vecteur en utilisant le produit vectoriel:
+    <me>
+    \vec{n}=\left(\begin{vmatrix}2&amp;3\\-1&amp;1 \end{vmatrix},-\begin{vmatrix}1&amp;-1\\-1&amp;1 \end{vmatrix},\begin{vmatrix}1&amp;-1\\2&amp; 3 \end{vmatrix}\right)=(5,0,5)
+    </me>.
+    Le complément orthogonal du plan <m>\mathcal{P}</m> est donc la droite <m>\mathcal{D}: (x,y,z)=r(5,0,5)</m>.</p>
+    </proof>
+    </example>
+    <remark>
+    <title>Le complément orthogonal n'est pas réservé aux sous-espaces vectoriels</title>
+    <statement>
+    <p>On peut déterminer le complément orthogonal de n'importe quel ensemble de vecteurs, pas seulement des ensembles qui sont des sous-espaces vectoriels. Par exemple, si on considère la droite
+    <me>
+    \mathcal{D}: (x,y)=c(2,1)+(1,1)
+    </me>,
+    ce n'est pas un sous-espace vectoriel, car la droite ne passe pas par l'origine. On peut toutefois trouver son complément orthogonal en raisonnant géométriquement. On pourrait penser que les vecteurs se trouveront
+    sur la droite perpendiculaire à <m>\mathcal{D}</m> et passant par le point <m>(1,1)</m>, mais la situation réelle est plus complexe. Puisque chaque valeur de <m>c</m> apporte une direction différente (dû à l'addition du point <m>(1,1)</m>
+    il y a en fait une infinité de droite qui compose le complément orthogonal. Comme on va principalement se concentrer sur les sous-espaces vectoriels dans le cadre de ces notes, on n'ira pas plus loin que cette remarque.
+    </p>
+    </statement>
+    </remark>
+    <p>On a déjà rencontré des sous-espaces orhogonalement complémentaires à la section <xref ref="sec-transposee"/>. On y revient dans la prochain sous-section. Pour le moment, on regarde les propriétés du
+    complément orthogonal lorsque l'ensemble <m>V</m> est un sous-espace vectoriel.</p>
+    <proposition>
+    <title>Le complément orthogonal est un sous-espace vectoriel</title>
+    <statement><p>Soit <m>V</m> un sous-espace vectoriel et <m>V^{\perp}</m> son complément orthogonal. Alors <m>V^{\perp}</m> est aussi un sous-espace vectoriel.</p></statement>
+    <proof><p>Soit <m>\vec{u}_1,\vec{u}_2</m> des vecteurs de <m>V^{\perp}</m>. Alors pour tous les vecteurs <m>v\in V</m>
+    <md>
+    <mrow>(\vec{u}_1+\vec{u}_2)\cdot \vec{v}&amp;=\vec{u}_1\cdot\vec{v}+\vec{u}_1\cdot\vec{v}&amp;&amp; \text{ par la distributivité du produit scalaire }</mrow>
+    <mrow>&amp;=0+0 &amp;&amp;\text{ car } \vec{u}_1,\vec{u}_2\in V</mrow>
+    <mrow>&amp;=0</mrow>
+    </md>.
+    De même, si <m>c\in\R</m>, alors
+    <md>
+    <mrow>(c\vec{u}_1)\cdot\vec{v}&amp;=c(\vec{u}\cdot\vec{v}) &amp;&amp; \text{selon } <xref ref="prop-propprodscal"/></mrow>
+    <mrow>&amp;=c(0)&amp;&amp;\text{ car } \vec{u}_1\in V</mrow>
+    <mrow>&amp;=0</mrow>
+    </md>.
+    Ainsi, le complément orthogonal est un sous-espace vectoriel.</p></proof>
+    </proposition>
+    <p>On regarde deux autres propriétés du complément orthogonal qui seront utiles dans la sous-section suivante.</p>
+    <proposition xml:id="prop-orthoinccomp">
+    <title>Ĺes vecteurs orthogonaux et le complément orthogonal</title>
+    <statement>
+    <p>Soit <m>V,W\subseteq \R^n</m> des sous-espaces vectoriels tels que <m>\vec{v}\cdot \vec{w}=0</m> pour tout vecteur <m>\vec{v}\in V</m> et <m>\vec{w}\in W</m>. Alors
+    <m>V\subseteq W^{\perp}</m>.</p>
+    </statement>
+    <proof><p>Par définition, le complément orthogonal de <m>W</m> consiste à l'ensemble de tous les vecteurs <m>\vec{u}\in \R^n</m> de <m>\R^n</m> pour lesquels <m>\vec{u}\cdot\vec{w}=0</m> avec <m>\vec{w}\in W</m>. Puisque les
+    vecteurs dans <m>V</m> ont cette propriété par hypothèse, ces vecteurs sont certainement aussi dans <m>W^{\perp}</m>.</p>
+    <p>La question plus intéressante est, étant donné deux ensembles <m>V</m> et <m>W</m> qui possède cette propriété, peut-on dire que <m>V=W^{\perp}</m>? L'exercice <xref provisional="exo-orthoinccomp"/> fera réfléchir 
+    à cette question.</p>
+    </proof>
+    </proposition>
+    <proposition xml:id="prop-compinclusion">
+    <title>Complément orthogonal et inclusion</title>
+    <statement><p>Soit <m>V,W\subseteq \R^n</m> des sous-espaces vectoriels tels que <m>V\subseteq W</m>. Alors <m>W^{\perp}\subseteq V^{\perp}</m>.</p>
+    </statement>
+     <proof><p>On veut montrer que tout vecteur <m>\vec{u}</m> dans <m>W^{\perp}</m> est aussi dans <m>V^{\perp}</m>. Or si <m>\vec{u}</m> est dans <m>W^{\perp}</m>, cela signifie que <m>\vec{u}</m> est perpendiculaire à
+     tous les vecteurs dans <m>W</m>. Comme <m>V</m> est inclus dans <m>W</m>, le vecteur <m>\vec{u}</m> est aussi perpendiculaire à tous les vecteurs dans <m>V</m>. On peut donc affirmer que <m>\vec{u}</m> est dans
+     <m>V^{\perp}</m>. Ainsi <m>W^{\perp}\subseteq V^{\perp}</m>.</p>
+     <!--<p>La question naturelle qui se pose est, est-ce que <m>W^{\perp}=V^{\perp}</m> est possible? L'exercice <xref provisional="exo-compcinclusion"/> fera réfléchir 
+    à cette question.</p>--></proof>
+    </proposition>
+    <proposition xml:id="prop-orthozero">
+    <title>Le complément orthogonal du vecteur nul</title>
+    <statement>
+    <p>Soit <m>V=\{\vec{0}\}</m> le sous-espace trivial qui ne contient que le vecteur nul <m>\vec{0}\in\R^n</m>. Alors
+    <me>
+    V^{\perp}=\R^n
+    </me>.</p>
+    </statement>
+    <proof>
+    <p>Puisque pour tout vecteur <m>\vec{v}\in\R^n</m> on a <m>\vec{v}\cdot\vec{0}</m>, tous les vecteurs de <m>\R^n</m> sont dans le complément orthogonal.</p>
+    </proof>
+    </proposition>
+    </subsection>
+    <subsection>
+    <title>Les quatres sous-espaces vectoriels </title>
+    <p>À la section <xref ref="sec-transposee"/>, on a <xref ref="def-4espaces" text="custom">défini</xref> la notion des quatre sous-espaces fondamentaux d'une matrice. Ces quatres sous-ensembles sont aussi des sous-espaces vectoriels.</p>
+    <proposition xml:id="prop-espfondssespvec">
+    <title>Les sous-espaces fondamentaux sont des sous-espaces vectoriels</title>
+    <statement>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m>. Alors les espaces nul, colonne, ligne et nul-gauche sont des sous-espaces fondamentaux.</p>
+    </statement>
+    <proof>
+    <p>On débute avec l'espace nul. C'est un sous-espace vectoriel selon la proposition <xref ref="prop-Ax0ssesp"/>. Comme l'espace nul gauche est équivalent à l'espace nul de la transposée, la même proposition confirme que
+    c'est aussi un sous-espace vectoriel.</p>
+    <p>L'espace colonne (ligne) est défini comme étant l'ensemble des combinaisons linéaires des colonnes (lignes). On peut ainsi le voir comme le <m>\vspan</m> de ces colonnes (lignes) et donc, en vertu de la proposition <xref ref="prop-vspanssespvec"/>, c'est
+    un sous-espace vectoriel.</p>
+    </proof>
+    </proposition>
+    <p>On regarde un exemple des espaces colonne et nul sous l'oeil des sous-espaces vectoriels.</p>
+    <example>
+    <title>Les sous-espaces fondamentaux comme sous-espaces vectoriels</title>
+    <statement>
+    <p>On considère la matrice <me>
+A=\left(\begin{array}{rrrr}
+1 &amp; -1 &amp; 2 &amp; -3 \\
+2 &amp; 0 &amp; 4 &amp; -8 \\
+-1 &amp;-1 &amp; -2 &amp; 5
+\end{array}\right)
+    </me>. L'espace nul est un sous-espace de <m>\R^4</m> et l'espace colonne est un sous-espace de <m>\R^3</m>. On cherche à les caractériser en termes de sous-espaces vectoriels.</p>
+    </statement>
+    <solution><p>La forme échelonnée réduite de <m>A</m> est 
+    <me>
+    R=\left(\begin{array}{rrrr}
+1 &amp; 0 &amp; 2 &amp; -4 \\
+0 &amp; 1 &amp; 0 &amp; -1 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)
+    </me>.</p>
+    <p>De cette matrice <m>R</m>, on peut déduire les solutions de base
+    <md>
+    <mrow>\vec{s}_1&amp;=(-2,0,1,0)</mrow>
+    <mrow>\vec{s}_2&amp;=(4,1,0,1)</mrow>
+    </md>.
+    Les solutions à l'équation <m>A\vec{x}=\vec{0}</m> s'écrivent donc comm <m>\vspan(\vec{s}_1,\vec{s}_2)</m>. C'est un sous-espace vectoriel qui consiste en un plan de <m>\R^4</m> de vecteurs directeurs <m>\vec{s}_1,\vec{s}_2</m>.</p>
+    <p>L'espace colonne s'écrit évidemment comme <m>\vspan((1,2,-1),(-1,0,-1),(2,4,-2),(-3,-8,5))</m>. La proposition <xref ref="prop-espcolimg"/> donne toutefois une autre manière de trouver l'espace colonne. Les calculs suivants sur Sage</p>
+    <sage>
+    <input>
+R.&lt;b1,b2,b3>=QQ[]
+A=matrix([[1,-1,2,-3,b1],[2,0,4,-8,b2],[-1,-1,-2,5,b3]])
+show(A.echelon_form())
+    </input>
+    </sage>
+    <p>permettent d'obtenir la matrice
+    <me>
+    (R|\vec{b})=\left(\begin{array}{rrrr|r}
+1 &amp; 0 &amp; 2 &amp; -4 &amp; \frac{1}{2} b_{2} \\
+0 &amp; 1 &amp; 0 &amp; -1 &amp; -b_{1} + \frac{1}{2} b_{2} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; -b_{1} + b_{2} + b_{3}
+\end{array}\right)
+    </me>. Afin d'être compatible, la dernière ligne doit être nulle et donc le vecteur <m>\vec{b}</m> doit satisfaire l'équation <m>-b_{1} + b_{2} + b_{3}=0</m>. On reconnait ici l'équation normale d'un plan. L'espace colonne
+    peut donc aussi être vu comme un plan dans <m>\R^3</m>.</p>
+    <p>Intuitivement,on devrait donc être en mesure de réduire le nombre de vecteurs qui génèrent le <m>\vspan</m> de quatre à deux, puisque la dimension d'un plan est deux. La prochaine section dira exactement quels vecteurs choisir et
+    garder pour décrire de manière efficace les espaces colonne et ligne.
+    </p>
+    </solution>
+    </example>
+    <p>On regarde un autre exemple, qui va permettre de contextualiser une partie de la preuve de la proposition <xref ref="prop-espfondcomportho"/>. C'est un exemple similaire au dernier, mais avec plus d'une ligne nulle.</p>
+    <example xml:id="ex-espcolcommenul">
+    <title>L'espace colonne vu comme un espace nul</title>
+    <p>Soit <m>A</m> une matrice <m>4\times 3</m> une matrice et <m>\vec{b}=(b_1,b_2,b_3,b_4)</m> un vecteur l'image. On donne la forme échelonné réduite de la matrice <m>A</m> augmentée du vecteur <m>\vec{b}</m> :
+    <me>
+    rref((A|\vec{b}))=
+\left(\begin{array}{rrrr}
+1 &amp; 0 &amp; -4 &amp; \frac{1}{2} b_{2} \\
+0 &amp; 1 &amp; \frac{1}{2} &amp; \frac{1}{2} b_{1} - \frac{1}{4} b_{2} \\
+0 &amp; 0 &amp; 0 &amp; -b_{1} + b_{2} + b_{3} \\
+0 &amp; 0 &amp; 0 &amp; b_{1} + b_{4}
+\end{array}\right)
+    </me>.
+    On pose <m>\vec{c}_1=(-1,1,1,0)</m> et <m>\vec{c}_2=(1,0,0,4)</m>. Les vecteurs de l'image sont donc caractérisés par les vecteurs <m>\vec{b}\in \R^m</m> tels que 
+    <md>
+    <mrow>\vec{c}_1\vec{b}&amp;=0</mrow>
+    <mrow>\vec{c}_2\vec{b}&amp;=0</mrow>
+    </md>.
+    </p>
+    <p>Si on réécrit ces équations sous forme matricielle, on a 
+    <me>
+    C\vec{b}=\vec{0}
+    </me> où <m>C=\begin{pmatrix} -1&amp; 1&amp; 1&amp;0 \\ 1&amp; 0&amp; 0&amp; 4\end{pmatrix}</m>. Les vecteurs <m>\vec{b}</m> dans l'image de <m>A</m> sont donc les mêmes vecteurs que ceux dans l'espace nul de <m>C</m>.</p>
+    </example>
+    <p>On effectue maintenant une première étape vers le théorème fondamental de l'algèbre linéaire, cité pour la première fois à la proposition <xref ref="prop-fondlinalg"/>. On peut reformuler deux des énoncés en termes du
+    complément orthogonal.</p>
+    <proposition xml:id="prop-espfondcomportho">
+    <title>Les espaces fondamentaux et le complément orthogonal</title>
+    <statement>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m>. Alors
+    <ol>
+    <li><p><m>\mathcal{L}(A)^{\perp}=\mathcal{N}(A)</m>;</p></li>
+    <li><p><m>\mathcal{C}(A)^{\perp}=\mathcal{N}(A^T)</m>;</p></li>
+    <li><p><m>\mathcal{N}(A^T)^{\perp}=\mathcal{C}(A)</m>;</p></li>
+    <li><p><m>\mathcal{N}(A)^{\perp}=\mathcal{L}(A)</m>.</p></li>
+    </ol></p>
+    <p>On observe évidemment la symétrie de ces énoncés. En particulier, il semble que <m>(V^{\perp})^{\perp}=V</m>, mais le résultat n'est pas aussi évident qu'il ne le paraisse  et va nécessiter des outils de la prochaine section.
+    Pour les espaces fondamentaux, on peut par contre démontrer cela en s'appuyant sur la géométrie.</p>
+    </statement>
+    <proof>
+    <p>On veut montrer que le complément orthogonal de l'espace ligne correspond à l'espace nul. On sait déjà que les vecteurs de l'espace nul sont orthogonaux avec les lignes de <m>A</m>. En vertu de la proposition (généralisée) <xref ref="prop-perpclin"/>,
+    il suit que l'espace nul est un sous-ensemble du complément orthogonal de l'espace ligne.</p>
+    <p>Soit <m>\vec{v}\in \mathcal{L}(A)^{\perp} </m> un vecteur du complément orthogonal de l'espace ligne de <m>A</m>. Ce vecteur est perpendiculaire à toutes les combinaisons linéaires des lignes de <m>A</m> et donc en particulier,
+    il est perpendiculaire aux lignes de <m>A</m>. Cela signifie que <m>A\vec{v}=\vec{0}</m>, selon la définition du produit matrice vecteur et donc, le vecteur <m>\vec{v}</m> est dans l'espace nul. Le complément orthogonal 
+    est ainsi un sous-ensemble de l'espace nul.</p>
+    <p>En combinant les deux arguments précédents, on a que <m>\mathcal{L}(A)^{\perp}=\mathcal{N}(A)</m></p>
+    </proof>
+    <proof><p>Il suffit de remplacer <m>A</m> par <m>A^T</m> dans la preuve de la propriété précédente.</p></proof>
+    <proof><p>Puisque les vecteurs dans <m>\mathcal{C}(A)</m> sont perpendiculaire aux vecteurs dans <m>\mathcal{N}(A^T)</m> (selon la proposition <xref ref="prop-zerosperplignes"/>), on sait que l'espace colonne
+    est un sous-ensemble du complément orthogonal de l'espace nul gauche, selon la proposition <xref ref="prop-orthoinccomp"/>. On a donc <m>\mathcal{C}(A)\subset \mathcal{N}(A^T)^{\perp}</m>.</p>
+    <p>Il faut donc montrer que les vecteurs dans le complément orthogonal de l'espace nul gauche sont dans l'espace colonne.</p>
+    <p>Soit <m>r</m> le rang de <m>A</m>. Si <m>r=m</m>, alors il n'y a pas de ligne nul et l'espace colonne est <m>\R^m</m> au complet. Le seul vecteur perpendiculaire à tous <m>\R^m</m> est le vecteur nul et donc <m>\mathcal{N}(A^T)=\{\vec{0}\}</m>,
+    entrainant par la proposition <xref ref="prop-orthozero"/> que <m>\mathcal{N}(A^T)^{\perp}=\R^m=C(A)</m>. Si toutefois <m>r&lt; m</m>, alors il y a <m>k=m-r</m> lignes nulles.</p>
+<p> À la manière de l'exemple <xref ref="ex-espcolcommenul"/>, on peut définir <m>\vec{c}_1,\vec{c}_2,\ldots, \vec{c}_k</m> des vecteurs et une matrice <m>C</m> telle que l'espace colonne de <m>A</m>
+corresponde à l'espace nul de <m>C</m>. Selon la première partie de cette proposition, <m>\mathcal{L}(C)^{\perp}=\mathcal{N}(C)=\mathcal{C}(A)</m>. De plus, les lignes de <m>C</m> sont perpendiculaires à l'image de <m>A</m> (le vecteur <m>\vec{b}</m>),
+et donc <m>\mathcal{L}(C)\perp \mathcal{C}(A)</m>. Ceci est équivalent à dire que <m>\mathcal{L}(C)\subseteq \mathcal{C}(A)^{\perp}=\mathcal{N}(A^T)</m>. À partir de la propriété <xref ref="prop-compinclusion"/>, on peut
+conclure que <m>\mathcal{N}(A^T)^{\perp}}\subseteq C(A)</m>.</p>
+<p>En combinant les deux arguments, on conclut que <m>\mathcal{C}(A)=\mathcal{N}(A^T)^{\perp}</m>.</p>
+    </proof>
+    <proof><p>On remplace <m>A^T</m> par <m>A</m> dans l'argument précédent.</p></proof>
+    </proposition>
+    <insight xml:id="con-egalensemble">
+    <title>Égalité de deux ensembles</title>
+    <statement><p>
+    Lorsqu'on veut montrer que deux ensembles <m>V,W</m> sont égaux, une manière efficace de le faire est de montrer que tous les éléments de <m>V</m> sont aussi dans <m>W</m>, et donc que <m>V\subseteq W</m>, et que
+    tous les éléments de <m>W</m> sont dans <m>V</m>, entrainant alors que <m>W\subseteq V</m>. La seule conclusion est alors que <m>V=W</m>. C'est ce principe qui est utilisé dans la preuve de la proposition <xref ref="prop-espfondcomportho"/>.
+    </p>
+    <p>Le même principe est aussi utilisé pour démontrer l'égalité de deux nombres <m>x,y</m>. On peut dans un premier temps montrer que <m>x\leq y</m> et ensuite que <m>y\leq x</m>, ce qui entraine l'égalité.</p>
+    </statement>
+    </insight>
+    <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
+    <computation>
+    <title>Les espaces fondamentaux et le complément orthogonal</title>
+    <statement>
+    <p>À l'exemple <xref ref="sageex-espfond"/>, on a vu comment déterminer des vecteurs dont le <m>\vspan</m> sera un des quatres espaces fondamentaux d'une matrice <m>A</m>. Ces vecteurs sont ce qu'on appelle une base de
+    ces espaces. Les bases seront le principal sujet de la prochaine section. Pour l'instant, on s'intéresse à vérifier l'orthogonalité des espaces fondamentaux tel qu'indiqué à la proposition <xref ref="prop-espfondcomportho"/>.</p>
+    <p>On commence par définir la matrice <m>B</m> de l'exemple <xref ref="sageex-espfond"/> et les éléments qui génèrent chacun de ses quatre espaces fondamentaux.</p>
+    <sage>
+    <input>
+B=matrix(QQ,[[1,3,2],[-1,-5,-2],[3,-1,6]])
+nul=(B.right_kernel(basis="pivot").basis())
+col=(B.column_space().basis())
+lignes=(B.row_space().basis())
+nulgauche=(B.left_kernel(basis="pivot").basis())
+show(nul)
+show(col)
+show(lignes)
+show(nulgauche)
+</input>
+</sage>
+<p>On fait ensuite le produit scalaire de toutes les combinaisons possibles d'un vecteur de l'espace nul avec un vecteur de l'espace ligne.</p>
+<sage>
+<input>
+###Pour l'espace nul et l'espace ligne
+for v in nul:
+    for u in lignes:
+        show("%s*%s=" %(v, u),v*u)
+    </input>
+    </sage>
+<p>Même chose ci-dessous mais avec les vecteurs de l'espace nul gauche et les vecteurs de l'espace colonne.</p>
+<sage>
+<input>
+###Pour l'espace nul gauche et l'espace colonne
+for v in nulgauche:
+    for u in col:
+        show("%s*%s=" %(v, u),v*u)
+    
+    </input>
+    </sage>
+    <p>Le produit scalaire entre les générateurs étant nul, le produit scalaire de chaque élément des espaces nul et ligne et chaque élément des espaces nul gauche et colonne sera aussi nul, comme le garantit la proposition <xref ref="prop-perpclin"/>. </p>
+    </statement>
+    </computation>
     </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
     
     <conclusion xml:id="concl-ssesp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    
+    <p>Les éléments importants de cette section sont
+    <ul>
+    <li><p>La <xref ref="def-ssesp" text="custom">définition</xref> d'un sous-espace vectoriel;</p></li>
+    <li><p>Le fait que l'espace engendré par un ensemble de vecteurs (<m>\vspan</m>) est toujours un <xref ref="prop-vspanssespvec" text="custom">sous-espace vectoriel</xref>;</p></li>
+    <li><p> La <xref ref="def-comportho" text="custom">définition</xref> du complément orthogonal; </p></li>
+    <li><p>Le fait que les quatre sous-espaces fondamentaux d'une matrice <xref ref="prop-espfondssespvec" text="custom">sont des sous-espaces vectoriels</xref>;</p></li>
+    <li><p>La <xref ref="prop-espfondcomportho" text="custom">complémentarité</xref> des sous-espaces fondamentaux.</p></li>
+    </ul></p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_ssesp.xml"/>
 </section>
-<!-- exercice plan est un ss-espace  xml:id="exo-ssespplan"
 

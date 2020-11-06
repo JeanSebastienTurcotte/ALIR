@@ -257,12 +257,11 @@ a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
     <li> 
     <title>L'espace nul</title>
     <p>L'espace nul est formé de l'ensemble de tous les vecteurs qui satisfont l'équation <m>A\vec{x}=\vec{0}</m>. Ces vecteurs sont les zéros de la transformation associée à <m>A</m>.
-    C'est un sous-espace de e <m>\R^n</m>. Il est formé de toutes les combinaisons linéaires des solutions de base de la matrice <m>A</m> et du vecteur nul. On le note <m>\mathcal{N}(A)</m>.</p>
+    C'est un sous-espace de <m>\R^n</m>. Il est formé de toutes les combinaisons linéaires des solutions de base de la matrice <m>A</m> et du vecteur nul. On le note <m>\mathcal{N}(A)</m>.</p>
     <p>On appelle parfois l'espace nul le noyau (en anglais, on dit &#x00AB; kernel &#x00BB;).</p>
     </li>
     <li><title>L'espace colonne</title>
-    <p>L'espace colonne est formé de l'ensemble des vecteurs <m>\vec{b}</m> pour lesquels il existe au moins une solution à l'équation <m>A\vec{x}=\vec{b}</m>. Ce sont les vecteurs
-    dans l'image de la transformation associée à <m>A</m>. C'est un sous-espace de <m>\R^m</m>. Il est formé de toutes les combinaisons linéaires des colonnes de la matrice <m>A</m>. On le 
+    <p>L'espace colonne est formé de l'ensemble des combinaisons linéaires des colonnes de la matrice <m>A</m>. C'est un sous-espace de <m>\R^m</m>. On le 
     note <m>\mathcal{C}(A)</m>.</p>
     </li>
     <li>
@@ -277,6 +276,20 @@ a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
     </p>
     </statement>
     </definition>
+    <p>Géométriquement, on a dit que l'espace nul correspond aux zéros de la transformation linéaire. L'espace colonne lui, correspond aux vecteurs dans l'image qui sont atteints par la transformation linéaire.</p>
+    <proposition xml:id="prop-espcolimg">
+    <title>L'espace colonne et l'image</title>
+    <statement>
+    <p>Soit <m>A</m> une transformation linéaire et <m>\vec{b}</m> un vecteur de <m>\R^m</m>. Alors <m>\vec{b}\in \mathcal{C}</m> si et seulement si l'équation <m>A\vec{x}=\vec{b}</m> est compatible.</p>
+    </statement>
+    <proof>
+    <p>On commence par supposer que <m>\vec{b}</m> est dans l'espace colonne. Si on écrit <m>\vec{a}_1,\vec{a}_2,\ldots ,\vec{a}_n</m> pour les colonnes de <m>A</m>, cela signifie qu'il existe des coefficients
+    <m>c_1,c_2,\ldots , c_n</m> tels que 
+    <me>
+    \vec{b}=c_1\vec{a}_1+c_2\vec{a}_2+\cdots +c_n\vec{a}_n
+    </me>. Le vecteur <m>\vec{x}=(c_1,c_2,\ldots , c_n)</m> est donc une solution à l'équation <m>A\vec{x}=\vec{b}</m>, en vertu de l'équation</p>
+    </proof>
+    </proposition>
     <p>Ces quatre sous-espaces sont en étroite relation, dont certaines ont déjà été constatées. On en explore quelques-unes dans les exemples qui suivent. D'autres seront 
     formulées au chapitre <xref provisional="chapitre espace vectoriel"/>.</p>
     <example xml:id="ex-4esp1">
