@@ -14,7 +14,7 @@
     <title> Sous-espaces vectoriels </title>
     <introduction xml:id= "intro-ssesp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>On considère deux vecteurs sur un plan. Si on prend la somme de ces deux vecteurs, est-ce que le résultat est encore sur le plan? Qu'en est-il d'un multiple d'un vecteur du plan, est-il aussi dans le plan? Un
-     objet qui possède ces propriété est dit fermé par rapport à l'addition et à la multiplication.</p>
+     objet qui possède ces propriétés est dit fermé par rapport à l'addition et à la multiplication.</p>
      <p>Un sous-espace est un espace à l'intérieur d'un autre espace. C'est une partie en général plus petite que l'espace dans lequel elle se situe, mais qui possède la même structure.</p>
      
      <p>Dans cette section, on définie la notion de sous-espace vectoriel. On considère des exemples géométriques et algébrique et on explore les quatre sous-espaces fondamentaux en lien avec ces nouveaux concepts.</p>
@@ -28,14 +28,17 @@
     </md>.
     Les vecteurs dans le plan <m>\mathcal{P}_1</m> sont de la forme <m>(x,y,-x-y)</m> et les vecteurs dans le plan <m>\mathcal{P}_2</m> sont de la forme <m>(x,y,6+2y-x)</m>.</p>
     <p>Si on prend deux vecteurs de <m>\mathcal{P}_1</m>, on peut montrer que leur somme est aussi dans le plan, car
-    <me>
-    (x_1,y_1,-x_1-y_1)+(x_2,y_2,-x_2-y_2)=(x_1+x_2,y_1+y_2,-x_1-x_2-y_1-y_2)=(x_1+x_2,y_1+y_2,-(x_1+x_2)-(y_1+y_2))
-    </me>,
+    <md>
+    <mrow>(x_1,y_1,-x_1-y_1)+(x_2,y_2,-x_2-y_2)&amp;=(x_1+x_2,y_1+y_2,-x_1-x_2-y_1-y_2)</mrow>
+    <mrow>&amp;=(x_1+x_2,y_1+y_2,-(x_1+x_2)-(y_1+y_2))</mrow>
+    </md>,
     de même qu'un multiple d'un vecteur, puisque <m>k(x,y,-x-y)=(kx,ky,k(-x-y)=(kx,ky,-kx-ky)</m>.</p>
     <p>Par contre, le plan <m>\mathcal{P}_2</m> ne possède pas ces propriétés. On peut prendre un exemple spécifique ou encore faire le cas général. Dans le cas de la somme, on a par exemple en général
-    <me>
-    (x_1,y_1,6+2y_1-x_1)+(x_2,y_2,6+2y_2-x_2)=(x_1+x_2,y_1+y_2,6+2y_1-x_1+6+2y_2-x_2)=(x_1+x_2,y_1+y_2,12+2(y_1+y_2)-(x_1+x_2))
-    </me>, alors que pour un cas spécifique avec un multiple, il suffit de prendre zéro fois le vecteur <m>(1,1,2)\in \mathcal{P}_2</m>  et de constater que <m>(0,0,0)\notin \mathcal{P}_2</m>.</p>
+    <md>
+    <mrow>(x_1,y_1,6+2y_1-x_1)+(x_2,y_2,6+2y_2-x_2)&amp;=(x_1+x_2,y_1+y_2,6+2y_1-x_1+6+2y_2-x_2)</mrow>
+    <mrow>&amp;=(x_1+x_2,y_1+y_2,12+2(y_1+y_2)-(x_1+x_2))</mrow>
+    </md>, alors que pour un cas spécifique avec un multiple, il suffit de prendre zéro fois le vecteur <m>(1,1,2)\in \mathcal{P}_2</m>  
+    et de constater que <m>(0,0,0)\notin \mathcal{P}_2</m>.</p>
     <p>Ceci motive la définition suivante.</p>
     <definition xml:id="def-ssesp"> 
     <title>Sous-espace vectoriel</title>
@@ -44,7 +47,7 @@
     <list xml:id="li-ssesp">
     <ol>
     <li xml:id="li-ssespsomme"><p>Si deux vecteurs sont dans <m>V</m>, alors leur somme est aussi dans <m>V</m>, c'est-à-dire si <m>\vec{u},\vec{v}\in V</m>, alors <m>\vec{u}+\vec{v}\in V</m>.</p></li>
-    <li xml:id="li-ssespmult"><p>Si un vecteur est dans <m>V</m> et qu'on le multiplie par un scalaire, alors le multiple est aussi dans <m>V</m>, c'est-à-dire si <m>k\in \R,\vec{V}\in V</m>, alors <m>k\vec{v}\in V</m>.</p></li>
+    <li xml:id="li-ssespmult"><p>Si un vecteur est dans <m>V</m> et qu'on le multiplie par un scalaire, alors le multiple est aussi dans <m>V</m>, c'est-à-dire si <m>k\in \R,\vec{v}\in V</m>, alors <m>k\vec{v}\in V</m>.</p></li>
     </ol></list>
     </p>
     <p>On dit que l'ensemble <m>V</m> est fermé par rapport à l'addition et à la multiplication par un scalaire.</p>
@@ -111,7 +114,7 @@
     </md>. Comme <m>(t_1+t_2)\in \R</m>, il suit que la somme des vecteurs est sur la droite.</p>
     <p>Pour la multiplication par le scalaire, on a
     <md>
-    <mrow>k\vec{v}_1&amp;=kt_1\vec{u}</mrow>
+    <mrow>k\vec{v}_1&amp;=k(t_1\vec{u})</mrow>
     <mrow>&amp;=(kt_1)\vec{u}</mrow>
     </md> et puisque <m>kt_1\in \R</m>, la multiplication est aussi sur la droite.</p>
     </solution>
@@ -126,7 +129,7 @@
     <me>
     \vec{n}\cdot \vec{x}=d
     </me>
-    où <m>d\in \R</m>. Si l'hyperplan passe par l'origine, alors <m>d=0</m>. Les vecteurs dans l'hyperplan sont donc l'ensemble des vecteurs <m>\vec{x}</m> tel que <m>\vec{n}\cdot \vec{x}=0</m>.
+    où <m>d\in \R</m>. Si l'hyperplan passe par l'origine, alors <m>d=0</m>. Les vecteurs dans l'hyperplan sont donc l'ensemble des vecteurs <m>\vec{x}</m> tels que <m>\vec{n}\cdot \vec{x}=0</m>.
     Soit <m>\vec{u},\vec{v}</m> des vecteurs de <m>\R^n</m> sur l'hyperplan, c'est-à-dire des vecteurs tels que <m>\vec{n}\cdot \vec{u}=0, \vec{n}\cdot \vec{v}=0</m> et soit <m>k\in \R</m> un scalaire. On a
     <md>
     <mrow>\vec{n}\cdot (\vec{u}+\vec{v})&amp;=\vec{n}\cdot \vec{u}+\vec{n}\cdot\vec{v}&amp;&amp;\text{selon la distributivité du produit scalaire}</mrow>
@@ -135,20 +138,20 @@
     </md>.
     Le vecteur <m>\vec{u}+\vec{v}</m> est donc aussi sur l'hyperplan. Pour la multiplication par un scalaire, on a
     <md>
-    <mrow>\vec{n}\cdot(k\vec{u})&amp;=k(\vec{n}\cdot\vec{u}) &amp;&amp; \text{ selon <xref ref="li-propprodscal"/></mrow>
+    <mrow>\vec{n}\cdot(k\vec{u})&amp;=k(\vec{n}\cdot\vec{u}) &amp;&amp; \text{ selon } <xref ref="li-propprodscal"/></mrow>
     <mrow>&amp;=k(0)</mrow>
     <mrow>&amp;=0</mrow>
     </md>. La multiplication par le scalaire est aussi sur l'hyperplan.</p>
     </solution>
     </example>
-    <p>Afin de bien comprendre que tout sous-ensemble de vecteurs n'est pas un sous-espace vectoriel, on regarde maintenant quelques non exemples. </p>
+    <p>Afin de bien comprendre que tout sous-ensemble de vecteurs n'est pas un sous-espace vectoriel, on regarde maintenant quelques contre-exemples. </p>
     <example>
     <title>Des ensembles qui ne sont pas sous-espaces vectoriels</title>
     <statement>
     <p>Les ensembles suivants ne sont pas des sous-esapces vectoriels de <m>\R^n</m>:
     <ol>
-    <li><p>Le plan <m>\mathcal{P}_2</m> du début de sous-section;</p></li>
-    <li><p>Les vecteurs pour lequel au moins une des composantes est nulle. Ce sont les vecteurs sur les axes de coordonnées;</p></li>
+    <li><p>Le plan <m>\mathcal{P}_2</m> du début de la présente sous-section;</p></li>
+    <li><p>Les vecteurs pour lesquels au moins une des composantes est nulle. Ce sont les vecteurs sur les axes de coordonnées;</p></li>
     <li><p>Une droite ne passant pas par l'origine.</p></li>
     </ol></p>
     </statement>
@@ -171,7 +174,7 @@
     <statement><p>Soit <m>A</m> la matrice <m>m\times n</m> d'une transformation linéaire. Alors les solutions à l'équation linéaire <me>A\vec{x}=\vec{0}</me> forment un sous-espace vectoriel de <m>\R^n</m>.</p></statement>
     <proof><p>En fait, cette proposition est une reformulation de la proprosition <xref ref="prop-Ax0sev"/></p></proof>
     </proposition>
-    <p>Un résultat en apparence évidente, mais qui aura son utilité à plus d'une reprise est de considérer l'ensemble de toutes les combinaisons linéaires obtenues à partir d'un ensemble de vecteur. Dans la section
+    <p>Un résultat en apparence évident, mais qui aura son utilité à plus d'une reprise est de considérer l'ensemble de toutes les combinaisons linéaires obtenues à partir d'un ensemble de vecteurs. Dans la section
     <xref ref="sec-droitesplans"/>, on a appelé ce concept le <m>\vspan</m> des vecteurs. C'est un sous-espace vectoriel.</p>
     <proposition xml:id="prop-vspanssespvec">
     <title>L'espace engendré est un sous-espace vectoriel</title>
@@ -188,7 +191,7 @@
     </md>.
     On a donc
     <md>
-    <mrow>\vec{v}_1+\vec{2}&amp;=a_1\vec{u}_1+a_2\vec{u}_2+\cdots + a_n\vec{u}_n+b_1\vec{u}_1+b_2\vec{u}_2+\cdots + b_n\vec{u}_n</mrow>
+    <mrow>\vec{v}_1+\vec{v}_2&amp;=a_1\vec{u}_1+a_2\vec{u}_2+\cdots + a_n\vec{u}_n+b_1\vec{u}_1+b_2\vec{u}_2+\cdots + b_n\vec{u}_n</mrow>
     <mrow>&amp;=(a_1+b_1)\vec{u}_1+(a_2+b_2)\vec{u}_2+\cdots + (a_n+b_n)\vec{u}_n</mrow>
     </md>
     qui est aussi une combinaison linéaire des vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n</m>. Ainsi, <m>\vec{v}_1+\vec{v}_2</m> est dans <m>\vspan(\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n)</m>.
@@ -203,8 +206,8 @@
     </proof>
     </proposition>
     <p>En combinant les propositions précédentes, on peut arriver à caractériser les sous-espaces d'une manière géométrique. Puisque tout espace engendré par un ensemble de vecteurs est un sous-espace, il suit que
-    les droites, plans et en général hyerplans passant par l'origine sont des sous-espaces vectoriels. On verra aussi à la prochaine section que, mis à part le sous-espace composé uniquement du vecteur nul, tout sous-espace
-    peut être vu comme l'espace engendré par un certain nombre de vecteurs. Les sous-espaces ne sont donc qu'un autre terme utilisé pour décrire droites, plans et hyperplan.<fn><p>En fait, on verra plus tard qu'on peut considérer des 
+    les droites, plans et en général hyperplans passant par l'origine sont des sous-espaces vectoriels. On verra aussi à la prochaine section que, mis à part le sous-espace composé uniquement du vecteur nul, tout sous-espace
+    peut être vu comme l'espace engendré par un certain nombre de vecteurs. Les sous-espaces ne sont donc qu'un autre terme utilisé pour décrire droites, plans et hyperplans.<fn><p>En fait, on verra plus tard qu'on peut considérer des 
     espaces plus arbitraires que <m>\R^n</m> et que les mots droites et plans n'auront plus de sens dans ces espaces.</p></fn></p>
     <p>Les sous-espaces vectoriels possèdent certaines propriétés communes à tous. La plus importante est certainement la présence du vecteur nul.</p>
     <proposition>
@@ -213,13 +216,13 @@
     <p>Géométriquement, ceci signifie que les droites, plans et hyperplans sont des sous-espaces seulement s'ils passent par l'origine.</p>
     </statement>
     <proof><p>On prend un vecteur <m>\vec{v}</m> quelconque dans <m>V</m>. Puisque <m>V</m> est un sous-espace, la propriété <xref ref="li-ssespmult"/> dit que les multiples de <m>\vec{v}</m> sont aussi dans le sous-espace.
-    Il suffit alors de considérer le multiple <m>0\vec{v}=\vecc{0}</m>.</p></proof>
+    Il suffit alors de considérer le multiple <m>0\vec{v}=\vec{0}</m>.</p></proof>
     </proposition>
     <p>D'autres propriétés seront explorées dans les exercices.</p>
     <p>On termine avec une définition importante pour la suite, qui introduit le concept de complément orthogonal.</p>
     <definition xml:id="def-comportho">
     <title>Le complément orhogonal</title>
-    <statement><p>Soit <m>V</m> un sous-ensemble de <m>\R^n</m>. On définit le complément orhtogonal de <m>V</m> comme étant l'ensemble des vecteurs <m>\vec{u}</m> dans <m>\R^n</m> tels que <m>\vec{u}</m> est orthogonal
+    <statement><p>Soit <m>V</m> un sous-ensemble de <m>\R^n</m>. On définit le complément orthogonal de <m>V</m> comme étant l'ensemble des vecteurs <m>\vec{u}</m> dans <m>\R^n</m> tels que <m>\vec{u}</m> est orthogonal
     à tous les vecteurs de <m>V</m>. On le note
     <me>
     V^{\perp}=\{\vec{u}\in\R^n ~|~ \vec{u}\cdot\vec{v}=0 \text{ pour tout } \vec{v}\in V\}
@@ -236,19 +239,19 @@
     <mrow>\mathcal{P}&amp;: &amp; (x,y,z)&amp;=a(1,2,-1)+b(-1,3,1)</mrow>
     </md>. On cherche le complément orthogonal de chacun de ces ensembles de points.</p>
     </statement>
-    <proof>
+    <solution>
     <p>Les points sur <m>\mathcal{D}_1</m> sont caractérisés comme étant des multiples du vecteur directeur de la droite, soit <m>\vec{v}=(1,2,-3)</m>. Dans <m>\R^3</m>, tout vecteur perpendiculaire à un de ces multiples sera de la forme <m>k(-1,2)</m>.
     Le complément orthogonal de la droite est donc aussi une droite, perpendiculaire à <m>\mathcal{D}_1</m>. Son équation vectorielle est <m>(x,y)=k(-1,2)</m>.</p>
-    </proof>
-    <proof><p>Les points sur <m>\mathcal{D}_2</m> sont caractérisés comme étant des multiples du vecteur directeur de la droite, soit <m>\vec{v}=(2,1)</m>. Dans <m>\R^2</m>, tout vecteur perpendiculaire à un de ces multiples sera sur le plan
-    d'équation normale <m>x+2y-3z=0</m>, dont le vecteur normal est le vecteur directeur de <m>\mathcal{D}_2</m>.</p></proof>
-    <proof>
+    </solution>
+    <solution><p>Les points sur <m>\mathcal{D}_2</m> sont caractérisés comme étant des multiples du vecteur directeur de la droite, soit <m>\vec{v}=(2,1)</m>. Dans <m>\R^2</m>, tout vecteur perpendiculaire à un de ces multiples sera sur le plan
+    d'équation normale <m>x+2y-3z=0</m>, dont le vecteur normal est le vecteur directeur de <m>\mathcal{D}_2</m>.</p></solution>
+    <solution>
     <p>Les points sur le plan <m>\mathcal{P}</m> sont tous perpendiculaires aux points sur la droite ayant comme vecteur directeur le vecteur normal du plan. On peut calculer ce vecteur en utilisant le produit vectoriel:
     <me>
     \vec{n}=\left(\begin{vmatrix}2&amp;3\\-1&amp;1 \end{vmatrix},-\begin{vmatrix}1&amp;-1\\-1&amp;1 \end{vmatrix},\begin{vmatrix}1&amp;-1\\2&amp; 3 \end{vmatrix}\right)=(5,0,5)
     </me>.
     Le complément orthogonal du plan <m>\mathcal{P}</m> est donc la droite <m>\mathcal{D}: (x,y,z)=r(5,0,5)</m>.</p>
-    </proof>
+    </solution>
     </example>
     <remark>
     <title>Le complément orthogonal n'est pas réservé aux sous-espaces vectoriels</title>
