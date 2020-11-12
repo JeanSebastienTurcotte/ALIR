@@ -24,7 +24,7 @@
     <p>Dans cette section, on introduit la notion de base d'un (sous) espace, la notion de d'indépendance linéaire et la notion de dimension. On revient aussi aux quatre espaces afin de déterminer une manière de décrire ceux-ci
     efficacement.</p>
     </introduction>
-    <subsection>
+    <subsection xml:id="sssec-indlin">
     <title>
     Indépendance linéaire
     </title>
@@ -85,7 +85,7 @@
     <statement><p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> des vecteurs de <m>\R^n</m>. Si la seule combinaison linéaire de ces vecteurs qui produit le vecteur nul est la combinaison triviale, alors tous les vecteurs dans
     <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)</m> s'écrivent de manière unique comme une combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m>. Mathématiquement, si la seule solution à l'équation
     <me>
-    c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_kvec{v}_k=0
+    c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_k\vec{v}_k=0
     </me>
     est la solution où <m>c_1=c_2=\cdots = c_k=0</m>, alors l'écriture <m>\vec{u}=d_1\vec{v}_1+d_2\vec{v}_2+\cdots + d_k\vec{v}_k</m> est unique pour tout vecteur <m>\vec{u}\in \vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k).</m>
     </p></statement>
@@ -200,7 +200,11 @@
     <li><p>Les vecteurs <m>\vec{u},\vec{v}</m> sont linéairement indépendants si et seulement si ils ne sont pas parallèles;</p></li>
     <li><p>Les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> sont linéairement indépendants si et seulement s'ils ne sont pas sur un même plan.</p></li>
     </ul></p>
+<<<<<<< HEAD
     <p>Ceci permet rapidement de tester l'indépendance de deux ou trois vecteurs, en particulier, on pourra utiliser le <xref ref="chap-det" text="custom">déterminant</xref> à cet effet.</p>
+=======
+    <p>Ceci permet rapidement de tester l'indépendance de deux ou trois vecteurs, en particulier, on pourra utiliser le <xref ref="def-determinant" text="custom">déterminant</xref> à cet effet.</p>
+>>>>>>> sssec-bases
     </statement>
     <solution>
     <p>On commence avec des vecteurs linéairement indépendants et on tente de montrer que les vecteurs ne peuvent pas être parallèles.</p>
@@ -226,14 +230,14 @@
     <p>La généralisation naturelle de ces situations est donnée dans la proposition suivante.</p>
 <proposition xml:id="prop-indepspan">
 <title>Indépendance linéaire et espace engendré</title>
-<statement><p>Soit <m>\vec{v}_1,\vec{v}_2,\vec{v}_k\in \R^n</m> des vecteurs formant un ensemble linéairement indépendant et soit <m>\vec{v}\in \R^n</m>. Alors l'ensemble
-<m>\vec{v}_1,\vec{v}_2,\vec{v}_k,\vec{v}</m> est linéairement indépendant si et seulement si <m>\vec{v}\notin \vspan(\vec{v}_1,\vec{v}_2,\vec{v}_k)</m>.</p>
-<p>Si <m>\vec{v}\notin \vspan(\vec{v}_1,\vec{v}_2,\vec{v}_k)</m>, cela signifie en particulier que les espaces engendrés par <m>\vec{v}_1,\vec{v}_2,\vec{v}_k</m> et par<m>\vec{v}_1,\vec{v}_2,\vec{v}_k,\vec{v}</m> sont différents.</p>
+<statement><p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k\in \R^n</m> des vecteurs formant un ensemble linéairement indépendant et soit <m>\vec{v}\in \R^n</m>. Alors l'ensemble
+<m>\vec{v}_1,\vec{v}_2,\vec{v}_k,\vec{v}</m> est linéairement indépendant si et seulement si <m>\vec{v}\notin \vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k)</m>.</p>
+<p>Si <m>\vec{v}\notin \vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k)</m>, cela signifie en particulier que les espaces engendrés par <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k</m> et par<m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k,\vec{v}</m> sont différents.</p>
 </statement>
 <proof><p>Voir l'exercice <xref provisional="exo-indepspan"/>.</p></proof>
 </proposition>
   <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
-  <computation>
+  <computation xml:id="sageex-indlin">
   <title>Sage et l'indépendance linéaire</title>
   </computation>
   <statement>
@@ -318,7 +322,7 @@ show(V.span(L)==V.span(Lv4))
     </statement>
         </definition>
     <p>On commence avec quelques exemples de sous-espaces vectoriels et des bases de ces sous-espaces.</p>
-    <example>
+    <example xml:id="ex-baseex">
     <title>Base de sous-espaces vectoriels</title>
     <statement>
     <p>On considère quelques-uns des sous-espaces vectoriel de l'exemple <xref ref="ex-ssesp"/>, soit 
@@ -355,6 +359,67 @@ show(V.span(L)==V.span(Lv4))
     <p>Un sous-espace peut avoir plusieurs bases. Par exemple, un plan peut être décrit par une infinité de vecteurs directeurs. Selon la base utilisée, un même vecteur peut être décrit différement.</p>
     <example>
     <title>Plusieurs bases d'un sous-espace</title>
+    <statement>
+    <p>On reprend certains des sous-espaces vectoriels possédant une base de l'exemple précédent et on trouve des bases alternatives pour ces espaces:
+        <ol>
+        <li><p>Le plan <m>\mathcal{P}_1: x+y+z=0</m> du début de section;</p></li>
+    <li><p>Les vecteurs de la forme <m>(x,x)</m>;</p></li>
+    <li><p>Ĺ'espace <m>\R^n</m> au complet.</p></li></ol>.</p>
+    </statement>
+    <solution><p>La base trouvée à l'exemple  <xref ref="ex-baseex"/> a été trouvée selon la méthode prescrite par le chapitre <xref ref="chap-SEL"/> (en isolant <m>x</m> pour en faire une variable pivot). Il suffit toutefois de trouver n'importe quel ensemble de vecteurs
+    linéairement indépendants qui génère le plan. Plusieurs autres options sont possibles. Par exemple, en isolant <m>y</m> ou <m>z</m> dans l'équation normale du plan, on a
+    <md>
+    <mrow>\vecddd{x}{y}{z}&amp;=\vecddd{x}{-x-z}{z}</mrow>
+    <mrow>                &amp;=\vecddd{x}{-x}{0}+\vecddd{0}{-z}{z}</mrow>
+    <mrow>                &amp;=x\vecddd{1}{-1}{0}+z\vecddd{0}{-1}{1}</mrow>    
+    </md>
+    ou encore
+    <md>
+    <mrow>\vecddd{x}{y}{z}&amp;=\vecddd{x}{y}{-x-y}</mrow>
+    <mrow>                &amp;=\vecddd{x}{0}{-x}+\vecddd{0}{y}{-y}</mrow>
+    <mrow>                &amp;=x\vecddd{1}{0}{-1}+y\vecddd{0}{y}{-1}</mrow>    
+    </md>.
+    Dans chacun des cas, les vecteurs sont linéairement indépendants et engendrent le plan.
+    </p>
+    <p>Pour avoir un autre exemple, on prend des vecteurs indépendants qui satisfont l'équation <m>x+y+z=0</m> jusqu'à l'obtention d'un ensemble qui génère le plan. Par exemple, si on prend <m>\vec{u}=(1,1,-2)</m>, ce vecteur est 
+    sur le plan. Par lui-même, il engendre une droite et donc il faut en ajouter un autre pour obtenir le plan. Une possibilité est <m>\vec{v}=(3,-1,-2)</m>, qui est indépendant de <m>\vec{u}</m>. Ensemble, ils engendrent le plan.
+    Par exemple, on peut montrer que <m>(-1,1,0)=\frac{1}{2}(1,1,-2)-\frac{1}{2}(3,-1,-2)</m> et <m>(-1,0,1)=-\frac{1}{4}(1,1,-2)-\frac{1}{4}(3,-1,-2)</m> et donc, la base originale du plan est dans <m>\vspan((1,1,-2),(3,-1,-2))</m>.
+    De même, on a <m>(1,1,-2)=(-1,1,0)-2(-1,0,1)</m> et <m>(3,-1,-2)=-(-1,1,0)-2(-1,0,1)</m> et donc la base formée des vecteurs <m>(1,1,-2)</m> et <m>(3,-1,-2)</m> est dans le sous-espace engendré par la base originale. Ces bases engendrent donc bel et bien le même espace.
+    </p>
+    </solution>
+    <solution>
+    <p>Le sous-espace formé des vecteurs de la forme <m>(x,x)</m> peut avoir n'importe quel vecteur non nul parallèle à <m>(1,1)</m> comme base. Un tel vecteur va bien entendu générer la droite représentant ce sous-espace et
+    un vecteur non nul par lui-même est toujours indépendant.</p>
+    </solution>
+    </example>
+    <p>Plusieurs bases pour décrire un même espace doit se traduire par une manière concrète de parler des éléments de l'espace par rapport à une base donnée. On introduit donc le concept de coordonnées d'un vecteur, relatif à une base (ordonnée).</p>
+    <definition>
+    <title>Coordonnées d'un vecteur relatives à une base </title>
+    <statement><p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k</m> une base d'un sous-espace <m>V</m>. On note par <m>\mathcal{B}=\langle \vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k\rangle</m> la base ordonnée de ces vecteurs,
+    c'est-à-dire la base où l'ordre des vecteurs est important. Soit <m>\vec{u}\in V</m> un vecteur du sous-espace, peut-être égal à l'un des vecteurs de <m>\mathcal{B}</m>. Parce que <m>\mathcal{B}</m> est une base de <m>V</m>, il existe
+    <m>c_1,c_2,\ldots ,c_k\in \R</m> tels que <m>\vec{u}=c_1\vec{v}_1+c_2\vec{v}_2+\cdots c_k\vec{v}_k</m>. Les nombres <m>c_1,c_2,\ldtos, c_k</m> sont appelés les coordonnées de <m>\vec{u}</m> dans la base ordonnée
+    <m>\mathcal{B}</m> et on écrit
+    <me>
+    \vec{u}=(c_1,c_2,\ldots c_k)_{\mathcal{B}}
+    </me>.</p></statement>
+    </definition>
+    <p>Tel que mentionné précédemment, le concept de vecteur algébrique fait déjà explicitement référence à la notion de coordonnées. Pour cela, on considère comme standard l'écriture d'un vecteur en terme des vecteurs
+    <m>\vec{e}_1,\vec{e}_2,\ldots, \vec{e}_n</m>. Ces vecteurs forment ce qu'on pourrait appelé la base canonique de <m>\R^n</m>. De ce fait, lorsque cette base est utilisée, on omet l'indice <m>\mathcal{B}</m> dans l'écriture
+    des coordonnées du vecteurs. Ainsi, si on écrit <m>\vec{u}=(1,2,3)</m>, il est sous-entendu que la base est <m>\mathcal{B}=\langle (1,0,0),(0,1,0),(0,0,1)\rangle</m>. </p>
+    <p>On regarde maintenant des exemples d'écritures de vecteurs d'un espace avec différentes bases.</p>
+    <example>
+    <title>Bases et coordonnées de vecteurs</title>
+    <statement>
+    <p>On considère les vecteurs <m>\vec{v}_1=(1,1,-3),\vec{v}_2=(3,-5,2),\vec{v}_4=(1,-3,2)</m> tirés de l'exemple calculatoire <xref ref="sageex-indlin"/> Ces trois vecteurs forment une base de <m>\R^3</m>. On considère
+    aussi le vecteur <m>v_5=v_1\times v_2=(-13,-11,-8)</m>. On définit les trois bases ordonnées
+    <md>
+    <mrow>\mathcal{B}_1&amp;\langle v_1,v_2,v_4 \rangle</mrow>
+    <mrow>\mathcal{B}_2&amp;\langle v_4,v_1,v_2\rangle</mrow>
+    <mrow>\mathcal{B}_3&amp;\langle v_2,v_5,v_1 \rangle</mrow>
+    </md>.
+    On cherche à écrire le vecteur <m>\vec{u}=(-1,2,4)</m> dans chacune de ces trois bases.
+    </p>
+    </statement>
     </example>
     </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
