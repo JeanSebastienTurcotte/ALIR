@@ -16,7 +16,7 @@
     <p>Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p>
     </introduction>
     <project>
-    <title>Des matrices, magiques</title>
+    <title>Des matrices magiques</title>
     <introduction>
     <p>On considère la matrice 
     <me>
@@ -30,12 +30,11 @@
     <statement><p>Soit <m>M</m> une matrice <m>n\times n</m>. Si toutes les lignes et toutes les colonnes de la matrice somment à la même valeur, on dit que <m>M</m> est semi-magique.
     Si en plus les deux diagonales somment à cette même valeur, on dit alors que <m>M</m> est magique.</p></statement>
     </definition>
-    <p>Dans cette activité, on s'intéresse à la construction de carrés magiques et certaines généralisations.</p>
+    <p>Dans cette activité, on s'intéresse à la construction de carrés magiques.</p>
     </introduction>
-    <task>
     <title>Le cas <m>3\times 3</m> </title>
     <introduction>
-    <p>On débute avec une méthode qui permettra d'obtenir la matrice <m>M</m> de l'introduction. On pourra ensuite généraliser les idées pour construire d'autres carrés magiques. On considère une matrice quelconque de taille <m>3\times 3</m>
+    <p>On débute avec une méthode qui permettra d'obtenir la matrice <m>M</m> de l'introduction. On considère une matrice quelconque de taille <m>3\times 3</m>
     <me>
     M=\begin{pmatrix} a&amp; d&amp; g\\
                       b&amp; e&amp; h\\
@@ -43,19 +42,19 @@
     </me>.</p>
     </introduction>
     <task><statement><p>Dans l'exemple en introduction, la somme magique est <m>15</m>. On peut écrire un système à 8 équations et 9 inconnues pour que la matrice quelconque soit magique avec somme <m>15</m>:
-    <md>
-    <mrow>a+d+g&amp;=15 &amp;&amp; \text{ligne 1}</mrow>
-    <mrow>b+e+h&amp;=15 &amp;&amp; \text{ligne 2}</mrow>
-    <mrow>c+f+i&amp;=15 &amp;&amp; \text{ligne 3}</mrow> 
-    <mrow>a+b+c&amp;=15 &amp;&amp; \text{colonne 1}</mrow>
-    <mrow>d+e+f&amp;=15 &amp;&amp; \text{colonne 2}</mrow>
-    <mrow>g+h+i&amp;=15 &amp;&amp; \text{colonne 3}</mrow>
-    <mrow>a+e+i&amp;=15 &amp;&amp; \text{diagonale principale}</mrow>
-    <mrow>c+e+g&amp;=15 &amp;&amp; \text{diagonale secondaire}</mrow>
+    <md alignment="alignat">
+    <mrow>a&amp;<!--{}+{}-->&amp;<!--b-->&amp;<!--{}+{}-->&amp;<!--c-->&amp;{}+{}&amp;d&amp;<!--{}+{}-->&amp;<!--e-->&amp;<!--{}+{}-->&amp;<!--f-->&amp;{}+{}&amp;g&amp;<!--{}+{}-->&amp;<!--h-->&amp;<!--{}+{}-->&amp;<!--i-->&amp;{}={}&amp; 15&amp;&amp;&amp;&amp;\text{ ligne 1}</mrow>
+    <mrow><!--a-->&amp;<!--{}+{}-->&amp;b&amp;<!--{}+{}-->&amp;<!--c-->&amp;<!--{}+{}-->&amp;<!--d-->&amp;{}+{}&amp;e&amp;<!--{}+{}-->&amp;<!--f-->&amp;<!--{}+{}-->&amp;<!--g-->&amp;{}+{}&amp;h&amp;<!--{}+{}-->&amp;<!--i-->&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ ligne 2}</mrow>
+    <mrow><!--a-->&amp;<!--{}+{}-->&amp;<!--b-->&amp;<!--{}+{}-->&amp;c&amp;{}+{}&amp;<!--d-->&amp;<!--{}+{}-->&amp;<!--e-->&amp;{}+{}&amp;f&amp;<!--{}+{}-->&amp;<!--g-->&amp;<!--{}+{}-->&amp;<!--h-->&amp;{}+{}&amp;i&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ ligne 3}</mrow> 
+    <mrow>a&amp;{}+{}&amp;b&amp;{}+{}&amp;c&amp;<!--{}+{}-->&amp;<!--d-->&amp;<!--{}+{}-->&amp;<!--e-->&amp;<!--{}+{}-->&amp;<!--f-->&amp;<!--{}+{}-->&amp;<!--g-->&amp;<!--{}+{}-->&amp;<!--h-->&amp;<!--{}+{}-->&amp;<!--i-->&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ colonne 1}</mrow>
+    <mrow><!--a-->&amp;<!--{}+{}-->&amp;<!--b-->&amp;<!--{}+{}-->&amp;<!--c-->&amp;<!--{}+{}-->&amp;d&amp;{}+{}&amp;e&amp;{}+{}&amp;f&amp;<!--{}+{}-->&amp;<!--g-->&amp;<!--{}+{}-->&amp;<!--h-->&amp;<!--{}+{}-->&amp;<!--i-->&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ colonne 2}</mrow>
+    <mrow><!--a-->&amp;<!--{}+{}-->&amp;<!--b-->&amp;<!--{}+{}-->&amp;<!--c-->&amp;<!--{}+{}-->&amp;<!--d-->&amp;<!--{}+{}-->&amp;<!--e-->&amp;<!--{}+{}-->&amp;<!--f-->&amp;<!--{}+{}-->&amp;g&amp;{}+{}&amp;h&amp;{}+{}&amp;i&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ colonne 3}</mrow>
+    <mrow>a&amp;<!--{}+{}-->&amp;<!--b-->&amp;<!--{}+{}-->&amp;<!--c-->&amp;<!--{}+{}-->&amp;<!--d-->&amp;{}+{}&amp;e&amp;<!--{}+{}-->&amp;<!--f-->&amp;<!--{}+{}-->&amp;<!--g-->&amp;<!--{}+{}-->&amp;<!--h-->&amp;{}+{}&amp;i&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ diagonale 1}</mrow>
+    <mrow><!--a-->&amp;<!--{}+{}-->&amp;<!--b-->&amp;<!--{}+{}-->&amp;c&amp;<!--{}+{}-->&amp;<!--d-->&amp;{}+{}&amp;e&amp;<!--{}+{}-->&amp;<!--f-->&amp;{}+{}&amp;g&amp;<!--{}+{}-->&amp;<!--h-->&amp;<!--{}+{}-->&amp;<!--i-->&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ diagonale 2}</mrow>
     </md>.
     Utiliser Sage pour résoudre ce système d'équations. Il devrait y avoir deux variables libres dans la forme échelonnée réduite. Quelles sont-elles et quelles doivent être les valeurs de ces variables libres pour que la solution soit égale à la 
     matrice <m>M</m> de l'introduction?</p>
-    Les fonctions <c>solbase</c> et <c>solgen</c> des exemples calculatoires <xref ref="sageex-Ax0"/> et <xref ref="sageex-solstd"/>
+    Il est possible mais non obligatoire d'utiliser les fonctions <c>solbase</c> et <c>solgen</c> des exemples calculatoires <xref ref="sageex-Ax0"/> et <xref ref="sageex-solstd"/>.
     <sage>
     <input>
     
@@ -144,12 +143,23 @@ show(column_matrix(3,3,7*s1+6*s2+xp))
     
     </input>
     </sage></task>
-    <task><p>Donner le carré magique dont la somme vaut est égal au trois derniers chiffres de votre numéro de DA, toujours avec les variables libres égales à votre date de fête.</p></task>
-    <task><p>Vérifier à nouveau l'hypothèse de la partie <xref ref="tsk-hypcom"/> pour les carrés magiques de somme le numéro de DA.</p></task>
-    </task>
+    <task><p>Donner le carré magique dont la somme est égale aux trois derniers chiffres de votre numéro de DA, toujours avec les variables libres égales à votre date de fête.</p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage></task>
+    <task><p>Vérifier à nouveau l'hypothèse de la partie <xref ref="tsk-hypcom"/> pour les carrés magiques de somme le numéro de DA.</p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage></task>
+    <!--
     <task>
-    <introduction><p>Considérer les généralisations suivantes et déterminer un carré magique qui satisfait <alert>l'une</alert> de celles-ci. Donner le nombre de variables libres obtenus lors de la résolution.</p></introduction>
-    <task><p>Un carré magique <m>4\times 4</m> avec comme contraintes additionnelles que les quatres sous-carrés donnent aussi la somme magique.</p>
+    <introduction><p>Considérer les généralisations suivantes et déterminer un carré magique qui satisfait <alert>l'une</alert> de celles-ci. 
+    Donner le nombre de variables libres obtenues lors de la résolution.</p></introduction>
+    <task><p>Un carré magique <m>4\times 4</m> avec comme contraintes additionnelles que la somme des éléments de chacun des quatre sous-carrés donne aussi la somme magique.</p>
     <figure>
     <image source="code/LaTeX/fig-carremagique4x4-1.svg">
     <caption>Conditions additionelles dans les sous-matrices</caption>
@@ -164,6 +174,11 @@ show(column_matrix(3,3,7*s1+6*s2+xp))
     </figure>
     </task>
     <task><p>Un carré magique <m>5\times 5</m> avec huit autres contraintes de votre choix. Bien identifier les contraintes.</p></task>
-    </task>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </task>-->
     </project>
 </section>
