@@ -261,25 +261,25 @@
     \mathcal{D}: (x,y)=c(2,1)+(1,1)
     </me>,
     ce n'est pas un sous-espace vectoriel, car la droite ne passe pas par l'origine. On peut toutefois trouver son complément orthogonal en raisonnant géométriquement. On pourrait penser que les vecteurs se trouveront
-    sur la droite perpendiculaire à <m>\mathcal{D}</m> et passant par le point <m>(1,1)</m>, mais la situation réelle est plus complexe. Puisque chaque valeur de <m>c</m> apporte une direction différente (dû à l'addition du point <m>(1,1)</m>
-    il y a en fait une infinité de droite qui compose le complément orthogonal. Comme on va principalement se concentrer sur les sous-espaces vectoriels dans le cadre de ces notes, on n'ira pas plus loin que cette remarque.
+    sur la droite perpendiculaire à <m>\mathcal{D}</m> et passant par le point <m>(1,1)</m>, mais la situation réelle est plus complexe. Puisque chaque valeur de <m>c</m> apporte une direction différente (dû à l'addition du point <m>(1,1)</m>),
+    il y a en fait une infinité de droites qui composent le complément orthogonal. Comme on va principalement se concentrer sur les sous-espaces vectoriels dans le cadre de ces notes, on n'ira pas plus loin que cette remarque.
     </p>
     </statement>
     </remark>
-    <p>On a déjà rencontré des sous-espaces orhogonalement complémentaires à la section <xref ref="sec-transposee"/>. On y revient dans la prochain sous-section. Pour le moment, on regarde les propriétés du
+    <p>On a déjà rencontré des sous-espaces orthogonalement complémentaires à la section <xref ref="sec-transposee"/>. On y revient dans la prochaine sous-section. Pour le moment, on regarde les propriétés du
     complément orthogonal lorsque l'ensemble <m>V</m> est un sous-espace vectoriel.</p>
     <proposition>
     <title>Le complément orthogonal est un sous-espace vectoriel</title>
     <statement><p>Soit <m>V</m> un sous-espace vectoriel et <m>V^{\perp}</m> son complément orthogonal. Alors <m>V^{\perp}</m> est aussi un sous-espace vectoriel.</p></statement>
-    <proof><p>Soit <m>\vec{u}_1,\vec{u}_2</m> des vecteurs de <m>V^{\perp}</m>. Alors pour tous les vecteurs <m>v\in V</m>
+    <proof><p>Soit <m>\vec{u}_1,\vec{u}_2</m> des vecteurs de <m>V^{\perp}</m>. Alors pour tous les vecteurs <m>\vec{v}\in V</m>
     <md>
-    <mrow>(\vec{u}_1+\vec{u}_2)\cdot \vec{v}&amp;=\vec{u}_1\cdot\vec{v}+\vec{u}_1\cdot\vec{v}&amp;&amp; \text{ par la distributivité du produit scalaire }</mrow>
+    <mrow>(\vec{u}_1+\vec{u}_2)\cdot \vec{v}&amp;=\vec{u}_1\cdot\vec{v}+\vec{u}_2\cdot\vec{v}&amp;&amp; \text{ par la distributivité du produit scalaire }</mrow>
     <mrow>&amp;=0+0 &amp;&amp;\text{ car } \vec{u}_1,\vec{u}_2\in V</mrow>
     <mrow>&amp;=0</mrow>
     </md>.
     De même, si <m>c\in\R</m>, alors
     <md>
-    <mrow>(c\vec{u}_1)\cdot\vec{v}&amp;=c(\vec{u}\cdot\vec{v}) &amp;&amp; \text{selon } <xref ref="prop-propprodscal"/></mrow>
+    <mrow>(c\vec{u}_1)\cdot\vec{v}&amp;=c(\vec{u}_1\cdot\vec{v}) &amp;&amp; \text{selon } <xref ref="prop-propprodscal"/></mrow>
     <mrow>&amp;=c(0)&amp;&amp;\text{ car } \vec{u}_1\in V</mrow>
     <mrow>&amp;=0</mrow>
     </md>.
@@ -287,14 +287,14 @@
     </proposition>
     <p>On regarde deux autres propriétés du complément orthogonal qui seront utiles dans la sous-section suivante.</p>
     <proposition xml:id="prop-orthoinccomp">
-    <title>Ĺes vecteurs orthogonaux et le complément orthogonal</title>
+    <title>Les vecteurs orthogonaux et le complément orthogonal</title>
     <statement>
     <p>Soit <m>V,W\subseteq \R^n</m> des sous-espaces vectoriels tels que <m>\vec{v}\cdot \vec{w}=0</m> pour tout vecteur <m>\vec{v}\in V</m> et <m>\vec{w}\in W</m>. Alors
     <m>V\subseteq W^{\perp}</m>.</p>
     </statement>
-    <proof><p>Par définition, le complément orthogonal de <m>W</m> consiste à l'ensemble de tous les vecteurs <m>\vec{u}\in \R^n</m> de <m>\R^n</m> pour lesquels <m>\vec{u}\cdot\vec{w}=0</m> avec <m>\vec{w}\in W</m>. Puisque les
+    <proof><p>Par définition, le complément orthogonal de <m>W</m> consiste à l'ensemble de tous les vecteurs <m>\vec{u}\in \R^n</m> pour lesquels <m>\vec{u}\cdot\vec{w}=0</m> avec <m>\vec{w}\in W</m>. Puisque les
     vecteurs dans <m>V</m> ont cette propriété par hypothèse, ces vecteurs sont certainement aussi dans <m>W^{\perp}</m>.</p>
-    <p>La question plus intéressante est, étant donné deux ensembles <m>V</m> et <m>W</m> qui possède cette propriété, peut-on dire que <m>V=W^{\perp}</m>? L'exercice <xref provisional="exo-orthoinccomp"/> fera réfléchir 
+    <p>La question plus intéressante est, étant donnés deux ensembles <m>V</m> et <m>W</m> qui possèdent cette propriété, peut-on dire que <m>V=W^{\perp}</m>? L'exercice <xref provisional="exo-orthoinccomp"/> fera réfléchir 
     à cette question.</p>
     </proof>
     </proposition>
@@ -317,12 +317,12 @@
     </me>.</p>
     </statement>
     <proof>
-    <p>Puisque pour tout vecteur <m>\vec{v}\in\R^n</m> on a <m>\vec{v}\cdot\vec{0}</m>, tous les vecteurs de <m>\R^n</m> sont dans le complément orthogonal.</p>
+    <p>Puisque pour tout vecteur <m>\vec{v}\in\R^n</m> on a <m>\vec{v}\cdot\vec{0}=0</m>, tous les vecteurs de <m>\R^n</m> sont dans le complément orthogonal.</p>
     </proof>
     </proposition>
     </subsection>
     <subsection>
-    <title>Les quatres sous-espaces vectoriels </title>
+    <title>Les quatre sous-espaces vectoriels </title>
     <p>À la section <xref ref="sec-transposee"/>, on a <xref ref="def-4espaces" text="custom">défini</xref> la notion des quatre sous-espaces fondamentaux d'une matrice. Ces quatres sous-ensembles sont aussi des sous-espaces vectoriels.</p>
     <proposition xml:id="prop-espfondssespvec">
     <title>Les sous-espaces fondamentaux sont des sous-espaces vectoriels</title>
@@ -379,7 +379,7 @@ show(A.echelon_form())
 \end{array}\right)
     </me>. Afin d'être compatible, la dernière ligne doit être nulle et donc le vecteur <m>\vec{b}</m> doit satisfaire l'équation <m>-b_{1} + b_{2} + b_{3}=0</m>. On reconnait ici l'équation normale d'un plan. L'espace colonne
     peut donc aussi être vu comme un plan dans <m>\R^3</m>.</p>
-    <p>Intuitivement,on devrait donc être en mesure de réduire le nombre de vecteurs qui génèrent le <m>\vspan</m> de quatre à deux, puisque la dimension d'un plan est deux. La prochaine section dira exactement quels vecteurs choisir et
+    <p>Intuitivement, on devrait donc être en mesure de réduire le nombre de vecteurs qui génèrent le <m>\vspan</m> de quatre à deux, puisque la dimension d'un plan est deux. La prochaine section dira exactement quels vecteurs choisir et
     garder pour décrire de manière efficace les espaces colonne et ligne.
     </p>
     </solution>
@@ -390,7 +390,7 @@ show(A.echelon_form())
     <p>Soit <m>A</m> une matrice <m>4\times 3</m> une matrice et <m>\vec{b}=(b_1,b_2,b_3,b_4)</m> un vecteur l'image. On donne la forme échelonné réduite de la matrice <m>A</m> augmentée du vecteur <m>\vec{b}</m> :
     <me>
     rref((A|\vec{b}))=
-\left(\begin{array}{rrrr}
+\left(\begin{array}{rrr|r}
 1 &amp; 0 &amp; -4 &amp; \frac{1}{2} b_{2} \\
 0 &amp; 1 &amp; \frac{1}{2} &amp; \frac{1}{2} b_{1} - \frac{1}{4} b_{2} \\
 0 &amp; 0 &amp; 0 &amp; -b_{1} + b_{2} + b_{3} \\
