@@ -758,46 +758,254 @@
     <introduction><p>Soit <m>A</m> et <m>B</m> deux matrices équivalentes par une suite d'opérations élémentaires. </p></introduction>
     <task><statement>
     <p>Montrer que <m>\mathcal{L}(A)=\mathcal{L}(B)</m>.</p></statement>
-    <hint><p>La généralisation de l'exercice <xref ref="exo-spanvw"/> peut être utile. </p></hint></task>
+    <hint><p>La généralisation de l'exercice <xref ref="exo-spanvw"/> peut être utile. </p></hint>
+    <solution><p>Si <m>A</m> et <m>B</m> sont équivalentes, cela implique que l'on peut obtenir <m>B</m> de <m>A</m> avec une suite d'<xref ref="def-opelem" text="custom">opérations élémentaires</xref>.
+    On sait que l'espace ligne <m>\mathcal{L}(A)</m> est l'ensemble des combinaisons linéaires des lignes de <m>A</m> (span).
+    Par la généralisation à plusieurs vecteurs de l'exercice <xref ref="exo-spanvw"/>, on sait que le span de combinaisons linéaires des vecteurs d'un espace donnera le même espace.
+    Ainsi, les lignes de la matrice <m>B</m> pouvant être obtenues des lignes de <m>A</m> en faisant des combinaisons linéaires (opérations élémentaires), le span des lignes de <m>B</m> sera égal à celui des lignes de <m>A</m>.
+    Autrement dit, <m>\mathcal{L}(A)=\mathcal{L}(B)</m>.
+    </p></solution>
+    </task>
     <task><statement><p> Montrer que <m>\mathcal{N}(A)=\mathcal{N}(B)</m>.</p></statement>
     <hint><p>Il est possible d'utiliser la partie précédente et la proposition <xref ref="prop-espfondcomportho"/>.</p></hint>
+    <solution><p>Par la proposition <xref ref="prop-espfondcomportho"/>, on a que 
+    <md>
+    <mrow>\mathcal{N}(A)&amp;=\mathcal{L}(A)^{\perp} &amp;&amp;\text{ par } <xref ref="prop-espfondcomportho"/></mrow>
+    <mrow>&amp;=\mathcal{L}(B)^{\perp} &amp;&amp;\text{ par la partie précédente} </mrow>
+    <mrow>&amp;=\mathcal{N}(B) &amp;&amp;\text{ par } <xref ref="prop-espfondcomportho"/></mrow>
+    </md>.
+    </p></solution>
     </task>
-    <task><statement><p>Est-ce que <m>\mathcal{C}(A)=\mathcal{C}(B)</m>?</p></statement></task></exercise>
+    <task><statement><p>Est-ce que <m>\mathcal{C}(A)=\mathcal{C}(B)</m>?</p></statement>
+    <answer><p>Non.</p></answer>
+    <solution><p>Ce n'est pas le cas. 
+    Les opérations élémentaires changent l'espace colonne.
+    On utilise un contre-exemple simple pour s'en convaincre.
+    Soit <m>A=\begin{pmatrix}1&amp;2\\ 1 &amp;2\end{pmatrix}</m> et <m>B=\begin{pmatrix}1&amp;2\\ 0 &amp;0\end{pmatrix}</m>.
+    On peut montrer rapidement que <m>A</m> est équivalente à <m>B</m> en utilisant l'opération élémentaire <m>-L_1+L_2\rightarrow L_2</m>.
+    Cependant, on voit que 
+    <me>\mathcal{C}(A)=\vspan((1,1))\neq \vspan((1,0))=\mathcal{C}(B)</me>.</p></solution>
+    </task></exercise>
     <exercise>
-    <introduction><p>Pour chacune des matrices <m>A_i</m> ci-dessous, déterminer une matrice <m>C_i</m> telle que <m>\mathcal{C}(A_i)=\mathcal{N}(C_i)</m>, à la manière de l'exercice <xref ref="ex-espcolcommenul"/>.</p></introduction>
+    <introduction><p>Pour chacune des matrices <m>A</m> ci-dessous, déterminer une matrice <m>C</m> telle que <m>\mathcal{C}(A)=\mathcal{N}(C)</m>, à la manière de l'exemple <xref ref="ex-espcolcommenul"/>.</p></introduction>
     <task><statement><p><m>\left(\begin{array}{rrr}
 -1 &amp; 4 &amp; 1 \\
 1 &amp; -4 &amp; -4 \\
 -1 &amp; 4 &amp; 6 \\
 1 &amp; -4 &amp; -3
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement>
+    <answer><p><me>C=\begin{pmatrix} \frac{2}{3}&amp; \frac{5}{3}&amp; 1&amp;0 \\ \frac{1}{3}&amp; -\frac{2}{3}&amp; 0&amp; 1\end{pmatrix}</me></p></answer>
+    <solution><p>Si <m>A=\left(\begin{array}{rrr}
+-1 &amp; 4 &amp; 1 \\
+1 &amp; -4 &amp; -4 \\
+-1 &amp; 4 &amp; 6 \\
+1 &amp; -4 &amp; -3
+\end{array}\right)</m> est une matrice <m>4\times 3</m> et <m>\vec{b}=(b_1,b_2,b_3,b_4)</m> est un vecteur de l'image de <m>A</m>,
+    alors la forme échelonnée réduite (on s'épargne les calculs) de la matrice <m>A</m> augmentée du vecteur <m>\vec{b}</m> est:
+    <me>
+    rref((A|\vec{b}))=
+\left(\begin{array}{rrr|r}
+1 &amp; -4 &amp; 0 &amp; -\frac{4}{3} b_{1} -\frac{1}{3} b_{2} \\
+0 &amp; 0 &amp; 1 &amp; -\frac{1}{3} b_{1}-\frac{1}{3} b_{2} \\
+0 &amp; 0 &amp; 0 &amp; \frac{2}{3} b_{1}+ \frac{5}{3} b_{2} + b_{3} \\
+0 &amp; 0 &amp; 0 &amp; \frac{1}{3} b_{1}- \frac{2}{3} b_{2} + b_{4}
+\end{array}\right)
+    </me>.
+    Les conditions sur l'image sont donc <m>\frac{2}{3} b_{1}+ \frac{5}{3} b_{2} + b_{3}=0</m> et <m>\frac{1}{3} b_{1}- \frac{2}{3} b_{2} + b_{4}=0</m>.
+    On pose <m>\vec{c}_1=\left(\frac{2}{3}, \frac{5}{3}, 1,0\right)</m> et <m>\vec{c}_2=\left(\frac{1}{3},-\frac{2}{3},0,1\right)</m>. 
+    Les vecteurs de l'image sont donc caractérisés par les vecteurs <m>\vec{b}\in \R^4</m> tels que 
+    <md>
+    <mrow>\vec{c}_1\cdot\vec{b}&amp;=0</mrow>
+    <mrow>\vec{c}_2\cdot\vec{b}&amp;=0</mrow>
+    </md>.
+    </p>
+    <p>Si on réécrit ces équations sous forme matricielle, on a 
+    <me>
+    C\vec{b}=\vec{0}
+    </me> où <m>C=\begin{pmatrix} \frac{2}{3}&amp; \frac{5}{3}&amp; 1&amp;0 \\ \frac{1}{3}&amp; -\frac{2}{3}&amp; 0&amp; 1\end{pmatrix}</m>. 
+    Les vecteurs <m>\vec{b}</m> dans l'image de <m>A</m> sont donc les mêmes vecteurs que ceux dans l'espace nul de <m>C</m>.</p>
+    </solution>
+    </task>
     <task><statement><p><m>\left(\begin{array}{rrr}
 1 &amp; -3 &amp; 7 \\
 -1 &amp; 4 &amp; -9 \\
 2 &amp; -3 &amp; 8 \\
 0 &amp; 3 &amp; -6
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement>
+    <answer><p><me>C=\begin{pmatrix} -5&amp;-3&amp; 1&amp;0 \\ -3&amp; -3&amp; 0&amp; 1\end{pmatrix}</me></p></answer>
+    <solution><p>Si <m>A=\left(\begin{array}{rrr}
+1 &amp; -3 &amp; 7 \\
+-1 &amp; 4 &amp; -9 \\
+2 &amp; -3 &amp; 8 \\
+0 &amp; 3 &amp; -6
+\end{array}\right)</m> est une matrice <m>4\times 3</m> et <m>\vec{b}=(b_1,b_2,b_3,b_4)</m> est un vecteur de l'image de <m>A</m>,
+    alors la forme échelonnée réduite (on s'épargne les calculs) de la matrice <m>A</m> augmentée du vecteur <m>\vec{b}</m> est:
+    <me>
+    rref((A|\vec{b}))=
+\left(\begin{array}{rrr|r}
+1 &amp; 0 &amp; 1 &amp; 4 b_{1} +3 b_{2} \\
+0 &amp; 1 &amp; -2 &amp; b_{1}+ b_{2} \\
+0 &amp; 0 &amp; 0 &amp; -5 b_{1}-3 b_{2} + b_{3} \\
+0 &amp; 0 &amp; 0 &amp; -3 b_{1}- 3 b_{2} + b_{4}
+\end{array}\right)
+    </me>.
+    Les conditions sur l'image sont donc <m>-5 b_{1}-3 b_{2} + b_{3}=0</m> et <m>-3 b_{1}- 3 b_{2} + b_{4}=0</m>.
+    On pose <m>\vec{c}_1=\left(-5 ,-3 , 1,0\right)</m> et <m>\vec{c}_2=\left(-3 ,- 3 ,0,1\right)</m>. 
+    Les vecteurs de l'image sont donc caractérisés par les vecteurs <m>\vec{b}\in \R^4</m> tels que 
+    <md>
+    <mrow>\vec{c}_1\cdot\vec{b}&amp;=0</mrow>
+    <mrow>\vec{c}_2\cdot\vec{b}&amp;=0</mrow>
+    </md>.
+    </p>
+    <p>Si on réécrit ces équations sous forme matricielle, on a 
+    <me>
+    C\vec{b}=\vec{0}
+    </me> où <m>C=\begin{pmatrix} -5&amp;-3&amp; 1&amp;0 \\ -3&amp; -3&amp; 0&amp; 1\end{pmatrix}</m>. 
+    Les vecteurs <m>\vec{b}</m> dans l'image de <m>A</m> sont donc les mêmes vecteurs que ceux dans l'espace nul de <m>C</m>.</p>
+    </solution>
+    </task>
     <task><statement><p><m>\left(\begin{array}{rrrr}
 1 &amp; 1 &amp; -2 &amp; 3 \\
 -3 &amp; -2 &amp; 5 &amp; -8 \\
 3 &amp; 2 &amp; -5 &amp; 8
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement>
+    <answer><p><me>C=\begin{pmatrix} 0&amp; 1&amp;1 \end{pmatrix}</me></p></answer>
+    <solution><p>Si <m>A=\left(\begin{array}{rrr}
+1 &amp; 1 &amp; -2 &amp; 3 \\
+-3 &amp; -2 &amp; 5 &amp; -8 \\
+3 &amp; 2 &amp; -5 &amp; 8
+\end{array}\right)</m> est une matrice <m>3\times 4</m> et <m>\vec{b}=(b_1,b_2,b_3)</m> est un vecteur de l'image de <m>A</m>,
+    alors la forme échelonnée réduite (on s'épargne les calculs) de la matrice <m>A</m> augmentée du vecteur <m>\vec{b}</m> est:
+    <me>
+    rref((A|\vec{b}))=
+\left(\begin{array}{rrrr|r}
+1 &amp; 0 &amp; -1 &amp;2 &amp; -2 b_{1} - b_{2} \\
+0 &amp; 1 &amp; -1 &amp;1 &amp; 3 b_{1}+ b_{2} \\
+0 &amp; 0 &amp; 0 &amp;0 &amp; b_{2} + b_{3} 
+\end{array}\right)
+    </me>.
+    La condition sur l'image sont donc <m>b_{2} + b_{3}=0</m>.
+    On pose <m>\vec{c}=\left(0,1,1\right)</m>. 
+    Les vecteurs de l'image sont donc caractérisés par les vecteurs <m>\vec{b}\in \R^3</m> tels que 
+    <md>
+    <mrow>\vec{c}\cdot\vec{b}&amp;=0</mrow>
+    </md>.
+    </p>
+    <p>Si on réécrit cette équation sous forme matricielle, on a 
+    <me>
+    C\vec{b}=\vec{0}
+    </me> où <m>C=\begin{pmatrix} 0&amp; 1&amp;1 \end{pmatrix}</m>. 
+    Les vecteurs <m>\vec{b}</m> dans l'image de <m>A</m> sont donc les mêmes vecteurs que ceux dans l'espace nul de <m>C</m>.</p>
+    </solution>
+    </task>
     <task><statement><p><m>\left(\begin{array}{rrrr}
 7 &amp; -8 &amp; -2 &amp; 7 \\
 -3 &amp; 1 &amp; -4 &amp; -3 \\
 4 &amp; 0 &amp; 8 &amp; 4 \\
 3 &amp; -4 &amp; -2 &amp; 3
-\end{array}\right)</m></p></statement></task>
+\end{array}\right)</m></p></statement>
+    <answer><p><me>C=\begin{pmatrix} \frac{4}{17}&amp;\frac{32}{17}&amp; 1&amp;0 \\ -\frac{9}{17}&amp; -\frac{4}{17} &amp; 0&amp; 1\end{pmatrix}</me></p></answer>
+    <solution><p>Si <m>A=\left(\begin{array}{rrr}
+7 &amp; -8 &amp; -2 &amp; 7 \\
+-3 &amp; 1 &amp; -4 &amp; -3 \\
+4 &amp; 0 &amp; 8 &amp; 4 \\
+3 &amp; -4 &amp; -2 &amp; 3
+\end{array}\right)</m> est une matrice <m>4\times 4</m> et <m>\vec{b}=(b_1,b_2,b_3,b_4)</m> est un vecteur de l'image de <m>A</m>,
+    alors la forme échelonnée réduite (on s'épargne les calculs) de la matrice <m>A</m> augmentée du vecteur <m>\vec{b}</m> est:
+    <me>
+    rref((A|\vec{b}))=
+\left(\begin{array}{rrrr|r}
+1 &amp; 0 &amp; 2 &amp; 1 &amp; -\frac{1}{17} b_{1} -\frac{8}{17} b_{2} \\
+0 &amp; 1 &amp; 2 &amp; 0 &amp; -\frac{3}{17} b_{1}-\frac{7}{17} b_{2} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{4}{17} b_{1}+ \frac{32}{17} b_{2} + b_{3} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; -\frac{9}{17} b_{1}- \frac{4}{17} b_{2} + b_{4}
+\end{array}\right)
+    </me>.
+    Les conditions sur l'image sont donc <m>\frac{4}{17} b_{1}+ \frac{32}{17} b_{2} + b_{3}=0</m> et <m>-\frac{9}{17} b_{1} -\frac{4}{17} b_{2} + b_{4}=0</m>.
+    On pose <m>\vec{c}_1=\left(\frac{4}{17}, \frac{32}{17}, 1,0\right)</m> et <m>\vec{c}_2=\left(-\frac{9}{17}, -\frac{4}{17},0,1\right)</m>. 
+    Les vecteurs de l'image sont donc caractérisés par les vecteurs <m>\vec{b}\in \R^4</m> tels que 
+    <md>
+    <mrow>\vec{c}_1\cdot\vec{b}&amp;=0</mrow>
+    <mrow>\vec{c}_2\cdot\vec{b}&amp;=0</mrow>
+    </md>.
+    </p>
+    <p>Si on réécrit ces équations sous forme matricielle, on a 
+    <me>
+    C\vec{b}=\vec{0}
+    </me> où <m>C=\begin{pmatrix} \frac{4}{17}&amp;\frac{32}{17}&amp; 1&amp;0 \\ -\frac{9}{17}&amp; -\frac{4}{17} &amp; 0&amp; 1\end{pmatrix}</m>. 
+    Les vecteurs <m>\vec{b}</m> dans l'image de <m>A</m> sont donc les mêmes vecteurs que ceux dans l'espace nul de <m>C</m>.</p>
+    </solution>
+    </task>
     </exercise>
-    <exercise><statement><p>Que peut-on dire des quatre espaces fondamentaux d'une matrice <xref ref="exo-matsym" text="custom">symétrique</xref>?</p></statement></exercise>
+    <exercise><statement><p>Que peut-on dire des quatre espaces fondamentaux d'une matrice <xref ref="exo-matsym" text="custom">symétrique</xref>?</p></statement>
+    <answer><p><me>\mathcal{L}(A)=\mathcal{C}(A) \text{ et } \mathcal{N}(A^T)=\mathcal{N}(A)</me></p></answer>
+    <solution><p>On peut dire plusieurs choses qui découlent toutes du fait qu'une matrice symétrique <m>A</m> est telle que <m>A=A^T</m>.
+    On peut comprendre de cette équation que les lignes et les colonnes de la matrice <m>A</m> sont identiques.
+    Conséquemment, on aura:
+    <me>\mathcal{L}(A)=\mathcal{C}(A) \text{ et } \mathcal{N}(A^T)=\mathcal{N}(A)</me>
+    </p></solution>
+    </exercise>
     <exercise><introduction><p>Soit <m>A,B</m> deux matrices compatibles pour le produit <m>AB</m>.</p></introduction>
     <task>
     <statement><p>Montrer que <m>\mathcal{N}(B)\subseteq \mathcal{N}(AB)</m>. </p></statement>
+    <solution><p>Soit <m>\vec{x}\in \mathcal{N}(B)</m>, un vecteur qui est donc tel que <m>B\vec{x}=\vec{0}</m>, par définition de l'espace nul.
+    Alors, on a
+    <me>AB\vec{x}=A(B\vec{x})=A(\vec{0})=\vec{0}</me>.
+    Ainsi, ce même vecteur est nécessairement dans l'espace nul de <m>AB</m>. 
+    Il suit donc que <m>\mathcal{N}(B)\subseteq \mathcal{N}(AB)</m>.</p></solution>
     </task>
-    <task><statement><p>Montrer que <m>\mathcal{C}(AB)\subseteq\mathcal{C}(A)</m>.</p></statement></task>
+    <task><statement><p>Montrer que <m>\mathcal{C}(AB)\subseteq\mathcal{C}(A)</m>.</p></statement>
+    <solution><p>Soit un vecteur <m>\vec{y}\in \mathcal{C}(AB)</m>, qui est donc possible d'exprimer comme une combinaison linéaire des colonnes de <m>AB</m>.
+    Cependant, par la définition du <xref ref="def-matmatprod" text="custom">produit matriciel</xref>, on sait que chaque colonne de <m>AB</m> peut s'exprimer
+    comme un produit matrice vecteur <m>A\vec{b}_i</m> où les <m>\vec{b}_i</m> sont les colonnes de <m>B</m>. 
+    Ainsi, si la matrice <m>A</m> est de format <m>m\times n</m> et la matrice <m>B</m> de format <m>n\times p</m>, on peut écrire :
+    <md>
+    <mrow>\vec{y}&amp;=k_1(A\vec{b}_1)+k_2(A\vec{b}_2)+ \cdots +k_p(A\vec{b}_p)</mrow>
+    <mrow>&amp;=A(k_1\vec{b}_1+k_2\vec{b}_2+ \cdots +k_p\vec{b}_p)</mrow>
+    <mrow>&amp;=A\vec{u} &amp; &amp; \text{ en écrivant simplifiant l'écriture de ce vecteur}</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+    \vec{c}_1 &amp; \vec{c}_2 &amp; \cdots &amp; \vec{c}_n \\
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert
+    \end{pmatrix}\begin{pmatrix}u_1\\ u_2\\ \vdots\\ u_n \end{pmatrix} &amp; &amp; \text{ en écrivant la matrice en colonnes}</mrow>
+    <mrow>&amp;=u_1\vec{c}_1+u_2\vec{c}_2+\cdots +u_n\vec{c}_n &amp; &amp; \text{ par } <xref ref="eq-matvecprodgen"/></mrow>
+    </md>.
+    Le vecteur <m>\vec{y}</m> est donc une combinaison linéaire des colonnes de <m>A</m>, ce qui signifie qu'il est dans son espace colonne et donc que <m>\mathcal{C}(AB)\subseteq\mathcal{C}(A)</m>.
+    </p></solution>
+    </task>
     <task>
     <statement><p>Montrer que <m>\mathcal{N}(B)= \mathcal{N}(AB)</m> lorsque <m>A</m> est une matrice carrée inversible. </p></statement>
+    <solution><p>On a déjà montré plus haut que <m>\mathcal{N}(B)\subseteq \mathcal{N}(AB)</m>.
+    Il nous reste à montrer que <m>\mathcal{N}(AB)\subseteq \mathcal{N}(B)</m> pour compléter l'égalité.</p>
+    <p>Soit <m>\vec{x}\in \mathcal{N}(AB)</m>, un vecteur qui est donc tel que <m>AB\vec{x}=\vec{0}</m>, par définition de l'espace nul.
+    Alors, on a
+    <md>
+    <mrow>AB\vec{x}&amp;=\vec{0}</mrow>
+    <mrow>A^{-1}AB\vec{x}&amp;=A^{-1}\vec{0}</mrow>
+    <mrow>IB\vec{x}&amp;=\vec{0}</mrow>
+    <mrow>B\vec{x}&amp;=\vec{0}</mrow>
+    </md>.
+    Cela implique que <m>\vec{x}</m> fait aussi partie de l'espace nul de <m>B</m>.
+    On a donc <m>\mathcal{N}(AB)\subseteq \mathcal{N}(B)</m> et finalement <m>\mathcal{N}(B)= \mathcal{N}(AB)</m>.</p></solution>
     </task>
-    <task><statement><p>Montrer que <m>\mathcal{C}(AB)=\mathcal{C}(A)</m> lorsque <m>B</m> est une matrice carrée inversible.</p></statement></task>
+    <!--<task><statement><p>Montrer que <m>\mathcal{C}(AB)=\mathcal{C}(A)</m> lorsque <m>B</m> est une matrice carrée inversible.</p></statement>
+    <solution><p>On a déjà montré plus haut que <m>\mathcal{C}(AB)\subseteq\mathcal{C}(A)</m>.
+    Il nous reste à montrer que <m>\mathcal{C}(A)\subseteq \mathcal{C}(AB)</m> pour compléter l'égalité.</p>
+    <p>On considère que <m>A</m> est de format <m>m \times n</m> et que conséquement <m>B</m> est de format <m>n \times n</m> pour être inversible et compatible.
+    Soit <m>\vec{y}\in \mathcal{C}(A)</m>, un vecteur qui est donc tel qu'on peut l'écrire comme combinaison linéaire des colonnes de <m>A</m>:
+    <me>\vec{y}=k_1\vec{c}_1+k_2\vec{c}_2+\cdots +k_n\vec{c}_n</me>.
+    Par le fait que <m>B^{-1}</m> existe, on peut écrire la matrice <m>A</m> comme <m>ABB^{-1}</m>.
+    Alors, on a
+    <md>
+    <mrow>\vec{y}&amp;=\begin{pmatrix}
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+    \vec{c}_1 &amp; \vec{c}_2 &amp; \cdots &amp; \vec{c}_n \\
+    \lvert &amp; \lvert &amp; \cdots &amp; \lvert
+    \end{pmatrix}\begin{pmatrix}k_1\\ k_2\\ \vdots\\ k_n \end{pmatrix} &amp; &amp; \text{ par } <xref ref="eq-matvecprodgen"/></mrow>
+    <mrow>&amp;=A\vec{k} &amp; &amp; \text{ en simplifiant l'écriture de la combinaison linéaire }</mrow>
+    <mrow>Je ne sais pas trop comment finir!!! Faudrait ajouter un indice... </mrow>
+    
+    </md></p></solution>
+    </task>-->
     </exercise>
 </exercises>

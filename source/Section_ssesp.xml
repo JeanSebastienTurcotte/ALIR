@@ -387,7 +387,7 @@ show(A.echelon_form())
     <p>On regarde un autre exemple, qui va permettre de contextualiser une partie de la preuve de la proposition <xref ref="prop-espfondcomportho"/>. C'est un exemple similaire au dernier, mais avec plus d'une ligne nulle.</p>
     <example xml:id="ex-espcolcommenul">
     <title>L'espace colonne vu comme un espace nul</title>
-    <p>Soit <m>A</m> une matrice <m>4\times 3</m> une matrice et <m>\vec{b}=(b_1,b_2,b_3,b_4)</m> un vecteur l'image. On donne la forme échelonné réduite de la matrice <m>A</m> augmentée du vecteur <m>\vec{b}</m> :
+    <p>Soit <m>A</m> une matrice <m>4\times 3</m> et <m>\vec{b}=(b_1,b_2,b_3,b_4)</m> un vecteur de l'image. On donne la forme échelonnée réduite de la matrice <m>A</m> augmentée du vecteur <m>\vec{b}</m> :
     <me>
     rref((A|\vec{b}))=
 \left(\begin{array}{rrr|r}
@@ -397,16 +397,16 @@ show(A.echelon_form())
 0 &amp; 0 &amp; 0 &amp; b_{1} + b_{4}
 \end{array}\right)
     </me>.
-    On pose <m>\vec{c}_1=(-1,1,1,0)</m> et <m>\vec{c}_2=(1,0,0,4)</m>. Les vecteurs de l'image sont donc caractérisés par les vecteurs <m>\vec{b}\in \R^m</m> tels que 
+    On pose <m>\vec{c}_1=(-1,1,1,0)</m> et <m>\vec{c}_2=(1,0,0,1)</m>. Les vecteurs de l'image sont donc caractérisés par les vecteurs <m>\vec{b}\in \R^4</m> tels que 
     <md>
-    <mrow>\vec{c}_1\vec{b}&amp;=0</mrow>
-    <mrow>\vec{c}_2\vec{b}&amp;=0</mrow>
+    <mrow>\vec{c}_1\cdot\vec{b}&amp;=0</mrow>
+    <mrow>\vec{c}_2\cdot\vec{b}&amp;=0</mrow>
     </md>.
     </p>
     <p>Si on réécrit ces équations sous forme matricielle, on a 
     <me>
     C\vec{b}=\vec{0}
-    </me> où <m>C=\begin{pmatrix} -1&amp; 1&amp; 1&amp;0 \\ 1&amp; 0&amp; 0&amp; 4\end{pmatrix}</m>. Les vecteurs <m>\vec{b}</m> dans l'image de <m>A</m> sont donc les mêmes vecteurs que ceux dans l'espace nul de <m>C</m>.</p>
+    </me> où <m>C=\begin{pmatrix} -1&amp; 1&amp; 1&amp;0 \\ 1&amp; 0&amp; 0&amp; 1\end{pmatrix}</m>. Les vecteurs <m>\vec{b}</m> dans l'image de <m>A</m> sont donc les mêmes vecteurs que ceux dans l'espace nul de <m>C</m>.</p>
     </example>
     <p>On effectue maintenant une première étape vers le théorème fondamental de l'algèbre linéaire, cité pour la première fois à la proposition <xref ref="prop-fondlinalg"/>. On peut reformuler deux des énoncés en termes du
     complément orthogonal.</p>
@@ -432,15 +432,15 @@ show(A.echelon_form())
     <p>En combinant les deux arguments précédents, on a que <m>\mathcal{L}(A)^{\perp}=\mathcal{N}(A)</m></p>
     </proof>
     <proof><p>Il suffit de remplacer <m>A</m> par <m>A^T</m> dans la preuve de la propriété précédente.</p></proof>
-    <proof><p>Puisque les vecteurs dans <m>\mathcal{C}(A)</m> sont perpendiculaire aux vecteurs dans <m>\mathcal{N}(A^T)</m> (selon la proposition <xref ref="prop-zerosperplignes"/>), on sait que l'espace colonne
+    <proof><p>Puisque les vecteurs dans <m>\mathcal{C}(A)</m> sont perpendiculaires aux vecteurs dans <m>\mathcal{N}(A^T)</m> (selon la proposition <xref ref="prop-zerosperplignes"/>), on sait que l'espace colonne
     est un sous-ensemble du complément orthogonal de l'espace nul gauche, selon la proposition <xref ref="prop-orthoinccomp"/>. On a donc <m>\mathcal{C}(A)\subset \mathcal{N}(A^T)^{\perp}</m>.</p>
     <p>Il faut donc montrer que les vecteurs dans le complément orthogonal de l'espace nul gauche sont dans l'espace colonne.</p>
-    <p>Soit <m>r</m> le rang de <m>A</m>. Si <m>r=m</m>, alors il n'y a pas de ligne nul et l'espace colonne est <m>\R^m</m> au complet. Le seul vecteur perpendiculaire à tous <m>\R^m</m> est le vecteur nul et donc <m>\mathcal{N}(A^T)=\{\vec{0}\}</m>,
+    <p>Soit <m>r</m> le rang de <m>A</m>. Si <m>r=m</m>, alors il n'y a pas de ligne nulle et l'espace colonne est <m>\R^m</m> au complet. Le seul vecteur perpendiculaire à tout <m>\R^m</m> est le vecteur nul et donc <m>\mathcal{N}(A^T)=\{\vec{0}\}</m>,
     entrainant par la proposition <xref ref="prop-orthozero"/> que <m>\mathcal{N}(A^T)^{\perp}=\R^m=C(A)</m>. Si toutefois <m>r&lt; m</m>, alors il y a <m>k=m-r</m> lignes nulles.</p>
 <p> À la manière de l'exemple <xref ref="ex-espcolcommenul"/>, on peut définir <m>\vec{c}_1,\vec{c}_2,\ldots, \vec{c}_k</m> des vecteurs et une matrice <m>C</m> telle que l'espace colonne de <m>A</m>
 corresponde à l'espace nul de <m>C</m>. Selon la première partie de cette proposition, <m>\mathcal{L}(C)^{\perp}=\mathcal{N}(C)=\mathcal{C}(A)</m>. De plus, les lignes de <m>C</m> sont perpendiculaires à l'image de <m>A</m> (le vecteur <m>\vec{b}</m>),
 et donc <m>\mathcal{L}(C)\perp \mathcal{C}(A)</m>. Ceci est équivalent à dire que <m>\mathcal{L}(C)\subseteq \mathcal{C}(A)^{\perp}=\mathcal{N}(A^T)</m>. À partir de la propriété <xref ref="prop-compinclusion"/>, on peut
-conclure que <m>\mathcal{N}(A^T)^{\perp}}\subseteq C(A)</m>.</p>
+conclure que <m>\mathcal{N}(A^T)^{\perp}\subseteq C(A)</m>.</p>
 <p>En combinant les deux arguments, on conclut que <m>\mathcal{C}(A)=\mathcal{N}(A^T)^{\perp}</m>.</p>
     </proof>
     <proof><p>On remplace <m>A^T</m> par <m>A</m> dans l'argument précédent.</p></proof>
