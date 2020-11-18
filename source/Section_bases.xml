@@ -182,7 +182,7 @@
     <m>\vec{v}_i</m> est linéairement indépendant si et seulement si <m>rg(V)=k</m>.</p>
     </statement>
     <proof>
-    <p>On commence avec l'implication que si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> est un ensemble de vecteurs linéairement indépendant, alors le rang de la matrice <m>V</m> vaut <m>1</m>. </p>
+    <p>On commence avec l'implication que si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> est un ensemble de vecteurs linéairement indépendant, alors le rang de la matrice <m>V</m> vaut <m>k</m>. </p>
     <p>Puisque l'équation <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_kvec{v}_k=0</m> possède une solution unique, cela signifie que toutes les colonnes sont pivots dans la forme échelonnée réduite de la matrice <m>V</m>, car 
     il ne peut pas y avoir de variables libres. Ainsi <m>rg(V)=k</m>.</p>
     <p>On regarde maintenant l'implication du rang égal à <m>k</m> sur l'indépendance des vecteurs <m>\vec{v}_i</m>.</p>
@@ -312,7 +312,7 @@ show(V.span(L)==V.span(Lv4))
     Cette propriété est attryante, car lorsque l'ensemble de vecteur est clair, il n'y a qu'une représentation possible pour écrire les autres vecteurs en fonction de cet ensemble. Bien entendu, on ne peut pas toujours écrire un vecteur
     comme une combinaison linéaire des vecteurs dans l'ensemble. Il faut qu'il soit dans le <m>\vspan</m> pour que ce soit possible. On arrive donc à la définition de base d'un sous-espace vectoriel.</p>
     <definition xml:id="def-base">
-    <title>Base d'un espace vectoriel</title>
+    <title>Base d'un sous-espace vectoriel</title>
     <statement>
     <p>Soit <m>V</m> un sous-espace vectoriel et soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> un ensemble de vecteurs dans <m>V</m>. On dit que ces vecteurs forment une base de <m>V</m> si
     <ol>
@@ -420,15 +420,276 @@ show(V.span(L)==V.span(Lv4))
     On cherche à écrire le vecteur <m>\vec{u}=(-1,2,4)</m> dans chacune de ces trois bases.
     </p>
     </statement>
+    <solution>
+    <p>On cherche la combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2</m> et <m>\vec{v}_4</m> qui donne le vecteur <m>\vec{u}</m>. On peut faire ce calcul facilement avec Sage.</p>
+    <sage>
+    <input>
+    v1=vector([1,1,-3])
+    v2=vector([3,-5,2])
+    v4=vector([1,-3,2])
+    v5=v1.cross_product(v2)
+    u=vector([-1,2,4])
+    show("v5=",v5)  #Pour s'assurer qu'on a bien le vecteur v5
+    A=column_matrix([v1,v2,v4])
+    #On sait que la solution sera unique, donc on se permet d'utiliser solve_right
+    show(A.solve_right(u))
+    </input>
+    </sage>
+    <p>Ainsi, on peut écrire 
+    <me>
+    \vec{u}=\left(-5,\frac{19}{4},-\frac{-41}{4}\right)_{\mathcal{B}_1}
+    </me>.</p>
+</solution>
+<solution>
+<p>La seule différence entre la base ordonnée <m>\mathcal{B}_2</m> et la base ordonnée <m>\mathcal{B}_1</m> est l'ordre des vecteurs. On devrait donc avoir 
+<me>
+\vec{u}=\left(-\frac{41}{4},-5,\frac{19}{4}\right)_{\mathcal{B}_2}
+</me>.</p>
+</solution>
+<solution>
+<p>On procède de manière similaire à la première méthode. Toujours avec Sage, on trouve que <me>
+\vec{u}=\left(-\frac{143}{354},\,-\frac{41}{354},\,-\frac{229}{177}\right)_{\mathcal{B}_3}
+</me></p>
+<sage>
+<input>
+    B=column_matrix([v2,v5,v1])
+    #On sait que la solution sera unique, donc on se permet d'utiliser solve_right
+    show(B.solve_right(u))
+</input>
+</sage>
+</solution>
+    </example>
+    <p>Lorsqu'on se restreint à un sous-espace de <m>\R^n</m>, la description d'un vecteur par ses coordonnées relatives à la base du sous-espace pourrait ne pas contenir le même nombre de composantes que celle relative à l'espace
+    au complet. Cela est dû au nombre de vecteurs dans la base du sous-espace qui est potentiellement différent du nombre de vecteurs nécessaire pour engendrer <m>\R^n</m>. </p>
+    <example>
+    <title>Coordonnées d'un vecteur dans un sous-espace</title>
+    <statement><p>On considère le plan dans <m>\R^3</m> engendré par les vecteurs <m>\vec{v}_1=(1,1,-3),\vec{v}_2=(3,-5,2)</m> de l'exemple <xref ref="sageex-indlin"/>. On considère également le vecteur <m>\vec{v}_3=\vec{v}_1+2\vec{v}_2=(7,9,1)</m>, qui est donc dans le plan.
+    Si on ne s'intéresse qu'au sous-espace vectoriel, on peut alors décrire <m>\vec{v}_3</m> dans la base <m>\mathcal{B}=\langle\vec{v}_1,\vec{v}_2\rangle</m> comme étant <m>\vec{v}_3=(1,2)_{\mathcal{B}}</m>. Même si la description
+    ne comporte que deux composantes, on comprend que ce vecteur est toujours dans <m>\R^3</m> puisque les vecteurs de <m>\mathcal{B}</m> sont dans <m>\R^3</m>.
+    </p></statement>
+    </example>
+    <p>On s'attarde maintenant à démontrer quelques résultats sur les bases d'un sous-espace vectoriel. Ultimement, on veut en arriver à affirmer que toutes les bases d'un sous-espace vectoriel contiennent le même nombre de vecteurs.
+    Ceci va permettre de définir concrètement la notion de dimension d'un sous-espace, déjà utilisée de manière informelle, principalement lorsqu'on parle de droite et plan. D'abord, un résultat sur l'existence d'une base pour un sous-espace vectoriel.</p>
+    <proposition xml:id="prop-baseexiste">
+    <title> (Presque) tous les sous-espaces ont une base</title>
+    <statement><p>Soit <m>V\neq \{\vec{0}\}</m> un sous-espace vectoriel de <m>\R^n</m> différent du sous-espace nul. Alors il existe une base pour <m>V</m>.</p>
+    <p>Ce résultat affirment donc que tous les sous-espaces possèdent une base, sauf le sous-espace trivial ne contenant que le vecteur nul. La raison est que le vecteur nul n'est pas indépendant avec lui-même. La discussion
+    a été faite à l'exemple <xref ref="ex-baseex"/>.</p></statement>
+    <proof>
+    <p>L'idée est de construire séquentiellement une base pour <m>V</m>. On commence en choisissant un vecteur non nul dans <m>V</m>, qu'on nomme <m>\vec{v}_1</m>. Si <m>\vspan(\vec{v}_1)=V</m>, alors c'est terminé,
+    car <m>\vec{v}_1</m> est indépendant et génère <m>V</m>, il forment donc une base. Si <m>\vspan(\vec{v}_1)\neq V</m>, alors on prend un vecteur <m>\vec{v}_2\notin \vspan(v_1)</m> du sous-espace <m>V</m>. En vertu de la proposition
+    <xref ref="prop-indepspan"/>, l'ensemble <m>\vec{v}_1,\vec{v}_2</m> est linéairement indépendant. Si <m>\vspan{\vec{v}_1,\vec{v}_2}</m>, alors on a terminé et sinon, on poursuit ce processus avec un vecteur <m>\vec{v}_3\notin\vpsan(\vec{v}_1,\vec{v}_2)</m>.
+    Pour les mêmes raisons, le nouvel ensemble <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m> sera indépendant.</p>
+    <p>Après un maximum de <m>n</m> étapes, on est assuré d'avoir trouvé une base. En effet, si on a <m>n</m> vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n</m> de <m>\R^n</m> linéairement indépendant, alors tout autre vecteur différent de ces <m>n</m> vdifférent de ces <m>n</m> vecteurs doit appartenir 
+    à <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n)</m>. Ceci découle de la proposition <xref ref="prop-indeprang"/>. Comme il est impossible pour une matrice <m>n\times (n+1)</m> d'avoir un rang égal à <m>n</m>, la dépendance est forcée.
+    Si tous les vecteurs additionnels sont dans <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n)</m>, on peut alors conclure que <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n)=V</m>. </p>
+    </proof>
+    </proposition>
+    <p>Maintenant qu'il est établit que chaque sous-espace contient une base, on est en mesure de généraliser la proposition <xref ref="prop-espfondcomportho"/> sur le complément orthogonal du complément orthogonal. </p>
+    <proposition>
+    <title>Le complément orthogonal du complément orthogonal</title>
+    <statement>
+    <p>Soit <m>V\subseteq \R^n</m> un sous-espace vectoriel. Alors <m>(V^{\perp})^{\perp}=V</m>.</p>
+    </statement>
+    <proof>
+    <p>On sépare dans un premier temps en deux cas. D'abord, si <m>V=\{0\}</m>, alors pour tout vecteur <m>\vec{v}</m> dans <m>\R^n</m> on a <m>\vec{v}\cdot \vec{0}=\vec{0}</m> et donc, tel que remarqué à la proposition
+    <xref ref="prop-orthozero"/>. Quel est le complément orthogonal de <m>\R^n</m>? On y revient dans la seconde partie.</p>
+    <p>Soit <m>V</m> un sous-espace vectoriel différent de <m>\{\vec{0}\}</m>. Soit <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k</m> une base de ce sous-espace, dont l'existence est garantie par la proposition <xref ref="prop-baseexiste"/>.
+    On place ces vecteurs dans les colonnes d'une matrice <m>A</m> de taille <m>n\times k</m>. Par construction, on a <m>V=\mathcal{C}(A)</m>. Selon la proposition <xref ref="prop-espfondcomportho"/>, on a <m>V^{\perp}=(\mathcal{C}(A))^{\perp}=\mathcal{N}(A^T)</m> et
+    <m>(V^{\perp})^{\perp}=(\mathcal{N}(A^T))^{\perp}=\mathcal{C}(A)=V</m>.</p>
+    <p>En particulier, si <m>V=\R^n</m>, on peut prendre les vecteurs <m>\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_n</m> comme base et la matrice <m>A=I</m>. Dans ce cas, on a <m>V^{\perp}=\mathcal{N}(A^T)=\{\vec{0}\}</m>, puisque 
+    <m>rg(A^T)=n</m>. On a donc aussi <m>(\R^n)^{\perp}=\{\vec{0}\}</m>, ce qui complète la preuve.</p>
+    </proof>
+    </proposition>
+    <p>Dans la prochaine sous-section, on s'attarde à montrer que toutes les bases d'un sous-espaces vectoriels vont contenir le même nombre de vecteurs. Ceci va définir de manière formelle la dimension du sous-espace. </p>
+       </subsection>
+   <subsection xml:id="sssec-dim">
+    <title>La dimension d'un sous-espace vectoriel</title>
+    <p>La proposition <xref ref="prop-baseexiste"/> dit que chaque sous-espace possède une base. En réalité, il existe une infinité de base pour chaque sous-espace vectoriel en possédant au moins une. Ceci pourrait être vu
+    comme un désavantage, mais heureusement, toutes ces bases ont un point commun: il possède le même nombre de vecteurs. On débute par démontrer que si un ensemble de vecteurs d'un sous-espace  en contient plus qu'une base du de ce sous-espace,
+    alors l'ensemble est nécessairement dépendant.</p>
+    <proposition xml:id="prop-depnbr">
+    <title>Dépendance linéaire et nombre de vecteurs</title>
+    <statement>
+    <p>Soit <m>V\subseteq \R^n</m> un sous-espace vectoriel et soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> une base de ce sous-espace. On considère un ensemble de vecteurs du sous-espace <m>\vec{w}_1,\vec{w}_2,\ldots \vec{w}_l</m>. Si
+    <m>l&gt; k</m> alors les vecteurs <m>\vec{w}_1,\vec{w}_2,\ldots, \vec{w}_l</m> sont linéairement dépendants.</p>
+    </statement>
+    <proof>
+    <p> On écrit les vecteurs <m>\vec{w}_j</m> comme des combinaisons linéaires des vecteurs <m>\vec{v}_i</m>, possible en vertu du fait que les vecteurs <m>\vec{v}_i</m> forment une base. On a donc
+    <md>
+    <mrow>\vec{w}_1&amp;=a_{1,1}\vec{v}_1+a_{2,1}\vec{v_2}+\cdots +a_{k,1}\vec{v}_k</mrow>
+    <mrow>\vec{w}_2&amp;=a_{1,2}\vec{v}_1+a_{2,2}\vec{v_2}+\cdots +a_{k,2}\vec{v}_k</mrow>
+    <mrow>&amp;\vdots</mrow>
+    <mrow>\vec{w}_l&amp;=a_{1,l}\vec{v}_1+a_{2,l}\vec{v_2}+\cdots +a_{k,l}\vec{v}_k</mrow>
+    </md>
+    et on note par <m>A</m> la matrice dont les colonnes correspondent aux composantes des vecteurs <m>\vec{w}_j</m> dans la base ordonnée <m>\langle \vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\rangle</m>.
+    On note aussi par <m>W</m> la matrice des vecteurs <m>\vec{w}_j</m> en colonne dans leur écriture initiale. Finalement, on fait la même chose avec les vecteurs <m>\vec{v}_i</m> en les mettants en colonne dans une matrice <m>B</m>.</p>
+    <p>On peut alors écrire <m>W=BA</m>, en vertu de la définition du produit matriciel. </p>
+    <p>Si on montre que l'équation <m>W\vec{x}=\vec{0}</m> possède des solutions autres que le vecteur nul, cela implique alors qu'il existe une combinaison linéaire des colonnes de <m>W</m> et donc, des vecteurs <m>\vec{w}_j</m>, qui donne
+    le vecteur nul. Les vecteurs seraient alors dépendants.</p>
+    <p>Puisque <m>l&gt; k</m> et que la matrice <m>A</m> est de taille <m>k\times l</m>, il ne peut pas y avoir de pivot dans toutes les colonnes de la forme échelonnée réduite de <m>A</m>. L'équation matricielle <m>A\vec{x}=\vec{0}</m> possède
+    donc une infinité de solutions, car il y a au moins une variable libre. On note par <m>\vec{c}=(c_1,c_2,\ldots ,c_l)</m> une solution non triviale à cette équation. On a alors
+    <md>
+    <mrow> W\vec{c}&amp;=BA\vec{c}</mrow>
+    <mrow> W\vec{c}&amp;=B(A\vec{c})</mrow>
+    <mrow> W\vec{c}&amp;=B\vec{0}</mrow>
+    <mrow> W\vec{c}&amp;=\vec{0}</mrow>
+    </md>.</p>
+    <p>Ainsi, le vecteur <m>\vec{c}</m> offre une combinaison linéaire non triviale des vecteurs <m>\vec{w}_j</m> donnant le vecteur nul et donc, les vecteurs sont dépendants.</p>
+    </proof>
+    </proposition>
+    <remark xml:id="rem-depnbr">
+    <title> L'indépendance linéaire n'était pas nécessaire</title>
+    <statement><p>Dans la proposition <xref ref="prop-depnbr"/>, les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> forment une base. On dit alors que tout ensemble comprenant plus de <m>k</m> vecteurs est forcément
+    dépendant. En fait, on peut alléger un peu les hypothèses de la proposition et exiger seulement que les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> génèrent <m>V</m>, c'est-à-dire que
+    <me>
+    \vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)=V
+    </me>.
+    
+    Les détails sont faits à l'exercices <xref ref="exo-depnbr"/></p></statement>
+    </remark>
+    <p>On obtient alors grâce à cette proposition le résultat principal de cette sous-section</p>
+    <proposition>
+    <title>Nombre de vecteurs dans une base d'un sous-espace</title>
+    <statement>
+    <p>Soit <m>V\subseteq \R^n</m> un sous-espace vectoriel et <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k</m> et <m>\vec{w}_1,\vec{w}_2,\ldots ,\vec{w}_l</m> deux bases de ce sous-espace. Alors <m>k=l</m>.</p>
+    </statement>
+    <proof>
+    <p>La preuve est une application de la proposition <xref ref="prop-depnbr"/> qui va comme suit. Dans un premier temps, parce que les vecteurs <m>\vec{v}_i</m> forment une base, on peut dire que ces vecteurs sont linéairement
+    indépendants. De plus, parce que les vecteurs <m>\vec{w}_j</m> forment aussi une base, on doit conclure que <m>k\leq l</m>, sinon la proposition <xref ref="prop-depnbr"/> entrainerait que les vecteurs <m>\vec{v}_i</m> sont dépendants.</p>
+    <p>On utilise le même argument, mais en renversant le rôle des vecteurs <m>\vec{v}_i</m> et <m>\vec{w}_j</m>:</p>
+    <p>Parce que les vecteurs <m>\vec{w}_j</m> forment une base, on peut dire que ces vecteurs sont linéairement
+    indépendants. De plus, parce que les vecteurs <m>\vec{v}_i</m> forment aussi une base, on doit conclure que <m>l\leq k</m>, sinon la proposition <xref ref="prop-depnbr"/> entrainerait que les vecteurs <m>\vec{w}_j</m> sont dépendants.</p>
+    <p>Au final, on obtient que <m>l\leq k</m> et <m>k\leq l</m>, ce qui force à avoir <m>k=l</m>.</p>
+</proof>
+    </proposition>
+    <p>La conséquence immédiate de la proposition précédente est que toutes les bases auront le même nombre de vecteurs. On donne un nom à ce nombre.</p>
+    <definition xml:id="def-dimension">
+    <title>La dimension d'un sous-espace vectoriel</title>
+    <statement>
+    <p>Soit <m>V\neq \{\vec{0}\}</m> un sous-espace vectoriel. On appelle la dimension de <m>V</m>, noté <m>\text{dim}(V)</m> le nombre de vecteurs dans une base de <m>V</m>.</p>
+    <p>Afin d'uniformiser les résultats qui suivent, on prend comme convention que <m>\text{dim}(\{\vec{0}\})=0</m>.</p>
+    </statement>
+    </definition>
+    <example>
+    <title>La dimension de sous-espaces vectoriels</title>
+    <statement>On reprend les sous-espaces de l'exemple <xref ref="ex-ssesp"/> et on détermine leur dimension.</statement>
+    <solution>
+    <p>À l'exemple <xref ref="ex-baseex"/>, on a trouvé comme base du plan <m>\mathcal{P}_1</m> les vecteurs <m>\vec{u}=(-1,1,0)</m> et <m>\vec{v}=(-1,0,1)</m>. Sans surprise, la dimension de l'espace est <m>2</m>.</p>
+    </solution>
+    <solution>
+    <p>Toujours à l'exemple <xref ref="ex-baseex"/>, on a trouvé que le vecteur <m>(1,1)</m> forme une base de ce sous-espace et ainsi, la dimension est de <m>1</m>.</p>
+    </solution>
+    <solution>
+    <p>Par définition, le sous-espace composé d'uniquement le vecteur nul a pour dimension <m>0</m>.</p>
+    </solution>
+    <solution>
+    <p>Encore à l'exemple <xref ref="ex-baseex"/>, on a établit que les vecteurs <m>\vec{e}_1,\vec{e}_2,\ldots \vec{e}_n</m> formaient une base de <m>\R^n</m> et donc, la dimension de <m>\R^n</m> est égale à <m>n</m>.</p>
+    </solution>
+    <solution>
+    <p>On sait qu'une droite qui passe par l'origine peut être engendré par un vecteur. Un vecteur seul étant indépendant, il forme donc une base de la droite. La dimension d'une droite est donc égale à <m>1</m>, comme on pouvait s'y attendre.</p>
+    </solution>
+    <solution>
+    <p>Un plan peut être engendré par deux vecteurs non parallèles et donc qui sont indépendants. Ces deux vecteurs forment donc une base. La dimension d'un plan est donc toujours égale à <m>2</m>, tel qu'attendu.</p>
+    </solution>
+    <p>Un hyperplan passant par l'origine dans <m>\R^n</m> est caractérisé par l'équation <m>a_1x_1+a_2x_2+\cdots +a_nx_n=0</m>. En considérant cette équation d'un point de vue matricielle, la matrice <m>1\times n</m> associée à
+    cette équation n'aura q'un pivot et <m>n-1</m> variables libres. Ces variables libres amèneront <m>n-1</m> solutions de base, donnant ainsi un sous-espace à <m>n-1</m> dimension.</p>
+    </example>
+    <p>L'exemple précédent fait allusion aux solutions de base d'un système d'équations linéaires. On est maintenant en mesure de comprendre l'utilisation du terme &#x00AB; de base &#x00BB;. Les solutions à l'équation
+    <m>A\vec{x}=\vec{0}</m> forment un sous-espace vectoriel, l'espace nul. Cet espace est engendré par les vecteurs solutions de base définis à la section <xref ref="sec-SELgeo"/>. Les solutions de base sont toujours indépendantes (voir l'exercice <xref ref="exo-solbaseindep"/>) et forment
+    donc bel et bien une base de l'espace nul. On reviendra au quatre espaces fondamentaux dans la prochaine section.</p>
+    <p>On regarde à présent quelques propriétés de la dimension de sous-espaces vectoriels.
+    Le premier sert à caractériser un ensemble de vecteurs par rapport à la dimension du sous-espace à lequel ils appartiennent.</p>
+    <proposition xml:id="prop-ensemblevecetdim">
+    <title>Ensemble de vecteurs et dimension</title>
+    <statement><p>Soit <m>V</m> un sous-espace vectoriel de dimension <m>k</m> et soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l</m>  un ensemble de vecteurs dans <m>V</m>. 
+    <ol>
+    <li><p>Si <m>l&lt; k</m>, alors <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l)\neq V</m>.</p></li>
+    <li><p>Si <m>l&gt; k</m>, alors les vecteurs sont dépendants. </p></li>
+    <li><p>Si <m>l=k</m></p>
+    <ol><li> et si <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l)= V</m>, alors les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l</m> sont aussi indépendant et donc, forment une base. </li>
+        <li> et si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l</m> sont indépendants, alors  <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l)= V</m>  et donc, forment une base. </li>
+    </ol>
+    </li>
+    </ol>
+    </p>
+    </statement>
+    <proof><p>On suppose que les vecteurs sont indépendants. Si ce n'est pas le cas, l'argument ci-dessous fonctionne avec <m>l^{'}&lt; l</m> vecteurs indépendants parmi les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l</m> tels que 
+    le <m>\vspan</m> de ces <m>l^{'}</m> vecteurs est égal au <m>\vspan</m> des <m>l</m> vecteurs originaux.</p>
+    <p>On pose <m>W=\span(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l)</m>. Comme les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l</m> sont indépendants, ils forment une base de <m>W</m> et ce sous-ensemble est donc de dimension <m>l</m>.
+    Si <m>V=W</m>, on aurait <m>k=l</m>, ce qui est impossible dans ce cas.</p>
+    </proof>
+    <proof><p>C'est exactement le contenu de la proposition <xref ref="prop-depnbr"/>.</p></proof>
+    <proof>
+    <p>On démontre chacune des deux affirmations lorsque <m>k=l</m> ci-dessous. </p>
+    <p>Dans un premier temps, on suppose que <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l)=V</m>. Si l'ensemble <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l</m> était linéairement dépendant, alors au moins un des vecteurs pourrait s'écrire comme
+    une combinaison linéaire des autres vecteurs. On suppose par simplicité que c'est <m>\vec{v}_1</m>. Cela signie aussi que <m>\vspan(\vec{v}_2,\ldots , \vec{v}_l)=\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l)=V</m>. Selon l'exercice <xref ref="exo-depnbr"/>, en lien avec la remarque
+    <xref ref="rem-depnbr"/>,tout ensemble de plus de <m>l-1=k-1</m> devrait être dépendant. Comme <m>\text{dim}(V)=k</m>, une base va nécessairement contenir <m>k</m> vecteurs indépendants. Il est donc impossible que les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l</m> soient dépendants.</p>
+    <p>Pour l'autre énoncé, on place les vecteurs dans les lignes d'une matrice <m>A</m>. Si <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l)\neq V</m>, alors il existe un vecteur <m>\vec{u}\in V</m> tel que
+    <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l,\vec{u}</m> est indépendant selon la proposition <xref ref="prop-indepspan"/>. On obtient donc <m>l+1=k+1</m> vecteurs indépendants, ce qui contredit la proposition <xref ref="prop-depnbr"/>.</p>
+    </proof>
+    </proposition>
+    <p>Maintenant, un résultat assez intuitif sur la dimension d'un sous-ensemble.</p>
+        <proposition xml:id="prop-diminclusion">
+    <title>Dimension et inclusion</title>
+    <statement>
+    <p>Soit <m>V,W</m> des sous-espaces vectoriels de <m>\R^n</m> tels que <m>W\subseteq V</m>. Alors <m>\text{dim}(V)\leq\text{dim}(W)</m> et si <m>\text{dim}(V)=\text{dim}(W)</m>, alors <m>V=W</m>.</p>
+    </statement>
+    <proof>
+    <p>Soit <m>k</m> la dimension de <m>V</m> et <m>l</m> la dimension de <m>W</m>. Soit <m>\mathcal{B}</m> un ensemble de <m>k</m> vecteurs formant une base pour <m>V</m>. Si <m>k&gt; l</m>, alors <m>\mathcal{B}</m> est un
+    ensemble de <m>k&gt; l</m> vecteurs dans un ensemble (<m>W</m>, car <m>V\subseteq W</m>) de taille plus grande que la dimension, ce qui signifie selon la proposition <xref ref="prop-ensemblevecetdim"/> que <m>\mathcal{B}</m> est linéairement
+    dépendant, contredisant le fait que c'est une base pour <m>W</m>. Ainsi, on doit avoir <m>l\leq k</m>.</p>
+    <p>On suppose que la  <m>\text{dim}(V)=\text{dim}(W)=k</m>. Soit <m>\vec{w}_1,\vec{w}_2,\ldots , \vec{w}_k</m> une base de <m>W</m>. Si <m>W\neq V</m>, il existe un vecteur <m>\vec{v}\in V</m> qui n'est pas dans <m>W</m>. On considère
+    l'ensemble <m>\vec{w}_1,\vec{w}_2,\ldots , \vec{w}_k,\vec{v}</m>. Selon la proposition <xref ref="prop-indepspan"/> cet ensemble est linéairement indépendant. Par contre, puisque la dimension de <m>V</m> est aussi <m>k</m>, la proposition
+    <xref ref="prop-depnbr"/> affirme qu'un ensemble de <m>l&gt; k</m> vecteurs est dépendant. Ceci contredit la propostion <xref ref="prop-indepspan"/> et on conclut donc qu'il n'existe pas de vecteur <m>\vec{v}\in V</m> qui ne soit pas aussi dans <m>W</m>.
+    On a donc <m>V\subseteq W</m>. Combiné à l'hypothèse que <m>W\subseteq V</m>, on conclut que <m>V=W</m>.</p>
+    </proof>
+    </proposition>
+    <p>On regarde comment à partir d'un ensemble de vecteurs  on peut trouver une base pour l'espace engendré par ces vecteurs.</p>
+    <example>
+    <title>Base à l'intérieur du span</title>
+    <statement>
+    <p>On considère les vecteurs <m>\vec{v}_1=(1,-2,3),\vec{v}_2=(2,-4,1),\vec{v}_3=(4,-8,-3),\vec{v}_4=(-3,6,1)</m> et on note <m>V=\vspan(\vec{v}_1,\vec{v}_2,\vec{v}_3,\vec{v}_4)</m>. On cherche une base pour <m>V</m>.</p>
+    <p>Les quatre vecteurs ne peuvent pas former une base, puisque <m>V\subseteq \R^3</m> qui est de dimension <m>3</m>. Ceci contredirait les propositions <xref ref="prop-ensemblevecetdim"/> et <xref ref="prop-diminclusion"/>.
+    Ces vecteurs sont donc dépendants. On regarde les solutions à l'équation <m>c_1\vec{v}_1+c_2\vec{v}_2+c_3\vec{v}_3+c_4\vec{v}_4=\vec{0}</m>. Ceci permettra de trouver quelle(s) combinaison(s) linéaire(s) des quatre vecteurs donne
+    le vecteur nul. On utilise Sage pour résoudre le système.</p>
+    <sage>
+    <input>
+v1=vector([1,-2,3])
+v2=vector([2,-4,1])
+v3=vector([4,-8,-3])
+v4=vector([-3,6,1])
+A=column_matrix([v1,v2,v3,v4])
+show("A=",A)
+show("rref(A)=",A.rref())
+    </input>
+    </sage>
+    <p> On trouve deux variables libres, donc deux solutions de bases: <m>\vec{s}_1=(2,-3,1,0),\vec{s}_2=(-1,2,0,1)</m>. Ainsi, on peut conclure que <m>2\vec{v}_1-3\vec{v}_2+\vec{v}_3=\vec{0}</m> de même que <m>-\vec{v}_1+2\vec{v}_2+\vec{v}_4=\vec{0}</m>.
+    On peut alors écrire <m>\vec{v}_3,\vec{v}_4</m> comme une combinaison linéaire de <m>\vec{v}_1</m> et <m>\vec{v}_2</m>. On a alors <m>V=\vspan(\vec{v}_1,\vec{v}_2,\vec{v}_3,\vec{v}_4)=\vspan(\vec{v}_1,\vec{v}_2)</m>. De plus, les
+    vecteurs <m>\vec{v}_1,\vec{v}_2</m> sont indépendants, car ils ne sont pas parallèles. Ils forment donc une base de <m>V</m>.
+    </p>
+    <p>Plus généralement, on va montrer dans la prochaine section qu'on peut obtenir une base pour <m>\mathcal{C}(A)</m> en prenant les colonnes (de la matrice <m>A</m>) qui sont pivots (dans la forme <m>rref(A)</m>).</p>
+    </statement>
     </example>
     </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
     
     <conclusion xml:id="concl-bases">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    
+    <p>Les points importants de cette section sont:
+    <ul>
+    <li><p>La notion <xref ref="def-indlin" text="custom">d'indépendance l'inéaire</xref>;</p></li>
+    <li><p>Le <xref ref="prop-indeprang" text="custom">lien</xref> entre l'indépendance linéaire et le rang;</p></li>
+    <li><p>La géométrie de l'indépendance linéaire de <xref ref="prop-indep2-3" text="custom"> deux ou trois</xref> vecteurs; </p></li>
+    <li><p>La <xref ref="prop-indepspan" text="custom">condition </xref> pour la préservation de l'indépendance lors de l'ajout d'un vecteur à un ensemble d'autres vecteurs;</p></li>
+    <li><p>La notion d'une <xref ref="def-base" text="custom">base</xref> d'un sous-espace vectoriel et le fait qu'une base existe (presque) toujours;</p></li>
+    <li><p>La notion de <xref ref="def-dimension" text="custom">dimension</xref> d'un sous-espace vectoriel.</p></li>
+    <li><p></p></li>
+    </ul></p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
 </section>
 <!-- preuve alternative de prop-soluniquezero avec la proposition ref="prop-solgen" -->
 <!-- exercice montrer que matrice V des vecteurs v1,v2,...,vk en ligne est de rg k ssi lin indep hint: utiliser prop-indeprang et transposee -->
 <!-- un vec lin indep ssi pas nul -->
+<!-- exo-depnbr pour montrer que si \vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k span V, alors tout ensemble de l>k vecteurs sera dépendant (Voir SSLD Beezer) -->
+
