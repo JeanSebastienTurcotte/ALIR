@@ -28,7 +28,7 @@
     </task>
     </exercise>
     -->
-    <exercise>
+    <exercise xml:id="exo-lindep-linind">
     <introduction>
     <p>Déterminer si les vecteurs suivants sont linéairement dépendants ou linéairement indépendants.</p>
     </introduction>
@@ -36,36 +36,115 @@
     <statement>
     <p><m>\vec{v}_1=(1,3),\vec{v}_2=(-2,-6)</m></p>
     </statement>
+    <answer><p>Linéairement dépendants</p></answer>
+    <solution><p>On peut se servir de la définition <xref ref="def-indlin"/> ou de la proposition <xref ref="prop-indep2-3"/>. 
+    On peut également utiliser la proposition <xref ref="prop-indeprang"/>.
+    Au fil des solutions, on utilisera ces différentes options, mais il est possible de toujours procéder de la même manière.</p>
+    <p>Ici, on voit rapidement que <m>\vec{v}_1=k\vec{v}_2</m> avec <m>k=-\frac{1}{2}</m>.
+    En effet, on a 
+    <me>\vec{v}_1=(1,3)=-\frac{1}{2}(-2,-6)=-\frac{1}{2}\vec{v}_2</me>.
+    Ainsi, par la proposition <xref ref="prop-indep2-3"/>, ils sont linéairement dépendants car ils sont parallèles.</p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(-1,2),\vec{v}_2=(2,3)</m></p>
     </statement>
+    <answer><p>Linéairement indépendants</p></answer>
+    <solution><p>On voit rapidement que ces vecteurs ne sont pas parallèles.
+    Par la proposition <xref ref="prop-indep2-3"/>, ils sont donc linéairement indépendants.
+    On choisit tout de même de le montrer avec la défintion <xref ref="def-indlin"/> pour varier les approches.
+    Par cette définition, si ces vecteurs sont indépendants, alors la seule façon d'écrire le vecteur nul comme combinaison linéaire de <m>\vec{v}_1,\vec{v}_2</m> sera la combinaison triviale.
+    <md>
+    <mrow>\vec{0}&amp;=c_1\vec{v}_1+c_2\vec{v}_2</mrow>
+    <mrow>&amp;=c_1(-1,2)+c_2(2,3)</mrow>
+    <mrow>&amp;=(-c_1+2c_2,2c_1+3c_2)</mrow>
+    <mrow>\Rightarrow &amp;\begin{cases}0&amp;=-c_1+2c_2\\ 0&amp;=2c_1+3c_2\end{cases}</mrow>
+    <mrow>\Rightarrow 0&amp;=2*(2c_2)+3c_2</mrow>
+    <mrow>\Rightarrow 0&amp;=7c_2</mrow>
+    <mrow>\Rightarrow 0&amp;=c_2=c_1</mrow>
+    </md>
+    Donc, les vecteurs sont bel et bien linéairement indépendants.</p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(1,1),\vec{v}_2=(2,1),\vec{v}_3=(-1,1)</m></p>
     </statement>
+    <answer><p>Linéairement dépendants</p></answer>
+    <solution><p>On décide d'utiliser la proposition <xref ref="prop-indeprang"/>.
+    La matrice des vecteurs en colonnes est :
+    <me>A=\begin{pmatrix}1&amp; 2&amp; -1\\ 1&amp; 1&amp; 1\end{pmatrix}</me>
+    et sa forme échelonnée réduite est :
+    <me>A=\begin{pmatrix}1&amp; 0&amp; 3\\ 0&amp; 1&amp; -2\end{pmatrix}</me>.
+    Cette matrice étant de rang <m>2</m>, ce qui n'est pas égal au nombre de vecteurs donnés, ils sont donc linéairement dépendants.
+    On remarque qu'on aurait pu directement conclure cela grâce à la proposition <xref ref="prop-depnbr"/>. 
+    En effet, trois vecteurs dans <m>\R^2</m> qui est clairement de dimension <m>2</m> n'ont pas d'autre choix que d'être dépendants.</p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(1,3,1),\vec{v}_2=(-2,-6,-2)</m></p>
     </statement>
+    <answer><p>Linéairement dépendants</p></answer>
+    <solution><p>On voit rapidement que <m>\vec{v}_1=k\vec{v}_2</m> avec <m>k=-\frac{1}{2}</m>.
+    En effet, on a 
+    <me>\vec{v}_1=(1,3,1)=-\frac{1}{2}(-2,-6,-2)=-\frac{1}{2}\vec{v}_2</me>.
+    Ainsi, par la proposition <xref ref="prop-indep2-3"/>, ils sont linéairement dépendants car ils sont parallèles.</p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(1,3,1),\vec{v}_2=(2,3,1),\vec{v}_3=(7,12,4)</m></p>
     </statement>
+    <answer><p>Linéairement dépendants</p></answer>
+    <solution><p>On choisit de procéder avec la définition <xref ref="def-indlin"/> pour varier les approches.
+    Par cette définition, si ces vecteurs sont indépendants, alors la seule façon d'écrire le vecteur nul comme combinaison linéaire de <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m> sera la combinaison triviale.
+    <md>
+    <mrow>\vec{0}&amp;=c_1\vec{v}_1+c_2\vec{v}_2+c_3\vec{v}_3</mrow>
+    <mrow>&amp;=c_1(1,3,1)+c_2(2,3,1)+c_3(7,12,4)</mrow>
+    <mrow>&amp;=(c_1+2c_2+7c_3,3c_1+3c_2+12c_3,c_1+c_2+4c_3)</mrow>
+    <mrow>\Rightarrow &amp;\begin{cases}0&amp;=c_1+2c_2+7c_3\\ 0&amp;=3c_1+3c_2+12c_3\\ 0&amp;=c_1+c_2+4c_3\end{cases}</mrow>
+    </md>
+    Ce SEL correspond à l'équation matricielle <m>C\vec{x}=\vec{0}</m> où le vecteur inconnu est <m>\vec{x}=(c_1,c_2,c_3)</m> et la matrice des coefficients:
+    <me>C=\begin{pmatrix}1&amp; 2&amp; 7\\ 3&amp; 3&amp; 12 \\ 1&amp; 1&amp; 4 \end{pmatrix}</me>.
+    La forme échelonnée réduite de cette matrice est :
+    <me>C=\begin{pmatrix}1&amp; 0&amp; 1\\ 0&amp; 1&amp; 3 \\ 0&amp; 0&amp; 0 \end{pmatrix}</me>.
+    Ce système ayant une infinité de solution, on conclut donc qu'il existe d'autres solutions que la solution triviale.
+    En conclusion, ces vecteurs sont linéairement dépendants.</p>
+    <p>Remarquons qu'il aurait été beaucoup plus rapide d'utiliser la proposition <xref ref="prop-indeprang"/> et d'échelonner directement la matrice de ces vecteurs en colonnes.</p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(1,3,1),\vec{v}_2=(-2,-6,-2),\vec{v}_3=(-5,2,1)</m></p>
     </statement>
+    <answer><p>Linéairement dépendants</p></answer>
+    <solution><p>On choisit de procéder avec la définition <xref ref="def-indlin"/> puisqu'il est possible de voir une combinaison linéaire non triviale directement.
+    Par cette définition, si ces vecteurs sont indépendants, alors la seule façon d'écrire le vecteur nul comme combinaison linéaire de <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m> sera la combinaison triviale.
+    Par contre, on peut écrire:
+    <md>
+    <mrow>\vec{0}&amp;=c_1\vec{v}_1+c_2\vec{v}_2+c_3\vec{v}_3</mrow>
+    <mrow>&amp;=c_1(1,3,1)+c_2(-2,-6,-2)+c_3(-5,2,1)</mrow>
+    <mrow>&amp;=2(1,3,1)+(-2,-6,-2)+0(-5,2,1)</mrow>
+    </md>.
+    La combinaison linéaire non triviale <m>c_1=2, c_2=1, c_3=0</m> permet d'écrire le vecteur nul en termes de ces trois vecteurs.
+    Ils sont donc linéairement dépendants. 
+    On remarque que même si <m>c_3=0</m>, cette solution n'est pas la solution triviale où TOUS les coefficients doivent être nuls.</p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(1,3,1,0),\vec{v}_2=(-2,0,1,0),\vec{v}_3=(1,2,-1,3)</m></p>
     </statement>
+    <answer><p>Linéairement indépendants</p></answer>
+    <solution><p>On décide d'utiliser la proposition <xref ref="prop-indeprang"/>.
+    La matrice des vecteurs en colonnes est :
+    <me>A=\begin{pmatrix}1&amp; -2&amp; 1\\ 3&amp; 0&amp; 2\\ 1&amp; 1&amp; -1\\ 0&amp; 0&amp; 3\end{pmatrix}</me>
+    et sa forme échelonnée réduite est :
+    <me>A=\begin{pmatrix}1&amp; 0&amp; 0\\ 0&amp; 1&amp; 0 \\ 0&amp; 0&amp; 1 \\ 0&amp; 0&amp; 0\end{pmatrix}</me>.
+    Cette matrice étant de rang <m>3</m>, ce qui est égal au nombre de vecteurs donnés, ces vecteurs sont linéairement indépendants.</p>
+    </solution>
     </task>
     </exercise>
     <exercise>
@@ -80,70 +159,299 @@
     <statement>
     <p><m>\vecl{AB},\vecl{GH}</m></p>
     </statement>
+    <answer><p>Linéairement dépendants</p></answer>
+    <solution><p>On peut se servir de la définition <xref ref="def-indlin"/> ou de la proposition <xref ref="prop-indep2-3"/>.
+    Bien que l'on n'ait pas les expressions algébriques des vecteurs, on peut déterminer les conditions pour l'indépendance ou la dépendance à l'aide de la figure.</p>
+    <p>Ici, on voit que <m>\vecl{AB}=k\vecl{GH}</m> avec <m>k=-1</m>.
+    Par la proposition <xref ref="prop-indep2-3"/>, ils sont linéairement dépendants car ils sont parallèles.
+    On voit leur parallélisme dans la figure directement.</p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vecl{DB},\vecl{GE}</m></p>
     </statement>
+    <answer><p>Linéairement indépendants</p></answer>
+    <solution><p>On voit que <m>\vecl{DB}\neq k\vecl{GE}</m> peu importe la valeur de <m>k</m>.
+    On le voit sur la figure puisqu'ils ne sont pas parallèles.
+    Par la proposition <xref ref="prop-indep2-3"/>, ils sont linéairement indépendants car ils ne sont pas parallèles.</p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vecl{FG},\vecl{BA},\vecl{DH}</m></p>
     </statement>
+    <answer><p>Linéairement indépendants</p></answer>
+    <solution><p>On voit sur la figure que les trois vecteurs mentionnés ne sont pas dans un même plan.
+    Une façon de s'en convaincre est de remarquer que <m>\vecl{FG}=\vecl{BC}</m> et <m>\vecl{DH}=\vecl{BF}</m>. 
+    En exprimant ainsi ces trois vecteurs à partir de <m>B</m>, on voit clairement que <m>\vecl{BC},\vecl{BA}</m> et <m>\vecl{BF}</m> ne sont pas sur un même plan.
+    Par la proposition <xref ref="prop-indep2-3"/>, ils sont linéairement indépendants.</p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vecl{FH},\vecl{CB},\vecl{DA}</m></p>
     </statement>
+    <answer><p>Linéairement dépendants</p></answer>
+    <solution><p>On choisit de procéder avec la définition <xref ref="def-indlin"/> puisqu'il est possible de voir une combinaison linéaire non triviale directement.
+    Par cette définition, si ces vecteurs sont indépendants, alors la seule façon d'écrire le vecteur nul (déplacement nul) comme combinaison linéaire de 
+    <m>\vecl{FH},\vecl{CB},\vecl{DA}</m> sera la combinaison triviale.
+    En remarquant sur la figure que <m>\vecl{CB}=\vecl{DA}</m>, on peut écrire:
+    <md>
+    <mrow>\vec{0}&amp;=c_1\vecl{FH}+c_2\vecl{CB}+c_3\vecl{DA}</mrow>
+    <mrow>&amp;=0\vecl{FH}+\vecl{CB}-\vecl{DA}</mrow>
+    </md>.
+    La combinaison linéaire non triviale <m>c_1=0, c_2=1, c_3=-1</m> permet d'écrire le vecteur nul en termes de ces trois vecteurs.
+    Ils sont donc linéairement dépendants. 
+    On remarque que même si <m>c_3=0</m>, cette solution n'est pas la solution triviale où TOUS les coefficients doivent être nuls.</p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vecl{AH},\vecl{BD},\vecl{CH}</m></p>
     </statement>
+    <answer><p>Linéairement indépendants</p></answer>
+    <solution><p>On voit sur la figure que les trois vecteurs mentionnés ne sont pas dans un même plan.
+    Une façon de s'en convaincre est de remarquer que <m>\vecl{AH}=\vecl{BG}</m> et <m>\vecl{CH}=\vecl{BE}</m>. 
+    En exprimant ainsi ces trois vecteurs à partir de <m>B</m>, on voit clairement que <m>\vecl{BG},\vecl{BD}</m> et <m>\vecl{BE}</m> ne sont pas sur un même plan.
+    Par la proposition <xref ref="prop-indep2-3"/>, ils sont linéairement indépendants.</p>
+    </solution>
     </task>
     <task>
     <statement>
-    <p><m>\vecl{AB},\vecl{CD},\vecl{EF},vecl{GH}</m></p>
+    <p><m>\vecl{AB},\vecl{CD},\vecl{EF},\vecl{GH}</m></p>
     </statement>
+    <answer><p>Linéairement dépendants</p></answer>
+    <solution><p>On peut directement conclure à la dépendance grâce à la proposition <xref ref="prop-depnbr"/>. 
+    En effet, quatre vecteurs dans <m>\R^3</m> qui est clairement de dimension <m>3</m> n'ont pas d'autre choix que d'être dépendants.</p>
+    </solution>
     </task>
     </task>
-    <task><statement><p>Pour chaque ensemble dépendant de la partie précédente, donner une combinaison linéaire non triviale des vecteurs qui donne le vecteur nul.</p></statement></task>
-    <task><p>Exprimer les vecteurs <m>\vecl{AB},\vecl{DG},\vecl{CE}</m> et <m>\vecl{AH}</m> dans la base <m>\langle \vecl{FE},\vecl{FG},\vecl{FB} \rangle</m>.</p></task>
+    <task><statement><p>Pour chaque ensemble dépendant de la partie précédente, donner une combinaison linéaire non triviale des vecteurs qui donne le vecteur nul.</p></statement>
+    <answer><p><me>\vec{0}=\vecl{AB}+\vecl{GH}</me>
+    <me>\vec{0}=0\vecl{FH}+\vecl{CB}-\vecl{DA}</me>
+    <me>\vec{0}=\vecl{AB}+\vecl{CD}+\vecl{EF}+\vecl{GH}</me>
+    </p></answer>
+    <solution><p>On a déjà établit que que <m>\vecl{AB}=-\vecl{GH}</m>.
+    Ainsi, on obtient la combinaison non triviale <me>\vec{0}=\vecl{AB}+\vecl{GH}</me>.</p>
+    <p>On a aussi établit pour un autre ensemble dépendant que 
+    <me>\vec{0}=0\vecl{FH}+\vecl{CB}-\vecl{DA}</me>.</p>
+    <p>Finalement, pour l'ensemble dépendant <m>\vecl{AB},\vecl{CD},\vecl{EF},\vecl{GH}</m>, on doit faire le travail puisqu'on avait utilisé une approche indirecte pour montrer la dépendance.
+    Cependant, en observant que <m>\vecl{AB}=-\vecl{CD}=\vecl{EF}=-\vecl{GH}</m>, plusieurs options rapides s'offrent à nous.
+    Comme exemple simple, on donne:
+    <me>\vec{0}=\vecl{AB}+\vecl{CD}+\vecl{EF}+\vecl{GH}</me>.
+    </p>
+    </solution>
+    </task>
+    <task><statement><p>Exprimer les vecteurs <m>\vecl{AB},\vecl{DG},\vecl{CE}</m> et <m>\vecl{AH}</m> dans la base <m>\mathcal{B}=\langle \vecl{FE},\vecl{FG},\vecl{FB} \rangle</m>.</p></statement>
+    <answer><p>
+    <me>\vecl{AB}=(-1,0,0)_\mathcal{B}</me>
+    <me>\vecl{DG}=(-1,0,-1)_\mathcal{B}</me>
+    <me>\vecl{CE}=(1,-1,-1)_\mathcal{B}</me>
+    <me>\vecl{AH}=(0,1,-1)_\mathcal{B}</me>
+    </p></answer>
+    <solution><p>On exprime chaque vecteur comme une combinaison linéaire des vecteurs de <m>\mathcal{B}</m>. 
+    On le fait en quelques étapes en partant du vecteur initial et le décomposant puis en remplaçant par des vecteurs égaux dans <m>\mathcal{B}</m>. 
+    <md>
+    <mrow>\vecl{AB}&amp;=-\vecl{BA}</mrow>
+    <mrow>&amp;=-\vecl{FE}</mrow>
+    <mrow>&amp;=(-1,0,0)_\mathcal{B}</mrow>
+    </md>
+    <md>
+    <mrow>\vecl{DG}&amp;=\vecl{DC}+\vecl{CG}</mrow>
+    <mrow>&amp;=-\vecl{CD}-\vecl{GC}</mrow>
+    <mrow>&amp;=-\vecl{FE}-\vecl{FB}</mrow>
+    <mrow>&amp;=(-1,0,-1)_\mathcal{B}</mrow>
+    </md>
+    <md>
+    <mrow>\vecl{CE}&amp;=\vecl{CB}+\vecl{BF}+\vecl{FE}</mrow>
+    <mrow>&amp;=-\vecl{BC}-\vecl{FB}+\vecl{FE}</mrow>
+    <mrow>&amp;=-\vecl{FG}-\vecl{FB}+\vecl{FE}</mrow>
+    <mrow>&amp;=\vecl{FE}-\vecl{FG}-\vecl{FB}</mrow>
+    <mrow>&amp;=(1,-1,-1)_\mathcal{B}</mrow>
+    </md>
+    <md>
+    <mrow>\vecl{AH}&amp;=\vecl{AE}+\vecl{EH}</mrow>
+    <mrow>&amp;=-\vecl{EA}+\vecl{EH}</mrow>
+    <mrow>&amp;=-\vecl{FB}+\vecl{FG}</mrow>
+    <mrow>&amp;=\vecl{FG}-\vecl{FB}</mrow>
+    <mrow>&amp;=(0,1,-1)_\mathcal{B}</mrow>
+    </md>
+    </p></solution>
+    </task>
     </exercise>
     <exercise>
     <introduction>
-    <p>Pour chaque ensemble de vecteurs ci-dessous, montrer que les vecteurs <m>\vec\{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> sont linéairement indépendants et donc forment une base de
-    <m>\vspan(\vec\{v}_1,\vec{v}_2,\ldots , \vec{v}_k)</m> et exprimer le vecteur <m>\vec{u}</m> dans les composantes de <m>\langle \vec\{v}_1,\vec{v}_2,\ldots , \vec{v}_k\rangle</m>.</p>
+    <p>Pour chaque ensemble de vecteurs ci-dessous, montrer que les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> sont linéairement indépendants et donc forment une base de
+    <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)</m> et exprimer le vecteur <m>\vec{u}</m> dans les composantes de la base <m>\mathcal{B}=\langle \vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\rangle</m>.</p>
     </introduction>
     <task>
     <statement>
     <p><m>\vec{v}_1=(7,3),\vec{v}_2=(-8,1)</m> et <m>\vec{u}=(19,17)</m></p>
     </statement>
+    <answer><p><me>\vec{u}=(5,2)_\mathcal{B}</me></p></answer>
+    <solution><p>Comme à l'exercice <xref ref="exo-lindep-linind"/>, on peut se servir de la définition <xref ref="def-indlin"/> ou de la proposition <xref ref="prop-indep2-3"/>. 
+    On peut également utiliser la proposition <xref ref="prop-indeprang"/>.
+    Au fil des solutions, on utilisera ces différentes options, mais il est possible de toujours procéder de la même manière.</p>
+    <p>Ici, on voit rapidement que <m>\vec{v}_1\neq k\vec{v}_2</m> peu importe la valeur de <m>k</m>.
+    En effet, on a 
+    <me>(7,3)=k(-8,1) \Rightarrow \begin{cases}7=-8k \Rightarrow k=-\frac{7}{8}\\ 3=k \Rightarrow k=3\end{cases}</me>.
+    Ainsi, par la proposition <xref ref="prop-indep2-3"/>, ils sont linéairement indépendants car ils ne sont pas parallèles.</p>
+    <p>On exprime <m>\vec{u}</m> dans la base <m>\mathcal{B}=\langle \vec{v}_1,\vec{v}_2\rangle</m>.
+    <md>
+    <mrow>\vec{u}&amp;=k_1\vec{v}_1+k_2\vec{v}_2</mrow>
+    <mrow>(19,17)&amp;=k_1(7,3)+k_2(-8,1)</mrow>
+    <mrow>\Rightarrow &amp;\begin{cases}19&amp;=7k_1-8k_2\\ 17&amp;=3k_1+k_2\end{cases}</mrow>
+    <mrow>\Rightarrow &amp;\begin{cases}k_1&amp;=5\\ k_2&amp;=2\end{cases}</mrow>
+    </md>
+    Donc, on obtient <me>\vec{u}=5\vec{v}_1+2\vec{v}_2=(5,2)_\mathcal{B}</me>.
+    </p>
+    </solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(-1,4,4),\vec{v}_2=(2,-1,3),\vec{v}_3=(3,-4,1)</m> et <m>\vec{u}=(2,-2,1)</m></p>
     </statement>
+    <answer><p><me>\vec{u}=(-1,2,-1)_\mathcal{B}</me></p></answer>
+    <solution><p>On décide d'utiliser la proposition <xref ref="prop-indeprang"/>.
+    La matrice des vecteurs en colonnes est :
+    <me>A=\begin{pmatrix}-1&amp; 2&amp; 3\\ 4&amp; -1&amp; -4\\ 4&amp; 3&amp; 1\end{pmatrix}</me>
+    et sa forme échelonnée réduite est :
+    <me>A=\begin{pmatrix}1&amp; 0&amp; 0\\ 0&amp; 1&amp; 0 \\ 0&amp; 0&amp; 1 \end{pmatrix}</me>.
+    Cette matrice étant de rang <m>3</m>, ce qui est égal au nombre de vecteurs donnés, ces vecteurs sont linéairement indépendants.</p>
+    <p>On exprime <m>\vec{u}</m> dans la base <m>\mathcal{B}=\langle \vec{v}_1,\vec{v}_2,\vec{v}_3\rangle</m>.
+    <md>
+    <mrow>\vec{u}&amp;=k_1\vec{v}_1+k_2\vec{v}_2+k_3\vec{v}_3</mrow>
+    <mrow>\vecddd{2}{-2}{1}&amp;=k_1\vecddd{-1}{4}{4}+k_2\vecddd{2}{-1}{3}+k_3\vecddd{3}{-4}{1}</mrow>
+    <mrow>\vecddd{2}{-2}{1}&amp;=\begin{pmatrix}-1&amp; 2&amp; 3\\ 4&amp; -1&amp; -4\\ 4&amp; 3&amp; 1\end{pmatrix}\vecddd{k_1}{k_2}{k_3}</mrow>
+    </md>
+    On solutionne ce SEL avec la méthode de Gauss-Jordan.
+    <me>\left(\begin{array}{rrr|r}
+-1&amp; 2&amp; 3 &amp; 2 \\
+4&amp; -1&amp; -4 &amp; -2 \\
+ 4&amp; 3&amp; 1 &amp; 1
+\end{array}\right)\substack{\sim \\ \cdots}\left(\begin{array}{rrr|r}
+1&amp; 0&amp; 0 &amp; -1\\ 
+0&amp; 1&amp; 0 &amp; 2 \\ 
+0&amp; 0&amp; 1 &amp; -1
+\end{array}\right)</me>
+    Donc, <m>\vecddd{k_1}{k_2}{k_3}=\vecddd{-1}{2}{-1}</m> et on obtient <me>\vec{u}=-\vec{v}_1+2\vec{v}_2-\vec{v}_3=(-1,2,-1)_\mathcal{B}</me>.
+    On remarque que la matrice que l'on a d'abord échelonnée pour montrer l'indépendance est la même que pour trouver la combinaison linéaire.
+    On aurait donc pu montrer l'indépendance en même temps que de trouver la combinaison linéaire. 
+    Pour plus de clarté, on continue à séparer les deux étapes dans les prochaines solutions.
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(3,-1,2),\vec{v}_2=(0,1,-1),\vec{v}_3=(0,2,0)</m> et <m>\vec{u}=(-15,9,-14)</m></p>
     </statement>
+    <answer><p><me>\vec{u}=(-5,4,0)_\mathcal{B}</me></p></answer>
+    <solution><p>On décide d'utiliser la proposition <xref ref="prop-indeprang"/>.
+    La matrice des vecteurs en colonnes est :
+    <me>A=\begin{pmatrix}3&amp; 0&amp; 0\\ -1&amp; 1&amp; 2\\ 2&amp; -1&amp; 0\end{pmatrix}</me>
+    et sa forme échelonnée réduite est :
+    <me>A=\begin{pmatrix}1&amp; 0&amp; 0\\ 0&amp; 1&amp; 0 \\ 0&amp; 0&amp; 1 \end{pmatrix}</me>.
+    Cette matrice étant de rang <m>3</m>, ce qui est égal au nombre de vecteurs donnés, ces vecteurs sont linéairement indépendants.</p>
+    <p>On exprime <m>\vec{u}</m> dans la base <m>\mathcal{B}=\langle \vec{v}_1,\vec{v}_2,\vec{v}_3\rangle</m>.
+    <md>
+    <mrow>\vec{u}&amp;=k_1\vec{v}_1+k_2\vec{v}_2+k_3\vec{v}_3</mrow>
+    <mrow>\vecddd{-15}{9}{-14}&amp;=k_1\vecddd{3}{-1}{2}+k_2\vecddd{0}{1}{-1}+k_3\vecddd{0}{2}{0}</mrow>
+    <mrow>\vecddd{-15}{9}{-14}&amp;=\begin{pmatrix}3&amp; 0&amp; 0\\ -1&amp; 1&amp; 2\\ 2&amp; -1&amp; 0\end{pmatrix}\vecddd{k_1}{k_2}{k_3}</mrow>
+    </md>
+    On solutionne ce SEL avec la méthode de Gauss-Jordan.
+    <me>\left(\begin{array}{rrr|r}
+3&amp; 0&amp; 0 &amp; -15\\ -1&amp; 1&amp; 2 &amp; 9\\ 2&amp; -1&amp; 0 &amp; -14
+\end{array}\right)\substack{\sim \\ \cdots}\left(\begin{array}{rrr|r}
+1&amp; 0&amp; 0 &amp; -5\\ 
+0&amp; 1&amp; 0 &amp; 4 \\ 
+0&amp; 0&amp; 1 &amp; 0
+\end{array}\right)</me>
+    Donc, <m>\vecddd{k_1}{k_2}{k_3}=\vecddd{-5}{4}{0}</m> on obtient <me>\vec{u}=-5\vec{v}_1+4\vec{v}_2+0\vec{v}_3=(-5,4,0)_\mathcal{B}</me>.
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(2,3,-5),\vec{v}_2=(7,11,-9)</m> et <m>\vec{u}=(1,2,6)</m></p>
     </statement>
+    <answer><p><me>\vec{u}=(-3,1)_\mathcal{B}</me></p></answer>
+    <solution><p>On décide d'utiliser la proposition <xref ref="prop-indeprang"/>.
+    La matrice des vecteurs en colonnes est :
+    <me>A=\begin{pmatrix}2&amp; 7\\ 3&amp; 11 \\ -5&amp; -9 \end{pmatrix}</me>
+    et sa forme échelonnée réduite est :
+    <me>A=\begin{pmatrix}1&amp; 0\\ 0&amp; 1 \\ 0&amp; 0 \end{pmatrix}</me>.
+    Cette matrice étant de rang <m>2</m>, ce qui est égal au nombre de vecteurs donnés, ces vecteurs sont linéairement indépendants.</p>
+    <p>On exprime <m>\vec{u}</m> dans la base <m>\mathcal{B}=\langle \vec{v}_1,\vec{v}_2\rangle</m>.
+    <md>
+    <mrow>\vec{u}&amp;=k_1\vec{v}_1+k_2\vec{v}_2</mrow>
+    <mrow>\vecddd{1}{2}{6}&amp;=k_1\vecddd{2}{3}{-5}+k_2\vecddd{7}{11}{-9}</mrow>
+    <mrow>\vecddd{1}{2}{6}&amp;=\begin{pmatrix}2&amp; 7\\ 3&amp; 11 \\ -5&amp; -9 \end{pmatrix}\vecd{k_1}{k_2}</mrow>
+    </md>
+    On solutionne ce SEL avec la méthode de Gauss-Jordan.
+    <me>\left(\begin{array}{rr|r}
+2&amp; 7 &amp; 1 \\ 3&amp; 11 &amp; 2 \\ -5&amp; -9 &amp; 6 
+\end{array}\right)\substack{\sim \\ \cdots}\left(\begin{array}{rr|r}
+1&amp; 0&amp; -3 \\ 
+0&amp; 1&amp; 1 \\ 
+0&amp; 0&amp; 0
+\end{array}\right)</me>
+    Donc, <m>\vecd{k_1}{k_2}=\vecd{-3}{1}</m> on obtient <me>\vec{u}=-3\vec{v}_1+\vec{v}_2=(-3,1)_\mathcal{B}</me>.
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(2,3,-4,1),\vec{v}_2=(1,0,0,3),\vec{v}_3=(-2,0,1,0),\vec{v}_4=(0,0,1,-3)</m> et <m>\vec{u}=(2,6,-11,14)</m></p>
     </statement>
+    <answer><p><me>\vec{u}=(2,1,0,-4)_\mathcal{B}</me></p></answer>
+    <solution><p>On décide d'utiliser la proposition <xref ref="prop-indeprang"/>.
+    La matrice des vecteurs en colonnes est :
+    <me>A=\begin{pmatrix}2&amp; 1&amp; -2&amp; 0\\ 3&amp; 0&amp; 0&amp; 0\\ -4&amp; 0&amp; 1&amp; 1 \\ 1&amp; 3&amp; 0&amp; -3\end{pmatrix}</me>
+    et sa forme échelonnée réduite est :
+    <me>A=\begin{pmatrix}1&amp; 0&amp; 0 &amp; 0\\ 0&amp; 1&amp; 0 &amp; 0 \\ 0&amp; 0&amp; 1 &amp; 0 \\ 0&amp; 0&amp; 0 &amp; 1\end{pmatrix}</me>.
+    Cette matrice étant de rang <m>4</m>, ce qui est égal au nombre de vecteurs donnés, ces vecteurs sont linéairement indépendants.</p>
+    <p>On exprime <m>\vec{u}</m> dans la base <m>\mathcal{B}=\langle \vec{v}_1,\vec{v}_2,\vec{v}_3,\vec{v}_4\rangle</m>.
+    <md>
+    <mrow>\vec{u}&amp;=k_1\vec{v}_1+k_2\vec{v}_2+k_3\vec{v}_3+k_4\vec{v}_4</mrow>
+    <mrow>\begin{pmatrix}2\\6\\-11\\14\end{pmatrix}&amp;=k_1\begin{pmatrix}2\\3\\-4\\1\end{pmatrix}
+    +k_2\begin{pmatrix}1\\0\\0\\3\end{pmatrix}+k_3\begin{pmatrix}-2\\0\\1\\0\end{pmatrix}+k_4\begin{pmatrix}0\\0\\1\\-3\end{pmatrix}</mrow>
+    <mrow>\begin{pmatrix}2\\6\\-11\\14\end{pmatrix}&amp;=\begin{pmatrix}2&amp; 1&amp; -2&amp; 0\\ 3&amp; 0&amp; 0&amp; 0
+    \\ -4&amp; 0&amp; 1&amp; 1 \\ 1&amp; 3&amp; 0&amp; -3\end{pmatrix}\begin{pmatrix}k_1\\k_2\\k_3\\k_4\end{pmatrix}</mrow>
+    </md>
+    On solutionne ce SEL avec la méthode de Gauss-Jordan.
+    <me>\left(\begin{array}{rrrr|r}
+2&amp; 1&amp; -2&amp; 0 &amp; 2\\ 3&amp; 0&amp; 0&amp; 0 &amp; 6 \\ -4&amp; 0&amp; 1&amp; 1 &amp; -11 \\ 1&amp; 3&amp; 0&amp; -3 &amp; 14
+\end{array}\right)\substack{\sim \\ \cdots}\left(\begin{array}{rrrr|r}
+1&amp; 0&amp; 0 &amp; 0 &amp; 2 \\ 0&amp; 1&amp; 0 &amp; 0 &amp; 0 \\ 0&amp; 0&amp; 1 &amp; 0 &amp; 1 \\ 0&amp; 0&amp; 0 &amp; 1 &amp; -4
+\end{array}\right)</me>
+    Donc, <m>\begin{pmatrix}k_1\\k_2\\k_3\\k_4\end{pmatrix}=\begin{pmatrix}2\\0\\1\\-4\end{pmatrix}</m> on obtient 
+    <me>\vec{u}=2\vec{v}_1+0\vec{v}_2+\vec{v}_3-4\vec{v}_4=(2,1,0,-4)_\mathcal{B}</me>.
+    </p></solution>
     </task>
     <task>
     <statement>
     <p><m>\vec{v}_1=(1,1,1,1),\vec{v}_2=(1,2,-1,-2)</m> et <m>\vec{u}=(1,-1,5,7)</m></p>
     </statement>
+    <answer><p><me>\vec{u}=(3,-2)_\mathcal{B}</me></p></answer>
+    <solution><p>On décide d'utiliser la proposition <xref ref="prop-indeprang"/>.
+    La matrice des vecteurs en colonnes est :
+    <me>A=\begin{pmatrix}1&amp;1 \\ 1&amp;2\\ 1&amp; -1\\ 1&amp;-2 \end{pmatrix}</me>
+    et sa forme échelonnée réduite est :
+    <me>A=\begin{pmatrix}1&amp; 0\\ 0&amp; 1 \\ 0&amp; 0 \\ 0&amp; 0\end{pmatrix}</me>.
+    Cette matrice étant de rang <m>2</m>, ce qui est égal au nombre de vecteurs donnés, ces vecteurs sont linéairement indépendants.</p>
+    <p>On exprime <m>\vec{u}</m> dans la base <m>\mathcal{B}=\langle \vec{v}_1,\vec{v}_2\rangle</m>.
+    <md>
+    <mrow>\vec{u}&amp;=k_1\vec{v}_1+k_2\vec{v}_2</mrow>
+    <mrow>\begin{pmatrix}1\\-1\\5\\7\end{pmatrix}&amp;=k_1\begin{pmatrix}1\\1\\1\\1\end{pmatrix}+k_2\begin{pmatrix}1\\2\\-1\\-2\end{pmatrix}</mrow>
+    <mrow>\begin{pmatrix}1\\-1\\5\\7\end{pmatrix}&amp;=\begin{pmatrix}1&amp;1 \\ 1&amp;2\\ 1&amp; -1\\ 1&amp;-2 \end{pmatrix}\begin{pmatrix}k_1\\k_2\end{pmatrix}</mrow>
+    </md>
+    On solutionne ce SEL avec la méthode de Gauss-Jordan.
+    <me>\left(\begin{array}{rr|r}
+1&amp;1  &amp; 1\\ 1&amp;2 &amp;-1\\ 1&amp; -1 &amp;5\\ 1&amp;-2 &amp;7
+\end{array}\right)\substack{\sim \\ \cdots}\left(\begin{array}{rr|r}
+1&amp;0  &amp; 3\\ 0&amp;1 &amp;-2\\ 0&amp; 0 &amp;0\\ 0&amp;0 &amp;0
+\end{array}\right)</me>
+    Donc, <m>\begin{pmatrix}k_1\\k_2\end{pmatrix}=\begin{pmatrix}3\\-2\end{pmatrix}</m> on obtient 
+    <me>\vec{u}=3\vec{v}_1-2\vec{v}_2=(3,-2)_\mathcal{B}</me>.
+    </p></solution>
     </task>
     </exercise>
     <exercise><statement><p>Montrer qu'un vecteur seul <m>\vec{v}\in\R^n</m> est linéairement indépendant si et seulement si <m>\vec{v}\neq \vec{0}</m>.</p></statement>
@@ -153,21 +461,186 @@
     du vecteur avec lui-même.</p></solution>
     </exercise>
     <exercise>
-    <introduction><p>On considère une base <m>\mathcal{B}=\langle \vec{u},\vec{v} \rangle</m> d'un sous-espace quelconque et un vecteur <m>\vec{w}=(-2,5)_{\mathcal{B}}</m>. Pour chaque ensemble <m>\vec{B}</m> ci-dessous, déterminer s'il forme aussi une base.
+    <introduction><p>On considère une base <m>\mathcal{B}=\langle \vec{u},\vec{v} \rangle</m> d'un sous-espace quelconque et un vecteur <m>\vec{w}=(-2,5)_{\mathcal{B}}</m>. 
+    Pour chaque ensemble <m>\vec{B}</m> ci-dessous, déterminer s'il forme aussi une base.
      Si oui, donner les composantes du vecteur <m>\vec{w}</m> dans cette base et si non, expliquer pourquoi.</p></introduction>
-     <task><statement><p><m>\mathcal{B}_1=\langle -\vec{u},\vec{v} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle \vec{v},\vec{u} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle 2\vec{u},-10\vec{v} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle \vec{u},3\vec{u} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle \vec{u}-\vec{v},\vec{v} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle \vec{u},\vec{v},\vec{u}+\vec{v} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle \vec{u}+\vec{v},\vec{u}-\vec{v} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle -2\vec{u}+5\vec{v} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle -2\vec{u}+5\vec{v},\vec{u} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle -2\vec{u}+5\vec{v},\vec{v} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle 5\vec{u}-2\vec{v},\vec{u} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle 5\vec{u}-2\vec{v},\vec{v} \rangle</m></p></statement></task>
-     <task><statement><p><m>\mathcal{B}_1=\langle \vec{0},\vec{u}+vec{v} \rangle</m></p></statement></task>
+     <task><statement><p><m>\mathcal{B}_1=\langle -\vec{u},\vec{v} \rangle</m></p></statement>
+     <answer><p>Oui, <m>\vec{w}=(2,5)_{\mathcal{B}_1}</m>.</p></answer>
+     <solution><p>On rappelle que, par la définition <xref ref="def-base"/>, les conditions pour qu'un ensemble de vecteurs soit une base sont qu'ils génèrent le sous-espace et qu'ils soient linéairement indépendants.
+     Cependant, par la proposition <xref ref="prop-ensemblevecetdim"/>, il est possible de ne vérifier que l'une de ces deux conditions si l'on a le bon nombre de vecteurs.
+     En effet, puisqu'on sait que <m>\mathcal{B}=\langle \vec{u},\vec{v} \rangle</m> est une base et qu'elle ne compte que deux vecteurs, tout autre ensemble contenant 
+     exactement deux vecteurs a le potentiel d'être une base. 
+     À l'opposé si un ensemble ne contient pas exactement deux vecteurs, on sait immédiatement que ce n'est pas une base.</p>
+     <p>Ici, on a deux vecteurs. 
+     On montre rapidement que <m>\vspan(\vec{u},\vec{v})=\vspan(-\vec{u},\vec{v})</m>.
+     En effet, 
+     <md>
+     <mrow>a\vec{u}+b\vec{v}&amp;=-a(-\vec{u})+b\vec{v}</mrow>
+     <mrow>&amp;=a'(-\vec{u})+b\vec{v} \text{ pour } a',b\in\R</mrow>
+     </md>
+     et donc les combinaisons linéaires des vecteurs de <m>\mathcal{B}</m> sont exprimables en termes des vecteurs de <m>\mathcal{B}_1</m>.</p>
+     <p>On exprime donc <m>\vec{w}=(-2,5)_{\mathcal{B}}</m> dans cette base en changeant le signe de sa première composante: <m>\vec{w}=(2,5)_{\mathcal{B}_1}</m>.
+     </p></solution>
+     </task>
+     <task><statement><p><m>\mathcal{B}_2=\langle \vec{v},\vec{u} \rangle</m></p></statement>
+     <answer><p>Oui, <m>\vec{w}=(5,-2)_{\mathcal{B}_2}</m>.</p></answer>
+     <solution><p>On a deux vecteurs. 
+     On montre rapidement que <m>\vspan(\vec{u},\vec{v})=\vspan(\vec{v},\vec{u})</m>.
+     En effet, 
+     <md>
+     <mrow>a\vec{u}+b\vec{v}&amp;=b\vec{v}+a\vec{u}</mrow>
+     <mrow>&amp;=a'\vec{v}+b'\vec{u} \text{ pour } a',b' \in\R</mrow>
+     </md>
+     et donc les combinaisons linéaires des vecteurs de <m>\mathcal{B}</m> sont exprimables en termes des vecteurs de <m>\mathcal{B}_2</m>.
+     Par la proposition <xref ref="prop-ensemblevecetdim"/>, ils forment une base.</p>
+     <p>On exprime donc <m>\vec{w}=(-2,5)_{\mathcal{B}}</m> dans cette base en changeant l'ordre des composantes : <m>\vec{w}=(5,-2)_{\mathcal{B}_2}</m>.
+     </p></solution></task>
+     <task><statement><p><m>\mathcal{B}_3=\langle 2\vec{u},-10\vec{v} \rangle</m></p></statement>
+     <answer><p>Oui, <m>\vec{w}=\left(-1,-\frac{1}{2}\right)_{\mathcal{B}_3}</m>.</p></answer>
+     <solution><p>On a deux vecteurs. 
+     On montre rapidement que <m>\vspan(\vec{u},\vec{v})=\vspan(2\vec{u},-10\vec{v})</m>.
+     En effet, 
+     <md>
+     <mrow>a\vec{u}+b\vec{v}&amp;=\frac{a}{2}(2\vec{u})-\frac{b}{10}(-10\vec{v})</mrow>
+     <mrow>&amp;=a'(2\vec{u})+b'(-10\vec{v}) \text{ pour } a',b' \in\R</mrow>
+     </md>
+     et donc les combinaisons linéaires des vecteurs de <m>\mathcal{B}</m> sont exprimables en termes des vecteurs de <m>\mathcal{B}_3</m>.
+     Par la proposition <xref ref="prop-ensemblevecetdim"/>, ils forment une base.</p>
+     <p>On exprime donc <m>\vec{w}=(-2,5)_{\mathcal{B}}</m> dans cette base en calculant les nouvelles composantes ainsi: 
+     <md>
+     <mrow>\vec{w}&amp;=-2\vec{u}+5\vec{v}</mrow>
+     <mrow>&amp;=-\frac{2}{2}(2\vec{u})-\frac{5}{10}(-10\vec{v})</mrow>
+     <mrow>&amp;=-(2\vec{u})-\frac{1}{2}(-10\vec{v})</mrow>
+     <mrow>&amp;=\left(-1,-\frac{1}{2}\right)_{\mathcal{B}_3}</mrow>
+     </md>.     
+     </p></solution></task>
+     <task><statement><p><m>\mathcal{B}_4=\langle \vec{u},3\vec{u} \rangle</m></p></statement>
+     <answer><p>Non.</p></answer>
+     <solution><p>On a deux vecteurs. 
+     Cependant, on voit rapidement qu'ils sont linéairement dépendants car ils sont parallèles.
+     Par la définition <xref ref="def-base"/>, ils ne forment pas une base.</p> 
+     </solution>
+     </task>
+     <task><statement><p><m>\mathcal{B}_5=\langle \vec{u}-\vec{v},\vec{v} \rangle</m></p></statement>
+     <answer><p>Oui, <m>\vec{w}=(-2,3)_{\mathcal{B}_5}</m>.</p></answer>
+     <solution><p>On a deux vecteurs. 
+     On montre qu'ils ne sont pas parallèles.
+     <me>\vec{u}-\vec{v}=k\vec{v}\Rightarrow \vec{u}=(k+1)\vec{v}</me>
+     Cette dernière équation impliquerait que les vecteurs de la base originale sont parallèles, ce qui contredirait la condition qu'ils sont linéairement indépendants.
+     Ainsi, <m>\vec{u}-\vec{v}\neq k\vec{v}</m> et les deux vecteurs de la base <m>\mathcal{B}_5</m> sont indépendants.
+     Par la proposition <xref ref="prop-ensemblevecetdim"/>, ils forment une base.</p>
+     <p>On exprime donc <m>\vec{w}=(-2,5)_{\mathcal{B}}</m> dans cette base en calculant les nouvelles composantes ainsi: 
+     <md>
+     <mrow>\vec{w}&amp;=-2\vec{u}+5\vec{v}</mrow>
+     <mrow>&amp;=-2\vec{u}+2\vec{v}+3\vec{v}</mrow>
+     <mrow>&amp;=-2(\vec{u}-\vec{v})+3\vec{v}</mrow>
+     <mrow>&amp;=(-2,3)_{\mathcal{B}_5}</mrow>
+     </md>.     
+     </p></solution>
+     </task>
+     <task><statement><p><m>\mathcal{B}_6=\langle \vec{u},\vec{v},\vec{u}+\vec{v} \rangle</m></p></statement>
+     <answer><p>Non.</p></answer>
+     <solution><p>On a trois vecteurs. 
+     Par la proposition <xref ref="prop-ensemblevecetdim"/>, ils ne forment pas une base puisque l'on sait que la dimension de cet espace est de deux 
+     puisque c'est le nombre de vecteurs dans la base donnée initialement.
+     Ces vecteurs sont donc dépendants, ce qui contrevient à une des conditions pour qu'ils forment une base.</p>
+     </solution></task>
+     <task><statement><p><m>\mathcal{B}_7=\langle \vec{u}+\vec{v},\vec{u}-\vec{v} \rangle</m></p></statement>
+     <answer><p>Oui, <m>\vec{w}=\left(\frac{3}{2},-\frac{7}{2}\right)_{\mathcal{B}_7}</m>.</p></answer>
+     <solution><p>On a deux vecteurs.
+     On montre qu'ils ne sont pas parallèles.
+     <me>\vec{u}+\vec{v}=k(\vec{u}-\vec{v})\Rightarrow (k-1)\vec{u}=(k+1)\vec{v} \Rightarrow \vec{u}=\left(\frac{k+1}{k-1}\right)\vec{v}</me>
+     Cette dernière équation impliquerait que les vecteurs de la base originale sont parallèles, ce qui contredirait la condition qu'ils sont linéairement indépendants.
+     Ainsi, <m>\vec{u}+\vec{v}\neq k(\vec{u}-\vec{v})</m> et les deux vecteurs de la base <m>\mathcal{B}_7</m> sont indépendants.
+     Par la proposition <xref ref="prop-ensemblevecetdim"/>, ils forment une base.</p>
+     <p>On exprime donc <m>\vec{w}=(-2,5)_{\mathcal{B}}</m> dans cette base en calculant les nouvelles composantes ainsi: 
+     <md>
+     <mrow>\vec{w}&amp;=-2\vec{u}+5\vec{v}</mrow>
+     <mrow>&amp;=k_1(\vec{u}+\vec{v})+k_2(\vec{u}-\vec{v})</mrow>
+     <mrow>&amp;=(k_1+k_2)\vec{u}+(k_1-k_2)\vec{v}</mrow>
+     <mrow>\Rightarrow &amp;\begin{cases}-2&amp;=k_1+k_2\\ 5&amp;=k_1-k_2\end{cases}</mrow>
+     <mrow>\Rightarrow &amp; \begin{cases}k_1&amp;=\frac{3}{2}\\k_2&amp;=-\frac{7}{2}\end{cases}</mrow>
+     <mrow>\Rightarrow \vec{w}&amp;=\left(\frac{3}{2},-\frac{7}{2}\right)_{\mathcal{B}_7}</mrow>
+     </md>.
+     </p></solution></task>
+     <task><statement><p><m>\mathcal{B}_8=\langle -2\vec{u}+5\vec{v} \rangle</m></p></statement>
+     <answer><p>Non.</p></answer>
+     <solution><p>On a un seul vecteur. 
+     Par la proposition <xref ref="prop-ensemblevecetdim"/>, ils ne forment pas une base puisque l'on sait que la dimension de cet espace est de deux 
+     puisque c'est le nombre de vecteurs dans la base donnée initialement.
+     Il n'y a donc pas suffisamment de vecteurs pour générer l'espace <m>\mathcal{B}_8</m> ne peut donc pas être une base.</p>
+     </solution>
+     </task>
+     <task><statement><p><m>\mathcal{B}_9=\langle -2\vec{u}+5\vec{v},\vec{u} \rangle</m></p></statement>
+     <answer><p>Oui, <m>\vec{w}=(1,0)_{\mathcal{B}_9}</m>.</p></answer>
+     <solution><p>On a deux vecteurs.
+     On montre qu'ils ne sont pas parallèles.
+     <me>-2\vec{u}+5\vec{v}=k\vec{u}\Rightarrow (k+2)\vec{u}=5\vec{v} \Rightarrow \vec{u}=\left(\frac{5}{k+2}\right)\vec{v}</me>
+     Cette dernière équation impliquerait que les vecteurs de la base originale sont parallèles, ce qui contredirait la condition qu'ils sont linéairement indépendants.
+     Ainsi, <m>-2\vec{u}+5\vec{v}\neq k\vec{u}</m> et les deux vecteurs de la base <m>\mathcal{B}_9</m> sont indépendants.
+     Par la proposition <xref ref="prop-ensemblevecetdim"/>, ils forment une base.</p>
+     <p>On exprime donc <m>\vec{w}=(-2,5)_{\mathcal{B}}</m> dans cette base en calculant les nouvelles composantes ainsi: 
+     <md>
+     <mrow>\vec{w}&amp;=-2\vec{u}+5\vec{v}</mrow>
+     <mrow>&amp;=1*(-2\vec{u}+5\vec{v})+0\vec{u}</mrow>
+     <mrow>&amp;=(1,0)_{\mathcal{B}_9}</mrow>
+     </md>.
+     </p></solution>
+     </task>
+     <task><statement><p><m>\mathcal{B}_{10}=\langle -2\vec{u}+5\vec{v},\vec{v} \rangle</m></p></statement>
+     <answer><p>Oui, <m>\vec{w}=(1,0)_{\mathcal{B}_{10}}</m>.</p></answer>
+     <solution><p>On a deux vecteurs.
+     On montre qu'ils ne sont pas parallèles.
+     <me>-2\vec{u}+5\vec{v}=k\vec{v}\Rightarrow 2\vec{u}=(5-k)\vec{v} \Rightarrow \vec{u}=\left(\frac{5-k}{2}\right)\vec{v}</me>
+     Cette dernière équation impliquerait que les vecteurs de la base originale sont parallèles, ce qui contredirait la condition qu'ils sont linéairement indépendants.
+     Ainsi, <m>-2\vec{u}+5\vec{v}\neq k\vec{v}</m> et les deux vecteurs de la base <m>\mathcal{B}_{10}</m> sont indépendants.
+     Par la proposition <xref ref="prop-ensemblevecetdim"/>, ils forment une base.</p>
+     <p>On exprime donc <m>\vec{w}=(-2,5)_{\mathcal{B}}</m> dans cette base en calculant les nouvelles composantes ainsi: 
+     <md>
+     <mrow>\vec{w}&amp;=-2\vec{u}+5\vec{v}</mrow>
+     <mrow>&amp;=1*(-2\vec{u}+5\vec{v})+0\vec{v}</mrow>
+     <mrow>&amp;=(1,0)_{\mathcal{B}_{10}}</mrow>
+     </md>.
+     </p></solution></task>
+     <task><statement><p><m>\mathcal{B}_{11}=\langle 5\vec{u}-2\vec{v},\vec{u} \rangle</m></p></statement>
+     <answer><p>Oui, <m>\vec{w}=\left(-\frac{5}{2},\frac{21}{2}\right)_{\mathcal{B}_{11}}</m>.</p></answer>
+     <solution><p>On a deux vecteurs.
+     On montre qu'ils ne sont pas parallèles.
+     <me>5\vec{u}-2\vec{v}=k\vec{u}\Rightarrow (5-k)\vec{u}=2\vec{v} \Rightarrow \vec{u}=\left(\frac{2}{5-k}\right)\vec{v}</me>
+     Cette dernière équation impliquerait que les vecteurs de la base originale sont parallèles, ce qui contredirait la condition qu'ils sont linéairement indépendants.
+     Ainsi, <m>5\vec{u}-2\vec{v}\neq k\vec{u}</m> et les deux vecteurs de la base <m>\mathcal{B}_{11}</m> sont indépendants.
+     Par la proposition <xref ref="prop-ensemblevecetdim"/>, ils forment une base.</p>
+     <p>On exprime donc <m>\vec{w}=(-2,5)_{\mathcal{B}}</m> dans cette base en calculant les nouvelles composantes ainsi: 
+     <md>
+     <mrow>\vec{w}&amp;=-2\vec{u}+5\vec{v}</mrow>
+     <mrow>&amp;=-\frac{5}{2}(5\vec{u}-2\vec{v})+\frac{21}{2}\vec{u}</mrow>
+     <mrow>&amp;=\left(-\frac{5}{2},\frac{21}{2}\right)_{\mathcal{B}_{11}}</mrow>
+     </md>.
+     </p></solution></task>
+     <task><statement><p><m>\mathcal{B}_{12}=\langle 5\vec{u}-2\vec{v},\vec{v} \rangle</m></p></statement>
+     <answer><p>Oui, <m>\vec{w}=\left(-\frac{2}{5},\frac{21}{5}\right)_{\mathcal{B}_{12}}</m>.</p></answer>
+     <solution><p>On a deux vecteurs.
+     On montre qu'ils ne sont pas parallèles.
+     <me>5\vec{u}-2\vec{v}=k\vec{v}\Rightarrow 5\vec{u}=(2+k)\vec{v} \Rightarrow \vec{u}=\left(\frac{2+k}{5}\right)\vec{v}</me>
+     Cette dernière équation impliquerait que les vecteurs de la base originale sont parallèles, ce qui contredirait la condition qu'ils sont linéairement indépendants.
+     Ainsi, <m>5\vec{u}-2\vec{v}\neq k\vec{v}</m> et les deux vecteurs de la base <m>\mathcal{B}_{12}</m> sont indépendants.
+     Par la proposition <xref ref="prop-ensemblevecetdim"/>, ils forment une base.</p>
+     <p>On exprime donc <m>\vec{w}=(-2,5)_{\mathcal{B}}</m> dans cette base en calculant les nouvelles composantes ainsi: 
+     <md>
+     <mrow>\vec{w}&amp;=-2\vec{u}+5\vec{v}</mrow>
+     <mrow>&amp;=-\frac{2}{5}(5\vec{u}-2\vec{v})+\frac{21}{5}\vec{v}</mrow>
+     <mrow>&amp;=\left(-\frac{2}{5},\frac{21}{5}\right)_{\mathcal{B}_{12}}</mrow>
+     </md>.
+     </p></solution></task>
+     <task><statement><p><m>\mathcal{B}_{13}=\langle \vec{0},\vec{u}+\vec{v} \rangle</m></p></statement>
+     <answer><p>Non.</p></answer>
+     <solution><p>Bien qu'on ait deux vecteurs, plusieurs conditions ne sont pas rencontrées pour qu'ils forment une base.
+     D'abord, il est impossible que cet ensemble génère un espace de dimension deux puisque le seul vecteur pour lequel les combinaisons linéaires 
+     permettront un réel déplacement est <m>\vec{u}+\vec{v}</m>.
+     Autrement dit, <m>\vspan(\vec{0},\vec{u}+\vec{v})=\vspan(\vec{u}+\vec{v})</m>.</p>
+     <p> Aussi, ces vecteurs ne peuvent être linéairement indépendants puisque le vecteur nul est par définition toujours dépendant. 
+     En effet, on peut créer une combinaison non triviale en le multipliant par n'importe quelle constante et obtenir un déplacement nul.</p>
+     </solution></task>
     </exercise>
     <exercise><introduction><p>Dans cet exercice, on s'intéresse à l'indépendance linéaire de vecteurs perpendiculaires.</p></introduction>
     <task>
@@ -187,7 +660,7 @@
     <task>
     <statement><p>Soit <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m> des vecteurs non nuls de <m>\R^n</m> tels que <m>\vec{v}_i\cdot \vec{v}_j=0</m> dès que <m>i\neq j</m>, c'est-à-dire des vecteurs deux à deux perpendiculaires.
     Montrer que l'ensemble <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m> est linéairement indépendant.</p></statement>
-    <hint><p>Considérer une combinaison linéaire de ces vecteurs qui donne le vecteur zéro et faire le produit scalaire avec chacun des vecteurs <m>\vec{v}_1,\vec{v}_2</m> et <m>\vec{v}_3</m>.</p></hint>
+    <hint><p>Considérer une combinaison linéaire de ces vecteurs qui donne le vecteur nul et faire le produit scalaire avec chacun des vecteurs <m>\vec{v}_1,\vec{v}_2</m> et <m>\vec{v}_3</m>.</p></hint>
     <solution><p>Soit <m>c_1\vec{v}_1+c_2\vec{v}_2+c_3\vec{v}_3=\vec{0}</m> une combinaison linéaire de ces trois vecteurs qui donne le vecteur nul.</p>
     <p>On considère le produit scalaire de cette combinaison linéaire avec <m>\vec{v}_1</m>:
     <md>
@@ -195,9 +668,9 @@
     <mrow>&amp;=\vec{v}_1\cdot(c_1\vec{v}_1)+\vec{v}_1\cdot(c_2\vec{v}_2)+\vec{v}_1\cdot(c_3\vec{v}_3) &amp;&amp; \text{distributivité du produit scalaire}</mrow>
     <mrow>&amp;=c_1(\vec{v}_1\cdot\vec{v}_1)+c_2(\vec{v}_1\cdot\vec{v}_2)+c_3(\vec{v}_1\cdot\vec{v}_3) &amp;&amp;\text{ditributivité de la multiplication par une constante}</mrow>
     <mrow>&amp;=c_1(\vec{v}_1\cdot\vec{v}_1)+c_2(0)+c_3(0)&amp;&amp; \text{ car } \vec{v}_1\cdot\vec{v}_2=0 \text{ et } \vec{v}_1\cdot\vec{v}_3=0</mrow>
-    <mrow>&amp;=c_1\norm{\vec{v}_1}</mrow>
+    <mrow>&amp;=c_1\norm{\vec{v}_1}^2</mrow>
     </md>.
-    Comme <m>\vec{v}_1\neq \vec{0}</m>, on conclut que si <m>0=c_1\norm{\vec{v}_1}</m>, c'est que <m>c_1=0</m>.
+    Comme <m>\vec{v}_1\neq \vec{0}</m>, on conclut que si <m>0=c_1\norm{\vec{v}_1}^2</m>, c'est que <m>c_1=0</m>.
     </p>
     <p>On considère maintenant le produit scalaire de cette combinaison linéaire avec <m>\vec{v}_2</m>:
     <md>
@@ -205,9 +678,9 @@
     <mrow>&amp;=\vec{v}_2\cdot(c_1\vec{v}_1)+\vec{v}_2\cdot(c_2\vec{v}_2)+\vec{v}_2\cdot(c_3\vec{v}_3) &amp;&amp; \text{distributivité du produit scalaire}</mrow>
     <mrow>&amp;=c_1(\vec{v}_2\cdot\vec{v}_1)+c_2(\vec{v}_2\cdot\vec{v}_2)+c_3(\vec{v}_2\cdot\vec{v}_3) &amp;&amp;\text{ditributivité de la multiplication par une constante}</mrow>
     <mrow>&amp;=c_1(0)+c_2(\vec{v}_2\cdot \vec{v}_2)+c_3(0)&amp;&amp; \text{ car } \vec{v}_2\cdot\vec{v}_1=0 \text{ et } \vec{v}_2\cdot\vec{v}_3=0</mrow>
-    <mrow>&amp;=c_2\norm{\vec{v}_2}</mrow>
+    <mrow>&amp;=c_2\norm{\vec{v}_2}^2</mrow>
     </md>.
-    Comme <m>\vec{v}_2\neq \vec{0}</m>, on conclut que si <m>0=c_2\norm{\vec{v}_2}</m>, c'est que <m>c_2=0</m>.
+    Comme <m>\vec{v}_2\neq \vec{0}</m>, on conclut que si <m>0=c_2\norm{\vec{v}_2}^2</m>, c'est que <m>c_2=0</m>.
     </p>
     <p>Finalement, on considère maintenant le produit scalaire de cette combinaison linéaire avec <m>\vec{v}_3</m>:
     <md>
@@ -215,15 +688,15 @@
     <mrow>&amp;=\vec{v}_3\cdot(c_1\vec{v}_1)+\vec{v}_3\cdot(c_2\vec{v}_2)+\vec{v}_3\cdot(c_3\vec{v}_3) &amp;&amp; \text{distributivité du produit scalaire}</mrow>
     <mrow>&amp;=c_1(\vec{v}_3\cdot\vec{v}_1)+c_2(\vec{v}_3\cdot\vec{v}_2)+c_3(\vec{v}_3\cdot\vec{v}_3) &amp;&amp;\text{ditributivité de la multiplication par une constante}</mrow>
     <mrow>&amp;=c_1(0)+c_2(0)+c_3(\vec{v}_3\cdot \vec{v}_3)&amp;&amp; \text{ car } \vec{v}_3\cdot\vec{v}_1=0 \text{ et } \vec{v}_3\cdot\vec{v}_2=0</mrow>
-    <mrow>&amp;=c_3\norm{\vec{v}_3}</mrow>
+    <mrow>&amp;=c_3\norm{\vec{v}_3}^2</mrow>
     </md>.
-    Comme <m>\vec{v}_3\neq \vec{0}</m>, on conclut que si <m>0=c_3\norm{\vec{v}_3}</m>, c'est que <m>c_3=0</m>.
+    Comme <m>\vec{v}_3\neq \vec{0}</m>, on conclut que si <m>0=c_3\norm{\vec{v}_3}^2</m>, c'est que <m>c_3=0</m>.
     </p>
     <p>La seule combinaison linéaire des vecteurs qui donne le vecteur nul est donc la combinaison triviale.</p>
     </solution>
     </task>
     <task><statement><p>Finalement, soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> des vecteurs non nuls de <m>\R^n</m> tels que <m>\vec{v}_i\cdot \vec{v}_j=0</m> dès que <m>i\neq j</m>, c'est-à-dire des vecteurs deux à deux perpendiculaires.
-    Montrer que l'ensemble <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k</m> est linéairement indépendant.</p></statement></task>
+    Montrer que l'ensemble <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k</m> est linéairement indépendant.</p></statement>
     <solution>
     <p>On utilise le même argument que dans la partie précédente. Pour <m>1\leq i\leq k</m>, on a
     <md>
@@ -231,12 +704,13 @@
     <mrow>&amp;=\vec{v}_i\cdot(c_1\vec{v}_1)+\vec{v}_i\cdot(c_2\vec{v}_2)+\cdots +\vec{v}_i\cdot(c_3\vec{v}_3) &amp;&amp; \text{distributivité du produit scalaire}</mrow>
     <mrow>&amp;=c_1(\vec{v}_i\cdot\vec{v}_1)+c_2(\vec{v}_i\cdot\vec{v}_2)+\cdots +c_3(\vec{v}_i\cdot\vec{v}_3) &amp;&amp;\text{ditributivité de la multiplication par une constante}</mrow>
     <mrow>&amp;=c_1(0)+c_2(0)+\cdots +c_i(\vec{v}_i\cdot \vec{v}_i)+\cdots  +c_k(0)&amp;&amp; \text{ car } \vec{v}_i\cdot\vec{v}_j=0 \text{ si } i\neq j</mrow>
-    <mrow>&amp;=c_i\norm{\vec{v}_i}</mrow>
+    <mrow>&amp;=c_i\norm{\vec{v}_i}^2</mrow>
     </md>.
-    Comme <m>\vec{v}_i\neq \vec{0}</m>, on conclut que si <m>0=c_i\norm{\vec{v}_i}</m>, c'est que <m>c_i=0</m>.
+    Comme <m>\vec{v}_i\neq \vec{0}</m>, on conclut que si <m>0=c_i\norm{\vec{v}_i}^2</m>, c'est que <m>c_i=0</m>.
     </p>
     <p>La seule combinaison linéaire des vecteurs qui donne le vecteur nul est donc la combinaison triviale.</p>
     </solution>
+    </task>
     <task><statement><p>Montrer que <m>n</m> vecteurs deux à deux perpendiculaires dans <m>\R^n</m> forment une base de <m>\R^n</m>.</p></statement>
     <solution><p>On sait déjà par la partie précédente que ces vecteurs sont indépendants. En vertu de la proposition <xref ref="prop-ensemblevecetdim"/>, ces <m>n</m> vecteurs indépendants forment une base.</p></solution>
     </task>
@@ -255,27 +729,27 @@
     <exercise>
     <introduction><p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_n</m> des vecteurs non nuls deux à deux perpendiculaires de <m>\R^n</m> et soit <m>\vec{u}\in \R^n</m> un vecteur quelconque.</p></introduction>
     <task>
-    <statement><p>En considérant d'abord les vecteurs <m>\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_n</m>, décrire en mot comment obtenir les composantes de <m>\vec{u}</m> </p></statement>
+    <statement><p>En considérant d'abord les vecteurs <m>\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_n</m>, décrire en mots comment obtenir les composantes de <m>\vec{u}</m>. </p></statement>
     <hint><p>Commencer par réfléchir au cas <m>\R^2</m> et faire un dessin.</p></hint>
     <answer><p>On devrait avoir que la composante <m>k</m> corresponde dans une certaine mesure à la projection orthogonale du vecteur <m>\vec{u}</m> sur le vecteur <m>\vec{v}_k</m>.</p></answer>
     </task>
     <task>
     <statement>
-    <p>Montrer que les composantes de <m>\vec{u}</m> dans la base <m>\langle \vec{v}_1,\vec{v}_2,\ldots , \vec{v}_n\rangle</m> sont ce qui a été déterminée dans la partie précédente.</p></statement>
+    <p>Montrer que les composantes de <m>\vec{u}</m> dans la base <m>\langle \vec{v}_1,\vec{v}_2,\ldots , \vec{v}_n\rangle</m> sont ce qui a été déterminé dans la partie précédente.</p></statement>
     <hint><p>Puisque le vecteurs <m>\vec{v}</m> sont perpendiculaires, utiliser le produit scalaire avec l'écriture de <m>\vec{u}</m> dans la base <m>\vec{v}</m> pour déterminer les coefficients de la combinaison linéaire. </p></hint>
-    <answer><p>Le coefficient <m>c_k</m> de la combinaison linéaire vaut <m>\frac{\vec{u}\cdot \vec{v}_k}{\norm{\vec{v}_k}}</m></p></answer>
+    <answer><p>Le coefficient <m>c_k</m> de la combinaison linéaire vaut <m>\frac{\vec{u}\cdot \vec{v}_k}{\norm{\vec{v}_k}^2}</m></p></answer>
     <solution><p> Soit <m>c_1\vec{v}_1+c_2\vec{v}_2+\cdots +c_n\vec{v}_n</m> l'écriture de <m>\vec{u}</m> dans la base des vecteurs <m>\vec{v}</m>. On considère le produit scalaire de <m>\vec{u}</m> dans cette écriture avec le vecteur <m>\vec{v}_1</m>. On a
     <md>
     <mrow>\vec{v}_1\cdot \vec{u}&amp;=\vec{v}_1\cdot(c_1\vec{v}_1+c_2\vec{v}_2+\cdots +c_n\vec{v}_n)</mrow>
     <mrow>&amp;=\vec{v}_1\cdot(c_1\vec{v}_1)+\vec{v}_1\cdot(c_2\vec{v}_2)+\cdots +\vec{v}_1\cdot(c_n\vec{v}_n) &amp;&amp; \text{distributivité du produit scalaire}</mrow>
     <mrow>&amp;=c_1(\vec{v}_1\cdot\vec{v}_1)+c_2(\vec{v}_1\cdot\vec{v}_2)+\cdots +c_n(\vec{v}_1\cdot\vec{v}_n) &amp;&amp; \text{multiplication par un scalaire}</mrow>
     <mrow>&amp;=c_1(\vec{v}_1\cdot\vec{v}_1)+c_2(0)+\cdots +c_n(0) &amp;&amp; \text{ car les vecteurs sont orthogonaux}</mrow>
-    <mrow>&amp;=c_1\norm{\vec{v}_1}</mrow>
-    </md>. On a donc <m>\vec{v}_1\cdot \vec{u}=c_1\norm{\vec{v}_1}</m>. Puisque <m>\vec{v}_1\neq \vec{0}</m>, on peut isoler le coefficient <m>c_1</m> pour avoir
+    <mrow>&amp;=c_1\norm{\vec{v}_1}^2</mrow>
+    </md>. On a donc <m>\vec{v}_1\cdot \vec{u}=c_1\norm{\vec{v}_1}^2</m>. Puisque <m>\vec{v}_1\neq \vec{0}</m>, on peut isoler le coefficient <m>c_1</m> pour avoir
     <me>
-    c_1=\frac{\vec{v}_1\cdot \vec{u}}{\norm{\vec{v}_1}}=\frac{\vec{u}\cdot \vec{v}_1}{\norm{\vec{v}_1}}
+    c_1=\frac{\vec{v}_1\cdot \vec{u}}{\norm{\vec{v}_1}^2}=\frac{\vec{u}\cdot \vec{v}_1}{\norm{\vec{v}_1}^2}
     </me>. Ce facteur correspond au coefficient devant le vecteur <m>\vec{v}_1</m> lorsqu'on fait la projection orthogonale de <m>\vec{u}</m> sur <m>\vec{v}_1</m>.</p>
-    <p>D'une manière similaire, on obtient <m>c_k=\frac{\vec{u}\cdot \vec{v}_k}{\norm{\vec{v}_k}}</m>.</p>
+    <p>D'une manière similaire, on obtient <m>c_k=\frac{\vec{u}\cdot \vec{v}_k}{\norm{\vec{v}_k}^2}</m>.</p>
     </solution></task>
     </exercise>
     <exercise>
@@ -283,7 +757,7 @@
     <task><statement><p>Donner un exemple de vecteurs et de matrice pour lesquels <m>A\vec{v}_1,A\vec{v}_2,\ldots , A\vec{v}_n</m> n'est pas une base.</p></statement>
     <hint><p>Un exemple dans <m>\R^2</m> à partir des vecteurs <m>(1,0),(0,1)</m> suffit.</p></hint>
     <solution>
-    <p>On prend <m>\vec{v}_1=(1,0),\vec{v}_2=(0,1)</m> et <m>A=\matcold{1}{1}{1}{1}</m>. Comme cette matrice possède des colonnes identiques, on a que les vecteurs <m>\vec{v}_1,\ve{v}_2</m> sont envoyés sur <m>(1,1)</m>, ce qui fait que
+    <p>On prend <m>\vec{v}_1=(1,0),\vec{v}_2=(0,1)</m> et <m>A=\matcold{1}{1}{1}{1}</m>. Comme cette matrice possède des colonnes identiques, on a que les vecteurs <m>\vec{v}_1,\vec{v}_2</m> sont envoyés sur <m>(1,1)</m>, ce qui fait que
     <m>A\vec{v}_1</m> et <m>A\vec{v}_2</m> ne peuvent pas être une base de <m>\R^2</m>.</p>
     </solution>
     </task>
@@ -330,7 +804,7 @@
     <solution>
     <p>Soit <m>A</m> la matrice de taille <m>n\times k</m> qui contient les vecteurs <m>\vec{v}</m> en colonne. On cherche le nombre de solutions à l'équation <m>A\vec{x}=\vec{u}</m>, puisque cette équation représente les combinaisons linéaires des colonnes de la matrice <m>A</m>.
     Selon la proposition <xref ref="prop-indeprang"/>, la matrice <m>A</m> n'est pas de rang <m>k</m>, car ses colonnes sont des vecteurs dépendants. Ainsi, il y a au moins une variable libre dans la forme échelonnée réduite de la matrice <m>A</m>.
-    Puisque <m>\vec{u}\in\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)</m>, on sait qu'il doit exister des solutions à l'équation <m>A\Vec{x}=\vec{u}</m>. Le fait que le rang ne soit pas égal à <m>k</m> confirme qu'il y en a une infinité.
+    Puisque <m>\vec{u}\in\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)</m>, on sait qu'il doit exister des solutions à l'équation <m>A\vec{x}=\vec{u}</m>. Le fait que le rang ne soit pas égal à <m>k</m> confirme qu'il y en a une infinité.
     </p>
     </solution>
     </exercise>
@@ -368,20 +842,110 @@
     -->
     <exercise>
     <introduction><p>Déterminer la dimension des sous-espaces suivants.</p></introduction>
-    <task><statement><p><m> \vspan((1,-1,1),(2,3,-1),(4,5,-4),(8,5,1)) </m></p></statement></task>
-    <task><statement><p><m> \{\vec{x}\in \R^5 ~|~ x_1-x_2+x_3=0, x_4+3x_5=0,x_1-2x_4+x_5=0\} </m></p></statement></task>
+    <task><statement><p><m> \vspan((1,-1,1),(2,3,-1),(4,5,-4),(1,0,3)) </m></p></statement>
+    <answer>
+    <p><m>3</m></p>
+    </answer>
+    <solution>
+    <p>On considère l'équation matricielle <m>A\vec{x}=\vec{0}</m> afin de déterminer si des vecteurs s'écrivent comme une combinaison linéaire des autres vecteurs. On utilise Sage pour réduire le système.
+    </p>
+    <sage>
+    <input>
+    A=column_matrix([[1,-1,1],[2,3,-1],[4,5,-4],[1,0,3]])
+    show("rref(A)=",A.rref())
+    </input>
+    </sage>
+    <p>Il y a une variable libre et donc, une solution de base, qui est <m>\vec{s}=(-1,-2,1,1)</m>. Cela signifie que <m>-\vec{v}_1-2\vec{v}_2+\vec{v}_3+\vec{v}_4=\vec{0}</m>. En isolant par exemple <m>\vec{v}_4=+\vec{v}_1+2\vec{v}_2-\vec{v}_3</m>,
+    on a que <m>\vspan((1,-1,1),(2,3,-1),(4,5,-4),(1,0,3))=\vspan((1,-1,1),(2,3,-1),(4,5,-4))</m> et que ces trois vecteurs sont indépendants. La dimension est donc égale à <m>3</m>. </p>
+    </solution>
+    </task>
+    <task><statement><p><m> \{\vec{x}\in \R^5 ~|~ x_1-x_2+x_3=0, x_4+3x_5=0,x_1-2x_4+x_5=0\} </m></p></statement>
+    <answer><p><m>2</m></p></answer>
+    <solution><p>On convertit le système d'équations linéaires
+    <md alignment="alignat">
+    <mrow>x_1&amp;{}-{}&amp;x_2&amp;{}+{}&amp;x_3&amp;&amp;&amp;&amp;&amp;{}={}&amp;0&amp;</mrow>
+    <mrow>&amp;&amp;&amp;&amp;&amp;&amp;x_4&amp;{}+{}&amp;3x_5&amp;{}={}&amp;0&amp;</mrow>
+    <mrow>x_1&amp;&amp;&amp;&amp;&amp;{}-{}&amp;2x_4&amp;{}+{}&amp;x_5&amp;{}={}&amp;0&amp;</mrow>
+    </md>
+    sous la forme matricielle. Le sous-espace vectoriel correspondant aux solutions de l'équation <m>B\vec{x}=\vec{0}</m> est le sous-espace de l'énoncé. On utilise Sage pour réduire la matrice.
+    </p>
+    <sage>
+    <input>
+    B=matrix([[1,1,1,0,0],[0,0,0,1,3],[1,0,0,-2,1]])
+    show("rref(B)=",B.rref())
+    </input>
+    </sage>
+    <p>Cette fois, il y a deux solutions de base. Comme ici on cherche la dimension des solutions à l'équation <m>A\vec{x}=\vec{0}</m>, on obtient <m>2</m>. </p>
+    </solution>
+    </task>
     <task><statement><p><m> (\vspan((1,4,2),(2,-1,1)))^{\perp} </m></p></statement>
-    <hint><p>On peut réfléchir géométriquement dans ce cas.</p></hint></task>
-    <task><statement><p><m>(\vspan((1,4,2,1),(1,2,-1,1)))^{\perp} </m></p></statement></task>
+    <hint><p>On peut réfléchir géométriquement dans ce cas.</p></hint>
+    <answer><p><m>1</m></p></answer>
+    <solution><p>Les vecteurs <m>(1,4,2),(2,-1,1)</m> sont non parallèles et donc forment un plan dans <m>\R^3</m>. Géométriquement, on sait que le complément orthogonal d'un plan dans <m>\R^3</m> est une droite dont le vecteur directeur correspond au vecteur normal du plan.
+    La dimension de ce sous-espace est donc de <m>1</m>.</p></solution>
+    </task>
+    <task><statement><p><m>(\vspan((1,4,2,1),(1,2,-1,1)))^{\perp} </m></p></statement>
+    <answer>
+    <p><m>2</m></p>
+    </answer>
+    <solution><p>Cette fois, on ne peut pas (encore du moins) s'appuyer sur la géométrie pour répondre à la question. Soit <m>\vec{v}=(x_1,x_2,x_3,x_4)</m> un vecteur dans le complément orthogonal de l'ensemble <m>\vspan((1,4,2,1),(1,2,-1,1))</m>. On a alors
+    <md alignment="alignat">
+    <mrow>x_1&amp;{}+{}&amp;4x_2&amp;{}+{}&amp;2x_3&amp;{}+{}&amp;x_4&amp;{}={}&amp;0&amp;</mrow>
+    <mrow>x_1&amp;{}+{}&amp;2x_2&amp;{}-{}&amp;x_3&amp;{}+{}&amp;x_4&amp;{}={}&amp;0&amp;</mrow>
+    </md>.
+    
+    Toujours avec Sage, on échelonne la matrice associée à ce système. </p>
+    <sage>
+    <input>
+    D=matrix([[1,4,2,1],[1,2,-1,1]])
+    show("rref(D)=",D.rref())
+    </input>
+    </sage>
+    <p>Deux variables libres, ce qui signifie que la dimension de l'espace solution à ces équations est égale à <m>2</m>.</p>
+    </solution>
+    </task>
     </exercise>
     <exercise>
     <statement><p>Donner une preuve alternative de la proposition <xref ref="prop-soluniquezero"/> en utilisant la proposition <xref ref="prop-solgen"/>.</p></statement>
+    <solution>
+    <p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> des vecteurs linéairement indépendants et soit <m>\vec{u}</m> un vecteur dans <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)</m>. On s'intéresse aux nombres de 
+    solution à l'équation <m>x_1\vec{v}_1+x_2\vec{v}_2+\ldots + x_k\vec{v}_k=\vec{u}</m>. On peut décortiquer toutes les solutions à cette équation comme <m>\vec{x}_g=\vec{x}_p+\vec{x}_h</m> selon la proposition <xref ref="prop-solgen"/>,
+    où <m>x_p</m> est une solution, correspondant à une écriture possible du vecteur <m>\vec{u}</m> dans la base des vecteurs <m>\vec{v}</m>, et <m>\vec{x}_h</m> est l'ensemble de toutes les solutions à l'équation homogène <m>x_1\vec{v}_1+x_2\vec{v}_2+\ldots + x_k\vec{v}_k=\vec{u}</m>.</p>
+    <p>Puisque par hypothèse <m>x_h=\vec{0}</m>, on conclut que toute solution est égale à <m>\vec{x}_p</m> et donc que la solution est unique.</p>
+    </solution>
     </exercise>
+    <!-- décortiquer cet exercice (ci-bas) en parties-->
     <exercise xml:id="exo-depnbr">
     <statement>
     <p>Soit <m>V</m> un sous-espace vectoriel et <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> des vecteurs tels que <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)=V</m>. Montrer que tout ensemble
     contenant <m>l&gt; k</m> vecteurs de <m>V</m> sera linéairement dépendant.</p>
     </statement>
+    <solution>
+    <p>Soit <m>\vec{w}_1,\vec{w}_2,\ldots ,\vec{w}_l</m> des vecteurs dans <m>V</m>. Puisque <m>V=\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)</m>, on peut écrire chaque vecteur <m>\vec{w}</m> comme une combinaison linéaire des
+    vecteurs <m>\vec{v}</m>. Ainsi, on a
+    <men xml:id="eq-depnbreq1" symbol="star">
+    \vec{w}_j=a_{1,j}\vec{v}_1+a_{2,j}\vec{v}_2+\cdots +a_{k,j}\vec{v}_k=\sum_{i=1}^k a_{i,j}\vec{v}_i
+    </men> pour chaque vecteur <m>\vec{w}_j</m> avec <m>1\leq j\leq l</m>.</p>
+    <p>On a donc une liste de <m>k\times l</m> coefficients. Soit <m>A</m> la matrice de ces coefficients. Puisque <m>k&lt; l</m>, l'équation matricielle <m>A\vec{x}=\vec{0}</m> possède une infinité de solutions. Soit
+    <m>\vec{c}=(c_1,c_2,\ldots , c_l)</m> une de ces solutions différentes de <m>\vec{c}=\vec{0}</m>. On montre que ce vecteur fournit les coefficients nécessaires pour avoir une combinaison linéaire non triviale des vecteurs
+    <m>\vec{w}</m> qui donne le vecteur nul.</p>
+    <p>
+    En effet, on a
+    <md>
+    <mrow>c_1\vec{w}_1+c_2\vec{w}_2+\cdots+c_l\vec{w}_l&amp;=\sum_{j=1}^l c_j\vec{w}_j</mrow>
+    <mrow>&amp;=\sum_{j=1}^l c_j\sum_{i=1}^k a_{i,j}\vec{v}_i &amp;&amp;\text{selon } <xref ref="eq-depnbreq1"/></mrow>
+    <mrow>&amp;=\sum_{j=1}^l\sum_{i=1}^k c_ja_{i,j}\vec{v}_i &amp;&amp;\text{distributivité de la multiplication par un scalaire sur l'addition}</mrow>
+    <mrow>&amp;=\sum_{i=1}^k\sum_{j=1}^l c_ja_{i,j}\vec{v}_i &amp;&amp;\text{commutativité de l'addition}</mrow>
+    <mrow>&amp;=\sum_{i=1}^k\sum_{j=1}^l a_{i,j}c_j\vec{v}_i &amp;&amp;\text{commutativité de la multiplication}</mrow>
+    <mrow>&amp;=\sum_{i=1}^k\left(\sum_{j=1}^l a_{i,j}c_j\right)\vec{v}_i &amp;&amp;\text{mise en évidence du vecteur } \vec{v}_i</mrow>
+    <mrow>&amp;=\sum_{i=1}^k\left(A\vec{c}\right)\vec{v}_i &amp;&amp;\text{Définition du produit matrice vecteur}</mrow>
+    <mrow>&amp;=\sum_{i=1}^k 0\vec{v}_i &amp;&amp;\text{Le vecteur } \vec{c} \text{ est une solution à l'équation} A\vec{x}=\vec{0}</mrow>
+    <mrow>&amp;=\sum_{i=1}^k 0</mrow>
+    <mrow>&amp;=0</mrow>
+    </md>.
+    Ainsi, on a une combinaison linéaire non triviale qui donne le vecteur nul. Les vecteurs sont dépendants.
+    </p>
+    </solution>
     </exercise>
 </exercises>
 <!-- changement de base PBPinv --> 
