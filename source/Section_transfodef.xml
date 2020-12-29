@@ -95,7 +95,7 @@
     </ol>
     
     </p></statement></definition>
-    <p>Avant de regarder les propriétés et conséquences de cette définition, on illustre un exemple simple de transformation linéaire. La fonction au point <xref ref="li-transfolin"/> de la liste de 
+    <p>Avant de regarder les propriétés et les conséquences de cette définition, on illustre un exemple simple de transformation linéaire. La fonction au point <xref ref="li-transfolin"/> de la liste de 
     l'exemple <xref ref="ex-transfquelc"/> est une transformation linéaire (voir <xref ref="ex-transfquelclin"/>) et son effet est illustré dans la figure <xref ref="fig-transfolin1"/>.</p>
     <figure xml:id="fig-transfolin1">
     <caption>La transformation linéaire <m>T(x,y)=(x-y,x+y)</m></caption>
@@ -152,7 +152,7 @@
      </ol></p>
      </proof>
     </proposition>
-    <p>  Les transformations s'appliquent sur des vecteurs, mais comme la distinction entre point et vecteur volontairement est laissée floue, il est utile de faire la remarque suivante.</p>
+    <p>  Les transformations s'appliquent sur des vecteurs, mais comme la distinction entre point et vecteur est volontairement laissée floue, il est utile de faire la remarque suivante.</p>
     <remark xml:id="rem-transfolinpoints">
     <title>Les transformations linéaires et les points</title>
     <p>
@@ -187,8 +187,8 @@
     <mrow>T_3(c\vec{v})&amp;=T_3(cx,cy)</mrow>
     <mrow>&amp;=((cx)^2,cy-cxcy)</mrow>
     <mrow>&amp;=(c^2x^2,cy-c^2xy)</mrow>
-    <mrow>&amp;=(c(cx^2y^2),c(y-cxy))</mrow>
-    <mrow>&amp;=c(cx^2y^2,y-cxy)</mrow>
+    <mrow>&amp;=(c(cx^2),c(y-cxy))</mrow>
+    <mrow>&amp;=c(cx^2,y-cxy)</mrow>
     <mrow>&amp;\neq c T_3(x,y)</mrow>
     </md>.
     </p>
@@ -254,7 +254,7 @@
     <li xml:id="li-transfor2-rot90"><p>La rotation de <m>90^\circ</m> ou <m>\frac{\pi}{2}</m> dans le sens antihoraire, donnée par la transformation <m>R_{\frac{\pi}{2}}(x,y)=(-y,x)</m>.</p></li>
     <li xml:id="li-transfor2-Ehr"><p>Un étirement horizontal de facteur <m>r\in\R</m> est une transformation linéaire donnée par <m>Eh_r(x,y)=(rx,y)</m>.</p> <p>De même, un étirement vertical est donné par <m>Ev_r(x,y)=(x,ry)</m>.</p></li>
     <li xml:id="li-transfor2-Evr"><p>Une homothétie est une transformation qui multiplie chaque composante d'un vecteur par un facteur <m>r\in\R</m>. Elle est donnée par la transformation <m>H_r(x,y)=(rx,ry)</m>.</p></li>
-    <li xml:id="li-transfor2-P"><p>Une matrice de permutation est une matrice qui change l'ordre des composante du vecteur. Dans <m>\R^2</m>, la seule transformation qui fait ceci est <m>P(x,y)=(y,x)</m>.  </p></li>
+    <li xml:id="li-transfor2-P"><p>Une matrice de permutation est une matrice qui change l'ordre des composantes du vecteur. Dans <m>\R^2</m>, la seule transformation qui fait ceci est <m>P(x,y)=(y,x)</m>.  </p></li>
     <li xml:id="li-transfor2-proj"><p>Soit <m>\vec{w}</m> un vecteur non nul. La projection orthogonale sur <m>\vec{w}</m> est une transformation linéaire.</p></li>
     </ol>
     </list>
@@ -541,7 +541,7 @@ est simplement une combinaison linéaire des images des vecteurs <m>(1,0)</m> et
 <mrow>T(x,y)&amp;=xT(1,0)+yT(0,1)</mrow>
 <mrow >&amp;=x(a,b)+y(c,d)</mrow>
 <mrow number="yes" xml:id="eq-comblincol">&amp;=x\begin{pmatrix}a\\ b\end{pmatrix}+y\begin{pmatrix}c\\d\end{pmatrix}</mrow>
-<mrow>&amp;=\begin{pmatrix}ax\\bx\end{pmatrix}+y\begin{pmatrix}cy\\dy\end{pmatrix}</mrow>
+<mrow>&amp;=\begin{pmatrix}ax\\bx\end{pmatrix}+\begin{pmatrix}cy\\dy\end{pmatrix}</mrow>
 <mrow>&amp;=\begin{pmatrix}ax+cy\\bx+dy\end{pmatrix}</mrow>
 <mrow>&amp;=\begin{pmatrix}(a,c)\cdot (x,y)\\(b,d)\cdot(x,y)\end{pmatrix}</mrow>
 </md>.
@@ -608,12 +608,12 @@ De même, si <m>\vec{r}_1,\vec{r}_2,\ldots, \vec{r}_m</m> sont des vecteurs de <
     \vdots \\
      \vec{r}_m\cdot\vec{u} 
 \end{pmatrix}</men></p>
-<p>L'ensemble de toutes les matrices de <m>m</m> lignes et <m>n</m> colonnes est notée <m>\mathcal{M}_{m\times n}</m>. Si <m>m=n</m>, la matrice est dite carrée et l'ensemble des matrices carrées de dimension <m>n</m>, aussi
-dites d'ordre <m>n</m>, est simplement notée <m>\mathcal{M}_n</m>.</p></statement>
+<p>L'ensemble de toutes les matrices de <m>m</m> lignes et <m>n</m> colonnes est noté <m>\mathcal{M}_{m\times n}</m>. Si <m>m=n</m>, la matrice est dite carrée et l'ensemble des matrices carrées de dimension <m>n</m>, aussi
+dites d'ordre <m>n</m>, est simplement noté <m>\mathcal{M}_n</m>.</p></statement>
 </definition>
 <aside>
 <title>En passant</title>
-<p>Tout comme pour les vecteurs, la notation avec les crochet est aussi utilisée pour représenter les matrices. On aurait alors <m>A=\begin{bmatrix}
+<p>Tout comme pour les vecteurs, la notation avec les crochets est aussi utilisée pour représenter les matrices. On aurait alors <m>A=\begin{bmatrix}
 a_{1\, 1}&amp;a_{1\, 2}&amp;\cdots &amp; a_{1\, n}\\
 a_{2\, 1}&amp;a_{2\, 2}&amp;\cdots &amp; a_{2\, n}\\
 \vdots  &amp; \vdots &amp; \ddots &amp; \vdots \\
@@ -831,7 +831,7 @@ Toute matrice correspond donc à une transformation linéaire.
 </proof>
 </proposition>
 <p>Cette proposition donne une autre option pour vérifier si une transformation est linéaire. Étant donnée <m>T</m> une transformation quelconque, on peut calculer l'image des vecteurs <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>,
- les mettre dans une matrice, et vérifier que cette matrice correspond à la transformation <m>T</m>. Si c'est le cas, <m>T</m> est linéaire, sinon elle ne l'est pas<fn>Techniquement, il faudrait s'assurer que le représentation
+ les mettre dans une matrice, et vérifier que cette matrice correspond à la transformation <m>T</m>. Si c'est le cas, <m>T</m> est linéaire, sinon elle ne l'est pas<fn>Techniquement, il faudrait s'assurer que la représentation
  par une matrice d'une transformation linéaire est unique. Pour cela, voir l'exercice <xref ref="exo-reptransfomatunique"/>.</fn>.</p>
  <example xml:id="ex-transfomatrice">
  <title>Les transformations et les matrices</title>
@@ -1000,7 +1000,7 @@ w=vector([1,3,-1])
 show('Aw='A*w)
 </input>
 </sage>
-<p>On peut définir une matrice dont tous les éléments sont nuls rapidement en utilisant la commande <c>matrix(m,n,0)</c>. On aura alors une matrice <m>m\times n</m> remplies de <m>0</m>.</p>
+<p>On peut définir une matrice dont tous les éléments sont nuls rapidement en utilisant la commande <c>matrix(m,n,0)</c>. On aura alors une matrice <m>m\times n</m> remplie de <m>0</m>.</p>
 <sage>
 <input>
 Z=matrix(3,5,0)
@@ -1078,9 +1078,9 @@ plot(u,color="blue")+plot(A*u,color="red")
      </me>.
      </p></statement>
      </definition>
-     <p>Cette définition a déjà été mentionné de manière intuitive à la remarque <xref ref="rem-multscalmat"/>.</p>
+     <p>Cette définition a déjà été mentionnée de manière intuitive à la remarque <xref ref="rem-multscalmat"/>.</p>
      <example xml:id="ex-matprodscal">
-     <title>Multiplication par un scalaire d'une matrice</title>
+     <title>Multiplication d'une matrice par un scalaire </title>
      <statement><p>Soit <m>A=\begin{pmatrix}1&amp;-3&amp;2\\ -2&amp; 1 &amp;0 \end{pmatrix}</m> et <m>C=\begin{pmatrix} 1&amp;1\\ -1&amp; 2 \end{pmatrix}</m>. On calcule <m>3A</m> et <m>-2C</m>.</p></statement>
      <solution>
      <p>Selon la définition, on a

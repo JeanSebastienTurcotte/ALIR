@@ -47,7 +47,7 @@
                     </md></p>
                     <p>
                         <md>
-                            <mrow>\norm{\vec{u}+\vec{v}} &amp; =\sqrt{41}</mrow>
+                            <mrow>\norm{\vec{u}+\vec{v}} &amp; =\sqrt{37}</mrow>
                         </md>
                     </p>
                 </li>
@@ -58,7 +58,7 @@
                     </md></p>
                     <p>
                         <md>
-                            <mrow>\norm{\vec{u}-\vec{v}} &amp; =\sqrt{37}</mrow>
+                            <mrow>\norm{\vec{u}-\vec{v}} &amp; =\sqrt{41}</mrow>
                         </md>
                     </p>
                 </li>
@@ -69,7 +69,7 @@
                     </md></p>
                     <p>
                         <md>
-                            <mrow>\norm{\vec{v}-\vec{u}} &amp; =\sqrt{37}</mrow>
+                            <mrow>\norm{\vec{v}-\vec{u}} &amp; =\sqrt{41}</mrow>
                         </md>
                     </p>
                 </li>
@@ -440,7 +440,7 @@
                     Décrire le lieu géométrique de l'ensemble des points <m>Q</m> répondant à chaque expression.
                 </p>
                 <p><ol>
-                    <li><p><m>\norm{\vecl{PQ}}=\norm{u}</m></p></li>
+                    <li><p><m>\norm{\vecl{PQ}}=\norm{\vec{u}}</m></p></li>
                     <li><p><m>\norm{\vecl{PQ}}\leq 2</m></p></li>
                     <li><p><m>1\leq\norm{\vecl{PQ}}\leq 3</m></p></li>
                     <li><p><m>\vecl{PQ}=c\vec{u}, c\in\R</m></p></li>
@@ -634,10 +634,10 @@
                     <li><p>Cette inégalité se nomme l'inégalité du triangle. Elle est toujours vraie pour deux vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>.
                     Comme son nom l'indique, on la visualise bien lorsque les deux vecteurs sont additionnés avec la méthode du triangle, tel que le dessin le montre.
                     Elle signifie que la somme des longueurs des deux premiers côtés sera toujours supérieure à la longueur du dernier côté.</p></li>
-                    <li><p>Les seule façons que cela ne serait pas vrai sont lorsque <m>\vec{u}=\vec{0}</m>, lorsque <m>\vec{v}=\vec{0}</m> (ou les deux!) ou lorsque 
+                    <li><p>Les seules façons que cela ne serait pas vrai sont lorsque <m>\vec{u}=\vec{0}</m>, lorsque <m>\vec{v}=\vec{0}</m> (ou les deux!) ou lorsque 
                     les deux vecteurs ont la même orientation. Dans ce dernier cas, les trois vecteurs seraient donc sur une seule droite et l'addition de 
                     <m>\vec{u}</m> et <m>\vec{v}</m> donne clairement un vecteur de même longueur que l'addition de leurs longueurs.</p></li>
-                    <li><p>À l'inverse du la lettre précédente, cette égalité est vraie dans les trois cas donnés, mais pas lorsque les deux vecteurs sont nuls. 
+                    <li><p>À l'inverse de la lettre précédente, cette égalité est vraie dans les trois cas donnés, mais pas lorsque les deux vecteurs sont nuls. 
                     Bref, lorsque <m>\vec{u}=\vec{0}</m> ou lorsque <m>\vec{v}=\vec{0}</m> (mais pas les deux!) ou lorsque 
                     les deux vecteurs ont la même orientation.</p></li>
                     <li><p>Dans ce cas, avec les restrictions imposées, il faut absolument que les deux vecteurs soient non-nuls et aient la même orientation.</p></li>
@@ -778,7 +778,7 @@
                         <mrow>&amp; = \big(u_1+v_1+w_1,u_2+v_2+w_2\big)</mrow>
                         <mrow>&amp; = \big((u_1+v_1)+w_1,(u_2+v_2)+w_2\big)</mrow>
                         <mrow>&amp; = \big(u_1+v_1,u_2+v_2\big)+(w_1,w_2)</mrow>
-                        <mrow>&amp; = +\big((u_1,u_2)+(v_1,v_2)\big)+(w_1,w_2)</mrow>
+                        <mrow>&amp; = \big((u_1,u_2)+(v_1,v_2)\big)+(w_1,w_2)</mrow>
                         <mrow>&amp; =(\vec{u}+\vec{v})+\vec{w}</mrow>
                     </md></p></li>
                     <li><p><md>
@@ -805,7 +805,7 @@
                     </md></p></li>
                     <li><p><md>
                         <mrow>r(\vec{u}+\vec{v}) &amp;=r\big((u_1,u_2)+(v_1,v_2)\big)</mrow>
-                        <mrow> &amp;=r\big(u_1+v_1,u_2+v_2)\big)</mrow>
+                        <mrow> &amp;=r\big(u_1+v_1,u_2+v_2\big)</mrow>
                         <mrow> &amp;=\big(r(u_1+v_1),r(u_2+v_2)\big)</mrow>
                         <mrow> &amp;=\big(ru_1+rv_1,ru_2+rv_2\big)</mrow>
                         <mrow> &amp;=(ru_1,ru_2)+(rv_1,rv_2)</mrow>
@@ -958,8 +958,8 @@
                             <mrow>\vecl{AB}+\vecl{CG}+\vecl{CA} &amp; =\vecl{AB}+\vecl{CG}+\vecl{CB}+\vecl{BA}</mrow>
                             <mrow> &amp; =\vecl{AB}+\vecl{BA}+\vecl{CG}+\vecl{CB}</mrow>
                             <mrow> &amp; =\vec{0}+\vecl{CG}+\vecl{GF}</mrow>
-                            <mrow> &amp; \neq \vecl{CG}</mrow>
-                            <mrow> &amp; = \vecl{DH}</mrow>
+                            <mrow> &amp; = \vecl{CF}</mrow>
+                            <mrow> &amp; \neq \vecl{DH}</mrow>
                         </md></p>
                         <p>C'est donc faux.</p>
                     </li>
@@ -1101,7 +1101,7 @@
     Le but de cet exercice est de créer deux fonctions Sage. La première, étant donné un angle <m>\theta</m> en degrés, va calculer la valeur de l'angle en radians. La seconde, étant donné un angle <m>\theta</m> en radians,
      va calculer la valeur de l'angle en degrés. </p>
      <p><ol>
-        <li><p> Plus précisemment, créer une fonction nommée <c>radians</c> qui va prendre comme argument un nombre réel correspondant à une valeur d'angle en degrés et la convertir en radians. Ensuite, créer une fonction
+        <li><p> Plus précisément, créer une fonction nommée <c>radians</c> qui va prendre comme argument un nombre réel correspondant à une valeur d'angle en degrés et la convertir en radians. Ensuite, créer une fonction
          nommée <c>degres</c> qui va prendre comme argument un nombre réel correspondant à une valeur d'angle en radians et la convertir en degrés. </p>
          <sage>
          <input>

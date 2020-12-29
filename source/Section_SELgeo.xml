@@ -121,8 +121,8 @@ show("rref(Baug)=",Baug.rref())
     que l'expression &#x00AB; de base &#x00BB; est reliée à la notion de base d'un espace vectoriel.</fn></p>
     <p> Il y a autant de solutions de base que de variables libres. Si la matrice <m>A</m> ne possède pas de variables libres, la seule solution à l'équation
     <m>A\vec{x}=\vec{0}</m> est le vecteur <m>\vec{0}</m>. Celui-ci n'est pas &#x00AB; spécial &#x00BB;.</p>
-    <p>L'ensemble de toutes les combinaisons linéaires des solutions de base additionnées du vecteur <m>nul</m> est appelé la solution homogène 
-    et est notée <m>\vec{x}_h</m>.</p>
+    <p>L'ensemble de toutes les combinaisons linéaires des solutions de base additionnées du vecteur <m>nul</m> est appelé la solution homogène. 
+    On la note <m>\vec{x}_h</m>.</p>
     </statement>
     </definition>
     <p>Les solutions de base sont un exemple du concept de base d'un espace, qui sera défini dans le chapitre <xref provisional="chap-espvec"/>. L'ensemble des combinaisons linéaires
@@ -134,8 +134,8 @@ show("rref(Baug)=",Baug.rref())
     <example xml:id="ex-solbase1">
     <title>Solutions de base de matrices échelonnées réduites</title>
     <statement>
-    <p>On cherche à déterminer les solutions de base pour les matrices suivantes. Les matrices ne sont pas augmentées, car les solutions de base sont toujours lorsque
-    la partie augmentée est le vecteur nul. L'information additionnelle de la colonne augmentée n'est pas utile.
+    <p>On cherche à déterminer les solutions de base pour les matrices suivantes. Les matrices ne sont pas augmentées, car les solutions de base sont toujours obtenues lorsque
+    la partie augmentée est le vecteur nul. L'information additionnelle de la colonne augmentée n'est donc pas utile.
     <ol>
     <li><p><m>A=\left(\begin{array}{rrr}
 1 &amp; 0 &amp; -1 \\
@@ -181,7 +181,7 @@ show("rref(Baug)=",Baug.rref())
     solution de base <m>\vec{s}_2=(-1,0,1)</m>. La solution homogène est <m>\vec{x}_h=y\vec{s}_1+z\vec{s}_2</m> pour <m>y,z\in \R</m>.</p>
     </solution>
     <solution>
-    <p>Dans cet exemple, les variables <m>x_1</m> et <m>x_3</m> sont pivots et les variables <m>x_2,x_4</m> et <m>x_5</m> sont  libres. On écrit les équations de ce systèmes:
+    <p>Dans cet exemple, les variables <m>x_1</m> et <m>x_3</m> sont pivots et les variables <m>x_2,x_4</m> et <m>x_5</m> sont  libres. On écrit les équations de ce système:
     <md aligment="alignat">
     <mrow>x_1&amp;{}+{}&amp;4x_2&amp;{}+{}&amp;&amp;&amp;3x_4&amp;{}+{}&amp;x_5&amp;{}={}&amp;0</mrow>
     <mrow>&amp; &amp;&amp;&amp;x_3&amp;{}+{}&amp;2x_4&amp;{}-{}&amp;2x_5&amp;{}={}&amp;0</mrow>
@@ -415,7 +415,7 @@ show(C.rref())
     <statement><p>Soit <m>A</m> une matrice de taille <m>m\times n</m>, <m>\vec{a}_i</m> la ligne <m>i</m> de la matrice et
     <m>\vec{z}</m> un vecteur tel que <m>A\vec{z}=\vec{0}</m>.</p>
     <p>Alors <m>\vec{z}\cdot \vec{a}_i=0</m>, c'est-à-dire les zéros de la matrice sont perpendiculaires à ses lignes.</p></statement>
-    <proof><p>La preuve est essentiellement faites dans la discussion qui précède l'exemple <xref ref="ex-zerosperplignes"/>.</p></proof></proposition>
+    <proof><p>La preuve est essentiellement faite dans la discussion qui précède l'exemple <xref ref="ex-zerosperplignes"/>.</p></proof></proposition>
 
 <!-- On commente l'algorithme résumant l'approche I et L
 <p>On résume la procédure de l'exemple <xref ref="ex-sousmatriceIL"/> pour trouver les solutions de base dans l'algorithme qui suit.</p>
@@ -439,12 +439,12 @@ Aux positions libres, inscrire dans le vecteur <m>\vec{s_i}</m> la colonne <m>i<
 </statement>
 </algorithm>
 -->
-<p>On termine avec des commandes Sage en lien avec la sous-section</p>
+<p>On termine avec des commandes Sage en lien avec la sous-section.</p>
 <computation xml:id="sageex-Ax0">
 <title>La matrice L et les solutions de base</title>
 <p>On souhaite créer une fonction Sage qui retourne les solutions de base d'une matrice en reproduisant l'algorithme <xref provisional="algo-solbase"/>. Pour cela, on crée 
 d'abord une fonction <c>matL</c> qui va retourner la matrice <m>L</m> associée à la forme échelonnée réduite d'une matrice <m>A</m> quelconque. Voici quelques nouvelles fonctions
-Sage qui seront utiles et une manière de d'ajouter des composantes à un vecteur:
+Sage qui seront utiles et une manière d'ajouter des composantes à un vecteur:
 <ul>
 <li><p>Les fonctions <c>matrix_from_rows</c> et <c>matrix_from_columns</c> permettent de créer une matrice à partir des lignes ou des colonnes d'une autre matrice.</p>
 <sage>
@@ -453,7 +453,7 @@ A=random_matrix(QQ,8,6) #Une matrice aléatoire 8x6. L'argument QQ fait en sorte
 show("La matrice A:",A)
 show("La matrice formée à partir des lignes 1,2,3 de la matrice A:",A.matrix_from_rows([0,1,2]))
 show("La matrice formée à partir des lignes 4,6,7,8 de la matrice A:",A.matrix_from_rows([3,5,6,7]))
-show("La matrice formée à partir des lignes 6,4,1, de la matrice A, dans cet ordre:",A.matrix_from_rows([5,4,0])) # L'ordre est important
+show("La matrice formée à partir des lignes 6,4,1, de la matrice A, dans cet ordre:",A.matrix_from_rows([5,3,0])) # L'ordre est important
 show("La matrice formée à partir des lignes 2,2,3 de la matrice A",A.matrix_from_rows([1,1,2]))  #On peut répéter des lignes
 #Similaire avec les colonnes
 show("La matrice formée à partir des colonnes 1,2,3,4 de la matrice A",A.matrix_from_columns([0,1,2,3]))
@@ -464,9 +464,9 @@ show("La matrice formée à partir de l'intersection des lignes 2,3 et des colon
 </input>
 </sage>
 </li>
-<li><p>Parfois, on ne sait pas quelles seront les entrées d'un vecteur, ou on veut construire un vecteur en étape, une entrée à la fois. Pour effectuer cela,
+<li><p>Parfois, on ne sait pas quelles seront les entrées d'un vecteur, ou bien on veut construire un vecteur en étape, une entrée à la fois. Pour effectuer cela,
 on utilisera plutôt une liste Sage, que l'on convertira en vecteur par la suite. Par exemple, si on dispose d'une liste <c>l1=[1,3,4]</c> et d'une autre liste
-<c>l2=[2,4,6]</c> et qu'on veut créer les vecteurs qui prennent leurs valeurs en alternant d'une liste à l'autre, on fera</p>
+<c>l2=[2,4,6]</c> et qu'on veut créer les vecteurs qui prennent ces valeurs en alternant d'une liste à l'autre, on fera</p>
 <sage>
 <input>
 l1=[1,3,4]
@@ -523,7 +523,7 @@ show("R=",R)
 show("L=",matL(R))
 </input>
 </sage>
-<p>On va maintenant créer la fonction <c>solbase(A)</c>, qui à partir d'une matrice <m>A</m> va retourner les solutions de base de l'équation <m>A\vec{x}=\vec{0}</m>. À
+<p>On va maintenant créer la fonction <c>solbase(A)</c>, qui à partir d'une matrice <m>A</m>, va retourner les solutions de base de l'équation <m>A\vec{x}=\vec{0}</m>. À
 l'intérieur de celle-ci, on va utiliser la fonction <c>matL</c> créée ci-dessus.</p>
 <sage>
 <input>
@@ -568,7 +568,7 @@ solbase(R)
     <subsection>
     <title>L'image d'une transformation linéaire</title>
     <p>L'équation <m>A\vec{x}=\vec{0}</m> a toujours une solution. Parfois, elle en a une infinité. Lorsqu'on remplace le vecteur nul par un vecteur quelconque, l'équation
-    <men xml:id="eq-Axb" symbol="star">A\vec{x}=\vec{b}</men> peut ne pas avoir de solution. Étant donnée une matrice <m>A</m>, pour quel(s) vecteur(s) <m>\vec{b}</m> l'équation
+    <men xml:id="eq-Axb" symbol="star">A\vec{x}=\vec{b}</men> peut ne pas avoir de solution(s). Étant donnée une matrice <m>A</m>, pour quel(s) vecteur(s) <m>\vec{b}</m> l'équation
     <xref ref="eq-Axb"/> possède-t-elle au moins une solution?</p>
     <p>Géométriquement parlant, quels sont les vecteurs qui sont atteints par la transformation linéaire <m>A</m>, c'est-à-dire, quels sont les vecteurs qui forment l'image de cette transformation? On explore quelques cas
     dans l'exemple suivant.</p>
@@ -763,7 +763,7 @@ une solution.
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-imgalg">
     <!-- watch for progress on https://trac.sagemath.org/ticket/23715 -->
-    <title>L'image de transformations linéaire et Sage</title>
+    <title>L'image de transformations linéaires et Sage</title>
     <p>Sage ne pourra pas travailler directement avec les variables comme <m>b_1,b_2,b_3</m> si on ne l'aide pas un peu. Pour déterminer l'image d'une transformation 
     avec Sage, trois ajustements seront nécessaires. Leur raison d'être est liée au fonctionnement du logiciel et dépasse le niveau du manuel. On se contente d'appliquer la solution. On constate
     l'ajout d'une ligne <c>R.&lt;b1,b2,b3>=QQ[]</c> au code. De plus, la colonne augmentée est inscrite à même la matrice. Finalement, on note l'utilisation de la fonction <c>echelon_form()</c> plutôt que le standard <c>rref()</c>. Avec 
@@ -808,7 +808,7 @@ show("rref(C)=",C.echelon_form())
     Pour comprendre cela, on se rappelle que le produit <m>A\vec{x}</m> peut être interprété comme <xref ref="eq-matvecprodgen">les combinaisons linéaire des
     colonnes de la matrice <m>A</m></xref>. L'ensemble des <m>\vec{b}</m> s'écrivant comme ces combinaisons linéaires  constitue donc l'image de la transformation <m>A</m>. 
     </p>
-    <p>Il semble toutefois qu'il n'est pas nécessaire d'utiliser toutes les colonnes pour engendrer l'image, comme le montre les images des matrices <m>P,C</m> et <m>B</m>.
+    <p>Il semble toutefois qu'il n'est pas nécessaire d'utiliser toutes les colonnes pour engendrer l'image, comme le montrent les images des matrices <m>P,C</m> et <m>B</m>.
     La  section <xref provisional="sec-bases4ssesp"/> va donner la réponse à cette question.
     </p></remark>
     </subsection>
@@ -971,9 +971,9 @@ show("(B|b2)=",Baug.rref())
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-solstd">
     <title>La solution générale avec Sage</title>
-    <p>Dans cet exempe, on s'intéresse à créer une fonction <c>solgen</c> qui étant donné une matrice et un vecteur va retourner la solution générale à l'équation
+    <p>Dans cet exemple, on s'intéresse à créer une fonction <c>solgen</c> qui étant donné une matrice et un vecteur va retourner la solution générale à l'équation
     <m>A\vec{x}=\vec{b}</m>.  La fonction devrait être relativement simple à créer, puisqu'on peut partir de la fonction <c>solbase</c> qui retourne
-    déjà les solutions de base. Ce qu'il faut considérer est que maintenant, il se peut que l'équation <m>A\vec{x}=\vec{b}</m> ne possède pas de solutions. Pour cela, on
+    déjà les solutions de base. Ce qu'il faut considérer est que maintenant, il se peut que l'équation <m>A\vec{x}=\vec{b}</m> ne possède pas de solution(s). Pour cela, on
     utilise la propositon <xref ref="prop-rangmcomp"/>.</p>
     <p>Pour ce qui est de la solution particulière, il suffit de rappeler que les entrées importantes de celle-ci se trouvent dans la colonne augmentée de la matrice. Ces 
     entrées sont dans les lignes non nulles de la forme échelonnée réduite et vont à la position du pivot de cette ligne.</p>
@@ -1022,7 +1022,7 @@ show(solgen(C,c))
     échelonne une matrice, enlève les lignes nulles et retourne la sous-matrice des colonnes qui ne 
     sont pas pivots.
     <ul>
-    <li><p>Est-ce qu'elle fonctionne toujours lorsque la matrice est déja échelonnée?</p></li>
+    <li><p>Est-ce qu'elle fonctionne toujours lorsque la matrice est déjà échelonnée?</p></li>
     <li><p>Qu'arrive-t-il si toutes les variables sont pivots? Est-ce la réponse attendue?</p></li>
     <li><p>Et si aucune des variables n'est pivot? Il faut qu'une autre fonction qui utilise <c>matL</c> puisse se 
     servir de la réponse &#x00AB; vide &#x00BB;.</p></li>

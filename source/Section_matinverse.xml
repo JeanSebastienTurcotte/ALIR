@@ -85,7 +85,7 @@
     de facteur <m>\frac{1}{r}</m>. On débute par considérer le cas <m>r\neq 0</m> avant de réfléchir à ce que représente un étirement de facteur <m>0</m> et son inverse. Ainsi, si <m>r\neq 0</m>, on a
     <md>
     <mrow> Eh_{1/r}Eh_{r}&amp;=\begin{pmatrix} \frac{1}{r} &amp; 0\\ 0&amp; 1\end{pmatrix}\begin{pmatrix} r &amp; 0\\ 0&amp; 1\end{pmatrix}</mrow>
-    <mrow>&amp;=\begin{pmatrix} 1 &amp; 0\\ 0&amp; 1\end{pmatrix} &amp;&amp; \text{on arrive à ceci avec l'une ou l'autre des interprétations du produit matriciel.}</mrow>
+    <mrow>&amp;=\begin{pmatrix} 1 &amp; 0\\ 0&amp; 1\end{pmatrix} &amp;&amp; \text{On arrive à ceci avec l'une ou l'autre des interprétations du produit matriciel}</mrow>
     </md>.
     Ainsi, <m>Eh_r^{-1}=Eh_{\frac{1}{r}}</m> si <m>r\neq 0</m>.
     </p>
@@ -102,7 +102,7 @@
     <p>La solution pour l'inverse de <m>Ev_r</m> est donnée à l'exercice <xref provisional="exo-Evrinv"/>.</p>
     </solution>
     <solution>
-    <p>Il est évident que si les composantes d'un vecteurs ont été permutées, cette même permutation redonnera le vecteur initial. Ainsi, <m>P^{-1}=P</m>. La vérification algébrique est laissée au lecteur.</p>
+    <p>Il est évident que si les composantes d'un vecteur ont été permutées, cette même permutation redonnera le vecteur initial. Ainsi, <m>P^{-1}=P</m>. La vérification algébrique est laissée au lecteur.</p>
     </solution>
     <solution>
     <p>On est forcé une fois de plus à réfléchir à la signification de l'inverse d'une transformation avec le cas de la projection orthogonale. Si on pense aux fonctions réelles traditionnelles et à leur inverse, quelque chose de commun ressort.
@@ -159,7 +159,7 @@
     </md>
      et d'autre part
       <md>
-    <mrow>A^{-1}\vecd{1}{5}&amp;=\vecd{0}{2} </mrow>
+    <mrow>A^{-1}\vecd{1}{5}&amp;=\vecd{0}{1} </mrow>
     <mrow number="yes" xml:id="eq-matinverse1-2">\vecd{x+5z}{y+5w}&amp;=\vecd{0}{1} </mrow>
     </md>.
     </p>
@@ -229,7 +229,7 @@
     <p>En multipliant maintenant la première équation du premier système par <m>d</m> et la seconde par <m>b</m>, on obtient
     <mdn>
     <mrow xml:id="eq-matinverse2x2-3">adx+bdz&amp;=d </mrow>
-    <mrow xml:id="eq-matinverse2x2-4"> abx+bdz&amp;=0</mrow>
+    <mrow xml:id="eq-matinverse2x2-4"> cbx+bdz&amp;=0</mrow>
     </mdn>.
     En soustrayant  cette fois l'équation <xref ref="eq-matinverse2x2-4"/> de l'équation <xref ref="eq-matinverse2x2-3"/>, on obtient
     <me>
@@ -402,7 +402,7 @@ show("Tu2=",T*u2)
     <p>Soit <m>\vec{v}\in \R^n</m> un vecteur de l'image de <m>A</m>. On cherche <m>\vec{u}</m> tel que <m>A\vec{u}=\vec{v}</m>. Puisque <m>A</m> possède un inverse <m>A^{-1}</m>, on a
     <md>
     <mrow>A\vec{u}&amp;=\vec{v}</mrow>
-    <mrow>A^{-1}A\vec{u}&amp;=A^{-1}\vec{v} &amp;&amp; \text{ En multipliant à droite de chaque côté par } A^{-1}\text{. Le côté droit de l'égalité est bien défini, ca l'inverse est une transformation dont le domaine est } \R^n\text{.}</mrow>
+    <mrow>A^{-1}A\vec{u}&amp;=A^{-1}\vec{v} &amp;&amp; \text{ En multipliant à gauche de chaque côté par } A^{-1}\text{. Le côté droit de l'égalité est bien défini, car l'inverse est une transformation dont le domaine est } \R^n\text{.}</mrow>
     <mrow>I\vec{u}&amp;=A^{-1}\vec{v} &amp;&amp; \text{ car } A^{-1} \text{ est l'inverse de } A\text{.}</mrow>
     <mrow>\vec{u}&amp;=A^{-1}\vec{v} &amp;&amp; \text{par }<xref ref="def-matid">définition</xref> \text{ de la transformation identité.}</mrow>
     </md>.
@@ -439,7 +439,7 @@ show("Tu2=",T*u2)
     </p>
     <p>
     La proposition <xref ref="prop-investsurj"/> montre donc qu'une transformation linéaire inversible est surjective alors que
-    la proposition <xref ref="prop-surjestinv"/> montre elle qu'une transformation surjective est inversible.</p>
+    la proposition <xref ref="prop-surjestinv"/> montre qu'une transformation surjective est inversible.</p>
     <p>Lorsqu'une fonction est telle que si <m>f(x)=f(y)</m>, alors <m>x=y</m>, on dit qu'elle est injective (en anglais on dit parfois "one-to-one"). Cela signifie que chaque valeur atteinte dans <m>Y</m> ne l'est que par un et un seul <m>x</m>.</p>
     <p>Une fonction qui est à la fois injective et surjective est dite bijective.</p>
     </aside>
@@ -629,9 +629,9 @@ show("A^(-1)A=",Ainv*A)
      </proposition>
      <aside>
      <title>En passant</title>
-     <p>Parfois, la proposition <xref ref="prop-inverseproduit"/> est appelé le théorème du bas et du soulier. L'analogie va comme suit:</p>
-     <p>Lorsqu'on se lève le matin pour quitter la maison, on commence par mettre des bas à ses pieds, pour ensuite mettre des souliers. Le soir venu, on enlève d'abord
-     les souliers, puis ensuite les bas. L'inverse de mettre ses bas puis ses souliers est donc enlever ses souliers puis ses bas:
+     <p>Parfois, la proposition <xref ref="prop-inverseproduit"/> est appelée le théorème du bas et du soulier. L'analogie va comme suit:</p>
+     <p>Lorsqu'on se lève le matin pour quitter la maison, on commence par mettre des bas à ses pieds, pour  mettre ensuite des souliers. Le soir venu, on enlève d'abord
+     les souliers, puis ensuite les bas. L'inverse de mettre ses bas puis ses souliers est donc d'enlever ses souliers puis ses bas:
      <me>
      (\text{bas}\circ \text{souliers})^{-1}=\text{soulier}^{-1}\circ\text{bas}^{-1}
      </me>.</p>
@@ -774,7 +774,7 @@ show("A^(-1)A=",Ainv*A)
     <title>L'algèbre matricielle avec Sage</title>
     <p>Parfois, il est pratique de travailler avec des matrices génériques, de manière purement algébrique, sans se soucier des entrées spécifiques des matrices. 
     Malheureusement, Sage ne permet pas (encore) l'utilisation de variables pour des matrices comme on l'a fait dans les exemples <xref ref="ex-algmat1"/> et <xref ref="ex-algmat2"/>.
-    On fait un compromis en se créant une matrice arbitraire de taille spécifique. Les calculs faits ainsi ne pourront donc pas êtres considérés comme des preuves des
+    On fait un compromis en se créant une matrice arbitraire de taille spécifique. Les calculs faits ainsi ne pourront donc pas être considérés comme des preuves des
     identités, mais au moins une vérification plus générale qu'un exemple spécifique.
     </p>
     <p>On doit dans un premier temps créer une matrice dont les entrées seront arbitraires, par exemple

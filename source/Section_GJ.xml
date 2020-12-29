@@ -16,7 +16,7 @@
     <p>Un système d'équations linéaires (SEL) est un ensemble d'équations comprenant un certain nombre de variables qui sont multipliées par des constantes. Par exemple,
     les équations 
     <md><mrow>x+y&amp;=1</mrow> <mrow>x-y&amp;=2</mrow></md> 
-    est un système d'équations linéaires, tout comme 
+    forment un système d'équations linéaires, tout comme 
     <md alignment="alignat"><mrow>x&amp; {}+{} &amp;2y&amp;{}-{}&amp;z&amp;{}={}&amp;1</mrow><mrow>4x&amp;{}-{}&amp;5y &amp;&amp; &amp;{}={}&amp;-1</mrow><mrow>&amp;&amp;3y&amp;{}+{}&amp;z&amp;{}={}&amp;0</mrow></md>.
     Par contre, le système
     <md>
@@ -35,7 +35,7 @@
     <mrow>x+2y&amp;=4</mrow>
     <mrow>2x+3y&amp;=7</mrow>
     </md>.
-    C'est un système d'équations linéaires à deux équations et deux inconnues. On y reconnait aussi les équations <xref ref="eq-normale2" >normales</xref> de deux droites de <m>\R^2</m>.
+    C'est un système d'équations linéaires à deux équations et à deux inconnues. On y reconnait aussi les équations <xref ref="eq-normale2" >normales</xref> de deux droites de <m>\R^2</m>.
     Satisfaire ces deux équations simultanément serait donc équivalent à trouver l'intersection des deux droites. On peut ainsi se poser la question, étant données deux droites de <m>\R^2</m>,
     de combien de façons peuvent-elles être configurées? Combien de points d'intersection y a-t-il dans chaque cas?
     </p>
@@ -43,7 +43,7 @@
     <md>
     <mrow>x+2y&amp;=4</mrow>
     <mrow>2x+4y&amp;=7</mrow>
-    </md>et les deux sont maintenant parallèles, distinctes (les vecteurs normaux sont parallèles).  </p>
+    </md>et les deux sont maintenant parallèles et distinctes (les vecteurs normaux sont parallèles).  </p>
     <p> Si, à partir de ce deuxième système, on change le <m>7</m> pour un <m>8</m>, on obtient
     <md>
     <mrow>x+2y&amp;=4</mrow>
@@ -52,7 +52,7 @@
     On remarque que la seconde équation n'est rien d'autre que la première multipliée par <m>2</m>. Les deux droites sont donc en fait la même droite, puisqu'on peut
     simplifier l'écriture de l'une pour obtenir l'autre. On peut aussi les voir comme des droites parallèles confondues.
     
-    Ces trois cas sont en fait les seules possibilités pour un SEL à deux équations et deux inconnues. Ils sont illustrés aux figures <xref first="fig-sel2x2geo-1" last="fig-sel2x2geo-3"/>.</p>
+    Ces trois cas sont en fait les seules possibilités pour un SEL à deux équations et à deux inconnues. Ils sont illustrés aux figures <xref first="fig-sel2x2geo-1" last="fig-sel2x2geo-3"/>.</p>
     <sidebyside>
     <figure xml:id="fig-sel2x2geo-1">
     <caption>Des droites sécantes dans <m>\R^2</m>.</caption>
@@ -63,13 +63,13 @@
     </image>
     </figure>
      <figure xml:id="fig-sel2x2geo-3">
-    <caption>Des droites parallèeles distinctes dans <m>\R^2</m>.</caption>
+    <caption>Des droites parallèles distinctes dans <m>\R^2</m>.</caption>
     <image>
     <sageplot>
     plot(2-x/2,x,-3,3,color="blue")+plot(5/3-x/2,x,-3,3,color="red")
     </sageplot>
     <figure xml:id="fig-sel2x2geo-2">
-    <caption>Des droites parallèles confoncudes dans <m>\R^2</m>.</caption>
+    <caption>Des droites parallèles confondues dans <m>\R^2</m>.</caption>
     <image>
     <sageplot>
     plot(2-x/2,x,-3,3,color="purple")
@@ -141,7 +141,7 @@
     <mrow>2x+4y&amp;=8</mrow>
     </md>.
     </p>
-    <p>On veut écrire chacun de ces SELs sous forme matricielle.</p></statement>
+    <p>On veut écrire chacun de ces systèmes d'équations linéaires sous forme matricielle.</p></statement>
     <solution>
     <p>Si on pose <m>A=\matcold{1}{2}{2}{3}, B=\matcold{1}{2}{2}{4},\vec{b}=\vecd{4}{7}</m> et <m>\vec{c}=\vecd{4}{8}</m>, les SELs s'écrivent respectivement comme
     <md>
@@ -207,7 +207,7 @@
     <!--                 -->
     <subsection xml:id="sssec-opelem">
     <title>Opérations et matrices élémentaires</title>
-    <p>On regarde le système simplifé
+    <p>On regarde le système simplifié
     <md alignment="alignat">
     <mrow>x&amp; {}{}&amp;&amp;{}={}&amp;2 </mrow>
     <mrow>&amp;{}{} &amp;y&amp;{}={}&amp;1</mrow>
@@ -228,7 +228,7 @@
     <mrow>2x+3y&amp;=7</mrow>
     </md>.
     Une vérification rapide montre que le couple <m>x=2,y=1</m> satisfait cette paire d'équations. Plusieurs méthodes peuvent être utilisées pour résoudre ce système, par
-    exemple, par comparaison, substitution, réduction ou une combinaison de ces trois techniques.</p>
+    exemple, par comparaison, par substitution, par réduction ou par une combinaison de ces trois techniques.</p>
     <p>Le but de cette section est de développer une méthode générale, par le biais d'un algorithme qui permettra de trouver la ou les solutions à n'importe quel système 
     d'équations linéaires. De plus, si le système n'a aucune solution, la méthode le dira. </p>
     <p>On s'intéresse au système 
@@ -243,14 +243,14 @@
     <mrow>-x&amp;{}-{}&amp;2y&amp;{}={}&amp;-4</mrow>
     </md>
     devrait aussi posséder la même solution, puisqu'en divisant la première équation par <m>2</m> et la seconde par <m>-1</m> on obtient le système précédent. Une simple vérification
-    permet de constater que <m>x=1,y=2</m> est bel et bien une solution.
+    permet de constater que <m>x=2,y=1</m> est bel et bien une solution.
     </p>
     <p>Finalement, on considère le système
     <md alignment="alignat">
     <mrow>2x\amp{}+{}&amp;3y&amp;{}={}&amp;7</mrow>
     <mrow number="yes" xml:id="eq-sys2x2-3">-x\amp{}-{}&amp;y\amp{}={}\amp-3</mrow>
     </md>.
-    Ce système a la même première équation que le premier système, mais la seconde est différente. En fait, géométriquement, c'est une tout autre droite. Pourtant, la solution <m>x=2,y=1</m>
+    Ce système a la même première équation que le premier système, mais la seconde est différente. En fait, géométriquement, c'est une toute autre droite. Pourtant, la solution <m>x=2,y=1</m>
 est encore valide. Les trois droites sont illustrées à la figure <xref ref="fig-sel2x2geo-4"/>. 
 </p>
 <figure xml:id="fig-sel2x2geo-4">
@@ -329,8 +329,8 @@ est encore valide. Les trois droites sont illustrées à la figure <xref ref="fi
      <p>La solution de l'exemple précédent montre que si on arrive à transformer un SEL en utilisant les opérations élémentaires, on peut espérer arriver à un SEL équivalent
      qui sera plus simple à résoudre. Toutefois, des questions demeurent. Est-on assuré que les solutions du nouveau système seront les mêmes que celles du système initial?
      Qui plus est, si on avait effectué un choix différent d'opérations élémentaires, est-ce qu'on aurait obtenu la même solution? Combien de solutions peut-il y avoir?</p>
-     <p>La méthode de Gauss-Jordan qu'on présentera à la section <xref ref="sssec-GJ"/> donne une manière algorithmique de trouver toutes les solutions à un SEL, peut importe 
-     les opérations élémentaires effectuées. Elle fonctionne entre autre grâce à la proposition suivante.</p>
+     <p>La méthode de Gauss-Jordan qu'on présentera à la section <xref ref="sssec-GJ"/> donne une manière algorithmique de trouver toutes les solutions à un SEL, peu importe 
+     les opérations élémentaires effectuées. Elle fonctionne entre autres grâce à la proposition suivante.</p>
      <proposition xml:id="prop-opelemsol">
      <title>Les opérations élémentaires préservent les solutions</title>
      <statement><p>Soit <m>A</m> et <m>B</m> deux matrices telles que les systèmes <m>A\vec{x}=\vec{b}</m> et <m>B\vec{y}=\vec{c}</m> sont équivalents. Alors l'ensemble solution
@@ -380,7 +380,7 @@ a_{2\, 1}&amp;a_{2\, 2}&amp;\cdots &amp; a_{2\, n}&amp;|&amp; b_2\\
 a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix}
      </me>.</p></statement>
      </definition>
-     <p>Lors du calcul d'un SEL équivalent, il est possible de travailler avec la matrice augmentée seulement et de facilement convertir sous la forme SEL par la suite. Ceci sera
+     <p>Lors du calcul d'un SEL équivalent, il est possible de travailler avec la matrice augmentée seulement et de facilement la convertir sous la forme SEL par la suite. Ceci sera
      illustré dans les exemples subséquents.</p>
      <p>Avant de terminer cette sous-section, on montre que les opérations élémentaires peuvent être vues comme étant tout simplement une application du produit matriciel.
      Cette constatation a des applications plus théoriques que pratiques, mais on en verra l'utilité prochainement.</p>
@@ -396,7 +396,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      <title>Les matrices élémentaires</title>
      <statement>
      <p>
-     Pour chaque opération élémentaire de l'exemple <xref ref="ex-opelem"/>, on donne la matrice élémentaire associée. Leur utilité sera exploré dans l'exemple calculatoire
+     Pour chaque opération élémentaire de l'exemple <xref ref="ex-opelem"/>, on donne la matrice élémentaire associée. Leur utilité sera explorée dans l'exemple calculatoire
      <xref ref="sageex-matelem"/>.
      </p></statement>
      <solution>
@@ -440,8 +440,8 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
      <computation xml:id="sageex-matelem">
      <title>Les matrices élémentaires sur Sage</title>
-     <p>Les matrices élémentaires peuvent être codées avec Sage. La syntaxe est <c>elementary_matrix(n, row1=i,row2=j, scale=r)</c>, où <m>n</m> est la taille de la matrice carré. 
-     Selon l'opération qu'on veut effetuer, certains arguments ne seront pas utilisés. Par exemple, si on ne met pas <m>r</m>, l'opération est d'interchanger les lignes. Si on omets le <m>j</m>, l'opération est
+     <p>Les matrices élémentaires peuvent être codées avec Sage. La syntaxe est <c>elementary_matrix(n, row1=i,row2=j, scale=r)</c>, où <m>n</m> est la taille de la matrice carrée. 
+     Selon l'opération que l'on veut effectuer, certains arguments ne seront pas utilisés. Par exemple, si on ne met pas <m>r</m>, l'opération est d'interchanger les lignes. Si on omet le <m>j</m>, l'opération est
      de multiplier la ligne <m>i</m> par <m>r</m> et si les trois arguments sont présents, l'opération est <m>rL_j+L_i\rightarrow L_i</m>.</p>
      <p>On regarde cela en action, en utilisant les matrices élémentaires de l'exemple <xref ref="ex-matelem"/>.</p>
      <sage>
@@ -453,7 +453,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      E5=elementary_matrix(3,row1=2,scale=-2/3)
      </input>
      </sage>
-     <p>L'avantage de ces matrices, c'est que les opérations élémentaires peuvent êtres vues comme la multiplication par la gauche d'une matrice élémentaire. Afin de voir cela,
+     <p>L'avantage de ces matrices, c'est que les opérations élémentaires peuvent être vues comme la multiplication par la gauche d'une matrice élémentaire. Afin de voir cela,
      on propose de refaire la simplification de l'exemple <xref ref="ex-opelem"/> à l'aide des matrices <m>E_1</m> à <m>E_5</m>. On introduit également la matrice augmentée avec
      Sage.</p>
      <sage>
@@ -480,7 +480,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </subsection>
     <subsection xml:id="sssec-GJ">
     <title>La méthode de Gauss-Jordan</title>
-    <p>Dans la dernière sous-section, on a vu que les opérations élémentaires permettent de prendre un système d'équations linéaires et le transformer en un système
+    <p>Dans la dernière sous-section, on a vu que les opérations élémentaires permettent de prendre un système d'équations linéaires et de le transformer en un système
     équivalent, plus simple. Il serait intéressant d'avoir une méthode applicable dans tous les cas, avec un critère clair pour savoir quand arrêter. Pour cela, on
     définit la forme échelonnée réduite d'une matrice.</p>
     <definition xml:id="def-matrref">
@@ -526,7 +526,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </statement>
     <solution><p>La matrice <m>A</m> contient une ligne nulle et celle-ci est dans le bas de la matrice. La première condition est donc satisfaite. La deuxième condition n'est pas 
     satisfaite. Le pivot de la première ligne est égal à <m>2</m> et non à <m>1</m>. La condition trois est respectée, car il n'y a qu'un seul pivot. Finalement, la colonne <m>1</m>, correspondant
-    au pivot de la première ligne, ne contient de des zéros, sauf pour l'entrée pivot. La condition quatre est donc respectée.</p>
+    au pivot de la première ligne, ne contient que des zéros, sauf pour l'entrée pivot. La condition quatre est donc respectée.</p>
     <p>Comme une des quatre conditions n'est pas respectée, la matrice n'est pas échelonnée réduite.</p>
     </solution>
     <solution><p>La matrice <m>B</m> respecte la première condition par défaut, car elle ne possède pas de ligne nulle. De plus les deux pivots sont égaux à <m>1</m> et le 
@@ -537,7 +537,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </p></solution>
     <solution><p>
     La matrice <m>C</m> ne possède pas de ligne nulle, donc elle respecte la condition un. Les pivots sont tous égaux à <m>1</m>, ce qui fait que la condition deux est 
-    respectée. Par contre, le second pivot est à droite du premier. La troisième condition n'est donc pas respectée. La dernière condition l'est toutefois, car toutes les colonnes
+    respectée. Par contre, le second pivot est à gauche du premier. La troisième condition n'est donc pas respectée. La dernière condition l'est toutefois, car toutes les colonnes
     pivots ne contiennent que des zéros aux endroits non pivots.
     </p>
     <p>
@@ -562,7 +562,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </example>
     <aside>
     <title>En passant</title>
-    <p>Le mot échelonnée dans la forme échelonnée réduite vient de échelle. On peut en effet percevoir un certain escalier en regardant les pivots d'une matrice
+    <p>Le mot échelonnée dans la forme échelonnée réduite vient d'échelle. On peut en effet percevoir un certain escalier en regardant les pivots d'une matrice
     échelonnée réduite.</p>
     <figure xml:id="fig-matechelon">
   <caption>Justification du mot "échelon"</caption>
@@ -621,7 +621,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </proof>
     </proposition>
     <p>Comme les opérations élémentaires préservent les solutions et que la forme échelonnée réduite est unique, la technique choisie pour résoudre un système d'équations linéaires
-    est d'échelonner la matrice augmentée du système jusqu'à sa forme rref. Ceci donne une manière simple <fn>Dans les prochaines sous-sections, on verra quelques subtilités de la lecture de ces solutions.</fn> de lire la solution. Voici maintenant en détails l'algorithme
+    est d'échelonner la matrice augmentée du système jusqu'à sa forme rref. Ceci donne une manière simple <fn>Dans les prochaines sous-sections, on verra quelques subtilités de la lecture de ces solutions.</fn> de lire la solution. Voici maintenant en détail l'algorithme
     de Gauss-Jordan.</p>
     <algorithm xml:id="algo-GJ">
     <title>La méthode de Gauss-Jordan</title>
@@ -645,9 +645,9 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </algorithm>
     <remark xml:id="rem-GJeff">
     <title>L'efficacité de l'algorithme</title>
-    <p>Dans certaines étapes de <xref ref="algo-GJ">l'algorithme de Gauss-Jordan </xref>, il peut être calculatoirement avantageux de sélectionner une ligne en particulier plutôt
+    <p>Dans certaines étapes de <xref ref="algo-GJ">l'algorithme de Gauss-Jordan </xref>, il peut être avantageux au niveau des calculs de sélectionner une ligne en particulier plutôt
     qu'une autre. Aussi, on peut vouloir retarder <xref ref="li-GJpiv1"/> afin d'éviter de travailler avec des fractions. L'algorithme décrit une manière automatique d'obtenir
-    la forme échelonée réduite, un peu comme le ferait un ordinateur.</p>
+    la forme échelonnée réduite, un peu comme le ferait un ordinateur.</p>
     
     <p>Également, si on se limite à ne faire que l'étape <xref ref="li-GJpivdown"/>, sans nécessairement avoir les pivots égaux à <m>1</m>, on obtient l'algorithme de Gauss.
     Une matrice ainsi transformée serait alors sous forme échelonnée seulement (pas réduite). L'exemple <xref ref="ex-opelem"/> était un exemple d'application de l'algorithme de Gauss seulement, soit
@@ -769,7 +769,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <mrow> \begin{pmatrix}
                                1&amp;0&amp;23&amp;|&amp;27\\
                                0&amp;1&amp;-7&amp;|&amp;-8 \\
-                               0&amp; 0&amp;1&amp;|&amp;1 \end{pmatrix}&amp;\matsimilc{7}{3}{2}\begin{pmatrix}
+                               0&amp; 0&amp;1&amp;|&amp;1 \end{pmatrix}&amp;\matsimilc{3}{7}{2}\begin{pmatrix}
                                1&amp;0&amp;23&amp;|&amp;27\\
                                0&amp;1&amp;0&amp;|&amp;-1 \\
                                0&amp; 0&amp;1&amp;|&amp;1 \end{pmatrix}</mrow>
@@ -854,7 +854,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     -1&amp; 0&amp;2
     \end{pmatrix}^{-1}=\matcolt{\frac{2}{3}}{0}{\frac{1}{3}}{-1}{\frac{1}{2}}{-\frac{1}{2}}{-\frac{7}{3}}{1}{-\frac{2}{3}}
     </me>
-    </solution>
+    </solution>à
     </example>
     <remark>
     <title>Les possibilités d'opérations</title>
@@ -862,16 +862,16 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <p>
     En combinant plusieurs opérations élémentaires, on obtient une opération valide (généralement pas élémentaire) pour échelonner une matrice. Ainsi, l'opération 
     <m> 3L_2+5L_1\rightarrow L_2</m> peut être vue comme la combinaison des opérations élémentaires <m>3L_2\rightarrow L_2</m> suivie de l'opération <m>5L_1+L_2\rightarrow L_2</m>.
-    Bien qu'elle ne soit pas élémentaire, cette opération peut être pratique pour échelonner des matrices, comme par exemple dans l'exemple suivant.
+    Bien qu'elle ne soit pas élémentaire, cette opération peut être pratique pour échelonner des matrices, comme dans l'exemple suivant.
     <me>
-    \matcold{3}{1}{-5}{2}\overset{3L_2+5L_1\rightarrow L_2}{\sim}\matcold{3}{1}{0}{11}
+    \matcold{3}{-5}{1}{2}\overset{3L_2+5L_1\rightarrow L_2}{\sim}\matcold{3}{0}{1}{11}
     </me>.
     L'opération permet d'obtenir le <m>0</m> sous le pivot de la ligne un, sans avoir à mettre ce pivot égal à <m>1</m>, ce qui aurait introduit une fraction dans la seconde colonne.
     </p>
     <p>Bien que permises, on fait le choix d'éviter ces opérations. On voudra de toute manière déléguer beaucoup des calculs à l'ordinateur. On choisit donc de se concentrer sur les
-    opérations élémentaires. Il peut toutefois être possible d'éviter les fractions avec les opérations élémentaires, comme dans l'exemple suivant.
+    opérations élémentaires. Il est toutefois possible d'éviter les fractions avec les opérations élémentaires, comme dans l'exemple suivant.
     <me>
-    \matcold{3}{1}{2}{2}\overset{-L_2+L_1\rightarrow L_1}{\sim}\matcold{1}{-1}{2}{2}
+    \matcold{3}{2}{1}{2}\overset{-L_2+L_1\rightarrow L_1}{\sim}\matcold{1}{2}{-1}{2}
     </me>.
     Cette opération rend le pivot de la première ligne égal à <m>1</m> sans créer de fraction dans la deuxième colonne.</p>
     <p>Finalement, on peut se permettre de faire plusieurs opérations en une étape, comme lors de l'équation <xref ref="eq-deuxopelem"/> de l'exemple <xref ref="ex-GJchaine"/>. Il est 

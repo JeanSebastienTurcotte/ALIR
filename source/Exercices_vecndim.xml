@@ -106,7 +106,7 @@
     <exercise xml:id="exo-comblinR4">
             <statement>
                 <p>Soit un ensemble de vecteurs <m>\vec{v}_1=(1,4,-3,0),\vec{v}_2=(0,2,3,1),\vec{v}_3=(1,6,0,1)</m> et <m>\vec{v}_4=(2,10,-3,1)</m>. 
-                Caractériser le <m>\vspan(v_1,v_2,v_3,v_4)</m> en termes de combinaisons linéaires de vecteurs. Est-ce que cet espace correspond à <m>\R^4</m>?</p>
+                Caractériser le <m>\vspan(\vec{v}_1,\vec{v}_2,\vec{v}_3,\vec{v}_4)</m> en termes de combinaisons linéaires de vecteurs. Est-ce que cet espace correspond à <m>\R^4</m>?</p>
             </statement>
             <hint>
                 <p>Utiliser l'exemple <xref ref="ex-span"/> pour vous aider.</p>
@@ -117,7 +117,7 @@
                  Noter qu'on aurait pu caractériser le span avec n'importe quelle autre paire de vecteurs ici.</p>
             </answer>
             <solution>
-                 <p>On suit le conseil de l'indication et chercher à caractériser l'ensemble des combinaisons linéaires possibles avec ces quatre vecteurs.
+                 <p>On suit le conseil de l'indication et on cherche à caractériser l'ensemble des combinaisons linéaires possibles avec ces quatre vecteurs.
                  On verra que ce n'est pas facile de trouver un moyen de combiner les vecteurs afin de voir comment certains sont redondants.
                  <md>
                      <mrow>\vec{v}&amp;=a\vec{v}_1+b\vec{v}_2+c\vec{v}_3+d\vec{v}_4</mrow>
@@ -130,14 +130,14 @@
                      <mrow>&amp;=(a+d-b)\vec{v}_1+(c+d+b)\vec{v}_3</mrow>
                  </md>
                  Puisque les valeurs de <m>a</m> et de <m>c</m> n'apparaissent qu'une fois pour chaque vecteur, 
-                 toutes les combinaisons linéaires imaginables avec les quatre vecteur initiaux se construisent à l'aide des deux vecteurs restants.
-                 Autrement dit, peu importe les valeurs choisies pour <m>b</m> et <m>d</m>, on ne pourra pas créer un nouveau vecteur qu'on n'est 
-                 incapable de créer simplement en ajustant les valeurs de <m>a</m> et de <m>c</m> en conséquence. 
+                 toutes les combinaisons linéaires imaginables avec les quatre vecteurs initiaux se construisent à l'aide des deux vecteurs restants.
+                 Autrement dit, peu importe les valeurs choisies pour <m>b</m> et <m>d</m>, on est 
+                 incapable de créer créer un nouveau vecteur  simplement en ajustant les valeurs de <m>a</m> et de <m>c</m> en conséquence. 
                  Les vecteurs <m>\vec{v}_2</m> et <m>\vec{v}_4</m> sont donc redondants.</p>
                  <p>Il est primordial de remarquer qu'on aurait pu combiner différemment et obtenir deux autres vecteurs à la fin.
-                 L'important est que le <m>\vspan(v_1,v_2,v_3,v_4)</m> est un sous-espace de <m>\R^4</m> engendré par deux vecteurs. 
+                 L'important est que le <m>\vspan(\vec{v}_1,\vec{v}_2,\vec{v}_3,\vec{v}_4)</m> est un sous-espace de <m>\R^4</m> engendré par deux vecteurs. 
                  C'est donc un plan. On verra plus tard que cet espace est de dimension <m>2</m>.</p>
-                 <p>On peut donc écrire: <me>\vspan(v_1,v_2,v_3,v_4)=\vspan(v_1,v_3)</me></p>
+                 <p>On peut donc écrire: <me>\vspan(\vec{v}_1,\vec{v}_2,\vec{v}_3,\vec{v}_4)=\vspan(v_1,v_3)</me></p>
                  
             </solution>
     </exercise>
@@ -153,12 +153,12 @@
             <solution>
                 <p>On sait que <m>\vec{v}</m> est une combinaison linéaire des vecteurs donnés. 
                 Supposons que cette combinaison est donnée par les scalaires <m>a_1, a_2, \dots , a_k \in\R</m>. Ainsi,
-                <me>\vec{v}=a_1\vec{u_1}+a_2\vec{u_2}+ \cdots +a_k\vec{u_k}</me>.
+                <me>\vec{v}=a_1\vec{u}_1+a_2\vec{u}_2+ \cdots +a_k\vec{u}_k</me>.
                 Alors, 
                 <md>
-                    <mrow>c\vec{v}&amp;=c\big(a_1\vec{u_1}+a_2\vec{u_2}+ \cdots +a_k\vec{u_k}\big)</mrow>
-                    <mrow>&amp;=c(a_1\vec{u_1})+c(a_2\vec{u_2})+ \cdots +c(a_k\vec{u_k})</mrow>
-                    <mrow>&amp;=(ca_1)\vec{u_1}+(ca_2)\vec{u_2}+ \cdots +(ca_k)\vec{u_k}</mrow>
+                    <mrow>c\vec{v}&amp;=c\big(a_1\vec{u}_1+a_2\vec{u}_2+ \cdots +a_k\vec{u}_k\big)</mrow>
+                    <mrow>&amp;=c(a_1\vec{u}_1)+c(a_2\vec{u}_2)+ \cdots +c(a_k\vec{u}_k)</mrow>
+                    <mrow>&amp;=(ca_1)\vec{u}_1+(ca_2)\vec{u}_2+ \cdots +(ca_k)\vec{u}_k</mrow>
                 </md>
                 Les valeurs <m>ca_1, ca_2, \dots , ca_k</m> étant des scalaires, on a montré que <m>c\vec{v}</m> est une combinaison linéaire 
                 des vecteurs  <m>\vec{u_1}, \vec{u_2}, \dots ,\vec{u_k}</m>.</p>
@@ -171,15 +171,15 @@
             <solution>
                 <p>On sait que <m>\vec{v}</m> et <m>\vec{w}</m> sont des combinaisons linéaires des vecteurs donnés. 
                 Supposons que ces combinaisons sont données par les scalaires <m>a_1, a_2, \dots , a_k \in\R</m> et <m>b_1, b_2, \dots , b_k \in\R</m>. Ainsi,
-                <me>\vec{v}=a_1\vec{u_1}+a_2\vec{u_2}+ \cdots +a_k\vec{u_k}</me> et <me>\vec{w}=b_1\vec{u_1}+b_2\vec{u_2}+ \cdots +b_k\vec{u_k}</me>.
+                <me>\vec{v}=a_1\vec{u}_1+a_2\vec{u}_2+ \cdots +a_k\vec{u}_k</me> et <me>\vec{w}=b_1\vec{u}_1+b_2\vec{u}_2+ \cdots +b_k\vec{u}_k</me>.
                 Alors, 
                 <md>
-                    <mrow>\vec{v}+\vec{w}&amp;=\big(a_1\vec{u_1}+a_2\vec{u_2}+ \cdots +a_k\vec{u_k}\big)+\big(b_1\vec{u_1}+b_2\vec{u_2}+ \cdots +b_k\vec{u_k}\big)</mrow>
-                    <mrow>&amp;=(a_1\vec{u_1}+b_1\vec{u_1})+(a_2\vec{u_2}+b_2\vec{u_2})+ \cdots +(a_k\vec{u_k}+b_k\vec{u_k})</mrow>
-                    <mrow>&amp;=(a_1+b_1)\vec{u_1}+(a_2+b_2)\vec{u_2}+ \cdots +(a_k+b_k)\vec{u_k}</mrow>
+                    <mrow>\vec{v}+\vec{w}&amp;=\big(a_1\vec{u}_1+a_2\vec{u}_2+ \cdots +a_k\vec{u}_k\big)+\big(b_1\vec{u}_1+b_2\vec{u}_2+ \cdots +b_k\vec{u}_k\big)</mrow>
+                    <mrow>&amp;=(a_1\vec{u}_1+b_1\vec{u}_1)+(a_2\vec{u}_2+b_2\vec{u}_2)+ \cdots +(a_k\vec{u}_k+b_k\vec{u}_k)</mrow>
+                    <mrow>&amp;=(a_1+b_1)\vec{u}_1+(a_2+b_2)\vec{u}_2+ \cdots +(a_k+b_k)\vec{u}_k</mrow>
                 </md>
                 Les valeurs <m>a_1+b_1, a_2+b_2, \dots , a_k+b_k</m> étant des scalaires, on a montré que <m>\vec{v}+\vec{w}</m> est une combinaison linéaire 
-                des vecteurs  <m>\vec{u_1}, \vec{u_2}, \dots ,\vec{u_k}</m>.</p>
+                des vecteurs  <m>\vec{u}_1, \vec{u}_2, \dots ,\vec{u}_k</m>.</p>
             </solution>
             </task>
             <task>
@@ -223,7 +223,7 @@
             </hint>
             <solution>
                 <p>On suit l'indication et on décide de choisir des vecteurs <m>\vec{u}</m> qui permettent de trouver les composantes de <m>\vec{v}</m>.
-                On proposer d'utiliser des vecteurs qui sont presque le vecteur nul, à l'exception d'une composante.
+                On propose d'utiliser des vecteurs qui sont presque le vecteur nul, à l'exception d'une composante.
                 Ainsi, si on pose <m>\vec{u}=(1,0,\dots, 0)</m>, alors
                 <md>
                     <mrow>\vec{u}\cdot\vec{v}&amp;=0</mrow>
@@ -277,7 +277,7 @@
             </hint>
             <solution>
                  <p>
-                 Tel que suggéré dans l'indication, on va démontrer l'inégalité élevée au carrée qui lui est totalement équivalente.
+                 Tel que suggéré dans l'indication, on va démontrer l'inégalité élevée au carré qui lui est totalement équivalente.
                  <md>
                      <mrow>\norm{\vec{u}+\vec{v}}^2&amp;=(\vec{u}+\vec{v})\cdot(\vec{u}+\vec{v})</mrow>
                      <mrow>&amp;=\vec{u}\cdot\vec{u}+\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{u}+\vec{v}\cdot\vec{v}</mrow>

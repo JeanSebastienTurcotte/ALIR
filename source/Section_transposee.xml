@@ -127,7 +127,7 @@ a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
      C^T\vec{a}_1 &amp; C^T\vec{a}_2 &amp;\cdots &amp; C^T\vec{a}_m \\
      \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
      \end{pmatrix}
-    </me>, car les colonnes de <m>A^T</m> sont les lignes de la matrice <m>A</m>. De plus, comme les lignes de <m>C^T</m> sont les colonnes de <m>C</m>, on a que l'entrée en position <m>i, j</m> de la matrice <m>C^TA^t</m> est égale au produit sclaire entre les vecteurs
+    </me>, car les colonnes de <m>A^T</m> sont les lignes de la matrice <m>A</m>. De plus, comme les lignes de <m>C^T</m> sont les colonnes de <m>C</m>, on sait que l'entrée en position <m>i, j</m> de la matrice <m>C^TA^t</m> est égale au produit scalaire entre les vecteurs
     <m>\vec{c}_i</m> et <m>\vec{a}_j</m>, c'est-à-dire <m>(C^TA^T)_{i\, j}= \vec{c}_i\cdot \vec{a}_j</m>. Comme le produit scalaire est commutatif, l'égalité est démontrée.</p>
     </proof>
     <proof><p>D'abord, on remarque que <m>I^T=I</m> si <m>I</m> est la matrice identité. Puisque <m>A</m> est inversible, on a
@@ -229,7 +229,7 @@ a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
     <p>La première variable est pivot et les deux autres sont libres. On a donc deux solutions de base qui sont
     <md>
     <mrow>\vec{s}_1&amp;=\vecddd{-1}{1}{0}</mrow>
-    <mrow>\vec{}_2&amp;=\vecddd{1}{0}{1}</mrow>
+    <mrow>\vec{s}_2&amp;=\vecddd{1}{0}{1}</mrow>
     </md>.</p>
     <p>Tout vecteur s'écrivant sous la forme la forme <m>a\vec{s}_1+b\vec{s}_2</m> est donc perpendiculaire aux lignes de la matrice <m>A</m>. Pour les colonnes, on regarde les solutions de base à l'équation <m>A^T\vec{x}=\vec{0}</m>.
     </p>
@@ -405,7 +405,7 @@ a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
     </example>
     <p>On énonce de manière informelle les relations entre les quatre sous-espaces. On formalisera  le tout lors de l'énoncé du théorème <xref provisional="thm-fondlinalg"/>.</p>
     <proposition xml:id="prop-fondlinalg">
-    <title>Relation entre les sous-espaces fondamentaux.</title>
+    <title>Relations entre les sous-espaces fondamentaux</title>
     <p>Soit <m>A</m> une matrice <m>m\times n</m>. Alors
     <ol>
     <li><p>Si <m>\vec{x}\in \mathcal{N}(A)</m>,  et si <m>\vec{y}\in \mathcal{L}(A)</m>, alors <m>\pscal{x}{y}=0</m>. </p></li>
@@ -433,7 +433,7 @@ a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
     show(C.right_kernel(basis="pivot"))
     </input>
     </sage>
-    <p>Ce qu'on obtient de Sage est un peu étrange. D'abord, le terme <c>Rowspan_Q</c> signifie l'espace engendré par les lignes de la matrice qui vient après. On comprend que les solutions de bases sont retournées dans une matrice.
+    <p>Ce qu'on obtient de Sage est un peu étrange. D'abord, le terme <c>Rowspan_Q</c> signifie l'espace engendré par les lignes de la matrice qui vient après. On comprend que les solutions de base sont retournées dans une matrice.
     On peut obtenir seulement les solutions de base en ajoutant l'option <c>.basis()</c>.</p>
     <sage>
     <input>

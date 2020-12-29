@@ -17,11 +17,11 @@
     a vu qu'ils font implicitement référence aux vecteurs <m>\vec{e}_1=(1,0),\vec{e}_2=(0,1)</m>, dans le sens où <m>\vec{v}=2\vec{e}_1+3\vec{e}_2</m>. Des questions demeurent. Pourquoi ces vecteurs? Est-ce que la manière
     d'écrire <m>\vec{v}</m> comme une combinaison linéaire de <m>\vec{e}_1,\vec{e}_2</m> est unique?</p>
     <p>Étant donné un sous-espace vectoriel égal au <m>\vspan</m> d'un certain nombre de vecteurs, est-ce que tous les vecteurs sont nécessaires pour engendrer le sous-espace? On a déjà vu la réponse à cette question
-    quand on a parlé des espaces ligne et colonne. S'il y a trois lignes à une matrice, son espace ligne peut s'écrire de manière évidente comme le <m>\vspan</m> des trois lignes, mais on a aussi remarqué que parfois seuls deux
+    quand on a parlé des espaces ligne et colonne. S'il y a trois lignes à une matrice, son espace ligne peut s'écrire de manière évidente comme le <m>\vspan</m> des trois lignes, mais on a aussi remarqué que parfois seulement deux
     ou même une ligne est nécessaire. Comment décrire un sous-espace vectoriel comme un <m>\vspan</m> de manière efficace?</p>
     <p>On a aussi souvent parlé de dimension, en s'appuyant beaucoup sur la géométrie. Une droite est un objet à une dimension, un plan est un objet à deux dimensions et ainsi de suite. Ces descriptions sont intuitives, mais 
     lorsqu'on parle de sous-espace quelconque, peut-on définir sa dimension sans avoir accès à sa géométrie?</p>
-    <p>Dans cette section, on introduit la notion de base d'un (sous) espace, la notion de d'indépendance linéaire et la notion de dimension. On revient aussi aux quatre espaces afin de déterminer une manière de décrire ceux-ci
+    <p>Dans cette section, on introduit la notion de base d'un (sous) espace, la notion d'indépendance linéaire et la notion de dimension. On revient aussi aux quatre espaces afin de déterminer une manière de décrire ceux-ci
     efficacement.</p>
     </introduction>
     <subsection xml:id="sssec-indlin">
@@ -176,7 +176,7 @@
     </p>
     </solution>
     </example>
-    <p>On peut representer l'équation représentant l'indépendance linéaire sous forme matricielle. On obtient alors une proposition utilisant le rang d'une matrice.</p>
+    <p>On peut décrire l'équation représentant l'indépendance linéaire sous forme matricielle. On obtient alors une proposition utilisant le rang d'une matrice.</p>
     <proposition xml:id="prop-indeprang">
     <title>Indépendance linéaire et rang</title>
     <statement>
@@ -193,13 +193,13 @@
     <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> est un ensemble linéairement indépendant.</p>
     </proof>
     </proposition>
-    <p>On regarde maintenant des cas particuliers d'ensembles linéairement indépendant, afin de simplifier le critère d'indépendance pour ces cas.</p>
+    <p>On regarde maintenant des dopi d'ensembles linéairement indépendants, afin de simplifier le critère d'indépendance pour ces cas.</p>
     <proposition xml:id="prop-indep2-3">
     <title>Indépendance linéaire pour deux ou trois vecteurs</title>
     <statement>
     <p>Soit <m>\vec{u},\vec{v},\vec{w}</m> des vecteurs de <m>\R^n</m>. Alors
     <ul>
-    <li><p>Les vecteurs <m>\vec{u},\vec{v}</m> sont linéairement indépendants si et seulement si ils ne sont pas parallèles;</p></li>
+    <li><p>Les vecteurs <m>\vec{u},\vec{v}</m> sont linéairement indépendants si et seulement s'ils ne sont pas parallèles;</p></li>
     <li><p>Les vecteurs <m>\vec{u},\vec{v},\vec{w}</m> sont linéairement indépendants si et seulement s'ils ne sont pas sur un même plan.</p></li>
     </ul></p>
     <p>Ceci permet rapidement de tester l'indépendance de deux ou trois vecteurs, en particulier, on pourra utiliser le <xref ref="def-determinant" text="custom">déterminant</xref> à cet effet.</p>
@@ -209,7 +209,7 @@
     <p>Soit <m>\vec{u},\vec{v}</m> des vecteurs linéairement indépendants. Si les vecteurs étaient parallèles, par exemple <m>\vec{u}=k\vec{v}</m>, alors on pourrait écrire <m>\vec{u}-k\vec{v}=\vec{0}</m>, ce qui donnerait une
     combinaison non triviale des vecteurs <m>\vec{u},\vec{v}</m> donnant le vecteur nul. Comme les vecteurs sont indépendants par hypothèse, alors c'est impossible.</p>
     <p>On poursuit maintenant avec deux vecteurs non parallèles et on montre qu'ils doivent être indépendants.</p>
-    <p>Soit <m>\vec{u},\vec{v}</m> des vecteurs non parallèles. Si ces vecteurs étaient linéairement dépendants, alors il existeraient <m>c_1,c_2</m> pas tous les deux nuls tels que <m>c_1\vec{u}+c_2\vec{v}=\vec{0}</m>. On suppose
+    <p>Soit <m>\vec{u},\vec{v}</m> des vecteurs non parallèles. Si ces vecteurs étaient linéairement dépendants, alors il existerait des constantes <m>c_1,c_2</m> pas toutes les deux nulles telles que <m>c_1\vec{u}+c_2\vec{v}=\vec{0}</m>. On suppose
     que <m>c_1\neq 0</m>, l'argument est le même si <m>c_1=0</m> mais <m>c_2\neq 0</m> en inversant le rôle de <m>\vec{u}</m> et <m>\vec{v}</m>. On peut donc écrire <m>\vec{u}=-\frac{c_2}{c_1}\vec{v}</m>, ce qui entraine que les vecteurs sont parallèles,
     contredisant l'hypothèse initiale. Il faut donc que les vecteurs soient indépendants.</p> 
     </solution>
@@ -229,7 +229,7 @@
 <proposition xml:id="prop-indepspan">
 <title>Indépendance linéaire et espace engendré</title>
 <statement><p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k\in \R^n</m> des vecteurs formant un ensemble linéairement indépendant et soit <m>\vec{v}\in \R^n</m>. Alors l'ensemble
-<m>\vec{v}_1,\vec{v}_2,\vec{v}_k,\vec{v}</m> est linéairement indépendant si et seulement si <m>\vec{v}\notin \vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k)</m>.</p>
+<m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k,\vec{v}</m> est linéairement indépendant si et seulement si <m>\vec{v}\notin \vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k)</m>.</p>
 <p>Si <m>\vec{v}\notin \vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k)</m>, cela signifie en particulier que les espaces engendrés par <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k</m> et par <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k,\vec{v}</m> sont différents.</p>
 </statement>
 <proof><p>Voir l'exercice <xref provisional="exo-indepspan"/>.</p></proof>
@@ -336,7 +336,7 @@ show(V.span(L)==V.span(Lv4))
     </p>
     </statement>
     <solution>
-    <p>On sait que pour générer un plan, on doit avoir deux vecteurs non parallèles (et donc indépendants!). En isolant <m>z</m> dans l'équation normale du plan <m>x=-y-z</m>, on peut écrire les points du plan comme les points
+    <p>On sait que pour générer un plan, on doit avoir deux vecteurs non parallèles (et donc indépendants!). En isolant <m>x</m> dans l'équation normale du plan <m>x=-y-z</m>, on peut écrire les points du plan comme les points
     <md>
     <mrow>\vecddd{x}{y}{z}&amp;=\vecddd{-y-z}{y}{z}</mrow>
     <mrow>                &amp;=\vecddd{-y}{y}{0}+\vecddd{-z}{0}{z}</mrow>
@@ -358,7 +358,7 @@ show(V.span(L)==V.span(Lv4))
     <m>\R^n</m>. De plus, si on les place dans les colonnes d'une matrice, on obtient la matrice identité, de rang <m>n</m>. Les vecteurs sont alors linéairement indépendants et forment ainsi une base de <m>\R^n</m>.</p></solution>
     </example>
 
-    <p>Un sous-espace peut avoir plusieurs bases. Par exemple, un plan peut être décrit par une infinité de vecteurs directeurs. Selon la base utilisée, un même vecteur peut être décrit différement.</p>
+    <p>Un sous-espace peut avoir plusieurs bases. Par exemple, un plan peut être décrit par une infinité de vecteurs directeurs. Selon la base utilisée, un même vecteur peut être décrit différemment.</p>
     <example>
     <title>Plusieurs bases d'un sous-espace</title>
     <statement>
@@ -406,13 +406,13 @@ show(V.span(L)==V.span(Lv4))
     </me>.</p></statement>
     </definition>
     <p>Tel que mentionné précédemment, le concept de vecteur algébrique fait déjà explicitement référence à la notion de coordonnées. Pour cela, on considère comme standard l'écriture d'un vecteur en terme des vecteurs
-    <m>\vec{e}_1,\vec{e}_2,\ldots, \vec{e}_n</m>. Ces vecteurs forment ce qu'on pourrait appelé la base canonique de <m>\R^n</m>. De ce fait, lorsque cette base est utilisée, on omet l'indice <m>\mathcal{B}</m> dans l'écriture
-    des coordonnées du vecteurs. Ainsi, si on écrit <m>\vec{u}=(1,2,3)</m>, il est sous-entendu que la base est <m>\mathcal{B}=\langle (1,0,0),(0,1,0),(0,0,1)\rangle</m>. </p>
+    <m>\vec{e}_1,\vec{e}_2,\ldots, \vec{e}_n</m>. Ces vecteurs forment ce qu'on pourrait appeler la base canonique de <m>\R^n</m>. De ce fait, lorsque cette base est utilisée, on omet l'indice <m>\mathcal{B}</m> dans l'écriture
+    des coordonnées du vecteur. Ainsi, si on écrit <m>\vec{u}=(1,2,3)</m>, il est sous-entendu que la base est <m>\mathcal{B}=\langle (1,0,0),(0,1,0),(0,0,1)\rangle</m>. </p>
     <p>On regarde maintenant des exemples d'écritures de vecteurs d'un espace avec différentes bases.</p>
     <example>
     <title>Bases et coordonnées de vecteurs</title>
     <statement>
-    <p>On considère les vecteurs <m>\vec{v}_1=(1,1,-3),\vec{v}_2=(3,-5,2),\vec{v}_4=(1,-3,2)</m> tirés de l'exemple calculatoire <xref ref="sageex-indlin"/> Ces trois vecteurs forment une base de <m>\R^3</m>. On considère
+    <p>On considère les vecteurs <m>\vec{v}_1=(1,1,-3),\vec{v}_2=(3,-5,2),\vec{v}_4=(1,-3,2)</m> tirés de l'exemple calculatoire <xref ref="sageex-indlin"/>. Ces trois vecteurs forment une base de <m>\R^3</m>. On considère
     aussi le vecteur <m>\vec{v}_5=\vec{v}_1\times \vec{v}_2=(-13,-11,-8)</m>. On définit les trois bases ordonnées
     <md>
     <mrow>\mathcal{B}_1&amp;\langle \vec{v}_1,\vec{v}_2,\vec{v}_4 \rangle</mrow>
@@ -487,7 +487,7 @@ show(V.span(L)==V.span(Lv4))
     Si tous les vecteurs additionnels sont dans <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n)</m>, on peut alors conclure que <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n)=V</m>. </p>
     </proof>
     </proposition>
-    <p>Maintenant qu'il est établit que chaque sous-espace contient une base, on est en mesure de généraliser la proposition <xref ref="prop-espfondcomportho"/> sur le complément orthogonal du complément orthogonal. </p>
+    <p>Maintenant qu'il est établi que chaque sous-espace contient une base, on est en mesure de généraliser la proposition <xref ref="prop-espfondcomportho"/> sur le complément orthogonal du complément orthogonal. </p>
     <proposition xml:id="prop-comporthocomportho">
     <title>Le complément orthogonal du complément orthogonal</title>
     <statement>
@@ -527,7 +527,7 @@ show(V.span(L)==V.span(Lv4))
     <mrow>\vec{w}_l&amp;=a_{1,l}\vec{v}_1+a_{2,l}\vec{v_2}+\cdots +a_{k,l}\vec{v}_k</mrow>
     </md>
     et on note par <m>A</m> la matrice dont les colonnes correspondent aux composantes des vecteurs <m>\vec{w}_j</m> dans la base ordonnée <m>\langle \vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\rangle</m>.
-    On note aussi par <m>W</m> la matrice des vecteurs <m>\vec{w}_j</m> en colonne dans leur écriture initiale. Finalement, on fait la même chose avec les vecteurs <m>\vec{v}_i</m> en les mettants en colonne dans une matrice <m>B</m>.</p>
+    On note aussi par <m>W</m> la matrice des vecteurs <m>\vec{w}_j</m> en colonne dans leur écriture initiale. Finalement, on fait la même chose avec les vecteurs <m>\vec{v}_i</m> en les mettant en colonne dans une matrice <m>B</m>.</p>
     <p>On peut alors écrire <m>W=BA</m>, en vertu de la définition du produit matriciel. </p>
     <p>Si on montre que l'équation <m>W\vec{x}=\vec{0}</m> possède des solutions autres que le vecteur nul, cela implique alors qu'il existe une combinaison linéaire des colonnes de <m>W</m> et donc, des vecteurs <m>\vec{w}_j</m>, qui donne
     le vecteur nul. Les vecteurs seraient alors dépendants.</p>
@@ -550,7 +550,7 @@ show(V.span(L)==V.span(Lv4))
     \vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)=V
     </me>.
     
-    Les détails sont faits à l'exercices <xref ref="exo-depnbr"/></p></statement>
+    Les détails sont faits à l'exercice <xref ref="exo-depnbr"/></p></statement>
     </remark>
     <p>On obtient alors grâce à cette proposition le résultat principal de cette sous-section</p>
     <proposition>
@@ -601,9 +601,9 @@ show(V.span(L)==V.span(Lv4))
     </example>
     <p>L'exemple précédent fait allusion aux solutions de base d'un système d'équations linéaires. On est maintenant en mesure de comprendre l'utilisation du terme &#x00AB; de base &#x00BB;. Les solutions à l'équation
     <m>A\vec{x}=\vec{0}</m> forment un sous-espace vectoriel, l'espace nul. Cet espace est engendré par les vecteurs solutions de base définis à la section <xref ref="sec-SELgeo"/>. Les solutions de base sont toujours indépendantes (voir l'exercice <xref ref="exo-solbaseindep"/>) et forment
-    donc bel et bien une base de l'espace nul. On reviendra au quatre espaces fondamentaux dans la prochaine section.</p>
+    donc bel et bien une base de l'espace nul. On reviendra aux quatre espaces fondamentaux dans la prochaine section.</p>
     <p>On regarde à présent quelques propriétés de la dimension de sous-espaces vectoriels.
-    Le premier sert à caractériser un ensemble de vecteurs par rapport à la dimension du sous-espace auquel ils appartiennent.</p>
+    La première sert à caractériser un ensemble de vecteurs par rapport à la dimension du sous-espace auquel ils appartiennent.</p>
     <proposition xml:id="prop-ensemblevecetdim">
     <title>Ensemble de vecteurs et dimension</title>
     <statement><p>Soit <m>V</m> un sous-espace vectoriel de dimension <m>k</m> et soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l</m>  un ensemble de vecteurs dans <m>V</m>. 
@@ -681,7 +681,7 @@ show("rref(A)=",A.rref())
     <conclusion xml:id="concl-bases">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont:
     <ul>
-    <li><p>La notion <xref ref="def-indlin" text="custom">d'indépendance l'inéaire</xref>;</p></li>
+    <li><p>La notion <xref ref="def-indlin" text="custom">d'indépendance linéaire</xref>;</p></li>
     <li><p>Le <xref ref="prop-indeprang" text="custom">lien</xref> entre l'indépendance linéaire et le rang;</p></li>
     <li><p>La géométrie de l'indépendance linéaire de <xref ref="prop-indep2-3" text="custom"> deux ou trois</xref> vecteurs; </p></li>
     <li><p>La <xref ref="prop-indepspan" text="custom">condition </xref> pour la préservation de l'indépendance lors de l'ajout d'un vecteur à un ensemble d'autres vecteurs;</p></li>

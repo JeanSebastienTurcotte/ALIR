@@ -41,7 +41,7 @@
     </md>. Ceci correspond bien au déterminant calculé à l'exemple <xref ref="ex-det3x3-1"/>.</p>
     </solution>
     </example>
-    <p>On revient à la formule maintenant. Celle-ci peut-être démontrée en utilisant les propriétés des déterminants. On en fait l'objet de la proposition suivante.</p>
+    <p>On revient à la formule maintenant. Celle-ci peut être démontrée en utilisant les propriétés des déterminants. On en fait l'objet de la proposition suivante.</p>
     <proposition xml:id="prop-det3x3avecprop">
     <title>La formule pour le cas <m>3\times 3</m></title>
     <statement><p>
@@ -115,7 +115,7 @@
     </subsection>
     <subsection xml:id="sssec-mincof">
     <title>Les mineurs et les cofacteurs</title>
-    <p>On essaie maintenant d'analyser en détails la formule <xref ref="eq-det3x3"/> afin de trouver une manière de la généraliser. Dans un premier temps, on peut remarquer que la formule est composée de six termes, qui sont
+    <p>On essaie maintenant d'analyser en détail la formule <xref ref="eq-det3x3"/> afin de trouver une manière de la généraliser. Dans un premier temps, on peut remarquer que la formule est composée de six termes, qui sont
     eux-mêmes constitués de trois facteurs. Parmi ces six termes, trois sont affectés d'un signe positif et les trois autres d'un signe négatif. De plus, chaque terme contient exactement un terme de chaque ligne et de chaque colonne 
     de la matrice. En effet, dans le terme <m>a_{1,3}a_{3,2}a_{2,1}</m>, la ligne <m>1</m> n'apparait qu'au facteur <m>a_{1,3}</m> et les lignes <m>2</m> et <m>3</m> respectivement aux facteurs <m>a_{2,1}</m> et <m>a_{3,2}</m>, 
     alors que la colonne <m>1</m> apparait seulement au terme <m>a_{2,1}</m> et les colonnes <m>2</m> et <m>3</m> respectivement aux facteurs <m>a_{3,2}</m> et <m>a_{1,3}</m>.</p>
@@ -139,7 +139,7 @@
                         0&amp;a_{2,2}&amp;a_{2,3}\\
                         0&amp;a_{3,2}&amp;a_{3,3}\end{vmatrix}-a_{1,2}\begin{vmatrix} 1&amp;0&amp;0\\
                         0&amp;a_{2,1}&amp;a_{2,3}\\
-                        &amp;a_{3,1}&amp;a_{3,3}\end{vmatrix}+a_{1,3}\begin{vmatrix} 1&amp;0&amp;0\\
+                        0&amp;a_{3,1}&amp;a_{3,3}\end{vmatrix}+a_{1,3}\begin{vmatrix} 1&amp;0&amp;0\\
                         0&amp;a_{2,1}&amp;a_{2,2}\\
                         0&amp;a_{3,1}&amp;a_{3,2}\end{vmatrix}</mrow>
     <mrow number="yes" xml:id="eq-det3x3min3">&amp;=a_{1,1}\begin{vmatrix} a_{2,2}&amp; a_{2,3}\\
@@ -150,7 +150,7 @@
     <p>En comparant les déterminants <m>2\times 2</m> de l'équation <xref ref="eq-det3x3min3"/> avec les entrées des matrices de l'équation <xref ref="eq-det3x3min1"/>, on arrive à la définition suivante. </p>
     <definition xml:id="def-mineurs">
     <title>Les mineurs</title>
-    <p>Soit <m>A</m> une matrice carrée de taille <m>n\times n</m>. On note <m>A_{i,j}</m> la matrice obtenue de <m>A</m> en supprimant la ligne <m>i</m> et la colonne <m>j</m>. On apelle le mineur de la position <m>i,j</m>, ou encore
+    <p>Soit <m>A</m> une matrice carrée de taille <m>n\times n</m>. On note <m>A_{i,j}</m> la matrice obtenue de <m>A</m> en supprimant la ligne <m>i</m> et la colonne <m>j</m>. On appelle le mineur de la position <m>i,j</m>, ou encore
     le mineur de l'élément <m>a_{i,j}</m> le déterminant de la matrice <m>A_{i,j}</m>.</p>
     </definition>
     <example xml:id="ex-min3x3">
@@ -180,7 +180,7 @@
     On veut maintenant introduire la notion de cofacteur. Pour cela, on généralise l'idée ci-dessus d'envoyer une entrée de la matrice à la position <m>1,1</m> sans changer l'ordre relatif des lignes et colonnes.</p>
     <example>
     <title>Déplacer une entrée dans une matrice</title>
-    <statement><p>Soit <m>A=\matcolt{a_{1,1}}{0}{a_{1,3}}{a_{2,1}}{0}{a_{2,3}}{0}{1}{0}</m> une matrice quelconque avec la troisième ligne et la deuxième colonne ne contenant que des zéros sauf la valeur <m>1</m> à l'intersection.
+    <statement><p>Soit <m>A=\matcolt{a_{1,1}}{0}{a_{1,3}}{a_{2,1}}{0}{a_{2,3}}{0}{1}{0}</m> une matrice quelconque avec la deuxième ligne et la troisième colonne ne contenant que des zéros sauf la valeur <m>1</m> à l'intersection.
     On veut, à l'aide d'opérations élémentaires sur les lignes et/ou sur les colonnes (voir l'exercice <xref provisional="Exercice sur les opelem colonne"/>), déplacer le <m>1</m> en position <m>1,1</m> sans 
     changer l'ordre relatif des lignes et des colonnes pour les autres entrées</p></statement>
     <solution><p>On utilise Sage pour faire les calculs. La multiplication à gauche d'une matrice <m>M</m> par une matrice de type <m>E_{L_i\leftrightarrow L_j}</m> a pour effet d'échanger les 
@@ -197,7 +197,7 @@
     show(A2)
     </input>
     </sage>
-    <p>Si on regarde attentivement les entrées de la matrice <m>A2</m>, on constate que l'ordre relative des lignes <m>1,2</m> n'est pas respecté, mais que celui des colonnes <m>1,3</m> l'est. Il faut 
+    <p>Si on regarde attentivement les entrées de la matrice <m>A2</m>, on constate que l'ordre relatif des lignes <m>1,2</m> n'est pas respecté, mais que celui des colonnes <m>1,3</m> l'est. Il faut 
     donc faire une autre permutation des lignes pour avoir le résultat voulu.</p>
     <sage>
     A3=elementary_matrix(3,row1=1,row2=2)*A2
@@ -268,7 +268,7 @@
     <mrow>&amp;=rD(A)</mrow>
     </md>.
     La propriété <xref ref="li-detr"/> est ainsi respectée.</p>
-    <p>On regarde maintenant ce qui se passe si <m>B</m> est obtenue de <m>A</m> en permutant deux lignes. On distingue aussi deux cas. D'abord, si les lignes permutées ne sont pas celle avec laquelle on développe.
+    <p>On regarde maintenant ce qui se passe si <m>B</m> est obtenue de <m>A</m> en permutant deux lignes. On distingue aussi deux cas. D'abord, si les lignes permutées ne sont pas celles avec laquelle on développe.
     Dans ce cas, on aura <m>\det(B_{i,j})=-\det(A_{i,j})</m>, car les sous-matrices sont les mêmes à une inversion de lignes près. </p>
     <p>Toutefois si les lignes <m>i</m> et <m>k</m> ont été échangées, on procède comme suit. On suppose que <m>1\leq i&lt; k\leq n</m>. Si c'est l'inverse, l'idée est similaire. Soit <m>\vec{a}_i</m> la ligne <m>i</m> de la matrice <m>A</m>, maintenant en position
     <m>k</m> dans la matrice <m>B</m>. On veut la remettre en ordre dans la sous-matrice <m>B_{i,j}</m>. Cela prendra <m>k-i-1</m> permutations. Par exemple, si <m>i=3</m> et <m>k=7</m>, les lignes de <m>B</m> sont
@@ -312,7 +312,7 @@
     </proof>
     </proposition>
     <p>En général, les cofacteurs constituent une manière vraiment inefficace de calculer un déterminant. Toutefois, pour le cas <m>3\times 3</m>, ils peuvent s'avérer plus rapides que le calcul par Gauss-Jordan.
-    Autre avantage, qui sera utile dans le chapitre <xref provisional="chap-propre"/>, est lorsque le déterminant contient des variables. Les cofacteurs ne nécessitant pas de division, on n'a pas de supposition à faire quand au fait que la variable pourrait 
+    Autre avantage, qui sera utile dans le chapitre <xref provisional="chap-propre"/>, est lorsque le déterminant contient des variables. Les cofacteurs ne nécessitant pas de division, on n'a pas de supposition à faire quant au fait que la variable pourrait 
     être nulle lors d'une division. On regarde un exemple de calcul d'un déterminant <m>3\times 3</m> avec la méthode des cofacteurs.</p>
     <example xml:id="ex-detcofact">
     <title>Le développement du déterminant par les cofacteurs</title>
@@ -343,7 +343,7 @@
     </sage>
     </solution>
     </example>
-    <p>La proposition <xref ref="prop-detcofact"/> montre que la fonction déterminant existe. On peut toutefois se demander si elle est unique. Il pourrait en effet y avoir plus d'une fonction qui satsisfait la définition 
+    <p>La proposition <xref ref="prop-detcofact"/> montre que la fonction déterminant existe. On peut toutefois se demander si elle est unique. Il pourrait en effet y avoir plus d'une fonction qui satisfait la définition 
     <xref ref="def-determinant"/>. On peut maintenant montrer que le déterminant est unique.</p>
     <proposition xml:id="prop-detunique">
     <title>Le déterminant d'une matrice est unique</title>
@@ -462,7 +462,7 @@
     </me>.</p>
     </solution>
     </example>
-    <p>La principale utilité de la matrice adjointe est théorique et est est en lien avec la matrice inverse. </p>
+    <p>La principale utilité de la matrice adjointe est théorique et est en lien avec la matrice inverse. </p>
     <proposition>
     <title>L'adjointe et l'inverse d'une matrice</title>
     <statement>
@@ -477,7 +477,7 @@
     a&amp; c\\ b&amp; d
     \end{pmatrix}^{-1}=\frac{1}{ad-bc}\begin{pmatrix}
     d&amp; -c\\ -b&amp; a
-    \end{pmatrix}
+    \end{pmatrix} 
     </me> que l'on avait déjà obtenue à la section <xref ref="sec-matinverse"/> à l'équation <xref ref="eq-matinverse2x2"/>.
     </p>
     </statement>
@@ -514,7 +514,7 @@
     <title>La matrice adjointe et Sage</title>
     <statement>
     <p>Sage n'avait pas de commande directe pour calculer les cofacteurs, mais il en possède une pour la matrice adjointe. En anglais, il est plus courant d'utiliser le terme &#x00AB;adjugate &#x00BB;, ainsi la commande
-    est <c>A.adjugate()</c>. On l'utilise pour valider le calcul à l'example <xref ref="ex-matadjointe"/>.</p>
+    est <c>A.adjugate()</c>. On l'utilise pour valider le calcul à l'exemple <xref ref="ex-matadjointe"/>.</p>
     <sage>
     <input>
     A=matrix([[5,0,5],[2,-2,3],[1,0,4]])

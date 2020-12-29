@@ -31,7 +31,7 @@
     <m>m</m> lignes et <m>B</m> possède <m>n </m> colonnes, la transformation <m>(T_A\circ T_B)(\vec{u})</m> est une transformation linéaire de <m>\R^n</m> vers <m>\R^m</m> et il devrait donc exister une matrice dans <m>\mathcal{M}_{m\times n}</m> la
     représentant.</p>
     
-    <p>Comment déterminer la matrice de la composition? Il suffit de regarder où vont les vecteurs <m>\vec{e}_1=(1,0,\ldots,0),\ldots, \vec{e}_n(0,\ldots,0,1)</m>! Posons <m>\vec{b}_1,\vec{b}_2,\ldots ,\vec{b}_n</m> les colonnes de <m>B</m>. Alors on a
+    <p>Comment déterminer la matrice de la composition? Il suffit de regarder où vont les vecteurs <m>\vec{e}_1=(1,0,\ldots,0),\ldots, \vec{e}_n=(0,\ldots,0,1)</m>! On pose <m>\vec{b}_1,\vec{b}_2,\ldots ,\vec{b}_n</m> les colonnes de <m>B</m>. Alors on a
     <md>
     <mrow>(T_A\circ T_B)(\vec{e}_1) \amp =T_A(T_B(\vec{e}_1))</mrow>
     <mrow>\amp =A(B\vec{e}_1)</mrow>
@@ -47,7 +47,7 @@
     <p> On obtient alors la définition suivante.</p>
     <definition xml:id="def-matmatprod">
     <title>Le produit matriciel</title>
-    <statement><p>Soit <m>A\in \mathcal{M}_{m\times p}</m> et <m>B\in\mathcal{M}_{p\times n}</m> deux matrices. La matrice de la compostion <m>(T_A\circ T_B)\vec{u}=T_A(T_B(\vec{u}))</m>, notée <m>AB</m>, est la matrice dont la colonne
+    <statement><p>Soit <m>A\in \mathcal{M}_{m\times p}</m> et <m>B\in\mathcal{M}_{p\times n}</m> deux matrices. La matrice de la composition <m>(T_A\circ T_B)\vec{u}=T_A(T_B(\vec{u}))</m>, notée <m>AB</m>, est la matrice dont la colonne
      <m>j</m> correspond au vecteur <m>A\vec{b}_j</m>, pour <m>j=1,2,\ldots, n</m>. On peut donc écrire
      <men xml:id="eq-matmatproddef">
      AB=\begin{pmatrix}
@@ -178,9 +178,9 @@
     </statement>
     </example>
     <p>
-    Le produit de deux matrices a été défini comme la composition de deux transformations linéaires, mais une autre approche offre une perspective intéressante. Soit <m>\vec{u}_1,\vec{u}_2,\ldots \vec{u}_n</m> des vecteurs de
+    Le produit de deux matrices a été défini comme la composition de deux transformations linéaires, mais une autre approche offre une perspective intéressante. Soit <m>\vec{u}_1,\vec{u}_2,\ldots ,\vec{u}_n</m> des vecteurs de
     <m>\R^p</m> et soit <m>A</m> une transformation linéaire de <m>\R^p</m> vers <m>\R^m</m> (Combien de lignes et combien de colonnes <m>A</m> possède-t-elle?). Pour calculer l'image des vecteurs par <m>A</m>, on peut construire
-    une matrice <m>U</m> dont les colonnes sont les vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots \vec{u}_n</m>. Puisque le produit 
+    une matrice <m>U</m> dont les colonnes sont les vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots, \vec{u}_n</m>. Puisque le produit 
     <me>
     AU=\begin{pmatrix}
      \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
@@ -220,11 +220,11 @@
     </p>
     </proof>
     </proposition>
-    <p>Dans l'exemple <xref ref="ex-transfor2"/>, on a définit la transformation identité, dont la matrice <m>I</m> (pour le cas <m>\R^2\to \R^2</m>) est donnée par l'équation <xref ref="eq-id2x2"/>. Le nom identité est choisi puisque toute 
+    <p>Dans l'exemple <xref ref="ex-transfor2"/>, on a défini la transformation identité, dont la matrice <m>I</m> (pour le cas <m>\R^2\to \R^2</m>) est donnée par l'équation <xref ref="eq-id2x2"/>. Le nom identité est choisi puisque toute 
     matrice <m>A</m> multipliée par <m>I</m> donne <m>A</m>, que la multiplication soit faite à gauche ou à droite. Par exemple, pour la multiplication à droite, on a
     <md>
     <mrow>IA&amp;=\begin{pmatrix}1&amp;0\\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix}a &amp;c \\ b&amp; d \end{pmatrix}</mrow>
-    <mrow>&amp;\begin{pmatrix} 1*a+0*b &amp; 1*c+0*d \\ 0*a+1*b &amp; a*c+1*d \end{pmatrix} &amp; &amp; \text{ en utilisant  } <xref ref="eq-matmatprodentree"/></mrow>
+    <mrow>&amp;\begin{pmatrix} 1*a+0*b &amp; 1*c+0*d \\ 0*a+1*b &amp; 0*c+1*d \end{pmatrix} &amp; &amp; \text{ en utilisant  } <xref ref="eq-matmatprodentree"/></mrow>
     <mrow>&amp;=\begin{pmatrix}a &amp;c \\ b&amp; d \end{pmatrix}</mrow>
     </md>
     Évidemment, si on réfléchit géométriquement, ceci devient évident. On applique d'abord <m>A</m> pour ensuite faire l'identité, qui ne change rien.
@@ -289,7 +289,7 @@ plot(D,layout='circular',vertex_color="blue")
     <title>
     Le produit matriciel sur Sage
     </title>
-    <p>Si on a deux matrices <m>A,B</m> sur Sage, on peut facilement les multiplier en utilisant l'opération <c>*</c>. Il faut bien entendu que les dimensions soient compatibles. La deuxième cellulle produit volontairement une erreur.</p>
+    <p>Si on a deux matrices <m>A,B</m> sur Sage, on peut facilement les multiplier en utilisant l'opération <c>*</c>. Il faut bien entendu que les dimensions soient compatibles. La deuxième cellule produit volontairement une erreur.</p>
     <sage>
     <input>
     A=column_matrix([[1,-3],[4,5]])
@@ -525,7 +525,7 @@ plot(D,layout='circular',vertex_color="blue")
       matrice par le biais d'une fonction intermédiaire <c>lambda</c>. Ceci n'est pas très intuitif, mais pour l'instant, ça suffira. L'exercice <xref provisional="simplifiermatrice"/>
        permettra de créer une fonction plus conventionnelle qui pourra simplifier une matrice.</p>
        <p>On voit toutefois qu'après simplification, la transformation est bel et bien une rotation d'angle <m>\theta_1+\theta_2</m>.</p>
-       <p>On s'intéresse maintenant à la composition de deux réflexions. Est-ce que le résultat sera aussi une réflexion? Si oui, pourquoi et si non, donner un exemple avant d'éxecuter le code ci-dessous.</p>
+       <p>On s'intéresse maintenant à la composition de deux réflexions. Est-ce que le résultat sera aussi une réflexion? Si oui, pourquoi et si non, donner un exemple avant d'exécuter le code ci-dessous.</p>
          <sage>
          <input>
 var("theta1,theta2")
@@ -575,21 +575,21 @@ show(produit.apply_map(lambda x: x.trig_reduce()))
        <mrow>&amp;(R_{\theta_1}R_{\theta_2})R_{\theta_3} &amp;&amp;\text{puisque la composition de deux rotations est une rotation dont l'angle est la somme des angles}</mrow>
        </md>. L'associativité est ainsi vérifiée et cohérente avec la composition de rotations.</p></li>
        <li><p>La composition de trois réflexions semble plus difficile à analyser. Deux réflexions composées ensemble donnent une rotation. Une rotation composée avec une réflexion donne une réflexion, mais on sait que 
-       l'ordre de la composition est importante. Est-ce évident que l'associativité sera respectée? On a d'une part
+       l'ordre de la composition est important. Est-ce évident que l'associativité sera respectée? On a d'une part
        <md>
        <mrow>S_{\theta_1}(S_{\theta_2}S_{\theta_3})&amp;=S_{\theta_1}R_{2(\theta_2-\theta_3)} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
-       <mrow>&amp;=S_{\frac{-(2(\theta_2-\theta_3))+2\theta_1}{2}} &amp;&amp; \text{puisque  la composition d'une rotation suivie d'une réflexion est une réflexion dont l'angle est la moitiée de la différence entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
+       <mrow>&amp;=S_{\frac{-(2(\theta_2-\theta_3))+2\theta_1}{2}} &amp;&amp; \text{puisque  la composition d'une rotation suivie d'une réflexion est une réflexion dont l'angle est la moitié de la différence entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
        <mrow>&amp;=S_{\theta_1-\theta_2+\theta_3} &amp;&amp; \text{après simplification}</mrow>
        </md>. D'autre part, on a
         <md>
        <mrow>(S_{\theta_1}S_{\theta_2})S_{\theta_3}&amp;=R_{2(\theta_1-\theta_2)}S_{\theta_3} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
-       <mrow>&amp;=S_{\frac{2(\theta_1-\theta_2)+2\theta_3}{2}} &amp;&amp; \text{puisque  la composition d'une réflexion suivie d'une roation est une réflexion dont l'angle est la moitiée de la somme entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
+       <mrow>&amp;=S_{\frac{2(\theta_1-\theta_2)+2\theta_3}{2}} &amp;&amp; \text{puisque  la composition d'une réflexion suivie d'une rotation est une réflexion dont l'angle est la moitié de la somme entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
        <mrow>&amp;=S_{\theta_1-\theta_2+\theta_3} &amp;&amp; \text{après simplification}</mrow>
        </md>. 
        On a donc bel et bien égalité.
        </p></li>
        </ol>
-       D'autres cas seront explorés à l'exercices  <xref ref="exo-associativiterotref"/>.
+       D'autres cas seront explorés à l'exercice  <xref ref="exo-associativiterotref"/>.
        </p>
       </computation>
      </subsection> 

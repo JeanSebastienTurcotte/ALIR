@@ -15,7 +15,7 @@
     <introduction xml:id= "intro-det2x2">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>On considère dans un premier temps les transformations linéaires dans le plan <m>\R^2</m>. Si on considère le carré unité formé des vecteurs <m>(1,0)</m> et <m>(0,1)</m>, celui-ci est transformé en un 
     parallélogramme (peut être comprimé en une ligne ou un point à l'origine) engendré par les vecteurs <m>T(1,0)</m> et <m>T(0,1)</m>. Comment est l'aire de ce parallélogramme par rapport au carré unité?</p>
-    <p>Dans cette section, on définit le déterminant d'une transformation de <m>\R^2</m>.  On calcule des déterminants pour des tranformations connues et on étudie les propriétés du déterminant. On regarde la notion d'orientation
+    <p>Dans cette section, on définit le déterminant d'une transformation de <m>\R^2</m>.  On calcule des déterminants pour des transformations connues et on étudie les propriétés du déterminant. On regarde la notion d'orientation
     d'un repère et on donne la formule pour le calcul du déterminant d'une matrice <m>2\times 2</m>.</p>
     </introduction>
     <subsection xml:id="sssec-factchgaire">
@@ -79,7 +79,7 @@ P
     <li><p>On prend l'aire du grand rectangle de côtés <m>a+c</m> et <m>b+d</m>, ce qui donne <m>(a+c)(b+d)=ab+ad+cb+cd</m>.</p></li>
     <li><p>On soustrait à cela l'aire des rectangles de côtés <m>b,c</m>, en jaunes sur la figure <xref ref="fig-airepara"/>. Comme il y en a deux, on soustrait <m>2bc</m>.</p></li>
     <li><p>On soustrait ensuite l'aire des triangles rectangles de côtés <m>a,b</m>, en verts sur la figure <xref ref="fig-airepara"/>. Comme il y en a deux, on soustrait <m>ab</m>.</p></li>
-    <li><p>Finalement, on soustrait l'aire des triangles rectangles de côtés <m>c,d</m>, en rouge sur la figure <xref ref="fig-airepara"/>. Comme il y en a deux, on soustrait <m>cd</m>.</p></li>
+    <li><p>Finalement, on soustrait l'aire des triangles rectangles de côtés <m>c,d</m>, en rouges sur la figure <xref ref="fig-airepara"/>. Comme il y en a deux, on soustrait <m>cd</m>.</p></li>
     </ol>
     </p>
     <p>L'aire du parallélogramme est donc 
@@ -87,7 +87,7 @@ P
     ab+ad+bc+cd-2bc-ab-cd=ad-bc
     </me>.
     Ce terme devrait être familier. C'est le même terme qu'on a vu dans la section <xref ref="sec-matinverse"/> pour qu'une matrice <m>2\times 2</m> soit inversible. En y réfléchissant un peu,
-    on peut se convaincre du lien sachant que si <m>ad-bc=0</m>, alors l'aire du parallélogramme est alors nul et on a plutôt une droite. La solution à &#x00AB; l'inverse &#x00BB; de la projection orthogonale
+    on peut se convaincre du lien sachant que si <m>ad-bc=0</m>, alors l'aire du parallélogramme est nulle et on a plutôt une droite. La solution à &#x00AB; l'inverse &#x00BB; de la projection orthogonale
     à l'exemple <xref ref="ex-transfor2inv"/> fournit une explication à l'impossibilité d'avoir un inverse si l'image de la transformation dans <m>\R^2</m> est une droite.
     </p>
     <example>
@@ -165,7 +165,7 @@ Pointsgraph+carre+Pointslabels
     <p>Lorsqu'on parle du vecteur <m>\vec{u}=(3,2)</m> dans le plan, il est sous-entendu que ce vecteur est <m>\vec{u}=3(1,0)+2(0,1)</m>. La décomposition du vecteur <m>(3,2)</m> selon les vecteurs
     <m>(1,0),(0,1)</m> dépend du choix arbitraire qu'on fait de quel vecteur est le &#x00AB; premier &#x00BB; vecteur qui sera utilisé pour décrire les autres vecteurs. En effet, on aurait très bien
     pu prendre comme convention d'ordonner les vecteurs comme <m>(0,1),(1,0)</m> et ainsi, le vecteur <m>\vec{u}</m> aurait été <m>\vec{u}=(2,3)</m> dans cette convention. </p>
-<p>Ces subtilités vont revenir dans la section <xref provisional="Section sur les base"/>, mais pour le moment, on se contente de définir l'orientation de deux vecteurs non parallèle dans <m>\R^2</m>.</p>
+<p>Ces subtilités vont revenir dans la section <xref provisional="Section sur les base"/>, mais pour le moment, on se contente de définir l'orientation de deux vecteurs non parallèles dans <m>\R^2</m>.</p>
 <definition xml:id="def-orientationR2">
 <title>L'orientation dans <m>\R^2</m></title>
 <statement><p>Soit <m>\vec{u},\vec{v}</m> deux vecteurs non parallèles de <m>\R^2</m>. On note <m>\mathcal{B}=\langle \vec{u},\vec{v}\rangle</m> le repère formé dans l'ordre des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>.
@@ -385,7 +385,7 @@ On a
 (u_2v_3-u_3v_2,-(u_1v_3-u_3v_1),u_1v_2-u_2v_1</mrow>
 </md>.
 </p>
-<p>On a bel et bien égalité. Cet exemple donne un moyen simple de trouver un vecteur perpendiculaire à deux autres dans <m>\R^3</m>, qui requiert le calcul de trois détermiants.Si on regarde composante par composante le
+<p>On a bel et bien égalité. Cet exemple donne un moyen simple de trouver un vecteur perpendiculaire à deux autres dans <m>\R^3</m>, qui requiert le calcul de trois déterminants.Si on regarde composante par composante le
 vecteur produit vectoriel de l'équation <xref ref="eq-prodvecdet2x2"/>, on peut s'imaginer une matrice <m>3\times 2</m> contenant les vecteurs <m>\vec{u},\vec{v}</m>
 <me>
 M=\begin{pmatrix}u_1&amp; v_1\\ u_2&amp;v_2\\u_3&amp;v_3 \end{pmatrix}
