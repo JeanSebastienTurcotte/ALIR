@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-4esp">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Retour sur les quatre sous-espaces fondamentaux </title>
+    <introduction xml:id= "intro-4esp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Dans la section <xref ref="sec-transposee"/>, on définit les <xref ref="def-4espaces"> quatre sous-espaces fondamentaux</xref> d'une matrice. À la sous-section <xref ref="sssec-quatressesp"/>, on a ensuite montré que ces ensembles sont des sous-espaces vectoriels et qu'il existe une relation de complément orthogonal entre certains de ces ensembles pris deux à deux.</p>
+    <p>Dans cette section, on cherche à établir une base et la dimension de chacun de ces sous-espaces. Une marche à suivre pour trouver une base pour les quatre sous-espaces d'une matrice sera donnée. On définit également une importante relation entre la dimension des sous-espaces fondamentaux qui sont compléments orthogonaux.</p>
+    </introduction>
+    <subsection>
+    <title>Une base pour les sous-espaces fondamentaux</title>
+    <p>On débute cette section avec la recherche d'une base pour les quatre espaces fondamentaux. On pourra alors obtenir la dimension de chaque espace directement en comptant le nombre de vecteurs dans la base trouvée.</p>
+    <proposition xml:id="prop-baseesplignenul">
+    <title>Une base pour l'espace ligne et une base pour l'espace nul</title>
+    <statement>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m> et soit <m>R=rref(A)</m> sa forme échelonnée réduite. Alors
+    <ol>
+    <li><p>Les lignes non nulles de <m>R</m> forment une base de <m>\mathcal{L}(A)</m>;</p></li>
+    <li><p>Les solutions de base à l'équation <m>A\vec{x}=\vec{0}</m> sont une base de l'espace nul.</p></li>
+    </ol></p>
+    </statement>
+    <proof>
+    <p>Les lignes de <m>R</m> sont nécessairement indépendantes puisqu'en regardant les positions pivots, la seule manière avec une combinaison linéaire d'obtenir le vecteur nul est de prendre zéro fois chaque ligne. Puisque les lignes nulles de <m>R</m> ne contribuent pas à <m>\mathcal{L}(R)</m>, on a que <m>\mathcal{L}(R)</m> est égal au span des lignes non nulles de <m>R</m>. Comme elles sont indépendantes, elles forment une base, en vertu de la proposition <xref ref="prop-ensemblevecetdim"/>.</p>
+    <p>De plus, puisqu'on obtient <m>R</m> à partir de <m>A</m> par une suite d'opérations élémentaires, toutes réversibles, les lignes de <m>A</m> peuvent s'écrire comme une combinaison linéaire des lignes de <m>R</m>. Ceci entraine
+    en particulier que <m>\mathcal{L}(A)=\mathcal{L}(R)</m>. Les lignes de <m>R</m> forment donc une base pour l'espace ligne de <m>A</m>.</p>
+    </proof>
+    <proof><p>
+    Tout vecteur dans <m>\mathcal{N}(A)</m> peut bien sûr s'écrire comme une combinaison linéaire des solutions de base, par construction de celles-ci. Ainsi, elles engendrent <m>\mathcal{N}(A)</m>. De plus, l'exercice <xref ref="exo-solbaseindep"/> montre que les solutions de bases sont indépendantes. Elles forment donc bel et bien une base de l'espace nul.
+    </p></proof>
+    </proposition>
+    <p>Afin de déterminer si un ensemble de <m>k</m> vecteurs est indépendant ou non, on savait déjà qu'on pouvait utiliser le <xref ref="prop-indeprang">rang</xref>. Si jamais les vecteurs ne sont pas indépendants, la proposition <xref ref="prop-baseespligne"/> permet de trouver une base de leur espace engendré.</p>
+    <example>
+    <title>Base de l'espace ligne</title>
+    <statement>
+    <p>On considère la matrice <me>A=\left(\begin{array}{rrrrr}
+2 &amp; 0 &amp; -1 &amp; 2 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 0 &amp; -1 \\
+0 &amp; 0 &amp; -1 &amp; 0 &amp; 8 \\
+-1 &amp; 3 &amp; 2 &amp; -1 &amp; 1 \\
+0 &amp; -1 &amp; 2 &amp; 0 &amp; 1 \\
+-1 &amp; 1 &amp; 1 &amp; -1 &amp; 0
+\end{array}\right)</me>
+et on cherche une base de son espace ligne.</p>
+    </statement>
+    <solution>
+    <p>On utilise Sage pour échelonner la matrice et trouver la base.</p>
+    <sage>
+    <input>
+    A=matrix([[2,0,-1,2,0],[0,1,1,0,-1],[0,0,-1,0,8],[-1,3,2,-1,1],[-1,1,1,-1,0]])
+    show(A)
+    show(A.rref())
+    </input>
+    </sage>
+    <p>Une base pour <m>\mathcal{L}(A)</m> est <m>\mathcal{B}=\langle (1,0,0,1,0),(0,1,0,0,0),(0,0,1,0,0),(0,0,0,0,1) \rangle</m>. La dimension de l'espace ligne est <m>4</m> et c'est un sous-espace vectoriel de <m>\R^5</m>.</p>
+    </solution>
+    </example>
+    <p>Puisque <m>\mathcal{C}(A)=\mathcal{L}(A^T)</m> et que l'espace nul gauche est défini avec la transposée, on pourrait appliquer le résultat de la proposition <xref ref="prop-baseesplignenul"/> pour obtenir une base de ces espaces. On propose toutefois une alternative directe avec la matrice <m>A</m>. On aura besoin du résultat suivant, qui sera démontré dans les exercices.</p>
+    <lemma xml:id="lem-NRT">
+    <title>L'espace nul de la transposée d'une matrice échelonnée réduite</title>
+    <statement>
+    <p>Soit <m>R</m> une matrice <m>m\times n</m> de rang <m>r&lt; m</m> qui est échelonnée réduite et soit <m>\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_m</m> les vecteurs de la base standard de <m>\R^m</m>.
+    Alors une base possible pour l'espace nul gauche <m>\mathcal{N}(R^T)</m> est <m>\langle \vec{e}_{r+1},\vec{e}_{r+2},\ldots , \vec{e}_m \rangle</m>.
+    </p>
+    </statement>
+    </lemma>
+    <proposition xml:id="prop-baseespcolnulg">
+    <title>Une base pour l'espace colonne et l'espace nul gauche </title>
+    <statement>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m>,<m>R=rref(A)</m> sa forme échelonnée réduite et soit <m>E</m> une matrice <m>m\times m</m> telle que <m>EA=R</m> (la matrice <m>E</m> correspond à la multiplication de matrices élémentaires permettant d'échelonner <m>A</m>). Alors
+    <ol>
+    <li><p>Les colonnes pivots de <m>A</m> (celles qui sont pivots dans <m>R</m>) forment une base de <m>\mathcal{C}(A)</m>;</p></li>
+    <li><p>Les lignes de <m>E</m> qui sont aux mêmes positions que les lignes nulles de <m>R</m> forment une base de l'espace nul gauche.</p></li>
+    </ol></p>
+    </statement>
+    <proof>
+    <p>Soit <m>j_1,j_2,\ldots , j_r</m> l'indice des colonnes de <m>R</m> contenant un pivot, avec <m>j_1&tl; j_2&lt; \cdots &lt; j_r</m>. Soit <m>\vec{a}_{j_{1}},\vec{a}_{j_{2}},\ldots ,\vec{a}_{j_{r}}</m> les colonnes de <m>A</m> correspondants à ces positions. On veut montrer que ces colonnes forment une base de <m>\mathcal{C}(A)</m>.</p>
+    <p>D'abord, l'indépendance. Soit <m>c_1,c_2,\ldots ,c_r\in \R</m> tels que
+    <me>
+    c_1\vec{a}_{j_{1}}+c_2\vec{a}_{j_{2}}+\ldots +c_r\vec{a}_{j_{r}}=\vec{0}
+    </me>.
+    On pose <m>\vec{v}</m> le vecteur qui a une valeur <m>0</m>  en position <m>i</m> si <m>i\notin \{j_1,j_2,\ldots , j_r\}</m> qui qui vaut <m>c_{j_{i}}</m> aux positions <m>j_1,j_2,\ldots , j_r</m>. Le vecteur <m>\vec{v}</m> est donc une solution à l'équation <m>A\vec{x}=\vec{0}</m>. Par le fait même, on a <m>R\vec{v}=\vec{0}</m>. Ceci entraine que
+        <me>
+    c_1\vec{a^{'}}}_{j_{1}}+c_2\vec{a^{'}}}_{j_{2}}+\ldots +c_r\vec{a^{'}}}_{j_{r}}=\vec{0}
+    </me>,
+    où <m>\vec{a^{'}}_{j_{k}}</m> est la <m>k</m>-ème colonne de <m>R</m>. Puisque par définition celles-ci sont pivots, ces colonnes ne contiennent qu'un <m>1</m> et des zéros partout ailleurs. On conclut que <m>c_1=c_2=c_r=0</m> et donc, que les colonnes de <m>A</m> qui correspondent aux positions pivots de <m>R</m> sont indépendantes.
+    </p>
+    <p>Il reste donc à montrer que ces colonnes engendrent <m>\mathcal{C}(A)</m>. Évidemment, <m>\mathcal{C}(A)=\vspan(\vec{a}_1,\vec{a}_2,\ldots ,\vec{a}_n)</m>. Si on montre que les colonnes qui ne sont pas pivots peuvent s'écrire comme une combinaison linéaire des colonnes pivots, alors on pourra les retirer du <m>\vspan</m> et il ne restera dans celui-ci que les colonnes pivots.</p>
+    <p>Dans la matrice <m>R</m>, on a vu comment lire les solutions de base à partir des colonnes qui ne sont pas pivots. Ces solutions de base offrent une solution à l'équation <m>R\vec{x}=\vec{0}</m>. Elles donnent une combinaison linéaire de la colonne libre ainsi que des colonnes pivots à sa gauche donnant le vecteur nul. Puisque l'équation <m>A\vec{x}=\vec{0}</m> possède les mêmes solutions que l'équation <m>R\vec{x}=\vec{0}</m>, on obtient aussi une combinaison linéaire des colonnes correspondantes dans <m>A</m> qui donne le vecteur nul. En isolant la colonne correspondant à la colonne libre, on voit qu'ele s'écrit comme une combinaison linéaire des colonnes pivots.</p>
+    <p>On a donc bel et bien que <m>\mathcal{C}(A)=\vspan(\vec{a}_{j_{1}},\vec{a}_{j_{2}},\ldots ,\vec{a}_{j_{r}})</m>, les colonnes pivots de <m>A</m>.</p>
+    </proof>
+    <proof>
+    <p>
+    Finalement, on veut montrer que les lignes de <m>E</m> qui sont aux mêmes positions que que les lignes nulles de <m>R</m> forment une base pour l'espace nul gauche. La matrice <m>E</m> est la matrice obtenue en multipliant chaque matrice élémentaire transformant <m>A</m> à <m>R</m>. Chaque matrice élémentaire étant inversible, leur produit l'est aussi, tel qu'indiqué à la proposition <xref ref="prop-inverseproduit"/> (sa généralisation). Les lignes de <m>E</m> sont donc indépendantes. En particulier, celles correspondantes aux lignes nulles de <m>R</m> le sont. Il reste à montrer que ces lignes engendrent l'espace nul gauche.
+    </p>
+    <p>L'espace nul gauche consiste à l'ensemble des vecteurs <m>\vec{x}</m> tels que <m>A^{T}\vec{x}=\vec{0}</m>. Puisque <m>EA=R</m>, on réécrit <m>A^T=(E^{-1}R)^T=R^T(E^T)^{-1}</m> en vertu des <xref ref="prop-transposeeprop">propriétés de la transposée</xref>. On a donc
+    <md>
+    <mrow>\vec{0}&amp;=A^{T}\vec{x}</mrow>
+    <mrow>       &amp;=R^T(E^T)^{-1}\vec{x}</mrow>
+    <intertext><p>On pose <m>\vec{y}=(E^T)^{-1}\vec{x}</m></p></intertext>
+    <mrow>       &amp;=R^T\vec{y}</mrow>
+    </md>.
+    On conclut donc que <m>\vec{y}\in \mathcal{N}(R^T)</m>. Selon le lemme <xref provisional="lem-NRT"/>, l'espace nul de <m>R^T</m> est engendré par les <m>m-r</m> derniers vecteurs de la base standard de <m>R^m</m>, où <m>r</m> est le rang de <m>A</m>. Le vecteur <m>\vec{y}</m> est donc une combinaison linéaire de ces vecteurs. Si on isole <m>\vec{x}</m> dans l'équation <m>\vec{y}=(E^T)^{-1}\vec{x}</m>, on obtient <m>\vec{x}=E^T\vec{y}</m>. Puisque <m>\vec{y}</m> est une combinaison linéaire des <m>m-r</m> derniers vecteurs de la base standard, le vecteur <m>\vec{x}</m> est une combinaison linéaire des <m>m-r</m> dernières colonnes de <m>E^T</m> et donc, aux <m>m-r</m> lignes de <m>E</m>. Ce sont exactement ces lignes qui correspondent aux lignes nulles de <m>R</m>. Ceci montre que les <m>m-r</m> lignes de <m>E</m> forment une base pour <m>\mathcal{N}(A^T)</m>.</p>
+    </proof>
+    </proposition>
+    <p>Dans la pratique, il est souvent plus simple de déterminer une base de l'espace nul-gauche de <m>A</m> en considérant directement l'espace nul de sa transposée, mais la proposition <xref ref="prop-baseespcolnulg"/> donne une manière à partir de <m>A</m> et de son processus d'échelonnage. On montre tout de même un exemple complet utilisant les propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>.</p>
+    <example>
+    <title>Une base des quatre espaces fondamentaux d'une matrice</title>
+    <statement>
+    <p>On considère la matrice <me>
+    A=\begin{pmatrix}
+    1&amp; 2&amp; 9&amp; 7&amp; -7\\
+    0&amp; 1&amp; 3&amp; 2&amp; -2\\
+    0&amp; -2&amp; -6&amp; -3&amp; 2\\
+    2&amp; 0&amp; 6&amp; 7&amp; -8\\
+    \end{pmatrix}
+    </me>.
+    On cherche une base pour les quatres espaces fondamentaux.
+    </p>
+    </statement>
+    <solution><p>On commence par échelonner la matrice en gardant bien en vue les opérations élémentaires effectuées dans le but de créer la matrice <m>E</m>.
+    <md>
+    <mrow>\begin{pmatrix}
+    1&amp; 2&amp; 9&amp; 7&amp; -7\\
+    0&amp; 1&amp; 3&amp; 2&amp; -2\\
+    0&amp; -2&amp; -6&amp; -3&amp; 2\\
+    2&amp; 0&amp; 6&amp; 7&amp; -8\\
+    \end{pmatrix}&amp;\matsimilc{1}{-2}{4}\begin{pmatrix}
+    1&amp; 2&amp; 9&amp; 7&amp; -7\\
+    0&amp; 1&amp; 3&amp; 2&amp; -2\\
+    0&amp; -2&amp; -6&amp; -3&amp; 2\\
+    0&amp; -4&amp; -12&amp; 7&amp; 6\\
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{2}{3}\begin{pmatrix}
+    1&amp; 2&amp; 9&amp; 7&amp; -7\\
+    0&amp; 1&amp; 3&amp; 2&amp; -2\\
+    0&amp; 0&amp; 0&amp; 1&amp; -2\\
+    0&amp; -4&amp; -12&amp; 7&amp; 6\\
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{4}{4}\begin{pmatrix}
+    1&amp; 2&amp; 9&amp; 7&amp; -7\\
+    0&amp; 1&amp; 3&amp; 2&amp; -2\\
+    0&amp; 0&amp; 0&amp; 1&amp; -2\\
+    0&amp; 0&amp; 0&amp; 1&amp; -2\\
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{3}{-}{4}\begin{pmatrix}
+    1&amp; 2&amp; 9&amp; 7&amp; -7\\
+    0&amp; 1&amp; 3&amp; 2&amp; -2\\
+    0&amp; 0&amp; 0&amp; 1&amp; -2\\
+    0&amp; 0&amp; 0&amp; 0&amp; 0\\
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{3}{-2}{2}\begin{pmatrix}
+    1&amp; 2&amp; 9&amp; 7&amp; -7\\
+    0&amp; 1&amp; 3&amp; 0&amp; 2\\
+    0&amp; 0&amp; 0&amp; 1&amp; -2\\
+    0&amp; 0&amp; 0&amp; 0&amp; 0\\
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{3}{-7}{1}\begin{pmatrix}
+    1&amp; 2&amp; 9&amp; 0&amp; 7\\
+    0&amp; 1&amp; 3&amp; 0&amp; 2\\
+    0&amp; 0&amp; 0&amp; 1&amp; -2\\
+    0&amp; 0&amp; 0&amp; 0&amp; 0\\
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\matsimilc{2}{-2}{1}\begin{pmatrix}
+    1&amp; 0&amp; 3&amp; 0&amp; 3\\
+    0&amp; 1&amp; 3&amp; 0&amp; 2\\
+    0&amp; 0&amp; 0&amp; 1&amp; -2\\
+    0&amp; 0&amp; 0&amp; 0&amp; 0\\
+    \end{pmatrix}</mrow>
+    <mrow>&amp;=R</mrow>
+    </md>.
+    À chaque opération élémentaire correspond une matrice élémentaire. On a
+    <md>
+    <mrow>E_1&amp;=\begin{pmatrix} 1&amp;0 &amp;0 &amp;0 \\
+                          0&amp; 1&amp;0 &amp; 0\\
+                          0&amp; 0&amp; 1&amp;0 \\
+                          -2&amp;0 &amp;0 &amp;1\end{pmatrix} </mrow>
+    <mrow>E_2&amp;=\begin{pmatrix} 1&amp;0 &amp;0 &amp;0 \\
+                          0&amp; 1&amp;0 &amp;0 \\
+                          0&amp; 2&amp; 1&amp;0 \\
+                          0&amp;0 &amp;0&amp;1\end{pmatrix} </mrow>
+    <mrow>E_3&amp;=\begin{pmatrix} 1&amp;0 &amp;0 &amp;0 \\
+                          0&amp; 1&amp;0 &amp;0 \\
+                          0&amp; 0&amp; 1&amp;0 \\
+                          0&amp; 4&amp;0 &amp;1\end{pmatrix} </mrow>
+    <mrow>E_4&amp;=\begin{pmatrix} 1&amp; 0&amp; 0&amp;0 \\
+                          0&amp; 1&amp; 0&amp;0 \\
+                         0 &amp; 0&amp; 1&amp; 0\\
+                          0&amp; 0&amp; -1&amp;1\end{pmatrix} </mrow>
+    <mrow>E_5&amp;=\begin{pmatrix} 1&amp;0 &amp;0 &amp;0 \\
+                          0&amp; 1&amp; -2&amp;0 \\
+                          0&amp;0 &amp; 1&amp;0 \\
+                          0&amp;0 &amp;0 &amp;1\end{pmatrix} </mrow>
+    <mrow>E_6&amp;=\begin{pmatrix} 1&amp;0 &amp; -7&amp;0 \\
+                          0&amp; 1&amp;0 &amp;0 \\
+                          0&amp; 0&amp;1 &amp;0 \\
+                          0&amp; 0&amp; 0&amp;1\end{pmatrix} </mrow>
+    <mrow>E_7&amp;=\begin{pmatrix}1 &amp;-2 &amp;0 &amp;0 \\
+                          0&amp; 1&amp; 0&amp;0 \\
+                          0&amp; 0&amp; 1&amp;0 \\
+                          0&amp; 0&amp; 0&amp;1\end{pmatrix} </mrow>
+    </md>.
+    Finalement, <m>E=E_7E_6E_5E_4E_3E_2E_1</m>, que l'on calcule avec Sage.</p>
+    <sage>
+    <input>
+E1=elementary_matrix(4,row1=3,row2=0,scale=-2)   #La syntaxe est row1=scale*row2+row1, en se rappelant que les lignes commencent à 0
+E2=elementary_matrix(4,row1=2,row2=1,scale=2)
+E3=elementary_matrix(4,row1=3,row2=1,scale=4)
+E4=elementary_matrix(4,row1=3,row2=2,scale=-1)
+E5=elementary_matrix(4,row1=1,row2=2,scale=-2)
+E6=elementary_matrix(4,row1=0,row2=2,scale=-7)
+E7=elementary_matrix(4,row1=0,row2=1,scale=-2)
+E=E7*E6*E5*E4*E3*E2*E1
+A=matrix([[1,2,9,7,-7],[0,1,3,2,-2],[0,-2,-6,-3,2],[2,0,6,7,-8]])
+show("EA=R=",E*A) #Pour s'assurer que les matrices sont correctes
+show("E=",E)
+    </input>
+    </sage>
+    <p>Selon la proposition <xref ref="prop-baseesplignenul"/>, l'espace ligne est engendré par les lignes non nulles de <m>R</m>. On a donc <m>\mathcal{L}(A)=\vspan((1,0,3,0,3),(0,1,3,0,2),(0,0,0,1,-2))</m>. Toujours selon cette proposition, l'espace nul est engendré par les solutions de base à l'équation <m>A\vec{x}=\vec{0}</m> qui se trouvent à même la matrice <m>R</m>, comme indiqué à l'exemple <xref xref="ex-solbase2"/>. On a donc <m>\mathcal{N}(A)=\vspan((-3,-3,1,0,0),(-3,-2,0,2,1))</m>.</p>
+<p>Selon la proposition <xref ref="prop-baseespcolnulg"/>, l'espace colonne est engendré par les colonnes de <m>A</m> qui correspondent aux colonnes pivots de sa forme échelonnée réduite <m>R</m>. On a donc <m>\mathcal{C}(A)=\vspan((1,0,0,2),(2,1,-2,0),(7,2,-3,7))</m>. Toujours selon cette proposition, l'espace nul-gauche est engendré par les lignes de la matrice <m>E</m> qui correspondent aux lignes nulles de la matrice <m>R</m>. On a donc <m>\mathcal{N}(A^T)=\vspan((-2,2,-1,1))</m>.</p>
+    </solution>
+    </example>
+    <p>On a déjà observé la relation de complément orthogonal que possède les sous-espaces fondamentaux à la proposition <xref ref="prop-espfondcomportho"/>. Ce qui ajoute à l'importance des sous-espaces fondamentaux toutefois, c'est le lien entre leur dimension et l'espace dans lequel ils vivent.</p>
+    <proposition xml:id="prop-dim4esp">
+    <title>La dimension des quatre espaces fondamentaux</title>
+    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> de rang <m>r</m>. Alors
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(A))=\text{dim}(\mathcal{C}(A))=r</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(A))=n-r</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(A^T))=m-r</m>.</p></li>
+    </ul>
+    </p>
+    <p>En particulier, on remarque que la somme des espaces ligne et nul, qui sont des sous-espaces de <m>\R^n</m>, donne <m>n</m> et que la dimension des espaces colonne et nul gauche, qui sont des sous-espaces de <m>\R^m</m>, donne <m>m</m>.</p>
+    </statement>
+    <proof>
+    <p>Pour les espaces ligne et colonne, le nombre de vecteur dans la base correspond respectivement au nombre de lignes non nulles de la forme échelonnée réduite de la matrice <m>A</m> et au nombre de colonnes pivots de cette même matrice échelonée réduite. Dans les deux cas, ce nombre est égal au rang de la matrice. La dimension est donc égale au rang, soit <m>r</m>.</p>
+    <p>Pour l'espace nul, le nombre de vecteurs dans la base correspond au nombre de solutions de base. Celles-ci sont aussi nombreuse qu'il y a de variables libres, soit <m>n-r</m> (<m>n</m> variables moins les <m>r</m> qui sont pivots). </p>
+    <p>Finalement pour l'espace nul gauche, le nombre de vecteur dans la base correspond au nombre de lignes nulles dans la forme échelonnée réduite. Celles-ci sont en nombre de <m>m-r</m> (<m>m</m> lignes moins les <m>r</m> qui contiennent un pivot). </p>
+    </proof>
+    </proposition>
+    <p>Ensemble, les propositions <xref ref="prop-espfondcomportho"/> et <xref ref="prop-dim4esp"/> donnent le théorème fondamental de l'algèbre linéaire.<fn>L'adjectif &00AA;fondamental&00AB; de ce théorème n'est pas aussi répandu que son homologue en calcul différentiel et intégral. Il a été caractérisé ainsi pour la première fois par Gilbert Strang, professeur au MIT.</fn></p>
+    <theorem>
+    <title>Le théorème fondamental de l'algèbre linéaire</title>
+    <statement>
+    <p>Soit <m>A</m> une matrice <m>m\times n</m> de rang <m>r</m>. Alors
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(A))=\text{dim}(\mathcal{C}(A))=r</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(A))=n-r</m> et <m>(\mathcal{L}(A))^{\perp}=\mathcal{N}(A)</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(A^T))=m-r</m> et <m>(\mathcal{C}(A))^{\perp}=\mathcal{N}(A^T)</m>.</p></li>
+    </ul>
+    </p></statement>
+    <proof>
+    <p>Le résultat découle des propositions <xref ref="prop-espfondcomportho"/> et <xref ref="prop-dim4esp"/>. </p>
+    </proof>
+    </theorem>
+    <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
+    <computation>
+    <title>Base des quatre espaces sur Sage</title>
+    <statement>
+    <p>Dans la section <xref ref="sec-transposee"/>, on a introduit des commandes permettant de trouver une base des espaces fondamentaux, sans avoir défini au préalable la notion de base. Ceci a été fait à l'exemple calculatoire <xref ref="sageex-espfond"/>. On reprend ici ces commandes avec la notion de base maintenant bien définie.</p>
+    <p>Les commandes pour les espaces ligne,colonne,nul et nul gauche sont respectivement <c></c></p>
+    </statement>
+    </computation>
+    </subsection>
+    <subsection>
+    <title>Quelques résultats supplémentaires</title>
+    <p>À la proposition <xref ref="prop-comporthocomportho"/>, on a montré que si <m>V</m> est une sous-espace vectoriel, alors <m>(V^{\perp})^{\perp}=V</m>. On peut se demander si la relation entre les dimensions d'un sous-espace quelconque et son complément orthogonal est aussi complémentaire à l'espace sous-jacent.</p>
+    <proposition>
+    <title>La dimension du complément orthogonal</title>
+    </proposition>
+    </subsection>
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-4esp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    
+    </conclusion>
+   <!--Inclure les exercices de la section ci-dessous--> 
+</section>
+<!-- Exercice pour démontrer <xref ref="lem-NRT"/>-->
