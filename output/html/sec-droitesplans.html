@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-05-19T14:32:18Z       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ALIR Droites et plans</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Algèbre linéaire : Intuition et rigueur">
+<meta property="book:author" content="Jean-Sébastien Turcotte">
+<meta property="book:author" content="Philémon Turcotte">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Évaluer (Sage)'});
+</script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Sauter au contenu</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\renewcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}  
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}    
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}   
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\det}{det}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="alir.html"><span class="title">Algèbre linéaire : Intuition et rigueur:</span> <span class="subtitle">Version préliminaire</span></a></h1>
+<p class="byline">Jean-Sébastien Turcotte, Philémon Turcotte</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Table des matières</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-prodscal.html" title="Précédent">Précédent</a><a id="upbutton" class="up-button button toolbar-item" href="chap-vec.html" title="Haut">Haut</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-vecndim.html" title="Suivant">Suivant</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Table des matières</button><a class="previous-button toolbar-item button" href="sec-prodscal.html" title="Précédent">Précédent</a><a class="up-button button toolbar-item" href="chap-vec.html" title="Haut">Haut</a><a class="next-button button toolbar-item" href="sec-vecndim.html" title="Suivant">Suivant</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Pages Liminaires</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="chap-vec.html" data-scroll="chap-vec" class="internal"><span class="codenumber">1</span> <span class="title">Les vecteurs</span></a><ul>
+<li><a href="sec-vec.html" data-scroll="sec-vec" class="internal">Vecteurs géométriques et algébriques</a></li>
+<li><a href="sec-prodscal.html" data-scroll="sec-prodscal" class="internal">Produit scalaire et calcul d'angles</a></li>
+<li><a href="sec-droitesplans.html" data-scroll="sec-droitesplans" class="active">Droites et plans</a></li>
+<li><a href="sec-vecndim.html" data-scroll="sec-vecndim" class="internal">Vecteurs de dimension supérieure</a></li>
+<li><a href="sec-veclabos.html" data-scroll="sec-veclabos" class="internal">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-transfo.html" data-scroll="chap-transfo" class="internal"><span class="codenumber">2</span> <span class="title">Les transformations linéaires: première partie</span></a><ul>
+<li><a href="sec-transfodef.html" data-scroll="sec-transfodef" class="internal">Les transformations linéaires</a></li>
+<li><a href="sec-prodmat.html" data-scroll="sec-prodmat" class="internal">La composition et le produit matriciel</a></li>
+<li><a href="sec-matinverse.html" data-scroll="sec-matinverse" class="internal">Transformations inverses</a></li>
+<li><a href="sec-transfodimsup.html" data-scroll="sec-transfodimsup" class="internal">Transformations linéaires de dimension supérieure</a></li>
+<li><a href="sec-transfolabos.html" data-scroll="sec-transfolabos" class="internal">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-SEL.html" data-scroll="chap-SEL" class="internal"><span class="codenumber">3</span> <span class="title">Les systèmes d'équations linéaires</span></a><ul>
+<li><a href="sec-GJ.html" data-scroll="sec-GJ" class="internal">Les systèmes d'équations linéaires et la méthode de Gauss-Jordan</a></li>
+<li><a href="sec-SELtheo.html" data-scroll="sec-SELtheo" class="internal">Les systèmes avec aucune ou une infinité de solutions</a></li>
+<li><a href="sec-SELgeo.html" data-scroll="sec-SELgeo" class="internal">La géométrie des systèmes d'équations linéaires</a></li>
+<li><a href="sec-transposee.html" data-scroll="sec-transposee" class="internal">La transposée d'une matrice</a></li>
+<li><a href="sec-SELlabos.html" data-scroll="sec-SELlabos" class="internal">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-det.html" data-scroll="chap-det" class="internal"><span class="codenumber">4</span> <span class="title">Le déterminant d'une matrice</span></a><ul>
+<li><a href="sec-det2x2.html" data-scroll="sec-det2x2" class="internal">Le déterminant <span class="process-math">\(2\times 2\)</span></a></li>
+<li><a href="sec-detgen.html" data-scroll="sec-detgen" class="internal">Le déterminant d'une matrice <span class="process-math">\(n\times n\)</span></a></li>
+<li><a href="sec-cofacteurs.html" data-scroll="sec-cofacteurs" class="internal">Les mineurs et les cofacteurs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-espvec.html" data-scroll="chap-espvec" class="internal"><span class="codenumber">5</span> <span class="title">Espaces vectoriels</span></a><ul>
+<li><a href="sec-ssesp.html" data-scroll="sec-ssesp" class="internal">Sous-espaces vectoriels</a></li>
+<li><a href="sec-bases.html" data-scroll="sec-bases" class="internal">Base d'un sous-espace vectoriel</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Rédigé avec PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec-droitesplans"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">Droites et plans</span>
+</h2>
+<section class="introduction" id="intro-droitesplans"><p id="p-544">Lorsqu'on multiplie un vecteur par un scalaire, le vecteur garde la même direction. En observant la trace que fait l'extrémité du vecteur <span class="process-math">\(c\vec{u}\)</span> lorsque <span class="process-math">\(c\)</span> parcourt l'ensemble des nombres réels, on remarque que la trace parcourt une droite. De même, si on a deux vecteurs non nuls et non parallèles <span class="process-math">\(\vec{u},\vec{v}\)</span> et que l'on considère les vecteurs <span class="process-math">\(a\vec{u}+b\vec{v}\)</span> lorsque <span class="process-math">\(a,b\in \R\text{,}\)</span> on remarque que ces vecteurs se retrouvent toujours sur un plan.</p>
+<p id="p-545">Dans cette section, on introduit la notion de combinaison linéaire de vecteurs et on définit vectoriellement la notion de droite et de plan. On effectue aussi certains calculs, par exemple de distance, à l'aide des outils développés jusqu'à maintenant.</p></section><section class="subsection" id="sssec-droites"><h3 class="heading hide-type">
+<span class="type">Sous-section</span> <span class="codenumber">1.3.1</span> <span class="title">Les droites</span>
+</h3>
+<p id="p-546">Lorsque deux ou plusieurs vecteurs qui sont multipliés par un scalaire sont additionnés, on parle alors de <em class="emphasis">combinaison linéaire</em>.</p>
+<article class="definition definition-like" id="def-comblin"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span>
+</h4>
+<p id="p-547">Si on a <span class="process-math">\(n\)</span> vecteurs <span class="process-math">\(\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_n\text{,}\)</span> une combinaison linéaire de ces vecteurs est typiquement écrite</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a_1\vec{u}_1+a_2\vec{u}_2+\cdots +a_n\vec{u}_n, \, \text{ où } a_i\in
+\R \, \text{ pour tout } i=1,2,\ldots , n\text{.}
+\end{equation*}
+</div></article><aside class="aside aside-like" id="aside-5"><p id="p-548">Le symbole <span class="process-math">\(\forall\)</span> signifie « pour tout. » Par exemple, l'expression mathématique <span class="process-math">\(f(x)&gt;0 \, \forall x\in\R\)</span> se lit <span class="process-math">\(f(x)\)</span> est plus grand que zéro pour tout <span class="process-math">\(x\)</span> réel.</p></aside><p id="p-549">Les coefficients <span class="process-math">\(a_1,a_2,\ldots, a_n\)</span> sont parfois appelés les poids de la combinaison linéaire.</p>
+<p id="p-550">La multiplication par un scalaire, un cas limite de combinaison linéaire, sera aussi considérée comme une combinaison linéaire, d'un seul vecteur. À l'aide d'un certain nombre de vecteurs et des combinaisons linéaires, il est possible de générer (ou engendrer) d'autres vecteurs. Par exemple, un vecteur seul peut générer tout autre vecteur parallèle par la bonne combinaison linéaire, alors que deux vecteurs non parallèles de <span class="process-math">\(\R^2\)</span> pourront engendrer n'importe quel vecteur de <span class="process-math">\(\R^2\text{.}\)</span> La figure de l'exemple interactif <a href="" class="xref" data-knowl="./knowl/ex-comblin.html" title="Exemple 1.3.2: Combinaison linéaire de deux vecteurs: dynamique">1.3.2</a> permet de voir intuitivement ce fait, alors que les détails techniques seront abordés avec le concept de base d'un espace au chapitre <code class="code-inline tex2jax_ignore">[provisional cross-reference: chap-base]</code>.</p>
+<article class="example example-like" id="ex-comblin"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-comblin"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Combinaison linéaire de deux vecteurs: dynamique.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-comblin"><article class="example example-like"><p id="p-551">Dans cet exemple, on considère pour des vecteurs <span class="process-math">\(\vec{u},\vec{v}\)</span> de <span class="process-math">\(\R^2\text{,}\)</span>  les combinaisons de la forme <span class="process-math">\(a\vec{u}\)</span> et <span class="process-math">\(a\vec{u}+b\vec{v}\text{.}\)</span> En se référant à la figure <a href="" class="xref" data-knowl="./knowl/fig-comblin.html" title="Figure 1.3.3">1.3.3</a>, sans toucher aux vecteurs de départ, on s'intéresse aux questions suivantes:</p>
+<ol class="decimal">
+<li id="li-187"><p id="p-552">Au départ, les poids de la combinaison linéaire sont <span class="process-math">\(0\text{.}\)</span> En laissant l'un des paramètres nul et en faisant varier l'autre, on observe que la combinaison linéaire, qui n'est qu'une multiplication par un scalaire dans ce cas, se déplace sur une droite. Ceci est cohérent avec les observations faites lors de l'exemple <a href="" class="xref" data-knowl="./knowl/ex-geomultscal.html" title="Exemple 1.1.14: La multiplication par un scalaire: dynamique">1.1.14</a>.</p></li>
+<li id="li-188"><p id="p-553">En cliquant sur "grille" et en prenant des valeurs entières de <span class="process-math">\(a\)</span> et <span class="process-math">\(b\text{,}\)</span> on observe que les multiplications par un scalaire respectives de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> se retrouvent à une intersection de la grille. Si en plus on fait afficher la combinaison linéaire, on peut voir géométriquement l'addition des vecteurs <span class="process-math">\(a\vec{u}\)</span> et <span class="process-math">\(b\vec{v}\text{.}\)</span></p></li>
+<li id="li-189"><p id="p-554">On fixe une valeur de <span class="process-math">\(b\)</span> quelconque, entière ou non et on laisse varier <span class="process-math">\(a\text{.}\)</span> Qu'observe-t-on?</p></li>
+<li id="li-190">
+<p id="p-555">Est-il possible de décrire n'importe quel vecteur de <span class="process-math">\(\R^2\)</span> comme une combinaison linéaire de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> ? Cette question revient à dire, étant donné un vecteur <span class="process-math">\(\vec{w}=(w_1,w_2)\text{,}\)</span> peut-on trouver des coefficients <span class="process-math">\(a,b\)</span> tels que</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/chap-SEL.html">
+\begin{equation*}
+a\begin{pmatrix}u_1\\u_2 \end{pmatrix}+b\begin{pmatrix}v_1\\v_2
+\end{pmatrix}=\begin{pmatrix}w_1\\w_2 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Puisque deux vecteurs sont égaux si leurs composantes respectives le sont, on obtient les deux équations suivantes:</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/chap-SEL.html" id="md-108">
+\begin{align*}
+au_1+bv_1&amp;=w_1\\
+au_2+bv_2&amp;=w_2\text{.}
+\end{align*}
+</div>
+<p class="continuation">Ce genre de paire d'équations à résoudre est appelé un système d'équations linéaires et sera l'objet d'étude du chapitre <a href="chap-SEL.html" class="internal" title="Chapitre 3: Les systèmes d'équations linéaires">3</a>.</p>
+<p id="p-556">Il est assez simple de voir intuitivement que dès que deux vecteurs sont non parallèles dans <span class="process-math">\(\R^2\text{,}\)</span> on peut écrire n'importe quel autre vecteur en fonction de ceux-ci. Un clic sur "Cible" fera apparaitre un point (plutôt qu'un vecteur, pour ne pas encombrer davantage la figure). À l'aide des curseurs, il devrait être possible de trouver une combinaison linéaire dont l'extrémité sera le point "Cible".</p>
+</li>
+<li id="li-191"><p id="p-derived-li-191">On observe ce qui se passe lorsque les vecteurs initiaux sont changés, en particulier si <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> sont parallèles.</p></li>
+</ol>
+<figure class="figure figure-like" id="fig-comblin"><div style="width:600px;"><p id="p-557">Il est possible de déplacer les vecteurs <span class="process-math">\(\vec{u},\vec{v}\text{.}\)</span> En cliquant sur "combinaison linéaire", on fait apparaitre le vecteur <span class="process-math">\(a\vec{u}+b\vec{v}\text{.}\)</span> Les coefficients <span class="process-math">\(a\)</span> et <span class="process-math">\(b\)</span> peuvent être changés à l'aide des curseurs. Si souhaité, on peut faire s'afficher une grille suivant les multiples entiers des vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span></p></div>
+<iframe id="geog-comblin" width="600" height="600" src="geog-comblin-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.3<span class="period">.</span></span><span class="space"> </span>Combinaison linéaire dans <span class="process-math">\(\R^2\)</span></figcaption></figure></article></div>
+<p id="p-558">Les observations de l'exemple <a href="" class="xref" data-knowl="./knowl/ex-comblin.html" title="Exemple 1.3.2: Combinaison linéaire de deux vecteurs: dynamique">1.3.2</a> permettent de voir que les vecteurs et les droites sont des notions étroitement liées. On est tous capables de déterminer l'équation d'une droite, souvent de la forme <span class="process-math">\(y=ax+b\text{,}\)</span> à l'aide d'informations comme deux points appartenant à la droite ou encore d'un point et de la pente. Pourquoi alors, développer une théorie vectorielle pour un objet aussi bien connu?</p>
+<p id="p-559">La réponse à cette question se trouve en particulier dans <span class="process-math">\(\R^3\text{.}\)</span> En effet, l'équation <span class="process-math">\(y=ax+b\)</span> vue dans <span class="process-math">\(\R^3\)</span> ne décrit non pas une droite, mais un plan (plus sur les plans dans la sous-section <a href="sec-droitesplans.html#sssec-plans" class="internal" title="Sous-section 1.3.2: Les plans">1.3.2</a>). Pour comprendre cela, on rappelle qu'un point dans <span class="process-math">\(\R^3\)</span> est composé d'une valeur <span class="process-math">\(x,y\)</span> et <span class="process-math">\(z\text{.}\)</span> Comme l'équation <span class="process-math">\(y=ax+b\)</span> lie ensemble les variables <span class="process-math">\(x\)</span> et <span class="process-math">\(y\text{,}\)</span> mais laisse <span class="process-math">\(z\)</span> libre, pour chaque couple <span class="process-math">\(x,y\)</span> satisfaisant l'équation <span class="process-math">\(y=ax+b\text{,}\)</span> il existe une infinité de valeurs <span class="process-math">\(z\)</span> la satisfaisant aussi, d'où le plan plutôt que la droite. Une approche vectorielle permettra de décrire une droite dans <span class="process-math">\(\R^3\)</span> et ainsi surmonter cette difficulté.</p>
+<p id="p-560">Une droite passant par l'origine <span class="process-math">\(\mathcal{D}_0\text{,}\)</span> dans <span class="process-math">\(\R^2\)</span> ou <span class="process-math">\(\R^3\text{,}\)</span> peut toujours être décrite comme l'ensemble des points <span class="process-math">\(P(x,y)\)</span> ou <span class="process-math">\(P(x,y,z)\)</span> atteints par la multiplication d'un certain vecteur <span class="process-math">\(\vec{v}\)</span> par un scalaire réel. Le vecteur <span class="process-math">\(\vec{v}\)</span> est appelé le vecteur directeur de la droite <span class="process-math">\(\mathcal{D}_0\text{.}\)</span> On donne alors l'équation vectorielle de la droite comme étant l'ensemble des points <span class="process-math">\(P\)</span> tels que</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\vecl{OP}=c\vec{v} \quad c\in \R\text{.}
+\end{equation*}
+</div>
+<p id="p-561">Évidemment, toute droite ne passe pas par l'origine. Si une droite <span class="process-math">\(\mathcal{D}\)</span> ne passant pas par l'origine passe par un point <span class="process-math">\(A\)</span> quelconque, mais est parallèle à une droite <span class="process-math">\(\mathcal{D}_0\)</span> qui elle passe par l'origine, on peut obtenir une équation vectorielle pour <span class="process-math">\(\mathcal{D}\)</span> en translatant les points de la droite <span class="process-math">\(\mathcal{D}_0\)</span> le long du vecteur <span class="process-math">\(\vecl{OA}\text{.}\)</span> On obtient alors l'équation</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq-droitevec">
+\begin{equation}
+\vecl{OP}=c\vec{v}+\vecl{OA}\text{,}\tag{1.3.1}
+\end{equation}
+</div>
+<p class="continuation">où <span class="process-math">\(\vec{v}\)</span> est le vecteur directeur de la droite <span class="process-math">\(\mathcal{D}_0\text{.}\)</span>  Le vecteur directeur est l'équivalent de la pente <span class="process-math">\(a\)</span> et le point <span class="process-math">\(A\)</span> est l'équivalent de l'ordonnée à l'origine <span class="process-math">\(b\)</span> dans l'équation <span class="process-math">\(y=ax+b\text{.}\)</span></p>
+<p id="p-562">Connaitre le vecteur directeur est un peu l'équivalent de connaitre la pente de la droite. Parfois, on connait deux points <span class="process-math">\(A,B\)</span> et on veut trouver l'équation de la droite passant par ces points. On peut créer un vecteur directeur en déterminant le vecteur reliant <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{.}\)</span></p>
+<article class="example example-like" id="ex-eqdroite-1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-eqdroite-1"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">L'équation de droites.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-eqdroite-1"><article class="example example-like"><p id="p-563">Considérons le point <span class="process-math">\(A(3,-2)\)</span> de <span class="process-math">\(\R^2\)</span> et les points <span class="process-math">\(B(1,1,-2)\)</span> et <span class="process-math">\(C(-3,2,1)\text{.}\)</span> On cherche l'équation de la droite dans <span class="process-math">\(\R^2\)</span> qui passe par le point <span class="process-math">\(A\)</span> et qui a la même direction que la droite <span class="process-math">\(\mathcal{D}_0: \vecl{OP}=c (1,-5)\)</span> et l'équation de la droite dans <span class="process-math">\(\R^3\)</span> qui passe par <span class="process-math">\(B\)</span> et <span class="process-math">\(C\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-50" id="solution-50"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-50"><div class="solution solution-like">
+<p id="p-564">La première partie est assez simple, puisque toute l'information nous est donnée. On connait un point de la droite et la direction. L'équation est donc</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal{D}_1: \vecl{OP}=c(1,-5)+(3,-2)\text{.}
+\end{equation*}
+</div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-51" id="solution-51"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-51"><div class="solution solution-like">
+<p id="p-565">Pour la seconde partie, on doit d'abord trouver un vecteur directeur pour la droite. Le vecteur <span class="process-math">\(\vecl{BC}=(-3,2,1)-(1,1,-2)=(-4,1,3)\)</span> fera l'affaire. Pour un point, on a le choix entre <span class="process-math">\(B\)</span> ou <span class="process-math">\(C\text{,}\)</span> n'importe lequel fera l'affaire. On obtient au final</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal{D}_2: \vecl{OP}=c(-4,1,3)+(1,1,-2)\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article></div>
+<p id="p-566">Pour une droite dans <span class="process-math">\(\R^2\text{,}\)</span> il n'y a qu'une seule paire de nombres <span class="process-math">\(a,b\in \R\)</span> décrivant la droite sous la forme <span class="process-math">\(y=ax+b\text{.}\)</span> Par contre, cette équation peut être multipliée par n'importe quelle constante <span class="process-math">\(c\neq 0\)</span> et la nouvelle équation <span class="process-math">\(cy=cax+cb\)</span> décrit toujours la même droite, sous une forme moins conventionnelle. L'équation vectorielle d'une droite n'est pas unique. En effet, n'importe quel point <span class="process-math">\(A\)</span> sur la droite peut être utilisé comme point de départ et n'importe quel multiple non nul du vecteur directeur peut être utilisé. En fait, on devrait parler d'une équation vectorielle de la droite plutôt que de l'équation vectorielle, mais on accepte cet abus de langage.</p>
+<article class="example example-like" id="ex-eqdroite-2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-eqdroite-2"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">L'équation vectorielle n'est pas unique.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-eqdroite-2"><article class="example example-like"><p id="p-567">On reprend l'équation de la droite dans <span class="process-math">\(\R^3\)</span> de l'exemple <a href="" class="xref" data-knowl="./knowl/ex-eqdroite-1.html" title="Exemple 1.3.4: L'équation de droites">1.3.4</a></p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-eqdroite-1.html">
+\begin{equation*}
+\vecl{OP}=c(-4,1,3)+(1,1,-2)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">En utilisant le point <span class="process-math">\(C\)</span> plutôt que le point <span class="process-math">\(B\)</span> et un vecteur parallèle à <span class="process-math">\(\vecl{BC}=(-4,1,3)\text{,}\)</span> disons en le multipliant par <span class="process-math">\(-2\text{,}\)</span> on obtient une nouvelle représentation pour la droite <span class="process-math">\(\mathcal{D}_2\)</span> :</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-eqdroite-1.html">
+\begin{equation*}
+d_2: \vecl{OP}=k(8,-2,-6)+(-3,2,1)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">On remarque l'utilisation du scalaire <span class="process-math">\(k\)</span> plutôt que <span class="process-math">\(c\)</span> afin d'évoquer la différence entre les deux équations. On aurait pu utiliser <span class="process-math">\(c\)</span> également, en gardant en tête qu'une valeur de <span class="process-math">\(c\)</span> dans la première représentation de la droite ne donnera pas nécessairement le même point que cette même valeur de <span class="process-math">\(c\)</span> dans la nouvelle représentation.</p>
+<p id="p-568">Comment s'assurer que ces deux équations décrivent la même droite? Une manière simple est de partir de l'une des équations et de montrer que l'on peut arriver à l'autre par une suite de manipulations algébriques. Dans notre cas, on a</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-109">
+\begin{align*}
+\vecl{OP}&amp;=c(-4,1,3)+(1,1,-2)\\
+&amp;=c(-4,1,3)+(1,1,-2)+(-4,1,3)-(-4,1,3)\\
+&amp;=(c-1)(-4,1,3)+(-3,2,1)\\
+&amp;=\frac{c-1}{2}(8,-2,-6)+(-3,2,1)\\
+&amp;=k(8,-2,-6)+(-3,2,1)\text{,}
+\end{align*}
+</div>
+<p class="continuation">où <span class="process-math">\(k=\frac{c-1}{2}\text{.}\)</span> Comme on peut faire les opérations dans l'ordre inverse, les deux représentations sont équivalentes.</p></article></div>
+<p id="p-569">On va maintenant s'intéresser à réconcilier la forme vectorielle d'une droite à la forme standard <span class="process-math">\(y=ax+b\text{,}\)</span> pour les droites de <span class="process-math">\(\R^2\text{.}\)</span></p>
+<article class="example example-like" id="ex-stdavec"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-stdavec"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">De la forme standard à la forme vectorielle.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-stdavec"><article class="example example-like"><p id="p-570">Considérons une droite dans <span class="process-math">\(\R^2\text{,}\)</span> par exemple <span class="process-math">\(y=3x-4\text{.}\)</span> Sous forme vectorielle, on cherche à exprimer l'ensemble de points <span class="process-math">\(P\)</span> sur la droite. Ces points sont de la forme <span class="process-math">\((x,y)=(x,3x-4)\text{.}\)</span> On peut décomposer cette forme afin d'obtenir la forme vectorielle.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-110">
+\begin{align*}
+\vecl{OP}&amp;=(x,y)\\
+&amp;=(x,3x-4)\\
+&amp;=(x,3x)+(0,-4)\\
+&amp;=x(1,3)+(0,-4)\text{.}
+\end{align*}
+</div>
+<p class="continuation">On trouve donc une droite de vecteur directeur <span class="process-math">\((1,3)\)</span> passant par le point <span class="process-math">\((0,-4)\text{.}\)</span> On Rrmarque qu'en suivant cette démarche, la première composante du vecteur directeur sera toujours <span class="process-math">\(1\text{,}\)</span> et la seconde correspondra à la pente de la droite.</p>
+<p id="p-571">Évidemment, ce n'est pas la seule forme valide pour décrire la droite vectoriellement.</p></article></div>
+<article class="example example-like" id="ex-vecastd"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-vecastd"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">De la forme vectorielle à la forme standard.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-vecastd"><article class="example example-like"><p id="p-572">Considérons une droite dans <span class="process-math">\(\R^2\text{,}\)</span> par exemple <span class="process-math">\(\vecl{OP}=c(3,2)+(2,-1)\text{.}\)</span> On cherche la forme <span class="process-math">\(y=ax+b\)</span> de cette droite. Plusieurs options sont possibles. On peut facilement trouver deux points en utilisant deux scalaires différents dans la forme vectorielle. Par la suite, la démarche usuelle mènera à l'équation de la droite.</p>
+<p id="p-573">On peut aussi y aller avec l'interprétation géométrique du vecteur directeur. Le vecteur <span class="process-math">\((3,2)\)</span> correspond à un déplacement horizontal de <span class="process-math">\(3\)</span> unités et un déplacement vertical de <span class="process-math">\(2\)</span> unités. Ceci nous donne la pente <span class="process-math">\(a=\frac{2}{3}\text{.}\)</span> Pour trouver l'ordonnée à l'origine, il suffit de mettre la première composante de la forme vectorielle à <span class="process-math">\(0\text{,}\)</span> en prenant ici <span class="process-math">\(c=\frac{-2}{3}\text{.}\)</span> On trouve donc l'ordonnée à l'origine <span class="process-math">\(b=-1-\frac{2}{3}*2=-\frac{7}{3}\text{.}\)</span> La droite est donc aussi décrite par l'équation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y=\frac{2}{3}x-\frac{7}{3}\text{.}
+\end{equation*}
+</div></article></div>
+<p id="p-574">En regardant de manière plus détaillée l'équation vectorielle d'une droite <span class="process-math">\(\mathcal{D}\text{,}\)</span> particulièrement avec la notation verticale pour les vecteurs, on découvre une autre manière de décrire la droite, composante par composante. </p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq-vec3">
+\begin{equation}
+\mathcal{D}: \vecl{OP}=c\vec{v}+\vecl{OA}\tag{1.3.2}
+\end{equation}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq-vec3verticale">
+\begin{equation}
+\mathcal{D}: \begin{pmatrix}x\\y\\z\end{pmatrix}=c
+\begin{pmatrix}v_1\\v_2\\v_3\end{pmatrix}+\begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix}\tag{1.3.3}
+\end{equation}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq-para3">
+\begin{equation}
+\mathcal{D}:\begin{cases}
+x= cv_1+a_1\\ y=cv_2+a_2 \\ z=cv_3+a_3\end{cases}\text{.}\tag{1.3.4}
+\end{equation}
+</div>
+<p class="continuation">Cette dernière manière de décrire la droite <span class="process-math">\(\mathcal{D}\)</span> est appelée la forme paramétrique d'une droite, ou encore les équations paramétriques d'une droite. On y voit d'ailleurs que chaque composante <span class="process-math">\(x,y\)</span> et <span class="process-math">\(z\)</span> est en quelque sorte elle-même l'équation d'une droite, <span class="process-math">\(x=cv_1+a_1, y=cv_2+a_2\)</span> et <span class="process-math">\(z=cv_3+a_3\text{.}\)</span> La variable indépendante ici est <span class="process-math">\(c\)</span> et chaque composante du vecteur <span class="process-math">\(\vec{v}\)</span> est associée à la "pente", alors que les composantes du vecteur <span class="process-math">\(\vecl{OA}\)</span> sont associées aux "ordonnées à l'origine".</p>
+<p id="p-575">Les équations paramétriques se généralisent à des courbes quelconques dans le plan ou l'espace. Ce sujet est exploré dans la section <code class="code-inline tex2jax_ignore">[provisional cross-reference: sec-upplvec]</code>.</p>
+<p id="p-576">On regarde une autre manipulation de l'équation d'une droite. Celle-ci ne sera valide que pour une droite dans <span class="process-math">\(\R^2\text{,}\)</span> mais reste toutefois importante. On considère à nouveau les équations paramétriques d'une droite dans <span class="process-math">\(\R^2\)</span> :</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-vecastd.html ./knowl/sec-GJ.html" id="eq-para2">
+\begin{equation}
+\mathcal{D}: \begin{cases} x= cv_1+a_1\\ y=cv_2+a_2 \end{cases}\text{.}\tag{1.3.5}
+\end{equation}
+</div>
+<p class="continuation">On va tenter d'éliminer le paramètre <span class="process-math">\(c\text{,}\)</span> un peu comme on l'a fait à l'exemple <a href="" class="xref" data-knowl="./knowl/ex-vecastd.html" title="Exemple 1.3.7: De la forme vectorielle à la forme standard">1.3.7</a>. On effectue une autre méthode par contre, qui sera en quelque sorte un avant-goût de la section <a href="sec-GJ.html" class="internal" title="Section 3.1: Les systèmes d'équations linéaires et la méthode de Gauss-Jordan">3.1</a>. On multiplie les équations paramétriques par <span class="process-math">\(v_2\)</span> pour la première et <span class="process-math">\(v_1\)</span> pour la seconde afin d'obtenir</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-vecastd.html ./knowl/sec-GJ.html">
+\begin{equation*}
+\mathcal{D}: \begin{cases} v_2x= cv_1v_2+a_1v_2\\ v_1y=cv_1v_2+a_2v_1
+\end{cases}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">On soustrait maintenant la première équation à la seconde pour obtenir</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-vecastd.html ./knowl/sec-GJ.html" id="md-111">
+\begin{align*}
+v_1y-v_2x&amp;=cv_1v_2+a_2v_1-cv_1v_2-a_1v_2\\
+v_1y-v_2x&amp;=a_2v_1-a_1v_2\text{.}
+\end{align*}
+</div>
+<p class="continuation">On simplifie un peu l'écriture en posant <span class="process-math">\(a=-v_2,b=v_1\)</span> et <span class="process-math">\(c=a_2v_1-a_1v_2=aa_1+ba_2\text{.}\)</span> On obtient alors</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-vecastd.html ./knowl/sec-GJ.html" id="eq-normale2">
+\begin{equation}
+\mathcal{D}: \, ax+by=c\text{,}\tag{1.3.6}
+\end{equation}
+</div>
+<p class="continuation">une forme semblable à la forme standard, mais plus générale. En effet, avec la forme <span class="process-math">\(y=ax+b\text{,}\)</span> il est impossible de décrire une droite verticale, mais avec la forme <span class="process-math">\(ax+by=c\text{,}\)</span> il suffit que <span class="process-math">\(b=0\)</span> pour obtenir une droite verticale. On peut aller plus loin dans l'analyse. En posant <span class="process-math">\(\vec{n}=(a,b)=(-v_2,v_1)\text{,}\)</span> il est possible de réécrire l'équation normale à l'aide du produit scalaire:</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-vecastd.html ./knowl/sec-GJ.html" id="md-112">
+\begin{align*}
+c&amp;=ax+by\\
+0&amp;=ax+by-c\\
+0&amp;=ax+by-aa_1-ba_2\\
+0&amp;=a(x-a_1)+b(y-a_2)\\
+0&amp;=(a,b)\cdot (x-a_1,y-a_2)\\
+0&amp;=\vec{n}\cdot \vecl{AP}\text{.}
+\end{align*}
+</div>
+<p class="continuation">De cette dernière équation, on déduit que le vecteur <span class="process-math">\(\vec{n}\)</span> est perpendiculaire au vecteur <span class="process-math">\(\vecl{AP}\text{.}\)</span> Puisque <span class="process-math">\(A\)</span> et <span class="process-math">\(P\)</span> sont sur la droite, le vecteur <span class="process-math">\(\vecl{AP}\)</span> est parallèle au vecteur directeur de la droite et donc, le vecteur <span class="process-math">\(\vec{n}\)</span> est perpendiculaire à la droite elle-même. Pour cette raison, la forme <span class="process-math">\(ax+by=c\)</span> est appelée l'équation normale de la droite <span class="process-math">\(\mathcal{D}\)</span> et le vecteur <span class="process-math">\(\vec{n}\)</span> est un vecteur normal.</p>
+<p id="p-577">Avant de voir pourquoi l'équation normale d'une droite n'est pas possible dans <span class="process-math">\(\R^3\text{,}\)</span> on énonce une proposition intéressante découlant des calculs que l'on vient de faire.</p>
+<article class="proposition theorem-like" id="pro-vecperp"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Le vecteur perpendiculaire.</span>
+</h4>
+<p id="p-578">Soit <span class="process-math">\(\vec{v}=(v_1,v_2)\)</span> un vecteur de <span class="process-math">\(\R^2\)</span> non nul. Alors le vecteur <span class="process-math">\(\vec{v}_{\perp}=(-v_2,v_1)\)</span> est perpendiculaire à <span class="process-math">\(\vec{v}\text{.}\)</span></p></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"><p id="p-579">Il suffit de vérifier que l'on a bien <span class="process-math">\(\vec{v}\cdot \vec{v}_{\perp}=0\text{.}\)</span> Or ceci est algébriquement évidement puisque</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\vec{v}\cdot \vec{v}_{\perp}=(v_1,v_2)\cdot(-v_2,v_1)=-v_1v_2+v_2v_1=0\text{.}
+\end{equation*}
+</div></article></div>
+<p id="p-580">On remarque que la direction du vecteur normal <span class="process-math">\(\vec{n}\)</span> est la seule qui soit perpendiculaire à la droite dans <span class="process-math">\(\R^2\text{.}\)</span> Considérons maintenant une droite quelconque <span class="process-math">\(\mathcal{D}\)</span> et un point <span class="process-math">\(A\)</span> sur cette droite. Combien de droites perpendiculaires à <span class="process-math">\(\mathcal{D}\)</span> et passant par <span class="process-math">\(A\)</span> existe-t-il? Si la droite est dans <span class="process-math">\(\R^2\text{,}\)</span> une seule droite satisfait ces conditions, mais si <span class="process-math">\(\mathcal{D}\)</span> est dans <span class="process-math">\(\R^3\text{,}\)</span> il y en a une infinité. La figure <a href="" class="xref" data-knowl="./knowl/fig-droitesperp.html" title="Figure 1.3.9">1.3.9</a> permet de voir une droite bleue, ainsi que trois autres droites en rouge qui sont de directions différentes, mais perpendiculaires avec la droite bleue.</p>
+<figure class="figure figure-like" id="fig-droitesperp"><iframe id="geog-droitesperp" width="600" height="600" src="geog-droitesperp-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.9<span class="period">.</span></span><span class="space"> </span>Des droites perpendiculaires</figcaption></figure><p id="p-581">On termine avec des commandes Sage en lien avec la sous-section.</p>
+<article class="computation computation-like" id="sageex-droites"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">1.3.10</span><span class="period">.</span><span class="space"> </span><span class="title">Les droites avec Sage.</span>
+</h4>
+<p id="p-582">Pour tracer une droite dans <span class="process-math">\(\R^2\)</span> ou dans <span class="process-math">\(\R^3\text{,}\)</span> deux options sont possibles. La première option est simple et nécessite deux points sur la droite. Il suffit alors d'utiliser la commande <code class="code-inline tex2jax_ignore">line</code>.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-27"><script type="text/x-sage">line([(2,1),(-3,-1)])
+</script></pre>
+<p id="p-583">Une autre option, plus flexible, utilise les équations paramétriques. Elle est plus flexible dans le sens où elle permet de décrire des courbes quelconques comme celles explorées dans la section <code class="code-inline tex2jax_ignore">[provisional cross-reference: sec-upplvec]</code>. La commande est <code class="code-inline tex2jax_ignore">parametric_plot</code>ou <code class="code-inline tex2jax_ignore">parametric_plot3d</code>, selon le cas.</p>
+<p id="p-584">On illustre les deux droites solutions de l'exemple <a href="" class="xref" data-knowl="./knowl/ex-eqdroite-1.html" title="Exemple 1.3.4: L'équation de droites">1.3.4</a>.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-28"><script type="text/x-sage">var("c") 
+parametric_plot([c+3,-5*c-2],(c,-5,5))
+</script></pre>
+<pre class="ptx-sagecell sagecell-sage" id="sage-29"><script type="text/x-sage">var("c")
+parametric_plot3d([-4*c+1,c+1,3*c-2],(c,-5,5))
+</script></pre>
+<p id="p-585">Les options habituelles de couleur, épaisseur, etc. sont aussi disponibles.</p>
+<p id="p-586">Si l'équation de la droite est donnée vectoriellement, il est aussi possible de la tracer avec la commande <code class="code-inline tex2jax_ignore">parametric_plot</code>ou son équivalent <span class="process-math">\(3D\text{.}\)</span></p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-30"><script type="text/x-sage">var("t") 
+d=t*vector([1,3])+vector([1,2])
+parametric_plot(d,(t,-5,5))
+</script></pre></article></section><section class="subsection" id="sssec-plans"><h3 class="heading hide-type">
+<span class="type">Sous-section</span> <span class="codenumber">1.3.2</span> <span class="title">Les plans</span>
+</h3>
+<p id="p-587">Après avoir considéré la géométrie derrière les combinaisons linéaires d'un vecteur, on s'intéresse maintenant à la géométrie des combinaisons de deux vecteurs. Plus spécifiquement, deux vecteurs non nuls et non parallèles <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> engendrent un plan. Lorsque ces vecteurs se trouvent dans <span class="process-math">\(\R^2\text{,}\)</span> on obtient l'ensemble du plan cartésien, tel qu'observé à l'exemple <a href="" class="xref" data-knowl="./knowl/ex-comblin.html" title="Exemple 1.3.2: Combinaison linéaire de deux vecteurs: dynamique">1.3.2</a>.</p>
+<p id="p-588">Dans <span class="process-math">\(\R^3\text{,}\)</span> les combinaisons linéaires <span class="process-math">\(a\vec{u}+b\vec{v}\)</span> génèrent un plan passant par l'origine lorsque <span class="process-math">\(a,b\)</span> parcourent toutes les valeurs réelles possibles. Ceci est illustré à l'exemple <a href="" class="xref" data-knowl="./knowl/ex-comblinplan.html" title="Exemple 1.3.11: Combinaison linéaire en trois dimensions: dynamique">1.3.11</a>.</p>
+<article class="example example-like" id="ex-comblinplan"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-comblinplan"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.3.11</span><span class="period">.</span><span class="space"> </span><span class="title">Combinaison linéaire en trois dimensions: dynamique.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-comblinplan"><article class="example example-like"><p id="p-589">Cet exemple est similaire à l'exemple <a href="" class="xref" data-knowl="./knowl/ex-comblin.html" title="Exemple 1.3.2: Combinaison linéaire de deux vecteurs: dynamique">1.3.2</a>, mais avec des vecteurs <span class="process-math">\(\vec{u},\vec{v}\)</span> de <span class="process-math">\(\R^3\text{.}\)</span> Les combinaisons de la forme <span class="process-math">\(a\vec{u}\)</span> et <span class="process-math">\(a\vec{u}+b\vec{v}\)</span> sont étudiées, en se référant à la figure <a href="" class="xref" data-knowl="./knowl/fig-comblinplan.html" title="Figure 1.3.12">1.3.12</a> et aux questions suivantes:</p>
+<ol class="decimal">
+<li id="li-192"><p id="p-590">Comme précédemment, les multiples d'un seul vecteur donnent une droite.</p></li>
+<li id="li-193"><p id="p-591">En cliquant sur "grille" et en prenant des valeurs entières de <span class="process-math">\(a\)</span> et <span class="process-math">\(b\text{,}\)</span> on observe que les multiplications par un scalaire respectives de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> se retrouvent à une intersection de la grille. Si en plus on fait afficher la combinaison linéaire, on peut voir géométriquement l'addition des vecteurs <span class="process-math">\(a\vec{u}\)</span> et <span class="process-math">\(b\vec{v}\text{.}\)</span></p></li>
+<li id="li-194">
+<p id="p-592">Est-il possible de décrire n'importe quel vecteur de <span class="process-math">\(\R^3\)</span> comme une combinaison linéaire de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{?}\)</span> Cette question revient à dire, étant donné un vecteur <span class="process-math">\(\vec{w}=(w_1,w_2,w_3)\text{,}\)</span> peut-on trouver des coefficients <span class="process-math">\(a,b\)</span> tels que</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-comblinplan3.html ./knowl/eq-comblinplan1.html ./knowl/eq-comblinplan2.html ./knowl/chap-SEL.html">
+\begin{equation*}
+a\begin{pmatrix}u_1\\u_2\\u_3
+\end{pmatrix}+b\begin{pmatrix}v_1\\v_2\\v_3
+\end{pmatrix}=\begin{pmatrix}w_1\\w_2\\w_3 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Puisque deux vecteurs sont égaux si leurs composantes respectives le sont, on obtient les deux équations suivantes:</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-comblinplan3.html ./knowl/eq-comblinplan1.html ./knowl/eq-comblinplan2.html ./knowl/chap-SEL.html" id="mdn-5">
+\begin{align}
+au_1+bv_1&amp;=w_1\tag{1.3.7}\\
+au_2+bv_2&amp;=w_2\tag{1.3.8}\\
+au_3+bv_3&amp;=w_3\text{.}\tag{1.3.9}
+\end{align}
+</div>
+<p class="continuation">Cette fois-ci, on a trois équations, mais seulement deux inconnues. Si on ne se soucie pas de l'équation <a href="" class="xref" data-knowl="./knowl/eq-comblinplan3.html" title="Équation 1.3.9">(1.3.9)</a>, on peut (probablement) trouver des valeurs de <span class="process-math">\(a,b\)</span> qui vont satisfaire les équations <a href="" class="xref" data-knowl="./knowl/eq-comblinplan1.html" title="Équation 1.3.7">(1.3.7)</a> et <a href="" class="xref" data-knowl="./knowl/eq-comblinplan2.html" title="Équation 1.3.8">(1.3.8)</a>. Ces valeurs ne vont pas forcément satisfaire l'autre équation. Les détails et cas possibles pouvant survenir seront traités au chapitre <a href="chap-SEL.html" class="internal" title="Chapitre 3: Les systèmes d'équations linéaires">3</a>.</p>
+<p id="p-593">Un clic sur "Cibles" fera apparaitre deux points dans l'espace. L'un de ces points sera toujours atteignable par une combinaison linéaire appropriée de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{,}\)</span> mais l'autre ne le sera probablement pas. Pourquoi?</p>
+</li>
+<li id="li-195"><p id="p-594">Un clic sur "Plan" fera apparaitre l'ensemble des points qui sont atteignables par combinaison linéaire de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span> Le point "Cible1" est sans doute à l'extérieur de ce plan et ne peut donc pas être atteint. Par contre, "Cible2" a été construit de façon à toujours être dans l'ensemble des combinaisons linéaires possibles.</p></li>
+</ol>
+<figure class="figure figure-like" id="fig-comblinplan"><div style="width:600px;"><p id="p-595">Il est possible de déplacer les vecteurs <span class="process-math">\(\vec{u},\vec{v}\text{.}\)</span> En cliquant sur "combinaison linéaire", on fait apparaitre le vecteur <span class="process-math">\(a\vec{u}+b\vec{v}\text{.}\)</span> Les coefficients <span class="process-math">\(a\)</span> et <span class="process-math">\(b\)</span> peuvent être changés à l'aide des curseurs. Si souhaité, on peut faire s'afficher une grille suivant les multiples entiers des vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> et un plan donnant l'ensemble des combinaisons linéaires possibles.</p></div>
+<iframe id="geog-comblinplan" width="600" height="600" src="geog-comblinplan-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.12<span class="period">.</span></span><span class="space"> </span>Combinaison linéaire dans <span class="process-math">\(\R^3\)</span></figcaption></figure></article></div>
+<p id="p-596">Un plan passant par l'origine <span class="process-math">\(\mathcal{P}_0\)</span> dans <span class="process-math">\(\R^3\)</span> peut être décrit comme le lieu géométrique des points <span class="process-math">\(P(x,y,z)\)</span> pouvant être obtenus comme une combinaison linéaire de deux vecteurs non nuls et non parallèles <span class="process-math">\(\vec{u},\vec{v}\text{.}\)</span> Ces deux vecteurs sont appelés des vecteurs directeurs du plan <span class="process-math">\(\mathcal{P}_0\text{.}\)</span> On peut aussi décrire le plan par une équation vectorielle, soit</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\vecl{OP}=a\vec{u}+b\vec{v} \,\, a,b\in \R\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Techniquement, un plan dans <span class="process-math">\(\R^2\)</span> est équivalent à tout <span class="process-math">\(\R^2\text{,}\)</span> on se concentre donc davantage sur les plans dans <span class="process-math">\(\R^3\text{.}\)</span></p>
+<p id="p-597">Pour décrire un plan <span class="process-math">\(\mathcal{P}\)</span> passant par un point <span class="process-math">\(A\)</span> quelconque et de vecteurs directeurs <span class="process-math">\(\vec{u},\vec{v}\text{,}\)</span> il est possible d'utiliser une approche similaire à celle utilisée pour les droites et de translater un plan passant par l'origine <span class="process-math">\(\mathcal{P}_0\text{,}\)</span> aussi de vecteurs directeurs <span class="process-math">\(\vec{u},\vec{v}\text{,}\)</span> le long du vecteur <span class="process-math">\(\vecl{OA}\text{.}\)</span> La figure <a href="" class="xref" data-knowl="./knowl/fig-planquelconque.html" title="Figure 1.3.13">1.3.13</a>illustre cela.</p>
+<figure class="figure figure-like" id="fig-planquelconque"><iframe id="geog-planquelconque" width="600" height="600" src="geog-planquelconque-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.13<span class="period">.</span></span><span class="space"> </span>Un plan dans <span class="process-math">\(\R^3\)</span> passant par un point <span class="process-math">\(A\text{.}\)</span></figcaption></figure><p id="p-598">On obtient alors l'équation vectorielle du plan</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq-planvec">
+\begin{equation}
+\mathcal{P}: \, \vecl{OP}=a\vec{u}+b\vec{v}+\vecl{OA}\text{.}\tag{1.3.10}
+\end{equation}
+</div>
+<p id="p-599">Comme c'était le cas pour les droites, un plan peut avoir plusieurs équations vectorielles le décrivant, toutes équivalentes. On dira toutefois par abus de langage « l'équation » du plan plutôt qu' « une équation », sachant que l'équation n'est pas unique.</p>
+<p id="p-600">Également, on peut aussi considérer l'équation vectorielle comme un ensemble d'équations paramétriques, comme pour les droites. À noter que deux paramètres sont nécessaires, représentant l'aspect bidimensionnel d'un plan.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq-planpara">
+\begin{equation}
+\mathcal{P}: \quad \begin{cases} x= au_1+bv_1+a_1\\ y= au_2+bv_2+a_2\\
+z= au_3+bv_3+a_3\\ \end{cases}\text{.}\tag{1.3.11}
+\end{equation}
+</div>
+<p class="continuation">Plus généralement, ce type d'équation est pratique pour décrire des surfaces dans l'espace, aussi explorées à la section <code class="code-inline tex2jax_ignore">[provisional cross-reference: sec-upplvec]</code>.</p>
+<p id="p-601">Lorsque trois points qui ne sont pas alignés sont donnés, on peut toujours trouver l'équation d'un plan passant par ces trois points.</p>
+<article class="example example-like" id="ex-eqplan3p"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-eqplan3p"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.3.14</span><span class="period">.</span><span class="space"> </span><span class="title">L'équation d'un plan passant par trois points.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-eqplan3p"><article class="example example-like"><p id="p-602">Soit <span class="process-math">\(A(7,1,0),B(5,0,1)\)</span> et <span class="process-math">\(C(5,0,0)\)</span> trois points de l'espace. On cherche une équation du plan <span class="process-math">\(\mathcal{P}\)</span> passant par <span class="process-math">\(A,B\)</span> et <span class="process-math">\(C\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-52" id="solution-52"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-52"><div class="solution solution-like">
+<p id="p-603">Pour décrire un plan vectoriellement, on a besoin d'un point et de deux vecteurs directeurs. L'ensemble des points sur la droite passant par <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> doit forcément faire partie du plan, tout comme l'ensemble des points sur la droite passant par <span class="process-math">\(A\)</span> et <span class="process-math">\(C\text{.}\)</span> En particulier, les vecteurs <span class="process-math">\(\vecl{AB}=(-2,-1,1)\)</span> et <span class="process-math">\(\vecl{AC}=(-2,-1,0)\)</span> peuvent être considérés comme des vecteurs directeurs du plan cherché. En prenant comme point particulier le point <span class="process-math">\(A\text{,}\)</span> on obtient</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal{P}: \, \vecl{OP}=a(-2,-1,1)+b(-2,-1,0)+(7,1,0)\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="ex-pointsurplan"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-pointsurplan"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.3.15</span><span class="period">.</span><span class="space"> </span><span class="title">Déterminer si un point est sur un plan.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-pointsurplan"><article class="example example-like"><p id="p-604">Considérons le plan <span class="process-math">\(\mathcal{P}\)</span> d'équation vectorielle <span class="process-math">\(\vecl{OP}=a(2,-1,3)+b(-1,0,2)+(1,2,3)\text{.}\)</span> On cherche à savoir si les points <span class="process-math">\(A(-6,3,10)\)</span> et <span class="process-math">\(B(10,1,-4)\)</span> font partie du plan.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-53" id="solution-53"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-53"><div class="solution solution-like">
+<p id="p-605">Pour savoir si le point <span class="process-math">\(A\)</span> est dans le plan, il faut trouver <span class="process-math">\(a,b\)</span> tels que</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-pointsurplan2.html ./knowl/eq-pointsurplan1.html ./knowl/eq-pointsurplan3.html">
+\begin{equation*}
+\begin{pmatrix}-6\\3\\ 10 \end{pmatrix}=a\begin{pmatrix} 2\\ -1\\ 3\end{pmatrix}+b\begin{pmatrix}
+-1\\ 0\\ 2\end{pmatrix}+\begin{pmatrix}1\\2\\3
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">De cette équation vectorielle, on tire les équations suivantes:</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-pointsurplan2.html ./knowl/eq-pointsurplan1.html ./knowl/eq-pointsurplan3.html" id="mdn-6">
+\begin{align}
+-7&amp;=2a-b\tag{1.3.12}\\
+1&amp;=-a\tag{1.3.13}\\
+7&amp;=3a+2b\text{.}\tag{1.3.14}
+\end{align}
+</div>
+<p class="continuation">L'équation <a href="" class="xref" data-knowl="./knowl/eq-pointsurplan2.html" title="Équation 1.3.13">(1.3.13)</a>donne immédiatement <span class="process-math">\(a=-1\)</span> et en remplaçant cette valeur dans les équations <a href="" class="xref" data-knowl="./knowl/eq-pointsurplan1.html" title="Équation 1.3.12">(1.3.12)</a>et <a href="" class="xref" data-knowl="./knowl/eq-pointsurplan3.html" title="Équation 1.3.14">(1.3.14)</a>, on trouve <span class="process-math">\(b=5\text{.}\)</span> Une vérification rapide montre qu'on a bel et bien <span class="process-math">\(\begin{pmatrix}-6\\3,\\ 10 \end{pmatrix}=-\begin{pmatrix} 2\\ -1\\ 3\end{pmatrix}+5\begin{pmatrix}
+-1\\ 0\\ 2\end{pmatrix}+\begin{pmatrix}1\\2\\3
+\end{pmatrix}.\)</span></p>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-54" id="solution-54"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-54"><div class="solution solution-like">
+<p id="p-606">Pour savoir si le point <span class="process-math">\(B\)</span> est dans le plan, il faut trouver <span class="process-math">\(a,b\)</span> tels que</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-pointsurplan5.html ./knowl/eq-pointsurplan4.html ./knowl/eq-pointsurplan6.html ./knowl/eq-pointsurplan4.html ./knowl/eq-pointsurplan6.html">
+\begin{equation*}
+\begin{pmatrix}10\\1,\\ -4 \end{pmatrix}=a\begin{pmatrix} 2\\ -1\\ 3\end{pmatrix}+b\begin{pmatrix}
+-1\\ 0\\ 2\end{pmatrix}+\begin{pmatrix}1\\2\\3
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">De cette équation vectorielle, on tire les équations suivantes:</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-pointsurplan5.html ./knowl/eq-pointsurplan4.html ./knowl/eq-pointsurplan6.html ./knowl/eq-pointsurplan4.html ./knowl/eq-pointsurplan6.html" id="mdn-7">
+\begin{align}
+9&amp;=2a-b\tag{1.3.15}\\
+-1&amp;=-a\tag{1.3.16}\\
+-7&amp;=3a+2b\text{.}\tag{1.3.17}
+\end{align}
+</div>
+<p class="continuation">L'équation <a href="" class="xref" data-knowl="./knowl/eq-pointsurplan5.html" title="Équation 1.3.16">(1.3.16)</a> donne immédiatement <span class="process-math">\(a=1\)</span> et en remplaçant cette valeur dans les équations <a href="" class="xref" data-knowl="./knowl/eq-pointsurplan4.html" title="Équation 1.3.15">(1.3.15)</a> et <a href="" class="xref" data-knowl="./knowl/eq-pointsurplan6.html" title="Équation 1.3.17">(1.3.17)</a>, on trouve une incohérence, puisque d'une part l'équation <a href="" class="xref" data-knowl="./knowl/eq-pointsurplan4.html" title="Équation 1.3.15">(1.3.15)</a> demande à ce que <span class="process-math">\(b=-7\)</span> alors l'équation <a href="" class="xref" data-knowl="./knowl/eq-pointsurplan6.html" title="Équation 1.3.17">(1.3.17)</a> d'avoir <span class="process-math">\(b=-5\text{.}\)</span> Comme <span class="process-math">\(b\)</span> ne peut être simultanément <span class="process-math">\(-7\)</span> et <span class="process-math">\(-5\text{,}\)</span> on conclut que le point <span class="process-math">\(B\)</span> ne peut pas appartenir au plan <span class="process-math">\(\mathcal{P}\text{.}\)</span></p>
+<p id="p-607">On verra prochainement une autre manière de déterminer si un point appartient à un plan de <span class="process-math">\(\R^3\text{,}\)</span> et le chapitre <a href="chap-SEL.html" class="internal" title="Chapitre 3: Les systèmes d'équations linéaires">3</a> donnera une méthode structurée pour résoudre les systèmes d'équations comme ceux de cet exemple.</p>
+</div></div>
+</div></article></div>
+<p id="p-608">Dans <span class="process-math">\(\R^2\text{,}\)</span> il y a une seule direction perpendiculaire à une droite donnée alors que dans <span class="process-math">\(\R^3\text{,}\)</span> il en existe une infinité. Pour un plan dans <span class="process-math">\(\R^3\text{,}\)</span> il n'y a aussi qu'une seule direction perpendiculaire au plan. Comment peut-on la trouver? Avant de procéder, on démontre le résultat suivant.</p>
+<article class="proposition theorem-like" id="prop-perpclin"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.3.16</span><span class="period">.</span><span class="space"> </span><span class="title">Orthogonalité et combinaison linéaire.</span>
+</h4>
+<p id="p-609">Soit <span class="process-math">\(\vec{u},\vec{v}\)</span> et <span class="process-math">\(\vec{w}\)</span> tels que <span class="process-math">\(\vec{w}\)</span> est perpendiculaire à la fois à <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span> Alors <span class="process-math">\(\vec{w}\)</span> est perpendiculaire à toute combinaison linéaire de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span></p></article><article class="hiddenproof" id="proof-6"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"><p id="p-610">Soit <span class="process-math">\(\vec{r}=a\vec{u}+b\vec{v}\)</span> une combinaison linéaire quelconque des vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span> On doit montrer que <span class="process-math">\(\pscal{r}{w}=0\text{.}\)</span> On a</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/li-propprodscal-dist.html ./knowl/prop-propprodscal.html" id="md-113">
+\begin{align*}
+\pscal{r}{w}&amp;=(a\vec{u}+b\vec{v})\cdot \vec{w}
+&amp;&amp;\\
+&amp;=a\vec{u}\cdot\vec{w}+b\vec{v}\cdot\vec{w} &amp;&amp; \text{
+par la propriété } 
+\knowl{./knowl/li-propprodscal-dist.html}{\text{1.2.6:3}}\text{ de la proposition } 
+\knowl{./knowl/prop-propprodscal.html}{\text{1.2.5}}\\
+&amp;=a*0+b*0 &amp; &amp; \text{ par hypothèse, } \vec{u} \text{
+et } \vec{v} \text{ sont perpendiculaires à } \vec{w}\\
+&amp;=0\text{.}
+\end{align*}
+</div>
+<p id="p-611">Ainsi, <span class="process-math">\(\vec{w}\)</span> est perpendiculaire à toute combinaison linéaire des vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span></p></article></div>
+<p id="p-612">On illustre maintenant la méthode pour trouver la direction perpendiculaire au plan avec un exemple numérique. La section <code class="code-inline tex2jax_ignore">[provisional cross-reference: sec-prodvec]</code> donnera la manière générale de déterminer cette direction.</p>
+<article class="example example-like" id="ex-eqnormplan"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-eqnormplan"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.3.17</span><span class="period">.</span><span class="space"> </span><span class="title">L'équation normale d'un plan.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-eqnormplan"><article class="example example-like"><p id="p-613">On considère le plan d'équation <span class="process-math">\(\mathcal{P}: (x,y,z)=a(2,1,0)+b(1,0,-1)+(3,2,-1)\text{.}\)</span> On cherche l'équation de la droite <span class="process-math">\(\mathcal{D}\)</span> qui passe par le point <span class="process-math">\(A(3,2,-1)\)</span> et qui est perpendiculaire au plan <span class="process-math">\(\mathcal{P}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-55" id="solution-55"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-55"><div class="solution solution-like">
+<p id="p-614">Soit <span class="process-math">\(\vec{w}=(w_1,w_2,w_3)\)</span> le vecteur directeur de la droite. Si on réussit à trouver <span class="process-math">\(\vec{w}\)</span> perpendiculaire à <span class="process-math">\(\vec{u}=(2,1,0)\)</span> et <span class="process-math">\(\vec{v}=(1,0,-1)\text{,}\)</span> alors selon la proposition <a href="" class="xref" data-knowl="./knowl/prop-perpclin.html" title="Proposition 1.3.16: Orthogonalité et combinaison linéaire">1.3.16</a>, <span class="process-math">\(\vec{w}\)</span> sera orthogonal à tous les points du plan. On doit avoir</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-perpclin.html" id="md-114">
+\begin{align*}
+\vec{w}\cdot\vec{u}&amp;=0\\
+2w_1+w_2&amp;=0
+\end{align*}
+</div>
+<p class="continuation">et</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-perpclin.html" id="md-115">
+\begin{align*}
+\vec{w}\cdot\vec{v}&amp;=0\\
+w_1-w_3&amp;=0\text{.}
+\end{align*}
+</div>
+<p class="continuation">On a alors trois inconnues à déterminer et deux équations les reliant. En réarrangeant les équations, on arrive à <span class="process-math">\(w_2=-2w_1\)</span> et <span class="process-math">\(w_3=w_1\text{.}\)</span> Le vecteur <span class="process-math">\(\vec{w}\)</span> peut donc être exprimé comme <span class="process-math">\(\vec{w}=(w_1,w_2,w_3)=(w_1,-2w_1,w_1)\text{.}\)</span> On met le facteur commun <span class="process-math">\(w_1\)</span> en évidence pour obtenir <span class="process-math">\(\vec{w}=w_1(1,-2,1)\text{,}\)</span> avec <span class="process-math">\(w_1\)</span> un nombre réel quelconque. Peu importe la valeur de <span class="process-math">\(w_1\text{,}\)</span> on obtient un multiple du vecteur <span class="process-math">\((1,-2,1)\text{.}\)</span> On choisit donc ce vecteur (en posant <span class="process-math">\(w_1=1\)</span>) comme étant la direction cherchée.</p>
+<p id="p-615">Puisque l'on cherchait l'équation de la droite passant par le point <span class="process-math">\((3,2,-1)\text{,}\)</span> la réponse est</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal{D}: (x,y,z)=c(1,-2,1)+(3,2,-1) \quad c\in \R\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article></div>
+<p id="p-616">Une équation de la forme</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-eqnormplan.html" id="eq-normale3">
+\begin{equation}
+\mathcal{P}:ax+by+cz=d\tag{1.3.18}
+\end{equation}
+</div>
+<p class="continuation">est appelée une équation normale d'un plan dans <span class="process-math">\(\R^3\text{.}\)</span> On peut aussi la réécrire sous la forme <span class="process-math">\(\vec{n}\cdot\vecl{AP}=0\text{,}\)</span> où <span class="process-math">\(\vec{n}=(a,b,c)\)</span> est perpendiculaire à tous les vecteurs du plan. L'exemple <a href="" class="xref" data-knowl="./knowl/ex-eqnormplan.html" title="Exemple 1.3.17: L'équation normale d'un plan">1.3.17</a> montre comment passer de l'équation vectorielle à l'équation normale. En effet, le vecteur directeur de la droite perpendiculaire au plan servira de vecteur normal <span class="process-math">\(\vec{n}\text{.}\)</span> On peut calculer la valeur de la constante manquante en remplaçant dans l'équation n'importe quel point sur le plan. On utilise le point <span class="process-math">\((3,2,-1)\)</span> puisqu'on sait qu'il s'y trouve. On regarde maintenant la situation inverse.</p>
+<article class="example example-like" id="ex-normavec"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-normavec"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.3.18</span><span class="period">.</span><span class="space"> </span><span class="title">De l'équation normale à l'équation vectorielle.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-normavec"><article class="example example-like"><p id="p-617">Soit l'équation <span class="process-math">\(3x+2y+z=4\)</span> une équation normale d'un plan dans <span class="process-math">\(\R^3\text{.}\)</span> On cherche une équation vectorielle décrivant ce plan.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-56" id="solution-56"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-56"><div class="solution solution-like">
+<p id="p-618">Une première solution est d'isoler l'une des variables dans l'équation normale. Ici, on a par exemple <span class="process-math">\(z=4-3x-2y\text{.}\)</span> Un point <span class="process-math">\((x,y,z)\)</span> dans le plan doit satisfaire</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-116">
+\begin{align*}
+\mathcal{P}&amp;:&amp; (x,y,z)&amp;=(x,y,4-3x-2y)\\
+&amp;&amp; &amp;=(x,0,-3x)+(0,y,-2y)+(0,0,4)\\
+&amp;&amp; &amp;=x(1,0,-3)+y(0,1,-2)+(0,0,4)\text{,}
+\end{align*}
+</div>
+<p class="continuation">où l'on a réécrit le point <span class="process-math">\((x,y,z)\)</span> en regroupant les termes similaires.</p>
+<p id="p-619">On réécrit avec la notation habituelle pour obtenir</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal{P}: (x,y,z)=a(1,0,-3)+b(0,1,-2)+(0,0,4)\text{.}
+\end{equation*}
+</div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-57" id="solution-57"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-57"><div class="solution solution-like">
+<p id="p-620">Une autre option est de sélectionner trois points non alignés sur le plan et de créer des vecteurs directeurs à partir de ces points. On retrouve alors facilement l'équation vectorielle. Par exemple, si <span class="process-math">\(x=y=0\text{,}\)</span> le point sur le plan doit obligatoirement avoir <span class="process-math">\(z=4\text{.}\)</span> De même, si <span class="process-math">\(x=z=0\text{,}\)</span> on a <span class="process-math">\(y=2\)</span> et si <span class="process-math">\(y=z=0\text{,}\)</span> on a <span class="process-math">\(x=\frac{4}{3}\text{.}\)</span> Des points <span class="process-math">\(A(0,0,4),B(0,2,0)\)</span> et <span class="process-math">\(C\left(\frac{4}{3},0,0\right)\text{,}\)</span> on tire les vecteurs directeurs <span class="process-math">\(\vecl{AB}=(0,2,-4)\)</span> et <span class="process-math">\(\vecl{AC}=\left(\frac{4}{3},0,-4\right)\text{.}\)</span> Le plan peut donc être décrit par l'équation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal{P}:
+(x,y,z)=a(0,2,-4)+b\left(\frac{4}{3},0,-4\right)+(0,0,4)\text{.}
+\end{equation*}
+</div>
+<p id="p-621">Est-ce que les deux équations obtenues sont vraiment équivalentes?</p>
+</div></div>
+</div></article></div>
+<p id="p-622">Dans le dernier exemple, on a déterminé deux vecteurs directeurs à partir de trois points du plan. Dans la définition d'un plan, il faut que les vecteurs directeurs soient non parallèles. Est-ce toujours le cas que deux vecteurs formés à partir de trois points sont non parallèles?</p>
+<p id="p-623">Avec les équations normales, le contexte est très important afin d'interpréter correctement un objet donné. L'équation <span class="process-math">\(x+2y=3\)</span> représente une droite dans <span class="process-math">\(\R^2\)</span> et un plan dans <span class="process-math">\(\R^3\text{.}\)</span> Il est donc primordial de spécifier l'espace dans lequel on se trouve si on travaille avec les équations normales.</p>
+<p id="p-624">On termine avec des commandes Sage en lien avec la sous-section.</p>
+<article class="computation computation-like" id="sageex-plans"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">1.3.19</span><span class="period">.</span><span class="space"> </span><span class="title">Les plans avec Sage.</span>
+</h4>
+<p id="p-625">Pour tracer un plan dans <span class="process-math">\(\R^3\text{,}\)</span> deux options sont possibles. La première option est d'utiliser l'équation normale et la commande <code class="code-inline tex2jax_ignore">implicit_plot3d</code>. À remarquer l'utilisation de la double égalité <code class="code-inline tex2jax_ignore">==</code>, puisque le symbole <code class="code-inline tex2jax_ignore">=</code> est réservé à l'assignation des variables.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-31"><script type="text/x-sage">var("x","y","z")
+implicit_plot3d(x+2*y-4*z==3,(x,-3,3),(y,-3,3), (z,-3,3),color="blue")
+</script></pre>
+<p id="p-626">Une autre option utilise les équations paramétriques. La commande est <code class="code-inline tex2jax_ignore">parametric_plot3d</code>.</p>
+<p id="p-627">On illustre les deux plans des exemples <a href="" class="xref" data-knowl="./knowl/ex-eqnormplan.html" title="Exemple 1.3.17: L'équation normale d'un plan">1.3.17</a>et <a href="" class="xref" data-knowl="./knowl/ex-normavec.html" title="Exemple 1.3.18: De l'équation normale à l'équation vectorielle">1.3.18</a>.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-32"><script type="text/x-sage">var("a,b")
+parametric_plot3d([2*a+b+3,a+2,-b-1],(a,-5,5),(b,-5,5))
+</script></pre>
+<pre class="ptx-sagecell sagecell-sage" id="sage-33"><script type="text/x-sage">var("a,b")
+parametric_plot3d([a,b,-3*a-2*b+4],(a,-5,5),(b,-5,5))
+</script></pre>
+<p id="p-628">Les options habituelles de couleur, transparence, etc. sont aussi disponibles.</p>
+<p id="p-629">Si l'équation du plan est donnée vectoriellement, il est aussi possible de le tracer avec la commande <code class="code-inline tex2jax_ignore">parametric_plot3d</code>.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-34"><script type="text/x-sage">var("a","b")
+P=a*vector([1,-2,3])+b*vector([-1,2,3])+vector([1,1,1])
+parametric_plot3d(P,(a,-5,5),(b,-5,5))
+</script></pre></article></section><section class="subsection" id="sssec-distances"><h3 class="heading hide-type">
+<span class="type">Sous-section</span> <span class="codenumber">1.3.3</span> <span class="title">Distances</span>
+</h3>
+<p id="p-630">Soit <span class="process-math">\(\mathcal{D}\)</span> une droite quelconque, quelle est la distance entre la droite et un point quelconque? Si le point est sur la droite, cette distance vaut <span class="process-math">\(0\text{,}\)</span> mais sinon, comment la calculer? Géométriquement, la distance est donnée par la longueur du segment de droite perpendiculaire à <span class="process-math">\(\mathcal{D}\)</span> reliant le point <span class="process-math">\(P\)</span> et un point <span class="process-math">\(Q\)</span> sur la droite, au pied du segment perpendiculaire. Celui-ci est illustré à la figure <a href="" class="xref" data-knowl="./knowl/fig-distpd.html" title="Figure 1.3.20">1.3.20</a>. La longueur de ce segment correspond à la norme du vecteur <span class="process-math">\(\vecl{PQ}\text{,}\)</span> qui lui est obtenu à partir des vecteurs <span class="process-math">\(\vecl{AP}\)</span> et de sa projection sur le vecteur directeur de la droite <span class="process-math">\(\mathcal{D}\text{.}\)</span></p>
+<figure class="figure figure-like" id="fig-distpd"><div style="width:600px;"><p id="p-631">On peut déplacer la droite à l'aide des points <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{,}\)</span> ainsi que le point <span class="process-math">\(P\)</span> dont on cherche la distance à la droite. Un clic sur le bouton fera apparaitre le vecteur de la projection orthogonale</p></div>
+<iframe id="geog-distpd" width="600" height="600" src="geog-distpd-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.20<span class="period">.</span></span><span class="space"> </span>Distance entre un point et une droite</figcaption></figure><p id="p-632">La distance entre un point <span class="process-math">\(P\)</span> et une droite <span class="process-math">\(\mathcal{D}\)</span> est donc donnée par la formule</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq-distpd">
+\begin{equation}
+d(P,\mathcal{D}) =\norm{\vecl{AP}_{\vec{v}}-\vecl{AP}}\tag{1.3.19}
+\end{equation}
+</div>
+<p class="continuation">où <span class="process-math">\(A\)</span> est un point connu sur <span class="process-math">\(\mathcal{D}\)</span> et <span class="process-math">\(\vec{v}\)</span> est le vecteur directeur de la droite. À remarquer que la formule fonctionne, que la droite soit dans <span class="process-math">\(\R^2\)</span> ou <span class="process-math">\(\R^3\text{,}\)</span> et que si le point <span class="process-math">\(P\)</span> est sur la droite, la formule donne <span class="process-math">\(0\text{,}\)</span> car le vecteur <span class="process-math">\(\vecl{AP}_{\vec{v}}=\vecl{AP}\text{.}\)</span></p>
+<p id="p-633">Il est parfois utile de connaitre la position du point <span class="process-math">\(Q\text{,}\)</span> soit le point sur la droite qui est le plus près du point externe <span class="process-math">\(P\text{.}\)</span> Celui-ci peut être obtenu en ajoutant au vecteur <span class="process-math">\(\vecl{OA}\)</span> le vecteur <span class="process-math">\(\vecl{AP}_{\vec{v}}\text{.}\)</span></p>
+<p id="p-634">On s'intéresse maintenant à la distance entre un point <span class="process-math">\(P\)</span> et un plan <span class="process-math">\(\mathcal{P}\)</span> dans <span class="process-math">\(\R^3\text{.}\)</span> Encore une fois, si le point est sur le plan, la distance sera de <span class="process-math">\(0\)</span> et si le point est à l'extérieur, la distance sera calculée en déterminant la longueur du segment de droite reliant <span class="process-math">\(P\)</span> et un point <span class="process-math">\(Q\)</span> de telle sorte que le vecteur <span class="process-math">\(\vecl{QP}\)</span> soit perpendiculaire au plan. Si <span class="process-math">\(A\)</span> est un point connu d'un plan <span class="process-math">\(\mathcal{P}\text{,}\)</span> le vecteur <span class="process-math">\(\vecl{QP}\)</span> correspond à la projection du vecteur <span class="process-math">\(\vecl{AP}\)</span> sur le vecteur normal du plan. La figure <a href="" class="xref" data-knowl="./knowl/fig-distpp.html" title="Figure 1.3.21">1.3.21</a> illustre cela.</p>
+<figure class="figure figure-like" id="fig-distpp"><div style="width:600px;"><p id="p-635">On peut déplacer le plan à l'aide des points <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\)</span> et <span class="process-math">\(C\text{,}\)</span> ainsi que le point <span class="process-math">\(P\)</span> dont on cherche la distance au plan. Le vecteur <span class="process-math">\(\vec{n}\)</span> peut aussi être changé, mais sa base est fixée au point <span class="process-math">\(A\text{.}\)</span> Un clic sur le premier bouton fera apparaitre le vecteur de la projection orthogonale dans une animation.</p></div>
+<iframe id="geog-distpp" width="600" height="600" src="geog-distpp-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.21<span class="period">.</span></span><span class="space"> </span>Distance entre un point et un plan</figcaption></figure><p id="p-636">La distance entre un point <span class="process-math">\(P\)</span> et un plan <span class="process-math">\(\mathcal{P}\)</span> est donc donnée par la formule</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq-distpp">
+\begin{equation}
+d(P,\mathcal{P}) =\norm{\vecl{AP}_{\vec{n}}}\tag{1.3.20}
+\end{equation}
+</div>
+<p class="continuation">où <span class="process-math">\(A\)</span> est un point connu sur le plan <span class="process-math">\(\mathcal{P}\)</span> et <span class="process-math">\(\vec{n}\)</span> est le vecteur normal du plan. À remarquer que la formule fonctionne  si le point <span class="process-math">\(P\)</span> est sur le plan, car le vecteur <span class="process-math">\(\vecl{AP}_{\vec{n}}=\vecl{0}\text{.}\)</span></p>
+<p id="p-637">Il est parfois utile de connaitre la position du point <span class="process-math">\(Q\text{,}\)</span> soit le point sur le plan qui est le plus près du point externe <span class="process-math">\(P\text{.}\)</span> Celui-ci peut être obtenu en soustrayant au vecteur <span class="process-math">\(\vecl{OP}\)</span> le vecteur <span class="process-math">\(\vecl{AP}_{\vec{n}}\text{.}\)</span></p>
+<p id="p-638">Dans <span class="process-math">\(\R^3\text{,}\)</span> il est également possible de calculer la distance entre une droite et un plan ou deux plans. Autant pour droite et plan que pour deux plans, deux cas peuvent survenir: ils peuvent se croiser, auquel cas la distance sera nulle, ou peuvent être parallèles. Si deux plans sont parallèles, il suffit de prendre un point sur l'un d'entre eux et de calculer la distance point plan. Si, par contre, une droite est parallèle au plan, il est important de prendre un point de la droite et de calculer la distance point-plan. L'exercice <a href="" class="xref" data-knowl="./knowl/exo-distancedroiteplanpara.html" title="Exercice 1.3.4.10">1.3.4.10</a> explique pourquoi prendre un point sur le plan et faire la distance point-droite ne fonctionne généralement pas.</p>
+<p id="p-639">La question de la distance entre deux droites demande un peu plus de réflexion. Dans <span class="process-math">\(\R^2\text{,}\)</span> deux droites sont soit parallèles, soit sécantes, mais dans <span class="process-math">\(\R^3\text{,}\)</span> il existe une troisième option. Deux droites peuvent ne pas se croiser sans être parallèles. On dit alors qu'elles sont gauches. Pour déterminer la distance entre les deux droites, on doit trouver la distance entre deux plans parallèles contenant chacun l'une des droites. Ceci nécessite de déterminer un vecteur qui est perpendiculaire au vecteur directeur respectif de chaque droite. Les détails pour trouver ce vecteur sont donnés dans la section <code class="code-inline tex2jax_ignore">[provisional cross-reference: prodvec]</code>. En attendant, la figure <code class="code-inline tex2jax_ignore">[provisional cross-reference: fig-distdg]</code> illustre l'intuition derrière la méthode décrite ci-dessus.</p>
+<p id="p-640">Il n'y a pas de nouvelles commandes Sage, mais on illustre l'utilisation de Sage pour résoudre un exemple concret de calcul de distance.</p>
+<article class="computation computation-like" id="sageex-distpd"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">1.3.22</span><span class="period">.</span><span class="space"> </span><span class="title">La distance entre un point et une droite.</span>
+</h4>
+<p id="p-641">On considère l'équation <span class="process-math">\(\mathcal{D}: (x,y)=c(3,-2)+(-1,5)\)</span> et le point <span class="process-math">\(P(5,10)\text{.}\)</span> On cherche la distance entre <span class="process-math">\(P\)</span> et <span class="process-math">\(\mathcal{D}\text{.}\)</span></p>
+<p id="p-642">On commence par illustrer la droite et le point pour avoir une image de la situation</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-35"><script type="text/x-sage">var("c")
+vdir=vector([3,-2])
+A=vector([-1,5])
+droite=c*vdir+A
+pointP=point((5,10),color="red",size=20)
+fig=parametric_plot(droite,(c,-5,5),color="blue")+pointP
+show(fig)
+</script></pre>
+<p id="p-643">Pour calculer la distance, on doit connaitre un point <span class="process-math">\(A\)</span> de la droite et faire la projection du vecteur <span class="process-math">\(\vecl{AP}\)</span> sur le vecteur directeur de la droite. On peut bonifier l'image précédente avec les vecteurs.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-36"><script type="text/x-sage">pointA=point((-1,5),color="red",size=20)
+P=vector([5,10])
+AP=P-A
+fig=fig+plot(vdir,start=A,color="black")+plot(AP,start=A,color="black")+pointA
+show(fig)
+</script></pre>
+<p id="p-644">On calcule maintenant la projection et le vecteur <span class="process-math">\(\vecl{AP}_{\vec{v}}-\vecl{AP}\)</span> et on ajoute ce dernier à la figure.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-37"><script type="text/x-sage">proj=AP*vdir/(vdir*vdir)*vdir
+projmoinsAP=proj-AP
+fig=fig+plot(proj,start=A,color="green")+plot(projmoinsAP,start=P,color="black")
+show(fig)
+</script></pre>
+<p id="p-645">Enfin, on obtient la distance en calculant la longueur du vecteur <span class="process-math">\(\vecl{AP}_{\vec{v}}-\vecl{AP}\text{.}\)</span></p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-38"><script type="text/x-sage">show(norm(projmoinsAP))
+</script></pre></article></section><section class="conclusion" id="concl-droitesplans"><p id="p-646">Les éléments importants de cette section sont:</p>
+<ul class="disc">
+<li id="li-196"><p id="p-647">Le concept de combinaison linéaire de vecteurs.</p></li>
+<li id="li-197"><p id="p-648">Les droites dans <span class="process-math">\(\R^2\)</span> et leur équation <a href="" class="xref" data-knowl="./knowl/eq-vec3.html" title="Équation 1.3.2">vectorielle (1.3.2)</a>, <a href="" class="xref" data-knowl="./knowl/eq-para2.html" title="Équation 1.3.5">paramétrique (1.3.5)</a> et <a href="" class="xref" data-knowl="./knowl/eq-normale2.html" title="Équation 1.3.6">normale (1.3.6)</a>.</p></li>
+<li id="li-198"><p id="p-649">Les droites dans <span class="process-math">\(\R^3\)</span> et leur équation <a href="" class="xref" data-knowl="./knowl/eq-vec3verticale.html" title="Équation 1.3.3">vectorielle (1.3.3)</a> (sous sa forme verticale) et <a href="" class="xref" data-knowl="./knowl/eq-para3.html" title="Équation 1.3.4">paramétrique (1.3.4)</a>.</p></li>
+<li id="li-199"><p id="p-650">Les plans dans <span class="process-math">\(\R^3\)</span> et leur équation <a href="" class="xref" data-knowl="./knowl/eq-planvec.html" title="Équation 1.3.10">vectorielle (1.3.10)</a>, <a href="" class="xref" data-knowl="./knowl/eq-planpara.html" title="Équation 1.3.11">paramétrique (1.3.11)</a> et <a href="" class="xref" data-knowl="./knowl/eq-normale3.html" title="Équation 1.3.18">normale (1.3.18)</a>.</p></li>
+<li id="li-200"><p id="p-651">La distance entre un point et une droite <a href="" class="xref" data-knowl="./knowl/eq-distpd.html" title="Équation 1.3.19">(1.3.19)</a>.</p></li>
+<li id="li-201"><p id="p-652">La distance entre un point et un plan <a href="" class="xref" data-knowl="./knowl/eq-distpp.html" title="Équation 1.3.20">(1.3.20)</a>.</p></li>
+</ul></section><section class="exercises" id="exo-droitesplans"><h3 class="heading hide-type">
+<span class="type">Exercices</span> <span class="codenumber">1.3.4</span> <span class="title">Exercices</span>
+</h3>
+<article class="exercise exercise-like" id="exo-comblin-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-653">Soit <span class="process-math">\(\vec{u}=(1,3)\)</span> et <span class="process-math">\(\vec{v}=(-2,5)\text{.}\)</span> Exprimer <span class="process-math">\(\vec{w}=(-21,25)\)</span> comme une combinaison linéaire de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-29" id="answer-29"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-29"><div class="answer solution-like"><p id="p-654"><span class="process-math">\(\vec{w}=-5\vec{u}+8\vec{v}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-58" id="solution-58"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-58"><div class="solution solution-like">
+<p id="p-655">On veut résoudre l'équation vectorielle: <span class="process-math">\(\vec{w}=a\vec{u}+b\vec{v}\text{.}\)</span> On veut donc trouver les valeurs de <span class="process-math">\(a\)</span> et <span class="process-math">\(b\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-117">
+\begin{align*}
+\vec{w}&amp;=a\vec{u}+b\vec{v}\\
+(-21,25)&amp;=a(1,3)+b(-2,5)\\
+-21&amp;=a-2b\\
+25&amp;=3a+5b\\
+a&amp;=2b-21\\
+25&amp;=3(2b-21)+5b\\
+b&amp;=8\\
+a&amp;=2(8)-21=-5
+\end{align*}
+</div>
+<p class="continuation">Bref, la combinaison linéaire suivante permet d'exprimer <span class="process-math">\(\vec{w}\)</span> comme une combinaison linéaire de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\vec{w}=-5\vec{u}+8\vec{v}
+\end{equation*}
+</div>
+</div></div>
+</div></article><article class="exercise exercise-like" id="exo-droites-1"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-12"><p id="p-656">Considérer la droite d'équation vectorielle <span class="process-math">\(\mathcal{D}: (x,y)=c(1,-3)+(4,5)\text{,}\)</span> <span class="process-math">\(c\in \R\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-21"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-657">Parmi les points suivants, lesquels appartiennent à la droite? <span class="process-math">\(A(4,5)\text{,}\)</span> <span class="process-math">\(B(1,-3)\text{,}\)</span> <span class="process-math">\(C(5,2)\)</span> et <span class="process-math">\(D(0,17)\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-12" id="hint-12"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-12"><div class="hint solution-like">On cherche à déterminer si chaque point est sur la droite. On rappelle que l'équation vectorielle consiste à décrire l'ensemble des points de la droite par un vecteur directeur et un point. On peut voir le point comme la valeur initiale ou le point de départ et le vecteur directeur multiplié par le scalaire comme le chemin parcouru sur la droite pour arriver à n'importe quel autre point. Il est important de ne pas confondre vecteur et point, car les deux sont simplement écrits entre parenthèses dans l'équation. Ici, <span class="process-math">\(\vec{v}=(1,3)\)</span> est le vecteur directeur et <span class="process-math">\((4,5)\)</span> est le point de départ.</div></div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-30" id="answer-30"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-30"><div class="answer solution-like"><p id="p-658">Les points <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(C\)</span> et <span class="process-math">\(D\)</span> sont sur la droite.</p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-59" id="solution-59"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-59"><div class="solution solution-like">
+<p id="p-659">Pour <span class="process-math">\(A(4,5)\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-118">
+\begin{align*}
+(x,y)&amp;=c(1,-3)+(4,5)\\
+(4,5)&amp;=c(1,-3)+(4,5)\\
+(4,5)&amp;=0(1,-3)+(4,5)\\
+(4,5)&amp;=(4,5)
+\end{align*}
+</div>
+<p class="continuation">Il est clair que <span class="process-math">\(A\)</span> est sur la droite.</p>
+<p id="p-660">Pour <span class="process-math">\(B(1,-3)\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-119">
+\begin{align*}
+(x,y)&amp;=c(1,-3)+(4,5)\\
+(1,-3)&amp;=c(1,-3)+(4,5)\\
+1&amp;=c+4 \Rightarrow c=-3\\
+-3&amp;=-3c+5 \Rightarrow c=\frac{8}{3}
+\end{align*}
+</div>
+<p class="continuation">Il y a donc une contradiction et <span class="process-math">\(B\)</span> ne peut pas être sur la droite.</p>
+<p id="p-661">Pour <span class="process-math">\(C(5,2)\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-120">
+\begin{align*}
+(x,y)&amp;=c(1,-3)+(4,5)\\
+(5,2)&amp;=c(1,-3)+(4,5)\\
+5&amp;=c+4 \Rightarrow c=1\\
+2&amp;=-3c+5 \Rightarrow c=1
+\end{align*}
+</div>
+<p class="continuation">Le point <span class="process-math">\(C\)</span> est donc sur la droite.</p>
+<p id="p-662">Pour <span class="process-math">\(D(0,17)\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-121">
+\begin{align*}
+(x,y)&amp;=c(1,-3)+(4,5)\\
+(0,17)&amp;=c(1,-3)+(4,5)\\
+0&amp;=c+4 \Rightarrow c=-4\\
+17&amp;=-3c+5 \Rightarrow c=-4
+\end{align*}
+</div>
+<p class="continuation">Le point <span class="process-math">\(D\)</span> est donc sur la droite.</p>
+</div></div>
+</div></article><article class="task exercise-like" id="task-22"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-663">Quelle serait une équation normale de la droite <span class="process-math">\(\mathcal{D}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-31" id="answer-31"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-31"><div class="answer solution-like"><p id="p-664"><span class="process-math">\(\mathcal{D}:3x+y=17\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-60" id="solution-60"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-60"><div class="solution solution-like">
+<p id="p-665">On a appris que le vecteur normal \vec{n}=(a,b) s'obtient du vecteur directeur car il lui est perpendiculaire. Ainsi,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\vec{n}=\vec{v}_\perp=(1,-3)_\perp=(3,1)
+\end{equation*}
+</div>
+<p class="continuation">Nous avons maintenant presque toute l'information nécessaire pour compléter l'équation normale.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal{D}:3x+y=c
+\end{equation*}
+</div>
+<p class="continuation">On trouve la valeur de <span class="process-math">\(c\)</span> en remplaçant avec un point. On utilise le point <span class="process-math">\((4,5)\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-122">
+\begin{align*}
+3x+y&amp;=c\\
+3*4+5&amp;=c\\
+c&amp;=17\\
+\mathcal{D}:3x+y&amp;=17
+\end{align*}
+</div>
+</div></div>
+</div></article><article class="task exercise-like" id="task-23"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-666">Trouver une équation standard de la droite passant par le point <span class="process-math">\(E(2,7)\)</span> qui est parallèle à la droite <span class="process-math">\(\mathcal{D}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-32" id="answer-32"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-32"><div class="answer solution-like"><p id="p-667"><span class="process-math">\(\mathcal{D}_1:y=-3x+13\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-61" id="solution-61"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-61"><div class="solution solution-like">
+<p id="p-668">L'équation normale est la plus proche de l'équation standard. Comme on cherche une droite parallèle à <span class="process-math">\(\mathcal{D}\text{,}\)</span> elle aura le même vecteur normal. Ainsi, il ne nous reste qu'à remplacer dans la droite par le point <span class="process-math">\(E\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-123">
+\begin{align*}
+3x+y&amp;=c\\
+3*2+7&amp;=c\\
+c&amp;=13\\
+\mathcal{D}_1:3x+y&amp;=13
+\end{align*}
+</div>
+<p class="continuation">On isole simplement <span class="process-math">\(y\)</span> pour obtenir l'équation standard.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal{D}_1:y=-3x+13
+\end{equation*}
+</div>
+</div></div>
+</div></article><article class="task exercise-like" id="task-24"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-669">Trouver une équation paramétrique de la droite perpendiculaire à la droite <span class="process-math">\(\mathcal{D}\)</span> passant par le point <span class="process-math">\(F(1,1)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-33" id="answer-33"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-33"><div class="answer solution-like"><p id="p-670"><span class="process-math">\(\mathcal{D}_2:(x,y)=c(3,1)+(1,1)\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-62" id="solution-62"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-62"><div class="solution solution-like">
+<p id="p-671">Pour obtenir une équation paramétrique (ou vectorielle), il nous faut d'abord un vecteur directeur. Puisqu'on cheche une droite perpendiculaire à <span class="process-math">\(\mathcal{D}\text{,}\)</span> son vecteur directeur est donc donné par le vecteur normal <span class="process-math">\(\vec{n}=(3,1)\text{.}\)</span> On sait que la droite passe par point <span class="process-math">\(F(1,1)\text{.}\)</span> On a:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal{D}_2:(x,y)=c(3,1)+(1,1)
+\end{equation*}
+</div>
+</div></div>
+</div></article></article><article class="exercise exercise-like" id="exo-vecperp"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-13">
+<p id="p-672">Dans la proposition <a href="" class="xref" data-knowl="./knowl/pro-vecperp.html" title="Proposition 1.3.8: Le vecteur perpendiculaire">1.3.8</a>, nous avons introduit le vecteur perpendiculaire <span class="process-math">\(\vec{v}_{\perp}\text{.}\)</span> Pour chacune des propositions suivantes, en développer d'abord une compréhension géométrique et ensuite la démontrer algébriquement.</p>
+<figure class="figure figure-like" id="figure-54"><div style="width:600px;">Utiliser les outils de cette figure interactive pour vous aider.</div>
+<iframe id="geo-exo-vecperp" width="600" height="600" src="geo-exo-vecperp-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.23<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div>
+<article class="task exercise-like" id="task-25"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-673">On obtient le vecteur <span class="process-math">\(\vec{v}_{\perp}\)</span> à partir de <span class="process-math">\(\vec{v}\)</span> en lui faisant faire une rotation de <span class="process-math">\(90\)</span> degrés dans le sens anti-horaire.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-63" id="solution-63"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-63"><div class="solution solution-like"><p id="p-674">Il y a seulement deux vecteurs perpendiculaires à un vecteur donné dans <span class="process-math">\(\R^2\text{.}\)</span> Il faut alors simplement déterminer que la proposition <a href="" class="xref" data-knowl="./knowl/pro-vecperp.html" title="Proposition 1.3.8: Le vecteur perpendiculaire">1.3.8</a> définit bien le vecteur obtenu à partir de <span class="process-math">\(\vec{v}\)</span> en lui faisant faire une rotation de <span class="process-math">\(90\)</span> degrés dans le sens anti-horaire. On observe sur le dessin que c'est le cas. On pourra le démontrer algébriquement facilement en considérant que si <span class="process-math">\(v_1\)</span> et <span class="process-math">\(v_2\)</span> sont positifs, alors <span class="process-math">\(\vec{v}\)</span> sera dans le premier quadrant. Ainsi, <span class="process-math">\(\vec{v}_{\perp}=(-v_2, v_1)\)</span> aura une valeur négative en <span class="process-math">\(x\)</span> et positive en <span class="process-math">\(y\)</span> et est donc dans le deuxième quadrant. On voit donc clairement que la rotation <span class="process-math">\(90^\circ\)</span> s'est effectuée dans le sens horaire.</p></div></div>
+</div></article><article class="task exercise-like" id="task-26"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-675"><span class="process-math">\(\norm{\vec{v}}=\norm{\vec{v}_{\perp}}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-64" id="solution-64"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-64"><div class="solution solution-like">
+<p id="p-676">Dès qu'on accepte le résultat précédent, cette proposition est évidente géométriquement. Les deux vecteurs sont de même longueur. On le démontre algébriquement.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-124">
+\begin{align*}
+\norm{\vec{v}} &amp; =\norm{(v_1,v_2)}\\
+&amp; =\sqrt{v_1^2+v_2^2}\\
+&amp; =\sqrt{v_2^2+v_1^2}\\
+&amp; =\sqrt{(-v_2)^2+v_1^2}\\
+&amp; =\norm{(-v_2,v_1)}\\
+&amp; =\norm{\vec{v}_{\perp}}
+\end{align*}
+</div>
+</div></div>
+</div></article><article class="task exercise-like" id="task-27"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-677"><span class="process-math">\(\vec{v}\cdot\vec{v}_{\perp}=0\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-65" id="solution-65"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-65"><div class="solution solution-like">
+<p id="p-678">On observe géométriquement que ces vecteurs sont perpendiculaires. Cela est équivalent de dire que leur produit scalaire est nul. On le démontre algébriquement.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-125">
+\begin{align*}
+\vec{v}\cdot\vec{v}_{\perp} &amp; =(v_1,v_2)\cdot(-v_2,v_1)\\
+&amp; =v_1*(-v_2)+v_2*v_1\\
+&amp; =-v_1v_2+v_1v_2\\
+&amp; =0
+\end{align*}
+</div>
+</div></div>
+</div></article><article class="task exercise-like" id="task-28"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-679"><span class="process-math">\((k\vec{v})_{\perp}=k(\vec{v}_{\perp})\)</span> quel que soit le scalaire <span class="process-math">\(k\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-66" id="solution-66"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-66"><div class="solution solution-like">
+<p id="p-680">La figure interactive permet de visualiser très efficacement cette proposition. Voici la démonstration algébrique.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-126">
+\begin{align*}
+(k\vec{v})_{\perp} &amp; =\big(k(v_1,v_2)\big)_{\perp}\\
+&amp; =(kv_1,kv_2)_{\perp}\\
+&amp; =(-kv_2,kv_1)\\
+&amp; =k(-v_2,v_1)\\
+&amp; =k(\vec{v}_{\perp})
+\end{align*}
+</div>
+</div></div>
+</div></article><article class="task exercise-like" id="task-29"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<p id="p-681"><span class="process-math">\((\vec{u}+\vec{v})_{\perp}=\vec{u}_{\perp}+\vec{v}_{\perp}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-67" id="solution-67"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-67"><div class="solution solution-like">
+<p id="p-682">Cette dernière proposition est plus difficile à visualiser géométriquement, mais sa démonstration algébrique est assez facile.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-127">
+\begin{align*}
+(\vec{u}+\vec{v})_{\perp} &amp; =\big((u_1,u_2)+(v_1,v_2)\big)_{\perp}\\
+&amp; =(u_1+v_1,u_2+v_2)_{\perp}\\
+&amp; =\big(-(u_2+v_2),u_1+v_1\big)\\
+&amp; =\big((-u_2)+(-v_2),u_1+v_1\big)\\
+&amp; =(-u_2,u_1)+(-v_2,v_1)\\
+&amp; =\vec{u}_{\perp}+\vec{v}_{\perp}
+\end{align*}
+</div>
+</div></div>
+</div></article></article><article class="exercise exercise-like" id="exo-angledroites"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="p-683">L'angle entre deux droites est définie comme étant l'angle  <span class="process-math">\(\theta\in\left[0,\frac{\pi}{2}\right]\)</span> obtenu en calculant l'angle entre les vecteurs directeurs des droites, ou son supplémentaire si celui-ci excède <span class="process-math">\(\frac{\pi}{2}\text{.}\)</span> Cet angle est défini même si les droites ne se croisent pas (parallèles ou gauches).</p>
+<p id="p-684">Calculer l'angle entre les droites <span class="process-math">\(\mathcal{D}_1: (x,y,z)=c(1,3,4)+(2,4,1)\)</span> et <span class="process-math">\(\mathcal{D}_2: (x,y,z)=c(-1,2,-1)+(1,5,0)\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-34" id="answer-34"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-34"><div class="answer solution-like"><p id="p-685"><span class="process-math">\(\theta \approx 1.56 \text{ radians } \approx 89.54^\circ\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-68" id="solution-68"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-68"><div class="solution solution-like">
+<p id="p-686">On doit simplement calculer l'angle entre les vecteurs directeurs des droites, soit l'angle entre <span class="process-math">\(\vec{v}_1=(1,3,4)\)</span> et <span class="process-math">\(\vec{v}_2=(-1,2,-1)\text{.}\)</span> On utilise l'équation <a href="" class="xref" data-knowl="./knowl/eq-angle3vec.html" title="Équation 1.2.2">(1.2.2)</a> pour faire ce calcul.</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-angle3vec.html" id="md-128">
+\begin{align*}
+\cos(\theta)&amp;=\frac{u_1v_1+u_2v_2+u_3v_3}{\norm{\vec{u}}\norm{\vec{v}}}\\
+\cos(\theta)&amp;=\frac{1*(-1)+3*2+4*(-1)}{\norm{(1,3,4)}\norm{(-1,2,-1)}}\\
+\cos(\theta)&amp;=\frac{1}{\sqrt{26}\sqrt{6}}\\
+\theta &amp;=\arccos\pfrac{1}{\sqrt{26}\sqrt{6}}\\
+\theta &amp;\approx 1.49 \text{ radians } \approx 85.4^\circ
+\end{align*}
+</div>
+<p class="continuation">Puisque cet angle se trouve dans l'intervalle <span class="process-math">\(\left[0,\frac{\pi}{2}\right]\text{,}\)</span> on n'a pas à calculer l'angle supplémentaire. C'est donc l'angle entre les deux droites.</p>
+</div></div>
+</div></article><article class="exercise exercise-like" id="exercise-39"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-14">
+<p id="p-687">Soit <span class="process-math">\(\mathcal{D}\)</span> une droite dans le plan dont le vecteur normal est <span class="process-math">\(\vec{n}\text{.}\)</span> La droite sépare le plan en deux régions distinctes. On appelle le haut de la droite la région située dans le sens positif du vecteur normal et le bas la région dans le sens négatif du vecteur normal. La figure <a href="" class="xref" data-knowl="./knowl/fig-droitenormalregions.html" title="Figure 1.3.24">1.3.24</a> illustre ce concept.</p>
+<p id="p-688"><figure class="figure figure-like" id="fig-droitenormalregions"><div style="width:600px;"><p id="p-689">On peut déplacer la droite à l'aide du point <span class="process-math">\(A\)</span>  et du vecteur normal <span class="process-math">\(\vec{n}\text{.}\)</span> On peut aussi déplacer le point <span class="process-math">\(P\text{.}\)</span> Le texte change en fonction de la position du point <span class="process-math">\(P\)</span> telle que définie ci-dessus.</p></div>
+<iframe id="geog-droitenormalregions" width="600" height="600" src="geog-droitenormalregions-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.24<span class="period">.</span></span><span class="space"> </span>La droite de partage du plan</figcaption></figure></p>
+</div>
+<article class="task exercise-like" id="task-30"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-690">Soit <span class="process-math">\(A\)</span> un point sur la droite et <span class="process-math">\(P\)</span> un point quelconque du plan. Décrire une manière vectorielle qui détermine si le point est en haut ou en bas de la droite.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-13" id="hint-13"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-13"><div class="hint solution-like"><p id="p-691">Qu'ont de particulier les points sur la droite avec le vecteur normal? </p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-69" id="solution-69"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-69"><div class="solution solution-like">
+<p id="p-692">Il faut construire le vecteur <span class="process-math">\(\vecl{AP}\)</span> et calculer l'angle entre ce dernier et le vecteur normal <span class="process-math">\(\vec{n}\text{.}\)</span> Si cet angle est plus grand que <span class="process-math">\(90^\circ\)</span> (angle obtu), alors le point <span class="process-math">\(P\)</span> se situe en bas de la droite. Si l'angle est plus petit que <span class="process-math">\(90^\circ\)</span> (angle aigu), alors le point <span class="process-math">\(P\)</span> se situe en haut de la droite. Finalement, si l'angle est d'exactement <span class="process-math">\(90^\circ\text{,}\)</span> alors le point <span class="process-math">\(P\)</span> se situe sur la droite.</p>
+<p id="p-693">Une version simplifiée de cette démarche se dessine en remarquant que les angles aigus s'obtiennent à partir de vecteurs dont le produit scalaire est positif, les angles obtus, négatif, et finalement, comme on le sait déjà, les vecteurs perpendiculaires ont un produit scalaire nul.</p>
+</div></div>
+</div></article><article class="task exercise-like" id="task-31"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-694">Soit <span class="process-math">\(-2x+3y=3\)</span> une droite et <span class="process-math">\(P(5,1)\)</span> un point. Est-ce que le point est en haut ou en bas de la droite?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-35" id="answer-35"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-35"><div class="answer solution-like"><p id="p-695">Le point <span class="process-math">\(P\)</span> est en bas de la droite.</p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-70" id="solution-70"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-70"><div class="solution solution-like">
+<p id="p-696">Nous utiliserons la version simplifiée de la démarche, en utilisant seulement le signe du produit scalaire. Nous avons besoin de trouver un point <span class="process-math">\(A\)</span> quelconque sur la droite ainsi que le vecteur normal. Puisqu'on a déjà l'équation normale, le vecteur normal est: <span class="process-math">\(\vec{n}=(-2,3)\text{.}\)</span> On trouve un point en posant <span class="process-math">\(x=0\)</span> et en isolant <span class="process-math">\(y\text{.}\)</span> Le point est donc <span class="process-math">\(A(0,1)\text{.}\)</span> Ensuite, calculons le vecteur <span class="process-math">\(\vecl{AP}\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-129">
+\begin{align*}
+\vecl{AP}&amp;=\vecl{OP}-\vecl{OA}\\
+&amp;=(5,1)-(0,1)\\
+&amp;=(5,0)
+\end{align*}
+</div>
+<p class="continuation">Le produit scalaire est donc:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-130">
+\begin{align*}
+\vec{n}\cdot\vecl{AP}&amp;=(-2,3)\cdot(5,0)\\
+&amp;=(-2)*5+3*0\\
+&amp;=-10 \lt 0 
+\end{align*}
+</div>
+<p class="continuation">Puisqu'il est négatif, le point <span class="process-math">\(P\)</span> est en bas de la droite.</p>
+</div></div>
+</div></article><article class="task exercise-like" id="task-32"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-697">Expliquer pourquoi géométriquement ce concept n'est pas possible avec une droite dans <span class="process-math">\(\R^3\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-71" id="solution-71"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-71"><div class="solution solution-like"><p id="p-698">La réponse courte est qu'il n'y a pas de vecteur normal pour une droite dans <span class="process-math">\(\R^3\text{.}\)</span> La raison géométrique est qu'il existe une infinité de directions perpendiculaires à une droite dans l'espace en trois dimensions. On ne peut donc pas parler de "en haut" ou "en bas" de la droite. On pourrait le faire avec un plan, cependant. Le point pourrait être sur la droite, mais il ne serait pas possible de déterminer que c'est le cas avec la méthode décrite plus haut, puisqu'il y a une infinité de directions perpendiculaires.</p></div></div>
+</div></article></article><article class="exercise exercise-like" id="exo-droitenormalc"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="p-699">Dans  la démarche ayant mené à l'équation normale <a href="" class="xref" data-knowl="./knowl/eq-normale2.html" title="Équation 1.3.6">(1.3.6)</a> d'une droite, <span class="process-math">\(ax+by=c\text{,}\)</span> on pose <span class="process-math">\(c=aa_1+ba_2\text{.}\)</span> Il semble donc que l'équation dépende du point <span class="process-math">\(A(a_1,a_2)\)</span> connu. Montrer que ce n'est pas le cas et que, peu importe le point <span class="process-math">\(P(p_1,p_2)\)</span> sur la droite, la quantité <span class="process-math">\(ap_1+bp_2\)</span> est toujours égale à <span class="process-math">\(c\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-14" id="hint-14"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-14"><div class="hint solution-like">
+<p id="p-700">On remarque que la quantité <span class="process-math">\(ap_1+bp_2=\vec{n}\cdot \vecl{OP}\text{.}\)</span> La figure ci-dessous peut être utile.</p>
+<figure class="figure figure-like" id="fig-droitenormalc"><div style="width:600px;"><p id="p-701">On peut déplacer la droite à l'aide du point <span class="process-math">\(A\)</span>  et du vecteur normal <span class="process-math">\(\vec{n}\text{.}\)</span> On peut aussi déplacer le point <span class="process-math">\(P\text{.}\)</span> Un clic sur animation fera apparaître une décomposition du vecteur <span class="process-math">\(\vecl{AP}\)</span> utile pour démontrer l'affirmation.</p></div>
+<iframe id="geog-droitenormalc" width="600" height="600" src="geog-droitenormalc-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.25<span class="period">.</span></span><span class="space"> </span>L'équation d'une droite ne dépend pas du point</figcaption></figure>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-72" id="solution-72"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-72"><div class="solution solution-like">
+<p id="p-702">Posons <span class="process-math">\(c=aa_1+ba_2=\vec{n}\cdot \vecl{OA}\text{.}\)</span> On cherche à montrer que <span class="process-math">\(\vec{n}\cdot \vecl{OP}=c\)</span> peu importe le point <span class="process-math">\(P\)</span> sur la droite. Selon la figure <a href="" class="xref" data-knowl="./knowl/fig-droitenormalc.html" title="Figure 1.3.25">1.3.25</a> , le vecteur <span class="process-math">\(\vecl{OP}=\vecl{OA}+\vecl{AP}\)</span> et le vecteur <span class="process-math">\(\vecl{AP}\)</span> étant sur la droite, il est perpendiculaire à <span class="process-math">\(\vec{n}\text{.}\)</span> On a donc</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-droitenormalc.html" id="md-131">
+\begin{align*}
+\vec{n}\cdot \vecl{OP}&amp;=\vec{n}\cdot(\vecl{OA}+\vecl{AP})\\
+&amp;=\vec{n}\cdot \vecl{OA}+\vec{n}\cdot\vecl{AP}\\
+&amp;=\vec{n}\cdot \vecl{OA}+0 &amp;&amp;\text{ car } \vecl{AP} \text{ est perpendiculaire à } \vec{n}\\
+&amp;=c\text{.}
+\end{align*}
+</div>
+<p class="continuation">Ainsi, l'équation de la droite ne dépend pas du point connu.</p>
+</div></div>
+</div></article><article class="exercise exercise-like" id="exo-comblin-2"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-15"><p id="p-703">Soit <span class="process-math">\(\vec{u}=(1,3,4)\)</span> et <span class="process-math">\(\vec{v}=(-2,5,-1)\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-33"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-704">Exprimer <span class="process-math">\(\vec{w}_1=(18,-1,37)\)</span> comme une combinaison linéaire de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-36" id="answer-36"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-36"><div class="answer solution-like"><p id="p-705"><span class="process-math">\(\vec{w}_1=8\vec{u}-5\vec{v}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-73" id="solution-73"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-73"><div class="solution solution-like">
+<p id="p-706">On cherche les valeurs de <span class="process-math">\(a\)</span> et <span class="process-math">\(b\in\R\)</span> telles que: <span class="process-math">\(\vec{w}_1=a\vec{u}+b\vec{v}\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-132">
+\begin{align*}
+(18,-1,37)&amp;=a(1,3,4)+b(-2,5,-1)\\
+18&amp;=a-2b \Rightarrow a=18+2b\\
+-1&amp;=3a+5b\\
+37&amp;=4a-b \Rightarrow b=4a-37\\
+\Rightarrow a&amp;=18+2(4a-37)\\
+\Rightarrow 7a&amp;=56\\
+\Rightarrow a&amp;=8\\
+\Rightarrow b&amp;=4*8-37=-5
+\end{align*}
+</div>
+<p class="continuation">On vérifie que cette combinaison fonctionne dans l'équation du milieu que l'on n'a pas utilisée: <span class="process-math">\(-1=3*8+5*(-5)\text{.}\)</span> Bref, <span class="process-math">\(\vec{w}_1=8\vec{u}-5\vec{v}\text{.}\)</span></p>
+</div></div>
+</div></article><article class="task exercise-like" id="task-34"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-707">Est-ce que le vecteur <span class="process-math">\(\vec{w}_2=(-23,-7,11)\)</span> peut s'écrire comme une combinaison linéaire de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{?}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-37" id="answer-37"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-37"><div class="answer solution-like"><p id="p-708">Non, c'est impossible.</p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-74" id="solution-74"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-74"><div class="solution solution-like">
+<p id="p-709">On cherche les valeurs de <span class="process-math">\(a\)</span> et <span class="process-math">\(b\in\R\)</span> telles que: <span class="process-math">\(\vec{w}_2=a\vec{u}+b\vec{v}\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-133">
+\begin{align*}
+(-23,-7,11)&amp;=a(1,3,4)+b(-2,5,-1)\\
+-23&amp;=a-2b \Rightarrow a=-23+2b\\
+-7&amp;=3a+5b\\
+11&amp;=4a-b \Rightarrow b=4a-11\\
+\Rightarrow a&amp;=-23+2(4a-11)\\
+\Rightarrow 7a&amp;=55\\
+\Rightarrow a&amp;=\frac{55}{7}\\
+\Rightarrow b&amp;=4*\frac{55}{7}-11=\frac{143}{7}
+\end{align*}
+</div>
+<p class="continuation">On vérifie si cette combinaison fonctionne dans l'équation du milieu que l'on n'a pas utilisée: <span class="process-math">\(3*\frac{45}{7}+5*\frac{143}{7}=\frac{850}{7}\neq-7\text{.}\)</span> Bref, cette contradiction implique que <span class="process-math">\(\vec{w}_1\neq a\vec{u}+b\vec{v}\text{,}\)</span>  <span class="process-math">\(\forall a,b\in\R\)</span> et il n'existe donc aucune combinaison linéaire permettant d'écrire <span class="process-math">\(\vec{w}_2\)</span> comme une combinaison linéaire de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span></p>
+</div></div>
+</div></article><article class="task exercise-like" id="task-35"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-710">Géométriquement, quelle est la signification des résultats précédents?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-75" id="solution-75"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-75"><div class="solution solution-like">
+<p id="p-711">L'existence d'une combinaison linéaire permettant d'écrire un vecteur de <span class="process-math">\(\R^3\)</span> à l'aide de deux autres vecteurs non-parallèles signifie que le vecteur <span class="process-math">\(\vec{w}_1\)</span> se situe dans le plan engendré par les vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span></p>
+<p id="p-712">L'absence d'une combinaison linéaire permettant d'écrire un vecteur de <span class="process-math">\(\R^3\)</span> à l'aide de deux autres vecteurs non-parallèles signifie que le vecteur <span class="process-math">\(\vec{w}_2\)</span> se situe à l'extérieur du plan engendré par les vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span></p>
+</div></div>
+</div></article></article><article class="exercise exercise-like" id="exo-pointsurplan"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-16">
+<p id="p-713">Le plan <span class="process-math">\(\mathcal{P}\)</span> est donné par l'équation vectorielle</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal{P}: (x,y,z)=a(1,-3,0)+b(0,2,1)+(1,2,-1)\text{.}
+\end{equation*}
+</div>
+</div>
+<article class="task exercise-like" id="task-36"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-714">Est-ce que le <em class="emphasis">point</em> <span class="process-math">\(W\left(4,\,-11,\,-3\right)\)</span> est sur le plan?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-38" id="answer-38"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-38"><div class="answer solution-like"><p id="p-715">Oui, le point <span class="process-math">\(W\left(4,\,-11,\,-3\right)\)</span> est sur le plan.</p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-76" id="solution-76"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-76"><div class="solution solution-like">
+<p id="p-716">Pour le déterminer, il faut tenter de trouver les valeurs de <span class="process-math">\(a\)</span> et <span class="process-math">\(b\in\R\)</span> telles que:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(4,\,-11,\,-3\right)=a(1,-3,0)+b(0,2,1)+(1,2,-1)\text{.}
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-134">
+\begin{align*}
+4&amp;=a+1 \Rightarrow a=3\\
+-11&amp;=-3a+2b+2\\
+-3&amp;=b-1 \Rightarrow b=-2
+\end{align*}
+</div>
+<p class="continuation">On vérifie si cette combinaison fonctionne dans la seconde équation que l'on n'a pas utilisé.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-3*3+2*(-2)+2=-11\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Bref, le point <span class="process-math">\(W\left(4,\,-11,\,-3\right)\)</span> est sur le plan.</p>
+</div></div>
+</div></article><article class="task exercise-like" id="task-37"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-717">Est-ce que le <em class="emphasis">vecteur</em> <span class="process-math">\(\vec{w}=\left(4,\,-11,\,-3\right)\)</span> est dans le plan?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-39" id="answer-39"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-39"><div class="answer solution-like"><p id="p-718">Non, le vecteur <span class="process-math">\(\vec{w}=\left(4,\,-11,\,-3\right)\)</span> n'est pas dans le plan.</p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-77" id="solution-77"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-77"><div class="solution solution-like">
+<p id="p-719">Pour le déterminer, il faut tenter de trouver les valeurs de <span class="process-math">\(a\)</span> et <span class="process-math">\(b\in\R\)</span> telles que:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(4,\,-11,\,-3\right)=a(1,-3,0)+b(0,2,1)\text{.}
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-135">
+\begin{align*}
+4&amp;=a \Rightarrow a=4\\
+-11&amp;=-3a+2b\\
+-3&amp;=b \Rightarrow b=-3
+\end{align*}
+</div>
+<p class="continuation">On vérifie si cette combinaison fonctionne dans la seconde équation que l'on n'a pas utilisé.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-3*4+2*(-3)=-18\neq-11\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Bref, le vecteur <span class="process-math">\(\vec{w}=\left(4,\,-11,\,-3\right)\)</span> n'est pas dans le plan.</p>
+</div></div>
+</div></article><article class="task exercise-like" id="task-38"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-720">Quelle est la différence géométrique entre les questions précédentes?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-78" id="solution-78"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-78"><div class="solution solution-like">
+<p id="p-721">Le point correspond à un endroit physique dans l'espace à trois dimensions par rapport à l'origine. S'il est possible d'atteindre le point en partant de l'origine, se déplaçant au point de départ <span class="process-math">\((1,2,-1)\)</span> et en faisant une combinaison linéaire à l'aide des deux vecteurs du plan, alors il se trouve sur le plan.</p>
+<p id="p-722">Pour ce qui est du vecteur, il s'agit uniquement d'une orientation et d'une longueur. Si cette orientation est parallèle au plan, alors on dit que ce vecteur est <em class="emphasis">dans</em> le plan. Bref, il faut simplement que le vecteur <span class="process-math">\(\vec{w}\)</span> puisse s'exprimer comme une combinaison linéaire des deux vecteurs directeurs du plan pour qu'il soit parallèle au plan et donc dans le plan.</p>
+</div></div>
+</div></article></article><article class="exercise exercise-like" id="exo-droiteplanpara"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-17"><p id="p-723">Considérer un plan quelconque d'équation vectorielle <span class="process-math">\(\vecl{OP}=a\vec{u}+b\vec{v}+\vecl{OA}\text{.}\)</span> Considérer une droite d'équation vectorielle <span class="process-math">\(\vecl{OP}=k\vec{w}+\vecl{OB}\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-39"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-724">Quelles sont les conditions sur <span class="process-math">\(\vec{w}\)</span> et <span class="process-math">\(B\)</span> pour que la droite soit dans le plan?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-79" id="solution-79"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-79"><div class="solution solution-like"><p id="p-725">Il faut à la fois que le vecteur <span class="process-math">\(\vec{w}\)</span> soit <em class="emphasis">dans</em> le plan et que le point de départ <span class="process-math">\(B\)</span> soit <em class="emphasis">sur</em> le plan. On a considéré ces deux problèmes à l'exercice <a href="" class="xref" data-knowl="./knowl/exo-pointsurplan.html" title="Exercice 1.3.4.8">1.3.4.8</a>.</p></div></div>
+</div></article><article class="task exercise-like" id="task-40"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-726">Quelles sont les conditions sur <span class="process-math">\(\vec{w}\)</span> et <span class="process-math">\(B\)</span> pour que la droite soit parallèle au plan, mais à l'extérieur de celui-ci?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-80" id="solution-80"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-80"><div class="solution solution-like"><p id="p-727">Il faut que le vecteur <span class="process-math">\(\vec{w}\)</span> soit <em class="emphasis">dans</em> le plan mais que le point de départ <span class="process-math">\(B\)</span> ne soit <em class="emphasis">pas</em> sur le plan.</p></div></div>
+</div></article><article class="task exercise-like" id="task-41"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-728">Si l'équation du plan est donnée sous sa forme normale, <span class="process-math">\(ax+by+cz=d\text{,}\)</span> quelles sont les conditions sur <span class="process-math">\(\vec{w}\)</span> et <span class="process-math">\(B\)</span> pour que la droite soit parallèle au plan?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-81" id="solution-81"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-81"><div class="solution solution-like"><p id="p-729">Il suffit d'utiliser le produit scalaire. En effet, si le produit scalaire du vecteur directeur de la droite (<span class="process-math">\(\vec{w}\)</span>) et du vecteur normal du plan <span class="process-math">\(\vec{n}=(a,b,c)\)</span> est nul, les deux vecteurs seront perpendiculaires. Ainsi, la droite sera parallèle au plan.</p></div></div>
+</div></article><article class="task exercise-like" id="task-42"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-730">Comment déterminer si une droite intersecte un plan?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-82" id="solution-82"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-82"><div class="solution solution-like">
+<p id="p-731">Il y a plusieurs façons de faire.</p>
+<p id="p-732">D'abord, on pourrait utiliser la méthode <em class="emphasis">longue</em>, mais simple qui consiste à tenter de trouver ce point d'intersection et de bien interpréter la solution. Pour ce faire, on doit solutionner l'équation :</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a\vec{u}+b\vec{v}+\vecl{OA}=k\vec{w}+\vecl{OB}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Il faut donc trouver les valeurs de <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\)</span> et <span class="process-math">\(k\)</span> qui la solutionnent. Lors de cette résolution, on pourra arriver aux trois options classiques d'un système à trois équations et trois inconnues: aucune solution (pas d'intersection), solution unique (un point d'intersection) ou infinité de solutions (droite dans le plan).</p>
+<p id="p-733">Si le but est uniquement de déterminer <em class="emphasis">si</em> il y a une intersection, on peut se servir de ce qu'on a vu précédemment. En effet, une droite quelconque aura presque toujours une ou une infinité d'intersection avec un plan quelconque, sauf si ce plan est parallèle à la droite, sans toutefois la contenir. On peut donc savoir qu'il existe une intersection sauf si le vecteur <span class="process-math">\(\vec{w}\)</span> est <em class="emphasis">dans</em> le plan et que le point de départ <span class="process-math">\(B\)</span> n'est <em class="emphasis">pas</em> sur le plan.</p>
+</div></div>
+</div></article></article><article class="exercise exercise-like" id="exo-distancedroiteplanpara"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-18"><p id="p-734">Dans le texte, il est dit que pour calculer la distance entre une droite et un plan qui sont parallèles, il suffit de faire la distance entre un point quelconque de la droite et le plan.</p></div>
+<article class="task exercise-like" id="task-43"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-735">Expliquer géométriquement pourquoi cette manière de procéder fonctionne.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-83" id="solution-83"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-83"><div class="solution solution-like"><p id="p-736">La réponse simple à cette question est que puisque la droite est parallèle au plan, tous les points de la droite sont à la même distance du plan. C'est donc évident que la distance point-plan donnera la même valeur que la distance droite-plan, peu importe le choix du point sur la droite.</p></div></div>
+</div></article><article class="task exercise-like" id="task-44"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-737">À l'aide de la figure <a href="" class="xref" data-knowl="./knowl/fig-distancedroiteplanpara.html" title="Figure 1.3.26">1.3.26</a>, expliquer pourquoi procéder en calculant la distance entre un point du plan et la droite ne fonctionne généralement pas. <figure class="figure figure-like" id="fig-distancedroiteplanpara"><div style="width:600px;"><p id="p-738">On peut déplacer le point <span class="process-math">\(P\)</span> sur le plan. Que se passe-t-il avec la distance point droite?</p></div>
+<iframe id="geog-distancedroiteplanpara" width="600" height="600" src="geog-distancedroiteplanpara-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.26<span class="period">.</span></span><span class="space"> </span>La distance entre un plan et une droite parallèles</figcaption></figure></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-84" id="solution-84"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-84"><div class="solution solution-like"><p id="p-739">Puisqu'en général, le point choisi sur le plan ne sera pas le plus proche de la droite possible. On le voit assez bien sur la figure. On obtiendra alors une valeur de distance plus élevée que la vraie distance entre la droite et le plan.</p></div></div>
+</div></article><article class="task exercise-like" id="task-45"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-740">Quels sont les cas où, par un pur hasard, la distance point droite fonctionnerait?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-15" id="hint-15"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-15"><div class="hint solution-like">
+<p id="p-741">Considérer la figure interactive suivante:</p>
+<figure class="figure figure-like" id="fig-distancedroiteplanparaindice"><div style="width:600px;"><p id="p-742">Un clic sur le texte permet de faire apparaître la projection de la droite sur le plan.</p></div>
+<iframe id="geog-distancedroiteplanparaindice" width="600" height="600" src="geog-distancedroiteplanparaindice-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.27<span class="period">.</span></span><span class="space"> </span>La projection d'une droite sur un plan parallèle</figcaption></figure>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-85" id="solution-85"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-85"><div class="solution solution-like"><p id="p-743">Il faudrait que le point choisi sur le plan soit le plus proche possible de la droite. Cela correspond à tous les points qui sont sur la projection de la droite sur le plan tel qu'illustré dans la figure.</p></div></div>
+</div></article><article class="task exercise-like" id="task-46"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-744">Vérifier que la droite d'équation <span class="process-math">\(\mathcal{D}: (x,y,z)=k(1,-1,1)+(2,4,5)\)</span> est parallèle au plan <span class="process-math">\(\mathcal{P}: 3x+2y-z=3\text{.}\)</span> Quelle est la distance entre la droite et le plan?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-40" id="answer-40"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-40"><div class="answer solution-like"><p id="p-745">La distance est de <span class="process-math">\(\frac{3}{7}\sqrt{14}\approx 1.6036\text{.}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-86" id="solution-86"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-86"><div class="solution solution-like">
+<p id="p-746">Pour vérifier cela, on peut simplement calculer le produit scalaire entre le vecteur directeur de la droite et le vecteur normal du plan. Si ce produit donne zéro, alors on saura que ces vecteurs sont perpendiculaires et donc que la droite est parallèle au plan. On a le vecteur directeur <span class="process-math">\(\vec{v}=(1,-1,1)\)</span> et le vecteur normal est donné par les coefficients de l'équation normale de la droite: <span class="process-math">\(\vec{n}=(3,2,-1)\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\vec{v}\cdot\vec{n}=(1,-1,1)\cdot(3,2,-1)=1*3+(-1)*2+1*(-1)=0
+\end{equation*}
+</div>
+<p class="continuation">Les vecteurs sont donc perpendiculaires et la droite et le plan sont parallèles.</p>
+<p id="p-747">On obtient cette distance en calculant la distance point-plan <a href="" class="xref" data-knowl="./knowl/eq-distpp.html" title="Équation 1.3.20">(1.3.20)</a> entre le point <span class="process-math">\(P(2,4,5)\)</span> sur la droite et le plan. On a besoin du vecteur normal du plan <span class="process-math">\(\vec{n}=(3,2,-1)\)</span> et d'un point quelconque du plan. On en prend un qui est simple et qui fonctionne dans l'équation, par exemple le point <span class="process-math">\(A(1,0,0)\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-distpp.html" id="md-136">
+\begin{align*}
+d(\mathcal{D},\mathcal{P})&amp;=d(P,\mathcal{P})\\
+&amp;=\norm{\vecl{AP}_{\vec{n}}}\\
+&amp;=\norm{\left(\vecl{OP}-\vecl{OA}\right)_{\vec{n}}}\\
+&amp;=\norm{\left((2,4,5)-(1,0,0)\right)_{(3,2,-1)}}\\
+&amp;=\norm{(1,4,5)_{(3,2,-1)}}\\
+&amp;=\norm{\frac{(1,4,5)\cdot(3,2,-1)}{(3,2,-1)\cdot(3,2,-1)}(3,2,-1)}\\
+&amp;=\norm{\frac{6}{14}(3,2,-1)}\\
+&amp;=\frac{6}{14}\norm{(3,2,-1)}\\
+&amp;=\frac{3}{7}\sqrt{14}\approx 1.6036
+\end{align*}
+</div>
+</div></div>
+</div></article></article><article class="exercise exercise-like" id="exo-projetplan"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-19"><p id="p-748">Soit <span class="process-math">\(\mathcal{P}\)</span> un plan de vecteurs directeurs <span class="process-math">\(\vec{u},\vec{v}\text{.}\)</span> et soit <span class="process-math">\(\vec{n}\)</span> un vecteur normal du plan.</p></div>
+<article class="task exercise-like" id="task-47"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-749">Supposer que les vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> sont perpendiculaires. Montrer que pour tout vecteur <span class="process-math">\(\vec{w}\)</span> dans le plan, on a</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq-projplan">
+\begin{equation}
+\vec{w}=\vec{w}_{\vec{u}}+\vec{w}_{\vec{v}}\text{.}\tag{1.3.21}
+\end{equation}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-87" id="solution-87"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-87"><div class="solution solution-like">
+<p id="p-750">Pour qu'un vecteur soit dans le plan, il doit être exprimable comme une combinaison linéaire des vecteurs directeurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span> On sait donc qu'il existe des valeurs <span class="process-math">\(a, b\in\R\)</span> telles que <span class="process-math">\(\vec{w}=a\vec{u}+b\vec{v}\text{.}\)</span> Aussi, lorsqu'on écrit le vecteur <span class="process-math">\(\vec{w}\)</span> en termes de ses projections sur les vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> perpendiculaires, on obtient cette combinaison linéaire directement. La preuve réside dans le fait qu'ils sont perpendiculaires. La projection orthogonale nous fournit déjà de quoi décomposer un vecteur en termes de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{u}_{\perp}\text{.}\)</span> On peut donc écrire:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-137">
+\begin{align*}
+\vec{w}&amp;=\vec{w}_{\vec{u}}+(\vec{w}-\vec{w}_{\vec{u}})\\
+&amp;=\vec{w}_{\vec{u}}+\vec{w}_{\vec{u}_\perp}\\
+&amp;=\vec{w}_{\vec{u}}+\vec{w}_{\vec{v}}
+\end{align*}
+</div>
+</div></div>
+</div></article><article class="task exercise-like" id="task-48"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-751">Donner un exemple où si <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> ne sont pas perpendiculaires, alors l'équation <a href="" class="xref" data-knowl="./knowl/eq-projplan.html" title="Équation 1.3.21">(1.3.21)</a> ne fonctionne pas.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-41" id="answer-41"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-41"><div class="answer solution-like"><p id="p-752"><span class="process-math">\(\vec{u}=(1,0,0)\)</span> et <span class="process-math">\(\vec{v}=(1,1,0)\)</span> avec le vecteur <span class="process-math">\(\vec{w}=(1,0,0)\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-88" id="solution-88"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-88"><div class="solution solution-like">
+<p id="p-753">On propose <span class="process-math">\(\vec{u}=(1,0,0)\)</span> et <span class="process-math">\(\vec{v}=(1,1,0)\)</span> avec le vecteur <span class="process-math">\(\vec{w}=(1,0,0)\text{.}\)</span> En effet,</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-138">
+\begin{align*}
+\vec{w}_{\vec{u}}+\vec{w}_{\vec{v}}&amp;=\frac{\vec{w}\cdot\vec{u}}{\vec{u}\cdot\vec{u}}\vec{u}+\frac{\vec{w}\cdot\vec{v}}{\vec{v}\cdot\vec{v}}\vec{v}\\
+&amp;=\frac{1}{1}(1,0,0)+\frac{1}{2}(1,1,0)\\
+&amp;=\left(\frac{3}{2},\frac{1}{2},0\right)\\
+&amp;\neq\vec{w}
+\end{align*}
+</div>
+<p class="continuation">Bref, la décomposition en termes des vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> ne s'obtient pas par la projection orthogonale.</p>
+</div></div>
+</div></article><article class="task exercise-like" id="task-49"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-754">Soit <span class="process-math">\(\vec{n}\)</span> un vecteur normal du plan et supposer à nouveau que les vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> sont perpendiculaires. Montrer que pour tout vecteur <span class="process-math">\(\vec{t}\)</span> dans <span class="process-math">\(\R^3\text{,}\)</span> on a</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\vec{t}=\vec{t}_{\vec{u}}+\vec{t}_{\vec{v}}+\vec{t}_{\vec{n}}\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-16" id="hint-16"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-16"><div class="hint solution-like"><p id="p-755">Appliquer la partie (a) au vecteur <span class="process-math">\(\vec{t}-\vec{t}_{\vec{n}}\text{.}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-89" id="solution-89"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-89"><div class="solution solution-like">
+<p id="p-756">De façon semblable, on sait qu'on peut écrire le vecteur <span class="process-math">\(\vec{t}=(\vec{t}-\vec{t}_{\vec{n}})+\vec{t}_{\vec{n}}\text{.}\)</span> On applique la partie (a) au vecteur entre parenthèses puisqu'il se trouve dans le plan. Ainsi, on aura:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-139">
+\begin{align*}
+(\vec{t}-\vec{t}_{\vec{n}})&amp;=(\vec{t}-\vec{t}_{\vec{n}})_{\vec{u}}+(\vec{t}-\vec{t}_{\vec{n}})_{\vec{v}}\\
+&amp;=\vec{t}_{\vec{u}}-(\vec{t}_{\vec{n}})_{\vec{u}}+\vec{t}_{\vec{v}}-(\vec{t}_{\vec{n}})_{\vec{v}}\\
+&amp;=\vec{t}_{\vec{u}}-\vec{0}+\vec{t}_{\vec{v}}-\vec{0} \text{  (car ils sont perpendiculaires)}\\
+&amp;=\vec{t}_{\vec{u}}+\vec{t}_{\vec{v}}
+\end{align*}
+</div>
+<p class="continuation">Ainsi, en remplaçant dans l'équation précédente, on a:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\vec{t}=(\vec{t}-\vec{t}_{\vec{n}})+\vec{t}_{\vec{n}}=\vec{t}_{\vec{u}}+\vec{t}_{\vec{v}}+\vec{t}_{\vec{n}}
+\end{equation*}
+</div>
+</div></div>
+</div></article></article><article class="exercise exercise-like" id="exo-parabole"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
+<p id="p-757">Soit <span class="process-math">\(P(1,3)\)</span> et <span class="process-math">\(\mathcal{D}: (x,y)=c(1,2)+(-1,1)\)</span> un point et une droite dans <span class="process-math">\(\R^2\text{.}\)</span> On cherche l'équation de l'ensemble des points qui sont à distance égale de <span class="process-math">\(P\)</span> et <span class="process-math">\(\mathcal{D}\text{.}\)</span> Il est bien connu que l'ensemble des points à distance égale d'un point et d'une droite forme une parabole.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-42" id="answer-42"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-42"><div class="answer solution-like"><p id="p-758"><span class="process-math">\(x^2 + 4x y + 4y^2 - 22x - 24y = -41\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-90" id="solution-90"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-90"><div class="solution solution-like">
+<p id="p-759">On doit simplement écrire dans une équation le calcul de la distance point-droite et point point. En effet, tout point <span class="process-math">\(A(x,y)\)</span> étant sur la parabole devra être à la même distance de la droite et du point fixe. On nommera <span class="process-math">\(Q(-1,1)\)</span> le point de départ dans l'équation de la droite.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-140">
+\begin{align*}
+d(A,\mathcal{D})&amp;=d(A,P)\\
+\Leftrightarrow \norm{\vecl{AQ}_{\vec{v}}-\vecl{AQ}}&amp;=\norm{\vecl{AP}}\\
+\Leftrightarrow \norm{(\vecl{OQ}-\vecl{OA})_{\vec{v}}-(\vecl{OQ}-\vecl{OA})}&amp;=\norm{\vecl{OP}-\vecl{OA}}\\
+\Leftrightarrow \norm{((-1,1)-(x,y))_{\vec{v}}-((-1,1)-(x,y))}&amp;=\norm{(1,3)-(x,y)}\\
+\Leftrightarrow \norm{(-1-x,1-y)_{(1,2)}-(-1-x,1-y)}&amp;=\norm{(1-x,3-y)}\\
+\Leftrightarrow \norm{\frac{(-1-x,1-y)\cdot(1,2)}{(1,2)\cdot(1,2)}(1,2)-(-1-x,1-y)}&amp;=\sqrt{(1-x)^2+(3-y)^2}\\
+\Leftrightarrow \norm{\frac{1-x-2y}{5}(1,2)-(-1-x,1-y)}&amp;=\sqrt{(1-x)^2+(3-y)^2}\\
+\Leftrightarrow \norm{\frac{1}{5}\Big((1-x-2y,2-2x-4y)-(-5-5x,5-5y)\Big)}&amp;=\sqrt{(1-x)^2+(3-y)^2}\\
+\Leftrightarrow \norm{\frac{1}{5}(6+4x-2y,-3-2x+y)}&amp;=\sqrt{(1-x)^2+(3-y)^2}\\
+\Leftrightarrow \frac{1}{5}\norm{(6+4x-2y,-3-2x+y)}&amp;=\sqrt{(1-x)^2+(3-y)^2}\\
+\Leftrightarrow \norm{(6+4x-2y)^2+(-3-2x+y)^2}&amp;=5\sqrt{(1-x)^2+(3-y)^2}\\
+\Leftrightarrow \sqrt{16x^2-16xy+48x+4y^2-24y+36+4x^2-4xy+12x+y^2-6y+9}&amp;=5\sqrt{1-2x+x^2+9-6y+y^2}\\
+\Leftrightarrow \sqrt{20x^2-20xy+60x+5y^2-30y+45}&amp;=5\sqrt{x^2-2x+y^2-6y+10}\\
+\Leftrightarrow 20x^2-20xy+60x+5y^2-30y+45&amp;=25(x^2-2x+y^2-6y+10)\\
+\Leftrightarrow 20x^2-20xy+60x+5y^2-30y+45&amp;=25x^2-50x+25y^2-150y+250\\
+\Leftrightarrow -205&amp;=5x^2+20xy-110x+20y^2-120y\\
+\Leftrightarrow -41&amp;=x^2+4xy-22x+4y^2-24y\\
+\Leftrightarrow x^2+4xy+4y^2-22x-24y&amp;=-41
+\end{align*}
+</div>
+</div></div>
+</div></article><article class="exercise exercise-like" id="exo-3vecr2dep"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-20"><p id="p-760">Soit <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> deux vecteurs de <span class="process-math">\(\R^2\)</span> non parallèles et <span class="process-math">\(\vec{w}\)</span> un autre vecteur de <span class="process-math">\(\R^2\)</span> quelconque.</p></div>
+<article class="task exercise-like" id="task-50"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-761">Montrer qu'il est toujours possible d'écrire <span class="process-math">\(\vec{w}\)</span> comme une combinaison linéaire de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-91" id="solution-91"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-91"><div class="solution solution-like">
+<p id="p-762">On sait que <span class="process-math">\(\vec{u}=(u_1,u_2)\)</span> et <span class="process-math">\(\vec{v}=(v_1,v_2)\)</span> étant non parallèles, il n'existe pas de constante <span class="process-math">\(k \in \R\)</span> telle que <span class="process-math">\(\vec{u}=k\vec{v} \Leftrightarrow (u_1,u_2)=k(v_1,v_2)\text{.}\)</span> On cherche à montrer qu'il existe des constantes <span class="process-math">\(k_1, k_2 \in \R\)</span> telles que <span class="process-math">\(\vec{w}=k_1\vec{u}+k_2\vec{v}\text{.}\)</span> Si on réussit à isoler ces constantes et à toujours avoir des valeurs peu importe les vecteurs, on aura fait la preuve.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-141">
+\begin{align*}
+\vec{w}&amp;=k_1\vec{u}+k_2\vec{v}\\
+\Leftrightarrow (w_1,w_2)&amp;=k_1(u_1,u_2)+k_2(v_1,v_2)\\
+\Leftrightarrow \begin{cases}w_1&amp;=k_1u_1+k_2v_1\\ w_2&amp;=k_1u_2+k_2v_2\end{cases}\\
+\Leftrightarrow \begin{cases}w_1&amp;=k_1u_1+k_2v_1 \Rightarrow k_1=\frac{w_1-k_2v_1}{u_1}\\
+w_2&amp;=k_1u_2+k_2v_2\Rightarrow k_1=\frac{w_2-k_2v_2}{u_2}\end{cases}\\
+\Rightarrow \frac{w_1-k_2v_1}{u_1}&amp;=\frac{w_2-k_2v_2}{u_2}\\
+\Rightarrow u_2w_1-k_2u_2v_1&amp;=u_1w_2-k_2u_1v_2\\
+\Rightarrow k_2(u_1v_2-u_2v_1)&amp;=u_1w_2-u_2w_1\\
+\Rightarrow k_2&amp;=\frac{u_1w_2-u_2w_1}{u_1v_2-u_2v_1}\\
+\Rightarrow k_1&amp;=\frac{w_1-\frac{u_1w_2-u_2w_1}{u_1v_2-u_2v_1}v_1}{u_1}\\
+\Rightarrow k_1&amp;=\frac{v_2w_1-v_1w_2}{u_1v_2-u_2v_1} \text{ (après l'algèbre!)}
+\end{align*}
+</div>
+<p class="continuation">On remarque que puisqu'on a trouvé une expression pour <span class="process-math">\(k_1\)</span> et <span class="process-math">\(k_2\)</span> qui dépende de toutes les valeurs quelconques pour les vecteurs <span class="process-math">\(\vec{u}, \vec{v}\)</span> et <span class="process-math">\(\vec{w}\text{,}\)</span> on peut toujours trouver cette combinaison linéaire. La seule condition est que le dénominateur ne soit pas égal à zéro.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-142">
+\begin{align*}
+u_1v_2-u_2v_1&amp;\neq0\\
+u_1v_2&amp;\neq u_2v_1
+\end{align*}
+</div>
+<p class="continuation">Cela sera toujours le cas en raison de l'hypothèse de départ que les vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> ne sont pas parallèles. En effet, s'il n'existe pas de constante <span class="process-math">\(k \in \R\)</span> telle que <span class="process-math">\((u_1,u_2)=k(v_1,v_2)\text{,}\)</span> alors <span class="process-math">\(k=\frac{u_1}{v_1}\neq\frac{u_2}{v_2}\Leftrightarrow u_1v_2\neq u_2v_1\text{,}\)</span> ce qui complète la preuve.</p>
+</div></div>
+</div></article><article class="task exercise-like" id="task-51"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-763">Montrer qu'il est possible d'avoir <span class="process-math">\(a\vec{u}+b\vec{v}+c\vec{w}=\vec{0}\)</span> avec <span class="process-math">\(a,b,c\)</span> pas tous égaux à <span class="process-math">\(0\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-92" id="solution-92"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-92"><div class="solution solution-like">
+<p id="p-764">On a obtenu qu'il existe des constantes <span class="process-math">\(k_1, k_2 \in \R\)</span> telles que <span class="process-math">\(\vec{w}=k_1\vec{u}+k_2\vec{v}\text{.}\)</span> Il suffit de ramener tous les vecteurs du même côté de l'égalité:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-143">
+\begin{align*}
+\vec{w}&amp;=k_1\vec{u}+k_2\vec{v}\\
+-k_1\vec{u}-k_2\vec{v}+\vec{w}&amp;=\vec{0}
+\end{align*}
+</div>
+<p class="continuation">En posant <span class="process-math">\(a=-k_1\text{,}\)</span> <span class="process-math">\(b=-k_2\)</span> et <span class="process-math">\(c=1\text{,}\)</span> on obtient aisément cette équation qui est tout à fait équivalente. Nous utiliserons cette façon de faire au chapitre <code class="code-inline tex2jax_ignore">[provisional cross-reference: chap-base]</code> pour montrer qu'un ensemble de vecteurs est <em class="emphasis">linéairement dépendant</em>.</p>
+</div></div>
+</div></article></article><div class="exercisegroup" id="exosage-droitesplans">
+<h4 class="heading"><span class="title">Exercices Sage.</span></h4>
+<div class="introduction" id="introduction-21"><p id="p-765">Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="exosage-droitesplans-1"><h5 class="heading"><span class="codenumber">14<span class="period">.</span></span></h5>
+<p id="p-766">Tracer les droites <span class="process-math">\(\mathcal{D_1}: \vecl{OP}=a(-1,2)+(-3,2)\)</span> et <span class="process-math">\(\mathcal{D_2}: \vecl{OP}=a(3,-1)+(4,0)\)</span> sur un même graphique, respectivement en noir et en rouge.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-39"><script type="text/x-sage">
+</script></pre>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-43" id="answer-43"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-43"><div class="answer solution-like"><figure class="figure figure-like" id="fig-sageplot-exosage-droitesplans-1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/sageplot-exosage-droitesplans-1.svg" role="img" class="contained" alt="La droite D un et la droite D deux sont tracées dans le plan cartésien, respectivement en noire et en rouge"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.28<span class="period">.</span></span><span class="space"> </span>Deux droites tracées à partir de leur équation vectorielle.</figcaption></figure></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-93" id="solution-93"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-93"><div class="solution solution-like"><figure class="listing figure-like" id="listing-11"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">var("a")
+D1=parametric_plot([-a-3,2*a+2],(a,-5,5),color="black")
+D2=parametric_plot([3*a+4,-a],(a,-5,5),color="red")
+D1+D2
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">1.3.29<span class="period">.</span></span><span class="space"> </span>Le code solution pour l'exercice</figcaption></figure></div></div>
+</div></article><article class="exercise exercise-like" id="exosage-droitesplans-2"><h5 class="heading"><span class="codenumber">15<span class="period">.</span></span></h5>
+<p id="p-767">Considérer le plan d'équation <span class="process-math">\(\mathcal{P}: (x,y,z)=a(-1,2,1)+b(-5,4,-3)+(6,3,2)\)</span> et le point <span class="process-math">\(P(3,-4,2)\text{.}\)</span></p>
+<ol id="p-768" class="lower-alpha">
+<li id="li-202"><p id="p-769">Trouver une équation normale pour le plan <span class="process-math">\(\mathcal{P}\text{.}\)</span></p></li>
+<li id="li-203"><p id="p-770">Calculer la distance entre le plan <span class="process-math">\(\mathcal{P}\)</span> et le point <span class="process-math">\(P\text{.}\)</span></p></li>
+<li id="li-204"><p id="p-771">Quelles sont les coordonnées du point <span class="process-math">\(Q\in\mathcal{P}\)</span> le plus près du point <span class="process-math">\(P\text{?}\)</span></p></li>
+<li id="li-205"><p id="p-772">Illustrer sur un graphique le plan, le point et le vecteur dont la norme est égale à la distance plan-point, issue du point <span class="process-math">\(Q\)</span></p></li>
+</ol>
+<pre class="ptx-sagecell sagecell-sage" id="sage-40"><script type="text/x-sage">
+</script></pre>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-44" id="answer-44"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-44"><div class="answer solution-like"><ol id="p-773" class="lower-alpha">
+<li id="li-206">
+<p id="p-774">Le vecteur normal est <span class="process-math">\(\vecl{n}=(-5,-4,3)\text{,}\)</span> ou n'importe quel multiple de ce dernier. L'équation normale est donc de la forme</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-5x-4y+3z=-36
+\end{equation*}
+</div>
+</li>
+<li id="li-207"><p id="p-775">La distance est <span class="process-math">\(\frac{43}{5\sqrt{2}}\text{.}\)</span></p></li>
+<li id="li-208"><p id="p-derived-li-208"><span class="process-math">\(\displaystyle Q=\left(\frac{73}{10},\,-\frac{14}{25},\,-\frac{29}{50}\right)\)</span></p></li>
+</ol></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-94" id="solution-94"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-94"><div class="solution solution-like"><ol id="p-776" class="lower-alpha">
+<li id="li-209">
+<p id="p-777">Pour trouver le vecteur normal <span class="process-math">\(\vec{n}\text{,}\)</span> il faut résoudre simultanément les équations <span class="process-math">\(\vec{u}\cdot\vec{n}=0\)</span> et <span class="process-math">\(\vec{v}\cdot\vec{n}=0\text{.}\)</span> Le code suivant permet d'obtenir une solution.</p>
+<figure class="listing figure-like" id="listing-12"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">u=vector([-1,2,1])  #le premier vecteur directeur
+v=vector([-5,4,-3]) #le second vecteur directeur
+var("a","b","c")
+n=vector([a,b,c])  #le vecteur normal
+eq1=u*n==0   #le vecteur normal doit être perpendiculaire à u
+eq2=v*n==0   #le vecteur normal doit être perpendiculaire à v
+sol=solve([eq1,eq2],a,b,c,solution_dict=True) #on résout les équations en fonction des composantes du vecteur normal. L'option solution_dict permet de coder différement les entrées de sol
+sol
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">1.3.30<span class="period">.</span></span><span class="space"> </span>Le code pour le vecteur normal, partie 1</figcaption></figure><p id="p-778">À remarquer qu'il y a une infinité de solution, données sous forme paramétrique ici. Ceci est attendu étant donné que n'importe quel multiple d'un vecteur normal est aussi un vecteur normal. Dans notre cas, si on prend la variable libre comme étant égale à <span class="process-math">\(3\)</span> (pour éliminer les fractions), on obtient</p>
+<figure class="listing figure-like" id="code-extrairevariables"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">n=vector([sol[0][a],sol[0][b],sol[0][c]]) #on extrait de la liste de solutions sol les expressions voulues
+libre=sol[0][a].variables()[0] #On va chercher le nom de la variable libre. Ceci est nécessaire au cas où des exécutions multiples sont effectuées
+n=n.subs({libre:3})     #on pose la variable libre à 3
+n
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">1.3.31<span class="period">.</span></span><span class="space"> </span>Le code pour le vecteur normal, partie 2</figcaption></figure><p id="p-779">Finalement, on obtient l'équation normale <span class="process-math">\(\vec{n}\cdot (x-6,y-3,z-2)=0\)</span> ce qui donne</p>
+<figure class="listing figure-like" id="listing-14"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">var("x","y","z")
+show(n*vector([x-6,y-3,z-2])==0)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">1.3.32<span class="period">.</span></span><span class="space"> </span>Le code pour l'équation normale</figcaption></figure>
+</li>
+<li id="li-210">
+<p id="p-780">La distance est obtenue à l'aide de la formule <span class="process-math">\(\|\vecl{AP}_{\vec{n}}\|\text{:}\)</span></p>
+<figure class="listing figure-like" id="listing-15"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">OA=vector([6,3,2]) #un point connu sur le plan
+OP=vector([3,-4,2]) #le point extérieur au plan
+AP=OP-OA
+APsurn=AP*n/(n*n)*n  #calcul de la projection
+show(norm(APsurn))
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">1.3.33<span class="period">.</span></span><span class="space"> </span>Le code pour la distance point plan</figcaption></figure>
+</li>
+<li id="li-211">
+<p id="p-781">Le point <span class="process-math">\(Q\)</span> est donné par la formule <span class="process-math">\(\vecl{OQ}=\vecl{OP}-\vecl{AP}_{\vec{n}}\text{.}\)</span> On obtient alors:</p>
+<figure class="listing figure-like" id="listing-16"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">OQ=OP-APsurn
+show(OQ)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">1.3.34<span class="period">.</span></span><span class="space"> </span>Les coordonnées du points <span class="process-math">\(Q\)</span></figcaption></figure>
+</li>
+<li id="li-212">
+<p id="p-782">Pour illustrer le plan, le point <span class="process-math">\(P\)</span> et le vecteur <span class="process-math">\(\vecl{AP}_{\vec{n}}\text{,}\)</span> on utilise:</p>
+<figure class="listing figure-like" id="listing-17"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">plan=implicit_plot3d(n*vector([x-6,y-3,z-2])==0,(x,-10,10),(y,-10,10),(z,-10,10),color="blue")
+P=point(OP,size=15,color="black")
+vecproj=plot(APsurn,color="red",start=OQ)
+plan+P+vecproj
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">1.3.35<span class="period">.</span></span><span class="space"> </span>Le code de la réprésentation graphique</figcaption></figure>
+</li>
+</ol></div></div>
+</div></article><article class="exercise exercise-like" id="exo-parabolesage"><h5 class="heading">
+<span class="codenumber">16<span class="period">.</span></span><span class="space"> </span><span class="title">Automatisation de l'équation d'une parabole.</span>
+</h5>
+<p id="p-783">Dans l'exercice <a href="" class="xref" data-knowl="./knowl/exo-parabole.html" title="Exercice 1.3.4.12">1.3.4.12</a>, on a déterminé une équation implicite d'une parabole à distance égale d'un point <span class="process-math">\(F\)</span> et d'une droite <span class="process-math">\(\mathcal{D}\text{.}\)</span> Le but de cet exercice est de créer un programme qui, étant donné les coordonnées d'un point <span class="process-math">\(F\text{,}\)</span> d'un point <span class="process-math">\(A\)</span> et d'un vecteur <span class="process-math">\(\vec{v}\text{,}\)</span> déterminera l'équation de la parabole de foyer <span class="process-math">\(F\)</span> et de droite directrice <span class="process-math">\(c\vec{v}+\vecl{OA}\text{.}\)</span>  À Finir  (Tracer graphique, tester avec celle de l'exercice)</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-41"><script type="text/x-sage">
+</script></pre>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-95" id="solution-95"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-95"><div class="solution solution-like"><figure class="listing figure-like" id="listing-18"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def eqpara(v,A,F):
+    var("x","y",domain="real")
+    P=vector([x,y])
+    AP=P-A
+    PF=F-P
+    return (expand(norm(PF)^2-norm(AP-AP*v/(v*v)*v)^2)==0)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">1.3.36<span class="period">.</span></span><span class="space"> </span>L'équation d'une parabole</figcaption></figure></div></div>
+</div></article>
+</div>
+</div></section></section></div></main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>

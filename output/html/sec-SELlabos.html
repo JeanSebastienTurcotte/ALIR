@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-05-19T14:33:34Z       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ALIR Activités et laboratoires</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Algèbre linéaire : Intuition et rigueur">
+<meta property="book:author" content="Jean-Sébastien Turcotte">
+<meta property="book:author" content="Philémon Turcotte">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Évaluer (Sage)'});
+</script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Sauter au contenu</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\renewcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}  
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}    
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}   
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\det}{det}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="alir.html"><span class="title">Algèbre linéaire : Intuition et rigueur:</span> <span class="subtitle">Version préliminaire</span></a></h1>
+<p class="byline">Jean-Sébastien Turcotte, Philémon Turcotte</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Table des matières</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-transposee.html" title="Précédent">Précédent</a><a id="upbutton" class="up-button button toolbar-item" href="chap-SEL.html" title="Haut">Haut</a><a id="nextbutton" class="next-button button toolbar-item" href="chap-det.html" title="Suivant">Suivant</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Table des matières</button><a class="previous-button toolbar-item button" href="sec-transposee.html" title="Précédent">Précédent</a><a class="up-button button toolbar-item" href="chap-SEL.html" title="Haut">Haut</a><a class="next-button button toolbar-item" href="chap-det.html" title="Suivant">Suivant</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Pages Liminaires</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="chap-vec.html" data-scroll="chap-vec" class="internal"><span class="codenumber">1</span> <span class="title">Les vecteurs</span></a><ul>
+<li><a href="sec-vec.html" data-scroll="sec-vec" class="internal">Vecteurs géométriques et algébriques</a></li>
+<li><a href="sec-prodscal.html" data-scroll="sec-prodscal" class="internal">Produit scalaire et calcul d'angles</a></li>
+<li><a href="sec-droitesplans.html" data-scroll="sec-droitesplans" class="internal">Droites et plans</a></li>
+<li><a href="sec-vecndim.html" data-scroll="sec-vecndim" class="internal">Vecteurs de dimension supérieure</a></li>
+<li><a href="sec-veclabos.html" data-scroll="sec-veclabos" class="internal">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-transfo.html" data-scroll="chap-transfo" class="internal"><span class="codenumber">2</span> <span class="title">Les transformations linéaires: première partie</span></a><ul>
+<li><a href="sec-transfodef.html" data-scroll="sec-transfodef" class="internal">Les transformations linéaires</a></li>
+<li><a href="sec-prodmat.html" data-scroll="sec-prodmat" class="internal">La composition et le produit matriciel</a></li>
+<li><a href="sec-matinverse.html" data-scroll="sec-matinverse" class="internal">Transformations inverses</a></li>
+<li><a href="sec-transfodimsup.html" data-scroll="sec-transfodimsup" class="internal">Transformations linéaires de dimension supérieure</a></li>
+<li><a href="sec-transfolabos.html" data-scroll="sec-transfolabos" class="internal">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-SEL.html" data-scroll="chap-SEL" class="internal"><span class="codenumber">3</span> <span class="title">Les systèmes d'équations linéaires</span></a><ul>
+<li><a href="sec-GJ.html" data-scroll="sec-GJ" class="internal">Les systèmes d'équations linéaires et la méthode de Gauss-Jordan</a></li>
+<li><a href="sec-SELtheo.html" data-scroll="sec-SELtheo" class="internal">Les systèmes avec aucune ou une infinité de solutions</a></li>
+<li><a href="sec-SELgeo.html" data-scroll="sec-SELgeo" class="internal">La géométrie des systèmes d'équations linéaires</a></li>
+<li><a href="sec-transposee.html" data-scroll="sec-transposee" class="internal">La transposée d'une matrice</a></li>
+<li><a href="sec-SELlabos.html" data-scroll="sec-SELlabos" class="active">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-det.html" data-scroll="chap-det" class="internal"><span class="codenumber">4</span> <span class="title">Le déterminant d'une matrice</span></a><ul>
+<li><a href="sec-det2x2.html" data-scroll="sec-det2x2" class="internal">Le déterminant <span class="process-math">\(2\times 2\)</span></a></li>
+<li><a href="sec-detgen.html" data-scroll="sec-detgen" class="internal">Le déterminant d'une matrice <span class="process-math">\(n\times n\)</span></a></li>
+<li><a href="sec-cofacteurs.html" data-scroll="sec-cofacteurs" class="internal">Les mineurs et les cofacteurs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-espvec.html" data-scroll="chap-espvec" class="internal"><span class="codenumber">5</span> <span class="title">Espaces vectoriels</span></a><ul>
+<li><a href="sec-ssesp.html" data-scroll="sec-ssesp" class="internal">Sous-espaces vectoriels</a></li>
+<li><a href="sec-bases.html" data-scroll="sec-bases" class="internal">Base d'un sous-espace vectoriel</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Rédigé avec PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec-SELlabos"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.5</span> <span class="title">Activités et laboratoires</span>
+</h2>
+<section class="introduction" id="intro-SELlabos"><p id="p-3089">Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p></section><article class="project project-like" id="project-3"><h3 class="heading">
+<span class="type">Projet</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Des matrices magiquesLe cas <span class="process-math">\(3\times 3\)</span></span>
+</h3>
+<div class="introduction" id="introduction-129">
+<p id="p-3090">On considère la matrice</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M=\begin{pmatrix} 4&amp; 9&amp; 2\\
+3&amp; 5&amp; 7\\
+8&amp; 1&amp; 6\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Dans cette matrice, on peut remarquer que la somme de chaque ligne et de chaque colonne vaut <span class="process-math">\(15\text{.}\)</span> De plus, la somme des deux diagonales vaut aussi <span class="process-math">\(15\text{.}\)</span> La matrice <span class="process-math">\(M\)</span> est un exemple de ce qu'on appelle un carré magique. Dans la matrice <span class="process-math">\(M\text{,}\)</span> on constate que les neuf entrées sont exactement les valeurs <span class="process-math">\(1,2,\ldots , 9\text{,}\)</span> mais ce n'est pas nécessaire. Un tel exemple sera dit carré magique classique.</p>
+<article class="definition definition-like" id="definition-33"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Carré semi-magique et magique.</span>
+</h4>
+<p id="p-3091">Soit <span class="process-math">\(M\)</span> une matrice <span class="process-math">\(n\times n\text{.}\)</span> Si toutes les lignes et toutes les colonnes de la matrice somment à la même valeur, on dit que <span class="process-math">\(M\)</span> est semi-magique. Si en plus les deux diagonales somment à cette même valeur, on dit alors que <span class="process-math">\(M\)</span> est magique.</p></article><p id="p-3092">Dans cette activité, on s'intéresse à la construction de carrés magiques.</p>
+</div>
+<div class="introduction" id="introduction-130">
+<p id="p-3093">On débute avec une méthode qui permettra d'obtenir la matrice <span class="process-math">\(M\)</span> de l'introduction. On considère une matrice quelconque de taille <span class="process-math">\(3\times 3\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M=\begin{pmatrix} a&amp; d&amp; g\\
+b&amp; e&amp; h\\
+c&amp; f&amp; i\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+</div>
+<article class="task exercise-like" id="task-414"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-3094">Dans l'exemple en introduction, la somme magique est <span class="process-math">\(15\text{.}\)</span> On peut écrire un système à 8 équations et 9 inconnues pour que la matrice quelconque soit magique avec somme <span class="process-math">\(15\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-528">
+\begin{alignat*}{12}
+a&amp;&amp;&amp;&amp;&amp;{}+{}&amp;d&amp;&amp;&amp;&amp;&amp;{}+{}&amp;g&amp;&amp;&amp;&amp;&amp;{}={}&amp; 15&amp;&amp;&amp;&amp;\text{ ligne 1}\\
+&amp;&amp;b&amp;&amp;&amp;&amp;&amp;{}+{}&amp;e&amp;&amp;&amp;&amp;&amp;{}+{}&amp;h&amp;&amp;&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ ligne 2}\\
+&amp;&amp;&amp;&amp;c&amp;{}+{}&amp;&amp;&amp;&amp;{}+{}&amp;f&amp;&amp;&amp;&amp;&amp;{}+{}&amp;i&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ ligne 3}\\
+a&amp;{}+{}&amp;b&amp;{}+{}&amp;c&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ colonne 1}\\
+&amp;&amp;&amp;&amp;&amp;&amp;d&amp;{}+{}&amp;e&amp;{}+{}&amp;f&amp;&amp;&amp;&amp;&amp;&amp;&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ colonne 2}\\
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;g&amp;{}+{}&amp;h&amp;{}+{}&amp;i&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ colonne 3}\\
+a&amp;&amp;&amp;&amp;&amp;&amp;&amp;{}+{}&amp;e&amp;&amp;&amp;&amp;&amp;&amp;&amp;{}+{}&amp;i&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ diagonale 1}\\
+&amp;&amp;&amp;&amp;c&amp;&amp;&amp;{}+{}&amp;e&amp;&amp;&amp;{}+{}&amp;g&amp;&amp;&amp;&amp;&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ diagonale 2}\text{.}
+\end{alignat*}
+</div>
+<p class="continuation">Utiliser Sage pour résoudre ce système d'équations. Il devrait y avoir deux variables libres dans la forme échelonnée réduite. Quelles sont-elles et quelles doivent être les valeurs de ces variables libres pour que la solution soit égale à la matrice <span class="process-math">\(M\)</span> de l'introduction?</p> Il est possible mais non obligatoire d'utiliser les fonctions <code class="code-inline tex2jax_ignore">solbase</code> et <code class="code-inline tex2jax_ignore">solgen</code> des exemples calculatoires <a href="" class="xref" data-knowl="./knowl/sageex-Ax0.html" title="Calcul 3.3.15: La matrice L et les solutions de base">3.3.15</a> et <a href="" class="xref" data-knowl="./knowl/sageex-solstd.html" title="Calcul 3.3.29: La solution générale avec Sage">3.3.29</a>. <pre class="ptx-sagecell sagecell-sage" id="sage-201"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like" id="task-415"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3095">Déterminer le carré magique <span class="process-math">\(3\times 3\)</span> où votre date de fête, sous le format (jj/mm) apparait aux variables libres, toujours avec une somme de <span class="process-math">\(15\text{.}\)</span></p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-202"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like" id="tsk-hypcom"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-3096">Donner d'autres exemples de carrés magiques <span class="process-math">\(3\times 3\)</span> dont la somme vaut <span class="process-math">\(15\text{,}\)</span> en changeant la valeur des variables libres. Qu'y a-t-il de commun entre chacun des carrés magiques?</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-203"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like" id="task-417"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-3097">Donner le carré magique dont la somme est égale aux trois derniers chiffres de votre numéro de DA, toujours avec les variables libres égales à votre date de fête.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-204"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like" id="task-418"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-3098">Vérifier à nouveau l'hypothèse de la partie <a href="" class="xref" data-knowl="./knowl/tsk-hypcom.html" title="Tâche 3.5.1.c">3.5.1.c</a> pour les carrés magiques de somme le numéro de DA.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-205"><script type="text/x-sage">
+</script></pre></article></article></section></div></main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
