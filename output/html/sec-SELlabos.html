@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-05-19T14:33:34Z       *-->
+<!--*       on 2022-07-08T15:57:40Z       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -70,7 +70,38 @@ sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
 <link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX Course: Title Here';
+eBookConfig.basecourse = 'PTX Base Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.acDefaultLanguage = 'python';
+eBookConfig.runestone_version = '5.0.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.2.1/runtime.b0f8547c48f16a9f.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.2.1/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.2.1/runestone.0e9550fe42760516.bundle.js"></script><link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.2.1/637.fafafbd97df8a0d1.css">
+<link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.2.1/runestone.e4d5592da655219f.css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
 <a class="assistive" href="#content">Sauter au contenu</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
@@ -129,6 +160,8 @@ $\Box$
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
@@ -194,11 +227,11 @@ $\Box$
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec-SELlabos"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.5</span> <span class="title">Activités et laboratoires</span>
 </h2>
-<section class="introduction" id="intro-SELlabos"><p id="p-3089">Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p></section><article class="project project-like" id="project-3"><h3 class="heading">
+<section class="introduction" id="intro-SELlabos"><p id="p-3090">Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p></section><article class="project project-like" id="project-3"><h3 class="heading">
 <span class="type">Projet</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Des matrices magiquesLe cas <span class="process-math">\(3\times 3\)</span></span>
 </h3>
-<div class="introduction" id="introduction-129">
-<p id="p-3090">On considère la matrice</p>
+<div class="introduction" id="introduction-130">
+<p id="p-3091">On considère la matrice</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 M=\begin{pmatrix} 4&amp; 9&amp; 2\\
@@ -210,10 +243,10 @@ M=\begin{pmatrix} 4&amp; 9&amp; 2\\
 <article class="definition definition-like" id="definition-33"><h4 class="heading">
 <span class="type">Définition</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Carré semi-magique et magique.</span>
 </h4>
-<p id="p-3091">Soit <span class="process-math">\(M\)</span> une matrice <span class="process-math">\(n\times n\text{.}\)</span> Si toutes les lignes et toutes les colonnes de la matrice somment à la même valeur, on dit que <span class="process-math">\(M\)</span> est semi-magique. Si en plus les deux diagonales somment à cette même valeur, on dit alors que <span class="process-math">\(M\)</span> est magique.</p></article><p id="p-3092">Dans cette activité, on s'intéresse à la construction de carrés magiques.</p>
+<p id="p-3092">Soit <span class="process-math">\(M\)</span> une matrice <span class="process-math">\(n\times n\text{.}\)</span> Si toutes les lignes et toutes les colonnes de la matrice somment à la même valeur, on dit que <span class="process-math">\(M\)</span> est semi-magique. Si en plus les deux diagonales somment à cette même valeur, on dit alors que <span class="process-math">\(M\)</span> est magique.</p></article><p id="p-3093">Dans cette activité, on s'intéresse à la construction de carrés magiques.</p>
 </div>
-<div class="introduction" id="introduction-130">
-<p id="p-3093">On débute avec une méthode qui permettra d'obtenir la matrice <span class="process-math">\(M\)</span> de l'introduction. On considère une matrice quelconque de taille <span class="process-math">\(3\times 3\)</span></p>
+<div class="introduction" id="introduction-131">
+<p id="p-3094">On débute avec une méthode qui permettra d'obtenir la matrice <span class="process-math">\(M\)</span> de l'introduction. On considère une matrice quelconque de taille <span class="process-math">\(3\times 3\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 M=\begin{pmatrix} a&amp; d&amp; g\\
@@ -222,8 +255,8 @@ c&amp; f&amp; i\end{pmatrix}\text{.}
 \end{equation*}
 </div>
 </div>
-<article class="task exercise-like" id="task-414"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3094">Dans l'exemple en introduction, la somme magique est <span class="process-math">\(15\text{.}\)</span> On peut écrire un système à 8 équations et 9 inconnues pour que la matrice quelconque soit magique avec somme <span class="process-math">\(15\text{:}\)</span></p>
+<article class="task exercise-like" id="task-417"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-3095">Dans l'exemple en introduction, la somme magique est <span class="process-math">\(15\text{.}\)</span> On peut écrire un système à 8 équations et 9 inconnues pour que la matrice quelconque soit magique avec somme <span class="process-math">\(15\text{:}\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="" id="md-528">
 \begin{alignat*}{12}
 a&amp;&amp;&amp;&amp;&amp;{}+{}&amp;d&amp;&amp;&amp;&amp;&amp;{}+{}&amp;g&amp;&amp;&amp;&amp;&amp;{}={}&amp; 15&amp;&amp;&amp;&amp;\text{ ligne 1}\\
@@ -237,17 +270,17 @@ a&amp;&amp;&amp;&amp;&amp;&amp;&amp;{}+{}&amp;e&amp;&amp;&amp;&amp;&amp;&amp;&am
 \end{alignat*}
 </div>
 <p class="continuation">Utiliser Sage pour résoudre ce système d'équations. Il devrait y avoir deux variables libres dans la forme échelonnée réduite. Quelles sont-elles et quelles doivent être les valeurs de ces variables libres pour que la solution soit égale à la matrice <span class="process-math">\(M\)</span> de l'introduction?</p> Il est possible mais non obligatoire d'utiliser les fonctions <code class="code-inline tex2jax_ignore">solbase</code> et <code class="code-inline tex2jax_ignore">solgen</code> des exemples calculatoires <a href="" class="xref" data-knowl="./knowl/sageex-Ax0.html" title="Calcul 3.3.15: La matrice L et les solutions de base">3.3.15</a> et <a href="" class="xref" data-knowl="./knowl/sageex-solstd.html" title="Calcul 3.3.29: La solution générale avec Sage">3.3.29</a>. <pre class="ptx-sagecell sagecell-sage" id="sage-201"><script type="text/x-sage">
-</script></pre></article><article class="task exercise-like" id="task-415"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3095">Déterminer le carré magique <span class="process-math">\(3\times 3\)</span> où votre date de fête, sous le format (jj/mm) apparait aux variables libres, toujours avec une somme de <span class="process-math">\(15\text{.}\)</span></p>
+</script></pre></article><article class="task exercise-like" id="task-418"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3096">Déterminer le carré magique <span class="process-math">\(3\times 3\)</span> où votre date de fête, sous le format (jj/mm) apparait aux variables libres, toujours avec une somme de <span class="process-math">\(15\text{.}\)</span></p>
 <pre class="ptx-sagecell sagecell-sage" id="sage-202"><script type="text/x-sage">
 </script></pre></article><article class="task exercise-like" id="tsk-hypcom"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3096">Donner d'autres exemples de carrés magiques <span class="process-math">\(3\times 3\)</span> dont la somme vaut <span class="process-math">\(15\text{,}\)</span> en changeant la valeur des variables libres. Qu'y a-t-il de commun entre chacun des carrés magiques?</p>
+<p id="p-3097">Donner d'autres exemples de carrés magiques <span class="process-math">\(3\times 3\)</span> dont la somme vaut <span class="process-math">\(15\text{,}\)</span> en changeant la valeur des variables libres. Qu'y a-t-il de commun entre chacun des carrés magiques?</p>
 <pre class="ptx-sagecell sagecell-sage" id="sage-203"><script type="text/x-sage">
-</script></pre></article><article class="task exercise-like" id="task-417"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-3097">Donner le carré magique dont la somme est égale aux trois derniers chiffres de votre numéro de DA, toujours avec les variables libres égales à votre date de fête.</p>
+</script></pre></article><article class="task exercise-like" id="task-420"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-3098">Donner le carré magique dont la somme est égale aux trois derniers chiffres de votre numéro de DA, toujours avec les variables libres égales à votre date de fête.</p>
 <pre class="ptx-sagecell sagecell-sage" id="sage-204"><script type="text/x-sage">
-</script></pre></article><article class="task exercise-like" id="task-418"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-3098">Vérifier à nouveau l'hypothèse de la partie <a href="" class="xref" data-knowl="./knowl/tsk-hypcom.html" title="Tâche 3.5.1.c">3.5.1.c</a> pour les carrés magiques de somme le numéro de DA.</p>
+</script></pre></article><article class="task exercise-like" id="task-421"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-3099">Vérifier à nouveau l'hypothèse de la partie <a href="" class="xref" data-knowl="./knowl/tsk-hypcom.html" title="Tâche 3.5.1.c">3.5.1.c</a> pour les carrés magiques de somme le numéro de DA.</p>
 <pre class="ptx-sagecell sagecell-sage" id="sage-205"><script type="text/x-sage">
 </script></pre></article></article></section></div></main>
 </div>
