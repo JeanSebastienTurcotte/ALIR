@@ -12,6 +12,7 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-transfodef">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Les transformations linéaires </title>
     <introduction xml:id= "intro-transfodef">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+        <p>Aller aux <xref ref="exo-transfodef">exercices</xref> de la section.</p>
     <p>
     Il est commun d'avoir étudié le concept de fonction, <m>y=f(x)</m>, associant à tout nombre réel <m>x</m> un autre nombre réel <m>y</m>. Ces fonctions sont
     souvent représentées graphiquement, comme à la figure suivante.</p>
@@ -51,7 +52,7 @@
     <list xml:id="liste-transfquelc">
     <title>Des transformations quelconques</title>
     <ol>
-    <li><p>La norme d'un vecteur peut être considérée comme une fonction de <m>\R^n</m> vers <m>\R</m>, où <m>T_1(\vec{u})=\sqrt{u_1+u_2+\cdots +u_n}</m>.</p></li>
+    <li><p>La norme d'un vecteur peut être considérée comme une fonction de <m>\R^n</m> vers <m>\R</m>, où <m>T_1(\vec{u})=\sqrt{u_1^2+u_2^2+\cdots +u_n^2}</m>.</p></li>
     <li><p>La fonction <m>T_2(t)=(\cos(t),\sin(t))</m> est une fonction de <m>\R</m> vers <m>\R^2</m>.</p></li>
     <li><p>La fonction <m>T_3(x,y)=(x^2,y-xy)</m> est une fonction de <m>\R^2</m> vers <m>\R^2</m>.</p></li>
     <li xml:id="li-transfolin"><p> La fonction <m>T_4(x,y)=(x-y,x+y)</m> est une fonction de <m>\R^2</m> vers <m>\R^2</m>.</p></li>
@@ -1031,9 +1032,19 @@ plot(u,color="blue")+plot(A*u,color="red")
      Soit <m>A\in \mathcal{M}_{m\times n}</m> la matrice de <m>T_1</m> et <m>\vec{a}_i</m> les colonnes de <m>A</m> et <m>B\in \mathcal{M}_{m\times n}</m> la matrice de <m>T_2</m> et <m>\vec{b}_i</m> les colonnes de <m>B</m>. Alors on a
      <md>
      <mrow>T_1(\vec{u})+T_2(\vec{u})&amp;=A\vec{u}+B\vec{u}</mrow>
-     <mrow>&amp;=\vec{u}_1\vec{a}_1  + \vec{u}_2\vec{a}_2  + \cdots + \vec{u}_n\vec{a}_n +\vec{u}_1\vec{b}_1  + \vec{u}_2\vec{b}_2  + \cdots + \vec{u}_n\vec{b}_n </mrow>
-     <mrow>&amp;=\vec{u}_1\vec{a}_1 +\vec{u}_1\vec{b}_1 + \vec{u}_2\vec{a}_2  + \vec{u}_2\vec{b}_2+ \cdots + \vec{u}_n\vec{a}_n  +\vec{u}_n\vec{b}_n </mrow>
-     <mrow>&amp;=\vec{u}_1(\vec{a}_1+\vec{b}_1)  + \vec{u}_2(\vec{a}_2+\vec{b}_2)  + \cdots + \vec{u}_n(\vec{a}_n+\vec{b}_n) </mrow>
+     <mrow>&amp;=\begin{pmatrix}
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+\vec{a}_1 &amp; \vec{a}_2 &amp; \cdots &amp; \vec{a}_n \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert
+\end{pmatrix}\begin{pmatrix}u_1\\ u_2\\ \vdots\\ u_n \end{pmatrix}+
+\begin{pmatrix}
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+\vec{b}_1 &amp; \vec{b}_2 &amp; \cdots &amp; \vec{b}_n \\
+\lvert &amp; \lvert &amp; \cdots &amp;r
+\end{pmatrix}\begin{pmatrix}u_1\\ u_2\\ \vdots\\ u_n \end{pmatrix}</mrow>
+     <mrow>&amp;=u_1\vec{a}_1  + u_2\vec{a}_2  + \cdots + u_n\vec{a}_n +u_1\vec{b}_1  + u_2\vec{b}_2  + \cdots + u_n\vec{b}_n </mrow>
+     <mrow>&amp;=u_1\vec{a}_1 +u_1\vec{b}_1 + u_2\vec{a}_2  + u_2\vec{b}_2+ \cdots + u_n\vec{a}_n  +u_n\vec{b}_n </mrow>
+     <mrow>&amp;=u_1(\vec{a}_1+\vec{b}_1)  + u_2(\vec{a}_2+\vec{b}_2)  + \cdots + u_n(\vec{a}_n+\vec{b}_n) </mrow>
      <mrow>&amp;=\begin{pmatrix}
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
 \vec{a}_1+\vec{b}_1 &amp; \vec{a}_2+\vec{b}_2 &amp; \cdots &amp; \vec{a}_n+\vec{b}_n \\

@@ -326,10 +326,7 @@ Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xre
  \frac{a}{\sqrt{a^2+b^2}} &amp; \frac{b}{\sqrt{a^2+b^2}}\\
  -\frac{b}{\sqrt{a^2+b^2}} &amp; \frac{a}{\sqrt{a^2+b^2}}
  \end{pmatrix}\vecd{c}{d}</mrow>
- <mrow>R_{-\theta_{\vec{u}}}\vec{v}&amp;=\begin{pmatrix}
- \frac{a}{\sqrt{a^2+b^2}} &amp; \frac{b}{\sqrt{a^2+b^2}}\\
- -\frac{b}{\sqrt{a^2+b^2}} &amp; \frac{a}{\sqrt{a^2+b^2}}
- \end{pmatrix}\vecd{\frac{a}{\sqrt{a^2+b^2}}c+\frac{b}{\sqrt{a^2+b^2}}d}{-\frac{b}{\sqrt{a^2+b^2}}c+\frac{a}{\sqrt{a^2+b^2}}d}</mrow>
+ <mrow>R_{-\theta_{\vec{u}}}\vec{v}&amp;=\vecd{\frac{a}{\sqrt{a^2+b^2}}c+\frac{b}{\sqrt{a^2+b^2}}d}{-\frac{b}{\sqrt{a^2+b^2}}c+\frac{a}{\sqrt{a^2+b^2}}d}</mrow>
     </md>
     La hauteur du parallélogramme sera donnée par la composante en <m>y</m> de ce vecteur et la base par la longueur du vecteur <m>\vec{u}</m>.
     Ainsi,
@@ -591,9 +588,9 @@ Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xre
     donnant par le fait même une preuve alternative à la proposition <xref ref="prop-detinv2x2"/>.
     </p>
     </statement>
-    <solution><p>
+    <solution><p> On sait que <m>A</m> est inversible, ce qui signifnie qu'il existe une matrice <m>A^{-1}</m> telle que <m>AA^{-1}=I</m>. On utilise le fait qu'on connait le déterminant de l'identité et que le déterminant d'un produit se factorise pour obtenir
     <md>
-    <mrow>&amp;&amp;\det(I)&amp;=1</mrow>
+    <mrow>&amp;&amp;\det(I)&amp;=1  &amp;&amp; \text{ par } <xref ref="li-detI2x2resum"/></mrow>
     <mrow>&amp;\Leftrightarrow &amp;\det(AA^{-1})&amp;=1</mrow>
     <mrow>&amp;\Leftrightarrow &amp;\det(A)\det(A^{-1})&amp;=1 &amp;&amp; \text{ par } <xref ref="li-detprod2x2resum"/></mrow>
     <mrow>&amp;\Leftrightarrow &amp;\det(A^{-1})&amp;=\frac{1}{\det(A)} </mrow>
@@ -814,8 +811,8 @@ Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xre
     On utilisera l'équation du barycentre sous cette forme: <m>3\vecl{OG}=\vecl{OA}+\vecl{OB}+\vecl{OC}</m>
     <md>
     <mrow>\det(\vecl{GA},\vecl{GB})&amp;=-\det(\vecl{GB},\vecl{GA}) &amp; \text{ par } <xref ref="li-detp2x2resum"/></mrow>
-    <mrow>&amp;=-\det(\vecl{OB}-\vecl{OG},\vecl{GA}) &amp; \text{ par l'équation du barycentre} </mrow>
-    <mrow>&amp;=-\det(3\vecl{OG}-\vecl{OA}-\vecl{OC}-\vecl{OG},\vecl{GA})</mrow>
+    <mrow>&amp;=-\det(\vecl{OB}-\vecl{OG},\vecl{GA})  </mrow>
+    <mrow>&amp;=-\det(3\vecl{OG}-\vecl{OA}-\vecl{OC}-\vecl{OG},\vecl{GA})&amp; \text{ par l'équation du barycentre}</mrow>
     <mrow>&amp;=-\det(\vecl{OG}-\vecl{OA}+\vecl{OG}-\vecl{OC},\vecl{GA})</mrow>
     <mrow>&amp;=-\det(\vecl{AG}+\vecl{CG},\vecl{GA})</mrow>
     <mrow>&amp;=-\det(-\vecl{GA}-\vecl{GC},\vecl{GA})</mrow>
@@ -887,8 +884,8 @@ show(det(B))
     <p>Soit <m>A,B</m> deux matrices <m>2\times 2</m> telles que <m>AB=-BA</m>. En prenant les déterminants de chaque côté, on a
     <md>
     <mrow>\det(AB)&amp;=\det(-BA)</mrow>
-    <mrow>\det(A)\det(B)&amp;-\det(B)\det(A)</mrow>
-    <mrow>\det(A)\det(B)&amp;-\det(A)\det(B)</mrow>
+    <mrow>\det(A)\det(B)&amp;=-\det(B)\det(A)</mrow>
+    <mrow>\det(A)\det(B)&amp;=-\det(A)\det(B)</mrow>
     <mrow>2\det(A)\det(B)&amp;=0</mrow>
     <mrow>\det(A)=0&amp;\text{ ou } \det(B)=0</mrow>
     </md>.</p></statement>

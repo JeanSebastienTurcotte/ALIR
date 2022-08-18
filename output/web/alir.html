@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ALIR Algèbre linéaire : Intuition et rigueur</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Algèbre linéaire : Intuition et rigueur">
+<meta property="book:author" content="Jean-Sébastien Turcotte">
+<meta property="book:author" content="Philémon Turcotte">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Évaluer (Sage)'});
+</script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Sauter au contenu</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\renewcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}  
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}    
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}   
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\det}{det}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="alir.html"><span class="title">Algèbre linéaire : Intuition et rigueur:</span> <span class="subtitle">Version préliminaire</span></a></h1>
+<p class="byline">Jean-Sébastien Turcotte, Philémon Turcotte</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Table des matières</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><span id="previousbutton" class="previous-button button toolbar-item disabled">Précédent</span><span id="upbutton" class="up-button button disabled toolbar-item">Haut</span><a id="nextbutton" class="next-button button toolbar-item" href="frontmatter.html" title="Suivant">Suivant</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Table des matières</button><span class="previous-button button toolbar-item disabled">Précédent</span><span class="up-button button disabled toolbar-item">Haut</span><a class="next-button button toolbar-item" href="frontmatter.html" title="Suivant">Suivant</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Pages Liminaires</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="chap-vec.html" data-scroll="chap-vec" class="internal"><span class="codenumber">1</span> <span class="title">Les vecteurs</span></a><ul>
+<li><a href="sec-vec.html" data-scroll="sec-vec" class="internal">Vecteurs géométriques et algébriques</a></li>
+<li><a href="sec-prodscal.html" data-scroll="sec-prodscal" class="internal">Produit scalaire et calcul d'angles</a></li>
+<li><a href="sec-droitesplans.html" data-scroll="sec-droitesplans" class="internal">Droites et plans</a></li>
+<li><a href="sec-vecndim.html" data-scroll="sec-vecndim" class="internal">Vecteurs de dimension supérieure</a></li>
+<li><a href="sec-veclabos.html" data-scroll="sec-veclabos" class="internal">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-transfo.html" data-scroll="chap-transfo" class="internal"><span class="codenumber">2</span> <span class="title">Les transformations linéaires: première partie</span></a><ul>
+<li><a href="sec-transfodef.html" data-scroll="sec-transfodef" class="internal">Les transformations linéaires</a></li>
+<li><a href="sec-prodmat.html" data-scroll="sec-prodmat" class="internal">La composition et le produit matriciel</a></li>
+<li><a href="sec-matinverse.html" data-scroll="sec-matinverse" class="internal">Transformations inverses</a></li>
+<li><a href="sec-transfodimsup.html" data-scroll="sec-transfodimsup" class="internal">Transformations linéaires de dimension supérieure</a></li>
+<li><a href="sec-transfolabos.html" data-scroll="sec-transfolabos" class="internal">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-SEL.html" data-scroll="chap-SEL" class="internal"><span class="codenumber">3</span> <span class="title">Les systèmes d'équations linéaires</span></a><ul>
+<li><a href="sec-GJ.html" data-scroll="sec-GJ" class="internal">Les systèmes d'équations linéaires et la méthode de Gauss-Jordan</a></li>
+<li><a href="sec-SELtheo.html" data-scroll="sec-SELtheo" class="internal">Les systèmes avec aucune ou une infinité de solutions</a></li>
+<li><a href="sec-SELgeo.html" data-scroll="sec-SELgeo" class="internal">La géométrie des systèmes d'équations linéaires</a></li>
+<li><a href="sec-transposee.html" data-scroll="sec-transposee" class="internal">La transposée d'une matrice</a></li>
+<li><a href="sec-SELlabos.html" data-scroll="sec-SELlabos" class="internal">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-det.html" data-scroll="chap-det" class="internal"><span class="codenumber">4</span> <span class="title">Le déterminant d'une matrice</span></a><ul>
+<li><a href="sec-det2x2.html" data-scroll="sec-det2x2" class="internal">Le déterminant <span class="process-math">\(2\times 2\)</span></a></li>
+<li><a href="sec-detgen.html" data-scroll="sec-detgen" class="internal">Le déterminant d'une matrice <span class="process-math">\(n\times n\)</span></a></li>
+<li><a href="sec-cofacteurs.html" data-scroll="sec-cofacteurs" class="internal">Les mineurs et les cofacteurs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-espvec.html" data-scroll="chap-espvec" class="internal"><span class="codenumber">5</span> <span class="title">Espaces vectoriels</span></a><ul>
+<li><a href="sec-ssesp.html" data-scroll="sec-ssesp" class="internal">Sous-espaces vectoriels</a></li>
+<li><a href="sec-bases.html" data-scroll="sec-bases" class="internal">Base d'un sous-espace vectoriel</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Rédigé avec PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="book" id="alir"><nav class="summary-links"><ul>
+<li><a href="frontmatter.html" class="internal"><span class="title">Pages Liminaires</span></a></li>
+<li><a href="chap-vec.html" class="internal"><span class="codenumber">1</span> <span class="title">Les vecteurs</span></a></li>
+<li><a href="chap-transfo.html" class="internal"><span class="codenumber">2</span> <span class="title">Les transformations linéaires: première partie</span></a></li>
+<li><a href="chap-SEL.html" class="internal"><span class="codenumber">3</span> <span class="title">Les systèmes d'équations linéaires</span></a></li>
+<li><a href="chap-det.html" class="internal"><span class="codenumber">4</span> <span class="title">Le déterminant d'une matrice</span></a></li>
+<li><a href="chap-espvec.html" class="internal"><span class="codenumber">5</span> <span class="title">Espaces vectoriels</span></a></li>
+</ul></nav></section></div></main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>

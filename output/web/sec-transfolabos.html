@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ALIR Activités et laboratoires</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Algèbre linéaire : Intuition et rigueur">
+<meta property="book:author" content="Jean-Sébastien Turcotte">
+<meta property="book:author" content="Philémon Turcotte">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Évaluer (Sage)'});
+</script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Sauter au contenu</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\renewcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}  
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}    
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}   
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\det}{det}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="alir.html"><span class="title">Algèbre linéaire : Intuition et rigueur:</span> <span class="subtitle">Version préliminaire</span></a></h1>
+<p class="byline">Jean-Sébastien Turcotte, Philémon Turcotte</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Table des matières</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-transfodimsup.html" title="Précédent">Précédent</a><a id="upbutton" class="up-button button toolbar-item" href="chap-transfo.html" title="Haut">Haut</a><a id="nextbutton" class="next-button button toolbar-item" href="chap-SEL.html" title="Suivant">Suivant</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Table des matières</button><a class="previous-button toolbar-item button" href="sec-transfodimsup.html" title="Précédent">Précédent</a><a class="up-button button toolbar-item" href="chap-transfo.html" title="Haut">Haut</a><a class="next-button button toolbar-item" href="chap-SEL.html" title="Suivant">Suivant</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Pages Liminaires</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="chap-vec.html" data-scroll="chap-vec" class="internal"><span class="codenumber">1</span> <span class="title">Les vecteurs</span></a><ul>
+<li><a href="sec-vec.html" data-scroll="sec-vec" class="internal">Vecteurs géométriques et algébriques</a></li>
+<li><a href="sec-prodscal.html" data-scroll="sec-prodscal" class="internal">Produit scalaire et calcul d'angles</a></li>
+<li><a href="sec-droitesplans.html" data-scroll="sec-droitesplans" class="internal">Droites et plans</a></li>
+<li><a href="sec-vecndim.html" data-scroll="sec-vecndim" class="internal">Vecteurs de dimension supérieure</a></li>
+<li><a href="sec-veclabos.html" data-scroll="sec-veclabos" class="internal">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-transfo.html" data-scroll="chap-transfo" class="internal"><span class="codenumber">2</span> <span class="title">Les transformations linéaires: première partie</span></a><ul>
+<li><a href="sec-transfodef.html" data-scroll="sec-transfodef" class="internal">Les transformations linéaires</a></li>
+<li><a href="sec-prodmat.html" data-scroll="sec-prodmat" class="internal">La composition et le produit matriciel</a></li>
+<li><a href="sec-matinverse.html" data-scroll="sec-matinverse" class="internal">Transformations inverses</a></li>
+<li><a href="sec-transfodimsup.html" data-scroll="sec-transfodimsup" class="internal">Transformations linéaires de dimension supérieure</a></li>
+<li><a href="sec-transfolabos.html" data-scroll="sec-transfolabos" class="active">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-SEL.html" data-scroll="chap-SEL" class="internal"><span class="codenumber">3</span> <span class="title">Les systèmes d'équations linéaires</span></a><ul>
+<li><a href="sec-GJ.html" data-scroll="sec-GJ" class="internal">Les systèmes d'équations linéaires et la méthode de Gauss-Jordan</a></li>
+<li><a href="sec-SELtheo.html" data-scroll="sec-SELtheo" class="internal">Les systèmes avec aucune ou une infinité de solutions</a></li>
+<li><a href="sec-SELgeo.html" data-scroll="sec-SELgeo" class="internal">La géométrie des systèmes d'équations linéaires</a></li>
+<li><a href="sec-transposee.html" data-scroll="sec-transposee" class="internal">La transposée d'une matrice</a></li>
+<li><a href="sec-SELlabos.html" data-scroll="sec-SELlabos" class="internal">Activités et laboratoires</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-det.html" data-scroll="chap-det" class="internal"><span class="codenumber">4</span> <span class="title">Le déterminant d'une matrice</span></a><ul>
+<li><a href="sec-det2x2.html" data-scroll="sec-det2x2" class="internal">Le déterminant <span class="process-math">\(2\times 2\)</span></a></li>
+<li><a href="sec-detgen.html" data-scroll="sec-detgen" class="internal">Le déterminant d'une matrice <span class="process-math">\(n\times n\)</span></a></li>
+<li><a href="sec-cofacteurs.html" data-scroll="sec-cofacteurs" class="internal">Les mineurs et les cofacteurs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap-espvec.html" data-scroll="chap-espvec" class="internal"><span class="codenumber">5</span> <span class="title">Espaces vectoriels</span></a><ul>
+<li><a href="sec-ssesp.html" data-scroll="sec-ssesp" class="internal">Sous-espaces vectoriels</a></li>
+<li><a href="sec-bases.html" data-scroll="sec-bases" class="internal">Base d'un sous-espace vectoriel</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Rédigé avec PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec-transfolabos"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">Activités et laboratoires</span>
+</h2>
+<section class="introduction" id="intro-transfolabos"><p id="p-1779">Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p></section><article class="project project-like" id="project-2"><h3 class="heading">
+<span class="type">Projet</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">De l'art géométrique.</span>
+</h3>
+<div class="introduction" id="introduction-59"><p id="p-1780">On a vu à l'exemple <a href="" class="xref" data-knowl="./knowl/sageex-deftransfo.html" title="Calcul 2.1.21: Les transformations sur Sage">2.1.21</a> qu'on pouvait appliquer une transformation  à une liste de points. Dans ce projet, on souhaite créer une oeuvre créative à l'aide de transformation linéaire. Afin de bien comprendre, on divise le projet en deux étapes.</p></div>
+<article class="task exercise-like" id="task-150"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="introduction" id="introduction-60">
+<p id="p-1781">Le but de cette étape est de reproduire la figure ci-dessous à partir d'une liste de points initiaux.</p>
+<figure class="figure figure-like" id="fig-laboetoile"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-laboetoile.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.1<span class="period">.</span></span><span class="space"> </span>Une belle étoile</figcaption></figure>
+</div>
+<article class="task exercise-like" id="task-151"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<p id="p-1782">La commande <code class="code-inline tex2jax_ignore">polygon</code> permet de tracer un polygone à partir d'une liste de points. L'étoile de la figure <a href="" class="xref" data-knowl="./knowl/fig-laboetoile.html" title="Figure 2.5.1">2.5.1</a> a été obtenue en utilisant également les options <code class="code-inline tex2jax_ignore">color="gold"</code> et <code class="code-inline tex2jax_ignore">edgecolor="black"</code>. À partir de la liste de points suivants et d'une réflexion selon l'axe des <span class="process-math">\(y\text{,}\)</span> créer la seconde moitié de l'étoile en arrière-plan (On peut utiliser la commande <code class="code-inline tex2jax_ignore">Listetransformees=[T*P for P in Listepoints]</code> pour obtenir l'image par la transformation <span class="process-math">\(T\)</span>).</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-122"><script type="text/x-sage">####On crée les points
+P1=vector([0,1])
+P2=vector([0.22,0.31])
+P3=vector([0.95,0.31])
+P4=vector([0.36,-0.12])
+P5=vector([0.59,-0.81])
+P6=vector([0,-0.38])
+####On crée la liste des points
+Listepoints=[P1,P2,P3,P4,P5,P6]
+####On trace le polygone
+etoile=polygon(Listepoints, color="gold",edgecolor="black")
+etoile
+#########################################################################################
+#Compléter pour avoir la réflexion des points dans Listepoints par rapport à l'axe des y.
+#########################################################################################
+</script></pre></article><article class="task exercise-like" id="projet-partieavantplan"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-1783">Pour créer la partie en avant-plan de l'étoile, on procède en deux étapes:</p>
+<ol class="decimal">
+<li id="li-355"><p id="p-1784">Dans un premier temps, on applique à la liste des points initiaux une rotation de <span class="process-math">\(180^\circ\text{.}\)</span></p></li>
+<li id="li-356"><p id="p-1785">Pour l'autre partie, on applique la réflexion selon l'axe des <span class="process-math">\(y\)</span> aux points après la rotation ci-dessus.</p></li>
+</ol>
+<pre class="ptx-sagecell sagecell-sage" id="sage-123"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like" id="task-153"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-1786">En général, la composition d'une réflexion et d'une rotation n'est pas commutative, comme le montre l'exemple <a href="" class="xref" data-knowl="./knowl/sageex-propprodmat.html" title="Calcul 2.2.16: La composition de certaines transformations">2.2.16</a>. Toutefois, dans ce cas-ci, la rotation et la réflexion le sont. Démontrer avec Sage que c'est bien le cas et utiliser ce fait pour obtenir la partie en avant-plan d'une autre manière que celle de l'étape <a href="" class="xref" data-knowl="./knowl/projet-partieavantplan.html" title="Tâche 2.5.1.a.ii">2.5.1.a.ii</a>.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-124"><script type="text/x-sage">
+</script></pre></article></article><article class="task exercise-like" id="task-154"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-1787">À partir d'une liste de points quelconque, créer un objet artistique. Les restrictions sont minimes, mais on demande au minimum:</p>
+<ul class="disc">
+<li id="li-357"><p id="p-1788">Au moins un polygone créé à partir d'au moins huit points;</p></li>
+<li id="li-358"><p id="p-1789">L'utilisation d'au moins deux transformations linéaires différentes.</p></li>
+</ul>
+<p id="p-1790">Pour le reste, utiliser couleurs et autres options au choix. La page d'aide de Sage sur les polygones peut servir de sources d'inspiration que ce soit pour des idées de figures ou d'options:  <a class="external" href="https://doc.sagemath.org/html/en/reference/plotting/sage/plot/polygon.html" target="_blank"><code class="code-inline tex2jax_ignore">https://doc.sagemath.org/html/en/reference/plotting/sage/plot/polygon.html</code></a>.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-125"><script type="text/x-sage">
+</script></pre></article></article></section></div></main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>

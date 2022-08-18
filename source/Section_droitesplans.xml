@@ -9,6 +9,7 @@
 <section xml:id="sec-droitesplans" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Droites et plans</title>
   <introduction xml:id="intro-droitesplans">
+      <p>Aller aux <xref ref="exo-droitesplans">exercices</xref> de la section.</p>
        <p>Lorsqu'on multiplie un vecteur par un scalaire, le vecteur garde la même
     direction. En observant l'extrémité du vecteur 
     <m>c\vec{u}</m> lorsque 
@@ -256,7 +257,7 @@
       <m>\vecl{BC}=(-4,1,3)</m>, disons en le multipliant par 
       <m>-2</m>, on obtient une nouvelle représentation pour la droite 
       <m>\mathcal{D}_2</m> : 
-      <me>d_2: \vecl{OP}=k(8,-2,-6)+(-3,2,1)</me>. On remarque l'utilisation du
+      <me>\mathcal{D}_2: \vecl{OP}=k(8,-2,-6)+(-3,2,1)</me>. On remarque l'utilisation du
       scalaire 
       <m>k</m> plutôt que 
       <m>c</m> afin d'évoquer la différence entre les deux équations. On aurait
@@ -711,7 +712,7 @@
         <xref ref="eq-pointsurplan1" />et 
         <xref ref="eq-pointsurplan3" />, on trouve 
         <m>b=5</m>. Une vérification rapide montre qu'on a bel et bien 
-        <m>\begin{pmatrix}-6\\3,\\ 10 \end{pmatrix}=-\begin{pmatrix} 2\\ -1\\ 3\end{pmatrix}+5\begin{pmatrix}
+        <m>\begin{pmatrix}-6\\3\\ 10 \end{pmatrix}=-\begin{pmatrix} 2\\ -1\\ 3\end{pmatrix}+5\begin{pmatrix}
         -1\\ 0\\ 2\end{pmatrix}+\begin{pmatrix}1\\2\\3
         \end{pmatrix}.</m></p>
       </solution>
@@ -719,7 +720,7 @@
         <p>Pour savoir si le point 
         <m>B</m> est dans le plan, il faut trouver 
         <m>a,b</m> tels que 
-        <me>\begin{pmatrix}10\\1,\\ -4 \end{pmatrix}=a\begin{pmatrix} 2\\ -1\\ 3\end{pmatrix}+b\begin{pmatrix}
+        <me>\begin{pmatrix}10\\1\\ -4 \end{pmatrix}=a\begin{pmatrix} 2\\ -1\\ 3\end{pmatrix}+b\begin{pmatrix}
         -1\\ 0\\ 2\end{pmatrix}+\begin{pmatrix}1\\2\\3
         \end{pmatrix}</me>. De cette équation vectorielle, on tire
         les équations suivantes: 
@@ -794,11 +795,11 @@
       <m>\vec{v}</m>.</p></proof>
     </proposition>
     <p>On illustre maintenant la méthode pour trouver la direction
-    perpendiculaire au plan avec un exemple numérique. La section 
-    <xref provisional="sec-prodvec" /> donnera la manière générale de déterminer
+    perpendiculaire au plan avec un exemple numérique. L'exemple  
+    <xref ref="ex-prodvecdet2x2" /> donnera la manière générale de déterminer
     cette direction.</p>
     <example xml:id="ex-eqnormplan">
-      <title>L'équation normale d'un plan</title>
+      <title>L'équation d'une droite perpendiculaire à un plan</title>
       <statement>
         <p>On considère le plan d'équation 
         <m>\mathcal{P}: (x,y,z)=a(2,1,0)+b(1,0,-1)+(3,2,-1)</m>. On cherche
@@ -809,19 +810,21 @@
       </statement>
       <solution>
         <p>Soit 
-        <m>\vec{w}=(w_1,w_2,w_3)</m> le vecteur directeur de la droite. Si on
+        <m>\vec{w}=(w_1,w_2,w_3)</m>, un vecteur directeur de cette droite. Si on
         réussit à trouver 
         <m>\vec{w}</m> perpendiculaire à 
         <m>\vec{u}=(2,1,0)</m> et 
         <m>\vec{v}=(1,0,-1)</m>, alors selon la proposition 
         <xref ref="prop-perpclin" />, 
-        <m>\vec{w}</m> sera orthogonal à tous les points du plan. On doit avoir 
+        <m>\vec{w}</m> sera orthogonal à tous les vecteurs du plan. On doit avoir 
         <md>
           <mrow>\vec{w}\cdot\vec{u}&amp;=0</mrow>
+          <mrow>(w_1,w_2,w_3)\cdot (2,1,0)&amp;=0</mrow>
           <mrow>2w_1+w_2&amp;=0</mrow>
         </md> et 
         <md>
           <mrow>\vec{w}\cdot\vec{v}&amp;=0</mrow>
+          <mrow>(w_1,w_2,w_3)\cdot (1,0,-1) &amp;=0</mrow>
           <mrow>w_1-w_3&amp;=0</mrow>
         </md>. On a alors trois inconnues à déterminer et deux équations les
         reliant. En réarrangeant les équations, on arrive à 
@@ -833,8 +836,7 @@
         <m>\vec{w}=w_1(1,-2,1)</m>, avec 
         <m>w_1</m> un nombre réel quelconque. Peu importe la valeur de 
         <m>w_1</m>, on obtient un multiple du vecteur 
-        <m>(1,-2,1)</m>. On choisit donc ce vecteur (en posant 
-        <m>w_1=1</m>) comme étant la direction cherchée.</p>
+        <m>(1,-2,1)</m>. On choisit donc ce vecteur (en posant <m>w_1=1</m>) comme étant la direction cherchée.</p>
         <p>Puisque l'on cherchait l'équation de la droite passant par le point 
         <m>(3,2,-1)</m>, la réponse est 
         <me>\mathcal{D}: (x,y,z)=c(1,-2,1)+(3,2,-1) \quad c\in \R</me>.</p>
@@ -846,9 +848,18 @@
     <m>\vec{n}=(a,b,c)</m> est perpendiculaire à tous les vecteurs du plan.
     L'exemple 
     <xref ref="ex-eqnormplan" /> montre comment passer de l'équation vectorielle
-    à l'équation normale. En effet, le vecteur directeur de la droite perpendiculaire au plan servira de vecteur normal <m>\vec{n}</m>. 
+    à l'équation normale. En effet, le vecteur directeur de la droite perpendiculaire au plan servira de vecteur normal <m>\vec{n}</m>.
+    On a donc <m>\vec{n}=(1,-2,1)</m>
     On peut calculer la valeur de la constante manquante en remplaçant dans l'équation n'importe quel point sur le plan. 
-    On utilise le point <m>(3,2,-1)</m> puisqu'on sait qu'il s'y trouve.
+    On utilise le point <m>(3,2,-1)</m> puisqu'on sait qu'il s'y trouve. On y arrive ainsi:
+    <md>
+        <mrow>\mathcal{P}&amp;:ax+by+cz=d</mrow>
+        <mrow>\mathcal{P}&amp;:1*x-2*y+1*z=d</mrow>
+        <mrow>\mathcal{P}&amp;:x-2y+z=d</mrow>
+        <mrow>&amp;:3-2*2-1=d</mrow>
+        <mrow>&amp;:-2=d</mrow>
+        <mrow>\mathcal{P}&amp;:x-2y+z=-2</mrow>
+    </md>
     On regarde maintenant la situation inverse.</p>
     <example xml:id="ex-normavec">
       <title>De l'équation normale à l'équation vectorielle</title>
@@ -1038,7 +1049,7 @@
   Deux droites peuvent ne pas se croiser sans être parallèles. On dit alors qu'elles sont gauches. 
   Pour déterminer la distance entre les deux droites, on doit trouver la distance entre deux plans parallèles contenant chacun l'une des droites. 
   Ceci nécessite de déterminer un vecteur qui est perpendiculaire au vecteur directeur respectif de chaque droite. 
-  Les détails pour trouver ce vecteur sont donnés dans la section <xref provisional="prodvec"/>. 
+  Les détails pour trouver ce vecteur sont donnés dans l'exemple <xref ref="ex-prodvecdet2x2"/>. 
   En attendant, la figure <xref provisional="fig-distdg"/> illustre l'intuition derrière la méthode décrite ci-dessus.</p>    
       <p>Il n'y a pas de nouvelles commandes Sage, mais on illustre l'utilisation de Sage pour résoudre un exemple concret de calcul de distance.</p>
       <computation xml:id="sageex-distpd">

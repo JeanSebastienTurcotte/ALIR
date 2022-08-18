@@ -11,13 +11,13 @@
 <exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-SELtheo">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>
     <exercise xml:id="exo-4eq3inc">
-    <statement><p>Reprendre le système <m>(B|b_1\,b_2)</m> de l'exemple <xref ref="ex-4eq3inc"/> et effectuer l'échelonnage.</p></statement>
+    <statement><p>Reprendre le système <m>(B|\vec{b}_1\,\vec{b}_2)</m> de l'exemple <xref ref="ex-4eq3inc"/> et effectuer l'échelonnage.</p></statement>
     <answer><p><me>\left(\begin{array}{rrr|rr} 
     1&amp; 6&amp; -3 &amp; 0&amp;3 \\ 
     0&amp; 0&amp; 0&amp;  1 &amp; 0 \\ 
     0 &amp; 0&amp; 0 &amp; 0 &amp;0 \\ 
     0&amp; 0 &amp; 0 &amp; 0&amp; 0 \end{array}\right)</me></p></answer>
-    <solution><p>On commence avec la matrice du système <m>(B|b_1\,b_2)</m> et on effectue l'échelonnage.
+    <solution><p>On commence avec la matrice du système <m>(B|\vec{b}_1\,\vec{b}_2)</m> et on effectue l'échelonnage.
     <md>
     <mrow>\left(\begin{array}{rrr|rr} 
     1&amp; 6&amp; -3 &amp; 5&amp;3 \\ 
@@ -487,9 +487,9 @@
 \end{array}\right)
     </m></statement>
     <answer>
-    <p><me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=x_2\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}+x_4\begin{pmatrix}-1\\ 0\\ -2\\ 1\end{pmatrix}</me>
+    <p><me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=x_2\begin{pmatrix}0\\ 1\\ 0\\ 0\end{pmatrix}+x_4\begin{pmatrix}-3\\ 0\\ -2\\ 1\end{pmatrix}</me>
     et
-    <me>\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=\begin{pmatrix}3\\ 0\\ 6\\ -3\end{pmatrix}</me></p>
+    <me>begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\end{pmatrix}=\begin{pmatrix}3\\ 0\\ 2\\ -1\end{pmatrix}</me></p>
     </answer>
     <solution>
     <p>Les deux lignes non nulles se résument aux équations <m>x_1+3x_4=0</m> et <m>x_3+2x_4=0</m>. 
@@ -982,7 +982,7 @@
     </md>
     La première ligne sera donc simplement constituée pour communiquer l'information que <m>y=2t+3\Rightarrow y=2x+3 \Rightarrow 2x-y=-3</m>.
     Cela donne une matrice qui n'est pas échelonnée réduite alors on fait l'opération nécessaire:
-    <me>\left(\begin{array}{rr|r} 2&amp; -1&amp; -3 \\ 0&amp;0&amp;0 \end{array}\right)</me>\matsimils{1}{\frac{1}{2}}\left(\begin{array}{rr|r} 1&amp; -\frac{1}{2}&amp; -\frac{3}{2} \\ 0&amp;0&amp;0 \end{array}\right).
+    <me>\left(\begin{array}{rr|r} 2&amp; -1&amp; -3 \\ 0&amp;0&amp;0 \end{array}\right)\matsimils{1}{\frac{1}{2}}\left(\begin{array}{rr|r} 1&amp; -\frac{1}{2}&amp; -\frac{3}{2} \\ 0&amp;0&amp;0 \end{array}\right)</me>.
     L'unique bonne réponse est donc:
     <me>\left(\begin{array}{rr|r}1&amp; -\frac{1}{2}&amp; -\frac{3}{2} \\ 0&amp;0&amp;0 \end{array}\right)</me>.
     </p></solution>
@@ -1311,7 +1311,7 @@ Elle est donc de rang <m>2</m>.
 1 &amp; -2 &amp; 3\end{pmatrix}</me></p></answer>
 <solution><p>Pour être équivalente à la matrice identité, il faut qu'elle soit de rang <m>3</m> et donc de rang maximal.
 Pour être de rang <m>3</m>, il faut que les trois lignes ne soient pas combinables pour être éliminées entièrement.
-Ce concept se nomme <em>indépendance linéaire</em> et sera élaboré plus en détails au chapitre <xref provisional="chap-bases"/>.
+Ce concept se nomme <em>indépendance linéaire</em> et sera élaboré plus en détails à la section <xref ref="sec-bases"/>.
 <md>
 <mrow>\begin{pmatrix} 
 1&amp; -2&amp; 2 \\
@@ -1652,7 +1652,7 @@ A=\begin{pmatrix}
 </me></p></answer>
 <solution><p>Une matrice de rang <m>3</m> possède des lignes qui, lorsqu'on utilise des opérations élémentaires doivent ne jamais pouvoir s'éliminer complètement.
 Pour ce faire, il faut qu'aucune des lignes ne soit combinaison linéaire des autres lignes.
-On verra plus loin au chapitre <xref provisional="chap-bases"/> que ce qu'on veut c'est que ces lignes soient linéairement indépendantes.
+On verra plus loin à la section <xref ref="sec-bases"/> que ce qu'on veut c'est que ces lignes soient linéairement indépendantes.
 Les opérations élémentaires vont nécessairement amener l'échelonnage à la matrice identité. 
 Cependant, il peut être difficile de voir quelles valeurs on doit avoir pour que ce soit le cas.
 Un exemple de réponse est:
@@ -1736,7 +1736,7 @@ A=\begin{pmatrix}
 </me></p></answer>
 <solution><p>Une matrice de rang <m>3</m> possède des lignes qui, lorsqu'on utilise des opérations élémentaires doivent ne jamais pouvoir s'éliminer complètement.
 Pour ce faire, il faut qu'aucune des lignes ne soit combinaison linéaire des autres lignes.
-On verra plus loin au chapitre <xref provisional="chap-bases"/> que ce qu'on veut c'est que ces lignes soient linéairement indépendantes.
+On verra plus loin à la section <xref ref="sec-bases"/> que ce qu'on veut c'est que ces lignes soient linéairement indépendantes.
 Les opérations élémentaires vont nécessairement amener l'échelonnage à la matrice identité. 
 Cependant, il peut être difficile de voir quelles valeurs on doit avoir pour que ce soit le cas.
 Un exemple de réponse est:
