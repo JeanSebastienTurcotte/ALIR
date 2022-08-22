@@ -38,7 +38,7 @@
     Tout vecteur dans <m>\mathcal{N}(A)</m> peut bien sûr s'écrire comme une combinaison linéaire des solutions de base, par construction de celles-ci. Ainsi, elles engendrent <m>\mathcal{N}(A)</m>. De plus, l'exercice <xref ref="exo-solbaseindep"/> montre que les solutions de bases sont indépendantes. Elles forment donc bel et bien une base de l'espace nul.
     </p></proof>
     </proposition>
-    <p>Afin de déterminer si un ensemble de <m>k</m> vecteurs est indépendant ou non, on savait déjà qu'on pouvait utiliser le <xref ref="prop-indeprang">rang</xref>. Si jamais les vecteurs ne sont pas indépendants, la proposition <xref ref="prop-baseespligne"/> permet de trouver une base de leur espace engendré.</p>
+    <p>Afin de déterminer si un ensemble de <m>k</m> vecteurs est indépendant ou non, on savait déjà qu'on pouvait utiliser le <xref ref="prop-indeprang">rang</xref>. Si jamais les vecteurs ne sont pas indépendants, la proposition <xref ref="prop-baseesplignenul"/> permet de trouver une base de leur espace engendré.</p>
     <example>
     <title>Base de l'espace ligne</title>
     <statement>
@@ -50,7 +50,7 @@
 0 &amp; -1 &amp; 2 &amp; 0 &amp; 1 \\
 -1 &amp; 1 &amp; 1 &amp; -1 &amp; 0
 \end{array}\right)</me>
-et on cherche une base de son espace ligne.</p>
+et on cherche une base de son espace ligne. On cherche aussi la dimension de l'espace ligne.</p>
     </statement>
     <solution>
     <p>On utilise Sage pour échelonner la matrice et trouver la base.</p>
@@ -72,25 +72,28 @@ et on cherche une base de son espace ligne.</p>
     Alors une base possible pour l'espace nul gauche <m>\mathcal{N}(R^T)</m> est <m>\langle \vec{e}_{r+1},\vec{e}_{r+2},\ldots , \vec{e}_m \rangle</m>.
     </p>
     </statement>
+    <proof>
+    <p>Voir l'exercice <xref provisional="exo-NRT"/>.</p>
+    </proof>
     </lemma>
     <proposition xml:id="prop-baseespcolnulg">
     <title>Une base pour l'espace colonne et l'espace nul gauche </title>
     <statement>
-    <p>Soit <m>A</m> une matrice <m>m\times n</m>,<m>R=rref(A)</m> sa forme échelonnée réduite et soit <m>E</m> une matrice <m>m\times m</m> telle que <m>EA=R</m> (la matrice <m>E</m> correspond à la multiplication de matrices élémentaires permettant d'échelonner <m>A</m>). Alors
+    <p>Soit <m>A</m> une matrice <m>m\times n</m>, <m>R=rref(A)</m> sa forme échelonnée réduite et soit <m>E</m> une matrice <m>m\times m</m> telle que <m>EA=R</m> (la matrice <m>E</m> correspond à la multiplication de matrices élémentaires permettant d'échelonner <m>A</m>). Alors
     <ol>
     <li><p>Les colonnes pivots de <m>A</m> (celles qui sont pivots dans <m>R</m>) forment une base de <m>\mathcal{C}(A)</m>;</p></li>
     <li><p>Les lignes de <m>E</m> qui sont aux mêmes positions que les lignes nulles de <m>R</m> forment une base de l'espace nul gauche.</p></li>
     </ol></p>
     </statement>
     <proof>
-    <p>Soit <m>j_1,j_2,\ldots , j_r</m> l'indice des colonnes de <m>R</m> contenant un pivot, avec <m>j_1&tl; j_2&lt; \cdots &lt; j_r</m>. Soit <m>\vec{a}_{j_{1}},\vec{a}_{j_{2}},\ldots ,\vec{a}_{j_{r}}</m> les colonnes de <m>A</m> correspondants à ces positions. On veut montrer que ces colonnes forment une base de <m>\mathcal{C}(A)</m>.</p>
+    <p>Soit <m>j_1,j_2,\ldots , j_r</m> l'indice des colonnes de <m>R</m> contenant un pivot, avec <m>j_1&lt; j_2&lt; \cdots &lt; j_r</m>. Soit <m>\vec{a}_{j_{1}},\vec{a}_{j_{2}},\ldots ,\vec{a}_{j_{r}}</m> les colonnes de <m>A</m> correspondants à ces positions. On veut montrer que ces colonnes forment une base de <m>\mathcal{C}(A)</m>.</p>
     <p>D'abord, l'indépendance. Soit <m>c_1,c_2,\ldots ,c_r\in \R</m> tels que
     <me>
     c_1\vec{a}_{j_{1}}+c_2\vec{a}_{j_{2}}+\ldots +c_r\vec{a}_{j_{r}}=\vec{0}
     </me>.
     On pose <m>\vec{v}</m> le vecteur qui a une valeur <m>0</m>  en position <m>i</m> si <m>i\notin \{j_1,j_2,\ldots , j_r\}</m> qui qui vaut <m>c_{j_{i}}</m> aux positions <m>j_1,j_2,\ldots , j_r</m>. Le vecteur <m>\vec{v}</m> est donc une solution à l'équation <m>A\vec{x}=\vec{0}</m>. Par le fait même, on a <m>R\vec{v}=\vec{0}</m>. Ceci entraine que
         <me>
-    c_1\vec{a^{'}}}_{j_{1}}+c_2\vec{a^{'}}}_{j_{2}}+\ldots +c_r\vec{a^{'}}}_{j_{r}}=\vec{0}
+    c_1\vec{a^{'}}_{j_{1}}+c_2\vec{a^{'}}_{j_{2}}+\ldots +c_r\vec{a^{'}}_{j_{r}}=\vec{0}
     </me>,
     où <m>\vec{a^{'}}_{j_{k}}</m> est la <m>k</m>-ème colonne de <m>R</m>. Puisque par définition celles-ci sont pivots, ces colonnes ne contiennent qu'un <m>1</m> et des zéros partout ailleurs. On conclut que <m>c_1=c_2=c_r=0</m> et donc, que les colonnes de <m>A</m> qui correspondent aux positions pivots de <m>R</m> sont indépendantes.
     </p>
@@ -109,11 +112,11 @@ et on cherche une base de son espace ligne.</p>
     <intertext><p>On pose <m>\vec{y}=(E^T)^{-1}\vec{x}</m></p></intertext>
     <mrow>       &amp;=R^T\vec{y}</mrow>
     </md>.
-    On conclut donc que <m>\vec{y}\in \mathcal{N}(R^T)</m>. Selon le lemme <xref provisional="lem-NRT"/>, l'espace nul de <m>R^T</m> est engendré par les <m>m-r</m> derniers vecteurs de la base standard de <m>R^m</m>, où <m>r</m> est le rang de <m>A</m>. Le vecteur <m>\vec{y}</m> est donc une combinaison linéaire de ces vecteurs. Si on isole <m>\vec{x}</m> dans l'équation <m>\vec{y}=(E^T)^{-1}\vec{x}</m>, on obtient <m>\vec{x}=E^T\vec{y}</m>. Puisque <m>\vec{y}</m> est une combinaison linéaire des <m>m-r</m> derniers vecteurs de la base standard, le vecteur <m>\vec{x}</m> est une combinaison linéaire des <m>m-r</m> dernières colonnes de <m>E^T</m> et donc, aux <m>m-r</m> lignes de <m>E</m>. Ce sont exactement ces lignes qui correspondent aux lignes nulles de <m>R</m>. Ceci montre que les <m>m-r</m> lignes de <m>E</m> forment une base pour <m>\mathcal{N}(A^T)</m>.</p>
+    On conclut donc que <m>\vec{y}\in \mathcal{N}(R^T)</m>. Selon le lemme <xref ref="lem-NRT"/>, l'espace nul de <m>R^T</m> est engendré par les <m>m-r</m> derniers vecteurs de la base standard de <m>R^m</m>, où <m>r</m> est le rang de <m>A</m>. Le vecteur <m>\vec{y}</m> est donc une combinaison linéaire de ces vecteurs. Si on isole <m>\vec{x}</m> dans l'équation <m>\vec{y}=(E^T)^{-1}\vec{x}</m>, on obtient <m>\vec{x}=E^T\vec{y}</m>. Puisque <m>\vec{y}</m> est une combinaison linéaire des <m>m-r</m> derniers vecteurs de la base standard, le vecteur <m>\vec{x}</m> est une combinaison linéaire des <m>m-r</m> dernières colonnes de <m>E^T</m> et donc, aux <m>m-r</m> lignes de <m>E</m>. Ce sont exactement ces lignes qui correspondent aux lignes nulles de <m>R</m>. Ceci montre que les <m>m-r</m> lignes de <m>E</m> forment une base pour <m>\mathcal{N}(A^T)</m>.</p>
     </proof>
     </proposition>
     <p>Dans la pratique, il est souvent plus simple de déterminer une base de l'espace nul-gauche de <m>A</m> en considérant directement l'espace nul de sa transposée, mais la proposition <xref ref="prop-baseespcolnulg"/> donne une manière à partir de <m>A</m> et de son processus d'échelonnage. On montre tout de même un exemple complet utilisant les propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>.</p>
-    <example>
+    <example xml:id="ex-base4esp">
     <title>Une base des quatre espaces fondamentaux d'une matrice</title>
     <statement>
     <p>On considère la matrice <me>
@@ -124,7 +127,7 @@ et on cherche une base de son espace ligne.</p>
     2&amp; 0&amp; 6&amp; 7&amp; -8\\
     \end{pmatrix}
     </me>.
-    On cherche une base pour les quatres espaces fondamentaux.
+    On cherche une base pour les quatre espaces fondamentaux.
     </p>
     </statement>
     <solution><p>On commence par échelonner la matrice en gardant bien en vue les opérations élémentaires effectuées dans le but de créer la matrice <m>E</m>.
@@ -225,7 +228,7 @@ show("EA=R=",E*A) #Pour s'assurer que les matrices sont correctes
 show("E=",E)
     </input>
     </sage>
-    <p>Selon la proposition <xref ref="prop-baseesplignenul"/>, l'espace ligne est engendré par les lignes non nulles de <m>R</m>. On a donc <m>\mathcal{L}(A)=\vspan((1,0,3,0,3),(0,1,3,0,2),(0,0,0,1,-2))</m>. Toujours selon cette proposition, l'espace nul est engendré par les solutions de base à l'équation <m>A\vec{x}=\vec{0}</m> qui se trouvent à même la matrice <m>R</m>, comme indiqué à l'exemple <xref xref="ex-solbase2"/>. On a donc <m>\mathcal{N}(A)=\vspan((-3,-3,1,0,0),(-3,-2,0,2,1))</m>.</p>
+    <p>Selon la proposition <xref ref="prop-baseesplignenul"/>, l'espace ligne est engendré par les lignes non nulles de <m>R</m>. On a donc <m>\mathcal{L}(A)=\vspan((1,0,3,0,3),(0,1,3,0,2),(0,0,0,1,-2))</m>. Toujours selon cette proposition, l'espace nul est engendré par les solutions de base à l'équation <m>A\vec{x}=\vec{0}</m> qui se trouvent à même la matrice <m>R</m>, comme indiqué à l'exemple <xref ref="ex-solbase2"/>. On a donc <m>\mathcal{N}(A)=\vspan((-3,-3,1,0,0),(-3,-2,0,2,1))</m>.</p>
 <p>Selon la proposition <xref ref="prop-baseespcolnulg"/>, l'espace colonne est engendré par les colonnes de <m>A</m> qui correspondent aux colonnes pivots de sa forme échelonnée réduite <m>R</m>. On a donc <m>\mathcal{C}(A)=\vspan((1,0,0,2),(2,1,-2,0),(7,2,-3,7))</m>. Toujours selon cette proposition, l'espace nul-gauche est engendré par les lignes de la matrice <m>E</m> qui correspondent aux lignes nulles de la matrice <m>R</m>. On a donc <m>\mathcal{N}(A^T)=\vspan((-2,2,-1,1))</m>.</p>
     </solution>
     </example>
@@ -247,8 +250,8 @@ show("E=",E)
     <p>Finalement pour l'espace nul gauche, le nombre de vecteur dans la base correspond au nombre de lignes nulles dans la forme échelonnée réduite. Celles-ci sont en nombre de <m>m-r</m> (<m>m</m> lignes moins les <m>r</m> qui contiennent un pivot). </p>
     </proof>
     </proposition>
-    <p>Ensemble, les propositions <xref ref="prop-espfondcomportho"/> et <xref ref="prop-dim4esp"/> donnent le théorème fondamental de l'algèbre linéaire.<fn>L'adjectif &00AA;fondamental&00AB; de ce théorème n'est pas aussi répandu que son homologue en calcul différentiel et intégral. Il a été caractérisé ainsi pour la première fois par Gilbert Strang, professeur au MIT.</fn></p>
-    <theorem>
+    <p>Ensemble, les propositions <xref ref="prop-espfondcomportho"/> et <xref ref="prop-dim4esp"/> donnent le théorème fondamental de l'algèbre linéaire.<fn>L'adjectif <lsq/>fondamental<rsq/> de ce théorème n'est pas aussi répandu que son homologue en calcul différentiel et intégral. Il a été caractérisé ainsi pour la première fois par Gilbert Strang, professeur au MIT.</fn></p>
+    <theorem xml:id="thm-fondalg">
     <title>Le théorème fondamental de l'algèbre linéaire</title>
     <statement>
     <p>Soit <m>A</m> une matrice <m>m\times n</m> de rang <m>r</m>. Alors
@@ -262,12 +265,90 @@ show("E=",E)
     <p>Le résultat découle des propositions <xref ref="prop-espfondcomportho"/> et <xref ref="prop-dim4esp"/>. </p>
     </proof>
     </theorem>
+    <p>Pour voir une application concrète de ce théorème, on considère le problème familier suivant dans <m>\mathbb{R}^3</m>. On a un plan dans l'espace et un point <m>P</m> qui n'appartient pas au plan. On aimerait connaitre le point <m>Q</m> sur le plan qui est le plus près de <m>P</m>. Ce point <m>Q</m> est le même que celui à la figure <xref ref="fig-distpd"/>. On peut déjà le trouver grâce à la projection orthogonale. Si on voulait toutefois résoudre le même problème mais pour un sous-espace de dimension 5 dans <m>\mathbb{R}^7</m>, la méthode de la projection orthogonale ne fonctionnerait pas dû au fait qu'il y aurait plus qu'une direction perpendiculaire. On regarde donc ce problème à nouveau avec les concepts des espaces fondamentaux.</p>
+    <example xml:id="ex-pointplusprochemoindrescarres">
+    <title>
+    Le point le plus proche
+    </title>
+    <statement><p>
+    On considère le plan engendré par les vecteurs <m>\vec{u}=(-1,2,1)</m> et <m>\vec{v}=(-5,4,-3)</m> ainsi que le point <m>P(-3,-7,0)</m>. On cherche le point <m>Q</m> sur le plan qui est le plus près de <m>P</m>.
+    </p></statement>
+    <solution>
+    <p>On commence par former la matrice dont les colonnes sont les vecteurs directeurs du plan:
+    <me>
+    A=\begin{pmatrix}
+    -1&amp;-5\\
+    2&amp;4\\
+    1&amp;-3
+    \end{pmatrix}
+    </me>. Puisque le point <m>Q</m> sur le plan le plus proche du point <m>P</m>  est un point pour lequel le vecteur <m>\vecl{QP}</m> est perpendiculaire au plan, on peut déduire du théorème <xref ref="thm-fondalg"/> que ce vecteur est dans l'espace nul-gauche de la matrice <m>A</m>, pour laquelle le plan représente l'espace colonne. Il faut donc que <m>\vecl{QP}=\vecl{OP}-\vecl{OQ}</m> soit dans l'espace nul-gauche ou, de façon équivalente, il faut que
+    <me>
+    A^T(\vecl{OP}-\vecl{OQ})=\vec{0}
+    </me>.</p>
+    <p>Pour progresser, on remarque que comme le point <m>Q</m> est sur le plan, il doit nécessairement exister un vecteur <m>\vec{x}</m> tel que <m>A\vec{x}=\vecl{OQ}</m>. Ainsi,
+    <md>
+    <mrow>A^T(\vecl{OP}-\vecl{OQ})&amp;=\vec{0}</mrow>
+    <mrow>A^T(\vecl{OP}-A\vec{x})&amp;=\vec{0}</mrow>
+    <mrow>A^T\vecl{OP}-A^TA\vec{x}&amp;=\vec{0}</mrow>
+    <mrow>A^T\vecl{OP}&amp;=A^TA\vec{x}</mrow>
+    </md>.</p>
+    <p>Concrètement, on peut calculer toutes ces matrices et obtenir un système simple à résoudre. On utilise Sage pour faire ces calculs.</p>
+    <sage>
+    <input>
+A=column_matrix([[-1,2,1],[-5,4,-3]])
+P=vector([-3,-7,0])
+AT=A.transpose()
+show("A^T*OP=",AT*P)
+show("A^T*A=",AT*A)    
+    </input>
+    </sage>
+    <p>Le point <m>Q</m> est donc obtenu en trouvant la valeur du vecteur <m>\vec{x}</m> pour lequel
+    <me>
+    \begin{pmatrix}
+    6&amp;10\\ 10&amp;50
+    \end{pmatrix}\vec{x}=\vecd{-11}{-13}
+    </me>.
+    Ce système se résout facilement à l'aide de n'importe quelle méthode des chapitres précédents. Avec Sage:
+    </p>
+    <sage>
+<input>
+A=column_matrix([[-1,2,1],[-5,4,-3]])
+P=vector([-3,-7,0])
+AT=A.transpose()
+ATP=AT*P
+ATA=AT*A
+show(ATA.solve_right(ATP))    
+    </input></sage>
+    <p>Le point <m>Q</m> est finalement obtenu en utilisant ce vecteur <m>\vec{x}=\left(-\frac{21}{10},\frac{4}{25}\right)</m> et la matrice <m>A</m>:
+    <md>
+<mrow>\vecl{OQ}&amp;=A\vec{x}</mrow>
+<mrow>&amp;=\begin{pmatrix}
+    -1&amp;-5\\
+    2&amp;4\\
+    1&amp;-3
+    \end{pmatrix}\vecd{-\frac{21}{10}}{\frac{4}{25}}</mrow>
+    <mrow>&amp;=\vecddd{\frac{13}{10}}{-\frac{89}{25}}{-\frac{129}{50}}</mrow>
+    </md>.
+    </p>
+    </solution>
+    </example>
+    <p>Ce dernier exemple peut sembler long et fastidieux, surtout que les outils de la section <xref ref="sec-droitesplans"/> permettaient une résolution beaucoup plus rapide. En regardant attentivement la démarche de l'exemple <xref ref="ex-pointplusprochemoindrescarres"/>, on peut déduire une méthode générale pour ce genre de problème qui est fondamentale en statistique et en informatique (apprentissage profond et intelligence artificielle): la méthode des moindres carrées. Elle sera présentée plus en détails dans le chapitre <xref provisional="chap-applications"/>.</p>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation>
     <title>Base des quatre espaces sur Sage</title>
     <statement>
     <p>Dans la section <xref ref="sec-transposee"/>, on a introduit des commandes permettant de trouver une base des espaces fondamentaux, sans avoir défini au préalable la notion de base. Ceci a été fait à l'exemple calculatoire <xref ref="sageex-espfond"/>. On reprend ici ces commandes avec la notion de base maintenant bien définie.</p>
-    <p>Les commandes pour les espaces ligne,colonne,nul et nul gauche sont respectivement <c></c></p>
+    <p>Les commandes pour les espaces ligne,colonne,nul et nul gauche sont respectivement <c>row_space().basis(),column_space().basis(),right_kernel(basis="pivot").basis(),left_kernel(basis="pivot").basis()</c>. On les utilise pour retrouver la base de chacun des quatre espaces de l'exemple <xref ref="ex-base4esp"/>.</p>
+    <sage>
+    <input>
+A=column_matrix(QQ,[[1,0,0,2],[2,1,-2,0],[9,3,-6,6],[7,2,-3,7],[-7,-2,2,-8]]) #Rappel qu'il faut spécifier QQ pour que cela fonctionne
+show("Une base pour l'espace ligne est ",A.row_space().basis())
+show("Une base pour l'espace colonne est ",A.column_space().basis())
+show("Une base pour l'espace nul est ",A.right_kernel(basis="pivot").basis())
+show("Une base pour l'espace nul-gauche est ",A.left_kernel(basis="pivot").basis())
+    </input>
+    </sage>
+    <p>À noter que pour l'espace colonne, Sage ne retourne pas la base prescrite par la proposition <xref ref="prop-baseespcolnulg"/>. Il préfère en fait trouver une base de l'espace ligne de <m>A^T</m>. On peut toutefois créer une fonction retournant la base suggérée par la proposition <xref ref="prop-baseespcolnulg"/> grâce à la fonction <c>pivots()</c>. C'est l'objet de l'exercice <xref provisional="sageexo-baseespcol"/>. </p>
     </statement>
     </computation>
     </subsection>
@@ -276,13 +357,111 @@ show("E=",E)
     <p>À la proposition <xref ref="prop-comporthocomportho"/>, on a montré que si <m>V</m> est une sous-espace vectoriel, alors <m>(V^{\perp})^{\perp}=V</m>. On peut se demander si la relation entre les dimensions d'un sous-espace quelconque et son complément orthogonal est aussi complémentaire à l'espace sous-jacent.</p>
     <proposition>
     <title>La dimension du complément orthogonal</title>
+    <statement><p>Soit <m>V\subseteq \mathbb{R}^n</m> un sous-espace vectoriel de dimension <m>k</m>. Alors la dimension de son complément orthogonal est <m>n-k</m>.</p></statement>
+    <proof>
+    <p>Si <m>V=\vspan{\vec{0}}</m>, alors <m>k=0</m> et le complément orthogonal de <m>V</m> est <m>\R^n</m>. La dimension est bien <m>n-0=n</m>.</p>
+    <p>Si <m>k>0</m>, alors selon la proposition <xref ref="prop-baseexiste"/>, on peut trouver une base <m>\langle \vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k \rangle</m> engendrant <m>V</m>. On crée une matrice ligne avec ces <m>k</m> vecteurs. Par construction, l'espace ligne de la matrice correspond à <m>V</m> et est de dimension <m>k</m> puisque les vecteurs sont indépendants. Selon le théorème <xref ref="thm-fondalg"/>, l'espace nul de <m>A</m> (qui est le complément de <m>V=\mathcal{L}(A)</m>) est de dimension <m>n-k</m>.</p>
+    </proof>
     </proposition>
+    <p>Dans l'espace à deux dimensions, les seuls sous-espaces non trivaux sont les droites passant par l'origine. Dans le cas d'une de ces droite, avec vecteur directeur <m>\vec{u}</m>, son complément orthogonal est aussi une droite passant par l'origine avec vecteur directeur <m>\vec{v}</m> qui lui est perpendiculaire (<m>\vec{u}\cdot\vec{v}=0)</m>. N'importe quel vecteur de <m>\R^2</m> peut s'écrire comme une combinaison linéaire de <m>\vec{u}</m> et <m>\vec{v}</m>. Dans l'espace à trois dimensions, on peut ajouter les plans passant par l'origine comme sous-espace non trivial. Puisque le complément orthogonal d'un plan est la droite ayant comme vecteur directeur le vecteur normal du plan, et que les deux vecteurs directeurs du plan et ce vecteur normal forment une base, il s'avère que l'on peut écrire n'importe quel vecteur de <m>\R^3</m> comme la somme d'un vecteur du plan et de son complément orthogonal. Ce résultat est aussi valide pour les autres espaces vectoriels. Il est illustré à la figure <xref ref="fig-decomportho"/> et est l'objet de la prochaine proposition. </p>
+<figure xml:id="fig-decomportho">
+<title>Décomposition d'un vecteur selon un sous-espace et son complément orthogonal</title>
+<image xml:id="img-decomportho">
+<sageplot variant="3d">
+var("y","k")
+G=plot3d(0,(x,-5,5),(y,-5,5),color="cyan",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+text3d("V",[5,-4,1],fontsize=30,frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+text3d("V",[-0,-3/4,4],fontsize=30,frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+line([(0,0,-5),(0,0,5)],color="black",thickness=4,frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+text3d("⊥",[-0,-1.5/4,4.3],fontsize=20,frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+line([(0,0,-5),(0,0,5)],color="black",thickness=4,frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+arrow((0,0,0),(0,0,3),width=5,color="black",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+arrow((0,0,0),(3,4,0),width=5,color="black",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+arrow((0,0,0),(3,4,3),width=5,color="black",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])
+for k in range(4):
+    G+=line([(6*k/7,8*k/7,3),(3*(2*k+1)/7,4*(2*k+1)/7,3)],linestyle="dashed",color="black",thickness="3",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])
+    G+=line([(3,4,6*k/7),(3,4,3*(2*k+1)/7)],linestyle="dashed",color="black",thickness="3",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])
+G
+</sageplot>
+<description>
+Un sous-espace vectoriel V est illustré sous la forme d'un plan. Son complément orthogonal est aussi présent, sous la forme d'une droite. On y voit trois vecteurs, l'un dans V, un autre dans le complément et le troisième est quelconque. On peut voir la décomposition de ce troisième vecteur comme la somme des deux autres grâce à des lignes pointillées.
+</description>
+</image>
+</figure>
+    <proposition xml:id="prop-decomportho">
+    <title>Décomposition d'un vecteur par rapport à des sous-espaces orthogonaux</title>
+    <statement>
+    <p>Soit <m>V\subseteq \mathbb{R}^n</m> un sous-espace vectoriel. Alors n'importe quel vecteur de <m>\mathbb{R}^n</m> peut s'écrire de manière unique comme la somme d'un vecteur dans <m>V</m> et d'un vecteur dans <m>V^{\perp}</m>. Ceci implique en particulier que <m>\mathbb{R}^n</m> se "décompose":
+    <me>
+    \mathbb{R}^n=V+V^{\perp}
+    </me>.</p>
+    </statement>
+    <proof>
+    <p>Si la dimension de <m>V</m> est <m>0</m>, alors son complément orthogonal est <m>\R^n</m> et il suit que tout vecteur <m>\vec{u}\in\mathbb{R}^n</m> peut s'écrire comme <m>\vec{u}+\vec{0}</m>. La situation est similaire si <m>\text{dim}(V)=n</m>.</p>
+    <p>Soit <m>0&lt;k&lt;n</m> la dimension de <m>V</m>. Selon le théorème <xref ref="thm-fondalg"/>, la dimension de <m>V^{\perp}</m> est <m>n-k</m>. Pour chacun de ces sous-espaces vectoriels, on peut trouver une base. Soit <m>\langle \vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k \rangle</m> une base pour <m>V</m> et <m>\langle \vec{v}_{k+1},\vec{v}_{k+2},\ldots , \vec{v}_n \rangle</m>. On souhaite montrer que ces vecteurs génèrent <m>\mathbb{R}^n</m>. Cela entrainera que tout vecteur peut s'écrire comme une combinaison linéaire de cet ensemble. La partie de la combinaison linéaire avec les <m>k</m> premiers vecteurs sera dans <m>V</m> et l'autre partie dans <m>V^{\perp}</m>. Pour l'unicité, cela découle du fait que les vecteurs forment une base, puisqu'on aura <m>n</m> vecteurs indépendants dans <m>\mathbb{R}^n</m>. </p>
+    <p>Pour montrer l'indépendance des <m>n</m> vecteurs, on suppose qu'on connait une combinaison linéaire donnant le vecteur nul:
+    <me>
+    c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_k\vec{v}_k+c_{k+1}\vec{v}_{k+1}+c_{k+2}\vec{v}_{k+2},\ldots + c_n\vec{v}_n=\vec{0}
+    </me>.
+    On peut réécrire cette équation en séparant les vecteurs dans <m>V</m> et <m>V^{\perp}</m> pour avoir
+    <me>
+    c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_k\vec{v}_k=-(c_{k+1}\vec{v}_{k+1}+c_{k+2}\vec{v}_{k+2},\ldots + c_n\vec{v}_n)
+    </me>.
+    Comme le membre de droite s'écrit comme une combinaison linéaire de vecteurs dans <m>V</m> et que <m>V</m> est un sous-espace vectoriel, il faut que le membre de droite soit aussi dans <m>V</m>. Par contre le membre de droite est une combinaison linéaire de vecteurs dans <m>V^{\perp}</m> et donc doit aussi être dans <m>V^{\perp}</m>. Le seul vecteur commun à <m>V</m> et <m>V^{\perp}</m> est le vecteur nul. On a donc
+    <md>
+    <mrow>c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_k\vec{v}_k&amp;=\vec{0}</mrow>
+    <intertext>et</intertext>
+    <mrow>-(c_{k+1}\vec{v}_{k+1}+c_{k+2}\vec{v}_{k+2},\ldots + c_n\vec{v}_n)=&amp;0</mrow>
+    </md>.
+    Comme les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k</m> forment une base de <m>V</m>, il faut que les coefficients <m>c_1,c_2,\ldots ,c_n</m> soient tous égaux à zéro. De même, les vecteurs <m>\vec{v}_{k+1},\vec{v}_{k+2},\ldots, \vec{v}_n</m> formant une base de <m>V^{\perp}</m>, les coefficients <m>c_{k+1},c_{k+2},\ldots, c_n</m> sont aussi tous nuls.
+    </p>
+    </proof>
+    </proposition>
+    <example>
+    <title>Décomposition d'un vecteur selon des sous-espaces orthogonaux</title>
+    <statement><p>Afin d'illustrer la proposition <xref ref="prop-decomportho"/>, on décompose le vecteur <m>\vec{u}=(9,16,21,24)</m> en une composante provenant de <m>V=\vspan{(5,6,7,8),(0,-1,-2,-3)}</m> et son complément orthogonal.</p></statement>
+    <solution>
+    <p>On commence par trouver une base pour le complément orthogonal. Si on pose <me>
+    A=\begin{pmatrix}
+    5&amp;6&amp;7&amp;8\\
+    0&amp;-1&amp;-2&amp;-3
+    \end{pmatrix}
+    </me>, alors <m>V</m> correspond à l'espace ligne de cette matrice et son complément orthogonal est l'espace nul. On peut y trouver une base avec Sage.</p>
+    <sage>
+    <input>
+u=vector([9,16,21,24])
+v1=vector([5,6,7,8])
+v2=vector([0,-1,-2,-3])
+A=matrix(QQ,[v1,v2])
+v3=A.right_kernel(basis="pivot").basis()[0]
+v4=A.right_kernel(basis="pivot").basis()[1]
+show(v3,v4)
+    </input>
+    </sage>
+    <p>Donc, <m>V^{\perp}=\vspan((1, -2, 1, 0),(2, -3, 0, 1))</m>. Pour exprimer le vecteur <m >\vec{u}</m> en terme de la base générée par <m>V,V^{\perp}</m>, on met les quatre vecteurs dans une matrice colonne et on utilise Sage à nouveau pour échelonner la matrice augmentée du vecteur <m>\vec{u}</m>.</p>
+    <sage>
+    <input>
+B=column_matrix([v1,v2,v3,v4])
+Baug=B.augment(u,subdivide=True)
+show(Baug)
+show(Baug.rref())
+    </input>
+    </sage>
+    <p>Ainsi, le vecteur <m>\vec{u}</m> peut s'écrire comme
+    <me>
+    \vec{u}=2\vec{v}_1-3\vec{v}_2+\vec{v}_3-\vec{v}_4
+    </me>.
+    La composante de <m>\vec{u}</m> qui fait partie du sous-espace <m>V</m> est donc <m>2\vec{v}_1-3\vec{v}_2=(10, 15, 20, 25)</m> et la composante faisant partie du complément orthogonal est <m>\vec{v}_3-\vec{v}_4=(-1, 1, 1, -1)</m>.
+    </p>
+    </solution>
+    </example>
     </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
     
     <conclusion xml:id="concl-4esp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    
+    <p>Les points importants de cette section sont:
+    <ul>
+    <li><p>Comment obtenir une <xref ref="prop-baseesplignenul" text="custom">base pour l'espace ligne et l'espace nul</xref>.</p></li>
+    <li><p>Comment obtenir une <xref ref="prop-baseespcolnulg" text="custom">base pour l'espace colonne et l'espace nul-gauche</xref>.</p></li>
+    <li><p>La <xref ref="prop-dim4esp" text="custom">dimension des quatre espaces fondamentaux</xref> et le lien avec le rang de la matrice.</p></li>
+    <li><p>Le <xref ref="thm-fondalg" text="title"/>.</p></li>
+    </ul>
+    </p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
+     <xi:include href="Exercices_quatreespaces.xml"/>
 </section>
 <!-- Exercice pour démontrer <xref ref="lem-NRT"/>-->
+<!-- Exercice sage pour obtenir la base de l'espace colonne avec la fonction pivots -->
