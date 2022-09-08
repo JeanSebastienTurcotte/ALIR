@@ -533,6 +533,31 @@ a^{2} + b^{2} &amp; 0 \\
     </p></solution>
     </task>
     </exercise>
+<exercise xml:id="exo-rang1decomp">
+<statement><p>Montrer que si <m>A </m> est une matrice de rang <m>1</m> de taille <m>m\times n</m>, alors il existe des vecteurs non nul <m>\vec{u}\in\mathbb{R}^m,\vec{v}\in\mathbb{R}^n</m> tels que <m>A=\vec{u}\vec{v}^T</m>.</p>
+<p>On a utilisé cette propriété à l'exercice <xref ref="exo-rang1"/>.</p>
+</statement>
+<hint><p>À quoi ressemble les lignes d'une matrice de la forme <m>\vec{u}\vec{v}^T</m>?</p></hint>
+<solution><p>
+ On pose <m>\vec{v}^T=(a_{1,1},a_{1,2},\ldots , a_{1,n})</m> la première ligne non nulle de <m>A</m>. Par simplicité, on suppose que c'est la première ligne. Soit <m>\vec{a}_1,\vec{a}_2,\ldots \vec{a}_m</m> les lignes de la matrice <m>A</m>. Si la matrice <m>A</m> est de rang <m>1</m>, alors toute ses lignes sont parallèles. Il existe donc <m>c_2,c_3,\ldots ,c_m</m> tels que <m>\vec{a}_2=c_2\vec{a_1},\vec{a}_3=c_3\vec{a_1},\ldots ,\vec{a}_m=c_m\vec{a_1}</m>. On pose <m>\vec{u}=(1,c_2,c_3,\ldots, c_m)</m>. On a alors
+ <md>
+ <mrow>\vec{u}\vec{v}^T&amp;\begin{pmatrix}1\\c_2\\ \vdots \\ c_m\end{pmatrix}(a_{1,1},a_{1,2},\ldots , a_{1,n})</mrow>
+ <mrow number="yes" xml:id="eq-rang1mat">&amp;=\begin{pmatrix}
+ a_{1,1}&amp;a_{1,2}&amp;\ldots &amp; a_{1,n}\\
+ c_2a_{1,1}&amp;c_2a_{1,2}&amp;\ldots &amp; c_2a_{1,n}\\
+ \vdots    &amp; \vdots &amp; \ddots &amp; \vdots\\
+ c_ma_{1,1}&amp;c_ma_{1,2}&amp;\ldots &amp; c_ma_{1,n}
+ \end{pmatrix}</mrow>
+ <mrow>&amp;=\begin{pmatrix}
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
+    \vdots &amp; \vdots &amp; \vdots \\
+     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_m &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} 
+\end{pmatrix}</mrow>
+<mrow>&amp;=A</mrow>
+ </md>
+</p></solution>
+</exercise>
     <exercise><introduction><p>On considère les matrices de permutation  définies à l'exercice <xref ref="exo-matpermudef"/>.</p></introduction>
     <task><statement><p>Montrer que si <m>P</m> est une matrice de permutation <m>2\times 2</m>, alors <m>P^T=P^{-1}</m>.</p></statement>
     <solution><p>Il y a deux cas à vérfier. Le premier est <m>P_1=\begin{pmatrix} 1&amp;0\\0&amp;1</m>, la matrice identité. On vérifie facilement que <m>P_1^T=P_1=P_1^{-1}</m>. Le deuxième cas est

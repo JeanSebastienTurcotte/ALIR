@@ -8,24 +8,820 @@
 <!-- CC-BY-4.0                                                              -->
 <!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
 
-<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-4esp">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>
-    <!-- 
-   <exercise xml:id="exo-nom">
-    <introduction>
-    <p>L'énoncé de l'exercice.</p>
-    </introduction>
+    <exercise xml:id="exo-base4esp">
+    <introduction><p>Pour chaque matrice ci-dessous, déterminer une base pour les quatre espaces fondamentaux.</p></introduction>
     <task>
-            <statement>
-                <p>La première lettre de la question.</p>
-            </statement>
-            <answer>
-                <p> La réponse suivra. </p>
-            </answer>
-            <solution>
-                <p> La solution suivra. </p>
-            </solution>
+    <statement>
+    <p><m>A=\begin{pmatrix}
+    1&amp; -2\\
+    3&amp; -6
+    \end{pmatrix}</m></p>
+    </statement>
+    <answer><p>Les réponses peuvent varier.
+    <ul>
+    <li><p><m>\mathcal{L}(A)=\vspan((1,-2))</m></p></li>
+    <li><p><m>\mathcal{C}(A)=\vspan((1,3))</m></p></li>
+    <li><p><m>\mathcal{N}(A)=\vspan((2,1))</m></p></li>
+    <li><p><m>\mathcal{N}(A^T)=\vspan((-3,1))</m></p></li>
+    </ul>
+    </p></answer>
+    <solution>
+    <p>On peut remarquer que les deux lignes de la matrices sont parallèles. Ceci signifie que l'espace ligne (et donc aussi l'espace colonne) seront de dimension <m>1</m>. De même, la dimension de l'espace nul et de l'espace nul-gauche sera aussi 1. Pour l'espace ligne, on peut prendre n'importe quelle ligne de la matrice : <m>\mathcal{L}(A)=\vspan((1,-2))</m>. Similairement, l'espace colonne est engendré par le vecteur <m>(1,3)</m>. Pour l'espace nul, on utilise le fait que celui-ci est orthogonal à l'espace ligne. Le vecteur <m>(2,1)</m> engendre l'espace nul. De même, l'espace nul-gauche est orthogonal à l'espace colonne. Il sera engendré par <m>(-3,1)</m>.</p>
+    </solution>
+    </task>
+    <task>
+    <statement>
+    <p><m>B=\begin{pmatrix}
+    1&amp; -2\\
+    4&amp; -6
+    \end{pmatrix}</m></p>
+    </statement>
+<answer><p>Les réponses peuvent varier.
+    <ul>
+    <li><p><m>\mathcal{L}(B)=\vspan((1,0),(0,1))</m></p></li>
+    <li><p><m>\mathcal{C}(B)=\vspan((1,0),(0,1))</m></p></li>
+    <li><p><m>\mathcal{N}(B)</m>: Aucune base.</p></li>
+    <li><p><m>\mathcal{N}(B^T)</m>: Aucune base.</p></li>
+    </ul>
+    </p></answer>
+    <solution>
+    <p>On remarque (par le déterminant par exemple) que la matrice est inversible. Cela signifie que l'espace nul sera composé du vecteur nul uniquement et que les espaces ligne et colonne auront dimension <m>2</m> et seront donc <m>\R^2</m> au complet. On a alors <m>\mathcal{L}(A)=\vspan((1,0),(0,1))</m> et <m>\mathcal{C}(A)=\vspan((1,0),(0,1))</m>. Il n'existe pas de base pour le sous-espace ne contenant que le vecteur nul.</p>
+    </solution>
+    </task>
+    <task>
+    <statement>
+    <p><m>C=\begin{pmatrix}
+    1&amp; -2&amp; 2\\
+    3&amp; -6&amp; 6 \\
+    -1&amp; 2&amp; -2
+    \end{pmatrix}</m></p>
+    </statement>
+    <answer>
+<p>Les réponses peuvent varier.
+    <ul>
+    <li><p><m>\mathcal{L}(C)=\vspan((1,-2,2))</m></p></li>
+    <li><p><m>\mathcal{C}(C)=\vspan((1,3,-1))</m></p></li>
+    <li><p><m>\mathcal{N}(C)=\vspan((2,1,0),(-2,0,1))</m></p></li>
+    <li><p><m>\mathcal{N}(C^T)=\vspan((1,0,1),(0,1,3))</m></p></li>
+    </ul>
+    </p>    
+    </answer>
+    <solution><p>On utilise Sage pour échelonner la matrice et déterminer les bases à l'aide des propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>. On utilise la commande <c>echelon_form(transformation=True)</c>, car celle-ci retourne la matrice <m>E</m> obtenue de la multiplication des matrices élémentaires <m>EC=R</m>.</p>
+    <sage>
+    <input>
+C=matrix([[1,-2,2],[3,-6,6],[-1,2,-2]])
+show(C)
+show(C.echelon_form(transformation=True))   
+    </input>
+    </sage>
+    <p>L'espace ligne est engendré par <m>(1,-2,2)</m>, l'espace nul par les vecteurs obtenus des solutions de base: <m>(2,1,0),(-2,0,1)</m>. L'espace colonne est engendré par <m>(1,3,-1)</m> et l'espace nul-gauche par <m>(1,0,1)</m> et <m>(0,1,3)</m>.</p>
+    </solution>
+    </task>
+        <task>
+    <statement>
+    <p><m>D=\begin{pmatrix}
+    1&amp; 0&amp; 1\\
+    3&amp; 1&amp; 6 \\
+    -1&amp; 3&amp; 8
+    \end{pmatrix}</m></p>
+    </statement>
+     <answer>
+<p>Les réponses peuvent varier.
+    <ul>
+    <li><p><m>\mathcal{L}(D)=\vspan((1,0,1),(0,1,3))</m></p></li>
+    <li><p><m>\mathcal{C}(D)=\vspan((1,3,-1),(0,1,3))</m></p></li>
+    <li><p><m>\mathcal{N}(D)=\vspan((-1,-3,1))</m></p></li>
+    <li><p><m>\mathcal{N}(D^T)=\vspan((10,-3,1))</m></p></li>
+    </ul>
+    </p>    
+    </answer>   
+    <solution><p>On utilise Sage pour échelonner la matrice et déterminer les bases à l'aide des propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>. On utilise la commande <c>echelon_form(transformation=True)</c>, car celle-ci retourne la matrice <m>E</m> obtenue de la multiplication des matrices élémentaires <m>ED=R</m>.</p>
+    <sage>
+    <input>
+D=matrix([[1,0,1],[3,1,6],[-1,3,8]])
+show(D)
+show(D.echelon_form(transformation=True)) 
+    </input>
+    </sage>
+    <p>L'espace ligne est engendré par <m>(1,0,1)</m> et <m>(0,1,3)</m>, l'espace nul par le vecteur obtenu des solutions de base: <m>(-1,-3,1)</m>. L'espace colonne est engendré par <m>(1,3,-1)</m> et <m>(0,1,3)</m> et l'espace nul-gauche par <m>(10,-3,1)</m>.</p>
+    </solution>
+    </task>
+            <task>
+    <statement>
+    <p><m>F=\begin{pmatrix}
+5 &amp; -4 &amp; -4 &amp; 4 \\
+-15 &amp; 12 &amp; 12 &amp; -12 \\
+25 &amp; -20 &amp; -20 &amp; 20 \\
+15 &amp; -12 &amp; -12 &amp; 12
+    \end{pmatrix}</m></p>
+    </statement>
+    <answer>
+<p>Les réponses peuvent varier.
+    <ul>
+    <li><p><m>\mathcal{L}(F)=\vspan((5,-4,-4,4))</m></p></li>
+    <li><p><m>\mathcal{C}(F)=\vspan((5,-15,25,15))</m></p></li>
+    <li><p><m>\mathcal{N}(F)=\vspan((4/5,1,0,0),(4/5,0,1,0),(-4/5,0,0,1))</m></p></li>
+    <li><p><m>\mathcal{N}(F^T)=\vspan((1,0,1,-2),(0,1,0,1),(0,0,3,-5))</m></p></li>
+    </ul>
+    </p>  
+    </answer>
+    <solution>
+<p>On utilise Sage pour échelonner la matrice et déterminer les bases à l'aide des propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>. On utilise la commande <c>echelon_form(transformation=True)</c>, car celle-ci retourne la matrice <m>E</m> obtenue de la multiplication des matrices élémentaires <m>EC=R</m>. À noter que cette commande n'échelonne pas jusqu'au bout, elle n'utilise pas de divisions. On peut aussi faire apparaitre la forme échelonnée réduite.</p>
+    <sage>
+    <input>
+F=matrix([[5,-4,-4,4],[-15,12,12,-12],[25,-20,-20,20],[15,-12,-12,12]])
+show(F)
+show(F.echelon_form(transformation=True))
+show(F.rref())
+    </input>
+    </sage>
+     <p>L'espace ligne est engendré par <m>(5,-4,-4,4)</m>, l'espace nul par les vecteurs obtenus des solutions de base: <m>(4/5,1,0,0),(4/5,0,1,0),(-4/5,0,0,1)</m>. L'espace colonne est engendré par <m>(5,-15,25,15)</m> et l'espace nul-gauche par <m>(1,0,1,-2),(0,1,0,1)</m> et <m>(0,0,3,-5)</m>.</p>
+    </solution>
+    </task>
+            <task>
+    <statement>
+    <p><m>G=\begin{pmatrix}
+-5 &amp; 6 &amp; -3 &amp; 9 \\
+3 &amp; 3 &amp; 5 &amp; -8 \\
+    \end{pmatrix}</m></p>
+    </statement>
+    <answer>
+    <p>Les réponses peuvent varier.
+    <ul>
+    <li><p><m>\mathcal{L}(G)=\vspan((1,12,7,-7),(0,33,16,-13))</m></p></li>
+    <li><p><m>\mathcal{C}(G)=\vspan((-5,3),(6,3))</m></p></li>
+    <li><p><m>\mathcal{N}(G)=\vspan((-13/11,-16/33,1,0),(25/11,13/33,0,1))</m></p></li>
+    <li><p><m>\mathcal{N}(G^T)=\{\vec{0}\}</m>, aucune base.</p></li>
+    </ul>
+    </p>  
+    </answer>
+    <solution>
+<p>On utilise Sage pour échelonner la matrice et déterminer les bases à l'aide des propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>. On utilise la commande <c>echelon_form(transformation=True)</c>, car celle-ci retourne la matrice <m>E</m> obtenue de la multiplication des matrices élémentaires <m>EC=R</m>. À noter que cette commande n'échelonne pas jusqu'au bout, elle n'utilise pas de divisions. On peut aussi faire apparaitre la forme échelonnée réduite.</p>
+    <sage>
+    <input>
+G=matrix([[-5,6,-3,9],[3,3,5,-8]])
+show(G)
+show(G.echelon_form(transformation=True))
+show(G.rref())
+    </input>
+    </sage>
+    <p>L'espace ligne est engendré par <m>(1,12,7,-7),(0,33,16,-13)</m> et l'espace nul par les vecteurs obtenus des solutions de base: <m>(-13/11,-16/33,1,0),(25/11,13/33,0,1)</m>. L'espace colonne est engendrée par <m>(-5,3),(6,3)</m> et l'espace nul-gauche n'est composé que du vecteur nul et ne possède pas de base.</p>
+    </solution>
+    </task>
+            <task>
+    <statement>
+    <p><m>H=\begin{pmatrix}
+0 &amp; 5  \\
+0 &amp; -4 \\
+0 &amp; 6  \\
+0 &amp; 0
+    \end{pmatrix}</m></p>
+    </statement>
+    <answer>
+    <p>Les réponses peuvent varier.
+    <ul>
+    <li><p><m>\mathcal{L}(H)=\vspan((0,1))</m></p></li>
+    <li><p><m>\mathcal{C}(H)=\vspan((5,-4,6,0))</m></p></li>
+    <li><p><m>\mathcal{N}(H)=\vspan((1,0))</m></p></li>
+    <li><p><m>\mathcal{N}(H^T)=\vspan((2,1,-1,0),(0,3,2,0),(0,0,0,1))</m></p></li>
+    </ul>
+    </p>  
+    </answer>
+<solution>
+<p>On utilise Sage pour échelonner la matrice et déterminer les bases à l'aide des propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>. On utilise la commande <c>echelon_form(transformation=True)</c>, car celle-ci retourne la matrice <m>E</m> obtenue de la multiplication des matrices élémentaires <m>EC=R</m>. À noter que cette commande n'échelonne pas jusqu'au bout, elle n'utilise pas de divisions. On peut aussi faire apparaitre la forme échelonnée réduite.</p>
+    <sage>
+    <input>
+H=column_matrix([[0,0,0,0],[5,-4,6,0]])
+show(H)
+show(H.echelon_form(transformation=True))
+show(H.rref())
+    </input>
+    </sage>
+    <p>L'espace ligne est engendré par <m>(0,1)</m> et l'espace nul par le vecteur obtenu des solutions de base: <m>(1,0)</m>. L'espace colonne est engendrée par <m>(5,-4,6,0)</m> et l'espace nul-gauche est engendré par <m>(2,1,-1,0),(0,3,2,0),(0,0,0,1)</m>.</p>
+    </solution>
+    </task>
+            <task>
+    <statement>
+    <p><m>J=\begin{pmatrix}
+0 &amp; -13 &amp; -10  \\
+0 &amp; -10 &amp; -25  \\
+0 &amp; -7 &amp; 5  \\
+0 &amp; -2 &amp; -5 
+    \end{pmatrix}</m></p>
+    </statement>
+    <answer>
+    <p>Les réponses peuvent varier.
+    <ul>
+    <li><p><m>\mathcal{L}(J)=\vspan((0,1,0),(0,0,1))</m></p></li>
+    <li><p><m>\mathcal{C}(J)=\vspan((-13,-10,-7,-2),(-10,-25,5,-5))</m></p></li>
+    <li><p><m>\mathcal{N}(J)=\vspan((1,-1,-1))</m></p></li>
+    <li><p><m>\mathcal{N}(J^T)=\vspan((1,0,-1,-3),(0,1,0,-5))</m></p></li>
+    </ul>
+    </p>  
+    </answer>
+<solution>
+<p>On utilise Sage pour échelonner la matrice et déterminer les bases à l'aide des propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>. On utilise la commande <c>echelon_form(transformation=True)</c>, car celle-ci retourne la matrice <m>E</m> obtenue de la multiplication des matrices élémentaires <m>EC=R</m>. À noter que cette commande n'échelonne pas jusqu'au bout, elle n'utilise pas de divisions. On peut aussi faire apparaitre la forme échelonnée réduite.</p>
+    <sage>
+    <input>
+J=column_matrix([[0,-0,-0,0],[-13,-10,-7,-2],[-10,-25,5,-5]])
+show(J)
+show(J.echelon_form(transformation=True))
+show(J.rref())
+    </input>
+    </sage>
+    <p>L'espace ligne est engendré par <m>(0,1,0),(0,0,1)</m> et l'espace nul par le vecteur obtenu des solutions de base: <m>(1,-1,-1)</m>. L'espace colonne est engendrée par <m>(-13,-10,-7,-2),(-10,-25,5,-5)</m> et l'espace nul-gauche est engendré par <m>(1,0,-1,-3),(0,1,0,-5)</m>.</p>
+    </solution>
+    </task>
+        <task>
+    <statement>
+    <p><m>K=\begin{pmatrix}
+10 &amp; 12 &amp; -19 &amp; 4 \\
+-10 &amp; -4 &amp; -9 &amp; -8 \\
+0 &amp; 5 &amp; -3 &amp; 1 \\
+10 &amp; 3 &amp; -2 &amp; 5
+    \end{pmatrix}</m></p>
+    </statement>
+     <answer>
+<p>Les réponses peuvent varier.
+    <ul>
+    <li><p><m>\mathcal{L}(K)=\vspan((1,0,23/10,10/23),(0,1,11,3),(0,0,1,7/29))</m></p></li>
+    <li><p><m>\mathcal{C}(K)=\vspan((10,-10,0,10),(12,-4,5,3),(-19,-9,-3,-2))</m></p></li>
+    <li><p><m>\mathcal{N}(K)=\vspan((-129/200,-10/29,-7/29,1))</m></p></li>
+    <li><p><m>\mathcal{N}(K^T)=\vspan((1,-1,-2,-2))</m></p></li>
+    </ul>
+    </p>    
+    </answer>     
+    <solution><p>On utilise Sage pour échelonner la matrice et déterminer les bases à l'aide des propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>. On utilise la commande <c>echelon_form(transformation=True)</c>, car celle-ci retourne la matrice <m>E</m> obtenue de la multiplication des matrices élémentaires <m>EK=R</m>. À noter que cette commande n'échelonne pas jusqu'au bout, elle n'utilise pas de divisions. On peut aussi faire apparaitre la forme échelonnée réduite.</p>
+    <sage>
+    <input>
+K=matrix([[10,12,-19,4],[-10,-4,-9,-8],[0,5,-3,1],[10,3,-2,5]])
+show(K)
+show(K.echelon_form(transformation=True))
+show(K.rref())
+    </input>
+    </sage>
+    <p>L'espace ligne est engendré par <m>(1,0,23/10,10/23)</m>,<m>(0,1,11,3)</m> et <m>(0,0,1,7/29)</m>, l'espace nul par le vecteur obtenu des solutions de base: <m>(-129/200,-10/29,-7/29,1)</m>. L'espace colonne est engendré par <m>(10,-10,0,10)</m>,<m>(12,-4,5,3)</m> et <m>(-19,-9,-3,-2)</m> et l'espace nul-gauche par <m>(1,-1,-2,-2)</m>.</p>
+    </solution>
     </task>
     </exercise>
-    -->
+    <exercise>
+    <introduction><p>Donner la dimension des quatre espaces fondamentaux d'une matrice ayant les caractéristiques suivantes, ou dire pourquoi une dimension ne peut être donnée.</p></introduction>
+    <task>
+    <statement><p>La matrice <m>A</m> est de taille <m>4\times 7</m> et son rang  est <m>2</m>;</p></statement>
+    <answer>
+    <p>
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(A))=2</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{C}(A))=2</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(A))=5</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(A^T))=2</m></p></li>
+    </ul>
+    </p>
+    </answer>
+    <solution><p>Selon le <xref ref="thm-fondalg" text="title"/>, les dimensions de l'espace ligne et de l'espace nul s'additionnent pour donner le nombre de colonnes de la matrice et les dimensions de l'espace colonne et de l'espace nul-gauche s'additionnent pour donner le nombre de lignes de la matrice. La dimension de l'espace ligne et de l'espace colonne correspond toujours au rang de la matrice. On a donc
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(A))=2</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{C}(A))=2</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(A))=7-2=5</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(A^T))=4-2=2</m>.</p></li>
+    </ul>
+    </p></solution>
+    </task>
+    <task>
+    <statement><p>La matrice <m>B</m> est de taille <m>5\times 5</m> et est inversible;</p></statement>
+    <answer>
+    <p>
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(B))=5</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{C}(B))=5</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(B))=0</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(B^T))=0</m></p></li>
+    </ul>
+    </p>
+    </answer>
+    <solution><p>Selon le <xref ref="thm-fondalg" text="title"/>, les dimensions de l'espace ligne et de l'espace nul s'additionnent pour donner le nombre de colonnes de la matrice et les dimensions de l'espace colonne et de l'espace nul-gauche s'additionnent pour donner le nombre de lignes de la matrice. De plus, selon le théorème <xref ref="thm-delamatriceinversev5"/>, une matrice inversible est de rang maximal. La dimension de l'espace ligne et de l'espace colonne correspond toujours au rang de la matrice. On a donc
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(B))=5</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{C}(B))=5</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(B))=5-5=0</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(B^T))=5-5=0</m>.</p></li>
+    </ul>
+    </p></solution>
+    </task>
+    <task>
+    <statement><p>La matrice <m>C</m> est de taille <m>3\times 5</m>. Les trois premières colonnes sont, dans l'ordre, les vecteurs <m>(1,0,0),(0,1,0),(0,0,1)</m> et les deux dernières colonnes sont nulles.</p></statement>
+    <answer>
+    <p>
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(C))=3</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{C}(C))=3</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(C))=0</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(C^T))=2</m></p></li>
+    </ul>
+    </p>
+    </answer>
+    <solution><p>Selon le <xref ref="thm-fondalg" text="title"/>, les dimensions de l'espace ligne et de l'espace nul s'additionnent pour donner le nombre de colonnes de la matrice et les dimensions de l'espace colonne et de l'espace nul-gauche s'additionnent pour donner le nombre de lignes de la matrice. La dimension de l'espace ligne et de l'espace colonne correspond toujours au rang de la matrice. Comme chaque ligne contient un pivot, la matrice est de rang 3. On a donc
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(C))=3</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{C}(C))=3</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(C))=3-3=0</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(C^T))=5-3=2</m>.</p></li>
+    </ul>
+    </p></solution>
+    </task>
+    <task>
+    <statement><p>La matrice <m>D</m> est de taille <m>5\times 6</m>. Les trois premières colonnes sont, dans l'ordre, les vecteurs <m>(1,0,0,0,0),(0,1,0,0,0),(0,0,1,0,0)</m> et les trois dernières colonnes une copie des trois premières, dans le même ordre.</p></statement>
+    <answer>
+    <p>
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(D))=3</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{C}(D))=3</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(D))=2</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(D^T))=3</m></p></li>
+    </ul>
+    </p>
+    </answer>
+    <solution><p>Selon le <xref ref="thm-fondalg" text="title"/>, les dimensions de l'espace ligne et de l'espace nul s'additionnent pour donner le nombre de colonnes de la matrice et les dimensions de l'espace colonne et de l'espace nul-gauche s'additionnent pour donner le nombre de lignes de la matrice. La dimension de l'espace ligne et de l'espace colonne correspond toujours au rang de la matrice. Comme les trois premières lignes contiennent un pivot, la matrice est de rang 3. On a donc
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(D))=3</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{C}(D))=3</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(D))=5-3=0</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(D^T))=6-3=2</m>.</p></li>
+    </ul>
+    </p></solution>
+    </task>
+    <task>
+    <statement><p>La matrice <m>E</m> est de taille <m>3\times 3</m> et toutes les solutions à l'équation <m>A\vec{x}=\vec{0}</m>sont parallèles au vecteur <m>\vec{u}=\vec{1,2,3}</m>.</p></statement>
+    <answer>
+    <p>
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(E))=2</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{C}(E))=2</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(E))=1</m></p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(E^T))=1</m></p></li>
+    </ul>
+    </p>
+    </answer>
+    <solution><p>Selon le <xref ref="thm-fondalg" text="title"/>, les dimensions de l'espace ligne et de l'espace nul s'additionnent pour donner le nombre de colonnes de la matrice et les dimensions de l'espace colonne et de l'espace nul-gauche s'additionnent pour donner le nombre de lignes de la matrice. De plus, la dimension de l'espace ligne est toujours la même que celle de l'espace colonne. Comme les solutions à l'espace nul sont sur une ligne, la dimension de l'espace nul est <m>1</m>.
+    <ul>
+    <li><p><m>\text{dim}(\mathcal{L}(E))=3-1</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{C}(E))=2</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(E))=1</m>;</p></li>
+    <li><p><m>\text{dim}(\mathcal{N}(E^T))=3-2=1</m>.</p></li>
+    </ul>
+    </p></solution>
+    </task>
+    </exercise>
+<exercise><introduction>
+<p>On considère la matrice <me>A=\begin{pmatrix}1&amp; 1&amp; 0&amp; -1\\ 1&amp; -2&amp;1&amp; -1\\ 0&amp;1&amp;-1&amp;3 \end{pmatrix}</me>.
+Pour chaque situation ci-dessous, donner une matrice de format demandé respectant la condition ou dire pourquoi une telle matrice n'existe pas.
+</p>
+</introduction>
+<task>
+<statement>
+<p>Donner une matrice <m>B</m> de taille <m>4\times 5</m> telle que <m>\mathcal{C}(B)=\mathcal{L}(A)</m>.</p>
+</statement>
+<answer><p>Les réponses peuvent varier. Voici une solution: <m>B=\begin{pmatrix}
+1&amp;0&amp;0&amp;1&amp;0\\
+0&amp;1&amp;0&amp;1&amp;1\\
+0&amp;0&amp;1&amp;0&amp;1\\
+\frac{1}{2}&amp;-\frac{3}{2}&amp;-\frac{9}{2}&amp;-1&amp;-6
+\end{pmatrix}</m></p></answer>
+<solution><p>On commence par déterminer l'espace ligne de la matrice <m>A</m> en l'échelonnant.</p>
+<sage>
+<input>
+A=matrix([[1, 1, 0, -1],[ 1, -2,1,-1],[0,1,-1,3]])
+show("rref(A)=",A.rref())
+</input>
+</sage>
+<p>L'espace ligne est donc à trois dimension et engendré par les vecteurs <m>(1,0,0,1/2),(0,1,0,-3/2),(0,0,1,-9/2)</m>. Pour avoir une matrice de format <m>4\times 5</m> qui produira un espace colonne égal à l'espace ligne de <m>A</m>, on peut prendre une matrice <m>B</m> dont 3 des colonnes sont les vecteurs ci-dessus et les deux autres colonnes sont des combinaisons linéaires de ces mêmes vecteurs. Un exemple serait
+<me>
+B=\begin{pmatrix}
+1&amp;0&amp;0&amp;1&amp;0\\
+0&amp;1&amp;0&amp;1&amp;1\\
+0&amp;0&amp;1&amp;0&amp;1\\
+\frac{1}{2}&amp;-\frac{3}{2}&amp;-\frac{9}{2}&amp;-1&amp;-6
+\end{pmatrix}
+</me></p>
+</solution>
+</task>
+<task>
+<statement>
+<p>Donner une matrice <m>C</m> de taille <m>2\times 4</m> telle que <m>\mathcal{L}(C)=\mathcal{L}(A)</m>.</p>
+</statement>
+<answer><p>Impossible</p></answer>
+<solution><p>C'est impossible, puisque l'espace ligne de la matrice <m>A</m> est de dimension <m>3</m>. La dimension de l'espace ligne d'une telle matrice <m>C</m> pourrait être au maximum <m>2</m>. </p></solution>
+</task>
+<task>
+<statement>
+<p>Donner une matrice <m>D</m> de taille <m>4\times 3</m> telle que <m>\mathcal{L}(D)=\mathcal{C}(A)</m>.</p>
+</statement>
+<answer><p><m>
+D=\begin{pmatrix}
+1&amp;1&amp;0\\
+1&amp;-2&amp;1\\
+0&amp;1&amp;-1\\
+2&amp;0&amp;0
+\end{pmatrix}
+</m></p></answer>
+<solution><p>En regardant les calculs Sage faits précédemment, on constate que l'espace colonne de la matrice <m>A</m> est généré par les trois premières colonnes. Pour créer la matrice <m>D</m> demandée, il suffit de mettre les trois premières colonnes de <m>A</m> comme lignes d'une matrice et d'ajouter une ligne qui est combinaison linéaire de ces trois premières lignes. Un exemple serait
+<me>
+D=\begin{pmatrix}
+1&amp;1&amp;0\\
+1&amp;-2&amp;1\\
+0&amp;1&amp;-1\\
+2&amp;0&amp;0
+\end{pmatrix}
+</me></p></solution>
+</task>
+<task>
+<statement>
+<p>Donner une matrice <m>E</m> de taille <m>5\times 5</m> telle que <m>\mathcal{L}(E)=\mathcal{C}(A)</m>.</p>
+</statement>
+<answer><p>Impossible</p></answer>
+<solution><p>L'espace colonne de la matrice <m>A</m> est un sous-espace vectoriel de <m>\mathbb{R}^3</m>. On ne peut l'obtenir à partir de vecteurs dans <m>\mathbb{R}^5</m>.</p></solution>
+</task>
+<task>
+<statement>
+<p>Donner une matrice <m>F</m> de taille <m>4\times 3</m> telle que <m>\mathcal{C}(F)=\mathcal{N}(A)</m>.</p>
+</statement>
+<answer><p><m>F=\begin{pmatrix}
+-\frac{1}{2}&amp;-\frac{1}{2}&amp;-\frac{1}{2}\\
+\frac{3}{2}&amp;\frac{3}{2}&amp;\frac{3}{2}\\
+\frac{9}{2}&amp;\frac{9}{2}&amp;\frac{9}{2}\\
+1&amp;1&amp;1\\
+\end{pmatrix}</m></p></answer>
+<solution><p>Toujours selon les calculs Sage précédents, le rang de la matrice <m>A</m> est <m>3</m>. Cela signifie que la dimension de l'espace nul sera égale à <m>1</m> selon le <xref ref="thm-fondalg" text="title"/>. On peut trouver une base de l'espace nul en regardant la <xref ref="def-solbase" text="custom">solution de base</xref> telle que définie à la section <xref ref="sec-SELgeo"/>. On trouve le vecteur <m>\left(-\frac{1}{2}, \frac{3}{2}, \frac{9}{2},1 \right)</m> comme générateur de l'espace nul. Pour satisfaire les conditions de taille de la matrice <m>F</m>, il suffit de copier ce vecteur ou de ses multiples dans trois colonnes d'une matrice <m>4\times 3</m>. Ainsi,
+<me>
+F=\begin{pmatrix}
+-\frac{1}{2}&amp;-\frac{1}{2}&amp;-\frac{1}{2}\\
+\frac{3}{2}&amp;\frac{3}{2}&amp;\frac{3}{2}\\
+\frac{9}{2}&amp;\frac{9}{2}&amp;\frac{9}{2}\\
+1&amp;1&amp;1\\
+\end{pmatrix}
+</me> fait l'affaire.</p></solution>
+</task>
+<task>
+<statement>
+<p>Donner une matrice <m>G</m> de taille <m>4\times 4</m> telle que <m>\mathcal{L}(G)=\mathcal{N}(A)</m>.</p>
+</statement>
+<answer><p><m>G=\begin{pmatrix}
+-\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
+-\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
+-\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
+-\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
+\end{pmatrix}</m></p></answer>
+<solution><p>L'espace nul de la matrice <m>A</m> est engendré par le vecteur <m>\left(-\frac{1}{2}, \frac{3}{2}, \frac{9}{2},1 \right)</m>. Pour obtenir une matrice <m>G</m> dont l'estpace ligne sera engendré par ce vecteur, il suffit de le mettre comme les quatre lignes d'une matrice. La matrice
+<me>
+G=\begin{pmatrix}
+-\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
+-\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
+-\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
+-\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
+\end{pmatrix}
+</me></p></solution>
+</task>
+</exercise>
+<exercise>
+<introduction>
+<p>Donner une base pour le complément orthogonal de chacun des ensembles de vecteurs suivants.</p>
+</introduction>
+<task>
+<statement><p><m>V_1=\vspan((5,-2,1,4),(3,-1,-1,2))</m>.</p></statement>
+<asnwer><p>Les réponses peuvent varier. Une possibilité est <m>\mathcal{B}=\langle(3,8,1,0),(0,2,0,1)\rangle</m>.</p></asnwer>
+<solution><p>On utilise le fait que les espaces ligne et nul sont orthogonaux et qu'on peut trouver assez facilement une base de ces espaces. En plaçant les deux vecteurs engendrant <m>V_1</m> dans les lignes d'une matrice, on pourra trouver une base de l'espace nul de cette matrice qui sera une base pour du complément orthogonal de <m>V_1</m>.</p>
+<sage>
+<input>
+v1=vector([5,-2,1,4])
+v2=vector([3,-1,-1,2])
+A=matrix([v1,v2])
+show("rref(A)=",A.rref())
+</input>
+</sage>
+<p>À partir de ce calcul, on peut trouver les solutions de base pour engendrer l'espace nul. On pose <m>\vec{u}_1=(3,8,1,0),\vec{u}_2=(0,2,0,1)</m>. Ces vecteurs forment une base de <m>V_1^{\perp}</m>.</p>
+</solution>
+</task>
+<task>
+<statement><p><m>V_2=\{\vec{x}\in \mathbb{R}^5~|~ x_1+x_3+x_5=0 \text{ et } x_2+x_4=0\}</m>.</p></statement>
+<answer><p><m>V_2^{\perp}=\vspan((1,0,1,0,1),(0,1,0,1,0))</m></p></answer>
+<solution><p>Soit 
+<me>
+B=\begin{pmatrix}
+1&amp;0&amp;1&amp;0&amp;1\\
+0&amp;1&amp;0&amp;1&amp;0
+\end{pmatrix}
+</me>
+la matrice pour laquelle le système <m>B\vec{x}=\vec{0}</m> correspond aux conditions caractéristiques du sous-espaces <m>V_2</m>. Par définition, les solutions à ce système correspondent à l'espace nul de la matrice <m>B</m> et donc, le sous-espace <m>V_2</m> est équivalent à l'espace nul de la matrice <m>B</m>. Le complément orthogonale de l'espace nul étant l'espace ligne, on conclut que <m>V_2^{\perp}=\vspan((1,0,1,0,1),(0,1,0,1,0))</m>, puisque la matrice <m>B</m> est déjà échelonnée réduite.
+</p></solution>
+</task>
+</exercise>        
+<exercise><introduction><p>À la proposition <xref ref="prop-baseexiste"/>, on a montré que tout espace vectoriel de dimension plus grande à <m>0</m> possédait une base. Voici un processus qui permet de compléter un ensemble de vecteurs indépendants afin de trouver une base d'un espace vectoriel de dimension connue.</p>
+</introduction>
+<task><p>On considère les vecteurs de <m>\mathbb{R}^5</m> suivants:
+<me>
+\vec{v}_1=\begin{pmatrix}
+0\\ 1\\ 2\\ 3\\ 4
+\end{pmatrix} \qquad \vec{v}_2=\begin{pmatrix}
+5\\ 6\\ 7\\ 8\\ 9
+\end{pmatrix} \qquad \vec{v}_3=\begin{pmatrix}
+-1\\ 2\\ -3\\ 4\\ -5
+\end{pmatrix} 
+</me>.
+L'idée est de créer une matrice dont l'espace colonne sera <m>\mathbb{R}^5</m> et dont les colonnes pivots donneront une base qui contiendra les vecteurs <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m>. Pour cela, on considère la matrice
+<me>
+\begin{pmatrix}
+0&amp; 5&amp; -1&amp; 1&amp;0&amp;0&amp;0&amp;0\\
+1&amp; 6&amp; 2&amp; 0&amp;1&amp;0&amp;0&amp;0\\
+2&amp; 7&amp; -3&amp; 0&amp;0&amp;1&amp;0&amp;0\\
+3&amp; 8&amp; 4&amp; 0&amp;0&amp;0&amp;1&amp;0\\
+4&amp; 9&amp; -5&amp; 0&amp;0&amp;0&amp;0&amp;1\\
+\end{pmatrix}
+</me>.
+Donner une base de <m>\mathbb{R}^5</m> contenant les vecteurs <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m>.
+</p>
+<answer>
+<p><m>\mathcal{B}=\langle (0, 1, 2, 3, 4), (5, 6, 7, 8, 9),(-1, 2, -3, 4, -5),(1,0,0,0,0),(0,1,0,0,0)\rangle</m></p>
+</answer>
+<solution>
+<p>Il faut échelonner la matrice afin de déterminer les colonnes pivots. On utilise Sage.</p>
+<sage>
+<input>
+A=column_matrix([[0,1,2,3,4],[5,6,7,8,9],[-1,2,-3,4,-5]]).augment(matrix.identity(5))
+show(A.rref())
+</input>
+</sage>
+<p>En ajoutant les vecteurs <m>(1,0,0,0,0),(0,1,0,0,0)</m> aux vecteurs <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m>, on obtient une base de <m>\mathbb{R}^5</m>.</p>
+</solution>
+</task>
+<task><statement><p>Répéter avec les vecteurs <me>
+\vec{w}_1=\begin{pmatrix}
+5\\ 4\\ 3\\ 2\\ 1
+\end{pmatrix} \qquad \vec{w}_2=\begin{pmatrix}
+6\\ 8\\ 9\\ 4\\ 2
+\end{pmatrix} \qquad \vec{w}_3=\begin{pmatrix}
+-11\\ -12\\ -13\\ -6\\ -3
+\end{pmatrix} 
+</me>.</p></statement>
+<solution>
+<p>Il faut échelonner la matrice contenant ces trois vecteurs dans les premières colonnes augmentée de l'identité afin de déterminer les colonnes pivots. On utilise Sage.</p>
+<sage>
+<input>
+A=column_matrix([[5,4,3,2,1],[6,8,9,4,2],[-11,-12,-13,-6,-3]]).augment(matrix.identity(5))
+show(A.rref())
+</input>
+</sage>
+<p>En ajoutant les vecteurs <m>(0,1,0,0,0)(0,0,0,1,0)</m> aux vecteurs <m>\vec{w}_1,\vec{w}_2,\vec{w}_3</m>, on obtient une base de <m>\mathbb{R}^5</m>.</p>
+</solution>
+</task>
+<task><statement><p>Expliquer pourquoi ce processus fonctionne pour former une base à partir de <m>k</m> vecteurs indépendants de <m>\mathbb{R}^n</m>.</p></statement>
+<solution>
+<p>En plaçant une copie de la matrice identité dans la matrice créée, on garantit que l'espace colonne de la matrice sera <m>\mathbb{R}^n</m>. Puisque les <m>k</m> vecteurs sont indépendants, on s'assure qu'ils seront des pivots dans la matrice en les plaçant au début de <m>A</m>.</p>
+</solution>
+</task>
+</exercise>
+<exercise xml:id="exo-NRT">
+<statement><p>Démontrer le lemme <xref ref="lem-NRT"/>.</p></statement>
+<solution><p>
+Si la matrice <m>R</m> est de rang <m>r</m>, alors l'espace nul-gauche est de dimension <m>m-r</m>. Il faut donc trouver <m>m-r</m> vecteurs indépendants qui font partie de l'espace nul-gauche pour produire une base, en vertu de la proposition <xref ref="prop-ensemblevecetdim"/>. Les vecteurs <m>\vec{e}_{r+1},\vec{e}_{r+2},\ldots , \vec{e}_m</m> sont indépendants puisqu'ils font partie de la base standard de <m>\mathbb{R}^m</m>. Si on vérifie qu'ils sont dans l'espace nul-gauche de <m>R</m>, alors il sera démontré qu'ils forment une base. On considère le produit matrice vecteur <m>R^T\vec{e}_i</m> pour des valeurs de <m>i</m> allant de <m>r+1</m> à <m>m</m>. Puisque par définition <m>R</m> est une matrice échelonnée réduite de rang <m>r</m>, ses <m>m-r</m> dernières lignes sont nulles. Cela signifie que les <m>m-r</m> dernières colonnes de <m>R^T</m> sont aussi nulles. Or lorsqu'on multiplie une matrice par un vecteur de la forme <m>\vec{e}_i</m>, on obtient la colonne <m>i</m> de la matrice. Ainsi, tous les produits matrice vecteur <m>R^T\vec{e}_i</m> pour des valeurs de <m>i</m> allant de <m>r+1</m> à <m>m</m> valent <m>\vec{0}</m>. Ces vecteurs sont tous dans l'espace nul-gauche.
+</p></solution>
+</exercise>
+<exercise><statement><p>À l'exercice <xref ref="exo-rang1decomp"/>, on a montré qu'une matrice <m>A</m> de rang <m>1</m> peut s'écrire comme <m>A=\vec{u}\vec{v}^T</m>. À quoi correspondent les quatre espaces fondamentaux d'une telle matrice en fonction des vecteurs <m>\vec{u},\vec{v}</m>?</p></statement>
+<solution><p>Selon la démonstration de l'exercice <xref ref="exo-rang1decomp"/>, on a construit le vecteur <m>\vec{v}</m> afin qu'il représente la première ligne non nulle de la matrice <m>A</m>. Puisque <m>A</m> est de rang <m>1</m>, toutes les lignes sont parallèles à <m>\vec{v}</m>. On peut alors conclure que <m>\mathcal{L}(A)=\vspan(\vec{v})</m>.</p>
+<p>En regardant l'équation <xref ref="eq-rang1mat"/>, on constate que les colonnes de <m>A</m> sont toutes multiple du vecteur <m>\vec{u}</m>. Il suit alors que <m>\mathcal{C}(A)=\vspan{u}</m>.</p>
+<p>En vertu du théoreme <xref ref="thm-fondalg"/>, on conclut que <m>\mathcal{N}(A)=(\vspan(\vec{v}))^T</m> et que <m>\mathcal{N}(A^T)=(\vspan(\vec{u}))^T</m>. </p>
+</solution>
+</exercise>
+<exercise>
+<introduction><p>Soit <m>A=\begin{pmatrix} 1&amp;0&amp; 1\\
+                                        -1&amp;1&amp; 0\end{pmatrix}</m>. Selon la proposition <xref ref="prop-decomportho"/>, il est possible de décomposer tout vecteur de <m>\mathbb{R}^3</m> comme la somme d'un vecteur de <m>\mathcal{L}(A)</m> et d'un vecteur de <m>\mathcal{N}(A)</m>.</p></introduction>
+<task><statement><p>Décomposer le vecteur <m>(0,1,1)</m> de cette manière.</p></statement>
+<answer><p><m>(0,1,1)=(0,1,1)+(0,0,0)</m></p></answer>
+<solution><p>Le vecteur <m>(0,1,1)</m> est déjà dans l'espace ligne puisque <m>(1,0,1)+(-1,1,0)=(0,1,1)</m>. On prend donc ce vecteur dans l'espace ligne et le vecteur nul dans l'espace nul.</p></solution>
+</task>
+<task><statement><p>Décomposer le vecteur <m>\vec{w}=(1,0,1)\times (-1,1,0)</m> de cette manière.</p></statement>
+<answer><p><m>\vec{w}=(0,0,0)+(-1, -1, 1)</m></p></answer>
+<solution><p>Dans un premier temps, on calcule le vecteur <m>\vec{w}</m>. Selon l'équation <xref ref="eq-prodvecdet2x2"/>, le produit vectoriel des lignes de <m>A</m> est
+<me>
+\vec{x}=\left(\begin{vmatrix} 0&amp; 1\\ 1&amp;0 \end{vmatrix},-\begin{vmatrix} 1&amp; -1\\ 1&amp;0 \end{vmatrix},\begin{vmatrix} 1&amp; -1\\ 0&amp;1 \end{vmatrix}\right)=(-1,-1,1)
+</me>. Puisque ce vecteur est perpendiculaire aux lignes de <m>A</m> (par définition du produit vectoriel), on conclut que le vecteur <m>(-1,-1,1)</m> est dans l'espace nul de <m>A</m>. On prend donc le vecteur nul comme élément de l'espace ligne pour écrire <m>(-1,-1,1)=(0,0,0)+(-1,-1,1)</m></p></solution>
+</task>
+<task><statement><p>Décomposer le vecteur <m>(1,1,1)</m> de cette manière.</p></statement>
+<answer><p><m>(1,1,1)=\frac{2}{3}(1,1,2)-\frac{1}{3}(-1,-1,1)</m></p></answer>
+<solution><p>La question est équivalente à décomposer le vecteur <m>(1,1,1)</m> dans la base de <m>\mathbb{R}^3</m> donnée par les vecteurs <m>(1,0,1),(-1,1,0)</m> (les lignes de la matrice <m>A</m>) et le vecteur <m>(-1,-1,1)</m> (le produit vectoriel des deux premiers vecteurs) et de combiner les contributions des vecteurs de l'espace ligne. On place ces trois vecteurs dans une colonne afin de résoudre le système.</p>
+<sage>
+<input>
+v1=vector([1,0,1])
+v2=vector([-1,1,0])
+v3=v1.cross_product(v2)
+b=vector([1,1,1])
+M=column_matrix([v1,v2,v3])
+Maug=M.augment(b)
+show("rref((M|b))=",Maug.rref())
+</input>
+</sage>
+<p>On peut donc écrire 
+<me>
+(1,1,1)=\frac{4}{3}(1,0,1)+\frac{2}{3}(-1,1,0)-\frac{1}{3}(-1,-1,1)
+</me>. En combinant les deux premiers vecteurs, on a
+<me>
+(1,1,1)=\frac{2}{3}(1,1,2)-\frac{1}{3}(-1,-1,1)
+</me> avec le vecteur <m>\frac{2}{3}(1,1,2)\in \mathcal{L}(A)</m> et le vecteur <m>-\frac{2}{3}(-1,-1,1)\in \mathcal{N}(A)</m>.</p>
+</solution></task>
+<task><statement><p>Décomposer le vecteur <m>(x,y,z)</m> de cette manière.</p></statement>
+<solution><p>On utilise la même idée qu'au probléme précédent. On ajuste les calculs avec Sage en vertu des remarques de l'exemple <xref ref="sageex-imgalg"/>.</p>
+<sage>
+<input>
+R.&lt;x,y,z>=QQ[]
+v1=vector([1,0,1])
+v2=vector([-1,1,0])
+v3=vector([-1,-1,1])
+v4=vector([x,y,z])
+M=column_matrix([v1,v2,v3,v4])
+show("rref((M|b))=",M.echelon_form())
+</input>
+</sage>
+<p>On peut donc écrire 
+<me>
+(x,y,z)=\frac{(x+y+2z)}{3}(1,0,1)+\frac{-x+2y+z}{3}(-1,1,0)+\frac{-x-y+z}{3}(-1,-1,1)
+</me>. En combinant les deux premiers vecteurs, on a
+<me>
+(x,y,z)=\frac{1}{3}(4x-5y-z,-3x+6y+3z,x-y-z)+\frac{x+y+2z}{3}(-1,-1,1)
+</me> avec le vecteur <m>\frac{1}{3}(4x-5y-z,-3x+6y+3z,x-y-z)\in \mathcal{L}(A)</m> et le vecteur <m>\frac{x+y+2z}{3}(-1,-1,1)\in \mathcal{N}(A)</m>.</p>
+</solution>
+</task>
+</exercise>
+<exercise><introduction><p>Soit <m>B=\begin{pmatrix}1&amp; 1&amp; 0&amp;0\\ 0&amp; 0&amp;1&amp; -1 \end{pmatrix}</m>.</p></introduction>
+<task><statement><p>Décomposer n'importe quel vecteur de <m>\mathbb{R}^4</m> comme la somme d'un vecteur dans l'espace ligne et d'un vecteur dans l'espace nul.</p></statement></task>
+<task><statement><p>Soit <m>\vec{u}=(1,1)</m>. Trouver un vecteur <m>\vec{x}</m> dans <m>\mathcal{L}(B)</m> tel que <m>B\vec{x}=(1,1)</m>.</p></statement></task>
+<task><statement><p>Trouver trois vecteurs de <m>\mathbb{R}^4</m> différents de celui trouvé à la partie précédente pour lesquels le produit par la matrice <m>B</m> donne aussi <m>(1,1)</m>.</p></statement></task>
+</exercise>
+<exercise>
+<introduction><p>Soit <m>A</m> une matrice <m>m\times n</m> et <m>B</m> une matrice <m>n\times p</m>.</p></introduction>
+<task xml:id="exo-dimnulprod"><statement><p>Montrer que l'espace nul de <m>B</m> est contenu dans l'espace nul du produit <m>AB</m>, c'est-à-dire <m>\mathcal{N}(B)\subseteq \mathcal{N}(AB)</m>.</p></statement>
+<solution><p>Soit <m>\vec{x}</m> un vecteur de l'espace nul de la matrice <m>B</m>. On a alors <m>B\vec{x}=\vec{0}</m>. On doit montrer que ce vecteur est dans l'espace nul de <m>AB</m>. On a
+<md>
+<mrow>AB\vec{x}&amp;=A(B\vec{x}) &amp; \text{ par associativité du produit matriciel}</mrow>
+<mrow>&amp;=A\vec{0} \text{ par hypothèse}</mrow>
+<mrow>&amp;=\vec{0}</mrow>
+</md> puisque le vecteur nul est toujours envoyé sur le vecteur nul.</p></solution>
+</task>
+<task xml:id="exo-dimnulprodeg"><statement><p>Montrer que <m>\mathcal{N}(B)=\mathcal{N}(AB)</m> si <m>A</m> est une matrice carrée inversible.</p></statement>
+<solution><p>On sait déjà que <m>\mathcal{N}(B)\subseteq \mathcal{N}(AB)</m>. Si on montre la relation inverse, c'est-à-dire <m>\mathcal{N}(B)\supseteq \mathcal{N}(AB)</m>, on aura démontré le résultat. On a l'hypothèse additionnelle que <m>A</m> est une matrice carrée inversible.</p><p> On commence donc avec un vecteur <m>\vec{x}\in \mathcal{N}(AB)</m>. On veut montrer que ce vecteur est aussi dans l'espace nul de la matrice <m>B</m>. Le fait que <m>\vec{x}</m> soit dans l'espace nul du produit <m>AB</m> signinife que <m>AB\vec{x}=\vec{0}</m>. Puisque <m>A</m> est inversible, on peut alors écrire <m>B\vec{x}=A^{-1}\vec{0}=\vec{0}</m>, car le vecteur nul ne peut être envoyé que sur le vecteur nul par la matrice <m>A</m>. Ainsi, on conclut que <m>\vec{x}</m> est dans l'espace nul de la matrice <m>B</m>. </p></solution></task>
+<task xml:id="exo-dimcolprod"><statement><p>Montrer que l'espace colonne du produit <m>AB</m> est contenu dans l'espace colonne de <m>A</m>, c'est-à-dire <m>\mathcal{C}(AB)\subseteq \mathcal{C}(A)</m>.</p></statement>
+<solution><p>On prend un vecteur <m>\vec{c}</m> dans l'espace colonne de la matrice <m>AB</m>. On veut montrer que ce vecteur est aussi dans l'espace colonne de la matrice <m>A</m>, c'est-à-dire qu'il existe <m>\vec{x}\in\mathbb{R}^n</m> tel que <m>A\vec{x}=\vec{c}</m>. Si <m>\vec{c}</m> est dans l'espace colonne de la matrice <m>AB</m>, alors il existe <m>\vec{y}\in \mathbb{R}^p</m> pour lequel <m>AB\vec{y}=\vec{c}</m>. On pose <m>\vec{x}=B\vec{y}</m>. Alors <m>\vec{x}</m> est un vecteur de <m>\mathbb{R}^n</m> car <m>B</m> est une matrice <m>n\times p</m>. De plus, on a l'équation <m>\vec{c}=AB\vec{y}=A\vec{x}</m>, ce qui montre que <m>\vec{c}\in\mathcal{C}(A)</m>.</p></solution></task>
+<task xml:id="exo-dimcolprodeg"><statement><p>Montrer que <m>\mathcal{C}(AB)=\mathcal{C}(A)</m> si <m>B</m> est une matrice carrée inversible.</p></statement>
+<solution><p>On sait déjà que <m>\mathcal{C}(AB)\subseteq \mathcal{C}(A)</m>. Si on montre a relation inverse, c'est-à-dire <m>\mathcal{C}(AB)\supseteq \mathcal{C}(A)</m>, on aura démontré le résultat. On a l'hypothèse additionnelle que <m>B</m> est une matrice carrée et inversible. </p>
+<p>On commence donc avec un vecteur <m>\vec{c}\in\mathcal{A}</m> et on veut montrer que ce vecteur est aussi dans l'espace colonne du produit <m>AB</m>. Il existe donc <m>\vec{y}\in\mathbb{R}^n</m> tel que <m>A\vec{y}=\vec{c}</m>. On considère ce vecteur <m>\vec{y}</m> et l'équation <m>B\vec{x}=\vec{y}</m>. Puisque <m>B</m> est une matrice inversible, on sait qu'il existe une solution unique à cette équation. On pose donc <m>\vec{x}=B^{-1}\vec{y}</m>. On a alors
+<md>
+<mrow>AB\vec{x}&amp;=ABB^{-1}\vec{x}</mrow>
+<mrow>         &amp;=AI\vec{x}</mrow>
+<mrow>         &amp;= A\vec{x}</mrow>
+<mrow>         &amp;=\vec{c}</mrow>
+</md>.
+
+Ainsi, le vecteur <m>c</m> est dans l'espace colonne du produit <m>AB</m>.</p>
+</solution></task>
+</exercise>
+<exercise><introduction>
+<p>Soit <m>A</m> une matrice <m>m\times n</m> et <m>B</m> une matrice <m>n\times p</m>. On s'intèresse maintenant au rang du produit <m>AB</m> en lien avec les rangs de <m>A</m> et de <m>B</m>.</p>
+</introduction>
+<task><statement><p>Montrer que <m>rg(AB)\leq rg(B)</m>.</p></statement>
+<hint><p>Utiliser le résultat de l'exercice <xref ref="exo-dimnulprod"/> et la proposition <xref ref="prop-diminclusion"/>.</p></hint>
+<solution><p>Soit <m>r</m> le rang de la matrice <m>B</m>. Selon l'exercice <xref ref="exo-dimnulprod"/>, on a <m>\mathcal{N}(B)\subseteq \mathcal{N}(AB)</m>. La dimension de l'espace nul est <m>p-r</m>. Selon la proposition <xref ref="prop-diminclusion"/>, on a alors <m>p-r\leq \text{dim}(\mathcal{N}(AB))</m>. Puisque la dimension de <m>\mathcal{N}(AB)</m> est égale à <m>p-\mathcal{L}(AB)=p-rg(AB)</m>, on a
+<me>
+p-r\leq p-rg(AB)
+</me>, qui en réarrangeant et en utilisant <m>r=rg(B)</m> devient <m>rg(AB)\leq rg(B)</m>.</p></solution>
+</task>
+<task><statement><p>Montrer si <m>A</m> est une matrice carrée inversible, alors <m>rg(AB)=rg(B)</m>.</p></statement>
+<hint><p>Utiliser l'exercice <xref ref="exo-dimnulprodeg"/>.</p></hint>
+<solution><p>Selon l'exercice <xref ref="exo-dimnulprodeg"/>, si la matrice <m>A</m> est inversible alors <m>\mathcal{N}(B)=\mathcal{N}(AB)</m>. On a donc <m>\text{dim}(\mathcal{N}(B))=\text{dim}(\mathcal{N}(AB))</m>. À la manière de l'exercice précédent, on a donc <m>p-rg(B)=p-rg(AB)</m>, qui devient en simplifiant <m>rg(AB)=rg(B)</m>.</p> </solution>
+</task>
+<task><statement><p>Montrer que <m>rg(AB)\leq rg(A)</m>.</p></statement>
+<hint><p>Utiliser l'exercice <xref ref="exo-dimcolprod"/> et la proposition <xref ref="prop-diminclusion"/>.</p></hint>
+<solution><p>Soit <m>r</m> le rang de la matrice <m>A</m>. Selon l'exercice <xref ref="exo-dimcolprod"/>, on a <m>\mathcal{C}(AB)\subseteq \mathcal{C}(A)</m>. Comme le rang correspond à la dimension de l'espace colonne, on obtient selon la proposition <xref ref="prop-diminclusion"/> <m>rg(AB)\leq r=rg(A)</m>. </p></solution>
+</task>
+<task><statement><p>Montrer que si <m>B</m> est une matrice carrée inversible, alors <m>rg(AB)=rg(A)</m>.</p></statement>
+<hint><p>Utiliser l'exercice <xref ref="exo-dimcolprodeg"/>.</p></hint>
+<solution><p>Selon l'exercice <xref ref="exo-dimcolprodeg"/>, si la matrice <m>B</m> est inversible alors <m>\mathcal{C}(AB)=\mathcal{C}(A)</m>. Il suit donc de cet exerice que dans ce cas, <m>rg(AB)=rg(A)</m>.</p></solution>
+</task>
+</exercise>
+<exercise><introduction>
+<p>À l'exercice <xref ref="exo-prodmatzero"/>, on a montré que si <m>AB=O</m>, alors il n'est pas nécessaire que <m>A</m> ou <m>B</m> soit la matrice nulle (contrairement aux nombres réels). Dans cet exercice, on donne une condition nécessaire et suffisante sur les matrices <m>A,B</m> pour avoir un produit nul.</p>
+</introduction>
+<task><statement><p>Soit <m>A,B</m> des matrices de formats appropriés. Montrer que <m>AB=O</m> si et seulement si <m>\mathcal{C}(B)\subseteq \mathcal{N}(A)</m>.</p></statement>
+<solution>
+<p>On doit montrer les deux directions de cette double implication. On commence par montrer que si <m>\mathcal{C}(B)\subseteq \mathcal{N}(A)</m>, alors <m>AB=O</m>. Intuitivement, cela signifie que si l'image de la matrice <m>B</m> est inclus dans l'espace nul de la matrice <m>A</m>, alors le produit sera nul. En fait, ce sont seulement les colonnes de <m>B</m> qui doivent faire partie de l'espace nul de <m>A</m>, puisque le produit <m>AB</m> peut être vu comme une matrice dont les colonnes sont données par les produits matrice vecteur pour chaque colonne de la matrice <m>B</m> (voir la définition <xref ref="def-matmatprod"/>). </p>
+<p>Plus concrètement, si on a des matrices <m>A,B</m> telles que <m>\mathcal{C}(B)\subseteq \mathcal{N}(A)</m>, alors, en vertu de la définition <xref ref="def-matmatprod"/>, on a
+<md>
+<mrow>AB&amp;=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\vec{b}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}</mrow>
+     <mrow>&amp;=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \vec{0} &amp; \vec{0} &amp;\cdots &amp; \vec{0} \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}</mrow>
+     <mrow>&amp;=O</mrow>
+</md>.
+</p>
+<p>À l'inverse, si on commence avec une matrice dont le produit <m>AB=O</m>, on souhaite montrer que l'espace colonne de <m>B</m> est inclus dans l'espace nul de <m>A</m>. Puisque
+<m>O=AB=\begin{pmatrix}
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\vec{b}_n \\
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+     \end{pmatrix}</m>, on conclut que pour chaque colonne du produit on a <m>A\vec{b}_j=\vec{0}</m>. Cela signifie que toutes les colonnes de la matrice <m>B</m> sont dans l'espace nul de la matrice <m>A</m>. Puisque <m>\mathcal{C}(B)=\vspan(\vec{b}_1,\vec{b}_2,\ldots ,\vec{b}_p)</m> et que le produit matrice vecteur est linéaire, toute combinaison linéaire des colonnes de <m>B</m> sera aussi dans l'espace nul de <m>A</m>. On a donc <m>\mathcal{C}(B)\subseteq \mathcal{N}(A)</m>. </p>
+</solution></task>
+<task><statement><p>Si <m>A,B</m> sont deux matrices de taille <m>3\times 3</m> et de rang <m>2</m>, est-ce qu'il est possible que <m>AB=O</m>?</p></statement>
+<answer><p>Non</p></answer>
+<solution><p>Si la matrice <m>B</m> est de rang <m>2</m>, alors son espace colonne est de dimension <m>2</m>. Si la matrice <m>A</m> est aussi de rang <m>2</m>, alors son espace nul est de dimension <m>3-2=1</m>. Comme on ne peut avoir un espace de dimension <m>2</m> inclus dans un espace de dimension <m>1</m>, on ne peut avoir <m>\mathcal{C}(B)\subseteq \mathcal{N}(A)</m>, qui est équivalent à avoir le produit <m>AB=O</m>. </p></solution>
+</task>
+<task><statement><p>Si <m>A,B</m> sont deux matrices de taille <m>5\times 5</m> et de rang <m>2</m>, est-ce qu'il est possible que <m>AB=O</m>?</p></statement>
+<answer><p>Oui</p></answer>
+<solution><p>Si la matrice <m>B</m> est de rang <m>2</m>, alors son espace colonne est de dimension <m>2</m>. Si la matrice <m>A</m> est aussi de rang <m>2</m>, alors son espace nul est de dimension <m>5-2=3</m>. Comme on  peut avoir un espace de dimension <m>2</m> inclus dans un espace de dimension <m>3</m>, il est possible que <m>\mathcal{C}(B)\subseteq \mathcal{N}(A)</m>, qui est équivalent à avoir le produit <m>AB=O</m>.</p></solution>
+</task>
+<task><statement><p>Donner deux matrices <m>3\times 3</m> de rang <m>1</m> pour lesqueslles <m>AB=O</m>.</p></statement>
+<answer><p>Plusieurs réponses sont possibles.</p></answer>
+<solution><p>Pour que le produit soit <m>O</m>, il faut que l'espace colonne de <m>B</m> soit inclus dans l'espace nul de la matrice <m>A</m>. On commence avec une matrice <m>
+A</m> de rang <m>1</m> arbitraire. Pour cela, il suffit que les lignes soient parallèles. On pose <me>
+A=\begin{pmatrix}
+1&amp; 1&amp;1\\
+1&amp; 1&amp;1\\
+1&amp; 1&amp;1\\
+\end{pmatrix}
+</me>.
+Géomoétriquement, l'espace ligne de cette matrice est une droite de vecteur directeur <m>(1,1,1)</m>. L'espace nul est donc un plan de vecteur normal <m>(1,1,1)</m>. Pour que l'espace colonne de la matrice <m>B</m> soit inclus dans cet espace nul, il suffit donc de prendre comme colonne un vecteur du plan <m>x+y+z=0</m>. Le vecteur <m>(1,-1,0)</m> fera l'affaire. On pose donc
+<me>
+\begin{pmatrix}
+1&amp;1&amp;1\\
+-1&amp;-1&amp;-1&amp;\\
+0&amp;0&amp;0
+\end{pmatrix}
+</me>.
+On vérifie avec Sage que le produit de ces matrices donne bien la matrice nulle et qu'elles sont de rang 1.</p>
+<sage>
+<input>
+A=matrix([[1,1,1],[1,1,1],[1,1,1]])
+B=column_matrix([[1,-1,0],[1,-1,0],[1,-1,0]])
+show("rg(A)=",A.rank())
+show("rg(B)=",B.rank())
+show("AB=",A*B)
+</input>
+</sage>
+</solution>
+</task>
+</exercise>
+<exercise><introduction><p>Soit <m>A</m> une matrice quelconque de taille <m>m\times n</m>.</p></introduction>
+<task><statement><p>Montrer que <m>\mathcal{N}(A^TA)=\mathcal{N}(A)</m>.</p></statement>
+<hint><p>Une partie du travail est accompli par l'exercice <xref ref="exo-dimnulprod"/>, pour l'autre partie, montrer que <m>A\vec{x}</m> est à la fois dans <m>\mathcal{C}(A)</m> et <m>\mathcal{N}(A^T)</m>. Qu'est-ce que cela signifie?</p></hint>
+<solution><p>En vertu de l'exercice <xref ref="exo-dimnulprod"/>, on sait déjà que <m>\mathcal{N}(A^TA)\supseteq\mathcal{N}(A)</m>. Comme la matrice <m>A</m> n'est pas nécessairement carrée et inversible, on ne peut pas utiliser l'exercice <xref ref="exo-dimcolprodeg"/> pour conclure. Il faut donc montrer que si on a un vecteur dans <m>\mathcal{N}(A^TA)</m>, alors ce vecteur est aussi dans <m>\mathcal{N}(A)</m>.</p>
+<p>On prend donc un vecteur <m>\vec{x}</m> dans <m>\mathcal{N}(A^TA)</m> et on s'intéresse au produit <m>A\vec{x}</m>. Par définition, le vecteur <m>A\vec{x}</m> est dans l'espace colonne de la matrice <m>A</m>. De plus, puisque <m>\vec{x}\in \mathcal{N}(A^TA)</m>, on a <m>\vec{0}=A^TA\vec{x}=A^T(A\vec{x})</m>. Ceci signifie que le vecteur <m>A\vec{x}</m> est dans l'espace nul de la matrice <m>A^T</m>. Comme l'espace nul de la matrice <m>A^T</m> est par définition l'espace nul gauche de la matrice <m>A</m>, on conclut que le vecteur <m>A\vec{x}</m> est à la fois dans l'espace colonne de <m>A</m> et dans son espace nul gauche. Puisque ces deux espaces sont orthogonaux selon le <xref ref="thm-fondalg" text="title"/>, le seul vecteur qui peut être simultanément dans ces deux espaces est le vecteur nul. On a donc <m>A\vec{x}=\vec{0}</m>, ce qui signifie que <m>\vec{x}\in\mathcal{N}(A)</m>.</p>
+</solution>
+</task>
+<task><statement><p>Montrer que <m>rg(A^TA)=rg(A)</m>.</p></statement>
+<solution><p> Soit <m>r</m> le rang de <m>A</m> et <m>n-r</m> la dimension de l'espace nul de <m>A</m>. En vertu de la partie précédente, c'est aussi la dimension de <m>\mathcal{N}(A^TA)</m>. On note que la matrice <m>A^TA</m> est de taille <m>n\times n</m> Selon le théorème fondamental, la dimension de l'espace ligne de la matrice <m>A^TA</m> sera donc aussi de <m>r</m> puisqu'on doit avoir <m>\text{dim}(\mathcal{L}(A^TA))+\text{dim}(\mathcal{N}(A^TA))=n</m>. Ainsi le rang de <m>A^TA</m> est égal à celui de <m>A</m>.</p></solution>
+</task>
+<task><statement><p>Montrer que <m>\mathcal{C}(A^TA)=\mathcal{C}(A^T)</m>.</p></statement>
+<solution><p>Dans un premier temps, l'espace nul de la matrice <m>A</m> correspond à l'espace nul gauche de la transposée <m>A^T</m>. On a donc <m>(\mathcal{N}(A))^{\perp}=\mathcal{C}(A^T)</m> Aussi, puisque la matrice <m>A^TA</m> est symétrique (voir l'exercice <xref ref="exo-matsym"/>, en particulier la deuxième partie) et donc, que <m>(A^TA)^T=A^TA</m>, on a que l'espace nul gauche et l'espace nul de <m>A^TA</m> sont égaux. Cela entraine que <m>\mathcal{L}(A^TA)=\mathcal{C}(A^TA)</m>. Selon la première partie de cet exercice, <m>\mathcal{N}(A^TA)=\mathcal{N}(A)</m> ce qui entraine par le théorème fondamental que <m>\mathcal{L}(A^TA)=\mathcal{L}(A)</m>. En vertu des remarques précédentes, on a 
+<md>
+<mrow>\mathcal{C}(A^TA)&amp;=(\mathcal{L}(A^TA))</mrow>
+<mrow>&amp;=(\mathcal{L}(A))</mrow>
+<mrow>&amp;=(\mathcal{C}(A^T)) &amp;\text{ par définition}</mrow>
+</md>.
+</p></solution>
+</task>
+</exercise>
+<exercise xml:id="exo-transposeepasinverse">
+<statement><p>Garder en tpete la remarque <xref ref="rem-decomportho"/></p></statement> <!-- ToDo -->
+</exercise>
+<exercise xml:id="exo-vecuniqueespligne">
+<statement><p>Montrer que le vecteur <m>\vec{x}_0</m> de la proposition <xref ref="prop-relesplignecol"/> est unique.</p></statement>
+</exercise>
+<exercisegroup>
+<title>Exercices Sage</title>
+    <introduction>
+    <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
+    </introduction>
+    <exercise><statement><p>Pour déterminer une base de l'espace colonne, la proposition <xref ref="prop-baseespcolnulg"/> dit qu'on doit prendre les colonnes de la matrice initiale qui correspondent aux positions pivots de sa forme échelonnée réduite. À l'exemple <xref ref="sageex-espfond"/>, on a utilisé la commande <c>A.column_space().basis()</c> pour obtenir une base de l'espace colonne de la matrice <m>A</m>, mais ce n'est pas la base donnée par la proposition <xref ref="prop-baseespcolnulg"/>. On peut construire une fonction qui retourne cette base grâce à la fonction <c>A.pivots()</c> qui retourne la position des colonnes pivots (si on avait voulu les lignes pivots, la commande <c>A.pivots_rows()</c> aurait été utilisée).</p>
+    <p>Construire une fonction <c>colbase</c> qui prend comme entrée une matrice et retourne la base de son espace colonne telle que donnée par la proposition <xref ref="prop-baseespcolnulg"/>. Tester avec les matrices de l'exercice <xref ref="exo-base4esp"/>.</p>
+    </statement>
+    <solution><listing>
+    <caption>La solution pour l'exercice</caption>
+    <program language="sage">
+    <input>
+def colbase(A):
+    L=A.pivots()
+    B=[]
+    for i in L:
+        B.append(A.column(i))
+    return B    
+    </input>
+    </program>
+    </listing></solution>
+    </exercise>
+</exercisegroup>
+
 </exercises>
