@@ -519,7 +519,7 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     </subsection>
     <subsection>
     <title>La géométrie de la transposée et un retour sur l'inverse à gauche et à droite</title>
-    <p>Lorsqu'on a introduit la transposée à la section <xref ref="sec-transposee"/>, on l'a fait par besoin algébrique pour la suite, sans avoir tous les outils nécessaire à la compréhension de sa géométrie. Une matrice <m>A</m> de taille <m>m\times n</m> est une fonction de <m>\mathbb{R}^n</m> vers <m>\mathbb{R}^m</m>. Le <xref ref="thm-fondalg" text="title"/> et la proposition <xref ref='prop-decomportho'/> disent que la matrice décompose le domaine et l'ensemble d'arrivée en deux sous-espaces dont les dimensions sont complémentaires et que chaque vecteur de l'espace peut-être écrit comme la somme de vecteurs dans chacun de ces sous-espaces. On considère les deux transformations linéaires <m>A:\mathbb{R}^n\to \mathbb{R}^m</m> et <m>A^T:\mathbb{R}^m\to \mathbb{R}^n</m>. La matrice <m>A</m> envoie tous les vecteurs de <m>\mathcal{N}(A)</m> (son espace nul) sur le vecteur <m>\vec{0}\in\mathbb{R}^m</m> et la matrice <m>A^T</m> envoie tous les vecteurs de <m>\mathcal{N}(A^T)</m> (aussi son espace nul) sur le vecteur <m>\vec{0}\in \mathbb{R}^n</m>. Qui plus est, la dimension des espaces colonnes et lignes de la matrice est la même et on a bien sûr que <m>\mathcal{L}(A)=\mathcal{C}(A^T)</m> et <m>\mathcal{C}(A)=\mathcal{L}(A^T)</m>. Tout ceci suggère que <m>A</m> envoie son espace ligne sur l'espace colonne et <m>A^T</m> envoie l'espace colonne de <m>A</m> sur son espace ligne. On pourrait (à tort) penser que la transposée doit alors être l'inverse de la matrice <m>A</m>. On réfléchira à ce qui fait défaut dans ce raisonnement dans l'exercice <xref ref="exo-transposeepasinverse"/>. On a toutefois le résultat suivant. </p>
+    <p>Lorsqu'on a introduit la transposée à la section <xref ref="sec-transposee"/>, on l'a fait par besoin algébrique pour la suite, sans avoir tous les outils nécessaire à la compréhension de sa géométrie. Une matrice <m>A</m> de taille <m>m\times n</m> est une fonction de <m>\mathbb{R}^n</m> vers <m>\mathbb{R}^m</m>. Le <xref ref="thm-fondalg" text="title"/> et la proposition <xref ref='prop-decomportho'/> disent que la matrice décompose le domaine et l'ensemble d'arrivée en deux sous-espaces dont les dimensions sont complémentaires et que chaque vecteur de l'espace peut-être écrit comme la somme de vecteurs dans chacun de ces sous-espaces. On considère les deux transformations linéaires <m>A:\mathbb{R}^n\to \mathbb{R}^m</m> et <m>A^T:\mathbb{R}^m\to \mathbb{R}^n</m>. La matrice <m>A</m> envoie tous les vecteurs de <m>\mathcal{N}(A)</m> (son espace nul) sur le vecteur <m>\vec{0}\in\mathbb{R}^m</m> et la matrice <m>A^T</m> envoie tous les vecteurs de <m>\mathcal{N}(A^T)</m> (aussi son espace nul) sur le vecteur <m>\vec{0}\in \mathbb{R}^n</m>. Qui plus est, la dimension des espaces colonnes et lignes de la matrice est la même et on a bien sûr que <m>\mathcal{L}(A)=\mathcal{C}(A^T)</m> et <m>\mathcal{C}(A)=\mathcal{L}(A^T)</m>. Tout ceci suggère que <m>A</m> envoie son espace ligne sur l'espace colonne et <m>A^T</m> envoie l'espace colonne de <m>A</m> sur son espace ligne. On pourrait (à tort) penser que la transposée doit alors être l'inverse de la matrice <m>A</m>. En se rappelant la remarque <xref ref="rem-decomportho"/>, il peut exister des vecteurs en dehors de l'espace ligne ou de l'espace nul, mais qui s'écrivent comme combinaison linéaire de vecteurs dans ces espaces. Comme le montre la figure <xref ref="fig-decomportho4esp"/>, deux vecteurs peuvent être envoyé sur le même vecteur <m>\vec{b}</m> dans l'espace colonne. En général, la transposée ne retournera même pas le vecteur <m>\vec{b}</m> sur la composante provenant de l'espace ligne. On a toutefois le résultat suivant. </p>
     <proposition xml:id="prop-relesplignecol">
     <title>Relation entre <m>\mathcal{L}(A)</m> et <m>\mathcal{C}(A)</m></title>
     <statement><p>Soit <m>A</m> une matrice <m>m\times n</m>. Pour chaque vecteur <m>\vec{b}</m> dans l'espace colonne <m>\mathcal{C}(A)</m>, il existe une unique vecteur <m>\vec{x}_0</m> dans l'espace ligne de <m>A</m> tel que <me>A\vec{x}_0=\vec{b}</me>.</p></statement>
@@ -541,7 +541,7 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     où <m>\vec{x}_0=c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r</m>. La preuve que ce vecteur est unique est faite dans l'exercice <xref ref="exo-vecuniqueespligne"/>.</p>
     </proof>
     </proposition>
-    <p>Lorsque la matrice est carrée, on connait une multitude d'équivalences pour déterminer si la matrice est inversible ou non. Celle-ci sont répertoriées dans le théorème <xref ref="thm-delamatriceinversev5"/>. À la section <xref ref="sec-transfodimsup"/>, on a brièvement mentionné la notion d'inverse à gauche et d'inverse à droite pour les matrices rectangulaires, notamment au théorème <xref ref="thm-invrect"/>. Le théorème fondamental de l'algèbre linéaire permet d'apporter un autre point de vue sur la non-existence des inverses. En effet, si une matrice est de taille <m>m\times n</m> avec <m>m&lt; n</m>, alors l'espace nul gauche de la matrice <m>A</m> est de dimension supérieure ou égale à <m>1</m>. Cela entraine que l'équation <m>A\vec{x}=\vec{b}</m> peut ne pas avoir de solution si le vecteur <m>\vec{b}</m> se trouvent dans l'espace nul gauche. On ne peut donc pas inverser à gauche la matrice <m>A</m> et écrire <m>\vec{x}=A^{-1}\vec{b}</m>. De manière similaire, si la matrice est de taille <m>m\time n</m> avec <m>m&gt; n</m> et possède un inverse à droite <m>B</m>, alors <m>B^T</m> est un inverse à gauche pour <m>A^T</m> puisque 
+    <p>Lorsque la matrice est carrée, on connait une multitude d'équivalences pour déterminer si la matrice est inversible ou non. Celle-ci sont répertoriées dans le théorème <xref ref="thm-delamatriceinversev5"/>. À la section <xref ref="sec-transfodimsup"/>, on a brièvement mentionné la notion d'inverse à gauche et d'inverse à droite pour les matrices rectangulaires, notamment au théorème <xref ref="thm-invrect"/>. Le théorème fondamental de l'algèbre linéaire permet d'apporter un autre point de vue sur la non-existence des inverses. En effet, si une matrice est de taille <m>m\times n</m> avec <m>m&lt; n</m>, alors l'espace nul gauche de la matrice <m>A</m> est de dimension supérieure ou égale à <m>1</m>. Cela entraine que l'équation <m>A\vec{x}=\vec{b}</m> peut ne pas avoir de solution si le vecteur <m>\vec{b}</m> se trouvent dans l'espace nul gauche. On ne peut donc pas inverser à gauche la matrice <m>A</m> et écrire <m>\vec{x}=A^{-1}\vec{b}</m>. De manière similaire, si la matrice est de taille <m>m\times n</m> avec <m>m&gt; n</m> et possède un inverse à droite <m>B</m>, alors <m>B^T</m> est un inverse à gauche pour <m>A^T</m> puisque 
     <men xml:id="eq-idtransposeinverse">
     I=I^T=(AB)^T=B^TA^T
     </men>.
@@ -549,20 +549,40 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     </p>  
     <p>On a des conditions pour la non existence des inverses des matrices rectangulaires, mais qu'en est-il pour l'existence? Tout est basé sur le rang, le nombre de pivots ou encore la dimension des espaces lignes et colonne. Une matrice de taille <m>m\times n</m> peut avoir pour rang maximal la valeur minimale entre <m>m</m> et <m>n</m>. Il ne peut pas y avoir plus de pivots qu'il y a de lignes ou de colonnes, la plus petite de ces dimensions. Pour trouver un inverse à droite, il faut une matrice <m>B</m> de taille <m>n\times m</m> telle que <m>AB=I_m</m>. La matrice <m>A</m> multiplie chaque colonne de <m>B</m> pour avoir l'identité. Il faut donc que les colonnes de l'identité soit dans l'espace colonne. Si le rang de la matrice est <m>m</m>, alors <m>\text{dim}(\mathcal{C}(A))=m=\text{dim}(\mathbb{R}^m)</m>. Si au contraire on cherche un inverse à gauche, c'est-à-dire une matrice <m>B</m> de taille <m>n\times m</m> telle que <m>BA=I_n</m>, alors un argument utilisant l'équation <xref ref="eq-idtransposeinverse"/> et l'idée ci-dessus montre que si le rang de la matrice <m>A</m> est <m>n</m>, c'est-à-dire maximal pour les colonnes, on aura une solution.</p>
     <p>Ces idées sont résumés dans la proposition ci-dessous.</p>
-    <proposition>
+    <proposition xml:id="prop-invgauchedroite">
     <title>L'existence d'inverse à gauche et à droite</title>
     <statement><p>
     Soit <m>A</m> une matrice de taille <m>m\times n</m> avec rang <m>r</m>.
     <ol>
-    <li><p>Si <m>r=m</m>, alors il existe une inverse à droite et <m>A^{-1}_{\text{droite}}=A^T(AA^T)^{-1}</m> est un inverse à droite.</p></li>
-    <li><p>Si <m>r=n</m>, alors il existe une inverse à droite et <m>A^{-1}_{\text{gauche}}=(A^TA)^{-1}A^T</m> est un inverse à gauche.</p></li>
+    <li><p>Si <m>r=m</m>, alors il existe une inverse à droite.</p></li>
+    <li><p>Si <m>r=n</m>, alors il existe une inverse à gauche.</p></li>
     </ol>
     </p></statement>
+    <proof>
+    <p>Dans le cas où le rang est égal au nombre de lignes, on peut trouver <m>m</m> colonnes pivots qui sont indépendantes et donc, génèrent <m>\mathbb{R}^m</m>. Il y a donc toujours une solution à l'équation <m>A\vec{x}=\vec{b}</m> puisque l'espace colonne est <m>\mathbb{R}^m</m> au complet. On peut donc trouver une matrice inverse en résolvant les équations matrices vecteurs 
+    <md>
+    <mrow>A\vec{x}_1&amp;=\vec{e}_1</mrow>
+    <mrow>A\vec{x}_2&amp;=\vec{e}_2</mrow>
+    <mrow>\vdots &amp;=\vdots</mrow>
+    <mrow>A\vec{x}_m&amp;=\vec{e}_m</mrow>
+    </md>
+    et placer ces vecteurs dans les colonnes d'une matrice <m>B</m>.</p>
+    <p>Dans le cas où le rang est égal au nombre de colonnes, la dimension de l'espace ligne est donc égale à <m>n</m>. En regardant la transposée de la matrice <m>A</m>, on déduit que celle-ci possède un inverse à droite. L'équation <xref ref="eq-idtransposeinverse"/> dit alors que celui-ci est un inverse à gauche pour la matrice <m>A</m>.</p>
+    </proof>
     </proposition>
     <remark>
     <title>Quelques précisions sur les inverses</title>
     <statement>
-    <p>Il faut noter que, contrairement à <xref ref="prop-inverseunique" text="custom"> l'inverse d'une matrice carrée</xref> qui est unique, une matrice rectangulaire peut, si elle en a, avoir plusieurs inverses à gauche et à droite.</p>
+    <p>Il faut noter que, contrairement à <xref ref="prop-inverseunique" text="custom"> l'inverse d'une matrice carrée</xref> qui est unique, une matrice rectangulaire peut, si elle en a, avoir plusieurs inverses à gauche et à droite. Aussi, l'équation <m>A\vec{x}=\vec{b}</m> est liée à la notion d'inverse lorsque la matrice est carrée. Si la matrice est inversible, alors il existe une solution unique donnée par <m>\vec{x}=A^{-1}\vec{b}</m>. Dans le cas d'une matrice rectangulaire, l'existence d'un inverse à droite implique qu'une solution existe toujours. En effet, puisque <m>AA^{-1}_{\text{droite}}=I</m>, on a que <m>AA^{-1}_{\text{droite}}\vec{b}=\vec{b}</m>. Ainsi <m>\vec{x}=A^{-1}_{\text{droite}}\vec{b}</m> est une solution. Cette solution n'est peut-être pas unique par contre. Si un autre inverse existe, il pourrait mener à une solution différente. Si plutôt la matrice possède un inverse à gauche, alors là la solution, si elle existe, sera unique. D'une part, si <m>B</m> est un inverse à gauche, alors <m>B\vec{b}</m> est une solution puisque <m>BA=I</m> et donc <m>BA\vec{x}=B\vec{b}</m>. De plus, si <m>C</m> est un inverse à gauche différent de <m>B</m>, alors par le même raisonnement, <m>C\vec{b}</m> est aussi une solution. Or on a
+    <md>
+    <mrow>B\vec{b}&amp;=BA\vec{x}</mrow>
+    <mrow>&amp;=I\vec{x}</mrow>
+    <mrow>&amp;=CA\vec{x}</mrow>
+    <mrow>&amp;=C\vec{x}</mrow>
+    </md>.
+    Il est toutefois possible que le vecteur <m>\vec{b}</m> ne soit pas dans l'espace colonne et qu'il n'y ait pas de solution.
+    </p>
+    <p>En résumé, pour une matrice <m>m\times n</m> de rang <m>m</m>, l'équation <m>A\vec{x}=\vec{b}</m> possède <m>1</m> ou une infinité de solution alors que pour une matrice de rang <m>n</m>, elle en possède <m>0</m> ou une. Lorsque <m>m=n</m> (et que la rang est maximal), la solution ne peut être qu'unique.</p>
     </statement>
     </remark>
 </subsection>
@@ -575,11 +595,12 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     <li><p>Comment obtenir une <xref ref="prop-baseespcolnulg" text="custom">base pour l'espace colonne et l'espace nul-gauche</xref>.</p></li>
     <li><p>La <xref ref="prop-dim4esp" text="custom">dimension des quatre espaces fondamentaux</xref> et le lien avec le rang de la matrice.</p></li>
     <li><p>Le <xref ref="thm-fondalg" text="title"/>.</p></li>
+    <li><p>La  nouvelle version du <xref ref="thm-delamatriceinversev5" text="custom">théorème de la matrice inverse</xref>.</p></li>
+    <li><p> La <xref ref="prop-relesplignecol" text="custom">relation</xref> entre l'espace ligne et l'espace colonne d'une matrice.</p></li>
+    <li><p> Les conditions d'existence pour les inverses à gauche et à droite, détaillées à la proposition <xref ref="prop-invgauchedroite"/>.</p></li>
     </ul>
     </p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
      <xi:include href="Exercices_quatreespaces.xml"/>
 </section>
-<!-- exercice inv gauche et droite  http://www.math.ualberta.ca/~isaac/math225/s05/rank.pdf -->
-<!-- Exercice sage pour obtenir la base de l'espace colonne avec la fonction pivots -->

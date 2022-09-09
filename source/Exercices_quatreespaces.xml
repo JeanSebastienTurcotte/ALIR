@@ -781,7 +781,7 @@ show("AB=",A*B)
 <p>On prend donc un vecteur <m>\vec{x}</m> dans <m>\mathcal{N}(A^TA)</m> et on s'intéresse au produit <m>A\vec{x}</m>. Par définition, le vecteur <m>A\vec{x}</m> est dans l'espace colonne de la matrice <m>A</m>. De plus, puisque <m>\vec{x}\in \mathcal{N}(A^TA)</m>, on a <m>\vec{0}=A^TA\vec{x}=A^T(A\vec{x})</m>. Ceci signifie que le vecteur <m>A\vec{x}</m> est dans l'espace nul de la matrice <m>A^T</m>. Comme l'espace nul de la matrice <m>A^T</m> est par définition l'espace nul gauche de la matrice <m>A</m>, on conclut que le vecteur <m>A\vec{x}</m> est à la fois dans l'espace colonne de <m>A</m> et dans son espace nul gauche. Puisque ces deux espaces sont orthogonaux selon le <xref ref="thm-fondalg" text="title"/>, le seul vecteur qui peut être simultanément dans ces deux espaces est le vecteur nul. On a donc <m>A\vec{x}=\vec{0}</m>, ce qui signifie que <m>\vec{x}\in\mathcal{N}(A)</m>.</p>
 </solution>
 </task>
-<task><statement><p>Montrer que <m>rg(A^TA)=rg(A)</m>.</p></statement>
+<task xml:id="exo-rgATA"><statement><p>Montrer que <m>rg(A^TA)=rg(A)</m>.</p></statement>
 <solution><p> Soit <m>r</m> le rang de <m>A</m> et <m>n-r</m> la dimension de l'espace nul de <m>A</m>. En vertu de la partie précédente, c'est aussi la dimension de <m>\mathcal{N}(A^TA)</m>. On note que la matrice <m>A^TA</m> est de taille <m>n\times n</m> Selon le théorème fondamental, la dimension de l'espace ligne de la matrice <m>A^TA</m> sera donc aussi de <m>r</m> puisqu'on doit avoir <m>\text{dim}(\mathcal{L}(A^TA))+\text{dim}(\mathcal{N}(A^TA))=n</m>. Ainsi le rang de <m>A^TA</m> est égal à celui de <m>A</m>.</p></solution>
 </task>
 <task><statement><p>Montrer que <m>\mathcal{C}(A^TA)=\mathcal{C}(A^T)</m>.</p></statement>
@@ -794,11 +794,51 @@ show("AB=",A*B)
 </p></solution>
 </task>
 </exercise>
-<exercise xml:id="exo-transposeepasinverse">
-<statement><p>Garder en tpete la remarque <xref ref="rem-decomportho"/></p></statement> <!-- ToDo -->
-</exercise>
 <exercise xml:id="exo-vecuniqueespligne">
 <statement><p>Montrer que le vecteur <m>\vec{x}_0</m> de la proposition <xref ref="prop-relesplignecol"/> est unique.</p></statement>
+</exercise>
+<exercise><introduction>
+<p>Dans cette exercice, on s'intéresse à quand la transposée est l'inverse. Ce type de matrice sera l'objet central du chapitre <xref provisional="chap-orthogonal"/>.</p></introduction>
+<task><statement><p>Soit <m>A</m> une matrice <m>m\times n</m> telle que <m>A^TA=I_n</m>. Montrer que les colonnes de <m>A</m> sont des vecteurs deux à deux orthogonaux et de norme <m>1</m>.</p></statement>
+<proof><p>On interprète le produit <m>A^TA</m> comme une série de produits scalaires. L'entrée en position <m>i,j</m> du produit est donnée par le produit scalaire de la ligne <m>i</m> de la matrice <m>A^T</m> et de la colonne <m>j</m> de la matrice <m>A</m>. Comme le produit de ces deux matrices est l'identité, on déduit que si <m>i\neq j</m>, le produit est <m>0</m>. De plus comme la ligne <m>i</m> de <m>A^T</m> est aussi la colonne <m>i</m> de la matrice <m>A</m>, on conclut que les colonnes sont orthogonales, leur produit scalaire donnant <m>0</m>. Lorsque <m>i=j</m>, on se retrouve avec le produit scalaire d'une colonne avec elle-même, ce qui donne la norme du vecteur élevée au carré. Comme le résultat est l'entrée <m>1</m> de la matrice identité, on obtient que la norme des colonnes est <m>1</m>.</p></proof>
+</task>
+<task><statement><p>Soit <m>A</m> une matrice <m>m\times n</m> telle que ses colonnes sont un ensemble de vecteurs deux à deux orthogonaux. Montrer que <m>A^TA=I_n</m>.</p></statement>
+<proof><p>Il suffit de faire le calcul inverse de la preuve précédente. On interpète le calcul de <m>A^TA</m> comme une série de produits scalaires. Si on cherche l'entrée en position <m>i,j</m>, alors on fait le produit scalaire de la ligne <m>i</m> de <m>A^T</m> avec la ligne <m>j</m> de <m>A</m>. Puisqu'une ligne de <m>A^T</m> est aussi une colonne de <m>A</m>, on obtient que si <m>i\neq j</m>, alors le produit scalaire est nul et si <m>i=j</m>, alors le produit scalaire donne <m>1</m>, puisque par hypothèse les vecteurs sont unitaires.</p></proof></task>
+<task><statement><p>Énoncer une condition sur <m>A</m> pour que <m>AA^T=I_m</m>.</p></statement>
+<proof><p>Une matrice <m>A</m> est telle que <m>AA^T=I</m> si et seulement si ses lignes sont des vecteurs deux à deux orthogonaux et unitaires. Il suffit d'échanger le rôle de <m>A</m> et <m>A^T</m> dans les parties précédentes.</p></proof>
+</task>
+<conclusion><p>Des matrices qui ont cette propriété sont dites orthogonales. Elles sont la généralisation des rotations et réflexions dans <m>\mathbb{R}^n</m>.</p></conclusion>
+</exercise>
+<exercise><introduction><p>Dans cet exercices, on donne deux formules pratiques pour obtenir un inverse à gauche ou un inverse à droite, selon ce qui est prescrit par la proposition <xref ref="prop-invgauchedroite"/>.</p></introduction>
+<task><statement><p>Soit <m>A</m> une matrice quelconque de taille <m>m\times n</m>. Montrer que si <m>A</m> est de rang <m>m</m>, alors la matrice <m>A^TA</m> est inversible.</p></statement>
+<hint><p>Utiliser l'exercice <xref ref="exo-rgATA"/>.</p></hint>
+<solution><p>Selon l'exercice <xref ref="exo-rgATA"/>, le rang de la matrice <m>A^TA</m> est égal au rang de la matrice <m>A</m> soit <m>m</m>. Puisque la matrice <m>A^TA</m> est de taille <m>m\times m</m>, le théorème de la matrice inverse <xref ref="thm-delamatriceinversev5"/> implique qu'elle est inversible.</p></solution>
+</task>
+<task><statement><p>Soit <m>A</m> une matrice quelconque de taille <m>m\times n</m>. Montrer que si <m>A</m> est de rang <m>n</m>, alors la matrice <m>AA^T</m> est inversible.</p></statement>
+<hint><p>Utiliser l'exercice <xref ref="exo-rgATA"/> en interchangeant les rôles de <m>A</m> et <m>A^T</m>.</p></hint>
+<solution><p>On sait que <m>A</m> et <m>A^T</m> ont le même rang. Selon l'exercice <xref ref="exo-rgATA"/>, le rang de la matrice <m>AA^T</m> est égal au rang de la matrice <m>A^T</m> soit <m>n</m>. Puisque la matrice <m>AA^T</m> est de taille <m>n\times n</m>, le théorème de la matrice inverse <xref ref="thm-delamatriceinversev5"/> implique qu'elle est inversible.</p></solution>
+</task>
+<task><statement><p>Expliquer pourquoi on ne peut toutefois pas écrire <m>(A^TA)^{-1}=A^{-1}(A^T)^{-1}</m> ou <m>(AA^T)^{-1}=(A^T)^{-1}A^{-1}</m>.</p></statement>
+<hint><p>Quelles sont les dimensions de la matrice <m>A</m>?</p></hint>
+<solution><p>La proposition <xref ref="prop-inverseproduit"/> stipule que le produit de deux matrices <em>carrées</em> est inversible si et seulement si chacune des matrice l'est. Toutefois ici, la matrice <m>A</m> et sa transposée ne sont peut-être pas carrée. Dans ce cas, les matrices <m>A^{-1}</m> et <m>(A^T)^{-1}</m> ne sont même pas définies.</p></solution>
+</task>
+<task><statement><p>Si <m>A</m> est une matrice de taille <m>m\times n</m> et de rang <m>m</m>, montrer que <m>A^{-1}_{\text{droite}}=A^T(AA^T)^{-1}</m> est un inverse à droite.</p></statement>
+<solution><p>Il suffit de calculer le produit <m>AA^{-1}_{\text{droite}}</m>:
+<md>
+<mrow>AA^{-1}_{\text{droite}}&amp;=AA^T(AA^T)^{-1}</mrow>
+<mrow> &amp;=(AA^T)(AA^T)^{-1}&amp; \text{ par associativité}</mrow>
+<mrow> &amp;=I</mrow>
+</md>.
+</p></solution>
+</task>
+<task><statement><p>Si <m>A</m> est une matrice de taille <m>m\times n</m> et de rang <m>n</m>, montrer que <m>A^{-1}_{\text{gauche}}=(A^TA)^{-1}A^T</m> est un inverse à gauche.</p></statement>
+<solution><p>Il suffit de calculer le produit <m>(A^TA)^{-1}A^T A</m>:
+<md>
+<mrow>A^{-1}_{\text{gauche}}A&amp;=(A^TA)^{-1}A^T A</mrow>
+<mrow> &amp;=(A^TA)^{-1}(A^T A)&amp; \text{ par associativité}</mrow>
+<mrow> &amp;=I</mrow>
+</md>.
+</p></solution></task>
 </exercise>
 <exercisegroup>
 <title>Exercices Sage</title>
