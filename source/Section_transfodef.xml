@@ -119,7 +119,7 @@
     <ol>
     <li><p>L'image du vecteur nul est toujours le vecteur nul, c'est-à-dire <m>T(\vec{0})=\vec{0}</m>.</p></li>
     <li><p>Si les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sont parallèles, alors leur image est parallèle, c'est-à-dire si <m>\vec{u}\parallel\vec{v}</m>, alors <m>T(\vec{u})\parallel T(\vec{v})</m>.</p></li>
-    <li><p>L'image d'une droite par une transformation linéaire est une droite et l'image d'un plan par une transformation linéaire est un plan.</p></li>
+    <li><p>L'image d'une droite par une transformation linéaire est une droite<fn>Avec la particularité qu'elle pourrait être écrasée en un point. On considère ceci comme un cas limite.</fn>.</p></li>
     </ol>
      Les transformations linéaires sont donc des transformations qui ne déforment pas trop l'espace, en lien avec le dernier point de la liste précédente. D'un point de vue géométrique, on peut voir la pertinence 
      du mot <em>linéaire</em> dans transformation linéaire par le fait que les droites demeurent des droites (comparer avec l'image de la droite dans la figure <xref ref="fig-transfquelc"/>).</p></statement>
@@ -143,12 +143,13 @@
      </md>
      et donc, l'image du vecteur <m>\vec{v}</m> est parallèle à l'image du  vecteur <m>\vec{u}</m>.
      </p></li>
-     <li><p>Soit <m>\vecl{OP}=a\vec{u}+b\vec{v}+\vecl{OA}</m> un plan. On a
+     <li><p>Soit <m>\vecl{OP}=a\vec{u}+\vecl{OA}</m> un plan. On a
      <md>
-     <mrow>T(\vecl{OP})&amp;=T(a\vec{u}+b\vec{v}+\vecl{OA})</mrow>
-     <mrow>&amp;=T(a\vec{u})+T(b\vec{v})+T(\vecl{OA}) &amp;&amp; \text{ par } <xref ref="li-transfosomme"/> </mrow>
-     <mrow>&amp;=aT(\vec{u})+bT(\vec{v})+T(\vecl{OA}) &amp;&amp; \text{ par } <xref ref="li-transfoscal"/> </mrow>
-     </md>
+     <mrow>T(\vecl{OP})&amp;=T(a\vec{u}+\vecl{OA})</mrow>
+     <mrow>&amp;=T(a\vec{u})+T(\vecl{OA}) &amp;&amp; \text{ par } <xref ref="li-transfosomme"/> </mrow>
+     <mrow>&amp;=aT(\vec{u})+T(\vecl{OA}) &amp;&amp; \text{ par } <xref ref="li-transfoscal"/> </mrow>
+     </md>.
+     Le cas dégénéré dont il est question dans l'énoncé fait référence au fait qu'il est possible que <m>T(\vec{u})=\vec{0}</m>. Dans ce cas, l'image de la droite est un point.
      </p></li>
      </ol></p>
      </proof>
