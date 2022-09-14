@@ -271,8 +271,8 @@ show("E=",E)
     <image xml:id="img-fondalg">
     <sageplot>
 fsize=10
-L=polygon([[3,1],[8,6],[5,9],[0,4]],color="darkcyan",alpha=0.15,axes=False)+text("Espace ligne",(3,5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $r$",(2,6.7),color="black",fontsize=fsize,rotation=45,axes=False)#Espace ligne
-N=polygon([[3,1],[0,-2],[10,-12],[13,-9]],color="crimson",alpha=0.15,axes=False)+text("Espace nul",(3,-2.2),color="black",fontsize=fsize,rotation=-45,axes=False)+text("dimension $n-r$",(2,-5),color="black",fontsize=fsize,rotation=-45,axes=False)#Espace nul
+L=polygon([[3,1],[12,10],[9,13],[0,4]],color="darkcyan",alpha=0.15,axes=False)+text("Espace ligne",(3,5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $r$",(2,6.7),color="black",fontsize=fsize,rotation=45,axes=False)#Espace ligne
+N=polygon([[3,1],[3-0.5*3,1-0.5*3],[13-0.5*3,-9-0.5*3],[13,-9]],color="crimson",alpha=0.15,axes=False)+text("Espace nul",(4,-2.2),color="black",fontsize=fsize,rotation=-45,axes=False)+text("dimension $n-r$",(5,-5),color="black",fontsize=fsize,rotation=-45,axes=False)#Espace nul
 C=polygon([[33,1],[36,4],[27,13],[24,10]],color="dodgerblue",alpha=0.15,axes=False)+text("Espace colonne",(29.5,9.5),color="black",fontsize=fsize,rotation=-45,axes=False)+text("dimension $r$",(30,11.4),color="black",fontsize=fsize,rotation=-45,axes=False)#Espace colonne
 Ng=polygon([[33,1],[26,-6],[29,-9],[36,-2]],color="darkred",alpha=0.15,axes=False)+text("Espace nul-gauche",(32,-5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $m-r$",(33,-6.4),color="black",fontsize=fsize,rotation=45,axes=False)#Espace nul-gauche
 AD=polygon([[3,1],[2.6,0.6],[2.2,1],[2.6,1.4]],color="black",alpha=1,axes=False)+polygon([[33,1],[33.4,0.6],[33.8,1],[33.4,1.4]],color="black",alpha=1,axes=False) #angles droits
@@ -470,9 +470,9 @@ show(Baug.rref())
     </solution>
     </example>
     <p>Avec les quatre espaces fondamentaux, la décomposition est particulièrement intéressante. On considère une matrice <m>A</m> de taille <m>m\times n</m> quelconque. Tout vecteur <m>\vec{x}\in\mathbb{R}^n</m> peut s'écrire comme une somme 
-    <me>
+    <men xml:id="eq-decomplignenul">
     \vec{x}=\vec{x}_l+\vec{x}_n
-    </me>
+    </men>
     avec <m>\vec{x}_l\in\mathcal{L}(A)</m> et <m>\vec{x}_n\in\mathcal{N}(A)</m>, en vertu de la proposition <xref ref="prop-decomportho"/>. Quel est l'effet de la matrice <m>A</m> sur le vecteur <m>\vec{x}</m>? La décomposition combinée à la linéarité de la multiplication matrice vecteur donne la réponse. La composante de <m>\vec{x}</m> provenant de l'espace nul est envoyé sur le vecteur nul et la composante provenant de l'espace ligne est envoyé dans l'espace colonne. Cela signifie que, bien que le domaine de la transformation linéaire soit <m>\mathbb{R}^n</m> au complet, il est seulement utile de connaitre l'image de l'espace ligne pour connaitre l'image de la transformation.
     On bonifie l'image de la figure <xref ref="fig-fondalg"/> afin d'illustrer l'effet d'une matrice comme fonction de <m>\mathbb{R}^n</m> vers <m>\mathbb{R}^m</m>.</p>
     <figure xml:id="fig-decomportho4esp">
@@ -480,8 +480,8 @@ show(Baug.rref())
     <image xml:id="img-decomportho4esp">
     <sageplot>
 fsize=10
-L=polygon([[3,1],[8,6],[5,9],[0,4]],color="darkcyan",alpha=0.15,axes=False)+text("Espace ligne",(3,5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $r$",(2,6.7),color="black",fontsize=fsize,rotation=45,axes=False)#Espace ligne
-N=polygon([[3,1],[0,-2],[10,-12],[13,-9]],color="crimson",alpha=0.15,axes=False)+text("Espace nul",(3,-2.2),color="black",fontsize=fsize,rotation=-45,axes=False)+text("dimension $n-r$",(2,-5),color="black",fontsize=fsize,rotation=-45,axes=False)#Espace nul
+L=polygon([[3,1],[12,10],[9,13],[0,4]],color="darkcyan",alpha=0.15,axes=False)+text("Espace ligne",(3,5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $r$",(2,6.7),color="black",fontsize=fsize,rotation=45,axes=False)#Espace ligne
+N=polygon([[3,1],[3-0.5*3,1-0.5*3],[13-0.5*3,-9-0.5*3],[13,-9]],color="crimson",alpha=0.15,axes=False)+text("Espace nul",(4,-2.2),color="black",fontsize=fsize,rotation=-45,axes=False)+text("dimension $n-r$",(5,-5),color="black",fontsize=fsize,rotation=-45,axes=False)#Espace nul
 C=polygon([[33,1],[36,4],[27,13],[24,10]],color="dodgerblue",alpha=0.15,axes=False)+text("Espace colonne",(29.5,9.5),color="black",fontsize=fsize,rotation=-45,axes=False)+text("dimension $r$",(30,11.4),color="black",fontsize=fsize,rotation=-45,axes=False)#Espace colonne
 Ng=polygon([[33,1],[26,-6],[29,-9],[36,-2]],color="darkred",alpha=0.15,axes=False)+text("Espace nul-gauche",(32,-5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $m-r$",(33,-6.4),color="black",fontsize=fsize,rotation=45,axes=False)#Espace nul-gauche
 AD=polygon([[3,1],[2.6,0.6],[2.2,1],[2.6,1.4]],color="black",alpha=1,axes=False)+polygon([[33,1],[33.4,0.6],[33.8,1],[33.4,1.4]],color="black",alpha=1,axes=False) #angles droits
@@ -526,11 +526,11 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     <proof>
     <p>Soit <m>r</m> la dimension de l'espace ligne et de l'espace colonne et soit <m>\langle\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_r\rangle</m> une base de l'espace ligne. Alors les vecteurs <m>A\vec{v}_1,A\vec{v}_2,\ldots , A\vec{v}_r</m> sont tous dans <m>\mathcal{C}(A)</m>. Si on montre qu'ils sont indépendants, alors ils formeront une base de <m>\mathcal{C}(A)</m>. On considère une combinaison linéaire de ces vecteurs donnant le vecteur nul:
     <me>c_1A\vec{v}_1+c_2A\vec{v}_2+\ldots + c_rA\vec{v}_r=\vec{0}</me>.
-    En mettant la matrice <m>A</m> en évidence, on obtient que <m>A(c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r)=\vec{0}</m> et donc que la combinaison linéaire <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r</m> est dans l'espace nul de la matrice <m>A</m>. Or comme les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldtos , \vec{v}_r</m> sont  une base pour l'espace ligne et que celui-ci est un sous-espace vectoriel, la combinaison linéaire <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r</m> est aussi dans l'espace ligne. Le seul vecteur qui est à la fois dans l'espace ligne et l'espace nul étant le vecteur nul, on conclut que
+    En mettant la matrice <m>A</m> en évidence, on obtient que <m>A(c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r)=\vec{0}</m> et donc que la combinaison linéaire <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r</m> est dans l'espace nul de la matrice <m>A</m>. Or comme les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_r</m> sont  une base pour l'espace ligne et que celui-ci est un sous-espace vectoriel, la combinaison linéaire <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r</m> est aussi dans l'espace ligne. Le seul vecteur qui est à la fois dans l'espace ligne et l'espace nul étant le vecteur nul, on conclut que
     <me>
     c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r=\vec{0}
     </me>.
-    Ceci entraine à son tour que les coefficients <m>c_1,c_2,\ldots, c_r</m> sont tous nuls, puisque les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldtos , \vec{v}_r</m> sont indépendants. Ainsi, la seule combinaison linéaire des vecteurs <m>A\vec{v}_1,A\vec{v}_2,\ldots , A\vec{v}_r</m> donnant le vecteur nul étant celle où tous les coefficients sont nuls, on peut conclure que ces <m>r</m> vecteurs sont aussi indépendants et, puisque la dimension de l'espace colonne est <m>r</m>, ils forment une base de cet espace.
+    Ceci entraine à son tour que les coefficients <m>c_1,c_2,\ldots, c_r</m> sont tous nuls, puisque les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_r</m> sont indépendants. Ainsi, la seule combinaison linéaire des vecteurs <m>A\vec{v}_1,A\vec{v}_2,\ldots , A\vec{v}_r</m> donnant le vecteur nul étant celle où tous les coefficients sont nuls, on peut conclure que ces <m>r</m> vecteurs sont aussi indépendants et, puisque la dimension de l'espace colonne est <m>r</m>, ils forment une base de cet espace.
     </p>
     <p>On considère maintenant un vecteur <m>\vec{b}\in\mathcal{C}(A)</m>. Alors puisque <m>A\vec{v}_1,A\vec{v}_2,\ldots , A\vec{v}_r</m> forment une base de l'espace colonne, il existe une unique manière d'écrire <m>\vec{b}</m> comme une combinaison linéaire de ces vecteurs:
     <md>

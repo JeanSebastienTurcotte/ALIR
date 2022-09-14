@@ -609,7 +609,7 @@ Si la matrice <m>R</m> est de rang <m>r</m>, alors l'espace nul-gauche est de di
 </task>
 <task><statement><p>Décomposer le vecteur <m>(1,1,1)</m> de cette manière.</p></statement>
 <answer><p><m>(1,1,1)=\frac{2}{3}(1,1,2)-\frac{1}{3}(-1,-1,1)</m></p></answer>
-<solution><p>La question est équivalente à décomposer le vecteur <m>(1,1,1)</m> dans la base de <m>\mathbb{R}^3</m> donnée par les vecteurs <m>(1,0,1),(-1,1,0)</m> (les lignes de la matrice <m>A</m>) et le vecteur <m>(-1,-1,1)</m> (le produit vectoriel des deux premiers vecteurs) et de combiner les contributions des vecteurs de l'espace ligne. On place ces trois vecteurs dans une colonne afin de résoudre le système.</p>
+<solution><p>La question est équivalente à décomposer le vecteur <m>(1,1,1)</m> dans la base de <m>\mathbb{R}^3</m> donnée par les vecteurs <m>(1,0,1),(-1,1,0)</m> (les lignes de la matrice <m>A</m>) et le vecteur <m>(-1,-1,1)</m> (le produit vectoriel des deux premiers vecteurs) et de combiner les contributions des vecteurs de l'espace ligne. On place ces trois vecteurs dans une matrice colonne afin de résoudre le système.</p>
 <sage>
 <input>
 v1=vector([1,0,1])
@@ -637,8 +637,8 @@ R.&lt;x,y,z>=QQ[]
 v1=vector([1,0,1])
 v2=vector([-1,1,0])
 v3=vector([-1,-1,1])
-v4=vector([x,y,z])
-M=column_matrix([v1,v2,v3,v4])
+b=vector([x,y,z])
+M=column_matrix([v1,v2,v3,b])
 show("rref((M|b))=",M.echelon_form())
 </input>
 </sage>
@@ -653,9 +653,66 @@ show("rref((M|b))=",M.echelon_form())
 </task>
 </exercise>
 <exercise><introduction><p>Soit <m>B=\begin{pmatrix}1&amp; 1&amp; 0&amp;0\\ 0&amp; 0&amp;1&amp; -1 \end{pmatrix}</m>.</p></introduction>
-<task><statement><p>Décomposer n'importe quel vecteur de <m>\mathbb{R}^4</m> comme la somme d'un vecteur dans l'espace ligne et d'un vecteur dans l'espace nul.</p></statement></task>
-<task><statement><p>Soit <m>\vec{u}=(1,1)</m>. Trouver un vecteur <m>\vec{x}</m> dans <m>\mathcal{L}(B)</m> tel que <m>B\vec{x}=(1,1)</m>.</p></statement></task>
-<task><statement><p>Trouver trois vecteurs de <m>\mathbb{R}^4</m> différents de celui trouvé à la partie précédente pour lesquels le produit par la matrice <m>B</m> donne aussi <m>(1,1)</m>.</p></statement></task>
+<task><statement><p>Décomposer n'importe quel vecteur de <m>\mathbb{R}^4</m> comme la somme d'un vecteur dans l'espace ligne et d'un vecteur dans l'espace nul.</p></statement>
+<answer><p><m>(x,y,z,w)=\left(\frac{1}{2} x + \frac{1}{2} y,\,\frac{1}{2} x + \frac{1}{2} y,\,\frac{1}{2} z - \frac{1}{2} w,\,-\frac{1}{2} z + \frac{1}{2} w\right)
++\left(\frac{1}{2} x - \frac{1}{2} y,\,-\frac{1}{2} x + \frac{1}{2} y,\,\frac{1}{2} z + \frac{1}{2} w,\,\frac{1}{2} z + \frac{1}{2} w\right)
+</m>.</p></answer>
+<solution><p>On se base sur l'exercice précédent. Les deux lignes de la matrices sont indépendantes. L'espace ligne étant de dimension <m>2</m>, l'espace nul le sera aussi. Comme la matrice est déjà sous une forme échelonnée réduite, les solutions de base peuvent s'obtenir directement afin de compléter la base requise. On pose <m>\vec{v}_3=(-1,1,0,0),\vec{v}_4=(0,0,1,1)</m> Avec les lignes <m>\vec{v}_1=(1,1,0,0),\vec{v}_2=(0,0,1,-1)</m>, on pourra écrire n'importe quel vecteur de <m>\mathbb{R}^4</m> comme la somme d'un vecteur de l'espace ligne et d'un vecteur de l'espace nul.</p>
+<sage>
+<input>
+R.&lt;x,y,z,w>=QQ[]
+v1=vector([1,1,0,0])
+v2=vector([0,0,1,-1])
+v3=vector([-1,1,0,0])
+v4=vector([0,0,1,1])
+b=vector([x,y,z,w])
+M=column_matrix([v1,v2,v3,v4,b])
+show("rref((M|b))=",M.echelon_form())
+</input>
+</sage>
+<p>La solution à ce système est
+<me>
+(x,y,z,w)=\underbrace{\frac{1}{2}(x+y)\vec{v}_1+\frac{1}{2}(z-w)\vec{v}_2}_{\mathcal{L}(B)}+\underbrace{\frac{1}{2}(-x+y)\vec{v}_3+\frac{1}{2}(z+w)\vec{v}_4}_{\mathcal{N}(B)}
+</me>. En combinant les vecteurs <m>\vec{v}_1,\vec{v}_2</m> et les vecteurs <m>\vec{v}_3,\vec{v}_4</m>, on obtient une décomposition de <m>(x,y,z,w)</m> comme comme la somme d'un vecteur de l'espace ligne et d'un vecteur de l'espace nul.
+</p>
+</solution>
+</task>
+<task><statement><p>Soit <m>\vec{u}=(1,1)</m>. Trouver un vecteur <m>\vec{x}</m> dans <m>\mathcal{L}(B)</m> tel que <m>B\vec{x}=(1,1)</m>.</p></statement>
+<answer><p><m>\vec{x}=\left(\frac{1}{2},\frac{1}{2},\frac{1}{2},-\frac{1}{2}\right)</m></p></answer>
+<solution><p>Ceci revient à trouver quelles valeurs de <m>x,y</m> satisfont l'équation matricielle
+<me>
+B\left(x\begin{pmatrix} 1\\ 1\\ 0\\ 0\end{pmatrix}+y\begin{pmatrix} 0\\ 0\\ 1\\ -1\end{pmatrix}\right)=\begin{pmatrix} 1\\1\end{pmatrix}
+</me>. En distribuant la matrice <m>B</m>, cela revient à trouver comment écrire le vecteur <m>(1,1)</m> en termes des vecteurs images de chaque ligne. Puisque <m>B\vec{l}_1=\vecd{2}{0}</m> et <m>B\vec{l}_2=\vecd{0}{2}</m>, on trouve rapidement <m>x=y=\frac{1}{2}</m>. Le vecteur
+<me>
+\vec{x}=\frac{1}{2}(1,1,0,0)+\frac{1}{2}(0,0,1,-1)=\left(\frac{1}{2},\frac{1}{2},\frac{1}{2},-\frac{1}{2}\right)
+</me> est la solution cherchée.</p></solution>
+</task>
+<task><statement><p>Trouver trois vecteurs de <m>\mathbb{R}^4</m> différents de celui trouvé à la partie précédente pour lesquels le produit par la matrice <m>B</m> donne aussi <m>(1,1)</m>.</p></statement>
+<answer><p><md>
+<mrow>x_1&amp;=\left(-\frac{1}{2},\frac{3}{2},\frac{1}{2},-\frac{1}{2}\right)</mrow>
+<mrow>x_2&amp;=\left(\frac{1}{2},\frac{1}{2},\frac{3}{2},\frac{1}{2}\right)</mrow>
+<mrow>x_3&amp;=\left(-\frac{1}{2},\frac{3}{2},\frac{3}{2},\frac{1}{2}\right)</mrow>
+<mrow>x_4&amp;=\left(-\frac{1}{2},\frac{3}{2},-\frac{1}{2},-\frac{3}{2}\right)</mrow>
+</md></p></answer>
+<solution><p>Il suffit d'ajouter au vecteur <m>\vec{x}=\left(\frac{1}{2},\frac{1}{2},\frac{1}{2},-\frac{1}{2}\right)</m> n'importe quel vecteur de l'espace nul, en vertu de l'équation <xref ref="eq-decomplignenul"/>. Puisque l'espace nul est engendré par les vecteurs <m>\vec{v}_3=(-1,1,0,0),\vec{v}_4=(0,0,1,1)</m>, on a par exemple
+<md>
+<mrow>\vec{x}_1&amp;=\left(\frac{1}{2},\frac{1}{2},\frac{1}{2},-\frac{1}{2}\right)+(-1,1,0,0)</mrow>
+<mrow>&amp;=\left(-\frac{1}{2},\frac{3}{2},\frac{1}{2},-\frac{1}{2}\right)</mrow>
+</md>;
+<md>
+<mrow>\vec{x}_2&amp;=\left(\frac{1}{2},\frac{1}{2},\frac{1}{2},-\frac{1}{2}\right)+(0,0,1,1)</mrow>
+<mrow>&amp;=\left(\frac{1}{2},\frac{1}{2},\frac{3}{2},\frac{1}{2}\right)</mrow>
+</md>;
+<md>
+<mrow>\vec{x}_1&amp;=\left(\frac{1}{2},\frac{1}{2},\frac{1}{2},-\frac{1}{2}\right)+(-1,1,0,0)+(0,0,1,1)</mrow>
+<mrow>&amp;=\left(-\frac{1}{2},\frac{3}{2},\frac{3}{2},\frac{1}{2}\right)</mrow>
+</md>
+et
+<md>
+<mrow>\vec{x}_1&amp;=\left(\frac{1}{2},\frac{1}{2},\frac{1}{2},-\frac{1}{2}\right)+(-1,1,0,0)-(0,0,1,1)</mrow>
+<mrow>&amp;=\left(-\frac{1}{2},\frac{3}{2},-\frac{1}{2},-\frac{3}{2}\right)</mrow>
+</md>.
+</p></solution></task>
 </exercise>
 <exercise>
 <introduction><p>Soit <m>A</m> une matrice <m>m\times n</m> et <m>B</m> une matrice <m>n\times p</m>.</p></introduction>
@@ -796,20 +853,21 @@ show("AB=",A*B)
 </exercise>
 <exercise xml:id="exo-vecuniqueespligne">
 <statement><p>Montrer que le vecteur <m>\vec{x}_0</m> de la proposition <xref ref="prop-relesplignecol"/> est unique.</p></statement>
+<solution><p>Soit <m>\vec{x}_0,\vec{x}_1</m> deux vecteurs de l'espace ligne tels que <m>A\vec{x}_0=\vec{b}</m> et <m>A\vec{x}_1=\vec{b}</m>. Alors puisque <m>\mathcal{L}(A)</m> est un sous-espace vectoriel, le vecteur <m>\vec{x}_1-\vec{x}_0</m> est aussi dans l'espace ligne. D'un autre côté, on a <m>A(\vec{x}_1-\vec{x}_0)=A\vec{x}_1-A\vec{x}_0=\vec{b}-\vec{b}=\vec{0}</m>. Le vecteur <m>\vec{x}_1-\vec{x}_0</m> est donc aussi dans l'espace nul. Le seul vecteur qui puisse être à la fois dans l'espace nul et dans l'espace ligne est le vecteur nul. Ainsi <m>\vec{x}_1-\vec{x}_0=\vec{0}</m>, ce qui entraine l'égalité entre <m>\vec{x}_0</m> et <m>\vec{x}_1</m>.</p></solution>
 </exercise>
 <exercise><introduction>
 <p>Dans cette exercice, on s'intéresse à quand la transposée est l'inverse. Ce type de matrice sera l'objet central du chapitre <xref provisional="chap-orthogonal"/>.</p></introduction>
 <task><statement><p>Soit <m>A</m> une matrice <m>m\times n</m> telle que <m>A^TA=I_n</m>. Montrer que les colonnes de <m>A</m> sont des vecteurs deux à deux orthogonaux et de norme <m>1</m>.</p></statement>
-<proof><p>On interprète le produit <m>A^TA</m> comme une série de produits scalaires. L'entrée en position <m>i,j</m> du produit est donnée par le produit scalaire de la ligne <m>i</m> de la matrice <m>A^T</m> et de la colonne <m>j</m> de la matrice <m>A</m>. Comme le produit de ces deux matrices est l'identité, on déduit que si <m>i\neq j</m>, le produit est <m>0</m>. De plus comme la ligne <m>i</m> de <m>A^T</m> est aussi la colonne <m>i</m> de la matrice <m>A</m>, on conclut que les colonnes sont orthogonales, leur produit scalaire donnant <m>0</m>. Lorsque <m>i=j</m>, on se retrouve avec le produit scalaire d'une colonne avec elle-même, ce qui donne la norme du vecteur élevée au carré. Comme le résultat est l'entrée <m>1</m> de la matrice identité, on obtient que la norme des colonnes est <m>1</m>.</p></proof>
+<solution><p>On interprète le produit <m>A^TA</m> comme une série de produits scalaires. L'entrée en position <m>i,j</m> du produit est donnée par le produit scalaire de la ligne <m>i</m> de la matrice <m>A^T</m> et de la colonne <m>j</m> de la matrice <m>A</m>. Comme le produit de ces deux matrices est l'identité, on déduit que si <m>i\neq j</m>, le produit est <m>0</m>. De plus comme la ligne <m>i</m> de <m>A^T</m> est aussi la colonne <m>i</m> de la matrice <m>A</m>, on conclut que les colonnes sont orthogonales, leur produit scalaire donnant <m>0</m>. Lorsque <m>i=j</m>, on se retrouve avec le produit scalaire d'une colonne avec elle-même, ce qui donne la norme du vecteur élevée au carré. Comme le résultat est l'entrée <m>1</m> de la matrice identité, on obtient que la norme des colonnes est <m>1</m>.</p></solution>
 </task>
 <task><statement><p>Soit <m>A</m> une matrice <m>m\times n</m> telle que ses colonnes sont un ensemble de vecteurs deux à deux orthogonaux. Montrer que <m>A^TA=I_n</m>.</p></statement>
-<proof><p>Il suffit de faire le calcul inverse de la preuve précédente. On interpète le calcul de <m>A^TA</m> comme une série de produits scalaires. Si on cherche l'entrée en position <m>i,j</m>, alors on fait le produit scalaire de la ligne <m>i</m> de <m>A^T</m> avec la ligne <m>j</m> de <m>A</m>. Puisqu'une ligne de <m>A^T</m> est aussi une colonne de <m>A</m>, on obtient que si <m>i\neq j</m>, alors le produit scalaire est nul et si <m>i=j</m>, alors le produit scalaire donne <m>1</m>, puisque par hypothèse les vecteurs sont unitaires.</p></proof></task>
+<solution><p>Il suffit de faire le calcul inverse de la preuve précédente. On interpète le calcul de <m>A^TA</m> comme une série de produits scalaires. Si on cherche l'entrée en position <m>i,j</m>, alors on fait le produit scalaire de la ligne <m>i</m> de <m>A^T</m> avec la ligne <m>j</m> de <m>A</m>. Puisqu'une ligne de <m>A^T</m> est aussi une colonne de <m>A</m>, on obtient que si <m>i\neq j</m>, alors le produit scalaire est nul et si <m>i=j</m>, alors le produit scalaire donne <m>1</m>, puisque par hypothèse les vecteurs sont unitaires.</p></solution></task>
 <task><statement><p>Énoncer une condition sur <m>A</m> pour que <m>AA^T=I_m</m>.</p></statement>
-<proof><p>Une matrice <m>A</m> est telle que <m>AA^T=I</m> si et seulement si ses lignes sont des vecteurs deux à deux orthogonaux et unitaires. Il suffit d'échanger le rôle de <m>A</m> et <m>A^T</m> dans les parties précédentes.</p></proof>
+<solution><p>Une matrice <m>A</m> est telle que <m>AA^T=I</m> si et seulement si ses lignes sont des vecteurs deux à deux orthogonaux et unitaires. Il suffit d'échanger le rôle de <m>A</m> et <m>A^T</m> dans les parties précédentes.</p></solution>
 </task>
 <conclusion><p>Des matrices qui ont cette propriété sont dites orthogonales. Elles sont la généralisation des rotations et réflexions dans <m>\mathbb{R}^n</m>.</p></conclusion>
 </exercise>
-<exercise><introduction><p>Dans cet exercices, on donne deux formules pratiques pour obtenir un inverse à gauche ou un inverse à droite, selon ce qui est prescrit par la proposition <xref ref="prop-invgauchedroite"/>.</p></introduction>
+<exercise xml:id="exo-formulesinversegauchedroite"><introduction><p>Dans cet exercices, on donne deux formules pratiques pour obtenir un inverse à gauche ou un inverse à droite, selon ce qui est prescrit par la proposition <xref ref="prop-invgauchedroite"/>.</p></introduction>
 <task><statement><p>Soit <m>A</m> une matrice quelconque de taille <m>m\times n</m>. Montrer que si <m>A</m> est de rang <m>m</m>, alors la matrice <m>A^TA</m> est inversible.</p></statement>
 <hint><p>Utiliser l'exercice <xref ref="exo-rgATA"/>.</p></hint>
 <solution><p>Selon l'exercice <xref ref="exo-rgATA"/>, le rang de la matrice <m>A^TA</m> est égal au rang de la matrice <m>A</m> soit <m>m</m>. Puisque la matrice <m>A^TA</m> est de taille <m>m\times m</m>, le théorème de la matrice inverse <xref ref="thm-delamatriceinversev5"/> implique qu'elle est inversible.</p></solution>
@@ -862,6 +920,173 @@ def colbase(A):
     </program>
     </listing></solution>
     </exercise>
+    <exercise><introduction><p>En utilisant les formules de l'exercice <xref ref="exo-formulesinversegauchedroite"/>, déterminer un inverse à gauche ou un inverse à droite des matrices suivantes. Dans le cas d'une matrice carrée, calculer les deux inverses et vérifier qu'ils correspondent à l'inverse traditionnel. Toutes les matrices sont de rang maximal.</p></introduction>
+    <task><statement><p><m>A=\begin{pmatrix}
+5 &amp; 2 &amp; -2 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 0 &amp; 2 &amp; 0 \\
+-1 &amp; -1 &amp; 0 &amp; -11 &amp; -1
+\end{pmatrix}</m></p></statement>
+<answer><p><m>A^{-1}_{\text{droite}}=\begin{pmatrix}
+\frac{47}{313} &amp; \frac{5}{939} &amp; \frac{5}{313} \\
+-\frac{37}{313} &amp; \frac{995}{939} &amp; \frac{56}{313} \\
+-\frac{56}{313} &amp; \frac{220}{313} &amp; \frac{34}{313} \\
+-\frac{5}{313} &amp; -\frac{61}{1878} &amp; -\frac{61}{626} \\
+\frac{45}{313} &amp; -\frac{443}{626} &amp; -\frac{77}{626}
+\end{pmatrix}</m></p></answer>
+<solution><p>Puisque <m>m\leq n</m>, la matrice ne peut posséder qu'un inverse à droite.</p>
+<sage>
+<input>
+A=matrix([[5,2,-2,1,1],[1,1,0,2,0],[-1,-1,0,-11,-1]])
+AT=A.transpose()
+AAT=A*AT
+Invd=AT*(AAT).inverse()
+show("A^{-1}_droite=",Invd)
+show("A*A^{-1}_droite=",A*Invd)
+</input>
+</sage>
+</solution>
+</task>
+    <task><statement><p><m>B=\begin{pmatrix}
+5 &amp; -1 &amp; 2 \\
+8 &amp; -1 &amp; 0 \\
+-1 &amp; 13 &amp; 3 \\
+0 &amp; -1 &amp; -1 \\
+-5 &amp; 1 &amp; 1 \\
+-16 &amp; -5 &amp; 1
+\end{pmatrix}</m></p></statement>
+<answer><p><m>B^{-1}_{gauche}=\begin{pmatrix}
+\frac{5049}{155645} &amp; \frac{4339}{155645} &amp; -\frac{2539}{311290} &amp; -\frac{227}{44470} &amp; -\frac{3441}{311290} &amp; -\frac{10727}{311290} \\
+-\frac{276}{4447} &amp; -\frac{113}{4447} &amp; \frac{257}{4447} &amp; \frac{54}{4447} &amp; -\frac{9}{4447} &amp; -\frac{156}{4447} \\
+\frac{6343}{22235} &amp; \frac{1743}{22235} &amp; \frac{5119}{88940} &amp; -\frac{8251}{88940} &amp; \frac{5081}{88940} &amp; \frac{9507}{88940}
+\end{pmatrix}</m></p></answer>
+<solution><p>Cette fois, <m>n\leq m</m> et la matrice ne peut posséder qu'un inverse à gauche.</p>
+<sage>
+<input>
+B=column_matrix([[5,8,-1,0,-5,-16],[-1,-1,13,-1,1,-5],[2,0,3,-1,1,1]])
+BT=B.transpose()
+BTB=BT*B
+Invg=(BTB).inverse()*BT
+show("B^{-1}_gauche=",Invg)
+show("B^{-1}_gauche*B=",Invg*B)
+</input>
+</sage>
+</solution>
+</task>
+    <task><statement><p><m>C=\begin{pmatrix}
+5 &amp; 4 \\
+-1 &amp; 1
+\end{pmatrix}</m></p></statement>
+<answer><p><m>C^{-1}_{\text{gauche}}=C^{-1}_{\text{droite}}=C^{-1}=\begin{pmatrix}
+\frac{1}{9} &amp; -\frac{4}{9} \\
+\frac{1}{9} &amp; \frac{5}{9}
+\end{pmatrix}</m></p></answer>
+<solution><p>La matrice est carrée et par hypothèse du problème de rang 2 donc inversible. On calcule les inverses à gauche, droite et au sens usuel du terme et on vérifie que les trois sont égaux.</p>
+<sage>
+<input>
+C=column_matrix([[5,-1],[4,1]])
+CT=C.transpose()
+CTC=CT*C
+CCT=C*CT
+Invg=(CTC).inverse()*CT
+Invd=CT*CCT.inverse()
+Inv=C.inverse()
+show("C^{-1}_gauche=",Invg)
+show("C^{-1}_droite=",Invd)
+show("C^{-1}=",Inv)
+show("C^{-1}*C=",Inv*C)
+</input>
+</sage>
+</solution>
+</task>
+    <task><statement><p><m>D=\begin{pmatrix}
+0 &amp; 0 &amp; -41 &amp; -11 &amp; -32 &amp; -3 \\
+0 &amp; 0 &amp; -1 &amp; -3 &amp; -1 &amp; -1 \\
+-2 &amp; 1 &amp; 1 &amp; 0 &amp; 2 &amp; 27
+\end{pmatrix}</m></p></statement>
+<answer>
+<p><m>D^{-1}_{\text{droite}}=\begin{pmatrix}
+\frac{2076}{14610509} &amp; -\frac{129552}{14610509} &amp; -\frac{44278}{14610509} \\
+-\frac{1038}{14610509} &amp; \frac{64776}{14610509} &amp; \frac{22139}{14610509} \\
+-\frac{252755}{14610509} &amp; \frac{1078118}{14610509} &amp; -\frac{79}{14610509} \\
+\frac{137265}{14610509} &amp; -\frac{5356726}{14610509} &amp; -\frac{182910}{14610509} \\
+-\frac{182081}{14610509} &amp; \frac{468155}{14610509} &amp; \frac{12718}{14610509} \\
+\frac{23041}{14610509} &amp; -\frac{86604}{14610509} &amp; \frac{536091}{14610509}
+\end{pmatrix}</m></p>
+</answer>
+<solution><p>Puisque <m>m\leq n</m>, la matrice ne peut posséder qu'un inverse à droite.</p>
+<sage>
+<input>
+D=matrix([[0,0,-41,-11,-32,-3],[0,0,-1,-3,-1,-1],[-2,1,1,0,2,27]])
+DT=D.transpose()
+DT=D*DT
+Invd=DT*(DT).inverse()
+show("D^{-1}_droite=",Invd)
+show("D*D^{-1}_droite=",D*Invd)
+</input>
+</sage>
+</solution>
+</task>
+    <task><statement><p><m>E=\begin{pmatrix}
+3 &amp; 1 &amp; -1 \\
+-1 &amp; 2 &amp; -1 \\
+2 &amp; -1 &amp; 20 \\
+8 &amp; -2 &amp; -2 \\
+-8 &amp; -1 &amp; 3 \\
+0 &amp; -3 &amp; -1
+\end{pmatrix}</m></p></statement>
+<answer><p><m>E^{-1}_{\text{gauche}}=\begin{pmatrix}
+\frac{13724}{547859} &amp; -\frac{303}{547859} &amp; \frac{8178}{547859} &amp; \frac{27843}{547859} &amp; -\frac{66821}{1095718} &amp; -\frac{889}{84286} \\
+\frac{33849}{547859} &amp; \frac{55819}{547859} &amp; \frac{1408}{547859} &amp; -\frac{46656}{547859} &amp; -\frac{40588}{547859} &amp; -\frac{6920}{42143} \\
+\frac{295}{547859} &amp; \frac{1231}{547859} &amp; \frac{26443}{547859} &amp; -\frac{4631}{547859} &amp; \frac{3873}{1095718} &amp; -\frac{839}{84286}
+\end{pmatrix}</m></p></answer>
+<solution><p>Puisque <m>n\leq m</m>, la matrice ne peut posséder qu'un inverse à gauche.</p>
+<sage>
+<input>
+E=column_matrix([[3,-1,2,8,-8,0],[1,2,-1,-2,-1,-3],[-1,-1,20,-2,3,-1]])
+ET=E.transpose()
+ETE=ET*E
+Invg=(ETE).inverse()*ET
+show("E^{-1}_gauche=",Invg)
+show("E^{-1}_gauche*B=",Invg*E)
+</input>
+</sage>
+</solution>
+</task>
+</exercise>
+<exercise><statement><p>Créer une fonction qui prend comme argument une matrice. La fonction retourne
+<ol>
+<li><p>Son inverse à gauche telle que donnée par la formule de l'exercice <xref ref="exo-formulesinversegauchedroite"/> s'il existe, ainsi que la mention c'est un inverse à gauche;</p></li>
+<li><p>Son inverse à droite telle que donnée par la formule de l'exercice <xref ref="exo-formulesinversegauchedroite"/> s'il existe, ainsi que la mention c'est un inverse à droite;</p></li>
+<li><p>Son inverse si la matrice est carrée et inversible;</p></li>
+<li><p>La chaine de caractère <c>La matrice ne possède pas d'inverse</c> dans les autres cas.</p></li>
+</ol></p></statement>
+<solution><listing>
+<caption>Le code solution de l'exercice</caption>
+<program language="sage">
+<input>
+def matinverse(A):
+    m=len(A.rows())
+    n=len(A.columns())
+    r=A.rank()
+    if r!=min(m,n):
+        print("La matrice ne possède pas d'inverse")
+    elif m==n:
+        print("La matrice est inversible")
+        return A.inverse()
+    elif m&lt;n:
+        print("C'est un inverse à droite")
+        AT=A.transpose()
+        AATinv=(A*AT).inverse()
+        return AT*AATinv
+    elif n&lt;m:
+        print("C'est un inverse à gauche")
+        AT=A.transpose()
+        ATAinv=(AT*A).inverse()
+        return ATAinv*AT
+</input>
+</program>
+</listing></solution>
+</exercise>
 </exercisegroup>
 
 </exercises>
