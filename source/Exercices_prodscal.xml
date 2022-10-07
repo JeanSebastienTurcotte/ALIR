@@ -157,9 +157,8 @@
                             <mrow> (2,3)\cdot(3r,-2r) &amp; =0</mrow>
                             <mrow> 2*3r+3*(-2r) &amp; =0</mrow>
                             <mrow> 0r &amp; =0</mrow>
-                            <mrow> 0r &amp; =0</mrow>
-                            <mrow> r &amp; \in\R</mrow>
-                </md></p>
+                            
+                </md>. Comme n'importe quelle valeur de <m>r\in \mathbb{R}</m> permet de satisfaire cette équation, il suit ces vecteurs sont toujours perpendiculaires.</p>
             </solution>
             </task>
             <task>
@@ -321,14 +320,14 @@
             </introduction>
             <task>
             <statement>
-                <p><m>\norm{\vec{u}+\vec{v}}^2+\norm{\vec{u}-\vec{v}}^2=2\norm{u}^2+2\norm{v}^2</m></p>
+                <p><m>\norm{\vec{u}+\vec{v}}^2+\norm{\vec{u}-\vec{v}}^2=2\norm{\vec{u}}^2+2\norm{\vec{v}}^2</m></p>
             </statement>
             <solution>
                 <p><md>
                     <mrow>\norm{\vec{u}+\vec{v}}^2+\norm{\vec{u}-\vec{v}}^2 &amp;=(\vec{u}+\vec{v})\cdot(\vec{u}+\vec{v})+(\vec{u}-\vec{v})\cdot(\vec{u}-\vec{v}) &amp;\text{   (par 4.)}</mrow>
                     <mrow> &amp;= \vec{u}\cdot\vec{u}+2\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{v}+\vec{u}\cdot\vec{u}-2\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{v}  &amp;\text{   (par 1. et 3.)}</mrow>
                     <mrow> &amp;= 2(\vec{u}\cdot\vec{u})+2(\vec{v}\cdot\vec{v})&amp;</mrow>
-                    <mrow> &amp;= 2\norm{u}^2+2\norm{v}^2  &amp;\text{   (par 4.)}</mrow>
+                    <mrow> &amp;= 2\norm{\vec{u}}^2+2\norm{\vec{v}}^2  &amp;\text{   (par 4.)}</mrow>
                 </md></p>
             </solution>
             </task>
@@ -363,23 +362,23 @@
                 </figure>
             </statement>
             <hint>
-                <p> Considérer l'origine des deux diagonales comme l'origine d'un espace cartésien. Créer des vecteurs en considérant que la longueur du côté du cube est de un.</p>
+                <p> Considérer l'origine des deux diagonales comme l'origine d'un espace cartésien. Créer des vecteurs en considérant que la longueur du côté du cube est de <m>c</m>.</p>
             </hint>
             <answer>
                 <p>L'angle entre les diagonales est <m>\theta=\arccos\pfrac{2}{\sqrt{6}}\approx 0.6155</m> radians ou encore <m>35.3</m> degrés.</p>
             </answer>
             <solution>
-                <p>Considérant l'origine des deux diagonales comme l'origine d'un espace cartésien et la longueur du côté du cube égale à un, les vecteurs créés ont pour composantes
-                respectivement <m>\vec{u}=(1,1,0)</m> et <m>\vec{v}=(1,1,1)</m>. L'angle désiré devient tout simplement l'angle entre ces deux vecteurs. On le calcule comme à 
+                <p>Considérant l'origine des deux diagonales comme l'origine d'un espace cartésien et la longueur du côté du cube égale à <m>c</m>, les vecteurs créés ont pour composantes
+                respectivement <m>\vec{u}=(c,c,0)</m> et <m>\vec{v}=(c,c,c)</m>. L'angle désiré devient tout simplement l'angle entre ces deux vecteurs. On le calcule comme à 
                 l'exemple <xref ref="ex-calculangle2d" /></p>
                 <p><md>
                     <mrow> \cos(\theta)&amp;=\frac{\vec{u}\cdot\vec{v}}{\norm{\vec{u}}\norm{\vec{v}}}</mrow>
-                    <mrow> &amp;= \frac{(1,1,0)\cdot(1,1,1)}{\norm{(1,1,0)}\norm{(1,1,1)}}</mrow>
-                    <mrow> &amp;= \frac{1*1+1*1+0*1}{\sqrt{1^2+1^2+0^2}\sqrt{1^2+1^2+1^2}}</mrow>
-                    <mrow> &amp;= \frac{2}{\sqrt{2}\sqrt{3}}</mrow>
+                    <mrow> &amp;= \frac{(c,c,0)\cdot(c,c,c)}{\norm{(c,c,0)}\norm{(c,c,c)}}</mrow>
+                    <mrow> &amp;= \frac{c*c+c*c+0*c}{\sqrt{c^2+c^2+0^2}\sqrt{c^2+c^2+c^2}}</mrow>
+                    <mrow> &amp;= \frac{2c^2}{\sqrt{2c^2}\sqrt{3c^2}}</mrow>
                     <mrow> &amp;= \frac{2}{\sqrt{6}}</mrow>
                 </md>.</p>
-            <p>L'angle entre les vecteurs et donc entre les diagonales est donc <m>\theta=\arccos\pfrac{2}{\sqrt{6}}\approx 0.6155</m> radians ou encore <m>35.3</m> degrés.</p>
+            <p>L'angle entre les vecteurs et donc entre les diagonales est donc <m>\theta=\arccos\pfrac{2}{\sqrt{6}}\approx 0.6155</m> radians ou encore <m>35.3</m> degrés. De plus, on constate que cet angle ne dépend pas de la longueur du côté du cube. </p>
             </solution>
     </exercise>
      <exercise xml:id="exo-tetrachimie">
@@ -491,7 +490,7 @@
                 <p>On pourrait également faire la solution alternative en utilisant le produit scalaire dans sa définition géométrique.</p>
                 
                 <p>Remarquer également que cet exercice rappelle l'équation <xref ref="eq-vecpol"/> qu'on peut obtenir de notre exercice simplement en considérant que 
-                <m>\alpha = frac{\pi}{2}-\theta</m>, car ce sont des angles complémentaires. Une identité trigonométrique complètera la preuve.</p>
+                <m>\alpha = \frac{\pi}{2}-\theta</m>, car ce sont des angles complémentaires. Une identité trigonométrique complètera la preuve.</p>
             </solution>
             </task>
             <task>

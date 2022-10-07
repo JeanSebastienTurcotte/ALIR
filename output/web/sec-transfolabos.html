@@ -204,18 +204,18 @@ $\Box$
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec-transfolabos"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">Activités et laboratoires</span>
 </h2>
-<section class="introduction" id="intro-transfolabos"><p id="p-1780">Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p></section><article class="project project-like" id="project-2"><h3 class="heading">
+<section class="introduction" id="intro-transfolabos"><p id="p-1781">Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p></section><article class="project project-like" id="project-2"><h3 class="heading">
 <span class="type">Projet</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">De l'art géométrique.</span>
 </h3>
-<div class="introduction" id="introduction-59"><p id="p-1781">On a vu à l'exemple <a href="" class="xref" data-knowl="./knowl/sageex-deftransfo.html" title="Calcul 2.1.21: Les transformations sur Sage">2.1.21</a> qu'on pouvait appliquer une transformation  à une liste de points. Dans ce projet, on souhaite créer une oeuvre créative à l'aide de transformation linéaire. Afin de bien comprendre, on divise le projet en deux étapes.</p></div>
+<div class="introduction" id="introduction-59"><p id="p-1782">On a vu à l'exemple <a href="" class="xref" data-knowl="./knowl/sageex-deftransfo.html" title="Calcul 2.1.21: Les transformations sur Sage">2.1.21</a> qu'on pouvait appliquer une transformation  à une liste de points. Dans ce projet, on souhaite créer une oeuvre créative à l'aide de transformation linéaire. Afin de bien comprendre, on divise le projet en deux étapes.</p></div>
 <article class="task exercise-like" id="task-150"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="introduction" id="introduction-60">
-<p id="p-1782">Le but de cette étape est de reproduire la figure ci-dessous à partir d'une liste de points initiaux.</p>
+<p id="p-1783">Le but de cette étape est de reproduire la figure ci-dessous à partir d'une liste de points initiaux.</p>
 <figure class="figure figure-like" id="fig-laboetoile"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-laboetoile.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.1<span class="period">.</span></span><span class="space"> </span>Une belle étoile</figcaption></figure>
 </div>
 <article class="task exercise-like" id="task-151"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-1783">La commande <code class="code-inline tex2jax_ignore">polygon</code> permet de tracer un polygone à partir d'une liste de points. L'étoile de la figure <a href="" class="xref" data-knowl="./knowl/fig-laboetoile.html" title="Figure 2.5.1">2.5.1</a> a été obtenue en utilisant également les options <code class="code-inline tex2jax_ignore">color="gold"</code> et <code class="code-inline tex2jax_ignore">edgecolor="black"</code>. À partir de la liste de points suivants et d'une réflexion selon l'axe des <span class="process-math">\(y\text{,}\)</span> créer la seconde moitié de l'étoile en arrière-plan (On peut utiliser la commande <code class="code-inline tex2jax_ignore">Listetransformees=[T*P for P in Listepoints]</code> pour obtenir l'image par la transformation <span class="process-math">\(T\)</span>).</p>
+<p id="p-1784">La commande <code class="code-inline tex2jax_ignore">polygon</code> permet de tracer un polygone à partir d'une liste de points. L'étoile de la figure <a href="" class="xref" data-knowl="./knowl/fig-laboetoile.html" title="Figure 2.5.1">2.5.1</a> a été obtenue en utilisant également les options <code class="code-inline tex2jax_ignore">color="gold"</code> et <code class="code-inline tex2jax_ignore">edgecolor="black"</code>. À partir de la liste de points suivants et d'une réflexion selon l'axe des <span class="process-math">\(y\text{,}\)</span> créer la seconde moitié de l'étoile en arrière-plan (On peut utiliser la commande <code class="code-inline tex2jax_ignore">Listetransformees=[T*P for P in Listepoints]</code> pour obtenir l'image par la transformation <span class="process-math">\(T\)</span>).</p>
 <pre class="ptx-sagecell sagecell-sage" id="sage-121"><script type="text/x-sage">####On crée les points
 P1=vector([0,1])
 P2=vector([0.22,0.31])
@@ -232,22 +232,22 @@ etoile
 #Compléter pour avoir la réflexion des points dans Listepoints par rapport à l'axe des y.
 #########################################################################################
 </script></pre></article><article class="task exercise-like" id="projet-partieavantplan"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-1784">Pour créer la partie en avant-plan de l'étoile, on procède en deux étapes:</p>
+<p id="p-1785">Pour créer la partie en avant-plan de l'étoile, on procède en deux étapes:</p>
 <ol class="decimal">
-<li id="li-355"><p id="p-1785">Dans un premier temps, on applique à la liste des points initiaux une rotation de <span class="process-math">\(180^\circ\text{.}\)</span></p></li>
-<li id="li-356"><p id="p-1786">Pour l'autre partie, on applique la réflexion selon l'axe des <span class="process-math">\(y\)</span> aux points après la rotation ci-dessus.</p></li>
+<li id="li-355"><p id="p-1786">Dans un premier temps, on applique à la liste des points initiaux une rotation de <span class="process-math">\(180^\circ\text{.}\)</span></p></li>
+<li id="li-356"><p id="p-1787">Pour l'autre partie, on applique la réflexion selon l'axe des <span class="process-math">\(y\)</span> aux points après la rotation ci-dessus.</p></li>
 </ol>
 <pre class="ptx-sagecell sagecell-sage" id="sage-122"><script type="text/x-sage">
 </script></pre></article><article class="task exercise-like" id="task-153"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-1787">En général, la composition d'une réflexion et d'une rotation n'est pas commutative, comme le montre l'exemple <a href="" class="xref" data-knowl="./knowl/sageex-propprodmat.html" title="Calcul 2.2.16: La composition de certaines transformations">2.2.16</a>. Toutefois, dans ce cas-ci, la rotation et la réflexion le sont. Démontrer avec Sage que c'est bien le cas et utiliser ce fait pour obtenir la partie en avant-plan d'une autre manière que celle de l'étape <a href="" class="xref" data-knowl="./knowl/projet-partieavantplan.html" title="Tâche 2.5.1.a.ii">2.5.1.a.ii</a>.</p>
+<p id="p-1788">En général, la composition d'une réflexion et d'une rotation n'est pas commutative, comme le montre l'exemple <a href="" class="xref" data-knowl="./knowl/sageex-propprodmat.html" title="Calcul 2.2.16: La composition de certaines transformations">2.2.16</a>. Toutefois, dans ce cas-ci, la rotation et la réflexion le sont. Démontrer avec Sage que c'est bien le cas et utiliser ce fait pour obtenir la partie en avant-plan d'une autre manière que celle de l'étape <a href="" class="xref" data-knowl="./knowl/projet-partieavantplan.html" title="Tâche 2.5.1.a.ii">2.5.1.a.ii</a>.</p>
 <pre class="ptx-sagecell sagecell-sage" id="sage-123"><script type="text/x-sage">
 </script></pre></article></article><article class="task exercise-like" id="task-154"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-1788">À partir d'une liste de points quelconque, créer un objet artistique. Les restrictions sont minimes, mais on demande au minimum:</p>
+<p id="p-1789">À partir d'une liste de points quelconque, créer un objet artistique. Les restrictions sont minimes, mais on demande au minimum:</p>
 <ul class="disc">
-<li id="li-357"><p id="p-1789">Au moins un polygone créé à partir d'au moins huit points;</p></li>
-<li id="li-358"><p id="p-1790">L'utilisation d'au moins deux transformations linéaires différentes.</p></li>
+<li id="li-357"><p id="p-1790">Au moins un polygone créé à partir d'au moins huit points;</p></li>
+<li id="li-358"><p id="p-1791">L'utilisation d'au moins deux transformations linéaires différentes.</p></li>
 </ul>
-<p id="p-1791">Pour le reste, utiliser couleurs et autres options au choix. La page d'aide de Sage sur les polygones peut servir de sources d'inspiration que ce soit pour des idées de figures ou d'options:  <a class="external" href="https://doc.sagemath.org/html/en/reference/plotting/sage/plot/polygon.html" target="_blank"><code class="code-inline tex2jax_ignore">https://doc.sagemath.org/html/en/reference/plotting/sage/plot/polygon.html</code></a>.</p>
+<p id="p-1792">Pour le reste, utiliser couleurs et autres options au choix. La page d'aide de Sage sur les polygones peut servir de sources d'inspiration que ce soit pour des idées de figures ou d'options:  <a class="external" href="https://doc.sagemath.org/html/en/reference/plotting/sage/plot/polygon.html" target="_blank"><code class="code-inline tex2jax_ignore">https://doc.sagemath.org/html/en/reference/plotting/sage/plot/polygon.html</code></a>.</p>
 <pre class="ptx-sagecell sagecell-sage" id="sage-124"><script type="text/x-sage">
 </script></pre></article></article></section></div></main>
 </div>

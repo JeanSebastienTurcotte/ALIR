@@ -527,15 +527,15 @@
     <men xml:id="eq-decstd">
     (x,y)=(x,0)+(0,y)=x(1,0)+y(0,1)
     </men>.
-    En fait, cette décomposition est toujours possible avec <m>(x,y,z)\in \R^3</m>  avec les vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>, car <m>(x,y,z)=x(1,0,0)+y(0,1,0)+z(0,0,1)</m>
-    où même dans <m>\R^n</m> avec <m>(x_1,x_2,\ldots , x_n)=x_1(1,0,\ldots , 0)+x_2(0,1,0,\ldots ,0)+x_n(0,\ldots , 0 ,1)</m>.
+    En fait, cette décomposition est toujours possible avec <m>(x,y,z)\in \R^3</m>  avec les vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>, car <me>(x,y,z)=x(1,0,0)+y(0,1,0)+z(0,0,1)</me>
+    ou même dans <m>\R^n</m> avec <me>\begin{pmatrix}x_1\\x_2 \\ x_3 \\\vdots \\ x_n\end{pmatrix}=x_1\begin{pmatrix}1\\0\\ 0\\ \vdots \\ 0\end{pmatrix}+x_2\begin{pmatrix}0\\1\\ 0\\ \vdots \\ 0\end{pmatrix}+x_n\begin{pmatrix}0\\ \vdots \\ 0 \\ 1\end{pmatrix}</me>.
 </p>
 <p>Si on considère une transformation linéaire <m>T</m>, et en se concentrant sur <m>\R^2</m> pour le moment, il est possible de voir que l'image d'un vecteur <m>(x,y)</m>
 est simplement une combinaison linéaire des images des vecteurs <m>(1,0)</m> et <m>(0,1)</m>, dont les coefficients sont aussi <m>x</m> et <m>y</m>:
 <md>
-<mrow>T(x,y)&amp;=T(x(1,0)+y(0,1)) &amp;&amp;\text{ selon l'équation } <xref ref="eq-decstd"/></mrow>
-<mrow>&amp;= T(x(1,0))+T(y(0,1)) &amp;&amp;\text{ par la propriété de linéarité } <xref ref="li-transfosomme"/></mrow>
-<mrow>&amp;=xT(1,0)+yT(0,1) &amp;&amp;\text{ par la propriété de linéarité } <xref ref="li-transfoscal"/></mrow>
+<mrow>T\begin{pmatrix}x\\ y\end{pmatrix}&amp;=T\left(x\begin{pmatrix}1\\ 0\end{pmatrix}+y\begin{pmatrix}0\\ 1\end{pmatrix}\right) &amp;&amp;\text{ selon l'équation } <xref ref="eq-decstd"/></mrow>
+<mrow>&amp;= T\left(x\begin{pmatrix}1\\ 0\end{pmatrix}\right)+T\left(y\begin{pmatrix}0\\ 1\end{pmatrix}\right) &amp;&amp;\text{ par la propriété de linéarité } <xref ref="li-transfosomme"/></mrow>
+<mrow>&amp;=xT\begin{pmatrix}1\\ 0\end{pmatrix}+yT\begin{pmatrix}0\\ 1\end{pmatrix} &amp;&amp;\text{ par la propriété de linéarité } <xref ref="li-transfoscal"/></mrow>
 </md>.
 </p>
 <p>Posons <m>(a,b)=T(1,0)</m> et <m>(c,d)=T(0,1)</m>, l'image des vecteurs <m>(1,0),(0,1)</m> par la transformation <m>T</m>. On pousse le calcul précédent un peu plus loin, en utilisant la notation verticale des vecteurs:
@@ -809,10 +809,10 @@ T=\begin{pmatrix}
 \vec{c}_1 &amp; \vec{c}_2 &amp; \cdots &amp; \vec{c}_n \\
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert
 \end{pmatrix}\begin{pmatrix}u_1+v_1\\ u_2+v_2\\ \vdots\\ u_n+v_n \end{pmatrix}</mrow>
-<mrow>&amp;=(u_1+v_1)\vec{c}_1+(u_2+v_2)\vec{c}_2+\cdots +(u_n+v_n)\vec{c}_n &amp;&amp; \text{selon l'équation } <xref ref="eq-matvecprodgen"/></mrow>
+<mrow>&amp;=(u_1+v_1)\vec{c}_1+(u_2+v_2)\vec{c}_2+\cdots +(u_n+v_n)\vec{c}_n &amp;\text{selon l'équation }&amp;  <xref ref="eq-matvecprodgen"/></mrow>
 <mrow>&amp;=u_1\vec{c}_1+v_1\vec{c}_1+u_2\vec{c}_2+v_2\vec{c}_2+\cdots +u_n\vec{c}_n+v_n\vec{c}_n</mrow>
 <mrow>&amp;=u_1\vec{c}_1+u_2\vec{c}_2+\cdots+u_n\vec{c}_n+v_1\vec{c}_1+v_2\vec{c}_2+\cdots +v_n\vec{c}_n</mrow>
-<mrow>&amp;=A\vec{u}+A\vec{v} &amp;&amp; \text{selon l'équation } <xref ref="eq-matvecprodgen"/></mrow>
+<mrow>&amp;=A\vec{u}+A\vec{v} &amp;\text{selon l'équation } &amp; <xref ref="eq-matvecprodgen"/></mrow>
 <mrow>&amp;=T(\vec{u})+T(\vec{v})</mrow>
 </md>
 et 
@@ -825,7 +825,7 @@ et
 \end{pmatrix}\begin{pmatrix}ru_1\\ ru_2\\ \vdots\\ ru_n \end{pmatrix}</mrow>
 <mrow>&amp;=ru_1\vec{c}_1+ru_2\vec{c}_2+\cdots +ru_n\vec{c}_n &amp;&amp; \text{selon l'équation } <xref ref="eq-matvecprodgen"/></mrow>
 <mrow>&amp;=r(u_1\vec{c}_1+u_2\vec{c}_2+\cdots +u_n\vec{c}_n)</mrow>
-<mrow>&amp;rA\vec{u} &amp;&amp; \text{selon l'équation } <xref ref="eq-matvecprodgen"/></mrow>
+<mrow>&amp;=rA\vec{u} &amp;&amp; \text{selon l'équation } <xref ref="eq-matvecprodgen"/></mrow>
 <mrow>&amp;=rT(\vec{u})</mrow>
 </md>.
 Toute matrice correspond donc à une transformation linéaire.

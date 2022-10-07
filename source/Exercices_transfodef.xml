@@ -143,7 +143,7 @@
     <exercise xml:id="exo-transfolinoupas">
             <introduction>
                 <p>Pour chaque tranformation linéaire de <m>\R^2</m> vers <m>\R^2</m>, dire si elle est linéaire, c'est-à-dire si elles respectent les 
-                <xref ref="def-transfolin">propriétés</xref> des transformations linéaires. Si c'est le cas, le démontrer.</p>
+                <xref ref="def-transfolin">propriétés</xref> des transformations linéaires. Si c'est le cas, le démontrer et sinon, donner un exemple prouvant le contraire.</p>
             </introduction>
             <task>
             <statement>
@@ -153,8 +153,10 @@
                 <p>La transformation <m>T_1</m> n'est pas linéaire.</p>
             </answer>
             <solution>
-                <p>Il n'est pas demandé de démontrer si ce n'est pas linéaire. 
-                Il aurait suffit de choisir une des deux propriétés et de montrer qu'elle est fausse avec des exemples spécifiques de vecteur(s) et de constantes.</p>
+                <p>On peut utiliser la propriété  de la proposition <xref ref="prop-transfolinprop"/> stipulant que l'image du vecteur nul est toujours le vecteur nul. Ici, 
+                <me>
+                T_1\begin{pmatrix}0\\0\end{pmatrix}=\begin{pmatrix}0+1\\0-1\end{pmatrix}=\begin{pmatrix}1\\-1\end{pmatrix}\neq \begin{pmatrix}0\\0\end{pmatrix}
+                </me>.</p>
             </solution>
             </task>
             <task>
@@ -165,8 +167,14 @@
                 <p>La transformation <m>T_2</m> n'est pas linéaire.</p>
             </answer>
             <solution>
-                <p>Il n'est pas demandé de démontrer si ce n'est pas linéaire. 
-                Il aurait suffit de choisir une des deux propriétés et de montrer qu'elle est fausse avec des exemples spécifiques de vecteur(s) et de constantes.</p>
+                <p>Cette fois, on ne peut utiliser l'image du vecteur nul puisque <m>T_2(\vec{0})=\vec{0}</m>. Cela ne veut toutefois pas dire que la transformation est linéaire. En fait, la présence du terme <m>x^2</m> permet de croire que la transformation n'est pas linéaire. Pour le prouver, il suffit d'exhiber deux vecteurs <m>\vec{u},\vec{v}</m> pour lesquels <m>T_2(\vec{u}+\vec{v})\neq T_2(\vec{u})+T_2(\vec{v})</m> ou encore un vecteur <m>\vec{u}</m> et une constante <m>c\in\mathbb{R}</m> tels que <m>T_2(c\vec{u})\neq cT_2(\vec{u})</m>. On prend la première option. Si la transformation n'est pas linéaire, il y a de bonne chance que n'importe quels vecteurs feront l'affaire. On essaie avec <m>\vec{u}=(1,1)</m> et <m>\vec{v}=(-1,1)</m>. On a 
+<me>     
+T_2(\vec{u}+\vec{v})=T_2(0,1)=(0,-1)
+</me>,
+mais 
+<me>
+T_2(\vec{u})+T_2(\vec{v})=T_2(1,1)+T_2(-1,1)=(1,-1)+(1,-1)=(2,-2)
+</me>.</p>
             </solution>
             </task>
             <task>
@@ -180,19 +188,19 @@
                 <p>Soient <m>\vec{u}=(x_1,y_1),\vec{v}=(x_2,y_2)\in\R^2</m> et <m>c\in\R</m>. 
                 On montre que <m>T_3</m> respecte les deux <xref ref="def-transfolin">propriétés</xref> des transformations linéaires.
                 <md>
-                    <mrow>T_3(\vec{u}+\vec{v})&amp;=T_3((x_1,y_1)+(x_2,y_2))</mrow>
-                    <mrow>&amp;=T_3(x_1+x_2,y_1+y_2)</mrow>
-                    <mrow>&amp;=(2(x_1+x_2)-(y_1+y_2),x_1+x_2)</mrow>
-                    <mrow>&amp;=(2x_1-y_1,x_1)+(2x_2-y_2,x_2)</mrow>
-                    <mrow>&amp;=T_3(x_1,y_1)+T_3(x_2,y_2)</mrow>
+                    <mrow>T_3(\vec{u}+\vec{v})&amp;=T_3\left(\begin{pmatrix}x_1\\ y_1\end{pmatrix}+\begin{pmatrix}x_2\\ y_2\end{pmatrix}\right)</mrow>
+                    <mrow>&amp;=T_3\begin{pmatrix}x_1+x_2 \\ y_1+y_2\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}2(x_1+x_2)-(y_1+y_2)\\ x_1+x_2\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}2x_1-y_1\\ x_1\end{pmatrix}+\begin{pmatrix}2x_2-y_2\\ x_2\end{pmatrix}</mrow>
+                    <mrow>&amp;=T_3\begin{pmatrix}x_1\\ y_1\end{pmatrix}+T_3\begin{pmatrix}x_2\\ y_2\end{pmatrix}</mrow>
                     <mrow>&amp;=T_3(\vec{u})+T_3(\vec{v})</mrow>
                 </md>
                 et
                 <md>
-                    <mrow>T_3(c\vec{u})&amp;=T_3(c(x_1,y_1))</mrow>
-                    <mrow>&amp;=T_3(cx_1,cy_1)</mrow>
-                    <mrow>&amp;=(2(cx_1)-cy_1,cx_1)</mrow>
-                    <mrow>&amp;=c(2(x_1)-y_1,x_1)</mrow>
+                    <mrow>T_3(c\vec{u})&amp;=T_3\begin{pmatrix}c(x_1\\ y_1)\end{pmatrix}</mrow>
+                    <mrow>&amp;=T_3\begin{pmatrix}cx_1\\ cy_1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}2(cx_1)-cy_1\\ cx_1\end{pmatrix}</mrow>
+                    <mrow>&amp;=c\begin{pmatrix}2(x_1)-y_1\\ x_1\end{pmatrix}</mrow>
                     <mrow>&amp;=cT_3(\vec{u})</mrow>
                 </md></p>
             </solution>
@@ -205,8 +213,7 @@
                 <p>La transformation <m>T_4</m> n'est pas linéaire.</p>
             </answer>
             <solution>
-                <p>Il n'est pas demandé de démontrer si ce n'est pas linéaire. 
-                Il aurait suffit de choisir une des deux propriétés et de montrer qu'elle est fausse avec des exemples spécifiques de vecteur(s) et de constantes.</p>
+                <p>Comme la première composante de l'image du vecteur <m>(x,y)</m> est donnée par <m>1/x</m>, on comprend qu'on ne peut avoir <m>x=0</m>. Cela entraine donc que l'image du vecteur nul n'existe pas, alors qu'on devrait avoir <m>T_4(\vec{0})=\vec{0}</m> selon la proposition <xref ref="prop-transfolinprop"/>. La transformatin ne peut donc pas être linéaire.</p>
             </solution>
             </task>
             <task>
@@ -220,19 +227,19 @@
                 <p>Soient <m>\vec{u}=(x_1,y_1),\vec{v}=(x_2,y_2)\in\R^2</m> et <m>c\in\R</m>. 
                 On montre que <m>T_3</m> respecte les deux <xref ref="def-transfolin">propriétés</xref> des transformations linéaires.
                 <md>
-                    <mrow>T_5(\vec{u}+\vec{v})&amp;=T_5((x_1,y_1)+(x_2,y_2))</mrow>
-                    <mrow>&amp;=T_5(x_1+x_2,y_1+y_2)</mrow>
-                    <mrow>&amp;=((x_1+x_2)+3(y_1+y_2),0)</mrow>
-                    <mrow>&amp;=(x_1+3y_1,0)+(x_2+3y_2,0)</mrow>
-                    <mrow>&amp;=T_5(x_1,y_1)+T_5(x_2,y_2)</mrow>
+                    <mrow>T_5(\vec{u}+\vec{v})&amp;=T_5\left(\begin{pmatrix}x_1\\ y_1\end{pmatrix}+\begin{pmatrix}x_2\\ y_2\end{pmatrix}\right)</mrow>
+                    <mrow>&amp;=T_5\begin{pmatrix}x_1+x_2\\ y_1+y_2\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}(x_1+x_2)+3(y_1+y_2)\\ 0\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}x_1+3y_1\\ 0\end{pmatrix}+\begin{pmatrix}x_2+3y_2\\ 0\end{pmatrix}</mrow>
+                    <mrow>&amp;=T_5\begin{pmatrix}x_1\\ y_1\end{pmatrix}+T_5\begin{pmatrix}x_2\\ y_2\end{pmatrix}</mrow>
                     <mrow>&amp;=T_5(\vec{u})+T_5(\vec{v})</mrow>
                 </md>
                 et
                 <md>
-                    <mrow>T_5(c\vec{u})&amp;=T_5(c(x_1,y_1))</mrow>
-                    <mrow>&amp;=T_5(cx_1,cy_1)</mrow>
-                    <mrow>&amp;=(cx_1+3(cy_1),0)</mrow>
-                    <mrow>&amp;=c(x_1+3y_1,0)</mrow>
+                    <mrow>T_5(c\vec{u})&amp;=T_5\left(c\begin{pmatrix}x_1\\ y_1)\right\end{pmatrix}</mrow>
+                    <mrow>&amp;=T_5\begin{pmatrix}cx_1\\ cy_1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}cx_1+3(cy_1)\\ 0\end{pmatrix}</mrow>
+                    <mrow>&amp;=c\begin{pmatrix}x_1+3y_1\\ 0\end{pmatrix}</mrow>
                     <mrow>&amp;=cT_5(\vec{u})</mrow>
                 </md></p>
             </solution>
@@ -248,19 +255,19 @@
                 <p>Soient <m>\vec{u}=(x_1,y_1),\vec{v}=(x_2,y_2)\in\R^2</m> et <m>c\in\R</m>. 
                 On montre que <m>T_3</m> respecte les deux <xref ref="def-transfolin">propriétés</xref> des transformations linéaires.
                 <md>
-                    <mrow>T_6(\vec{u}+\vec{v})&amp;=T_6((x_1,y_1)+(x_2,y_2))</mrow>
-                    <mrow>&amp;=T_6(x_1+x_2,y_1+y_2)</mrow>
-                    <mrow>&amp;=(y_1+y_2,x_1+x_2)</mrow>
-                    <mrow>&amp;=(y_1,x_1)+(y_2,x_2)</mrow>
-                    <mrow>&amp;=T_6(x_1,y_1)+T_6(x_2,y_2)</mrow>
+                    <mrow>T_6(\vec{u}+\vec{v})&amp;=T_6\left(\begin{pmatrix}x_1\\ y_1)+\begin{pmatrix}x_2\\ y_2)\right\end{pmatrix}</mrow>
+                    <mrow>&amp;=T_6\begin{pmatrix}x_1+x_2\\ y_1+y_2\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}y_1+y_2\\ x_1+x_2\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}y_1\\ x_1\end{pmatrix}+\begin{pmatrix}y_2\\ x_2\end{pmatrix}</mrow>
+                    <mrow>&amp;=T_6\begin{pmatrix}x_1\\ y_1\end{pmatrix}+T_6\begin{pmatrix}x_2\\ y_2\end{pmatrix}</mrow>
                     <mrow>&amp;=T_6(\vec{u})+T_6(\vec{v})</mrow>
                 </md>
                 et
                 <md>
-                    <mrow>T_6(c\vec{u})&amp;=T_6(c(x_1,y_1))</mrow>
-                    <mrow>&amp;=T_6(cx_1,cy_1)</mrow>
-                    <mrow>&amp;=(cy_1,cx_1)</mrow>
-                    <mrow>&amp;=c(y_1,x_1)</mrow>
+                    <mrow>T_6(c\vec{u})&amp;=T_6\left(c\begin{pmatrix}x_1\\ y_1\end{pmatrix}\right)</mrow>
+                    <mrow>&amp;=T_6\begin{pmatrix}cx_1\\ cy_1\end{pmatrix}</mrow>
+                    <mrow>&amp;=\begin{pmatrix}cy_1\\ cx_1\end{pmatrix}</mrow>
+                    <mrow>&amp;=c\begin{pmatrix}y_1\\ x_1\end{pmatrix}</mrow>
                     <mrow>&amp;=cT_6(\vec{u})</mrow>
                 </md></p>
             </solution>
@@ -882,7 +889,7 @@
     <m>A=O</m>? Démontrer ou donner un contre exemple.</p> </statement>
     <hint><p>Utiliser l'exercice <xref ref="exo-matentreeij"/>.</p></hint>
     <solution>
-    <p>Cette fois c'est suffisant. On regarde colonne par colonne la matrice <m>A</m>. On sait que <m>A\\vec{e}_1=\vec{a}_1,A\vec{e}_2=\vec{a}_2,\ldots ,A\vec{e}_n=\vec{a}_n</m> où <m>\vec{e}_1,\vec{e}_2,\ldots \vec{e}_n</m> sont les 
+    <p>Cette fois c'est suffisant. On regarde colonne par colonne la matrice <m>A</m>. On sait que <m>A\vec{e}_1=\vec{a}_1,A\vec{e}_2=\vec{a}_2,\ldots ,A\vec{e}_n=\vec{a}_n</m> où <m>\vec{e}_1,\vec{e}_2,\ldots \vec{e}_n</m> sont les 
     vecteurs standards <m>(1,0,\ldots, 0),(0,1,0,\ldots ,0),\ldots ,(0,\ldots ,0,1)</m> et <m>\vec{a}_1,\vec{a}_2,\ldots \vec{a}_n</m> sont 
     respectivement les colonnes un et deux de la matrice. De plus, on sait par l'exercice <xref ref="exo-matentreeij"/> que l'entrée en position <m>i,j</m> est donnée par
     <m>A\vec{e_j}\cdot \vec{e}_i</m>. Or par hypothèse, l'équation <m>(A\vec{u})\cdot \vec{v}=0</m>  pour tous les vecteurs de <m>\R^n</m>. La matrice <m>A</m> est donc la matrice nulle.</p>
@@ -910,8 +917,8 @@
     <md>
     <mrow>(A\vec{u})\cdot\vec{v}&amp;=(B\vec{u})\cdot\vec{v}</mrow>
     <mrow>0&amp;=(B\vec{u})\cdot\vec{v}-(A\vec{u})\cdot\vec{v}</mrow>
-    <mrow>&amp;=(B\vec{u}-A\vec{u})\cdot\vec{v}</mrow>
-    <mrow>&amp;=(B-A)\vec{u}\cdot\vec{v}</mrow>
+    <mrow>0&amp;=(B\vec{u}-A\vec{u})\cdot\vec{v}</mrow>
+    <mrow>0&amp;=(B-A)\vec{u}\cdot\vec{v}</mrow>
     </md>.
     </p>
     <p>

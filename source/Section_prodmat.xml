@@ -422,9 +422,6 @@ plot(D,layout='circular',vertex_color="blue")
       <mrow>(AB)C&amp;=\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
      (AB)\vec{c}_1 &amp; (AB)\vec{c}_2 &amp;\cdots &amp; (AB)\vec{c}_q \\
      \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;</mrow>
-    <mrow>&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
-     (AB)\vec{c}_1 &amp; (AB)\vec{c}_2 &amp;\cdots &amp; (AB)\vec{c}_q \\
-     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;</mrow>
      <mrow>&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
      A(B\vec{c}_1) &amp; A(B\vec{c}_2) &amp;\cdots &amp; A(B\vec{c}_q) \\
      \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;\text{ selon la définition } <xref ref="def-matmatprod"/></mrow>
@@ -526,46 +523,46 @@ plot(D,layout='circular',vertex_color="blue")
       matrice par le biais d'une fonction intermédiaire <c>lambda</c>. Ceci n'est pas très intuitif, mais pour l'instant, ça suffira. L'exercice <xref provisional="simplifiermatrice"/>
        permettra de créer une fonction plus conventionnelle qui pourra simplifier une matrice.</p>
        <p>On voit toutefois qu'après simplification, la transformation est bel et bien une rotation d'angle <m>\theta_1+\theta_2</m>.</p>
-       <p>On s'intéresse maintenant à la composition de deux réflexions. Est-ce que le résultat sera aussi une réflexion? Si oui, pourquoi et si non, donner un exemple avant d'exécuter le code ci-dessous.</p>
+       <p>On s'intéresse maintenant à la composition de deux réflexions d'angle respectif <m>\phi_1,\phi_2</m>. Est-ce que le résultat sera aussi une réflexion? Si oui, pourquoi et si non, donner un exemple avant d'exécuter le code ci-dessous.</p>
          <sage>
          <input>
-var("theta1,theta2")
-Stheta1=column_matrix([[cos(2*theta1),sin(2*theta1)],[sin(2*theta1),-cos(2*theta1)]])
-Stheta2=column_matrix([[cos(2*theta2),sin(2*theta2)],[sin(2*theta2),-cos(2*theta2)]])
-produit=Stheta1*Stheta2
+var("phi1,phi2")
+Sphi1=column_matrix([[cos(2*phi1),sin(2*phi1)],[sin(2*phi1),-cos(2*phi1)]])
+Sphi2=column_matrix([[cos(2*phi2),sin(2*phi2)],[sin(2*phi2),-cos(2*phi2)]])
+produit=Sphi1*Sphi2
 show(produit.simplify_trig())
 show(produit.apply_map(lambda x: x.trig_reduce()))         
          </input>
          </sage>  
          <p>Le résultat, peut-être surprenant, est une rotation. La simplification effectuée par Sage ne montre pas directement la forme d'une matrice de rotation,
-         mais on peut montrer qu'elle est équivalente à une rotation d'angle <m>2(\theta_1-\theta_2)</m>. Ceci suggère également que les réflexions ne sont pas commutatives,
-         à savoir qu'en général, <m>S_{\theta_1}S_{\theta_2}\neq S_{\theta_2}S_{\theta_1}</m>.</p>
+         mais on peut montrer qu'elle est équivalente à une rotation d'angle <m>2(\phi_1-\phi_2)</m>. Ceci suggère également que les réflexions ne sont pas commutatives,
+         à savoir qu'en général, <m>S_{\phi_1}S_{\phi_2}\neq S_{\phi_2}S_{\phi_1}</m>.</p>
        <p>Maintenant, on s'intéresse à la composition d'une rotation et d'une réflexion. Comme on sait que la multiplication n'est pas commutative, on va regarder s'il
        y a une différence entre faire la réflexion en premier suivie de la rotation et la rotation suivie de la réflexion (une prédiction?).</p>
-       <p>D'abord, <m>R_{\theta_1}S_{\theta_2}</m>:</p>
+       <p>D'abord, <m>R_{\theta}S_{\phi}</m>:</p>
        <sage>
        <input>
-       var("theta1,theta2")
-       Rtheta1=column_matrix([[cos(theta1),sin(theta1)],[-sin(theta1),cos(theta1)]])
-       Stheta2=column_matrix([[cos(2*theta2),sin(2*theta2)],[sin(2*theta2),-cos(2*theta2)]])
-       produit=Rtheta1*Stheta2
+       var("theta,phi")
+       Rtheta=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]])
+       Sphi=column_matrix([[cos(2*phi),sin(2*phi)],[sin(2*phi),-cos(2*phi)]])
+       produit=Rtheta*Sphi
        show(produit.simplify_trig())
        show(produit.apply_map(lambda x: x.trig_reduce()))
        </input>
        </sage>
-       <p>Le résultat semble donc être une réflexion d'angle <m>\frac{\theta_1+2\theta_2}{2}</m>.</p>
-       <p>On compare maintenant avec <m>S_{\theta_2}R_{\theta_1}</m>:</p>
+       <p>Le résultat semble donc être une réflexion d'angle <m>\frac{\theta+2\phi}{2}</m>.</p>
+       <p>On compare maintenant avec <m>S_{\phi}R_{\theta}</m>:</p>
        <sage>
        <input>
-var("theta1,theta2")
-Rtheta1=column_matrix([[cos(theta1),sin(theta1)],[-sin(theta1),cos(theta1)]])
-Stheta2=column_matrix([[cos(2*theta2),sin(2*theta2)],[sin(2*theta2),-cos(2*theta2)]])
-produit=Stheta2*Rtheta1
+var("theta,phi")
+Rtheta=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]])
+Sphi=column_matrix([[cos(2*phi),sin(2*phi)],[sin(2*phi),-cos(2*phi)]])
+produit=Sphi*Rtheta1
 show(produit.simplify_trig())
 show(produit.apply_map(lambda x: x.trig_reduce()))       
        </input>
        </sage>
-       <p>Le résultat est encore une fois une réflexion, mais cette fois-ci d'angle <m>\frac{-\theta_1+2\theta_2}{2}</m>.</p>
+       <p>Le résultat est encore une fois une réflexion, mais cette fois-ci d'angle <m>\frac{-\theta+2\phi}{2}</m>.</p>
        <p>Finalement, on s'intéresse à la composition de trois transformations, en utilisant les calculs précédents et l'associativité pour déterminer le résultat final.
        <ol>
        <li><p> La composition de trois rotations devrait être elle aussi une rotation, dont l'angle correspond à la somme des angles de chacune des rotations. En utilisant l'associativité, on montre facilement que
@@ -578,14 +575,14 @@ show(produit.apply_map(lambda x: x.trig_reduce()))
        <li><p>La composition de trois réflexions semble plus difficile à analyser. Deux réflexions composées ensemble donnent une rotation. Une rotation composée avec une réflexion donne une réflexion, mais on sait que 
        l'ordre de la composition est important. Est-ce évident que l'associativité sera respectée? On a d'une part
        <md>
-       <mrow>S_{\theta_1}(S_{\theta_2}S_{\theta_3})&amp;=S_{\theta_1}R_{2(\theta_2-\theta_3)} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
-       <mrow>&amp;=S_{\frac{-(2(\theta_2-\theta_3))+2\theta_1}{2}} &amp;&amp; \text{puisque  la composition d'une rotation suivie d'une réflexion est une réflexion dont l'angle est la moitié de la différence entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
-       <mrow>&amp;=S_{\theta_1-\theta_2+\theta_3} &amp;&amp; \text{après simplification}</mrow>
+       <mrow>S_{\phi_1}(S_{\phi_2}S_{\phi_3})&amp;=S_{\phi_1}R_{2(\phi_2-\phi_3)} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
+       <mrow>&amp;=S_{\frac{-(2(\phi_2-\phi_3))+2\phi_1}{2}} &amp;&amp; \text{puisque  la composition d'une rotation suivie d'une réflexion est une réflexion dont l'angle est la moitié de la différence entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
+       <mrow>&amp;=S_{\phi_1-\phi_2+\phi_3} &amp;&amp; \text{après simplification}</mrow>
        </md>. D'autre part, on a
         <md>
-       <mrow>(S_{\theta_1}S_{\theta_2})S_{\theta_3}&amp;=R_{2(\theta_1-\theta_2)}S_{\theta_3} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
-       <mrow>&amp;=S_{\frac{2(\theta_1-\theta_2)+2\theta_3}{2}} &amp;&amp; \text{puisque  la composition d'une réflexion suivie d'une rotation est une réflexion dont l'angle est la moitié de la somme entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
-       <mrow>&amp;=S_{\theta_1-\theta_2+\theta_3} &amp;&amp; \text{après simplification}</mrow>
+       <mrow>(S_{\phi_1}S_{\phi_2})S_{\phi_3}&amp;=R_{2(\phi_1-\phi_2)}S_{\phi_3} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
+       <mrow>&amp;=S_{\frac{2(\phi_1-\phi_2)+2\phi_3}{2}} &amp;&amp; \text{puisque  la composition d'une réflexion suivie d'une rotation est une réflexion dont l'angle est la moitié de la somme entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
+       <mrow>&amp;=S_{\phi_1-\phi_2+\phi_3} &amp;&amp; \text{après simplification}</mrow>
        </md>. 
        On a donc bel et bien égalité.
        </p></li>
