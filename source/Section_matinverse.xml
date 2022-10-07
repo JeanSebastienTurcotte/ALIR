@@ -298,7 +298,7 @@ show("A^{-1}A=",Ainv*A)
 A=column_matrix([[2,4],[-2,-4]])
 Ainv=A.inverse()    
     </input></sage>
-    <p>Afin d'éviter les erreurs, il est possible de vérifier l'invertibilité d'une matrice avec la commande <c>A.is_invertible()</c>.</p>
+    <!--<p>Afin d'éviter les erreurs, il est possible de vérifier l'invertibilité d'une matrice avec la commande <c>A.is_invertible()</c>.</p>
     <sage>
     <input>
     A=column_matrix([[2,4],[-2,1]])
@@ -306,7 +306,7 @@ Ainv=A.inverse()
     show(A.is_invertible())
     show(B.is_invertible())
     </input>
-    </sage>
+    </sage>--> <!-- Ne fonctionne pas, car par défaut les matrices entières sont définies dans ZZ et pourraient ne pas posséder d'inverse. Il faudrait que le défaut soit QQ -->
     <p>On fait maintenant un exemple en référence à l'équation <xref ref="eq-matparvecteursuv"/>, qui stipule que si on connait l'effet d'une transformation <m>T</m> sur deux vecteurs, alors on peut déterminer 
     la matrice associée à la transformation sans calculer directement l'image des vecteurs <m>(1,0)</m> et <m>(0,1)</m> (pour le cas <m>2\times 2</m>).</p>
     <p>On considère donc une transformation linéaire <m>T</m> telle que <m>T(2,4)=(-3,1)</m> et <m>T(1,-4)=(-2,-5)</m>. On cherche la matrice représentant <m>T</m>. Avec Sage et l'équation <xref ref="eq-matparvecteursuv"/>, on a</p>
@@ -375,7 +375,7 @@ show("Tu2=",T*u2)
     show(Ainv*u)
     </input>
     </sage>
-    <p>Maintenant, pour répondre aux questions avec la matrice <m>B</m>, seulement la ligne <c>1</c> doit être éditée.</p>
+    <p>Maintenant, pour répondre aux questions avec la matrice <m>B</m>, seulement la ligne <c>2</c> doit être éditée.</p>
     </insight>
     </subsection>
     <subsection xml:id="sssec-matinv">
@@ -849,7 +849,7 @@ A*X+B==C
     <li><p>L'algèbre matricielle se comporte essentiellement comme l'algèbre usuelle, avec la restriction que la multiplication n'est pas commutative et que
     la division est remplacée par la multiplication par l'inverse d'une matrice.</p></li>
     </ul> 
-    De plus avec Sage, on peut calculer l'inverse d'une matrice <m>A</m> avec la commande <c>A.inverse()</c> ou <c>A^(-1)</c>. On peut aussi vérifier l'invertibilité avec la commande <c>A.is_invertible()</c>.
+    De plus avec Sage, on peut calculer l'inverse d'une matrice <m>A</m> avec la commande <c>A.inverse()</c> ou <c>A^(-1)</c>. 
     </p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 

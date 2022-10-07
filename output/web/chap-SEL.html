@@ -195,6 +195,8 @@ $\Box$
 <li><a href="sec-ssesp.html" data-scroll="sec-ssesp" class="internal">Sous-espaces vectoriels</a></li>
 <li><a href="sec-bases.html" data-scroll="sec-bases" class="internal">Base d'un sous-espace vectoriel</a></li>
 <li><a href="sec-4esp.html" data-scroll="sec-4esp" class="internal">Retour sur les quatre sous-espaces fondamentaux</a></li>
+<li><a href="sec-espaces.html" data-scroll="sec-espaces" class="internal">Espaces vectoriels</a></li>
+<li><a href="sec-espaceslabos.html" data-scroll="sec-espaceslabos" class="internal">Activités et laboratoires</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Rédigé avec PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -202,8 +204,8 @@ $\Box$
 <main class="main"><div id="content" class="pretext-content"><section class="chapter" id="chap-SEL"><h2 class="heading">
 <span class="type">Chapitre</span> <span class="codenumber">3</span> <span class="title">Les systèmes d'équations linéaires</span>
 </h2>
-<section class="introduction" id="intro-SEL"><p id="p-1793">Ce chapitre laisse un peu de côté les vecteurs et les transformations linéaires. Ils seront toujours présents en arrière-plan, mais le but ici est de voir les matrices d'un point de vue davantage calculatoire, avec les applications que cela peut avoir. Dans le reste du livre, on fera souvent le saut entre géométrie et algèbre.</p>
-<p id="p-1794">La plupart des problèmes en algèbre linéaire peuvent se résumer à l'aide des trois équations suivantes:</p>
+<section class="introduction" id="intro-SEL"><p id="p-1792">Ce chapitre laisse un peu de côté les vecteurs et les transformations linéaires. Ils seront toujours présents en arrière-plan, mais le but ici est de voir les matrices d'un point de vue davantage calculatoire, avec les applications que cela peut avoir. Dans le reste du livre, on fera souvent le saut entre géométrie et algèbre.</p>
+<p id="p-1793">La plupart des problèmes en algèbre linéaire peuvent se résumer à l'aide des trois équations suivantes:</p>
 <div class="displaymath process-math" data-contains-math-knowls="" id="mdn-13">
 \begin{align}
 A\vec{v}&amp;=\vec{b}\tag{3.0.1}\\
@@ -211,16 +213,16 @@ A\vec{v}&amp;=\lambda \vec{v}\tag{3.0.2}\\
 A\vec{v}&amp;\approx \vec{b}\text{.}\tag{3.0.3}
 \end{align}
 </div>
-<p id="p-1795">Plus précisément, l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avb.html" title="Équation 3.0.1">(3.0.1)</a> se décline selon les sous-questions</p>
+<p id="p-1794">Plus précisément, l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avb.html" title="Équation 3.0.1">(3.0.1)</a> se décline selon les sous-questions</p>
 <ol class="decimal">
 <li id="li-359"><p id="p-derived-li-359">Étant donnés une matrice <span class="process-math">\(A\)</span> et un vecteur <span class="process-math">\(\vec{b}\text{,}\)</span> quelles sont les solutions à l'équation <span class="process-math">\(A\vec{v}=\vec{b}\text{?}\)</span></p></li>
 <li id="li-360"><p id="p-derived-li-360">Étant donnée une matrice <span class="process-math">\(A\text{,}\)</span> pour quel(s) vecteur(s) <span class="process-math">\(\vec{b}\)</span> peut-on trouver une solution à l'équation <span class="process-math">\(A\vec{v}=\vec{b}\text{?}\)</span></p></li>
 </ol>
-<p id="p-1796">L'équation <a href="" class="xref" data-knowl="./knowl/eq-Avlv.html" title="Équation 3.0.2">(3.0.2)</a> pose la question, étant donné une matrice <span class="process-math">\(A\text{,}\)</span> est-ce qu'il existe des vecteurs dont la direction est inchangée suite à une transformation linéaire? Cette question semble anodine à première vue, mais est au coeur de plusieurs résultats en mathématique.</p>
-<p id="p-1797">Finalement, l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avapb.html" title="Équation 3.0.3">(3.0.3)</a> est reliée à l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avb.html" title="Équation 3.0.1">(3.0.1)</a> dans le sens où, si pour <span class="process-math">\(A,\vec{b}\)</span> donnés, l'équation <span class="process-math">\(A\vec{v}=\vec{b}\)</span> ne possède pas de solution exacte, quelle serait une solution approximative adéquate?</p>
-<p id="p-1798">On mentionne aussi que dans certains cas, on parlera de la forme <span class="process-math">\(A\vec{x}=\vec{b}\text{,}\)</span> la lettre <span class="process-math">\(x\)</span> étant souvent utilisée pour représenter une inconnue dans d'autres contextes.</p>
-<p id="p-1799">Principalement, on va se concentrer sur l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avb.html" title="Équation 3.0.1">(3.0.1)</a> et ses sous-questions. Éventuellement, on abordera aussi l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avlv.html" title="Équation 3.0.2">(3.0.2)</a> jusqu'à un certain point, puisqu'elle a un certain intérêt géométrique. Finalement, on parlera peut-être un peu de l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avapb.html" title="Équation 3.0.3">(3.0.3)</a>, mais sans entrer dans les détails techniques.</p>
-<p id="p-1800">Dans ce chapitre, on introduit les systèmes d'équations linéaires, les matrices élémentaires,  la forme échelonnée réduite d'une matrice et la méthode de Gauss-Jordan.  .</p></section><nav class="summary-links"><ul>
+<p id="p-1795">L'équation <a href="" class="xref" data-knowl="./knowl/eq-Avlv.html" title="Équation 3.0.2">(3.0.2)</a> pose la question, étant donné une matrice <span class="process-math">\(A\text{,}\)</span> est-ce qu'il existe des vecteurs dont la direction est inchangée suite à une transformation linéaire? Cette question semble anodine à première vue, mais est au coeur de plusieurs résultats en mathématique.</p>
+<p id="p-1796">Finalement, l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avapb.html" title="Équation 3.0.3">(3.0.3)</a> est reliée à l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avb.html" title="Équation 3.0.1">(3.0.1)</a> dans le sens où, si pour <span class="process-math">\(A,\vec{b}\)</span> donnés, l'équation <span class="process-math">\(A\vec{v}=\vec{b}\)</span> ne possède pas de solution exacte, quelle serait une solution approximative adéquate?</p>
+<p id="p-1797">On mentionne aussi que dans certains cas, on parlera de la forme <span class="process-math">\(A\vec{x}=\vec{b}\text{,}\)</span> la lettre <span class="process-math">\(x\)</span> étant souvent utilisée pour représenter une inconnue dans d'autres contextes.</p>
+<p id="p-1798">Principalement, on va se concentrer sur l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avb.html" title="Équation 3.0.1">(3.0.1)</a> et ses sous-questions. Éventuellement, on abordera aussi l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avlv.html" title="Équation 3.0.2">(3.0.2)</a> jusqu'à un certain point, puisqu'elle a un certain intérêt géométrique. Finalement, on parlera peut-être un peu de l'équation <a href="" class="xref" data-knowl="./knowl/eq-Avapb.html" title="Équation 3.0.3">(3.0.3)</a>, mais sans entrer dans les détails techniques.</p>
+<p id="p-1799">Dans ce chapitre, on introduit les systèmes d'équations linéaires, les matrices élémentaires,  la forme échelonnée réduite d'une matrice et la méthode de Gauss-Jordan.  .</p></section><nav class="summary-links"><ul>
 <li><a href="sec-GJ.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Les systèmes d'équations linéaires et la méthode de Gauss-Jordan</span></a></li>
 <li><a href="sec-SELtheo.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Les systèmes avec aucune ou une infinité de solutions</span></a></li>
 <li><a href="sec-SELgeo.html" class="internal"><span class="codenumber">3.3</span> <span class="title">La géométrie des systèmes d'équations linéaires</span></a></li>

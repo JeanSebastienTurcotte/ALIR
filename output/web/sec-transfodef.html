@@ -195,6 +195,8 @@ $\Box$
 <li><a href="sec-ssesp.html" data-scroll="sec-ssesp" class="internal">Sous-espaces vectoriels</a></li>
 <li><a href="sec-bases.html" data-scroll="sec-bases" class="internal">Base d'un sous-espace vectoriel</a></li>
 <li><a href="sec-4esp.html" data-scroll="sec-4esp" class="internal">Retour sur les quatre sous-espaces fondamentaux</a></li>
+<li><a href="sec-espaces.html" data-scroll="sec-espaces" class="internal">Espaces vectoriels</a></li>
+<li><a href="sec-espaceslabos.html" data-scroll="sec-espaceslabos" class="internal">Activités et laboratoires</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Rédigé avec PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -250,7 +252,7 @@ $\Box$
 <ol class="decimal">
 <li id="li-232"><p id="p-929">L'image du vecteur nul est toujours le vecteur nul, c'est-à-dire <span class="process-math">\(T(\vec{0})=\vec{0}\text{.}\)</span></p></li>
 <li id="li-233"><p id="p-930">Si les vecteurs <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\)</span> sont parallèles, alors leur image est parallèle, c'est-à-dire si <span class="process-math">\(\vec{u}\parallel\vec{v}\text{,}\)</span> alors <span class="process-math">\(T(\vec{u})\parallel T(\vec{v})\text{.}\)</span></p></li>
-<li id="li-234"><p id="p-931">L'image d'une droite par une transformation linéaire est une droite et l'image d'un plan par une transformation linéaire est un plan.</p></li>
+<li id="li-234"><p id="p-931">L'image d'une droite par une transformation linéaire est une droite<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 1 </sup></a>.</p></li>
 </ol>
 <p class="continuation">Les transformations linéaires sont donc des transformations qui ne déforment pas trop l'espace, en lien avec le dernier point de la liste précédente. D'un point de vue géométrique, on peut voir la pertinence du mot <em class="emphasis">linéaire</em> dans transformation linéaire par le fait que les droites demeurent des droites (comparer avec l'image de la droite dans la figure <a href="" class="xref" data-knowl="./knowl/fig-transfquelc.html" title="Figure 2.1.6">2.1.6</a>).</p></article><article class="hiddenproof" id="proof-7"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"><ol id="p-932" class="decimal">
 <li id="li-235">
@@ -276,14 +278,15 @@ T(\vec{v})&amp;=T(c\vec{u})\\
 <p class="continuation">et donc, l'image du vecteur <span class="process-math">\(\vec{v}\)</span> est parallèle à l'image du  vecteur <span class="process-math">\(\vec{u}\text{.}\)</span></p>
 </li>
 <li id="li-237">
-<p id="p-936">Soit <span class="process-math">\(\vecl{OP}=a\vec{u}+b\vec{v}+\vecl{OA}\)</span> un plan. On a</p>
+<p id="p-936">Soit <span class="process-math">\(\vecl{OP}=a\vec{u}+\vecl{OA}\)</span> un plan. On a</p>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/li-transfosomme.html ./knowl/li-transfoscal.html" id="md-166">
 \begin{align*}
-T(\vecl{OP})&amp;=T(a\vec{u}+b\vec{v}+\vecl{OA})\\
-&amp;=T(a\vec{u})+T(b\vec{v})+T(\vecl{OA}) &amp;&amp; \text{ par } \knowl{./knowl/li-transfosomme.html}{\text{1}} \\
-&amp;=aT(\vec{u})+bT(\vec{v})+T(\vecl{OA}) &amp;&amp; \text{ par } \knowl{./knowl/li-transfoscal.html}{\text{2}} 
+T(\vecl{OP})&amp;=T(a\vec{u}+\vecl{OA})\\
+&amp;=T(a\vec{u})+T(\vecl{OA}) &amp;&amp; \text{ par } \knowl{./knowl/li-transfosomme.html}{\text{1}} \\
+&amp;=aT(\vec{u})+T(\vecl{OA}) &amp;&amp; \text{ par } \knowl{./knowl/li-transfoscal.html}{\text{2}} \text{.}
 \end{align*}
 </div>
+<p class="continuation">Le cas dégénéré dont il est question dans l'énoncé fait référence au fait qu'il est possible que <span class="process-math">\(T(\vec{u})=\vec{0}\text{.}\)</span> Dans ce cas, l'image de la droite est un point.</p>
 </li>
 </ol></article></div>
 <p id="p-937">Les transformations s'appliquent sur des vecteurs, mais comme la distinction entre point et vecteur est volontairement laissée floue, il est utile de faire la remarque suivante.</p>
@@ -365,7 +368,7 @@ T_4(c\vec{u})&amp;=T_4(cu_1,cu_2)\\
 <span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Des transformations linéaires du plan : dynamique.</span>
 </h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-transfor2"><article class="example example-like"><p id="p-953">Considérer la liste des transformations suivantes, définies géométriquement et algébriquement:</p>
 <figure class="list table-like" id="liste-transfor2"><figcaption><span class="type">Liste</span><span class="space"> </span><span class="codenumber">2.1.14<span class="period">.</span></span><span class="space"> </span>Des transformations linéaires</figcaption><div class="named-list-content"><ol class="decimal">
-<li id="li-transfor2-I"><p id="p-954">La transformation <span class="process-math">\(I(x,y)=(x,y)\text{,}\)</span> transformation qui laisse chaque vecteur en place. On l'appelle la transformation identité.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 1 </sup></a></p></li>
+<li id="li-transfor2-I"><p id="p-954">La transformation <span class="process-math">\(I(x,y)=(x,y)\text{,}\)</span> transformation qui laisse chaque vecteur en place. On l'appelle la transformation identité.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-7" id="fn-7"><sup> 2 </sup></a></p></li>
 <li id="li-transfor2-refx"><p id="p-955">La réflexion par rapport à l'axe des abscisses, donnée par la transformation <span class="process-math">\(S_x(x,y)=(x,-y)\text{.}\)</span></p></li>
 <li id="li-transfor2-rot90"><p id="p-956">La rotation de <span class="process-math">\(90^\circ\)</span> ou <span class="process-math">\(\frac{\pi}{2}\)</span> dans le sens antihoraire, donnée par la transformation <span class="process-math">\(R_{\frac{\pi}{2}}(x,y)=(-y,x)\text{.}\)</span></p></li>
 <li id="li-transfor2-Ehr">
@@ -885,7 +888,7 @@ T(r\vec{u})&amp;=A(r\vec{u})\\
 \end{align*}
 </div>
 <p class="continuation">Toute matrice correspond donc à une transformation linéaire.</p></article></div>
-<p id="p-1018">Cette proposition donne une autre option pour vérifier si une transformation est linéaire. Étant donnée <span class="process-math">\(T\)</span> une transformation quelconque, on peut calculer l'image des vecteurs <span class="process-math">\((1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)\text{,}\)</span> les mettre dans une matrice, et vérifier que cette matrice correspond à la transformation <span class="process-math">\(T\text{.}\)</span> Si c'est le cas, <span class="process-math">\(T\)</span> est linéaire, sinon elle ne l'est pas<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-7" id="fn-7"><sup> 2 </sup></a>.</p>
+<p id="p-1018">Cette proposition donne une autre option pour vérifier si une transformation est linéaire. Étant donnée <span class="process-math">\(T\)</span> une transformation quelconque, on peut calculer l'image des vecteurs <span class="process-math">\((1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)\text{,}\)</span> les mettre dans une matrice, et vérifier que cette matrice correspond à la transformation <span class="process-math">\(T\text{.}\)</span> Si c'est le cas, <span class="process-math">\(T\)</span> est linéaire, sinon elle ne l'est pas<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 3 </sup></a>.</p>
 <article class="example example-like" id="ex-transfomatrice"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-transfomatrice"><h4 class="heading">
 <span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.1.27</span><span class="period">.</span><span class="space"> </span><span class="title">Les transformations et les matrices.</span>
 </h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-transfomatrice"><article class="example example-like"><p id="p-1019">Considérons les transformations <span class="process-math">\(T_1(x,y,z)=(x+2,y-z,x)\)</span> et <span class="process-math">\(T_2(x,y)=(y-x,2x+y)\text{.}\)</span> On souhaite vérifier si ces transformations sont linéaires à l'aide d'une représentation matricielle.</p>
@@ -2007,8 +2010,8 @@ B\vec{u}=\begin{pmatrix}
 </div></article><article class="task exercise-like" id="task-101"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <p id="p-1172">Si maintenant on a <span class="process-math">\(A\)</span> une matrice  de dimension <span class="process-math">\(m\times n\)</span> et que <span class="process-math">\((A\vec{u})\cdot \vec{v}=0\)</span> pour tous les vecteurs <span class="process-math">\(\vec{u}\in\R^n\)</span> et tous les vecteurs <span class="process-math">\(\vec{v}\in\R^m\text{,}\)</span> est-ce que <span class="process-math">\(A=O\text{?}\)</span> Démontrer ou donner un contre exemple.</p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-32" id="hint-32"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-32"><div class="hint solution-like"><p id="p-1173">Utiliser l'exercice <code class="code-inline tex2jax_ignore">[provisional cross-reference: exo-matentreeij]</code>.</p></div></div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-178" id="solution-178"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-178"><div class="solution solution-like"><p id="p-1174">Cette fois c'est suffisant. On regarde colonne par colonne la matrice <span class="process-math">\(A\text{.}\)</span> On sait que <span class="process-math">\(A\\vec{e}_1=\vec{a}_1,A\vec{e}_2=\vec{a}_2,\ldots ,A\vec{e}_n=\vec{a}_n\)</span> où <span class="process-math">\(\vec{e}_1,\vec{e}_2,\ldots \vec{e}_n\)</span> sont les vecteurs standards <span class="process-math">\((1,0,\ldots, 0),(0,1,0,\ldots ,0),\ldots ,(0,\ldots ,0,1)\)</span> et <span class="process-math">\(\vec{a}_1,\vec{a}_2,\ldots \vec{a}_n\)</span> sont respectivement les colonnes un et deux de la matrice. De plus, on sait par l'exercice <code class="code-inline tex2jax_ignore">[provisional cross-reference: exo-matentreeij]</code> que l'entrée en position <span class="process-math">\(i,j\)</span> est donnée par <span class="process-math">\(A\vec{e_j}\cdot \vec{e}_i\text{.}\)</span> Or par hypothèse, l'équation <span class="process-math">\((A\vec{u})\cdot \vec{v}=0\)</span>  pour tous les vecteurs de <span class="process-math">\(\R^n\text{.}\)</span> La matrice <span class="process-math">\(A\)</span> est donc la matrice nulle.</p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-32" id="hint-32"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-32"><div class="hint solution-like"><p id="p-1173">Utiliser l'exercice <a href="" class="xref" data-knowl="./knowl/exo-matentreeij.html" title="Exercice 2.1.4.8">2.1.4.8</a>.</p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-178" id="solution-178"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-178"><div class="solution solution-like"><p id="p-1174">Cette fois c'est suffisant. On regarde colonne par colonne la matrice <span class="process-math">\(A\text{.}\)</span> On sait que <span class="process-math">\(A\\vec{e}_1=\vec{a}_1,A\vec{e}_2=\vec{a}_2,\ldots ,A\vec{e}_n=\vec{a}_n\)</span> où <span class="process-math">\(\vec{e}_1,\vec{e}_2,\ldots \vec{e}_n\)</span> sont les vecteurs standards <span class="process-math">\((1,0,\ldots, 0),(0,1,0,\ldots ,0),\ldots ,(0,\ldots ,0,1)\)</span> et <span class="process-math">\(\vec{a}_1,\vec{a}_2,\ldots \vec{a}_n\)</span> sont respectivement les colonnes un et deux de la matrice. De plus, on sait par l'exercice <a href="" class="xref" data-knowl="./knowl/exo-matentreeij.html" title="Exercice 2.1.4.8">2.1.4.8</a> que l'entrée en position <span class="process-math">\(i,j\)</span> est donnée par <span class="process-math">\(A\vec{e_j}\cdot \vec{e}_i\text{.}\)</span> Or par hypothèse, l'équation <span class="process-math">\((A\vec{u})\cdot \vec{v}=0\)</span>  pour tous les vecteurs de <span class="process-math">\(\R^n\text{.}\)</span> La matrice <span class="process-math">\(A\)</span> est donc la matrice nulle.</p></div></div>
 </div></article></article><article class="exercise exercise-like" id="exo-matprodscalegal"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
 <div class="introduction" id="introduction-38">
 <p id="p-1175">On considère deux matrices <span class="process-math">\(A,B\)</span> de même dimensions et des vecteurs <span class="process-math">\(\vec{u},\vec{v}\)</span> tels que l'équation</p>
@@ -2236,9 +2239,10 @@ show(pointfinal)
 </div></div>
 </div></article>
 </div>
-</div></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">Le choix du mot identité deviendra évident une fois qu'on aura introduit la composition de deux transformations linéaires, qui sera une sorte de produit, à la section <a href="sec-prodmat.html" class="internal" title="Section 2.2: La composition et le produit matriciel">2.2</a>
+</div></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">Avec la particularité qu'elle pourrait être écrasée en un point. On considère ceci comme un cas limite.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-7"><div class="fn">Le choix du mot identité deviendra évident une fois qu'on aura introduit la composition de deux transformations linéaires, qui sera une sorte de produit, à la section <a href="sec-prodmat.html" class="internal" title="Section 2.2: La composition et le produit matriciel">2.2</a>
 </div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-7"><div class="fn">Techniquement, il faudrait s'assurer que la représentation par une matrice d'une transformation linéaire est unique. Pour cela, voir l'exercice <a href="" class="xref" data-knowl="./knowl/exo-reptransfomatunique.html" title="Exercice 2.1.4.11">2.1.4.11</a>.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-8"><div class="fn">Techniquement, il faudrait s'assurer que la représentation par une matrice d'une transformation linéaire est unique. Pour cela, voir l'exercice <a href="" class="xref" data-knowl="./knowl/exo-reptransfomatunique.html" title="Exercice 2.1.4.11">2.1.4.11</a>.</div></div>
 </div></main>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
