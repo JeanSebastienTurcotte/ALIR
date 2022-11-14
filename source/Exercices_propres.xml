@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                     -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-propres">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
+            <statement>
+                <p>La première lettre de la question.</p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>
+    </task>
+    </exercise>
+    -->
+    <exercise xml:id="exo-transfor2vecpropres">
+    <statement><p>Déterminer les vecteurs propres de chacune des transformations linéaires de la liste <xref ref="liste-transfor2"/> en considérant l'espace propre associé à chaque valeur propre. On rappelle que les valeurs propres ont été trouvées à l'exemple <xref ref="ex-transfor2valpropres"/>.</p></statement>
+    <answer>
+    <p>Dans la plupart des cas, on donne une base de l'espace propre associé à chaque valeur propre. <ol>
+    <li><p>Tous les vecteurs de <m>\mathbb{R}^2</m> sont des vecteurs propres pour la matrice identité.</p></li>
+    <li><p>Le vecteur <m>(1,0)</m> est un vecteur propre pour la valeur propre <m>\lambda_1=1</m> et le vecteur <m>(-1,0)</m> est un vecteur propre associé à la valeur propre <m>\lambda_2=-1</m>.</p></li>
+    <li><p>Aucun vecteur propre réel.</p></li>
+    <li><p>Pour l'étirement horizontal, le vecteur <m>(1,0)</m> est un vecteur propre associé à <m>\lambda_1=r</m> et le vecteur <m>(0,1)</m> est un vecteur propre associé à <m>\lambda_2=1</m>.</p> <p>Pour un étirement vertical, les rôles sont renversés. Le vecteur <m>(1,0)</m> est un vecteur propre associé à <m>\lambda_1=1</m> et le vecteur <m>(0,1)</m> un vecteur propre pour <m>\lambda_2=r</m>.</p></li>
+    <li><p>Tous les vecteurs de <m>\mathbb{R}^2</m> sont des vecteurs propres.</p></li>
+    <li><p>Le vecteur <m>(-1,1)</m> est un vecteur propre associé à <m>\lambda_1=-1</m> et le vecteur <m>(1,1)</m> est un vecteur propre associé à <m>\lambda_2=1</m>.</p></li>
+    <li><p>Le vecteur <m>(-w_2,w_1)</m> est un vecteur propre associé à <m>\lambda_1=0</m> et le vecteur <m>(w_1,w_2)</m> est un vecteur propre associé à <m>\lambda_2=1</m>.</p></li>
+    </ol></p>
+    </answer>
+    <solution><p>Pour chaque transformation, on regarde l'espace propre associé à chacune des valeurs propres trouvées à l'exemple <xref ref="ex-transfor2valpropres"/>.
+    <ol>
+    <li><p>
+    Pour la seule valeur propre <m>\lambda=1</m>, on a <m>I-I=O</m>, la matrice nulle. Tous les vecteurs sont dans l'espace nul de cette matrice. N'importe quel vecteur de <m>\mathbb{R}^2</m> est donc un vecteur propre.
+    </p></li>
+    <li><p><ol><li><p>
+    Pour la valeur propre <m>\lambda_1=1</m>, la matrice <m>S_x-I</m> devient <m>\begin{pmatrix}0&amp; -1\\0 &amp; -1 \end{pmatrix}</m>, qui est équivalente à la matrice <m>\begin{pmatrix} 0&amp;1\\ 0&amp; 0\end{pmatrix}</m> après réduction. L'espace nul de cette matrice est engendré par le vecteur <m>(1,0)</m>. N'importe quel multiple de ce vecteur est donc un vecteur propre.
+    </p></li>
+    <li><p>Pour la valeur propre <m>\lambda_1=-1</m>, la matrice <m>S_x+I</m> devient <m>\begin{pmatrix}2&amp; 0\\0 &amp; 0 \end{pmatrix}</m>, qui est équivalente à la matrice <m>\begin{pmatrix} 1&amp;0\\ 0&amp; 0\end{pmatrix}</m> après réduction. L'espace nul de cette matrice est engendré par le vecteur <m>(0,1)</m>. N'importe quel multiple de ce vecteur est donc un vecteur propre.</p></li>
+    </ol></p></li>
+    <li><p>Comme il n'y avait pas de valeurs propres réelles, il ne peut pas y avoir de vecteurs propres réels non plus.</p></li>
+    <li><p>D'abord, l'étirement horizontal: <ol><li><p>Pour la valeur propre <m>r</m>, la matrice <m>E_{r,h}-rI</m> devient <m>\begin{pmatrix} 0&amp;0\\ 0 &amp;1-r\end{pmatrix}</m>, qui est équivalente à la matrice <m>m>\begin{pmatrix} 0&amp;1\\ 0 &amp;0\end{pmatrix}</m> après réduction (si <m>r\neq 1)</m>. L'espace nul de cette matrice est engendré par <m>(1,0)</m>.  Si toutefois on avait <m>r=1</m>, alors la tranformation serait en fait l'identité. On réfère alors à la partie précédente.</p></li>
+    <li><p>Pour la valeur propre <m>1</m>, la matrice <m>E_{r,h}-I</m> devient <m>\begin{pmatrix} r-1&amp;0\\ 0 &amp;0\end{pmatrix}</m>, qui est équivalente à la matrice <m>m>\begin{pmatrix} 1&amp;0\\ 0 &amp;0\end{pmatrix}</m> après réduction (si <m>r\neq 1)</m>. L'espace nul de cette matrice est engendré par <m>(0,1)</m>. Si toutefois on avait <m>r=1</m>, alors la tranformation serait en fait l'identité. On réfère alors à la partie précédente. </p></li>
+    </ol>
+    Pour ce qui est de l'étirement vertical, la même démarche s'applique, mais les rôles sont renversés.
+    <ol><li><p>Pour la valeur propre <m>r</m>, la matrice <m>E_{r,v}-rI</m> devient <m>\begin{pmatrix} 1-r&amp;0\\ 0 &amp;0\end{pmatrix}</m>, qui est équivalente à la matrice <m>m>\begin{pmatrix} 1&amp;0\\ 0 &amp;0\end{pmatrix}</m> après réduction (si <m>r\neq 1)</m>. L'espace nul de cette matrice est engendré par <m>(0,1)</m>.  Si toutefois on avait <m>r=1</m>, alors la tranformation serait en fait l'identité. On réfère alors à la partie précédente.</p></li>
+    <li><p>Pour la valeur propre <m>1</m>, la matrice <m>E_{r,v}-I</m> devient <m>\begin{pmatrix} 0&amp;0\\ 0 &amp;r-1\end{pmatrix}</m>, qui est équivalente à la matrice <m>m>\begin{pmatrix} 0&amp;1\\ 0 &amp;0\end{pmatrix}</m> après réduction (si <m>r\neq 1)</m>. L'espace nul de cette matrice est engendré par <m>(1,0)</m>. Si toutefois on avait <m>r=1</m>, alors la tranformation serait en fait l'identité. On réfère alors à la partie précédente. </p></li>
+    </ol>
+    </p></li>
+    <li><p>De manière similaire à la transformation identité, la matrice <m>H_r-I</m> donne la matrice nulle. Tous les vecteurs de <m>\mathbb{R}^2</m> sont des vecteurs propres.</p></li>
+    <li><p><ol><li><p>Pour la valeur propre <m>\lambda_1=-1</m>, la matrice <m>P+I</m> devient <m>\begin{pmatrix}1&amp; 1\\ 1&amp;1\end{pmatrix}</m>, qui est équivalente à la matrice <m>\begin{pmatrix}1&amp; 1\\ 0 &amp; 0\end{pmatrix}</m> après réduction. L'espace propre de cette matrice est engendré par <m>(-1,1)</m>, ce qui fait de tout multiple de ce vecteur un vecteur propre de la matrice <m>P</m> associé à <m>\lambda=-1</m>.</p></li>
+    <li><p>Pour la valeur propre <m>\lambda_1=1</m>, la matrice <m>P-I</m> devient <m>\begin{pmatrix}-1&amp; 1\\ 1&amp;-1\end{pmatrix}</m>, qui est équivalente à la matrice <m>\begin{pmatrix}1&amp; -1\\ 0 &amp; 0\end{pmatrix}</m> après réduction. L'espace propre de cette matrice est engendré par <m>(1,1)</m>, ce qui fait de tout multiple de ce vecteur un vecteur propre de la matrice <m>P</m> associé à <m>\lambda=1</m>.</p></li></ol></p></li>
+    <li><p><ol>
+    <li><p>Pour la valeur propre <m>\lambda_1=0</m>, la matrice à analyser est <m>\frac{1}{\norm{\vec{w}}^2}\begin{pmatrix}w_1^2 &amp; w_1w_2 \\ w_1w_2 &amp; w_2^2 \end{pmatrix}</m>. On fait d'abord l'hypothèse que <m>w_1\neq 0</m>. La matrice est alors équivalente après réduction à <m>\frac{1}{\norm{\vec{w}}^2}\begin{pmatrix}1 &amp; \frac{w_2}{w_1} \\ 0 &amp; 0 \end{pmatrix}</m>. Dans ce cas, l'espace nul est engendré par <m>\left(-\frac{w_2}{w_1},1)</m>, ou encore <m>(-w_2,w_1)</m>. Si toutefois <m>w_1=0</m>, alors puisqu'on ne peut projeter sur le vecteur nul, on doit avoir <m>w_2\neq 0</m>. La matrice est alors équivalente à <m>\frac{1}{\norm{\vec{w}}^2}\begin{pmatrix}0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}</m> après réduction, qui a pour générateur de son espace nul le vecteur <m>(1,0)</m>, ou encore son multiple <m>(-w_2,0)=(-w_2,w_1)</m>. Dans tous les cas, une base de l'espace propre peut donc s'écrire comme <m>(-w_2,w_1)</m>.</p></li>
+    <li><p>Pour la valeur propre <m>\lambda_1=0</m>, la matrice à analyser est <m>\begin{pmatrix}\frac{w_1^2}{\norm{\vec{w}}^2}-1 &amp; \frac{w_1w_2}{\norm{\vec{w}}^2} \\ \frac{w_1w_2}{\norm{\vec{w}}^2} &amp;\frac{w_2^2 }{\norm{\vec{w}}^2} -1\end{pmatrix}=begin{pmatrix}\frac{-w_2^2}{\norm{\vec{w}}^2} &amp; \frac{w_1w_2}{\norm{\vec{w}}^2} \\ \frac{w_1w_2}{\norm{\vec{w}}^2} &amp;\frac{-w_1^2 }{\norm{\vec{w}}^2}\end{pmatrix}=\frac{1}{\norm{\vec{w}}^2}begin{pmatrix}-w_2^2 &amp; w_1w_2 \\ w_1w_2 &amp;-w_1^2 \end{pmatrix}</m>. Sous l'hypothèse cette fois que <m>w_2\neq 0</m>, on peut montrer que cette matrice est équivalente après réduction à la matrice <m>\frac{1}{\norm{\vec{w}}^2}\begin{pmatrix}1 &amp; -\frac{w_1}{w_2} \\ 0 &amp; 0 \end{pmatrix}</m> Dans ce cas, l'espace nul est engendré par <m>\left(\frac{w_1}{w_2},1\right)</m> ou son multiple <m>(w_1,w_2)</m>. Si toutefois <m>w_2=0</m>, alors comme précédemment, on ne peut avoir aussi <m>w_1=0</m>, ce qui fait que la matrice après réducton est équivalente à <m>\frac{1}{\norm{\vec{w}}^2}\begin{pmatrix}0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}</m>. L'espace nul est engendré par le vecteur <m>(1,0)</m>, ou encore son multiple <m>(w_1,0)=(w_1,w_2)</m>. Dans tous les cas, une base de l'espace propre peut donc s'écrire comme <m>(w_1,w_2)</m>.</p></li>
+    </ol></p></li>
+    </ol>
+    </p></solution>
+    </exercise>
+    <exercise><introduction><p>Pour chacune des matrices suivantes, déterminer les valeurs propres et une base de l'espace propre associé à chaque valeur propre.</p></introduction>
+    <task><statement><p><m>A_1=\begin{pmatrix} 1&amp; 0\\ -1&amp; 6\end{pmatrix}</m></p></statement>
+    <answer><p><m>\lambda_1=1,\lambda_2=6</m> avec <m>Ep(1)=\vspan(5,1)</m> et <m>Ep(6)=\vspan(0,1)</m></p></answer>
+    <solution><p>Pour les valeurs propres, on calcule d'abord le déterminant de <m>A_1-\lambda I</m>:
+    <md>
+    <mrow>\lvert A_1 -\lambda I\rvert &amp;=\begin{vmatrix} 1-\lambda&amp; 0\\ -1&amp; 6-\lambda\end{vmatrix}</mrow>
+    <mrow>&amp;=(1-\lambda)(6-\lambda)</mrow>
+    </md>.
+    Ceci donne deux valeurs propres, la première <m>\lambda_1=1</m> et la seconde <m>\lambda_2=6</m>.
+    </p>
+    <p>On regarde l'espace propre associé à <m>\lambda_1</m>. La matrice devient
+    <me>
+    A_1-I=\begin{pmatrix} 0&amp; 0\\ -1&amp; 5\end{pmatrix}\stackrel{-L_2\to L_2}{\sim} \begin{pmatrix} 0&amp; 0\\ 1&amp; -5\end{pmatrix}
+    </me>, qui a comme base de son espace propre le vecteur <m>(1,1/5)</m>, parallèle à <m>(5,1)</m>. </p>
+    <p>On regarde ensuite l'espace propre associé à <m>\lambda_2</m>. La matrice devient
+    <md>
+    <mrow>A_1-6I&amp;=\begin{pmatrix} -5&amp; 0\\ -1&amp; 0\end{pmatrix}</mrow>
+    <mrow>&amp;\stackrel{L_1/(-5)\to L_1}{\sim} \begin{pmatrix} 1&amp; 0\\ -1&amp; 0\end{pmatrix}</mrow>
+    <mrow>\stackrel{L_2+L_1\to L_2}{\sim} \begin{pmatrix} 1&amp; 0\\ 0&amp; 0\end{pmatrix}</mrow>
+    </md>, qui a comme base de son espace propre le vecteur <m>(0,1)</m>. </p>
+    </solution>
+    </task>
+    <task><statement><p><m>A_2=\begin{pmatrix}-9&amp;3\\ 0&amp; -5 \end{pmatrix}</m></p></statement>
+    <answer><p><m>\lambda_1=-5,\lambda_2=-9</m> avec <m>Ep(-5)=\vspan((1, 4/3))=\vspan(3,4)</m> et <m>Ep(-9)=\vspan(1,0)</m></p></answer>
+    <solution><p>Pour les valeurs propres, on calcule d'abord le déterminant de <m>A_2-\lambda I</m>:
+    <md>
+    <mrow>\lvert A_2 -\lambda I\rvert &amp;=\begin{vmatrix} -9-\lambda&amp; 3\\ 0&amp; -5-\lambda\end{vmatrix}</mrow>
+    <mrow>&amp;=(-9-\lambda)(-5-\lambda)</mrow>
+    </md>.
+    Ceci donne deux valeurs propres, la première <m>\lambda_1=-5</m> et la seconde <m>\lambda_2=-9</m>.
+    </p>
+    <p>On regarde l'espace propre associé à <m>\lambda_1</m>. La matrice devient
+    <me>
+    A_2+5I=\begin{pmatrix} -4&amp; 3\\ 0&amp; 0\end{pmatrix}\stackrel{L_1/(-4)\to L_1}{\sim} \begin{pmatrix} 1&amp; -3/4\\ 0&amp; 0\end{pmatrix}
+    </me>, qui a comme base de son espace propre le vecteur <m>(3/4,1)</m>, parallèle à <m>(3,4)</m>. </p>
+    <p>On regarde ensuite l'espace propre associé à <m>\lambda_2</m>. La matrice devient
+    <md>
+    <mrow>A_2+9I&amp;=\begin{pmatrix} 0&amp; 3\\ 0&amp; 4\end{pmatrix}</mrow>
+    <mrow>&amp;\stackrel{L_1/(5)\to L_1}{\sim} \begin{pmatrix} 0&amp; 1\\ 0&amp; 4\end{pmatrix}</mrow>
+    <mrow>\stackrel{L_2-4L_1\to L_2}{\sim} \begin{pmatrix} 0&amp; 1\\ 0&amp; 0\end{pmatrix}</mrow>
+    </md>, qui a comme base de son espace propre le vecteur <m>(1,0)</m>. </p>
+    </solution>
+    </task>
+    <task><statement><p><m>A_3=\begin{pmatrix} -8&amp; -8\\ -8&amp; -8\end{pmatrix}</m></p></statement>
+    <answer><p><m>\lambda_1=0,\lambda_2=-16</m> avec <m>Ep(0)=\vspan(-1, 1)</m> et <m>Ep(-16)=\vspan(1, 1)</m>.</p></answer>
+    <solution><p>Pour les valeurs propres, on calcule d'abord le déterminant de <m>A_3-\lambda I</m>:
+    <md>
+    <mrow>\lvert A_3 -\lambda I\rvert &amp;=\begin{vmatrix} -8-\lambda&amp; -8\\ -8&amp; -8-\lambda\end{vmatrix}</mrow>
+    <mrow>&amp;=(-8-\lambda)^2-64</mrow>
+    <mrow>&amp;=(-8-\lambda-8)(-8-\lambda+8)</mrow>
+    <mrow>&amp;=(-16-\lambda)\lambda</mrow>
+    </md>.
+    Ceci donne deux valeurs propres, la première <m>\lambda_1=0</m> et la seconde <m>\lambda_2=-16</m>.
+    </p>
+    <p>On regarde l'espace propre associé à <m>\lambda_1</m>. La matrice devient
+    <me>
+    A_3=\begin{pmatrix} -8&amp; -8\\ -8&amp; -8\end{pmatrix}\stackrel{L_2-L_1\to L_2}{\sim} \begin{pmatrix} -8&amp; -8\\ 0&amp; 0\end{pmatrix}=\stackrel{L_1/(-8)\to L_1}{\sim}\begin{pmatrix} 1&amp; 1\\ 0&amp; 0\end{pmatrix}
+    </me>, qui a comme base de son espace propre le vecteur <m>(-1,1)</m>.</p>
+    <p>On regarde ensuite l'espace propre associé à <m>\lambda_2</m>. La matrice devient
+    <md>
+    <mrow>A+16I&amp;=\begin{pmatrix} 8&amp; -8\\ -8&amp; 8\end{pmatrix}</mrow>
+    <mrow>&amp;\stackrel{L_1/8\to L_1}{\sim} \begin{pmatrix} 1&amp; -1\\ -8&amp; 8\end{pmatrix}</mrow>
+    <mrow>\stackrel{L_2+8L_1\to L_2}{\sim} \begin{pmatrix} 1&amp; -1\\ 0&amp; 0\end{pmatrix}</mrow>
+    </md>, qui a comme base de son espace propre le vecteur <m>(1,1)</m>. </p>
+    </solution>
+    </task>
+    <task><statement><p><m>A_4=\begin{pmatrix} 3&amp; 7 \\ 5&amp; 5 \end{pmatrix}</m></p></statement>
+    <answer><p><m>\lambda_1=10,\lambda_2=-2</m> avec <m>Ep(10)=\vspan(1, 1)</m> et <m>Ep(-2)=\vspan(-7, 5)</m>.</p></answer>
+    <solution><p>Pour les valeurs propres, on calcule d'abord le déterminant de <m>A_4-\lambda I</m>:
+    <md>
+    <mrow>\lvert A_4 -\lambda I\rvert &amp;=\begin{vmatrix} 3-\lambda&amp; 7\\ 5&amp; 5-\lambda\end{vmatrix}</mrow>
+    <mrow>&amp;=(3-\lambda)(5-\lambda)-35</mrow>
+    <mrow>&amp;=\lambda^2-8\lambda+15-35</mrow>
+    <mrow>&amp;=(\lambda-10)(\lambda+2)</mrow>
+    </md>.
+    Ceci donne deux valeurs propres, la première <m>\lambda_1=10</m> et la seconde <m>\lambda_2=-2</m>.
+    </p>
+    <p>On regarde l'espace propre associé à <m>\lambda_1</m>. La matrice devient
+    <me>
+    A_4-10I=\begin{pmatrix} -7&amp; -7\\ 5&amp; -5\end{pmatrix}\stackrel{L_1/(-7)\to L_1}{\sim} \begin{pmatrix} 1&amp; -1\\ 5&amp; -5\end{pmatrix}=\stackrel{L_2-5L_1\to L_1}{\sim}\begin{pmatrix} 1&amp; -1\\ 0&amp; 0\end{pmatrix}
+    </me>, qui a comme base de son espace propre le vecteur <m>(1,1)</m>.</p>
+    <p>On regarde ensuite l'espace propre associé à <m>\lambda_2</m>. La matrice devient
+    <md>
+    <mrow>A+2I&amp;=\begin{pmatrix} 5&amp; 7\\ 5&amp; 7\end{pmatrix}</mrow>
+    <mrow>&amp;\stackrel{L_2-L_1\to L_2}{\sim} \begin{pmatrix} 5&amp; 7\\ 0&amp; 0\end{pmatrix}</mrow>
+    <mrow>\stackrel{L_1/5\to L_1}{\sim} \begin{pmatrix} 1&amp; 7/5\\ 0&amp; 0\end{pmatrix}</mrow>
+    </md>, qui a comme base de son espace propre le vecteur <m>(-7/5,1)</m>, parallèle à <m>(-7,5)</m>. </p>
+    </solution>
+    </task>
+    <task><statement><p><m>A_5=\begin{pmatrix} 7&amp; -1 \\ 0&amp; 7\end{pmatrix}</m></p></statement>
+    <answer><p><m>\lambda_1=7</m> et <m>Ep(7)=\vspan(1,0)</m>.</p></answer>
+    <solution><p>Pour les valeurs propres, on calcule d'abord le déterminant de <m>A_5-\lambda I</m>:
+    <md>
+    <mrow>\lvert A_5 -\lambda I\rvert &amp;=\begin{vmatrix} 7-\lambda&amp; -1\\ 0&amp; 7-\lambda\end{vmatrix}</mrow>
+    <mrow>&amp;=(7-\lambda)^2</mrow>
+    </md>.
+    Ceci donne une seule valeur propre,<m>\lambda_1=7</m>.
+    </p>
+    <p>On regarde l'espace propre associé à cette valeur propre. La matrice devient
+    <me>
+    A_5-7I=\begin{pmatrix} 0&amp; -1\\ 0&amp; 0\end{pmatrix}
+    </me>, qui a comme base de son espace propre le vecteur <m>(1,0)</m>.</p>
+    </solution>
+    </task>
+    <task><statement><p><m>A_6=\begin{pmatrix}-1 &amp; 1 &amp; 0 \\ -7 &amp; 3 &amp; 1 \\ -10 &amp; 2 &amp; 3 \end{pmatrix}</m></p></statement>
+    <answer><p><m>\lambda_1=1,\lambda_2=2</m> avec <m>Ep(1)=\vspan(1,2,3)</m> et <m>Ep(2)=\vspan(1,3,4)</m>.</p></answer>
+    <solution><p>Pour les valeurs propres, on commence par calculer le déterminant de <m>A_6-\lambda I</m>:
+    <md>
+    <mrow>\lvert A_6-\lambda I\rvert&amp;=\begin{vmatrix}-1-\lambda &amp; 1 &amp; 0 \\ -7 &amp; 3-\lambda &amp; 1 \\ -10 &amp; 2 &amp; 3-\lambda \end{vmatrix}</mrow>
+    <mrow>&amp;=(-1-\lambda)\begin{vmatrix}  3-\lambda &amp; 1 \\ 2 &amp; 3-\lambda \end{vmatrix}-\begin{pmatrix}\\ -7  &amp; 1 \\ -10  &amp; 3-\lambda \end{pmatrix}</mrow>
+    <mrow>&amp;=(-1-\lambda)((3-\lambda)^2-2)-(-7(3-\lambda)+10)</mrow>
+    <mrow>&amp;=(-1-\lambda)(\lambda^2-6\lambda+7)-(7\lambda-11)</mrow>
+    <mrow>&amp;=(-\lambda^3+5\lambda^2-\lambda-7)-7\lambda+11</mrow>
+    <mrow>&amp;=-\lambda^3+5\lambda^2-8\lambda+4</mrow>
+    <intertext><p>On utilise Sage pour la factorisation, ce qui donne</p></intertext>
+    <mrow>&amp;=-(x - 1)*(x - 2)^2</mrow>
+    </md>,
+    qui s'annule lorsque <m>\lambda_1=1</m> et <m>\lambda_2=2</m>.
+    </p>
+    <p>Pour le premier espace propre, on regarde la matrice <m>A-I</m> et on détermine une base de son espace nul. On utilise Sage pour effectuer la réduction.</p>
+    <sage>
+    <input>
+    A6=matrix([[-1,1,0],[-7,3,1],[-10,2,3]])
+    I3=identity_matrix(3)
+    show((A6-I).rref())
+    </input>
+    </sage>
+    <p>On remarque que la troisième variable est libre et une base de l'espace nul serait le vecteur <m>(1/3,2/3,1)</m>, parallèle au vecteur <m>(1,2,3)</m>.</p>
+    <p>De même, pour le second espace propre, on obtient avec Sage un système avec également une seule variable libre, dont une base est donnée par le vecteur
+    <md>
+    <mrow> \vec{v}_1&amp;=(1/4,3/4,1)</mrow>
+    </md>,
+    parallèle au vecteur <m>(1,3,4)</m>.
+    </p>
+    <sage>
+    <input>
+    show((A6-2*I3).rref())
+    </input>
+    </sage>
+    </solution>
+    </task>
+    <task><statement><p><m>A_7=\begin{pmatrix}1 &amp; 0 &amp; 0 \\ 5 &amp; -3 &amp; 1 \\ 4 &amp; -5 &amp; 3 \end{pmatrix}</m></p></statement>
+    <answer><p><m>\lambda_1=-2,\lambda_2=1</m> et <m>\lambda_3=2</m> avec <m>Ep(-2)=\vspan(0,1,1)</m>,<m>Ep(1)=\vspan(1,2,3)</m> et <m>Ep(2)=\vspan(0,1,5)</m>.</p></answer>
+    <solution><p>On commence par déterminer les valeurs propres en considérant le déterminant de <m>A_7-\lambda I</m>:
+    <md>
+    <mrow>\lvert A_7-\lambda I\rvert &amp;=\begin{vmatrix}1-\lambda &amp; 0 &amp; 0 \\ 5 &amp; -3-\lambda &amp; 1 \\ 4 &amp; -5 &amp; 3-\lambda \end{vmatrix}</mrow>
+    <mrow>&amp;=(1-\lambda)\begin{vmatrix} -3-\lambda &amp; 1 \\  -5 &amp; 3-\lambda \end{vmatrix}</mrow>
+    <mrow>&amp;=(1-\lambda)((-3-\lambda)(3-\lambda)+5)</mrow>
+    <mrow>&amp;=(1-\lambda)(\lambda^2-4)</mrow>
+    <mrow>&amp;=(1-\lambda)(\lambda-2)(\lambda+2)</mrow>
+    </md>,
+    ce qui donne comme valeur propre <m>\lambda_1=-2,\lambda_2=1</m> et <m>\lambda_3=2</m>. 
+    </p>
+    <p>On détermine les espaces propres en échelonnant les matrices appropriées avec Sage.</p>
+    <sage>
+    <input>
+    A7=matrix([[1,0,0],[5,-3,1],[4,-5,3]])
+    I3=identity_matrix(3)
+    show((A7+2*I3).rref())
+    show((A7-I3).rref())
+    show((A7-2*I3).rref())
+    </input>
+    </sage>
+    <p>Pour l'espace propre associé à <m>\lambda_1=-2</m>, on voit une variable libre en <m>z</m>. Une base de cet espace propre est donnée par <m>\vec{v}_1=(0,1,1)</m>. Pour le deuxième espace propre, on a aussi une seule direction invariante donnée par <m>\vec{u}_2=(1/3,2/3,1)</m>, parallèle à <m>\vec{v}_2=(1,2,3)</m>. Enfin, pour le dernier espace propre, on trouve le vecteur <m>\vec{v}_3=(0,1,5)</m> après ajustement.</p>
+    </solution>
+    </task>
+    <task><statement><p><m>A_8=\begin{pmatrix} 1 &amp; 1 &amp; -2 \\ 0 &amp; 3 &amp; 0 \\ -2 &amp; 1 &amp; 1\end{pmatrix}</m></p></statement>
+    <answer><p><m>\lambda_1=-1,\lambda_2=3</m> avec <m>Ep(-1)=\vspan(1,0,1)</m>,<m>Ep(3)=\vspan((-1,0,1),(1,2,0))</m>.</p></answer>
+    <solution><p>Encore une fois, on commence par les valeurs propres. On a
+    <md>
+    <mrow>\lvert A_8-\lambda I\rvert &amp;=\begin{vmatrix} 1-\lambda &amp; 1 &amp; -2 \\ 0 &amp; 3-\lambda &amp; 0 \\ -2 &amp; 1 &amp; 1-\lambda\end{vmatrix}</mrow>
+    <intertext><p>On interchange les lignes 1 et 2, ce qui a pour effet de changer le signe du déterminant.</p></intertext>
+    <mrow>&amp;=-\begin{vmatrix} 0 &amp; 3-\lambda &amp; 0 \\ 1-\lambda &amp; 1 &amp; -2 \\ -2 &amp; 1 &amp; 1-\lambda\end{vmatrix}</mrow>
+    <mrow>&amp;=(3-\lambda)\begin{vmatrix}  1-\lambda &amp; -2 \\ -2 &amp; 1-\lambda\end{vmatrix}</mrow>
+    <mrow>&amp;=(3-\lambda)((1-\lambda)^2-4)</mrow>
+    <mrow>&amp;=(3-\lambda)(1-\lambda-2)(1-\lambda+2)</mrow>
+    <mrow>&amp;=(3-\lambda)(-1-\lambda)(3-\lambda)</mrow>
+    </md>,
+    qui offre comme valeurs propres <m>\lambda_1=-1</m> et <m>\lambda_2=3</m>. 
+    </p>
+    <p>Pour les espaces propres, on se tourne une fois de plus vers Sage afin d'échelonner la matrice.</p>
+    <sage>
+    <input>
+    A8=matrix([[1,1,-2],[0,3,0],[-2,1,1]])
+    I3=identity_matrix(3)
+    show((A8+1*I3).rref())
+    show((A8-3*I3).rref())
+    </input>
+    </sage>
+    <p>Pour la première valeur propre, on trouve un vecteur propre associé qui est <m>\vec{v}_1=(1,0,1)</m>. Pour la seconde valeur propre, il y a deux variables libres et donc, deux directions invariantes associées à cette valeur propre. On trouve <m>\vec{u}_1=(1/2,1,0)</m>, parallèle à <m>\vev{v}_1=(1,2,0)</m> et <m>\vec{v}_2=(-1,0,1)</m>.</p>
+    </solution>
+    </task>
+    </exercise>
+    <exercise xml:id="exo-direcinvariante">
+    <statement><p>Soit <m>A</m> une matrice carrée, <m>\lambda</m> une valeur propre et <m>\vec{v}</m> un vecteur propre associé à <m>\lambda</m>. Montrer que pour tout <m>k\in\mathbb{R}</m> non nul, le vecteur <m>k\vec{v}</m> est aussi un vecteur propre associé à <m>\lambda</m>.</p></statement>
+    <solution><p>Cela découle directement du fait que les vecteurs propres sont des directions invariantes et que <m>\vec{v}</m> et <m>k\vec{v}</m> ont la même direction. Un calcul direct montre que
+    <md>
+    <mrow>A(k\vec{v})&amp;=k(A\vec{v}) &amp;&amp; \text{propriété du produit matrice vecteur et de la multiplication par un scalaire}</mrow>
+    <mrow>&amp;=k(\lambda \vec{v}) &amp;&amp; \text{car } \vec{v} \text{ est un vecteur propre associé à } \lambda</mrow>
+    <mrow>&amp;=\lambda (k\vec{v}) &amp;&amp; \text{commutativité de la multiplication}</mrow>
+    </md>.
+    Le vecteur <m>k\vec{v}</m> est donc bel et bien un vecteur propre.
+    </p></solution>
+    </exercise>
+    <exercise xml:id="exo-effetvalpropre">
+    <statement><p>Compléter la preuve de la proposition <xref ref="prop-effetvalpropre"/> en démontrant que le scalaire <m>r\lambda</m> est une valeur propre de la matrice <m>rA</m> et que la valeur propre <m>\lambda</m> est aussi une valeur propre de transposée <m>A^T</m>.</p></statement>
+    <solution>
+    <p>On commence avec le nombre <m>r\lambda</m> et on montre que c'est une valeur propre de <m>rA</m>. Il semble plausible que si <m>\vec{v}</m> est un vecteur propre de <m>A</m>, ce soit aussi un vecteur propre de <m>rA</m>. On s'en assure en effectuant le calcul.
+    <md>
+    <mrow>(rA)\vec{v}&amp;=r(A\vec{v}) &amp;&amp; \text{propriété de la multiplication matricielle par un scalaire}</mrow>
+    <mrow>&amp;=r(\lambda\vec{v}) &amp;&amp; \text{car } \vec{v} \text{ est un vecteur propre associé à } \lambda</mrow>
+    <mrow>&amp; (r\lambda)\vec{v} &amp;&amp; \text{ associativité de la multiplication par un scalaire dans un espace vectoriel}</mrow>
+    </md>.
+    On trouve qu'en effet, <m>\vec{v}</m> est aussi un vecteur propre de <m>rA</m> et on obtient en même temps la valeur propre <m>r\lambda</m>.
+    </p>
+    <p>Pour le fait que <m>\lambda</m> est aussi une valeur propre de <m>A^T</m>, on ne peut pas procéder de la même manière, car rien ne garantit que le vecteur <m>\vec{v}</m> sera aussi un vecteur propre de la matrice <m>A^T</m>. En effet, on ne connait pas l'effet de <m>A^T</m> sur <m>\vec{v}</m>. On se tourne donc vers la définition.
+    <md>
+    <mrow>\text{det}(A^T-\lambda I)&amp;=\text{det}((A^T-\lambda I)^T) &amp;&amp; \text{selon la propriété des déterminants} <xref ref="thm-detprop"/></mrow>
+    <mrow>&amp;=\text{det}((A^T)^T-(\lambda I)^T) &amp;&amp;\text{selon la propriété de la transposée } <xref ref="prop-transposeeprop"/></mrow>
+    <mrow>&amp;=\text{det}(A-\lambda I) &amp;&amp;\text{selon les propriétés de la transposée } <xref ref="prop-transposeeprop"/> \text{et le fait que } I^T=I</mrow>
+    </md>.
+    </p>
+    <p>Puisque le déterminant de <m>A^T-\lambda I</m> est le même que celui de <m>A-\lambda I</m>, il suit que les valeurs propres seront les mêmes.</p>
+    </solution>
+    </exercise>
+    <exercise><statement>
+    <p>Déterminer les valeurs propres de la matrice <m>A+I</m> en fonctions de celles de la matrice <m>A</m>.</p>
+    </statement>
+    <hint><p>On peut procéder de deux manières. Pour l'une d'elles, peut-on deviner un vecteur propres de <m>A+I</m>?</p></hint>
+    <solution><p>On calcule le déterminant approprié. On utilise <m>\mu</m> comme variable du polynôme caractéristique, laissant <m>\lambda</m> pour les valeurs propres de <m>A</m>.
+    <md>
+    <mrow>\text{det}(A+I-\mu I)&amp;=\text{det}(A+(1-\mu)I)</mrow>
+    <mrow>&amp;\text{det}(A-(\mu-1)I)</mrow>
+    </md>.
+    On sait que le membre de droite de cette dernière équation a des solution lorsque <m>\mu-1</m> correspond aux valeurs propres de <m>A</m>. En posant <m>\mu-1=\lambda</m> et en isolant <m>\mu=\lambda+1</m>, on découvre que les valeurs propres de <m>A+I</m> sont un de plus que les valeurs propres de <m>A</m>.
+    </p>
+    <p>On note qu'on aurait aussi pu déduire les valeurs propres en essayant de voir si un vecteur propre de <m>A</m> est aussi un vecteur propre de <m>A+I</m>. On aurait alors eu
+    <md>
+    <mrow>(A+I)\vec{v}&amp;=A\vec{v}+I\vec{v}</mrow>
+    <mrow>&amp;=\lambda \vec{v}+\vec{v}</mrow>
+    <mrow>&amp;=(\lambda+1)\vec{v}</mrow>
+    </md>.
+    On ne peut par contre pas toujours se fier sur le fait que les vecteurs propres seront les mêmes suites à une opération sur la matrice (comme par exemple la transposée), c'est pourquoi il est bon de trouver des preuves qui ne les utilisent pas.
+    </p>
+    </solution>
+    </exercise>
+    <exercise><introduction><p>Soit <m>A,B</m> des matrices carrées et <m>\lambda,\mu</m> une de leur valeurs propres respectives. On tente de généraliser l'exercice précédent. Pour chaque énoncé suivant, démontrer s'il est vrai et donner un contre-exemple s'il est faux.</p></introduction>
+    <task><statement><p>Le scalaire <m>\lambda+k</m> est une valeur propre de a matrice <m>A+kI</m>.</p></statement>
+   <answer><p>C'est vrai.</p></answer>
+   <solution><p>C'est vrai, il suffit de refaire l'une des preuves de l'exercice précédent. Par exemple, en supposant qu'un vecteur propre de <m>A</m> devrait encore être un vecteur propre de <m>A+kI</m>, on trouve
+    <md>
+    <mrow>(A+kI)\vec{v}&amp;=A\vec{v}+kI\vec{v}</mrow>
+    <mrow>&amp;=\lambda \vec{v}+k\vec{v}</mrow>
+    <mrow>&amp;=(\lambda+k)\vec{v}</mrow>    
+    </md>.</p></solution>
+    </task>
+    <task><statement><p>Le scalaire <m>\lambda+\mu</m> est une valeur propre de la matrice <m>A+B</m>.</p></statement>
+    <answer><p>C'est faux</p></answer>
+    <solution><p>En général, ce sera faux, car on ne sait pas si le même vecteur propre est associé à <m>\lambda</m> et <m>\mu</m>. À titre d'exemple, la matrice <m>A=\begin{pmatrix}1&amp;0\\ 0 &amp; -1 \end{pmatrix}</m> a pour valeur propre <m>\lambda_1=1,\lambda_2=-1</m>, la matrice <m>B=\begin{pmatrix}1&amp;1\\ 1 &amp; 1 \end{pmatrix}</m> a pour valeur propre <m>\mu_1=2,\mu_2=0</m>, mais la matrice <m>A+B=\begin{pmatrix}2&amp;1\\ 1 &amp; 0 \end{pmatrix}</m> a pour valeurs deux nombres irrationnels. En effet
+    <md>
+    <mrow>\lvert B-\mu I\rvert&amp;=\begin{vmatrix}1-\mu&amp;1\\ 1 &amp; 1-\mu \end{vmatrix}</mrow>
+    <mrow>&amp;=(1-\mu)^2-1</mrow>
+    <mrow>&amp;=(1-\mu-1)(1-\mu+1)</mrow>
+    <mrow>&amp;-\mu(2-\mu)</mrow>
+    </md>
+    et 
+    <md>
+        <mrow>\lvert A+B-\delta I\rvert&amp;=\begin{vmatrix}2-\delta&amp;1\\ 1 &amp; -\delta \end{vmatrix}</mrow>
+    <mrow>&amp;=-(2-\delta)\delta-1</mrow>
+    <mrow>&amp;=\delta^2-2\delta-1</mrow>
+    </md>,
+    qui s'annule lorsque 
+    <m>\detla=\frac{2\pm\sqrt{8}}{2}</m>. Les valeurs propres de la somme ne sont donc pas la somme des valeurs propres.</p></solution>
+    </task>
+    <task><statement><p>Si <m>\vec{v}</m> est tel que <m>A\vec{v}=\lambda \vec{v}</m> et <m>B\vec{v}=\mu \vec{v}</m>, alors <m>\lambda+\mu</m> est une valeur propre de <m>A+B</m>.</p></statement>
+    <answer><p>C'est vrai</p></answer>
+    <solution><p>Cette fois, un vecteur propre est partagé. On peut penser que ce vecteur propre sera aussi un vecteur propre de la matrice <m>A+B</m>. En effet, on a 
+    <md>
+    <mrow>(A+B)\vec{v}&amp;=A\vec{v}+B\vec{v}</mrow>
+    <mrow>&amp;=\lambda \vec{v}+\mu\vec{v}</mrow>
+    <mrow>&amp;(\lambda+\mu)\vec{v}</mrow>
+    </md>. On obtient alors un vecteur propre associé à <m>\lambda+\mu</m>.</p></solution>
+    </task>
+    </exercise>
+    <exercise><statement><p>Montrer que si <m>A</m> est une matrice carrée telle que <m>A\vec{u}=\lambda \vec{v}</m> et <m>A^T\vec{v}=\mu \vec{u}</m> et que <m>\lambda\neq \mu</m>, alors <m>\vec{u}\cdot \vec{v}=0</m>. En d'autres mots, les vecteurs propres d'une matrice et ceux de sa transposée sont perpendiculaire s'ils ne sont pas associés à la même valeur propre. </p></statement>
+    <hint><p>L'exercice <xref ref="exo-prodscaltransposee"/> pourrait être utile.</p></hint>
+    <hint><p>Montrer que <m>(A\vec{u})\cdot \vec{v}=\lambda (\vec{u}\cdot \vec{v})</m> et <m>(A\vec{u})\cdot \vec{v}=\mu (\vec{u}\cdot \vec{v})</m>. Conclure que puisque <m>\lambda\neq \mu</m>, on doit avoir <m>\vec{u}\cdot\vec{v}=0</m>.</p></hint>
+    <solution><p> On considère le produit scalaire <m>(A\vec{u})\cdot \vec{v}</m>. Puisque <m>\vec{u}</m> est un vecteur propre de la matrice <m>A</m>, on a alors
+    <me>
+    (A\vec{u})\cdot \vec{v}=\lambda (\vec{u}\cdot \vec{v})
+    </me>.</p>
+    <p>D'un autre côté, avec l'exercice <xref ref="exo-prodscaltransposee"/>, on a que 
+    <me>
+    (A\vec{u})\cdot \vec{v}=\vec{u}\cdot(A^T\vec{v})
+    </me>, qui parce que <m>\vec{v}</m> est vecteur propre de <m>A^T</m> devient
+    <me>
+    \vec{u}\cdot(A^T\vec{v})=\vec{u}\cdot \mu\vec{v}=\mu (\vec{u}\cdot\vec{v})
+    </me>.</p>
+    <p>On a donc
+    <md>
+    <mrow>\lambda (\vec{u}\cdot \vec{v})&amp;=\mu (\vec{u}\cdot \vec{v})</mrow>
+    <mrow>(\lambda-\mu)\vec{u}\cdot\vec{v}&amp;=0</mrow>
+    </md> et puisque <m>\lambda\neq \mu</m>, on doit avoir <m> \vec{u}\cdot \vec{v}=0</m>.</p>
+    </solution>
+    </exercise>
+    <exercise xml:id="exo-dettracevalpropre"><statement><p>Soit <m>A</m> une matrice de taille <m>2\times 2</m> possédant des valeurs propres <m>\lambda_1,\lambda_2</m>. Montrer que
+    <me>
+    \lambda_1\lambda_2=\text{det}(A)
+    </me>
+    et
+    <me>
+    \lambda_1+\lambda_2=\text{tr}(A)
+    </me> où <m>\text{tr}(A)</m> est la trace de la matrice, définie à l'exercice <xref ref="exo-trace"/> comme étant la somme des éléments sur la diagonale de la matrice <m>A</m>.</p></statement>
+    <solution><p>On pose <m>A=\begin{pmatrix} a&amp; c\\ b&amp; d \end{pmatrix}</m>. On calcule le polynôme caractéristique et on trouve une correspondance entre les valeurs propres et celui-ci.
+    <md>
+    <mrow>\lvert A-\lambda I\rvert&amp;=\begin{vmatrix} a-\lambda&amp; c\\ b&amp; d-\lambda \end{vmatrix}</mrow>
+    <mrow>&amp;(a-\lambda)(d-\lambda)-bc</mrow>
+    <mrow>&amp;\lambda^2-(a+d)\lambda+(ad-bc)</mrow>
+    </md>.
+    D'un autre côté, si <m>\lambda_1,\lambda_2</m> sont les valeurs propres, alors le polynôme caractéristique peut s'écrire comme
+    <md>
+    <mrow>k(\lambda-\lambda_1)(\lambda-\lambda_2)&amp;=k\lambda^2-k(\lambda_1+\lambda_2)+k\lambda_1\lambda_2</mrow>
+    </md>.
+    En comparant les deux manières d'écrire le polynôme, on trouve que le facteur <m>k=1</m> et que <m>\lambda_1+\lambda_2=a+d=\text{tr}(A)</m> et <m>\lambda_1\lambda_2=(ad-bc)=\text{det}(A)</m>.
+    </p></solution>
+    </exercise>
+    <exercise><statement><p>Soit <m>M</m> une matrice carrée dont toutes les entrées sont supérieures ou égale à <m>0</m> avec la propriété additionnelle que la somme des entrées de chaque ligne donne <m>1</m>. Déterminer un vecteur et une valeur propre de <m>M</m>.</p></statement>
+    <solution><p>On cherche une solution à l'équation <m>M\vec{v}=\lambda \vec{v}</m>. Le produit <m>M\vec{v}</m> a dans chaque entrée le produit scalaire des lignes de <m>M</m> avec le vecteur <m>\vec{v}</m>. Afin d'utiliser l'information sur la somme des lignes, on pose <m>\vec{v}=(1,1,\ldots , 1)</m>. On a alors <m>M\vec{v}=\vec{v}</m>, un vecteur propre dont la valeur propre est <m>\lambda=1</m>.</p></solution>
+    </exercise>
+    <exercise><introduction><p>Soit <m>A,B</m> des matrices <m>n\times n</m>. Dans cet exercice, on s'intéresse aux valeurs propres des produits <m>AB</m> et <m>BA</m>.</p></introduction>
+    <task><statement><p>Montrer que  <m>\lambda=0</m> est une valeur propre de <m>AB</m> si et seulement si c'est aussi une valeur propre de <m>BA</m>.</p></statement>
+    <hint><p>Si <m>\lambda=0</m>, alors <m>\det(AB-0 I)=\text{det}(AB)</m>.</p></hint>
+    <solution><p>Si <m>\lambda=0</m> est une valeur propre de <m>AB</m>, alors <m>\det(AB-0I)=\det(AB)=0</m>. Or comme 
+    <md>
+    <mrow>\text{det}(BA-0I)&amp;=\text{det}(BA)\</mrow>
+    <mrow>&amp;=\text{det}(B)\text{det}(A) &amp;&amp; \text{ selon } <xref ref="thm-detprop"/></mrow>
+    <mrow>&amp;=\text{det}(A)\text{det}(B) &amp;&amp; \text{ commutativité } </mrow>
+ <mrow>&amp;=\text{det}(AB) &amp;&amp; \text{ selon } <xref ref="thm-detprop"/></mrow>
+ <mrow>&amp;=0&amp;&amp; \text{par hypothèse}</mrow>
+    </md>,
+    l'implication est vraie d'un côté. En échangeant le rôle de <m>A,B</m> dans la preuve ci-dessus, on montre que si <m>0</m> est une valeur propre de <m>BA</m>, alors c'est aussi une valeur propre de <m>AB</m>.
+    </p></solution>
+    </task>
+    <task xml:id="exo-Bvpropre"><statement><p>Montrer que si <m>\lambda\neq 0</m> et que <m>\vec{v}</m> est un vecteur propre de <m>AB</m> associé à <m>\lambda</m>, alors le vecteur <m>B\vec{v}</m> est non nul. Expliquer pourquoi il est nécessaire de supposer que <m>\lambda\neq 0</m>.</p></statement>
+    <solution><p>On procède par contradiction en supposant que <m>B\vec{v}=\vec{0}</m>. Puisque <m>\vec{v}</m> est un vecteur propre de <m>AB</m>, on doit avoir
+    <md>
+    <mrow>\lambda \vec{v}&amp;=AB\vec{v}</mrow>
+    <mrow>&amp;=A(B\vec{v})&amp;&amp; \text{par associativité}</mrow>
+    <mrow>&amp;=A\vec{0}&amp;&amp; \text{ par hypothèse additionnelle}</mrow>
+    <mrow>&amp;=\vec{0}&amp;&amp; \text{toujours vraie}</mrow>
+    </md>.
+    On se retrouve donc dans la situation où <m>\lambda \vec{v}=\vec{0}</m>. En vertu de la propriété sur les <xref ref="prop-propespaces" text="custom">espaces vectoriels</xref>, on doit avoir <m>\lambda=0</m> ou <m>\vec{0}</m>. La première possibilité est impossible par hypothèse du problème et la seconde est impossible par définition d'un vecteur propre. Il est donc impossible d'avoir le vecteur <m>B\vec{v}=\vec{0}</m>.
+    </p>
+    <p>Il était nécessaire d'avoir l'hypothèse <m>\lambda\neq 0</m> pour forcer la contradiction sur le vecteur propre qui est nul. Ainsi, dans une situation où la valeur propre est <m>0</m>, il est possible que <m>B\vec{v}=\vec{0}</m>.</p>
+    </solution>
+    </task>
+    <task xml:id="exo-lambdaBA"><statement><p>Montrer que si <m>\lambda\neq 0</m> est une valeur propre de <m>AB</m> et que <m>\vec{v}</m> est un vecteur propre associé, alors <m>B\vec{v}</m> est un vecteur propre de <m>BA</m>. Conclure que <m>\lambda</m> est aussi une valeur propre de <m>BA</m>.</p></statement>
+    <solution><p>Soit <m>\vec{v}</m> un vecteur propre de <m>AB</m> associé à la valeur propre <m>\lambda</m>. On prétend que <m>B\vec{v}</m> est un vecteur propre de <m>BA</m>. On vérifie en calculant
+    <md>
+    <mrow>BA(B\vec{v})&amp;=B(AB\vec{v}) &amp;&amp; \text{par associativité}</mrow>
+    <mrow>&amp;=B\lambda\vec{v} &amp;&amp; \text{ puisque } \vec{v} \text{est un vecteur propre de } AB</mrow>
+    <mrow>&amp;=\lambda (B\vec{v})</mrow>
+    </md>. Ainsi, le vecteur est un vecteur propre, si celui-ci est non nul. La partie précédente a montré que dans le cas <m>\lambda \neq 0</m>, le vecteur <m>B\vec{v}</m> est bel et bien non nul.</p></solution>
+    </task>
+    <task><statement><p>Montrer que si <m>\lambda\neq 0</m> et que <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> sont des vecteurs formant une base de <m>E_{\lambda}(AB)</m> (donc des vecteurs propres de <m>AB</m>), alors les vecteurs <m>B\vec{v}_1,B\vec{v}_2,\ldots , B\vec{v}_k</m> sont indépendants. Expliquer pourquoi il est nécessaire de supposer que <m>\lambda\neq 0</m>.</p></statement>
+    <solution>
+    <p>Soit <m>c_1,c_2,\ldots c_k</m> des nombres tels que
+    <me>
+    c_1B\vec{v}_1+c_2B\vec{v}_2,\ldots + c_kB\vec{v}_k=\vec{0}
+    </me>.
+    En multipliant par <m>A</m> cette équation, on a
+    <md>
+    <mrow>\vec{0}&amp;=A\vec{0}</mrow>
+    <mrow>&amp;=A(c_1B\vec{v}_1+c_2B\vec{v}_2,\ldots + c_kB\vec{v}_k)</mrow>
+    <mrow>&amp;=AB(c_1\vec{v}_1+c_2\vec{v}_2,\ldots + c_k\vec{v}_k)</mrow>
+    <mrow>>&amp;=\lambda(c_1\vec{v}_1+c_2\vec{v}_2,\ldots + c_k\vec{v}_k) &amp;&amp; \text{ car les vecteurs forment une base de l'espace propre}</mrow>
+    </md>.
+    Puisque <m>\lambda</m> est non nul, il faut que le vecteur <m>c_1\vec{v}_1+c_2\vec{v}_2,\ldots + c_k\vec{v}_k</m> le soit, or comme les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> sont indépendants, on doit avoir <m>c_1=c_2=\cdots c_k=0</m>, ce qui montre que les vecteurs <m>B\vec{v}_1,B\vec{v}_2,\ldots , B\vec{v}_k</m> sont aussi indépendants.
+    </p>
+    <p>Si <m>\lambda</m> aurait pu être nul, on n'aurait pas été en mesure de conclure qui de <m>\lambda</m> ou du vecteur <m>c_1\vec{v}_1+c_2\vec{v}_2,\ldots + c_k\vec{v}_k</m> aurait contribué à faire du produit le vecteur nul.</p>
+    </solution>
+    </task>
+    <task><statement><p>Conclure de la partie précédente que <m>\text{dim}(E_{\lambda}(AB))\leq \text{dim}(E_{\lambda}(BA)) </m> et donc, que la multiplicité géométrique de <m>\lambda</m> pour <m>AB</m> est inférieure ou égale à celle pour <m>BA</m>.</p></statement>
+    <solution><p>La dimension de l'espace <m>E_{\lambda}(BA)</m> correspond au nombre de vecteurs dans une base. Ces vecteurs seront indépendants. Puisque les vecteurs <m>B\vec{v}_1,B\vec{v}_2,\ldots , B\vec{v}_k</m> sont eux-mêmes indépendants, la dimension doit être au moins égale à <m>k</m>, car si elle était inférieure, cela contredirait la proposition <xref ref="prop-ensemblevecetdim"/>. Comme il y a <m>k</m> vecteurs dans une base de <m>E_{\lambda}(AB)</m>, on a <m>\text{dim}(E_{\lambda}(AB))\leq \text{dim}(E_{\lambda}(BA)) </m> </p></solution>
+    </task>
+    <task><statement><p>Montrer que <m>\text{dim}(E_{\lambda}(BA))\leq \text{dim}(E_{\lambda}(AB))</m>. Que peut-on conclure?</p></statement>
+    <hint><p>Il suffit d'interchanger les rôles de <m>A</m> et <m>B</m> dans les parties précédentes.</p></hint>
+    <solution><p>En inversant le rôle de <m>A</m> et de <m>B</m>, l'exercice <xref ref="exo-Bvpropre"/> permet aussi de conclure que <m>A\vec{v}</m> est non nul si <m>\vec{v}</m> est un vecteur propre de <m>BA</m>. De plus, la partie <xref ref="exo-lambdaBA"/> permet de conclure que <m>A\vec{v}</m> est un vecteur propre de <m>AB</m> associé à <m>\lambda</m>. On peut ensuite utiliser le reste de l'exercice pour montrer que <m>\text{dim}(E_{\lambda}(BA))\leq \text{dim}(E_{\lambda}(AB))</m>.</p>
+    <p>En combinant les deux inégalités, on montre que <m>\text{dim}(E_{\lambda}(AB))= \text{dim}(E_{\lambda}(BA))</m> et que les multiplicités géométriques sont égales.</p>
+    </solution>
+    </task>
+    <conclusion><p>Ceci montre que les matrices <m>AB</m> et <m>BA</m> ont les mêmes valeurs propres, mais on ne sait rien sur leurs multiplicité algébrique  respective. Il est possible, mais plus difficile, de montrer qu'en fait, les matrices <m>AB</m> et <m>BA</m> ont le même polynôme caractéristique et donc, que leurs valeurs propres ont les mêmes multiplicités algébriques. On a toutefois montré que les multiplicités géométriques sont les mêmes.</p></conclusion>
+    </exercise>
+    <exercise>
+    <statement><p>On s'intéresse aux vecteurs et valeurs propres d'un cisaillement, défini à l'exercice <xref ref="exo-cisaillement"/>.
+    Déterminer les valeurs propres d'un cisaillement ainsi qu'une base de l'espace propre pour chaque valeur propre trouvée.</p></statement>
+    <answer>
+    <p>Autant dans le cas horizontal que vertical, la seule valeur propre est <m>\lambda=1</m>. Pour le cisaillement horizontal, l'espace propre est engendré par le vecteur <m>(1,0)</m> et pour le cisaillement vertical, c'est plutôt par le vecteur <m>(0,1)</m></p>
+    </answer>
+    <solution><p>Comme les matrices de cisaillement horizontal et vertical sont triangulaires, on peut utiliser la proposition <xref ref="prop-valpropretriangulaire"/> afin de trouver que dans les deux cas, la seule valeur propre est <m>\lambda=1</m>. Pour l'espace propre d'un étirement horizontal, on trouve
+    <m>
+    Ch_k-I=\begin{pmatrix} 0&amp;k\\ 0 &amp; 0 \end{pmatrix}
+    </m>.
+    Si <m>k=0</m>, la transformation est l'identité et tous les vecteurs sont invariants. Dans le cas contraire, on peut diviser par <m>k</m> la dernière ligne de la matrice et obtenir que l'espace propre est engendré par le vecteur <m>(1,0)</m>. Dans le cas du cisaillement vertical, on a plutôt
+        <m>
+    Cv_k-I=\begin{pmatrix} 0&amp;0\\ k &amp; 0 \end{pmatrix}
+    </m>,
+    qui, sous la même condition que <m>k\neq 0</m> a comme générateur de son espace nul le vecteur <m>(0,1)</m>.
+    </p></solution>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>Répondre aux questions suivantes sans déterminer la matrice <m>A</m>.</p></introduction>
+    <task>
+    <statement><p>Trouver <m>A\vec{x}</m> si <m>\vec{x}=(2,3)</m> et que <m>\vec{v}_1=(1,1)</m> et <m>\vec{v}_2=(-2,3)</m> sont des vecteurs propres de <m>A</m> associés respectivement aux valeurs propres <m>\lambda_1=5</m> et <m>\lambda_2=-5</m>.</p></statement>
+    <answer><p><m>A\vec{x}=(22,-3)</m></p></answer>
+    <solution>
+    <p>On écrit le vecteur <m>\vec{x}</m> comme une combinaison linéaire des vecteurs propres. On doit donc résoudre le système
+    <me>
+    \vecd{2}{3}=a\vecd{1,1}+b\vecd{-2,3}
+    </me>.
+    On trouve <m>a=\frac{12}{5}</m> et <m>\frac{1}{5}</m> en utilisant n'importe quelle méthode. Pour trouver <m>A\vec{x}</m>, on a alors
+    <md>
+    <mrow>A\vec{x}&amp;=A\left(\frac{12}{5}\vecd{1}{1}+\frac{1}{5}\vecd{-2}{3}\right)</mrow>
+    <mrow>&amp;=\frac{12}{5}A\vecd{1}{1}+\frac{1}{5}A\vecd{-2}{3}</mrow>
+    <mrow>&amp;=\frac{12}{5}5\vecd{1}{1}+\frac{1}{5}(-5)\vecd{-2}{3}</mrow>
+    <mrow>&amp;=\vecd{12}{12}-\vecd{-10}{15}</mrow>
+    <mrow>&amp;=\vecd{22}{-3}</mrow>
+    </md>.
+    </p>
+    </solution>
+    </task>
+    <task><statement><p>Trouver <m>B^{-1}\vec{y}</m> si <m>\vec{y}=(4,3)</m> et si <m>\vec{v}_1=(2,5)</m> et <m>\vec{v}_2=(5,2)</m> sont des vecteurs propres de <m>B</m> associés respectivement aux valeurs propre <m>\lambda_1=\frac{1}{3}</m> et <m>\lambda_2=\frac{1}{9}</m>.</p></statement>
+    <answer><p><m>B^{-1}\vec{y}=(32,17)</m></p></answer>
+    <solution><p>Selon la proposition <xref ref="prop-effetvalpropre"/>, les vecteurs propres de la matrices inverses sont les mêmes avec les valeurs propres inverses de celles de <m>B</m>. En trouvant une combinaison linéaire des vecteurs propres donnant <m>\vec{y}</m>, on aura toutes les informations nécessaires pour trouver <m>B^{-1}\vec{y}</m>. On doit donc trouver <m>a,b</m> tels que
+    <me>
+    \begin{pmatrix}4\\ 3\end{pmatrix}=a\begin{pmatrix}2\\ 5\end{pmatrix}+b\begin{pmatrix}5\\ 2\end{pmatrix}
+    </me>.
+    La solution de ce système est <m>a=\frac{1}{3}</m>,<m>b={2}{3}</m>. On a donc pour le vecteur <m>B^{-1}\vec{y}</m>
+    <md>
+    <mrow>B^{-1}\vec{y}&amp;=B^{-1}\left(\frac{1}{3}\vecd{2}{5}+\frac{2}{3}\vecd{5}{2}\right)</mrow>
+    <mrow>&amp;=\frac{1}{3}B^{-1}\vecd{2}{5}+\frac{2}{3}B^{-1}\vecd{5}{2}</mrow>
+    <mrow>&amp;=\frac{1}{3}3\vecd{2}{5}+\frac{2}{3}9\vecd{5}{2} &amp;&amp;\text{ selon} <xref ref="prop-effetvalpropre"/></mrow>
+    <mrow>&amp;=\vecd{2}{5}+\vecd{30}{12}</mrow>
+    <mrow>&amp;=\ved{32}{17}</mrow>
+    </md>.
+    </p></solution>
+    </task>
+    
+    </exercise>
+    <exercise><statement><p>Soit <m>A</m> une matrice et <m>\vec{u},\vec{v}</m> deux vecteurs non nuls tels que 
+    <md>
+    <mrow>A\vec{u}&amp;=\vec{v} &amp; A\vec{v}&amp;=\vec{u}</mrow>
+    </md>.
+    Montrer qu'une des valeurs propres de <m>A</m> est nécessairement <m>1</m> ou <m>-1</m>.
+    </p></statement>
+    <hint><p>Considérer <m>A(\vec{u}+\vec{v})</m>.</p></hint>
+    <solution>
+    <p>On cherche un vecteur <m>\vec{w}</m> tel que <m>A\vec{w}=\lambda</m> avec <m>\lambda\in\{-1,1\}</m>. Puisque <m>A\vec{u}=\vec{v}</m>, <m>A\vec{v}=\vec{u}</m> et que <m>A</m> est une transformation linéaire, on peut prendre la somme de ces deux équations pour obtenir
+    <md>
+    <mrow>A\vec{u}+A\vec{v}&amp;=\vec{v}+\vec{u}</mrow>
+    <mrow>A(\vec{u}+\vec{v})&amp;\vec{u}+\vec{v} &amp;&amp; \text{par linéarité à gauche et commutativité à droite}</mrow>
+    </md>.
+    On a donc trouvé un vecteur <m>\vec{w}=\vec{u}+\vec{v}</m> pour lequel <m>A\vec{w}=\vec{w}</m>. Si ce vecteur est non nul, c'est un vecteur propre associé à la valeur propre <m>1</m>.
+    </p>
+    <p>Si toutefois <m>\vec{w}=\vec{0}</m>, alors ce ne peut pas être un vecteur propre. Mais dans ce cas, <m>\vec{v}=-\vec{u}</m> et l'équation
+    <me>
+    A\vec{u}=\vec{v}=-\vec{u}
+    </me>
+    montre que <m>\vec{u}</m> est un vecteur propre associé à <m>-1</m>.
+    </p>
+    </solution>
+    </exercise>
+    <exercise><statement><p>Montrer que si <m>\vec{u},\vec{v}</m> sont des vecteurs propres tels que <m>\vec{u}+\vec{v}</m> est aussi un vecteur propre, alors <m>\vec{u},\vec{v}</m> sont associés à la même valeur propre.</p></statement>
+    <solution>
+    <p>Si <m>\vec{u}</m> et <m>\vec{v}</m> sont parallèles, ils ont nécessairement la même valeur propre, selon l'exercice <xref ref="exo-direcinvariante"/>
+    Soit <m>\lambda_{\vec{u}},\lambda_{\vec{v}}</m> les valeurs propres associés respectivement à <m>\vec{u},\vec{v}</m>. Puisque <m>\vec{u}+\vec{v}</m> est un vecteur propre, il existe un <m>\lambda</m> pour lequel
+    <me>
+    A(\vec{u}+\vec{v})=\lambda(\vec{u}+\vec{v})
+    </me>.
+    En développant les deux côtés, on trouve
+    <md>
+    <mrow>A\vec{u}+A\vec{v}&amp;=\lambda\vec{u}+\lambda \vec{v}</mrow>
+    <mrow>\lambda_{\vec{u}}\vec{u}+\lambda_{\vec{v}}\vec{v}&amp;=\lambda\vec{u}+\lambda \vec{v}</mrow>
+    <mrow>(\lambda_{\vec{u}}-\lambda)\vec{u}+(\lambda_{\vec{v}}-\lambda)\vec{v}&amp;=0</mrow>
+    </md>.
+    Puisque les vecteurs sont non parallèles, ils sont indépendants. On doit donc avoir <m>\lambda_{\vec{u}}-\lambda=0</m> et <m>\lambda_{\vec{v}}-\lambda=0</m>, entrainant que <m>\lambda_{\vec{u}}=\lambda_{\vec{v}}=\lambda</m>.
+    </p>
+    </solution>
+    </exercise>
+    <exercise><statement><p>Considérer la matrice triangulaire suivante:
+    <me>
+    A=\begin{pmatrix}
+    1&amp;2&amp;3&amp;4\\
+    0&amp;3&amp;x&amp;7\\
+    0&amp;0&amp;1&amp;-1\\
+    0&amp;0&amp;0&amp;2
+    \end{pmatrix}
+    </me>.
+    Décrire les dimensions possibles pour <m>Ep_{1}(A)</m> en fonction de <m>x</m>. (Pourquoi sait-ton que <m>\lambda=1</m> est une valeur propre?)
+    </p></statement>
+    <solution>
+    <p>On échelonne la matrice <m>A-I</m> afin de déterminer une base de l'espace propre. On a alors
+    <md>
+    <mrow>A-I&amp;=\begin{pmatrix}
+    0&amp;2&amp;3&amp;4\\
+    0&amp;2&amp;x&amp;7\\
+    0&amp;0&amp;0&amp;-1\\
+    0&amp;0&amp;0&amp;1
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\begin{array}{l} L_1-4L_4\to L_1\\ L_2-7L_4\to L_2 \\ L_3+L_4\to L+3\\ \sim\end{array}\begin{pmatrix}
+    0&amp;2&amp;3&amp;0\\
+    0&amp;2&amp;x&amp;0\\
+    0&amp;0&amp;0&amp;0\\
+    0&amp;0&amp;0&amp;1
+    \end{pmatrix}</mrow>
+    <mrow>&amp;\begin{array}{l} L_2-L_1\to L_2\\ L_3\leftrightarrow L_4 \sim \end{array}\begin{pmatrix}
+    0&amp;2&amp;3&amp;0\\
+    0&amp;0&amp;x-3&amp;0\\
+    0&amp;0&amp;0&amp;1\\
+    0&amp;0&amp;0&amp;0
+    \end{pmatrix}</mrow>
+    </md>.
+    Comme prévu, l'espace nul est au moins à dimension <m>1</m> avec la première variable libre. La deuxième et la quatrième sont toujours pivots, indépendamments de la valeur de <m>x</m>. Pour la troisième variable, elle sera pivot si <m>x\neq 3</m> et libre sinon. L'espace propre est donc à deux dimensions si <m>x=3</m> et à une dimension sinon.
+    </p>
+    </solution>
+    </exercise>
+    <exercise><introduction><p>Une matrice <m>A</m> est dite nilpotente s'il existe une entier <m>k</m> pour lequel <m>A^k=O</m>. La plus petite valeur de <m>k</m> pour laquelle <m>A^k=O</m> est appelé l'indice de nilpotence. On dit aussi que <m>A</m> est nilpotente d'ordre <m>k</m>.</p></introduction>
+    <task><statement><p>Montrer que <m>A=\begin{pmatrix}6&amp;-9\\ 4&amp; -6\end{pmatrix}</m> est nilpotente et donner l'indice.</p></statement>
+    <answer><p>L'indice de nilpotence est <m>2</m>.</p></answer>
+    <solution><p>On commence par calculer les puissances de la matrice <m>A</m>, afin de voir si l'on obtient la matrice nulle. Puisque
+    <me>
+    A^2=\begin{pmatrix}6\cdot 6-9\cdot 4&amp; -6\cdot 9+9\cdot 6 \\ 4\cdot 6-6\cdot 4\\ -4\cdot 9+6\cdot 6 \end{pmatrix}=\begin{pmatrix}0&amp; 0\\ 0&amp; 0 \end{pmatrix}
+    </me>,
+    la matrice est nilpotente et l'indice de nilpotence est <m>2</m>.
+    </p></solution>
+    </task>
+    <task><statement><p>Montrer que <m>B=\begin{pmatrix} 2&amp; 2&amp; -2 \\ 5&amp; 1&amp; -3 \\ 1 &amp; 5&amp; -3\end{pmatrix}</m> est nilpotente d'ordre <m>3</m>.</p></statement>
+    <solution><p>On calcule la troisième puissance de la matrice. On utilise Sage.</p>
+    <sage>
+    <input>
+    B=matrix([[2,2,-2],[5,1,-3],[1,5,-3]])
+    show("B=", B)
+    show("B^2=", B^2)
+    show("B^3=", B^3)
+    </input>
+    </sage>
+    <p>La matrice est bien nilpotente d'ordre 3.</p></solution>
+    </task>
+    <task><statement><p>Montrer que <m>C=\begin{pmatrix} 1&amp; 2&amp; 3 \\ 1&amp; 2&amp; 3 \\ -1 &amp; -2&amp; -3\end{pmatrix}</m> est nilpotente d'ordre <m>2</m>.</p></statement>
+    <solution><p>On calcule la deuxième puissance de la matrice. On utilise Sage.</p>
+    <sage>
+    <input>
+    C=matrix([[1,2,3],[1,2,3],[-1,-2,-3]])
+    show("C=", C)
+    show("C^2=", C^2)
+    </input>
+    </sage>
+    <p>La matrice est bien nilpotente d'ordre 3.</p></solution>
+    </task>
+    <task><statement><p>Montrer que si <m>A</m> est nilpotente, la seule valeur propre de <m>A</m> est <m>\lambda=0</m>.</p></statement>
+    <solution><p>Soit <m>\lambda</m> une valeur propre de <m>A</m> et <m>k</m> l'indice de nilpotence. Selon la proposition <xref ref="prop-effetvalpropre"/>, le nombre <m>\lambda^k</m> est une valeur propre de <m>A^k</m>. Comme <m>A</m> est nilpotente d'ordre <m>k</m>, la matrice <m>A^k=O</m> et toutes ses valeurs propres sont nulles. On a donc <m>\lambda^k=0</m>, ce qui implique que <m>\lambda=0</m>. </p></solution>
+    </task>
+    </exercise>
+    <exercise><introduction><p>Soit <m>\begin{pmatrix}a&amp; c\\ b&amp; d\end{pmatrix}</m> une matrice telle que <m>a+c=b+d</m>. Déterminer les valeurs et vecteurs propres.</p></introduction>
+    <task>
+    <statement><p>Montrer que <m>\vec{v}=(1,1)</m> est un vecteur propre de <m>A</m> et déterminer la valeur propre associé.</p></statement>
+    <answer><p><m>\lambda_1=a+c</m></p></answer>
+    <solution><p>On calcule le produit matrice vecteur:
+    <md>
+    <mrow>\begin{pmatrix}a &amp; c\\ b &amp; d \end{pmatrix}\begin{pmatrix}1 \\ 1\end{pmatrix}&amp;=\begin{pmatrix} a+c \\ b+d\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix} a+c \\ a+c\end{pmatrix} &amp;&amp;\text{par hypothèse}</mrow>
+    <mrow>&amp;=(a+c)\begin{pmatrix}1 \\ 1\end{pmatrix}</mrow>
+    </md>.
+    Le vecteur est donc en effet un vecteur propre et la valeur propre associé est <m>a+c</m>.
+    </p></solution>
+    </task>
+    <task><statement><p>Trouver l'autre valeur propre et un vecteur propre lui étant associé.</p></statement>
+    <solution><p>Selon l'exercice <xref ref="exo-dettracevalpropre"/>, la somme des valeurs propres doit être égale à la trace de la matrice, soit la somme des éléments sur la diagonale principale (<m>a+d</m>). On a donc
+    <md>
+    <mrow>\lambda_1+\lambda_2&amp;=a+d</mrow>
+    <mrow>a+c+\lambda_2&amp;=a+d</mrow>
+    <mrow>\lambda_2=d-c</mrow>
+    </md>.
+    Avec la seconde valeur propre, on peut trouver un vecteur propre associé en regardant l'espace nul de la matrice <m>A-(d-c)I</m>:
+    <md>
+    <mrow>A-(d-c)I &amp;=\begin{pmatrix}a-(d-c)&amp; c\\ b&amp; d-(d-c)\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}a+c-d&amp; c\\ b&amp; c\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix} b+d-d&amp; c\\ b&amp; c\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix} b&amp; c\\ b&amp; c\end{pmatrix}&amp;&amp;\text{par hypothèse}</mrow>
+    <mrow>&amp;\stackrel{L_2-L_1\to L_2}{\sim}\begin{pmatrix} b&amp; c\\ 0&amp; 0\end{pmatrix}</mrow>
+    </md>.
+    Un vecteur propre est donc <m>\left(-\frac{c}{b},1\right)=(-c,b)</m> si <m>b\neq 0</m> et <m>(1,0)</m> si <m>b=0</m> et <m>c\neq 0</m>. Dans l'éventualité où <m>b=c=0</m>, on doit alors avoir par hypothèse <m>a=d</m>, la matrice est un multiple de la matrice identité et tous les vecteurs sont des directions invariantes.
+    </p></solution>
+    </task>
+    </exercise>
+    <exercise><introduction><p>Soit <m>\vec{u},\vec{v}\in \mathbb{R}^n</m> et <m>A=\vec{u}\vec{v}^T</m> tel que défini à l'exercice <xref ref="exo-vectranspose"/>.</p></introduction>
+    <task><statement><p>
+    Montrer que <m>\vec{u}</m> est un vecteur propre de la matrice <m>A</m>. Quelle est la valeur propre associée?</p></statement>
+    <answer><p><m>\lambda=\vec{v}\cdot\vec{u}</m></p></answer>
+    <solution><p>
+    On a 
+    <md>
+    <mrow>A\vec{u}&amp;=(u\vec{v}^T)\vec{u}</mrow>
+    <mrow>&amp;=\vec{u}(\vec{v}^T\vec{u}) &amp;&amp; \text{associativité du produit matriciel}</mrow>
+    <mrow>&amp;\vec{u}(\vec{v}\cdot \vec{u})&amp;&amp;\text{selon l'exercice } <xref ref="exo-vectranspose"/></mrow>
+    <mrow>&amp;(\vec{v}\cdot \vec{u})\vec{u}</mrow>
+    </md>.
+    </p>
+    <p>
+    Le vecteur <m>\vec{u}</m> est donc un vecteur propre associé à la valeur propre <m>\vec{v}\cdot \vec{u}</m>.
+    </p></solution>
+    </task>
+    <task><statement><p>Dans le cas où les vecteurs sont dans <m>\mathbb{R}^2</m>, déterminer une autre valeur propre de <m>A</m>.</p></statement>
+    <hint><p>Quel est le rang de <m>A</m>?</p></hint>
+    <answer><p><m>\lambda_2=0</m></p></answer>
+    <solution>
+    <p>Puisque <m>A</m> est de rang <m>1</m> selon l'exercice <xref ref="exo-vectranspose"/>, la matrice n'est pas inversible selon le théorème de la matrice inverse. Toujours selon <xref ref="thm-delamatriceinversev6" text="custom">ce théorème</xref>, l'une des valeur propre de <m>A</m> doit être nulle.</p>
+    <p>On peut aussi vérifier que c'est le cas en utilisant l'exercice <xref ref="exo-dettracevalpropre"/>. On pose <m>\vec{u}=\begin{pmatrix} u_1\\ u_2\end{pmatrix}</m> et <m>\vec{v}=\begin{pmatrix} v_1\\ v_2\end{pmatrix}</m>. On a alors
+    <me>
+    \vec{u}\vec{v}^T=\begin{pmatrix} u_1v_1 &amp;u_1v_2\\ u_2v_1&amp; u_2v_2\end{pmatrix}
+    </me> Si <m>\lambda_1=\vec{v}\cdot \vec{u}=(v_1u_1+v_2u_2)</m> et que l'on doit avoir <m>\lambda_1+\lambda_2=\text{tr}(A)=u_1v_1+u_2v_2</m>, on voit qu'on doit avoir <m>\lambda_2=0</m>. </p></solution>
+    </task>
+    </exercise>
+    <exercise xml:id="exo-fibo"><!-- basé sur https://davidaustinm.github.io/ula/sec-dynamical.html -->
+    <title>Fibonacci</title><introduction><p>La suite de Fibonacci est bien connue en mathématiques. C'est une suite définie par <m>f_0=0,f_1=1</m> et <m>f_n=f_{n-1}+f_{n-2}</m>. Les <m>n+1</m> premiers nombres peuvent être obtenus par Sage à l'aide de la fonction suivante.</p>
+    <sage>
+    <input>
+def fibo(n):
+    L=[0,1]
+    for i in range(2,n+1):
+        L.append(L[i-1]+L[i-2])
+    return L
+fibo(10)
+</input>
+    </sage>
+    <p>L'objectif de cet exercice est d'apporter une perspective d'algèbre linéaire à cette suite et de déterminer une formule pour  <m>f_n</m> sans avoir à calculer les nombres précédents.</p>
+    </introduction>
+    <task><statement><p>On pose <m>\vec{x}_n=\begin{pmatrix} f_{n}\\ f_{n-1}\end{pmatrix}</m> pour <m>n\geq 1</m> et <m>\vec{x}_0=(0,1)</m>. Déterminer une matrice <m>A\in \mathcal{M}_{2\times 2}</m> qui permet d'avoir <me>
+    \vec{x}_{n+1}=A\vec{x}_n
+    </me>. </p>
+    <p>On aurait pu commencer avec le vecteur <m>\vec{x}_1=(1,0)=(f_1,f_0)</m>, qui aurait contenu les deux premiers termes de la suite. On peut toutefois argumenter que <m>f_{-1}=1</m> en travaillant avec l'équation à l'envers. Bref, un choix un peu arbitraire qui fera l'affaire pour la suite.</p>
+    </statement>
+    <answer><p><m>    A=\begin{pmatrix}
+    1&amp;1 \\
+    1&amp; 0
+    \end{pmatrix}</m></p></answer>
+    <solution><p>Le vecteur <m>\vec{x}_{n+1}</m> contient <m>f_{n+1}</m> et <m>f_{n}</m>. On peut poser 
+    <md>
+    <mrow>f_{n+1}&amp;=f_{n-1}+f_{n}</mrow>
+    <mrow>f_n&amp;=f_n</mrow>
+    </md> pour avoir un "système" à deux équations et deux inconnues. On peut réécrire sous la forme
+    <me>
+    \vecd{f_{n+1}}{f_n}=\begin{pmatrix}
+    1&amp;1 \\
+    1&amp; 0
+    \end{pmatrix}\vecd{f_n}{f_{n-1}}
+    </me>. La matrice est donc <m>A=\begin{pmatrix}
+    1&amp;1 \\
+    1&amp; 0
+    \end{pmatrix}.</m></p></solution>
+    </task>
+    <task><statement><p>Calculer <m>\vec{x}_1=A\vec{x}_0</m>,<m>\vec{x}_2=A\vec{x}_1=A^2\vec{x}_0</m> et <m>\vec{x}_3</m>. Donner une formule en fonction de <m>A</m> et <m>x_0</m> pour <m>f_n</m>.</p></statement>
+    <answer><p><m>\vec{x}_1=(1,0)</m>,<m>\vec{x}_1=(1,1)</m>,<m>\vec{x}_3=(2,1)</m>. En général, <m>f_n</m> est la première composante de <m>A^n\vec{x}_0</m>.</p></answer>
+    </task>
+    <task><statement><p>Trouver <m>f_{100}</m> à l'aide de cette matrice et de Sage. Vérifier la réponse à l'aide de la fonction <c>fibo</c> définie dans l'introduction.</p>
+    <sage><input></input></sage></statement>
+    <answer><p><m>f_{100}=354224848179261915075</m></p></answer>
+    <solution><listing><title>Le code de la solution</title>
+    <program languag="sage">
+    <input>
+A=matrix([[1,1],[1,0]])
+x0=vector([0,1])
+show(A^100*x0[0])
+    </input>
+    </program>
+    </listing></solution>
+    </task>
+    <task xml:id="exo-golden"><statement><p>Pour la suite, il pourra être pratique d'utiliser le fait que si <m>x=\frac{1+\sqrt{5}}{2},y=\frac{1-\sqrt{5}}{2}</m>, alors
+    <me>
+    \frac{1}{x}=-y
+    </me>
+    et donc
+    <me>
+    \frac{1}{y}=-x
+    </me>. Démontrer ce fait</p></statement>
+    <solution><p>Il suffit de calculer <m>1/x</m>
+    <md>
+    <mrow>
+    \frac{1}{x}&amp;=\frac{2}{1+\sqrt{5}}
+    </mrow>
+    <mrow>&amp;=\frac{2}{1+\sqrt{5}}\frac{1-\sqrt{5}}{1-\sqrt{5}}</mrow>
+    <mrow>&amp;=\frac{2(1-\sqrt{5})}{1-5}</mrow>
+    <mrow>&amp;=\frac{2(1-\sqrt{5})}{-4}</mrow>
+    <mrow>&amp;=-\frac{1-\sqrt{5}}{2}</mrow>
+    <mrow>&amp;=-\frac{1}{y}</mrow>
+    </md>.</p></solution>
+    </task>
+    <task><statement><p>Trouver les valeurs propres de la matrice <m>A</m> et leur vecteur propre associé.</p></statement>
+    <answer><p>La première valeur propre est <m>\lambda_1=\frac{1-\sqrt{5}}{2}</m> avec son vecteur propre <m>\vec{v}_1=(\lambda_1,1)</m> et la deuxième valeur propre est <m>\lambda_2=\frac{1+\sqrt{5}}{2}</m> avec son vecteur propre <m>\vec{v}_1=(\lambda_2,1)</m>.</p></answer>
+    <solution>
+    <p>On a
+    <md>
+    <mrow>\text{det}(A-\lambda I)&amp;=\begin{vmatrix}1-\lambda&amp;1 \\ 1&amp; -\lambda\end{vmatrix}</mrow>
+    <mrow>&amp;=(1-\lambda)(-\lambda)-1</mrow>
+    <mrow>&amp;=\lambda^2-\lambda-1</mrow>
+    </md>.
+    Ce polynôme s'annule lorsque <m>\lambda_1=\frac{1-\sqrt{5}}{2}</m> et <m>\lambda_2=\frac{1+\sqrt{5}}{2}</m>. On remarque que ces deux valeurs sont les nombres de la partie <xref ref="exo-golden"/>. Pour les espaces propres, on a d'abord pour <m>\lambda_1</m>
+    <md>
+    <mrow>\begin{pmatrix}1-\frac{1-\sqrt{5}}{2}&amp;1 \\ 1&amp; -\frac{1-\sqrt{5}}{2}\end{pmatrix}&amp;=\begin{pmatrix}\frac{1+\sqrt{5}}{2}&amp;1 \\ 1&amp; -\lambda_1\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}\lambda_2&amp;1 \\ 1&amp; -\lambda_1\end{pmatrix}</mrow>
+    <mrow>&amp;\begin{array}{l}L_2-\frac{1}{\lambda_2}L_1\to L_2\\ \sim\end{array}\begin{pmatrix}\lambda_2&amp;1 \\ 0&amp; -\lambda_1-\frac{1}{\lambda_2}\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}\lambda_2&amp;1 \\ 0&amp; 0\end{pmatrix}&amp;&amp; \text{ car } -\lambda_1-\frac{1}{\lambda_2}=0</mrow>
+    <mrow>&amp;\begin{array}{l}L_1/\lambda_2\to L_2\\ \sim\end{array}\begin{pmatrix}1&amp;1/\lambda_2 \\ 0&amp; 0\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}1&amp;-\lambda_1 \\ 0&amp; 0\end{pmatrix}&amp;&amp; \text{ car } \frac{1}{\lambda_2}=-\lambda_1</mrow>
+    </md>.
+    On trouve donc un vecteur propre <m>\vec{v}_1=(\lambda_1,1)</m>.
+    </p>
+    <p>Similairement, on trouve 
+    <md>    
+    <mrow>\begin{pmatrix}1-\frac{1+\sqrt{5}}{2}&amp;1 \\ 1&amp; -\frac{1+\sqrt{5}}{2}\end{pmatrix}&amp;=\begin{pmatrix}\frac{1-\sqrt{5}}{2}&amp;1 \\ 1&amp; -\lambda_2\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}\lambda_1&amp;1 \\ 1&amp; -\lambda_2\end{pmatrix}</mrow>
+    <mrow>&amp;\begin{array}{l}L_2-\frac{1}{\lambda_1}L_1\to L_2\\ \sim\end{array}\begin{pmatrix}\lambda_1&amp;1 \\ 0&amp; -\lambda_2-\frac{1}{\lambda_1}\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}\lambda_1&amp;1 \\ 0&amp; 0\end{pmatrix}&amp;&amp; \text{ car } -\lambda_2-\frac{1}{\lambda_1}=0</mrow>
+    <mrow>&amp;\begin{array}{l}L_1/\lambda_1\t0 L_2\\ \sim\end{array}\begin{pmatrix}1&amp;1/\lambda_1 \\ 0&amp; 0\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}1&amp;-\lambda_2 \\ 0&amp; 0\end{pmatrix}&amp;&amp; \text{ car } \frac{1}{\lambda_1}=-\lambda_2</mrow>
+    </md>,
+    donnant le vecteur <m>\vec{v}_2=(\lambda_2,1)</m> associé à <m>\lambda_2</m>.
+    </p>
+    </solution>
+    </task>
+    <task><statement><p>Écrire le vecteur <m>\vec{x}_0</m> comme une combinaison linéaire des vecteurs propres de <m>A</m>.</p></statement>
+    <answer><p><m>\vecd{0}{1}=\frac{\sqrt{5}(1+\sqrt{5})}{10}\vec{v}_1+\frac{\sqrt{5}(1-\sqrt{5})}{10}\vec{v}_2</m></p></answer>
+    <solution>
+    <p>Il faut trouver <m>a,b</m> tels que 
+    <me>
+    \vecd{0}{1}=a\vecd{\lambda_1}{1}+b\vecd{\lambda_2}{1}
+    </me>.
+    Sous forme matricielle, on cherche à résoudre la matrice augmentée
+    <me>
+    \begin{array}{cc|c} \lambda_1 &amp; \lambda_2 &amp; 0\\
+    1&amp;1&amp;1\end{array}
+    </me>.
+    On a
+    <md>
+    <mrow>    \left(\begin{array}{cc|c} \lambda_1 &amp; \lambda_2 &amp; 0\\
+1&amp;1&amp;1\end{array}right)&amp;\begin{array}L_2-L_1/\lambda_1\to L_2\\ \sim \end{array} \left(\begin{array}{cc|c}\lambda_1 &amp; \lambda_2 &amp; 0\\ 0&amp; 1-\lambda_2/\lambda_1 &amp;1 \end{array}right)</mrow>
+    <mrow>&amp;=\begin{array}{cc|c}\lambda_1 &amp; \lambda_2 &amp; 0\\ 0&amp; 1+\lambda_2^2 &amp;1 \end{array}</mrow>
+<mrow>&amp;\begin{array}{l}L2/(1+\lambda_2^2)\to L_2 \\ \sim\end{array}\left(\begin{array}{cc|c}\lambda_1 &amp; \lambda_2 &amp; 0\\ 0&amp; 1 &amp;\frac{1}{1+\lambda_2^2} \end{array}right)</mrow>
+<mrow>&amp;\begin{array}{l}L1-\lambda_2L_2\to L_1 \\ \sim\end{array}\left(\begin{array}{cc|c}\lambda_1 &amp; \lambda_2 &amp; -\frac{\lambda_2}{1+\lambda_2^2}\\ 0&amp; 1 &amp;\frac{1}{1+\lambda_2^2} \end{array}right)</mrow>
+<mrow>&amp;\begin{array}{l}L_1/\lambda_1\to L_1 \\ \sim \end{array}\left(\begin{array}{cc|c}1 &amp; \lambda_2/\lambda_1 &amp; -\frac{\lambda_2}{\lambda_1(1+\lambda_2^2)}\\ 0&amp; 1 &amp;\frac{1}{1+\lambda_2^2} \end{array}right)</mrow>
+<mrow>&amp;=\left(\begin{array}{cc|c}1 &amp; -\lambda_2^2 &amp; \frac{\lambda_2^2}{1+\lambda_2^2}\\ 0&amp; 1 &amp;\frac{1}{1+\lambda_2^2} \end{array}right)&amp;&amp; \text{ car } \frac{1}{\lambda_1}=-\lambda_2</mrow>
+    </md>.
+    </p>
+    <p>Un peu de simplification est de mise. On peut montrer que <m>\frac{1}{1+\lambda_2^2}=-\frac{\sqrt{5}(1-\sqrt{5})}{10}=-\frac{\sqrt{5}\lambda_1}{5}</m> et que <m>\frac{\lambda_2^2}{1+\lambda_2^2}=\frac{\sqrt{5}(1+\sqrt{5})}{10}=\frac{\sqrt{5}\lambda_2}{5}</m>. On a donc
+    <me>
+    \vecd{0}{1}=\frac{\sqrt{5}\lambda_2}{5}\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}\vec{v}_2
+    </me>.
+    </p>
+    </solution>
+    </task>
+    <task><statement><p>Décrire comment obtenir <m>f_n</m> sans calculer les précédents et sans calculer de produit matrice vecteurs.</p></statement>
+    <solution><p>On sait que <m>\vec{x}_n=A^n\vec{x}_0</m>. En utilisant la décomposition en terme des vecteurs propres, on trouve
+    <md>
+    <mrow>\vec{x}_n&amp;=A^n\vec{x}_0</mrow>
+    <mrow>&amp;=A^n\vecd{0}{1}</mrow>
+    <mrow>&amp;=A^n\left(\frac{\sqrt{5}\lambda_2}{5}\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}\vec{v}_2\right)</mrow>
+    <mrow>&amp;=\frac{\sqrt{5}\lambda_2}{5}A^n\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}A^n\vec{v}_2\</mrow>
+    <mrow>&amp;=\frac{\sqrt{5}\lambda_2}{5}\lambda_1^n\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}\lambda_2^n\vec{v}_2</mrow>
+    </md>.
+    Le nombre <m>f_n</m> se retrouve dans la première composante de ce vecteur et donc
+    <md>
+    <mrow>f_n&amp;=\frac{\sqrt{5}\lambda_2}{5}\lambda_1^{n+1}-\frac{\sqrt{5}\lambda_1}{5}\lambda_2^{n+1}</mrow>
+    <mrow>&amp;=\frac{\sqrt{5}}{5}\lambda_1\lambda_2(\lambda_1^n-\lambda_2^n)</mrow>
+    <mrow>&amp;=-\frac{\sqrt{5}}{5}(\lambda_1^n-\lambda_2^n) &amp;&amp; \text{ car } \lambda_1\lambda_2=-1</mrow>
+    <mrow>&amp;=\frac{\sqrt{5}}{5}(\lambda_2^n-\lambda_1^n)</mrow>
+    </md>.
+    </p>
+    <sage>
+    <input>
+l1=(1-sqrt(5))/2
+l2=(1+sqrt(5))/2
+f(n)=sqrt(5)/5*(l2^n-l1^n)
+for n in range(20):
+    print("f(%d)=%f" % (n, f(n).n()))
+print(".")
+print(".")
+print(".")
+print("f(100)=",f(100).n())
+    </input>
+    </sage></solution>
+    </task>
+    <task><statement><p> Utiliser Sage pour calculer <me>
+    \lim_{n\to\infty}\frac{f_{n+1}}{f_n}
+    </me>.</p>
+    <sage>
+    <input>
+    
+    </input>
+    </sage>
+    </statement>
+    <answer><p><m>\lim_{n\to\infty}\frac{f_{n+1}}{f_n}=\lambda_1</m></p></answer>
+    <solution><p>En utilisant la formule trouvée, on trouve avec Sage que cette limite vaut <m>\frac{1+\sqrt{5}}{2}=\lambda_1</m>.
+    </p>
+    <sage>
+    <input>
+l1=(1-sqrt(5))/2
+l2=(1+sqrt(5))/2
+f(n)=sqrt(5)/5*(l2^n-l1^n)
+limit(f(n+1)/f(n),n=infinity)
+    </input>
+    </sage>
+    </solution>
+    </task>
+    <conclusion><p>Le nombre <m>\lambda_1=\frac{1+\sqrt{5}}{2}</m> est appelé le nombre d'or. On le note souvent par <m>\phi</m> et il apparait à de nombreux endroits.</p></conclusion>
+    </exercise>
+    <exercisegroup>
+    <title>Exercices Sage</title>
+    <introduction><p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p></introduction>
+    <exercise><introduction><p>Pour chaque matrice, utiliser les commandes Sage <c>eigenvalues</c> et/ou <c>eigenvectors_right</c> pour caractériser les valeurs et vecteurs propre. Donner aussi les multiplicités des valeurs propres.</p></introduction>
+    <task><statement><p><m>A=\begin{pmatrix}21 &amp; 18 &amp; 35 &amp; -1 \\
+-16 &amp; -13 &amp; -29 &amp; 1 \\
+-41 &amp; -39 &amp; -74 &amp; 2 \\
+-1381 &amp; -1311 &amp; -2552 &amp; 72\end{pmatrix}</m></p>
+    <sage><input></input></sage>
+    </statement>
+    <answer><p>Les valeurs propres et leur vecteur propre associé sont <m>\lambda_1=3,\vec{v}_1=(1, -4, 1, -19), \lambda_2=-1,\vec{v}_2=(0, 1, -1, -17),\lambda_3=2, \vec{v}_3=(1, 0, -1/2, 3/2),\vec{v}_4=(0, 1, -1/2, 1/2)</m>. Il y a deux valeurs propres de multiplicité algébrique et géométrique égales à <m>1</m> et une valeur propre de multiplicité algébrique et géométrique égales à <m>2</m>.</p></answer>
+    <solution><listing><caption>Le code de la solution</caption>
+    <program language="Sage">
+    <input>
+A=matrix([[21, 18, 35, -1],
+[-16, -13, -29, 1],
+[-41, -39, -74, 2],
+[-1381, -1311, -2552, 72]])
+show(A.eigenvectors_right())
+    </input>
+    </program></listing></solution>
+    </task>
+    <task><statement><p><m>B=\begin{pmatrix}4 &amp; -6 &amp; 6 &amp; 6 \\
+-6 &amp; -4 &amp; 6 &amp; 2 \\
+-2 &amp; -14 &amp; 16 &amp; 12 \\
+-4 &amp; 12 &amp; -12 &amp; -12 \end{pmatrix}</m></p>
+    <sage><input></input></sage>
+    </statement>
+    <answer><p>Les valeurs propres et leur vecteur propre associé sont <m>\lambda_1=4,\vec{v}_1=(1, -1, 0, -1), \lambda_2=2,\vec{v}_2=(0, 1, 1, 0),\lambda_3=0,\vec{v}_3=(0, 1, 1/2, 1/2),\lambda_4=-2,\vec{v}_4=(1, -1, 2, -4)</m>. Toutes les valeurs propres ont multiplicité algébrique et géométriques égales à <m>1</m>.</p></answer>
+    <solution><listing><caption>Le code de la solution</caption>
+    <program language="Sage">
+    <input>
+B=matrix([[4, -6, 6, 6],
+[-6, -4, 6, 2],
+[-2, -14, 16, 12],
+[-4, 12, -12, -12]])
+show(B.eigenvectors_right())
+    </input>
+    </program></listing></solution>
+    </task>
+    <task><statement><p><m>C=\begin{pmatrix}-14 &amp; -1 &amp; 6 &amp; -5 \\
+-9 &amp; 0 &amp; 4 &amp; -3 \\
+-27 &amp; -1 &amp; 11 &amp; -9 \\
+12 &amp; 2 &amp; -6 &amp; 5\end{pmatrix}</m></p>
+    <sage><input></input></sage>
+    </statement>
+    <answer><p>Les valeurs propres et leur vecteur propre associé sont <m>\lambda_1=-1,\vec{v}_1=(1, 0, 3, 1),\lambda_2=1,\vec{v}_2=(1, 0, 0, -3),\vec{v}_3=(0, 1, 1, 1)
+</m>. La valeur propre <m>-1</m> est de multiplicité algébrique et géométrique <m>1</m>. La valeur propre <m>1</m> a pour multiplicité algébrique <m>3</m>, mais seulement <m>2</m> comme multiplicité géométrique.</p></answer>
+    <solution><listing><caption>Le code de la solution</caption>
+    <program language="Sage">
+    <input>
+C=matrix([[-14, -1, 6, -5],
+[-9, 0, 4, -3],
+[-27, -1, 11, -9],
+[12, 2, -6, 5],])
+show(C.eigenvectors_right())
+    </input>
+    </program></listing></solution>
+    </task>
+    <task><statement><p><m>D=\begin{pmatrix}3 &amp; -5 &amp; 15 &amp; 14 \\
+1 &amp; -3 &amp; 14 &amp; 13 \\
+-6 &amp; 5 &amp; -58 &amp; -54 \\
+6 &amp; -5 &amp; 60 &amp; 56\end{pmatrix}</m></p>
+    <sage><input></input></sage>
+    </statement>
+    <answer><p>Les valeurs propres et leur vecteur propre associé sont <m>\lambda_1=2,\vec{v}_2=(1, 0, -1, 1),\lambda_2=-3,\vec{v}_2=(1, 1, -1, 1)</m>. Les deux valeurs propres ont comme multiplicité algébrique <m>2</m>, mais une multiplicité géométrique seulement égale à <m>1</m>.</p></answer>
+    <solution><listing><caption>Le code de la solution</caption>
+    <program language="Sage">
+    <input>
+D=matrix([[3, -5, 15, 14],
+[1, -3, 14, 13],
+[-6, 5, -58, -54],
+[6, -5, 60, 56]])
+show(D.eigenvectors_right())  
+    </input>
+    </program></listing></solution>
+    </task>
+    </exercise>
+    <exercise><introduction>
+    <p>Cet exercice est un exemple similaire à l'exercice <xref ref="exo-fibo"/> qui introduit une autre suite fameuse en mathématiques. Les nombres de Lucas sont définis par la suite <m>L_0=2,L_1=1</m> et <m>L_n=L_{n-1}+L_{n-2}</m>. C'est donc la même suite que Fibonacci, mais avec des termes initiaux différents. Voici les dix premiers termes de cette suite.</p>
+    <sage>
+    <input>
+def lucas(n):
+    L=[2,1]
+    for i in range(2,n+1):
+        L.append(L[i-1]+L[i-2])
+    return L
+lucas(10)
+</input>
+    </sage>
+    </introduction>
+    <task><statement><p>La matrice qui sera utilisé pour ce problème est la même que celle de l'exercice <xref ref="exo-fibo"/>. Utiliser la matrice inverse pour déterminer le vecteur initial à partir du vecteur <m>\vec{x}_1=(1,2)</m>.</p></statement>
+    <answer><p><m>\vec{x}_0=(2,-1)</m>.</p></answer>
+    <solution>
+    <listing>
+    <caption>Le code solution</caption>
+    <program language="sage">
+    <input>
+    A=matrix([[1,1],[1,0]])
+    Ainv=A.inverse()
+    x1=vector([1,2])
+    x0=Ainv*x1
+    show(x0)
+    </input>
+    </program></listing>
+    </solution>
+    </task>
+    <task><statement><p>Déterminer  une combinaison linéaire des vecteurs propres <m>\vec{v}_1=(\lambda_1,1)</m> et <m>\vec{v}_2=(\lambda_2,1)</m> exprimant <m>\vec{x}_0</m>.</p></statement>
+    <answer><p><m>\vec{x}_0= -\lambda_2\vec{v}_1-\lambda_1\vec{v}_2</m>. où
+    <me>
+    a=
+    </me></p></answer>
+    <solution><listing><caption>Le code solution</caption>
+    <program language="sage">
+    <input>
+l1=(1-sqrt(5))/2
+l2=(1+sqrt(5))/2
+T=column_matrix([[l1,1],[l2,1]])
+x0=vector([2,-1])
+rep=T.solve_right(x0)
+show(rep)
+#### Pas clair, c'est quoi, mais on peut forcer Sage à simplifier###
+maxima_calculus('algebraic: true;')
+rep[0].simplify_rational()
+rep[1].simplify_rational()
+    </input>
+    </program>    </listing></solution>
+    </task>
+    <task><statement><p>Montrer que
+    <me>
+    L_n=\lambda_1^n+\lambda_2^n
+    </me>.</p></statement></task>
+    </exercise>
+    </exercisegroup>
+</exercises>
