@@ -767,7 +767,7 @@ p-r\leq p-rg(AB)
 <exercise><introduction>
 <p>À l'exercice <xref ref="exo-prodmatzero"/>, on a montré que si <m>AB=O</m>, alors il n'est pas nécessaire que <m>A</m> ou <m>B</m> soit la matrice nulle (contrairement aux nombres réels). Dans cet exercice, on donne une condition nécessaire et suffisante sur les matrices <m>A,B</m> pour avoir un produit nul.</p>
 </introduction>
-<task><statement><p>Soit <m>A,B</m> des matrices de formats appropriés. Montrer que <m>AB=O</m> si et seulement si <m>\mathcal{C}(B)\subseteq \mathcal{N}(A)</m>.</p></statement>
+<task xml:id="exo-colonnedansnul"><statement><p>Soit <m>A,B</m> des matrices de formats appropriés. Montrer que <m>AB=O</m> si et seulement si <m>\mathcal{C}(B)\subseteq \mathcal{N}(A)</m>.</p></statement>
 <solution>
 <p>On doit montrer les deux directions de cette double implication. On commence par montrer que si <m>\mathcal{C}(B)\subseteq \mathcal{N}(A)</m>, alors <m>AB=O</m>. Intuitivement, cela signifie que si l'image de la matrice <m>B</m> est inclus dans l'espace nul de la matrice <m>A</m>, alors le produit sera nul. En fait, ce sont seulement les colonnes de <m>B</m> qui doivent faire partie de l'espace nul de <m>A</m>, puisque le produit <m>AB</m> peut être vu comme une matrice dont les colonnes sont données par les produits matrice vecteur pour chaque colonne de la matrice <m>B</m> (voir la définition <xref ref="def-matmatprod"/>). </p>
 <p>Plus concrètement, si on a des matrices <m>A,B</m> telles que <m>\mathcal{C}(B)\subseteq \mathcal{N}(A)</m>, alors, en vertu de la définition <xref ref="def-matmatprod"/>, on a
@@ -848,6 +848,50 @@ show("AB=",A*B)
 <mrow>&amp;=(\mathcal{L}(A))</mrow>
 <mrow>&amp;=(\mathcal{C}(A^T)) &amp;\text{ par définition}</mrow>
 </md>.
+</p></solution>
+</task>
+</exercise>
+<exercise xml:id="exo-4espacesidempotente">
+<introduction><p>On considère une matrice carrée <m>A</m> de taille <m>n\times n</m> telle que <m>A^2=A</m>.</p></introduction>
+<task xml:id="exo-colonneidempotente"><statement><p>Montrer que <m>\mathcal{C}(A)=\{\vec{v}\in\mathbb{R}^n~|~ A\vec{v}=\vec{v}\}</m>.</p></statement>
+<solution><p>Par définition, l'espace colonne est l'ensemble des vecteurs <m>\vec{v}\in\mathbb{R}^n</m> pour lesquels il existe un vecteur <m>\vec{u}\in\mathbb{R}^n</m> tel que 
+<me>
+A\vec{u}=\vec{v}
+</me>.
+En multipliant chaque côté de cette équation par <m>A</m>, on trouve <m>A^2\vec{u}=A\vec{v}</m>, mais comme <m>A^2=A</m>, l'équation devient <m>A\vec{u}=A\ve{v}</m>. Puisque <m>A\vec{u}=\vec{v}</m> par hypothèse, on a
+<m>\vec{v}=A\vec{v}</m>. Tous les vecteurs dans l'espace colonne doivent donc satisfaire cette propriété.
+</p></solution>
+</task>
+<task xml:id="exo-nulidempotente"><statement><p>Montrer que <m>\mathcal{N}(A)=\mathcal{C}(I-A)</m>.</p></statement>
+<solution><p>On montre l'égalité entre ces deux ensembles en utilisant un argument d'inclusion. D'une part, si <m>\vec{v}\in \mathcal{N}(A)</m>, alors <m>A\vec{v}=\vec{0}</m>. On a
+<md>
+<mrow>(I-A)\vec{v}&amp;=I\vec{v}-A\vec{v}</mrow>
+<mrow>&amp;=\vec{v}-\vec{0}</mrow>
+<mrow>&amp;=\vec{v}</mrow>
+</md>.
+Donc <m>\vec{v}</m> est bien l'image d'un vecteur par la matrice <m>I-A</m> et ainsi, <m>\mathcal{N}(A)\subseteq\mathcal{C}(I-A)</m>.
+</p>
+<p>D'un autre côté, si <m>\vec{v}\in\mathcal{C}(I-A)</m>, alors il existe <m>\vec{u}\in\mathbb{R}^n</m> pour lequel <m>(I-A)\vec{u}=\vec{v}</m>.
+On a
+<md>
+<mrow> A\vec{v}&amp;=A(I-A)\vec{u}</mrow>
+<mrow>&amp;=(A-A^2)\vec{u}</mrow>
+<mrow>&amp;=(A-A)\vec{u}&amp;&amp;\text{ car } A^2=A</mrow>
+<mrow>&amp;=O\vec{u}</mrow>
+<mrow>&amp;=\vec{0}</mrow>
+</md>.
+On a donc <m>\mathcal{C}(I-A)\subseteq \mathcal{N}(A)</m> et donc, en combinant les deux arguments, on obtient l'égalité.
+</p>
+</solution></task>
+<task><statement><p>Montrer que <m>\mathcal{N}(A)\cap\mathcal{C}(A)=\{\vec{0}\}</m>.</p></statement>
+<solution><p>Soit <m>\vec{v}\in\mathcal{N}(A)\cap\mathcal{C}(A)</m>. Alors  par la <xref ref="exo-colonneidempotente" text="custom">première partie</xref> de cet exercice, <m>A\vec{v}=\vec{v}</m> et comme <m>\vec{v}</m> est dans l'espace nul, on a <m>A\vec{v}=\vec{0}</m>. On a donc <m>\vec{0}=\vec{v}</m>. </p></solution>
+</task>
+<task><statement><p>Montrer que tout vecteur dans <m>\mathbb{R}^n</m> peut s'écrire comme la somme d'un vecteur dans <m>\mathcal{N}(A)</m> et d'un vecteur dans <m>\mathcal{C}(A)</m>.</p></statement>
+<solution><p>Soit <m>\vec{u}</m> un vecteur quelconque de <m>\mathbb{R}^n</m>. On peut toujours écrire
+<me>
+\vec{u}=\vec{u}-A\vec{u}+A\vec{u}
+</me>.
+On pose <m>\vec{v}=\vec{u}-A\vec{u}</m> et <m>\vec{w}=A\vec{u}</m>. Selon la partie <xref ref="exo-nulidempotente"/>, le vecteur <m>\vec{v}</m> est dans l'espace nul de <m>A</m>, car il est dans l'espace colonne de <m>I-A</m>. De plus, comme <m>A\vec{w}=A^2\vec{u}=A\vec{u}=\vec{w}</m>, ce vecteur est dans l'espace colonne de <m>A</m>. On a donc décomposé tout vecteur comme la somme d'un vecteur de l'espace nul et d'un vecteur de l'espace colonne.
 </p></solution>
 </task>
 </exercise>

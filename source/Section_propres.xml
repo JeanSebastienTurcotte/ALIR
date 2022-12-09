@@ -15,12 +15,12 @@
     <introduction xml:id= "intro-vecvalpropres">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Aller aux <xref ref="exo-propres">exercices</xref> de la section.</p>
     <p>On considère la matrice 
-    <me>
+    <men xml:id="eq-Apropre">
     A=\begin{pmatrix}
     10 &amp; 2 \\
 6 &amp; 11
     \end{pmatrix}
-    </me>.
+    </men>.
     On peut observer l'effet géométrique de cette transformation sur le carré unité à la figure <xref ref="fig-vecpropre1"/>. À priori, il n'est pas évident de voir comment décrire la transformation dans des termes géométriques. Est-ce une rotation, une réflexion, un étirement, un cisaillement ou même une combinaison de tout cela? Par contre si on regarde son effet sur le parallélogramme engendré par les vecteurs <m>\vec{u}=(1,2),\vec{v}=(2,-3)</m>, son effet devient clair. La figure <xref ref="fig-vecpropre2"/> permet de voir cet effet.
     </p>
     <sidebyside>
@@ -67,8 +67,8 @@ graph2
     </image>
     </figure>
     </sidebyside>
-    <p>Il semble que la matrice <m>A</m> représente un étirement d'un certain facteur dans la direction <m>(1,2)</m> et un étirement d'un autre facteur dans la direction <m>(2,-3)</m>.</p>
-    <p>Dans cette section, on verra comment trouver les bonnes directions pour comprendre la géométrie d'une transformation linéaire. Ces directions sont appelées les vecteurs propres et possèdent des nombres associés appelés valeurs propres.</p>
+    <p>Il semble que la matrice <m>A</m> représente un étirement d'un certain facteur dans la direction <m>(1,2)</m> et un étirement d'un autre facteur dans la direction <m>(2,-3)</m>. Techniquement, on dévie légèrement de la définition donnée à l'exercice <xref ref="exo-etirquelcr2"/>, mais cela ne cause pas de problème en pratique.</p>
+    <p>Dans cette section, on verra comment trouver les bonnes directions pour comprendre la géométrie d'une transformation linéaire. Ces directions sont appelées les vecteurs propres et possèdent des nombres associés appelés valeurs propres. On définit la notion de multiplicité algébrique et multiplicité géométrique.</p>
     </introduction>
     <subsection>
     <title>Vecteurs et valeurs propres</title>
@@ -174,7 +174,7 @@ show("Vecteur propre #2:", S.eigenvectors_right()[1][1][0].simplify_full())
     </input>
     </sage>
     <p>En multipliant le second vecteur par <m>\cos(\theta)</m> et le premier par <m>-\sin(\theta)</m>, on retrouve les directions voulues.</p>
-    <p>Une particularité que l'on peut remarqué est que dans la commande du vecteur propre, le vecteur propre est donné dans une liste qui ne contient que ce vecteur. En fait, pour une valeur spécifique de <m>\lambda</m>, il est possible d'avoir plus d'une direction invariante associée à cette valeur. Il s'avère que l'espace engendré par les vecteurs propres associés à un scalaire <m>\lambda</m> est un sous-espace vectoriel et on peut donc parler d'espace invariant ou espace propre. Ce concept sera exploré dans la sous-section suivante. En attendant, voici les vecteurs et valeurs propres d'une réflexion dans <m>\mathbb{R}^3</m>.</p>
+    <p>Une particularité que l'on peut remarquer est que dans la commande du vecteur propre, le vecteur propre est donné dans une liste qui ne contient que ce vecteur. En fait, pour une valeur spécifique de <m>\lambda</m>, il est possible d'avoir plus d'une direction invariante associée à cette valeur. Il s'avère que l'espace engendré par les vecteurs propres associés à un scalaire <m>\lambda</m> est un sous-espace vectoriel et on peut donc parler d'espace invariant ou espace propre. Ce concept sera exploré dans la sous-section suivante. En attendant, voici les vecteurs et valeurs propres d'une réflexion dans <m>\mathbb{R}^3</m>.</p>
     <sage>
     <input>
 S=column_matrix([[-1,0,0],[0,1,0],[0,0,1]])
@@ -205,10 +205,10 @@ show(S.eigenvectors_right())
     <p>En reformulant les informations ci-dessus ensemble, on obtient alors la proposition suivante.</p>
     <proposition xml:id="prop-valproprepoly">
     <title>Polynôme caractéristique et valeurs propres</title>
-    <statement><p>Soit <m>A</m> une matrice carrée. Les valeurs propres de <m>A</m> correspondent aux zéros de sont polynôme caractéristique.</p></statement>
+    <statement><p>Soit <m>A</m> une matrice carrée. Les valeurs propres de <m>A</m> correspondent aux zéros de son polynôme caractéristique.</p></statement>
     <proof>
     <p>Pour que <m>\lambda</m> soit une valeur propre de la matrice <m>A</m>, il faut qu'il existe un vecteur non nul <m>\vec{v}</m> tel que <m>A\vec{v}=\lambda \vec{v}</m>. Soit <m>\lambda</m> un zéro du polynôme caractéristique. Puisque 
-    <m>\text{det}(A-\lambda I)=0</m>, l'espace nul de cette matrice est de dimension supérieur ou égal à <m>1</m>. Soit <m>\vec{v}\in \mathcal{N}(A-\lambda I)</m> un vecteur non nul de cet espace nul. On a alors
+    <m>\text{det}(A-\lambda I)=0</m>, l'espace nul de cette matrice est de dimension supérieure ou égale à <m>1</m>. Soit <m>\vec{v}\in \mathcal{N}(A-\lambda I)</m> un vecteur non nul de cet espace nul. On a alors
     <md>
     <mrow>(A-\lambda I)\vec{v}&amp;=\vec{0} &amp;&amp;\text{par définition de l'espace nul}</mrow>
     <mrow>A\vec{v}-\lambda \vec{v}&amp;=\vec{0} &amp;&amp;\text{par distributivité}</mrow>
@@ -231,13 +231,13 @@ show(S.eigenvectors_right())
     <solution>
     <p>On calcule le polynôme caractéristique de la matrice <m>A</m> en calculant le déterminant de <m>A-\lambda I</m>:
     <md>
-    <mrow>\lvert A-\lambda I\rvert&amp;=\lvert \begin{pmatrix}
+    <mrow>\lvert A-\lambda I\rvert&amp;=\left\lvert \begin{pmatrix}
     10 &amp; 2 \\
 6 &amp; 11
     \end{pmatrix}-\lambda \begin{pmatrix}
     1 &amp; 0 \\
 0 &amp; 1
-\end{pmatrix}</mrow>
+\end{pmatrix}\right \rvert</mrow>
     <mrow>&amp;= \begin{vmatrix}
     10-\lambda &amp; 2 \\
 6 &amp; 11-\lambda
@@ -266,7 +266,7 @@ show(S.eigenvectors_right())
     <me>
     \begin{vmatrix}1-\lambda &amp; 0\\ 0&amp; -1-\lambda \end{vmatrix}=(1-\lambda)(-1-\lambda)
     </me>.
-    Comme ce polynôme s'annule uniquement en <m>\lambda=-1</m> et <m>\lambda=1</m>, ce sont les seules valeurs propres possibles.
+    Comme ce polynôme s'annule uniquement en <m>\lambda_1=-1</m> et <m>\lambda_2=1</m>, ce sont les seules valeurs propres possibles.
     </p></solution>
     <solution><p>Une rotation ne laisse aucun vecteur en place, sauf le vecteur nul qui ne peut pas être un vecteur propre. Il ne devrait donc pas y avoir de valeurs propres. Le polynôme caractéristique est
     <me>
@@ -292,16 +292,16 @@ show(S.eigenvectors_right())
     s'annule lorsque <m>\lambda_1=-1</m> et <m>\lambda_2=1</m>. Ce sont donc les valeurs propres.</p></solution>
     <solution><p>Pour une projection orthogonale, le vecteur sur lequel on projette demeure inchangé et le vecteur perpendiculaire s'écrase à <m>\vec{0}</m>. On peut donc penser que les valeurs propres seront <m>\lambda_1=1</m> et <m>\lambda_2=0</m>. On a,
     <md>
-    <mrow>\begin{vmatrix}\frac{w_1^2}{\norm{\vec{w}}^2}-\lambda &amp; \frac{w_1w_2}{\norm{\vec{w}}^2}\\ \frac{w_1w_2}{\norm{\vec{w}}^2}&amp; \frac{w_2^2}{\norm{\vec{w}}^2}-\lambda \end{vmatrix}\right)&amp;=\left(\frac{w_1^2}{\norm{\vec{w}}^2}-\lambda\right)\left(\frac{w_2^2}{\norm{\vec{w}}^2}-\lambda \right)-w_1^2w_2^2</mrow>  
-    <mrow>&amp;=\(\lambda^2 -\frac{(w_1^2+w_2^2)}{\norm{\vec{w}}^2}\lambda)</mrow>
-        <mrow>&amp;=\(\lambda^2 -\frac{\norm{\vec{w}}^2}{\norm{\vec{w}}^2}\lambda)</mrow>
+    <mrow>\begin{vmatrix}\frac{w_1^2}{\norm{\vec{w}}^2}-\lambda &amp; \frac{w_1w_2}{\norm{\vec{w}}^2}\\ \frac{w_1w_2}{\norm{\vec{w}}^2}&amp; \frac{w_2^2}{\norm{\vec{w}}^2}-\lambda \end{vmatrix}&amp;=\left(\frac{w_1^2}{\norm{\vec{w}}^2}-\lambda\right)\left(\frac{w_2^2}{\norm{\vec{w}}^2}-\lambda \right)-w_1^2w_2^2</mrow>  
+    <mrow>&amp;=\left(\lambda^2 -\frac{(w_1^2+w_2^2)}{\norm{\vec{w}}^2}\lambda\right)</mrow>
+        <mrow>&amp;=\left(\lambda^2 -\frac{\norm{\vec{w}}^2}{\norm{\vec{w}}^2}\lambda\right)</mrow>
         <mrow>&amp;=\lambda^2-\lambda</mrow>
         <mrow>&amp;=\lambda(\lambda-1)</mrow>
     </md>.
     On voit que peu importe les composantes du vecteur <m>(w_1,w_2)</m>, les valeurs propres seront toujours <m>\lambda_1=0</m> et <m>\lambda_2=1</m>.
     </p></solution>
     </example>
-    <p>Pour ensuite trouver les vecteurs propres d'une matrice <m>A</m>, on peut regarder l'espace nul de <m>A-\lambda I</m> pour chaque valeur de <m>\lambda</m> faisant en sorte que le polynôme caractéristique s'annule. Bien qu'ils soient relativement facile de les déterminer géométriquement, et on l'a en quelque sorte fait à l'exemple <xref ref="ex-transfor2valpropres"/>, l'exercice <xref provisional="exo-transfor2vecpropres"/> déterminera en regardant l'espace propre approprié les vecteurs propres des transformations linéaires de la liste <xref ref="liste-transfor2"/>. Pour le moment, on va regarder les vecteurs propres de la matrice d'introduction.</p>
+    <p>Pour ensuite trouver les vecteurs propres d'une matrice <m>A</m>, on peut regarder l'espace nul de <m>A-\lambda I</m> pour chaque valeur de <m>\lambda</m> faisant en sorte que le polynôme caractéristique s'annule. Bien qu'ils soient relativement facile de les déterminer géométriquement, et on l'a en quelque sorte fait à l'exemple <xref ref="ex-transfor2valpropres"/>, l'exercice <xref ref="exo-transfor2vecpropres"/> déterminera en regardant l'espace propre approprié les vecteurs propres des transformations linéaires de la liste <xref ref="liste-transfor2"/>. Pour le moment, on va regarder les vecteurs propres de la matrice d'introduction.</p>
     <example>
     <title>Calcul des vecteurs propres de la matrice d'introduction</title>
     <statement>
@@ -332,7 +332,7 @@ show(S.eigenvectors_right())
 0 &amp; 0
     \end{pmatrix}</mrow>
     </md>.
-    On peut lire une base de l'espace nul de cet matrice de sa forme échelonnée réduite qui est <m>\vec{u}_1=\left(-\frac{2}{3},1\right)</m>. En multipliant par <m>-3</m> ce vecteur, on retrouve le vecteur <m>\vec{v}=(2,-3)</m> de l'énoncé.
+    On peut lire une base de l'espace nul de cette matrice de sa forme échelonnée réduite qui est <m>\vec{u}_1=\left(-\frac{2}{3},1\right)</m>. En multipliant par <m>-3</m> ce vecteur, on retrouve le vecteur <m>\vec{v}=(2,-3)</m> de l'énoncé.
     </p>
     <p>De même, avec la seconde valeur propre, on a
     <md>
@@ -351,12 +351,12 @@ show(S.eigenvectors_right())
 0 &amp; 0
     \end{pmatrix}</mrow>
     </md>.
-    On peut lire une base de l'espace nul de cet matrice de sa forme échelonnée réduite qui est <m>\vec{v}_1=\left(\frac{1}{2},1\right)</m>. En multipliant par <m>2</m> ce vecteur, on retrouve le vecteur <m>\vec{v}=(1,2)</m> de l'énoncé.    
+    On peut lire une base de l'espace nul de cette matrice de sa forme échelonnée réduite qui est <m>\vec{v}_1=\left(\frac{1}{2},1\right)</m>. En multipliant par <m>2</m> ce vecteur, on retrouve le vecteur <m>\vec{v}=(1,2)</m> de l'énoncé.    
     </p>
     </solution>
     </example>
     <p>On constate que pour trouver un vecteur propre, il faut regarder l'espace nul de la matrice <m>A-\lambda I</m> et que n'importe quel vecteur de ce sous-espace pourra jouer le rôle de vecteur propre. En particulier, une base de cet espace peut entièrement décrire l'espace des vecteurs propres associés à une valeur propre spécifique d'une matrice <m>A</m>. On appelle <m>\mathcal{N}(A-\lambda I)</m> <em>l'espace propre</em> de la matrice <m>A</m> associé à <m>\lambda</m>.</p>
-    <p>On regarde d'autres exemples de calculs de valeurs et vecteurs propres. De ceux-ci on on fera quelques observations qui guideront la suite.</p>
+    <p>On regarde d'autres exemples de calculs de valeurs et vecteurs propres. De ceux-ci on fera quelques observations qui guideront la suite.</p>
     <example xml:id="ex-vecvalpropres">
     <title>Des calculs de vecteurs et valeurs propres</title>
     <statement><p>
@@ -365,8 +365,8 @@ show(S.eigenvectors_right())
     <mrow>A&amp;=\begin{pmatrix} 3&amp;1\\ -2&amp;0 \end{pmatrix}</mrow>
     <mrow>B&amp;=\begin{pmatrix} 1&amp;-3\\ 3&amp;-5 \end{pmatrix}</mrow>
     <mrow>C&amp;=\begin{pmatrix} -2 &amp; 2 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 2 &amp; -1 &amp; 0 \end{pmatrix}</mrow>
-    <mrow>D&amp;=\begin{pmatrix} -1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}</mrow>
     <mrow>E&amp;=\begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 2 \end{pmatrix}</mrow>
+    <mrow>F&amp;=\begin{pmatrix} -1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}</mrow>
     </md>.
     </p></statement>
     <solution>
@@ -419,9 +419,9 @@ show(S.eigenvectors_right())
     </md>.
     Les valeurs propres sont donc <m>\lambda_1=2,\lambda_2=-2</m> et <m>\lambda_3=0</m>.
     </p>
-    <p>Pour la recherche des vecteurs propres associés, il faut regarder les espaces nul des matrices <m>C-\lambda I</m> pour chaque valeur <m>\lambda</m> trouvée. Pour <m>\lambda=2</m>, on trouve
+    <p>Pour la recherche des vecteurs propres associés, il faut regarder les espaces nuls des matrices <m>C-\lambda I</m> pour chaque valeur <m>\lambda</m> trouvée. Pour <m>\lambda=2</m>, on trouve
     <md>
-    <mrow>\begin{pmatrix} -4 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 2 &amp; -1 &amp; -2 \end{pmatrix}&amp;=\stackrel{L_3\leftrightarrow L_3}{\sim}\begin{pmatrix} -4 &amp; 2 &amp; 0 \\  2 &amp; -1 &amp; -2 \\ 0 &amp; 0 &amp; 0 \\ \end{pmatrix}</mrow>
+    <mrow>\begin{pmatrix} -4 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 2 &amp; -1 &amp; -2 \end{pmatrix}&amp;=\stackrel{L_2\leftrightarrow L_3}{\sim}\begin{pmatrix} -4 &amp; 2 &amp; 0 \\  2 &amp; -1 &amp; -2 \\ 0 &amp; 0 &amp; 0 \\ \end{pmatrix}</mrow>
     <mrow>&amp;\stackrel{L_2+L_1/2\to L_2}{\sim}\begin{pmatrix} -4 &amp; 2 &amp; 0 \\  0 &amp; 0 &amp; -2 \\ 0 &amp; 0 &amp; 0 \\ \end{pmatrix}</mrow>
     <mrow>&amp;\stackrel{\stackrel{L_1/(-4)\to L_1}{L_2/(-2)\to L_2}}{\sim}\begin{pmatrix} 1 &amp; -1/2 &amp; 0 \\  0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 \\ \end{pmatrix}</mrow>
     </md>.
@@ -429,7 +429,7 @@ show(S.eigenvectors_right())
     </p>
     <p>Pour le deuxième vecteur propre associé à la valeur propre <m>\lambda_2=-2</m>, on procède de la même manière. On a
     <md>
-    <mrow> C+2 I\rvert&amp;= \begin{pmatrix} 0 &amp; 2 &amp; 0 \\ 0 &amp; 4 &amp; 0 \\ 2 &amp; -1 &amp; 2 \end{pmatrix}</mrow>
+    <mrow> C+2 I&amp;= \begin{pmatrix} 0 &amp; 2 &amp; 0 \\ 0 &amp; 4 &amp; 0 \\ 2 &amp; -1 &amp; 2 \end{pmatrix}</mrow>
     <mrow>&amp;\stackrel{\stackrel{L_2-2L_1\to L_2}{L_3+L_1/2\to L_3}}{\sim}\begin{pmatrix} 0 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 2 &amp; 0 &amp; 2 \end{pmatrix}</mrow>
     <mrow>&amp;\stackrel{\stackrel{L_1/2\to L_1}{L_3/2\to L_3}}{\sim}\begin{pmatrix} 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 1 &amp; 0 &amp; 1 \end{pmatrix}</mrow>
     <mrow>&amp;\stackrel{L_3\leftrightarrow L_1}{\sim}\begin{pmatrix} 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}</mrow>
@@ -446,33 +446,8 @@ Encore une fois ici, on ne retrouve qu'une variable libre, cette fois en <m>z</m
 Le dernier vecteur propre est <m>\vec{v}_3=(0,0,1)</m>.
 </p>
     </solution>
-    <solution><p>On se permet de faire les calculs sur Sage pour les deux prochaines matrices. On n'utilisera pas les fonctions <c>eigenvalues</c> et <c>eigenvectors_right</c>, car on veut pour l'instant être en mesure de comprendre comment obtenir les valeurs et vecteurs propres à partir des définitions et résultats, mais on laisse Sage faire les calculs de ces déterminants et l'échelonnage des matrices.</p>
-    <p>D'abord pour les valeurs propres, on calcule le déterminant de la matrice <m>D-\lambda I</m> et on demande à Sage de factoriser le tout pour pouvoir y lire facilement les zéros. À noter qu'on utilise <m>x</m> plutôt que <m>\lambda</m>, car le mot <c>lambda</c> est protégé en python.</p>
-    <sage>
-    <input>
-    D=matrix(QQ,[[-1,1,0],[0,1,0],[0,0,1]]) #Le QQ sera nécessaire pour utiliser les commandes reliées à l'espace nul dans le calcul des vecteurs propres
-    I=matrix.identity(3)
-    show((D-x*I).determinant())
-    </input>
-    </sage>
-    <p>Il n'y a que deux valeurs propres distinctes, <m>\lambda_1=-1</m> et <m>\lambda_2=1</m>. Pour trouver les vecteurs propres, on trouve une base pour les espaces nuls des deux matrices <m>D+I</m> et <m>D-I</m>.</p>
-    <sage>
-    <input>
-    show((D+I).right_kernel(basis="pivot").basis())
-    </input>
-    </sage>
-    <p>Un vecteur propre associé à <m>\lambda=-1</m> est donc <m>\vec{v}_1=(1,0,0)</m>. On vérifie facilement que <m>D\vec{v}_1=-\vec{v}_1</m>, puisque ce produit donne la première colonne de la matrice <m>D</m>. Pour <m>\lambda_2=1</m>, on regarde ce que Sage donne comme espace propre.</p>
-    <sage>
-    <input>
-    show((D-I).right_kernel(basis="pivot").basis())
-    </input>
-    </sage>
-    <p>On constate qu'il y a ici deux vecteurs propres associés à la valeur propre <m>\lambda_2=1</m>. Le vecteur <m>\vec{v}_2=(1,2,0)</m> (après multiplication par <m>2</m>)  et le vecteur <m>\vec{v}_3=(0,0,1)</m> ont la propriété que
-    <md>
-    <mrow>D\vec{v}_2&amp;=\vec{v}_2 &amp; D\vec{v}_3=\vec{v}_3</mrow>
-    </md>.</p>
-    </solution>
-    <solution><p>On répète la démarche précédente avec la matrice <m>E</m> et Sage. Pour les valeurs propres:</p>
+    
+    <solution><p>On se permet de faire les calculs sur Sage pour les deux prochaines matrices. On n'utilisera pas les fonctions <c>eigenvalues</c> et <c>eigenvectors_right</c>, car on veut pour l'instant être en mesure de comprendre comment obtenir les valeurs et vecteurs propres à partir des définitions et résultats, mais on laisse Sage faire les calculs de ces déterminants et l'échelonnage des matrices. Pour les valeurs propres:</p>
     <sage>
     <input>
     E=matrix(QQ,[[1,1,0],[0,1,0],[0,0,2]])
@@ -490,14 +465,40 @@ Le dernier vecteur propre est <m>\vec{v}_3=(0,0,1)</m>.
     <p>Le vecteur propre est <m>\vec{v}_1=(1,0,0)</m>. Pour la seconde valeur propre :</p>
     <sage>
     <input>
-    show((D-2*I).right_kernel(basis="pivot").basis())
+    show((E-2*I).right_kernel(basis="pivot").basis())
     </input>
     </sage>
     <p>Le second vecteur propre est <m>\vec{v}_2=(0,0,1)</m>.</p>
-    <p>On remarque que dans ce cas-ci, chaque valeur propre n'a qu'une direction propre associée.</p>
+    <p>On remarque dans ce cas-ci que chaque valeur propre n'a qu'une direction propre associée.</p>
+    </solution>
+    <solution><p> On répète la démarche précédente avec la matrice <m>F</m> et Sage.  </p>
+    <p>D'abord pour les valeurs propres, on calcule le déterminant de la matrice <m>F-\lambda I</m> et on demande à Sage de factoriser le tout pour pouvoir y lire facilement les zéros. À noter qu'on utilise <m>x</m> plutôt que <m>\lambda</m>, car le mot <c>lambda</c> est protégé en python.</p>
+    <sage>
+    <input>
+    F=matrix(QQ,[[-1,1,0],[0,1,0],[0,0,1]]) #Le QQ sera nécessaire pour utiliser les commandes reliées à l'espace nul dans le calcul des vecteurs propres
+    I=matrix.identity(3)
+    show((F-x*I).determinant())
+    </input>
+    </sage>
+    <p>Il n'y a que deux valeurs propres distinctes, <m>\lambda_1=-1</m> et <m>\lambda_2=1</m>. Pour trouver les vecteurs propres, on trouve une base pour les espaces nuls des deux matrices <m>D+I</m> et <m>D-I</m>.</p>
+    <sage>
+    <input>
+    show((F+I).right_kernel(basis="pivot").basis())
+    </input>
+    </sage>
+    <p>Un vecteur propre associé à <m>\lambda=-1</m> est donc <m>\vec{v}_1=(1,0,0)</m>. On vérifie facilement que <m>F\vec{v}_1=-\vec{v}_1</m>, puisque ce produit donne la première colonne de la matrice <m>F</m>. Pour <m>\lambda_2=1</m>, on regarde ce que Sage donne comme espace propre.</p>
+    <sage>
+    <input>
+    show((F-I).right_kernel(basis="pivot").basis())
+    </input>
+    </sage>
+    <p>On constate qu'il y a ici deux vecteurs propres associés à la valeur propre <m>\lambda_2=1</m>. Le vecteur <m>\vec{v}_2=(1,2,0)</m> (après multiplication par <m>2</m>)  et le vecteur <m>\vec{v}_3=(0,0,1)</m> ont la propriété que
+    <md>
+    <mrow>F\vec{v}_2&amp;=\vec{v}_2 &amp; F\vec{v}_3=\vec{v}_3</mrow>
+    </md>.</p>
     </solution>
     </example>
-    <p>L'exemple précédent montre que plusieurs situations peuvent survenir lors du calcul des valeurs et vecteurs propres. Est-ce que le déterminant d'une matrice <m>A-\lambda I</m> où <m>A</m> est une matrice <m>n\times n</m> est-il toujours un polynôme de degré <m>n</m>? Cela semble évident, mais il faudrait le démontrer. (Voir l'exercice <xref provisional="exo-detvalpropredegre"/>). Parfois, pour une valeur propre, il peut y avoir plus d'un vecteur (direction en faite) propre. En fait, la véritable question est quelle peut être la dimension de l'espace propre associée à une valeur propre? La matrice <m>D</m> de l'exemple précédent avait deux valeurs propres, l'une dont l'espace propre était de dimension <m>1</m> et l'autre de dimension <m>2</m>. La matrice <m>E</m> quant à elle avait aussi deux valeurs propres, mais avec chacun leur espace propre respectif de dimension <m>1</m>. Ceci mène à la définition suivante.</p>
+    <p>L'exemple précédent montre que plusieurs situations peuvent survenir lors du calcul des valeurs et vecteurs propres. Est-ce que le déterminant d'une matrice <m>A-\lambda I</m>, où <m>A</m> est une matrice <m>n\times n</m>, est toujours un polynôme de degré <m>n</m>? Cela semble évident, mais il faudrait le démontrer. (Voir l'exercice <xref provisional="exo-detvalpropredegre"/>). Parfois, pour une valeur propre, il peut y avoir plus d'un vecteur (direction en fait) propre. En fait, la véritable question est quelle peut être la dimension de l'espace propre associée à une valeur propre? La matrice <m>D</m> de l'exemple précédent avait deux valeurs propres, l'une dont l'espace propre était de dimension <m>1</m> et l'autre de dimension <m>2</m>. La matrice <m>E</m> quant à elle avait aussi deux valeurs propres, mais avec chacun leur espace propre respectif de dimension <m>1</m>. Ceci mène à la définition suivante.</p>
     <definition xml:id="def-multalggeo">
     <title>Multiplicité algébrique et géométrique</title>
     <statement><p>Soit <m>A</m> une matrice, <m>\lambda_0</m> une valeur propre de cette matrice et <m>k\in \mathbb{N}</m> la plus grande valeur telle que le facteur <m>(\lambda-\lambda_0)^k</m> divise le polynôme caractéristique. On dit que <m>k</m> est la multiplicité algébrique de la valeur propre.</p>
@@ -531,11 +532,11 @@ Le dernier vecteur propre est <m>\vec{v}_3=(0,0,1)</m>.
     </sage>
     <p>En terminant, un retour sur la commande <c>eigenvectors_right</c> en lien avec les multiplicités.</p>
     <sage>
-    <intput>
+    <input>
 E=matrix([[1,1,0],[0,1,0],[0,0,2]])
 show(E.charpoly().factor())
 show(E.eigenvectors_right())
-    </intput>
+    </input>
     </sage>
     <p>Cette matrice correspond à la matrice <m>E</m> de l'exemple <xref ref="ex-vecvalpropres"/>, où l'on avait trouvé que la valeur propre <m>\lambda=1</m> n'avait qu'un vecteur propre. Elle apparait toutefois avec une multiplicité algébrique de <m>2</m>.</p>
     </statement>
@@ -570,14 +571,14 @@ show(E.eigenvectors_right())
     </proof>
     </theorem>
     <p>Le prochain résultat sera utile dans la prochaine section. Il s'intéresse aux vecteurs propres et à leur indépendance.</p>
-    <proposition>
+    <proposition xml:id="prop-propresindep">
     <title>Vecteurs propres et indépendance</title>
     <statement><p>
     <p>Soit <m>\lambda_1,\lambda_2,\ldots ,\lambda_k</m> des valeurs propres disctinctes d'une matrice <m>A</m> et <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> un vecteur propre associé à chacune de ces valeurs propres.
     Alors l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\}</m> est linéairement indépendant.</p>
     </p></statement>
     <proof>
-    <p>Si <m>k=1</m>, il n'y a qu'un seul vecteur propre. Celui-ci étant non nul, il est par défaut indépendant. S'il y a plus de deux vecteurs, on procède par contradiction. On suppose que l'ensemble de ces vecteurs propres est dépendant. On peut alors affirmer qu'il existe un entier <m>p</m> tel que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est un ensemble indépendant, mais que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. Bien entendu, <m>p\neq k</m> puisqu'on suppose que l'ensemble de tous ces vecteurs sont dépendants. On cherche donc le premier vecteur qui, combiné aux précédents vecteurs indépendant, rend l'ensemble dépendant. Si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}</m> est dépendant, il existe alors une combinaison linéaire des <m>p</m> premiers vecteurs qui donnent le vecteur <m>\vec{v}_{p+1}</m> :
+    <p>Si <m>k=1</m>, il n'y a qu'un seul vecteur propre. Celui-ci étant non nul, il est par défaut indépendant. S'il y a plus de deux vecteurs, on procède par contradiction. On suppose que l'ensemble de ces vecteurs propres est dépendant. On peut alors affirmer qu'il existe un entier <m>p</m> tel que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est un ensemble indépendant, mais que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. Bien entendu, <m>p\neq k</m> puisqu'on suppose que l'ensemble de tous ces vecteurs est dépendant. On cherche donc le premier vecteur qui, combiné aux précédents vecteurs indépendants, rend l'ensemble dépendant. Si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}</m> est dépendant, il existe alors une combinaison linéaire des <m>p</m> premiers vecteurs qui donne le vecteur <m>\vec{v}_{p+1}</m> :
     <men xml:id="eq-vecpropreindep" symbol="star">
     a_1\vec{v}_1+a_2\vec{v}_2+\ldots + a_p\vec{v}_p=\vec{v}_{p+1}
     </men>.
@@ -600,7 +601,7 @@ show(E.eigenvectors_right())
     <me>
     a_1(\lambda_1-\lambda_{p+1})\vec{v}_1+a_2(\lambda_2-\lambda_{p+1})\vec{v}_2+\ldots + a_p(\lambda_p-\lambda_{p+1})\vec{v}_p=\vec{0}
     </me>.
-    Comme les vecteurs <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> sont linéairement indépedants, il faut que les coefficients de cette combinaison linéaire soient nuls, mais on a également que les valeurs propres sont disctinctes. Cela entraine que <m>a_1=a_2=\cdots =a_p=0</m>. Par contre, si cela était vrai, l'équation <xref ref="eq-vecpropreindep"/> signifierait alors que <m>\vec{v}_{p+1}=\vec{0}</m>, ce qui est impossible. Il n'est donc pas possible de trouver une valeur de <m>p</m> tel que l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est indépendant, mais l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. On conclut donc que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\}</m> est forcément indépendant, ce qui conclut la preuve.
+    Comme les vecteurs <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> sont linéairement indépedants, il faut que les coefficients de cette combinaison linéaire soient nuls, mais on a également que les valeurs propres sont disctinctes. Cela entraine que <m>a_1=a_2=\cdots =a_p=0</m>. Par contre, si cela était vrai, l'équation <xref ref="eq-vecpropreindep"/> signifierait alors que <m>\vec{v}_{p+1}=\vec{0}</m>, ce qui est impossible. Il n'est donc pas possible de trouver une valeur de <m>p</m> telle que l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est indépendant, mais l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. On conclut donc que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\}</m> est forcément indépendant, ce qui conclut la preuve.
     </p>
     </proof>
     </proposition>
@@ -697,4 +698,3 @@ show(E.eigenvectors_right())
 
 <!-- geogebra pour vecteur valeur propre de cisaillement -->
 <!-- Ajouter exercice dans section cofactaeur sur degré determinant A-lambda I --> 
-<!-- Preuve mult geo plus petit mult alg dans 6.2 -->

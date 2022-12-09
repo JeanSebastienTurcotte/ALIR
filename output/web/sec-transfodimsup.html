@@ -200,7 +200,10 @@ $\Box$
 </ul>
 </li>
 <li class="link">
-<a href="chap-propres.html" data-scroll="chap-propres" class="internal"><span class="codenumber">6</span> <span class="title">Vecteurs et valeurs propres</span></a><ul><li><a href="sec-propre.html" data-scroll="sec-propre" class="internal">Vecteurs et valeurs propres</a></li></ul>
+<a href="chap-propres.html" data-scroll="chap-propres" class="internal"><span class="codenumber">6</span> <span class="title">Vecteurs et valeurs propres</span></a><ul>
+<li><a href="sec-propre.html" data-scroll="sec-propre" class="internal">Vecteurs et valeurs propres</a></li>
+<li><a href="sec-diagonalisation.html" data-scroll="sec-diagonalisation" class="internal">Diagonalisation</a></li>
+</ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Rédigé avec PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -422,6 +425,9 @@ show("urot=", urot.apply_map(lambda x: x.trig_reduce()))
 Rzinv=Rz.inverse()
 Tu=Rzinv*Ryinv*urot
 show("T(u)=",Tu.n())
+##On affiche aussi la matrice
+show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.trig_reduce()))
+show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
 </script></pre></article></section><section class="subsection" id="ssec-transfogen"><h3 class="heading hide-type">
 <span class="type">Sous-section</span> <span class="codenumber">2.4.2</span> <span class="title">Transformations de dimension quelconque</span>
 </h3>

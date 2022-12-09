@@ -310,7 +310,10 @@ show("urot=", urot.apply_map(lambda x: x.trig_reduce()))
 Ryinv=Ry.inverse()
 Rzinv=Rz.inverse()
 Tu=Rzinv*Ryinv*urot
-show("T(u)=",Tu.n())          
+show("T(u)=",Tu.n())
+##On affiche aussi la matrice
+show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.trig_reduce()))
+show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
           </input>
           </sage>
     </computation>
