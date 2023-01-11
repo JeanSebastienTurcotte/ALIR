@@ -13,7 +13,7 @@
     <title> Produit scalaire et calcul d'angles </title>
     <introduction xml:id= "intro-prodscal">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
         <p>Aller aux <xref ref="exo-prodscal">exercices</xref> de la section.</p>
-    <p>Dans la section <xref ref="sec-vec"/>, on a défini le concept d'angle polaire pour un vecteur de <m>\R^2</m>, et plus généralement, le concept de cosinus directeurs. Pour l'angle polaire, on peut imaginer que c'est l'angle que fait le vecteur <m>\vec{u}</m> avec tout vecteur de la forme <m>(x,0)</m> où <m>x>0</m>.</p>
+    <p>Dans la section <xref ref="sec-vec"/>, on a défini le concept d'angle polaire pour un vecteur de <m>\R^2</m>, et, plus généralement, le concept de cosinus directeurs. Pour l'angle polaire, on peut imaginer que c'est l'angle que fait le vecteur <m>\vec{u}</m> avec tout vecteur de la forme <m>(x,0)</m> où <m>x>0</m>.</p>
         
         <p>Dans cette section, on vise à définir le concept d'angle entre deux vecteurs quelconques dans <m>\R^2</m> et <m>\R^3</m>. Ceci nous mènera à la définition du produit scalaire, une opération vectorielle qui a de nombreuses applications.</p>
     </introduction>
@@ -21,10 +21,10 @@
     <!-- Sous-sections à écrire, à même ce fichier -->
     <subsection xml:id="sssec-angle2vec">
     <title> L'angle entre deux vecteurs de dimensions deux</title>
-        <p>Considérons deux vecteurs non nuls <m>\vec{u}</m> et <m>\vec{v}</m> de <m>\R^2</m> et dénotons par <m>\theta_{\vec{u}\vec{v}}</m> le plus petit angle entre ces vecteurs<fn>S'il n'y a pas d'ambiguïté et que le contexte est clair, on laissera tomber l'indice <m>\vec{u}\vec{v}</m> au profit de seulement <m>\theta</m>.</fn>. On cherche à trouver un moyen de déterminer cet angle à partir des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. L'image interactive <xref ref="fig-angle2d"/> permet de manipuler des vecteurs et de découvrir l'intuition derrière la formule qui suivra.</p>
+        <p>Considérons deux vecteurs non nuls <m>\vec{u}</m> et <m>\vec{v}</m> de <m>\R^2</m> et dénotons par <m>\theta_{\vec{u}\vec{v}}</m> le plus petit angle entre ces vecteurs<fn>S'il n'y a pas d'ambigüité et que le contexte est clair, on laissera tomber l'indice <m>\vec{u}\vec{v}</m> au profit de seulement <m>\theta</m>.</fn>. On cherche à trouver un moyen de déterminer cet angle à partir des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. L'image interactive <xref ref="fig-angle2d"/> permet de manipuler des vecteurs et de découvrir l'intuition derrière la formule qui suivra.</p>
         <example xml:id="ex-angle2d">
     <title>L'angle entre deux vecteurs de dimensions deux: dynamique</title>
-            <p>L'angle entre deux vecteurs peut être obtenu à l'aide d'un résultat bien connu sur les triangles.</p>
+            <p>L'angle entre deux vecteurs peut être obtenu à l'aide d'un résultat bien connu à propos des triangles.</p>
     <figure xml:id="fig-angle2d">
       <caption>L'angle entre deux vecteurs</caption>
       <interactive aspect="1:1" platform="geogebra" width="100%"
@@ -35,8 +35,8 @@
             showResetIcon(true);
           </slate>
         <instructions>
-          <p><alert>Instruction pour la figure interactive:</alert> Il est possible de déplacer les vecteurs 
-          <m>\vec{u},\vec{v}</m>. Une fois satisfait de la configuration, un clic sur la boite fera apparaitre une question. La bonne réponse à cette question dévoilera comment trouver l'angle entre les vecteurs.</p>
+          <p><alert>Instruction pour la figure interactive:</alert> il est possible de déplacer les vecteurs 
+          <m>\vec{u},\vec{v}</m>. Une fois que l’on a trouvé une configuration satisfaisante , un clic sur la boite fera apparaitre une question. La bonne réponse à cette question dévoilera comment trouver l'angle entre les vecteurs.</p>
         </instructions>
         </interactive>
     </figure></example>
@@ -75,21 +75,21 @@
         </men>, voir l'exercice <xref ref="exo-loicospourR3"/>.
         </p>
         
-        <p>À voir ces deux équations, on peut remarquer que l'addition du produit des composantes correspondantes de deux vecteurs semble être une quantité importante. Elle sera définie dans la sous-section <xref ref="sssec-prodscal"/></p>
+        <p>À voir ces deux équations, on peut remarquer que l'addition du produit des composantes correspondantes de deux vecteurs semble être une quantité importante. Elle sera définie dans la sous-section <xref ref="sssec-prodscal"/>.</p>
     </subsection>
     <subsection xml:id="sssec-prodscal">
     <title>Le produit scalaire</title>
-        <p>Motivé par les calculs de la sous-section <xref ref="sssec-angle2vec"/>, on définit algébriquement le produit scalaire, pour ensuite regarder ses propriétés, autant algébriques que géométriques.</p>
+        <p>Motivé par les calculs de la sous-section <xref ref="sssec-angle2vec"/>, on définit algébriquement le produit scalaire pour ensuite regarder ses propriétés autant algébriques que géométriques.</p>
         <definition xml:id="def-prodscal">
         <title> Le produit scalaire</title>
          <statement><p>Soit <m>\vec{u},\vec{v}</m> deux vecteurs de <m>\R^2</m> ou <m>\R^3</m>. On définit le <em> produit scalaire </em> de ces vecteurs, noté <m>\vec{u}\cdot \vec{v}</m>, comme étant la somme du produit des composantes correspondantes, c'est-à-dire 
             <md>
-            <mrow>\vec{u}\cdot \vec{v}&amp;= (u_1,u_2)\cdot (v_1,v_2)&amp;= u_1v_1+u_2v_2 &amp;&amp;\text{ si } \vec{u},\vec{v}\in \R^2</mrow>
-                <mrow>\vec{u}\cdot \vec{v}&amp;= (u_1,u_2,u_3)\cdot (v_1,v_2,v_3)&amp;= u_1v_1+u_2v_2+u_3v_3 &amp;&amp;\text{ si } \vec{u},\vec{v}\in \R^3</mrow>
+            <mrow>\vec{u}\cdot \vec{v}&amp;= (u_1,u_2)\cdot (v_1,v_2)= u_1v_1+u_2v_2 &amp;&amp;\text{ si } \vec{u},\vec{v}\in \R^2</mrow>
+                <mrow>\vec{u}\cdot \vec{v}&amp;= (u_1,u_2,u_3)\cdot (v_1,v_2,v_3)= u_1v_1+u_2v_2+u_3v_3 &amp;&amp;\text{ si } \vec{u},\vec{v}\in \R^3</mrow>
             </md>.
             </p></statement>
         </definition>
-        <p>Le produit scalaire, comme son nom l'indique, donne un nombre réel (un scalaire) et non un vecteur. En reprenant l'équation pour l'angle entre deux vecteurs, on peut écrire 
+        <p>Le produit scalaire, comme son nom l'indique, donne un nombre réel (un scalaire), et non un vecteur. En reprenant l'équation pour l'angle entre deux vecteurs, on peut écrire 
         <men xml:id="eq-prodscalgeo">\vec{u}\cdot \vec{v}=\|\vec{u}\|\|\vec{v}\|\cos(\theta)</men>.
         Comme les normes sont toujours positives et que le cosinus varie entre <m>-1</m> et <m>1</m>, le produit scalaire peut être positif ou négatif, selon l'angle,  et de n'importe quelle grandeur, selon les normes.
         </p>
@@ -108,13 +108,13 @@
         </list>
             </statement>
             <proof>
-           <p> La plupart des propriétés découlent directement des propriétés de l'addition et de la multiplication de nombres réels. Par exemple, pour deux vecteurs de <m>\R^2</m>, on a
+           <p> La plupart de ces propriétés découlent directement des propriétés de l'addition et de la multiplication de nombres réels. Par exemple, pour deux vecteurs de <m>\R^2</m>, on a
                 <md>
                <mrow>\pscal{u}{v}&amp;= u_1v_1+u_2v_2 &amp;</mrow>
                     <mrow>&amp;= v_1u_1+v_2u_2 &amp; \text{ commutativité de l'addition de nombres réels}</mrow>
                     <mrow> &amp;= \pscal{v}{u}</mrow>
                </md>. À remarquer que la propriété <xref ref="li-propprodscal-comm"/> donne l'analogue à droite <m>(\vec{v}+\vec{w})\cdot\vec{u}</m> de la propriété <xref ref="li-propprodscal-dist" />. </p>
-                <p>Géométriquement, l'équation <xref ref="eq-prodscalgeo"/> permet aussi de voir que la propriété tient en général, en particulier parce que <m>\theta_{\vec{u}\vec{v}}=\theta_{\vec{v}\vec{u}}</m>.</p>
+                <p>Géométriquement, l'équation <xref ref="eq-prodscalgeo"/> permet aussi de voir que la propriété est toujours valide étant donné que <m>\theta_{\vec{u}\vec{v}}=\theta_{\vec{v}\vec{u}}</m>.</p>
                 
                 <p>La seconde propriété est aussi algébriquement simple à démontrer. Il est toutefois intéressant de constater l'effet géométrique de la multiplication par un scalaire d'un vecteur sur le produit scalaire. Dans un premier temps, si <m>c&gt;0</m>, on a
                 <md>
@@ -142,7 +142,7 @@
             showResetIcon(true);
           </slate>
         <instructions>
-          <p>Déplacer les vecteurs pour constater que l'angle entre <m>-\vec{u}</m> et <m>\vec{v}</m> est toujours égal à <m>180-\theta_{\vec{u}\vec{v}}</m>. </p>
+          <p>On peut déplacer les vecteurs pour constater que l'angle entre <m>-\vec{u}</m> et <m>\vec{v}</m> est toujours égal à <m>180-\theta_{\vec{u}\vec{v}}</m>. </p>
         </instructions>
       </interactive>
                 </figure>
@@ -157,7 +157,7 @@
                 </md>.
                     Une démonstration géométrique sera donnée à l'exercice <xref ref="exo-preuvegeodistriprodscal"/>
                 </p>
-                <p>Finalement, autant géométriquement qu'algébriquement, la démonstration de la dernière propriété est simple. Par exemple, avec l'équation <xref ref="eq-prodscalgeo"/>, on a 
+                <p>Finalement, tant géométriquement qu'algébriquement, la démonstration de la dernière propriété est simple. Par exemple, avec l'équation <xref ref="eq-prodscalgeo"/>, on a 
                 <md>
                     <mrow>\pscal{u}{u}&amp;=\norm{\vec{u}}\norm{\vec{u}}\cos(\theta_{\vec{u}\vec{u}})</mrow>
                     <mrow>&amp;= \norm{\vec{u}}^2</mrow>
@@ -167,7 +167,7 @@
         </proposition>
  <p>Les vecteurs perpendiculaires seront d'une grande importance. Deux vecteurs perpendiculaires sont aussi dits orthogonaux.</p>
         <aside>
-            <p>Lorsqu'on généralise les concepts d'algèbre linéaire à des structures plus abstraites, la notion de perpendiculaire est difficile à imaginer. Toutefois, le concept de produit scalaire nul reste important. C'est pourquoi les mathématiciens utilisent le terme orthogonal, du grec <em>orthos</em>, droit, et du grec <em>g&#333;nia</em>, angle.</p>
+            <p>Lorsqu'on généralise les concepts d'algèbre linéaire à des structures plus abstraites, la notion de perpendiculaire est difficile à imaginer. Toutefois, le concept de produit scalaire nul reste important. C'est pourquoi en mathématiques, on utilise le terme orthogonal, du grec <em>orthos</em>, droit, et du grec <em>g&#333;nia</em>, angle.</p>
         </aside>
         <example xml:id="ex-diaglos">
         <title>Les diagonales d'un losange</title>
@@ -184,7 +184,7 @@
                     </intructions>
                 </interactive>
             </figure>
-            <p>Pour commencer, il est utile de se fixer un repère. En cliquant sur la case "repère", on choisit de fixer l'origine à l'un des quatre sommets du losange et de nommer les autres sommets <m>A,B</m> et <m>C</m>. On veut montrer que <m>\vecl{OC}</m> est perpendiculaire à <m>\vecl{BA}</m> ou, de manière équivalente, que <m>\pscal{OC}{BA}=0</m>. On a comme hypothèse que <m>\|\vecl{OA}\|=\|\vecl{OB}\|</m> et donc qu'en fait les quatre côtés sont égaux. En réécrivant les diagonales comme étant respectivement la somme et la différence des vecteurs <m>\vecl{OA},\vecl{OB}</m>, on a
+            <p>Pour commencer, il est utile de se fixer un repère. En cliquant sur la case "repère", on choisit de fixer l'origine à l'un des quatre sommets du losange et de nommer les autres sommets <m>A,B</m> et <m>C</m>. On veut montrer que <m>\vecl{OC}</m> est perpendiculaire à <m>\vecl{BA}</m> ou, de manière équivalente, que <m>\pscal{OC}{BA}=0</m>. On a comme hypothèse que <m>\|\vecl{OA}\|=\|\vecl{OB}\|</m> et donc que les quatre côtés sont égaux. En réécrivant les diagonales comme étant respectivement la somme et la différence des vecteurs <m>\vecl{OA},\vecl{OB}</m>, on a
             <md>
             <mrow>\pscal{OC}{BA}&amp;=(\vecl{OA}+\vecl{AC})\cdot(\vecl{OA}-\vecl{OB})&amp;&amp;</mrow>
                 <mrow>&amp;=(\vecl{OA}+\vecl{OB})\cdot(\vecl{OA}-\vecl{OB})&amp;&amp; \text{ car  } \vecl{AC}=\vecl{OB}</mrow>
@@ -195,7 +195,7 @@
             </md>.
             Ainsi, les diagonales sont perpendiculaires, car le produit scalaire donne <m>0</m>. </p>
         </example>
-        <p>Dans l'exercice <xref ref="exo-normsommecarree"/>, on montre que similairement à la somme de nombres réels, le carré de la norme d'une somme introduit un facteur croisé dans la réponse: 
+        <p>Dans l'exercice <xref ref="exo-normsommecarree"/>, on montre que, similairement à la somme de nombres réels, le carré de la norme d'une somme introduit un facteur croisé dans la réponse: 
         <me>
         \norm{\vec{u}+\vec{v}}^2=\norm{\vec{u}}^2+2\pscal{u}{v}+\norm{\vec{v}}^2
         </me>.
@@ -211,7 +211,7 @@
              </men>.</p>   
          </statement>
             <proof>
-                <p> Une manière simple de procéder est à partir de la définition par le calcul d'angle. Puisque
+                <p> On peut procéder à partir de la définition par le calcul d'angle. Puisque
                     <md>
                     <mrow>\pscal{u}{v}&amp;=\norm{\vec{u}}\norm{\vec{v}}\cos(\theta)</mrow>
                         <mrow>\abs{\pscal{u}{v}}&amp;=\norm{\vec{u}}\norm{\vec{v}}\abs{\cos(\theta)}</mrow>
@@ -221,7 +221,7 @@
                 </p>
             </proof>
             <proof>
-            <p>Une autre manière est de procéder avec une combinaison d'arguments géométriques et algébriques. Dans un temps, remarquons que si l'un des vecteurs est <m>\vec{0}</m>, alors l'inégalité est vraie, car <m>\pscal{u}{v}=0</m> et <m>\norm{\vec{u}}\norm{\vec{v}}=0</m>. 
+            <p>Une autre manière est de procéder avec une combinaison d'arguments géométriques et algébriques. On remarque que si l'un des vecteurs est <m>\vec{0}</m>, alors l'inégalité est vraie, car <m>\pscal{u}{v}=0</m> et <m>\norm{\vec{u}}\norm{\vec{v}}=0</m>. 
                 </p>
                 <p>On suppose donc que les vecteurs sont non nuls. En ayant en tête l'image du parallélogramme engendré par les vecteurs et ses diagonales, reproduite à la figure <xref ref="vecparallelo"/>, on constate que </p>
                 
@@ -244,12 +244,13 @@
                     <mrow>\|\hat{u}+\hat{v}\|^2&amp;= 2\hat{u}\cdot\hat{v}+2</mrow>
                     <mrow>\|\hat{u}-\hat{v}\|^2&amp;= -2\hat{u}\cdot\hat{v}+2</mrow>
                 </md>,
-                    et comme ce sont des longueurs, elles sont plus grandes ou égales à <m>0</m> d'où
+                    et comme ce sont des longueurs, elles sont plus grandes ou égales à <m>0</m> d'où l'on obtient que
                     <md>
                      <mrow>   \hat{u}\cdot\hat{v}&amp;\geq -1</mrow>
+                     <intertext>et que</intertext>
                       <mrow> \hat{u}\cdot\hat{v}&amp;\leq 1 </mrow>
                     </md>,
-                    ce qui revient à dire <m>\abs{\hat{u}\cdot\hat{v}}\leq 1</m>.
+                    ce qui revient à dire que <m>\abs{\hat{u}\cdot\hat{v}}\leq 1</m>.
                 </p>
                 <p>En reprenant la définition des vecteurs unitaires, on obtient
                 <md>
@@ -314,7 +315,7 @@
         </instructions>
         </interactive>
     </figure>
-        <p>Par définition, le vecteur allant de <m>\vec{v}_{\vec{u}}</m> à l'extrémité de <m>\vec{v}</m> est perpendiculaire à <m>\vec{u}</m>. Ce vecteur n'est rien d'autre que <m>\vec{v}-\vec{v}_{\vec{u}}</m>. De plus, le vecteur <m>\vec{v}_{\vec{u}}</m> étant parallèle à <m>\vec{u}</m> donc (<m>\vec{v}_{\vec{u}}=c\vec{u}</m>), il est possible de déterminer le bon scalaire <m>c</m>:
+        <p>Par définition, le vecteur allant de <m>\vec{v}_{\vec{u}}</m> à l'extrémité de <m>\vec{v}</m> est perpendiculaire à <m>\vec{u}</m>. Ce vecteur n'est rien d'autre que <m>\vec{v}-\vec{v}_{\vec{u}}</m>. De plus, le vecteur <m>\vec{v}_{\vec{u}}</m> étant parallèle à <m>\vec{u}</m> (<m>\vec{v}_{\vec{u}}=c\vec{u}</m>), il est possible de déterminer le bon scalaire <m>c</m>:
         <md>
         <mrow>0&amp;=(\vec{v}-\vec{v}_{\vec{u}})\cdot \vec{u}</mrow>
             <mrow>&amp;=(v-c\vec{u})\cdot \vec{u}</mrow>

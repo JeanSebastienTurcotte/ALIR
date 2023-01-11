@@ -205,7 +205,7 @@ sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\C}{\mathbb{C}}
+\newcommand{\Complex}{\mathbb{C}}
 \newcommand{\D}{\mathbb{D}}
 \newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
 \newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
@@ -215,7 +215,7 @@ sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
 \newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
 \newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
 \newcommand{\norm}[1]{\left\|#1\right\|}
-\renewcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\vecl}[1]{\overrightarrow{#1}}
 \newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
 \newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
@@ -245,7 +245,6 @@ sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
 \DeclareMathOperator{\cis}{cis}
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\vspan}{span}
-\DeclareMathOperator{\det}{det}
 \renewcommand{\Re}{\operatorname{Re}}
 \newcommand{\CQFD}{\begin{flushright}   
 $\blacksquare$
@@ -485,7 +484,7 @@ $\Box$
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="chap-det"><h2 class="heading">
 <span class="type">Chapitre</span> <span class="codenumber">4</span> <span class="title">Le déterminant d'une matrice</span>
 </h2>
-<section class="introduction" id="intro-det"> <div class="para" id="p-3127">On revient maintenant aux transformations linéaires du chapitre <a href="chap-transfo.html" class="internal" title="Chapitre 2: Les transformations linéaires: première partie">2</a>. L'un des aspects que l'on n'a pas considéré est l'effet d'une transformation sur l'aire ou le volume des figures transformées, lorsque les transformations sont de <span class="process-math">\(\R^2\)</span> vers <span class="process-math">\(\R^2\)</span> ou de <span class="process-math">\(\R^3\)</span> vers <span class="process-math">\(\R^3\text{.}\)</span> Ce facteur de changement diffère d'une transformation linéaire à une autre. Peut-il être négatif ou nul? Si oui, quelle est sa signification géométrique?</div> <div class="para" id="p-3128">On fera aussi le lien de ce facteur de changement avec l'inversibilité d'une matrice et avec les systèmes d'équations linéaires possédant autant d'équations que d'inconnues.</div> <div class="para" id="p-3129">Dans ce chapitre, on aborde le concept du déterminant d'une transformation linéaire, les propriétés de ce déterminant, la géométrie des cas <span class="process-math">\(2\times 2\)</span> et <span class="process-math">\(3\times 3\)</span> et l'algèbre du cas général.</div></section><nav class="summary-links"><ul>
+<section class="introduction" id="intro-det"> <div class="para" id="p-3129">On revient maintenant aux transformations linéaires du chapitre <a href="chap-transfo.html" class="internal" title="Chapitre 2: Les transformations linéaires: première partie">2</a>. L'un des aspects que l'on n'a pas considéré est l'effet d'une transformation sur l'aire ou le volume des figures transformées, lorsque les transformations sont de <span class="process-math">\(\R^2\)</span> vers <span class="process-math">\(\R^2\)</span> ou de <span class="process-math">\(\R^3\)</span> vers <span class="process-math">\(\R^3\text{.}\)</span> Ce facteur de changement diffère d'une transformation linéaire à une autre. Peut-il être négatif ou nul? Si oui, quelle est sa signification géométrique?</div> <div class="para" id="p-3130">On fera aussi le lien de ce facteur de changement avec l'inversibilité d'une matrice et avec les systèmes d'équations linéaires possédant autant d'équations que d'inconnues.</div> <div class="para" id="p-3131">Dans ce chapitre, on aborde le concept du déterminant d'une transformation linéaire, les propriétés de ce déterminant, la géométrie des cas <span class="process-math">\(2\times 2\)</span> et <span class="process-math">\(3\times 3\)</span> et l'algèbre du cas général.</div></section><nav class="summary-links"><ul>
 <li><a href="sec-det2x2.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Le déterminant <span class="process-math">\(2\times 2\)</span></span></a></li>
 <li><a href="sec-detgen.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Le déterminant d'une matrice <span class="process-math">\(n\times n\)</span></span></a></li>
 <li><a href="sec-cofacteurs.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Les mineurs et les cofacteurs</span></a></li>
