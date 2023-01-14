@@ -12,22 +12,22 @@
 
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-propreslabos">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Activités et laboratoires </title>
-    <introduction xml:id= "intro-propreslabos">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <!--<introduction xml:id= "intro-propreslabos"> --> <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p>
-    </introduction>
+    <!--</introduction>-->
     <project>
     <title>L'algorithme PageRank</title>
     <introduction>
     <p>En 1998, Sergey Brin et Larry Page ont révolutionné le monde de la recherche sur le web en développant un algorithme appelé PageRank, qui mena à la création de la compagnie Google. Le fonctionnement est simple, l'algorithme retourne la probabilité qu'un utilisateur qui se promène au hasard sur le web clique sur une certaine page. On considère un modèle simplifié d'internet. La figure <xref ref="fig-PageRank1"/> illustre un graphe, dont les sommets peuvent être vus comme étant des pages web, et les arêtes comme des liens d'une page vers un autre. Ce web simplifié contient donc trois pages, nommées respectivement <m>0,1</m> et <m>2</m>. À partir de la page <m>0</m>, on peut aller en cliquant sur un lien vers la page <m>1</m> ou la page <m>2</m>, à partir de la page <m>1</m>, on peut aller vers la page <m>0</m> ou la page <m>2</m>, mais à partir de la page <m>2</m>, on ne peut qu'aller vers la page <m>1</m>. </p>
     <figure xml:id="fig-PageRank1">
     <caption>Une version simplifiée du web</caption>
-    <image>
+    <image xml:id="img-PageRank1">
+    <description>Un graphe à trois sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers les sommets un et deux, le sommet un pointe vers les sommets zéro et deux et le sommet deux ne pointe que vers le sommet un.</description>
     <sageplot>
 A=matrix([[0,1,1],[1,0,1],[0,1,0]])
 G=DiGraph(A)
 plot(G,layout="circular")
     </sageplot>
-    <description>Un graphe à trois sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers les sommets un et deux, le sommet un pointe vers les sommets zéro et deux et le sommet deux ne pointe que vers le sommet un.</description>
     </image>
     </figure>
     <p>Pour chaque page, on associe la valeur de la page en considérant la proportion de liens pointant vers cette page en provenance de chaque sommet. Par exemple, pour la page <m>0</m>, la valeur associée est
@@ -60,13 +60,13 @@ plot(G,layout="circular")
     <task><statement><p>Trouver la page ayant la plus grande valeur dans le web décrit par la figure <xref ref="fig-PageRank2"/>.</p>
     <figure xml:id="fig-PageRank2">
     <caption>Un graphe à six sommets</caption>
-    <image>
+    <image xml:id="img-PageRank2">
+    <description>Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers les sommets un et deux, le sommet un pointe vers les sommets zéro, trois et cinq, le sommet deux pointe vers les sommets trois et cinq, le sommet trois pointe vers les sommets zéro et deux, le sommet quatre pointe vers les sommets zéro et trois et le sommet cinq  pointe vers le sommet zéro et quatre.</description>
     <sageplot>
 A=matrix([[0,1,1,0,0,0],[1,0,0,1,0,1],[0,0,0,1,0,1],[1,0,1,0,0,0],[1,0,0,1,0,0],[1,0,0,0,1,0]])
 G=DiGraph(A)
 plot(G,layout="circular")
     </sageplot>
- <description>Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers les sommets un et deux, le sommet un pointe vers les sommets zéro, trois et cinq, le sommet deux pointe vers les sommets trois et cinq, le sommet trois pointe vers les sommets zéro et deux, le sommet quatre pointe vers les sommets zéro et trois et le sommet cinq  pointe vers le sommet zéro et quatre.</description>
     </image>
     </figure>
     <sage>
@@ -75,7 +75,7 @@ plot(G,layout="circular")
     </input>
     </sage>
     </statement></task>
-    <task><introduction><p>Dans la réalité, il serait très coûteux de calculer le vecteur propre de la matrice de Google, puisque le véritable web contient près de deux milliards de sites web <fn><p>En date de 2022</p></fn>, qui contiennent chacun plusieurs pages. Échelonner une telle matrice est impensable. </p></introduction>
+    <task><introduction><p>Dans la réalité, il serait très coûteux de calculer le vecteur propre de la matrice de Google, puisque le véritable web contient près de deux milliards de sites web <fn>En date de 2022</fn>, qui contiennent chacun plusieurs pages. Échelonner une telle matrice est impensable. </p></introduction>
     <task><statement><p>On s'intéresse à la position d'un utilisateur après <m>n</m> clics qui cliquerait sur les liens de manières aléatoires. Par exemple, dans le web de la figure <xref ref="fig-PageRank1"/>, avec la page de départ <m>0</m>, si on pose <m>\vec{v}_0=(1,0,0)</m>, alors les chances de se retrouver sur les pages <m>0,1,2</m> après un clic sont données par les entrées du vecteurs
     <me>
     \vec{x}_1=A\vec{x}_0
@@ -109,18 +109,19 @@ plot(G,layout="circular")
     </sage></statement></task>
     <conclusion><p>En général, Google va calculer un grande puissance de sa matrice <m>G</m> pour retourner les pages avec le plus de valeurs, car cela est moins couteux que de trouver le vecteur propre. On peut montrer que sous certaines conditions sur <m>G</m>, les colonnes de <m>G^n</m> convergent toujours vers le vecteur propre recherché lorsque <m>n</m> tend vers l'infini.</p></conclusion>
     </task>
-    <task><introduction><p>Considérer maintenant le web illustré par la figure <xref ref="fig-PageRank3"/>. Quelle prédiction peut-être faite pour les pages <m>0,1</m> et <m>2</m>?</p>
+    <task><statement><p>Considérer maintenant le web illustré par la figure <xref ref="fig-PageRank3"/>. Quelle prédiction peut-être faite pour les pages <m>0,1</m> et <m>2</m>?</p>
     <figure xml:id="fig-PageRank3">
-    <image>
+    <caption>Un autre graphe à six sommets</caption>
+    <image xml:id="img-PageRank3">
+    <description>Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers les sommets un, deux et trois, le sommet un pointe vers les sommets deux et trois, le sommet deux pointe vers les sommets zéro, un, trois et quatre, le sommet trois pointe vers le sommet quatre, le sommet quatre pointe vers les sommets trois et cinq et le sommet cinq  pointe vers le sommet trois et quatre.</description>
     <sageplot>
 A=matrix([[0,1,1,1,0,0],[0,0,1,1,0,0],[1,1,0,1,1,0],[0,0,0,0,1,0],[0,0,0,1,0,1],[0,0,0,1,1,0]])
 G=DiGraph(A)
 plot(G,layout="circular")
     </sageplot>
- <description>Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers les sommets un, deux et trois, le sommet un pointe vers les sommets deux et trois, le sommet deux pointe vers les sommets zéro, un, trois et quatre, le sommet trois pointe vers le sommet quatre, le sommet quatre pointe vers les sommets trois et cinq et le sommet cinq  pointe vers le sommet trois et quatre.</description>
     </image>
     </figure>
-    </introduction></task>
+    </statement></task>
     <task><statement><p>Vérifier l'hypothèse en calculant le vecteur propre de la matrice de Google et en le normalisant pour que les entrées somment à <m>1</m>.</p></statement></task>
     <task><statement><p>Calculer <m>G^{20}</m> et vérifier à nouveau ce qui a été observé à la partie <xref ref="proj-PageRank1"/>.</p></statement></task>
     <task><introduction><p>Une matrice comme celle du web de la figure <xref ref="fig-PageRank3"/> est problématique car, à partir d'une certaine puissance, des entrées de la matrice <m>G^n</m> sont toujours nulles et il est impossible de retourner à ces pages. En regardant plus attentivement le graphe, on constate que lorsqu'on rentre dans l'une des pages <m>3,4,5</m>, il est impossible d'en ressortir.</p>
@@ -160,15 +161,15 @@ plot(G,layout="circular")
     <task><statement><p>Analyser le graphe de la figure <xref ref="fig-PageRank4"/>, représentant une modification du web de la figure <xref ref="fig-PageRank1"/>.</p>
     <figure xml:id="fig-PageRank4">
     <caption>Une version pondérée d'un web à trois sommets</caption>
-    <image>
+    <image xml:id="img-PageRank4">
+    <description>
+    Un graphe à trois sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids un sur cinq et vers le sommet deux avec poids quatre sur cinq. Le sommet un pointe vers le sommet zéro avec poids un sur trois et vers le sommet deux avec poids deux sur trois. Le sommet deux ne pointe que vers le sommet un, avec poids un.
+    </description>
     <sageplot>    
 A=matrix([[0,1/5,4/5],[1/3,0,2/3],[0,1,0]])
 G=DiGraph(A)
 plot(G,edge_labels=True,layout="circular")
     </sageplot>
-    <description>
-    Un graphe à trois sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids un sur cinq et vers le sommet deux avec poids quatre sur cinq. Le sommet un pointe vers le sommet zéro avec poids un sur trois et vers le sommet deux avec poids deux sur trois. Le sommet deux ne pointe que vers le sommet un, avec poids un.
-    </description>
     </image>
     </figure>
     <sage>
@@ -180,15 +181,15 @@ plot(G,edge_labels=True,layout="circular")
     <task><statement><p>Répéter avec la modifification du web de la figure <xref ref="fig-PageRank2"/>, illustrée à la figure suivante.</p>
     <figure xml:id="fig-PageRank5">
     <caption>Une version pondérée d'un web à six sommets</caption>
-    <image>
+    <image xml:id="img-PageRank5">
+<description>
+Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids un sur trois et vers le sommet deux avec poids deux sur trois. Le sommet un pointe vers le sommet zéro avec poids un sur quatre, vers le sommet trois avec poids un sur deux et  vers le sommet cinq avec poids un sur quatre. Le sommet deux pointe vers le sommet trois avec poids trois sur quatre  et  vers le sommet cinq avec poids 1/4. Le sommet trois pointe vers le sommet zéro avec poids trois sur cinq et vers le sommet deux avec poids deux sur cinq. Le sommet quatre pointe vers le sommet zéro  avec poids un sur trois et vers le sommet trois avec poids deux sur trois. Le sommet cinq  pointe vers le sommet zéro et quatre, chacun avec poids un sur deux.
+</description>
     <sageplot>
 A=matrix([[0,1/3,2/3,0,0,0],[1/4,0,0,1/2,0,1/4],[0,0,0,3/4,0,1/4],[3/5,0,2/5,0,0,0],[1/3,0,0,2/3,0,0],[1/2,0,0,0,1/2,0]])
 G=DiGraph(A)
 plot(G,edge_labels=True,layout="circular")
     </sageplot>    
-<description>
-Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids un sur trois et vers le sommet deux avec poids deux sur trois. Le sommet un pointe vers le sommet zéro avec poids un sur quatre, vers le sommet trois avec poids un sur deux et  vers le sommet cinq avec poids un sur quatre. Le sommet deux pointe vers le sommet trois avec poids trois sur quatre  et  vers le sommet cinq avec poids 1/4. Le sommet trois pointe vers le sommet zéro avec poids trois sur cinq et vers le sommet deux avec poids deux sur cinq. Le sommet quatre pointe vers le sommet zéro  avec poids un sur trois et vers le sommet trois avec poids deux sur trois. Le sommet cinq  pointe vers le sommet zéro et quatre, chacun avec poids un sur deux.
-</description>
     </image>
 
     </figure>
@@ -201,13 +202,13 @@ Un graphe à six sommets est illustré. Les sommets sont reliés par des flèche
     <task><statement><p>Répéter avec la modification du web de la figue <xref ref="fig-PageRank3"/>, illustrée à la figure suivante.</p>
     <figure xml:id="fig-PageRank6">
     <caption>Une modification d'un autre web à six sommets </caption>
-    <image>
+    <image xml:id="img-PageRank6">
+<description>Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids une demi, vers le sommet deux avec poids un tiers et vers le sommet trois avec poids un sur six. Le sommet un pointe vers le sommet deux avec poids trois sur sept et vers le sommet trois avec poirds quatre sur sept. Le sommet deux pointe vers le sommet zéro avec poids deux sur cinq, vers le sommet un avec poids un sur quatre, vers le sommet trois avec poids un sur trois et vers le sommet quatre avec poids un sur soixante. Le sommet trois pointe vers le sommet quatre avec poids 1, le sommet quatre pointe vers le sommet trois avec poids un sur six et vers le sommet cinq avec poids cinq sur six. Finalement, le sommet  cinq  pointe vers le sommet trois  avec poids sept sur neuf et vers le sommet quatre avec poids deux sur neuf.</description>
     <sageplot>
 A=matrix([[0,1/2,1/3,1/6,0,0],[0,0,3/7,4/7,0,0],[2/5,1/4,0,1/3,1/60,0],[0,0,0,0,1,0],[0,0,0,1/6,0,5/6],[0,0,0,7/9,2/9,0]])
 G=DiGraph(A)
 plot(G,edge_labels=True,layout="circular")
-    </sageplot>
-    <description>Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids une demi, vers le sommet deux avec poids un tiers et vers le sommet trois avec poids un sur six. Le sommet un pointe vers le sommet deux avec poids trois sur sept et vers le sommet trois avec poirds quatre sur sept. Le sommet deux pointe vers le sommet zéro avec poids deux sur cinq, vers le sommet un avec poids un sur quatre, vers le sommet trois avec poids un sur trois et vers le sommet quatre avec poids un sur soixante. Le sommet trois pointe vers le sommet quatre avec poids 1, le sommet quatre pointe vers le sommet trois avec poids un sur six et vers le sommet cinq avec poids cinq sur six. Finalement, le sommet  cinq  pointe vers le sommet trois  avec poids sept sur neuf et vers le sommet quatre avec poids deux sur neuf.</description>
+    </sageplot>  
     </image>
     </figure>
     </statement></task>

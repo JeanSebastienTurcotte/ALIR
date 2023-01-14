@@ -23,9 +23,9 @@
     <subsection xml:id="sssec-transfozero">
     <title>Les zéros d'une transformation linéaire</title>
     <p>On considère une matrice <m>m\times n</m> et le système d'équations linéaires <m>A\vec{x}=\vec{0}</m>. Un tel système est souvent appelé homogène.</p>
-    <aside><title>En passant</title> Le mot <em>homogène</em> a malheureusement plusieurs significations en mathématiques. Souvent utilisé pour signifier que le 
+    <aside><title>En passant</title><p> Le mot <em>homogène</em> a malheureusement plusieurs significations en mathématiques. Souvent utilisé pour signifier que le 
     membre de droite d'une équation (ou un système) est nul (comme ici), il peut aussi faire référence à une fonction homogène. On ne devrait pas rencontrer d'autres 
-    utilisations du mot dans ces notes. </aside>
+    utilisations du mot dans ces notes. </p></aside>
     <p>Géométriquement, les solutions à ce système représentent l'ensemble
     des valeurs <m>\vec{x}</m> du domaine (<m>\R^n</m>) qui sont envoyées sur le vecteur nul de l'image (<m>\R^m</m>). Comme on l'a remarqué à la proposition <xref ref="prop-transfolinprop"/>,
     le vecteur <m>\vec{0}\in \R^n</m> est toujours une solution de ce système. De plus, si la matrice <m>A</m> est carrée et inversible, c'est la <xref ref="thm-delamatriceinversev1">seule solution</xref>.</p>
@@ -183,7 +183,7 @@ show("rref(Baug)=",Baug.rref())
     </solution>
     <solution>
     <p>Dans cet exemple, les variables <m>x_1</m> et <m>x_3</m> sont pivots et les variables <m>x_2,x_4</m> et <m>x_5</m> sont  libres. On écrit les équations de ce système:
-    <md aligment="alignat">
+    <md alignment="alignat">
     <mrow>x_1&amp;{}+{}&amp;4x_2&amp;{}+{}&amp;&amp;&amp;3x_4&amp;{}+{}&amp;x_5&amp;{}={}&amp;0</mrow>
     <mrow>&amp; &amp;&amp;&amp;x_3&amp;{}+{}&amp;2x_4&amp;{}-{}&amp;2x_5&amp;{}={}&amp;0</mrow>
     </md>.
@@ -205,7 +205,7 @@ show("rref(Baug)=",Baug.rref())
     particulièrement la troisième colonne (car la variable <m>z</m> est libre) les entrées un et deux (correspondant aux lignes non nulles).</p>
 <figure xml:id="fig-solbaseA">
   <caption>La solution de base de la matrice <m>A</m></caption>
-  <image source="code/LaTeX/fig-solbasematA.svg">
+  <image source="code/LaTeX/fig-solbasematA">
   <description>La matrice A est réécrite, avec les entrée en position 1,3 et 2,3 colorées respectivement en bleu et en rouge.
   </description>
   </image>
@@ -218,7 +218,7 @@ show("rref(Baug)=",Baug.rref())
     plus particulièrement à la première ligne de ces colonnes, car les autres sont nulles.</p>
     <figure xml:id="fig-solbaseB">
   <caption>La solution de base de la matrice <m>B</m></caption>
-  <image source="code/LaTeX/fig-solbasematB.svg">
+  <image source="code/LaTeX/fig-solbasematB">
   <description>La matrice B est réécrite, avec les entrée en position 1,2 et 1,3 colorées respectivement en bleu et en rouge.
   </description>
   </image>
@@ -229,7 +229,7 @@ show("rref(Baug)=",Baug.rref())
     plus particulièrement aux lignes un et deux de ces colonnes, car la troisième est nulle.</p>
     <figure xml:id="fig-solbaseC">
   <caption>La solution de base de la matrice <m>C</m></caption>
-  <image source="code/LaTeX/fig-solbasematC.svg">
+  <image source="code/LaTeX/fig-solbasematC">
   <description>La matrice C est réécrite, avec les entrée en position 1,2, 1,4 et 1,5 colorées  en bleu et les entrées 2,2, 2,4 et 2,5 en rouge.
   </description>
   </image>
@@ -257,14 +257,14 @@ show("rref(Baug)=",Baug.rref())
 une matrice identité:</p>
 <figure xml:id="fig-sousmatI">
 <caption>La matrice identité dans la matrice échelonnée</caption>
-<image source="code/LaTeX/fig-sousmatI.svg">
+<image source="code/LaTeX/fig-sousmatI">
 <description>La matrice R est écrite avec les trois dernières lignes biffées, ainsi que les colonnes 2,4 et 6. On voit ensuite une flèche vers la matrice identité de taille 3, correspondant aux valeurs non biffées dans R.</description>
 </image>
 </figure>
 <p>En éliminant à nouveau les lignes nulles, mais cette fois-ci les colonnes pivots plutôt que les libres, on obtient une autre sous-matrice <m>L</m>:</p>
 <figure xml:id="fig-sousmatL">
 <caption>La matrice <m>L</m> dans la matrice échelonnée</caption>
-<image source="code/LaTeX/fig-sousmatL.svg">
+<image source="code/LaTeX/fig-sousmatL">
 <description>La matrice R est écrite avec les trois dernières lignes biffées, ainsi que les colonnes 1,3 et 5. On voit ensuite une flèche vers une matrice de taille 3, correspondant aux valeurs non biffées dans R.</description>
 </image>
 </figure>  
@@ -569,7 +569,7 @@ solbase(R)
     <subsection>
     <title>L'image d'une transformation linéaire</title>
     <p>L'équation <m>A\vec{x}=\vec{0}</m> a toujours une solution. Parfois, elle en a une infinité. Lorsqu'on remplace le vecteur nul par un vecteur quelconque, l'équation
-    <men xml:id="eq-Axb" symbol="star">A\vec{x}=\vec{b}</men> peut ne pas avoir de solution(s). Étant donnée une matrice <m>A</m>, pour quel(s) vecteur(s) <m>\vec{b}</m> l'équation
+    <mdn><mrow xml:id="eq-Axb" tag="star">A\vec{x}=\vec{b}</mrow></mdn> peut ne pas avoir de solution(s). Étant donnée une matrice <m>A</m>, pour quel(s) vecteur(s) <m>\vec{b}</m> l'équation
     <xref ref="eq-Axb"/> possède-t-elle au moins une solution?</p>
     <p>Géométriquement parlant, quels sont les vecteurs qui sont atteints par la transformation linéaire <m>A</m>, c'est-à-dire, quels sont les vecteurs qui forment l'image de cette transformation? On explore quelques cas
     dans l'exemple suivant.</p>
@@ -654,7 +654,7 @@ solbase(R)
      de l'exemple <xref ref="ex-imggeo"/>.</p>
     <example xml:id="ex-imgalg">
     <title>L'image de transformations algébriques</title>
-    <statement>On considère à nouveau les matrices de l'exemple <xref ref="ex-imggeo"/>. On détermine algébriquement les images de ces transformations.</statement>
+    <statement><p>On considère à nouveau les matrices de l'exemple <xref ref="ex-imggeo"/>. On détermine algébriquement les images de ces transformations.</p></statement>
     <solution>
     <p>On pose <m>\vec{b}=\vecd{b_1}{b_2}</m> et on augmente la matrice <m>\R_\theta</m> avec le vecteur <m>\vec{b}</m>, afin de procéder à l'échelonnage. On débute en supposant 
     que <m>\cos(\theta)\neq 0</m>.
@@ -1017,7 +1017,6 @@ show(solgen(C,c))
     </computation>
     <insight>
     <title>L'importance de tester son code</title>
-    <statement>
     <p>Lorsqu'on code une fonction, il est important de bien la tester afin de vérifier qu'elle répond
     aux attentes et que des cas particuliers ne causent pas de problèmes. Par exemple, la fonction <c>matL</c>
     échelonne une matrice, enlève les lignes nulles et retourne la sous-matrice des colonnes qui ne 
@@ -1037,7 +1036,6 @@ show(solgen(C,c))
     <p>Finalement, la fonction <c>solgen</c> prend deux arguments. L'ordre de ces arguments est-il important? Et si les arguments n'étaient pas du tout ce à quoi
     la fonction s'attend? Ce genre de problème peut être prévenu à l'aide de  &#x00AB; gestion d'erreurs &#x00BB;, mais on ne
     considère pas cela ici.</p>
-    </statement>
     </insight>
     <!-- ... -->
     </subsection>

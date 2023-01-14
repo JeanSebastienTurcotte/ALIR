@@ -86,7 +86,7 @@
     et de la multiplication par un scalaire usuelle. Cet ensemble n'est pas un espace vectoriel. Déterminer quelle(s) propriétés n'est pas satisfaites</p>
     </statement>
     <answer>
-    <p>Les propriétés <m>2,3,4<fn><p>Voir l'explication dans la solution</p></fn>,5<fn><p>Voir l'explication dans la solution</p></fn>,7,8</m> ne sont pas respectée.</p>
+    <p>Les propriétés <m>2,3,4,5,7,8</m><fn>Voir l'explication dans la solution</fn> ne sont pas respectée.</p>
     </answer>
     <solution><p>Puisque la somme de nombres réels est aussi un nombre réel et que <m>y^2\in\mathbb{R}</m>, la première propriété est respectée. La deuxième propriété par contre ne l'est pas. En effet, en général on n'a pas <m>x+y^2=x^2+y</m>. En prenant <m>x=2,y=1</m>, on a <m>x\oplus y=2+1^1=3</m>, mais <m>y\oplus x=1+2^2=5</m>. De même, l'associativité n'est pas respectée étant donné que le terme à droite a une particularité qui lui est propre. En effet
     <md>
@@ -120,21 +120,21 @@
     </solution>
     </exercise>
     <exercise><statement>
-    On considère les nombres réels strictement positifs munis des opérations suivantes:
+    <p>On considère les nombres réels strictement positifs munis des opérations suivantes:
 <me>
 x\oplus y=xy, r\otimes x=x^r.
 </me>
-Est-ce que ceci forme un espace vectoriel?
+Est-ce que ceci forme un espace vectoriel?</p></statement>
     <answer><p>Oui.</p></answer>
     <solution><p>On note <m>V</m> l'ensemble des nombres réels strictement positifs. Muni de ces opérations, c'est en effet un espace vectoriel. On montre chacune des propriétés. Soit <m>x,y,z>0</m> et <m>r,s\in \mathbb{R}</m>. Puisque le produit de deux nombres strictement posisitfs est encore positif, il suit que <m>x\oplus y</m> est dans <m>V</m>. La propriété <xref ref="li-espacevectoriel1"/> est satisfaite. Aussi, puique la multiplication usuelle de nombres réels est commutative, on a <m>x\oplus y=xy=yx=y\oplus x</m> et la propriété <xref ref="li-espacevectoriel2"/> est satisfaite. Pour la propriété <xref ref="li-espacevectoriel3"/>, cela découle aussi des propriétés de la multiplication usuelle, notamment l'associativité dans ce cas. Ainsi, <m>x\oplus (y\oplus z)=x(yz)=(xy)z=(x\oplus y)\oplus z</m>.</p>
     <p>On doit faire attention au neutre et à l'inverse additif. On peut les deviner ou encore utiliser les propriétés de la proposition <xref ref="prop-propespaces"/>. Dans le cas du neutre additif, <m>\vec{0}=1</m> est le vecteur nul puisque <m>x\oplus 1=1x=x</m>. Du côté de l'inverse additif, c'est <m>-x=\frac{1}{x}</m> qui fonctionne (<m>x&gt;0</m>) étant donné que <m>x\oplus \frac{1}{x}=x\frac{1}{x}=1=\vec{0}</m>.</p>
     <p>Pour les propriétés de la multiplication par un scalaire, on remarque que cette multiplication est en fait le processus d'exponentiation de nombres réels. Puisque l'exponentiation réel donne toujours un nombre strictement plus grand que zéro, il suit que <m>r\otimes x\in V</m>. De plus, en vertu des propriétés des exposants, on a
-    <me>
+    <md>
     <mrow>(rs)\otimes x&amp;=x^{rs}</mrow>
     <mrow>&amp;=(x^r)^s</mrow>
     <mrow>&amp;=(r\otimes x)^s</mrow>
     <mrow>&amp;=s\otimes (r\otimes x)</mrow>
-    </me>. La propriété <xref ref="li-espacevectoriel7"/> est donc satisfaite.</p>
+    </md>. La propriété <xref ref="li-espacevectoriel7"/> est donc satisfaite.</p>
     <p>Pour la propriété <xref ref="li-espacevectoriel8"/>, on a
     <md>
     <mrow>r\otimes(x\oplus y)&amp;=r\otimes (xy)</mrow>
@@ -153,7 +153,7 @@ Est-ce que ceci forme un espace vectoriel?
     </me>.</p>
     <p>Toutes les propriétés étant respectées, l'ensemble est un espace vectoriel.</p>
     </solution>
-    </statement>
+    
     </exercise>
 <exercise><introduction><p>Déterminer si chacun des ensembles suivants sont linéairement indépendants. Tous les espaces sous-jacents sont munis des opérations d'addition et multiplication usuelle.</p></introduction>
 <task><statement><p><m>U=\left\{\begin{pmatrix}1&amp;-1\\0&amp;1\end{pmatrix},\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix},\begin{pmatrix}1&amp;1\\1&amp;1\end{pmatrix}\right\}</m> vu comme un ensemble de <m>\mathcal{M}_{2\times 2}</m>.</p></statement>
@@ -540,11 +540,13 @@ La propriété est donc respectée.
     La fonction <m>\frac{1-2y}{2-y}</m> est décroissante et tend vers <m>0</m> lorsque <m>y</m> tend vers <m>1/2</m>.
     </p>
     <figure xml:id="fig-relativite">
+    <caption>La fonction <m>\frac{1-2y}{2-y}</m></caption>
     <image xml:id="img-relativite">
+    <description>Un graphique illustrant la fonction un moins deux y sur deux moins y. On voit que la fonction est décroissante et tend vers zéro lorsque y s'approche de une demie.</description>
     <sageplot>
 plot((1-2*x)/(2-x),x,-1/2,1/2,axes_labels=['$y$', '$\\frac{1-2y}{2-y}$'])
     </sageplot>
-    <description>Un graphique illustrant la fonction un moins deux y sur deux moins y. On voit que la fonction est décroissante et tend vers zéro lorsque y s'approche de une demie.</description>
+    
     </image>
     </figure>
     <p>On prend donc une valeur arbitraire de <m>y</m>, par exemple <m>\frac{1}{3}</m>. L'équation ci-haut force alors <m>x</m> à être inférieur à <m>\frac{1-2\frac{1}{3}}{2-\frac{1}{3}}=\frac{1}{5}</m>. On sait toutefois que dans <m>W</m>, le nombre <m>x</m> peut aller jusqu'à <m>\frac{1}{2}</m>. Donc en prenant quelque chose de plus grand que <m>\frac{1}{5}</m>, mais toujours sous <m>\frac{1}{2}</m>, la somme sortira de <m>W</m>.</p>

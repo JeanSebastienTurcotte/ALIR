@@ -22,8 +22,8 @@
     </introduction>
     <subsection xml:id="sssec-detR3">
     <title>L'espace à trois dimensions</title>
-    <p>Dans l'espace <m>\R^3</m>, une transformation linéaire envoie le cube unité sur l'équivalent tridimensionnel du parallélogramme, appelé le parallélépipède.<aside><title>En passant</title>On écrit 
-    parfois aussi parallélipipède, pour désigner ce solide dont les six faces sont des parallélogrammes.</aside> Tout comme dans <m>\R^2</m>, il arrive que le solide transformé ne soit en fait
+    <p>Dans l'espace <m>\R^3</m>, une transformation linéaire envoie le cube unité sur l'équivalent tridimensionnel du parallélogramme, appelé le parallélépipède.</p><aside><title>En passant</title><p>On écrit 
+    parfois aussi parallélipipède, pour désigner ce solide dont les six faces sont des parallélogrammes.</p></aside><p> Tout comme dans <m>\R^2</m>, il arrive que le solide transformé ne soit en fait
     plus un solide, mais un plan ou aussi une droite. Dans ces cas-là, on dira que le volume est nul.</p>
     <p>On regarde le facteur de changement de volume de certaines transformations connues de <m>\R^3</m>.</p>
     <example>
@@ -215,6 +215,7 @@ a_{n\, 1}&amp;a_{n\, 2}&amp;\cdots &amp; a_{n\, n}\\ \end{vmatrix}=\det(\vec{a}_
 </me>,
 qui satisfait les quatre propriétés suivantes:</p>
 <list xml:id="li-detdef">
+<title>Propriétés à satisfaire</title>
 <ol>
 <li xml:id="li-detI"><p>Si <m>A=I</m>, alors <m>\det(A)=\det(I)=1</m>;</p></li>
 <li xml:id="li-detr"><p>Multiplier une ligne par <m>r</m> multiplie la valeur du déterminant par ce même <m>r</m>, c'est-à-dire <m>\det(\vec{a}_{1},\ldots,r\vec{a}_{i},\ldots , \vec{a}_n)=r\det(\vec{a}_{1},\ldots ,\vec{a}_{i},\ldots , \vec{a}_n)=r\det(A)</m>;</p></li>
@@ -231,9 +232,8 @@ d'avoir à définir des opérations sur les colonnes.</p>
     Toutefois, on fait une remarque avant de continuer.</p>
     <remark xml:id="rem-existdef">
     <title>L'existence et l'unicité du déterminant</title>
-    <statement><p>À priori, rien n'indique que le déterminant existe, encore moins qu'il n'y en a qu'un seul pour une matrice donnée. On peut toutefois le démontrer, entre autres grâce à Gauss-Jordan. Les détails de cette démonstration
-    sont faits dans la section <xref ref="sec-cofacteurs"/>.</p></statement>
-    </remark>
+<p>À priori, rien n'indique que le déterminant existe, encore moins qu'il n'y en a qu'un seul pour une matrice donnée. On peut toutefois le démontrer, entre autres grâce à Gauss-Jordan. Les détails de cette démonstration
+sont faits dans la section <xref ref="sec-cofacteurs"/>.</p></remark>
     <p>On commence avec un exemple de calcul de déterminant, qui n'utilise que les propriétés <xref ref="li-detdef"/>. On voit que ces propriétés ne sont essentiellement que  l'effet sur le déterminant des opérations élémentaires sur les lignes.</p>
     <example xml:id="ex-det3x3-1">
     <title>Un premier calcul de déterminant <m>3\times 3</m></title>
@@ -339,11 +339,12 @@ d'avoir à définir des opérations sur les colonnes.</p>
     <title>Les propriétés du déterminant</title>
     <statement><p>Soit <m>A</m> une matrice carrée <m>n\times n</m> et <m>\det(A)</m> son déterminant. On note par <m>\vec{a}_i</m> les lignes de la matrice <m>A</m>. Alors</p>
     <list xml:id="li-detprop">
+    <title>Les propriétés du déterminants</title>
     <ol>
-    <li><p>Les premières propriétés font état du lien entre les lignes de la matrice. On les décline en trois variantes.</p><ol>
+    <li><p>Les premières propriétés font état du lien entre les lignes de la matrice. On les décline en trois variantes.<ol>
         <li xml:id="li-detvecegaux"><p>Si deux lignes sont égales, soit <m>\vec{a}_i=\vec{a}_j</m> pour certaines valeurs de <m>i,j</m>, alors <m>\det(A)=0</m>.</p></li>
         <li xml:id="li-detvecpara"><p>Si deux lignes sont parallèles, soit <m>\vec{a}_i=k\vec{a}_j</m> pour certaines valeurs de <m>i,j</m> et <m>k</m>, alors <m>\det(A)=0</m>.</p></li>
-        <li xml:id="li-detveccomblin"><p>Si une ligne est une combinaison linéaire des autres, soit <m>\vec{a}_i=k_1\vec{a}_1+\cdots +k_{i-1}\vec{a}_{i-1}+k_{i+1}\vec{a}_{i+1}+\cdots k_n\vec{a}_n</m>, alors <m>\det(A)=0</m>.</p></li></ol></li>
+        <li xml:id="li-detveccomblin"><p>Si une ligne est une combinaison linéaire des autres, soit <m>\vec{a}_i=k_1\vec{a}_1+\cdots +k_{i-1}\vec{a}_{i-1}+k_{i+1}\vec{a}_{i+1}+\cdots k_n\vec{a}_n</m>, alors <m>\det(A)=0</m>.</p></li></ol></p></li>
     <li xml:id="li-detvecnul"><p>Si une ligne est nulle, soit <m>\vec{a}_i=\vec{0}</m> pour une certaine valeur de <m>i</m>, alors <m>\det(A)=0</m>.</p></li>
     <li xml:id="li-detinv"><p>La matrice <m>A</m> est inversible si et seulement si <m>\det(A)\neq 0</m> et <m>\det(A^{-1})=\frac{1}{\det(A)}</m>.</p></li>
     <li xml:id="li-detproduit"><p>Le déterminant d'un produit est égal au produit des déterminants, c'est-à-dire si <m>B</m> est une autre matrice <m>n\times n</m>, alors <m>\det(AB)=\det(A)\det(B)</m>.</p></li>
@@ -386,21 +387,21 @@ d'avoir à définir des opérations sur les colonnes.</p>
     </proof>
     <proof><p>Cette propriété demande un peu plus de travail et de réflexion. Dans un premier temps, on suppose que <m>\vec{b}</m> est une combinaison linéaire des vecteurs <m>\vec{a}_1,\ldots , \vec{a}_n</m>, c'est-à-dire
     qu'il existe <m>k_1,\ldots , k_n</m> tel que 
-    <men xml:id="eq-vecbcomblin" symbol="star">
+    <mdn><mrow xml:id="eq-vecbcomblin" tag="star">
     \vec{b}=k_1\vec{a}_1+\cdots +k_n\vec{a}_n
-    </men>.
+    </mrow></mdn>.
     On a alors
     <md>
     <mrow>\det(\vec{a}_1,\cdots,\vec{a}_i+\vec{b},\cdots ,\vec{a}_n)&amp;=\det(\vec{a}_1,\cdots,\vec{a}_i+k_1\vec{a}_1+\cdots +\vec{a}_n,\cdots ,\vec{a}_n)</mrow>
-    <intertext><p>On applique à répétition la propriété <xref ref="li-detk"/> pour éliminer tous les facteurs sauf <m>k_i\vec{a}_i</m>.</p></intertext>
+    <intertext>On applique à répétition la propriété <xref ref="li-detk"/> pour éliminer tous les facteurs sauf <m>k_i\vec{a}_i</m>.</intertext>
     <mrow>&amp;=\det(\vec{a}_1,\cdots,\vec{a}_i+k_i\vec{a}_i,\cdots ,\vec{a}_n)</mrow>
     <mrow>&amp;=\det(\vec{a}_1,\cdots,(1+k_i)\vec{a}_i,\cdots ,\vec{a}_n)</mrow>
     <mrow>&amp;=(1+k_i)\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots ,\vec{a}_n) &amp;&amp;\text{selon } <xref ref="li-detr"/></mrow>
     <mrow>&amp;=\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots ,\vec{a}_n)+k_i\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots ,\vec{a}_n)</mrow>
     <mrow>&amp;=\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots ,\vec{a}_n)+\det(\vec{a}_1,\cdots,k_i\vec{a}_i,\cdots ,\vec{a}_n)&amp;&amp;\text{selon } <xref ref="li-detr"/></mrow>
-    <intertext><p>Dans l'équation <xref ref="eq-vecbcomblin"/>, on réarrange les termes pour isoler <m>k_i\vec{a}_i</m>. On a alors</p></intertext>
+    <intertext>Dans l'équation <xref ref="eq-vecbcomblin"/>, on réarrange les termes pour isoler <m>k_i\vec{a}_i</m>. On a alors</intertext>
     <mrow>&amp;=\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots ,\vec{a}_n)+\det(\vec{a}_1,\cdots,\vec{b}-(k_1\vec{a}_1+\cdots+k_{i-1}\vec{a}_{i-1}+k_{i+1}\vec{a}_{i+1}+\cdots +k_n\vec{a}_n),\cdots ,\vec{a}_n)</mrow>
-    <intertext><p>À cette étape, on applique encore une fois à répétition la propriété <xref ref="li-detr"/> pour éliminer les termes entre parenthèses dans la ligne <m>i</m> du déterminant. On a alors</p></intertext>
+    <intertext>À cette étape, on applique encore une fois à répétition la propriété <xref ref="li-detr"/> pour éliminer les termes entre parenthèses dans la ligne <m>i</m> du déterminant. On a alors</intertext>
     <mrow>&amp;=\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots ,\vec{a}_n)+\det(\vec{a}_1,\cdots,\vec{b},\cdots ,\vec{a}_n)</mrow>
     </md>.
     </p>
@@ -410,7 +411,7 @@ d'avoir à définir des opérations sur les colonnes.</p>
     On conclut avec la propriété <xref ref="li-detinv"/> que <m>\det(A)=0</m>.
     </p>
     <p>Deux choses sont maintenant possibles. Le vecteur <m>\vec{a_i}</m> peut être une combinaison linéaire des vecteurs <m>\vec{a}_1,\vec{a}_2,\ldots, \vec{a}_{i-1},\vec{a}_{i+1},\vec{a}_n</m>, dans ce cas selon le théorème
-    <xref ref="thm-delamatriceinversev3"/>, on a <m>\det(A)=\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots,\vec{a}_n) =0</m> et en utilisant à répétition la propriété <xref ref="li-detk"/> pour éliminer le terme <m>\vec{a}_i</m>, on a
+    <xref provisional="thm-delamatriceinverse"/>, on a <m>\det(A)=\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots,\vec{a}_n) =0</m> et en utilisant à répétition la propriété <xref ref="li-detk"/> pour éliminer le terme <m>\vec{a}_i</m>, on a
     <md>
     <mrow>\det(\vec{a}_1,\cdots,\vec{a}_i+\vec{b},\cdots ,\vec{a}_n)&amp;=\det(\vec{a}_1,\cdots,\vec{b},\cdots,\vec{a}_n) </mrow>
     </md>.
@@ -474,7 +475,7 @@ d'avoir à définir des opérations sur les colonnes.</p>
     <proposition xml:id="prop-detmattriang">
     <title>Le déterminant d'une matrice triangulaire</title>
     <statement>
-    Soit <m>T</m> une matrice triangulaire inférieure ou supérieure. Alors le déterminant de <m>T</m> est égal au produit des entrées sur la diagonale.
+    <p>Soit <m>T</m> une matrice triangulaire inférieure ou supérieure. Alors le déterminant de <m>T</m> est égal au produit des entrées sur la diagonale.</p>
     </statement>
     <proof><p>On suppose que <m>T=U</m>, une matrice triangulaire supérieure. Puisque <m>L=U^T</m> est une matrice triangulaire inférieure et que <m>\det(A)=\det(A^T)</m> selon la propriété
     <xref ref="li-dettransposee"/>, il suffit de le montrer pour un des deux types.</p>
@@ -557,6 +558,3 @@ show("det(A)=",A.determinant())
    <!--Inclure les exercices de la section ci-dessous--> 
    <xi:include href="Exercices_detgen.xml"/>
 </section>
-<!-- Parler de l'orientation du repère dans R^n dans la section sur les bases -->
-
-<!-- si b n'est pas un combinaison linéaire des lignes, alors A^Tx=b n'a pas de solution mettre dans section 3.4 -->

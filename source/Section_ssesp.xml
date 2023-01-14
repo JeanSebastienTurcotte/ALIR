@@ -44,13 +44,13 @@
     <definition xml:id="def-ssesp"> 
     <title>Sous-espace vectoriel</title>
     <statement>
-    <p>Soit <m>V</m> un ensemble non vide de vecteurs (possiblement tous) de <m>\R^n</m>, de sorte que <m>V\subseteq \R^n</m>. On dit que <m>V</m> est un sous-espace vectoriel si les vecteurs dans <m>V</m> satisfont les propriétés suivantes:
+    <p>Soit <m>V</m> un ensemble non vide de vecteurs (possiblement tous) de <m>\R^n</m>, de sorte que <m>V\subseteq \R^n</m>. On dit que <m>V</m> est un sous-espace vectoriel si les vecteurs dans <m>V</m> satisfont les propriétés suivantes:</p>
     <list xml:id="li-ssesp">
+    <title>Propriétés à satisfaire</title>
     <ol>
     <li xml:id="li-ssespsomme"><p>Si deux vecteurs sont dans <m>V</m>, alors leur somme est aussi dans <m>V</m>, c'est-à-dire si <m>\vec{u},\vec{v}\in V</m>, alors <m>\vec{u}+\vec{v}\in V</m>.</p></li>
     <li xml:id="li-ssespmult"><p>Si un vecteur est dans <m>V</m> et qu'on le multiplie par un scalaire, alors le multiple est aussi dans <m>V</m>, c'est-à-dire si <m>k\in \R,\vec{v}\in V</m>, alors <m>k\vec{v}\in V</m>.</p></li>
     </ol></list>
-    </p>
     <p>On dit que l'ensemble <m>V</m> est fermé par rapport à l'addition et à la multiplication par un scalaire.</p>
     </statement>
     </definition>
@@ -208,8 +208,8 @@
     </proposition>
     <p>En combinant les propositions précédentes, on peut arriver à caractériser les sous-espaces d'une manière géométrique. Puisque tout espace engendré par un ensemble de vecteurs est un sous-espace, il suit que
     les droites, plans et en général hyperplans passant par l'origine sont des sous-espaces vectoriels. On verra aussi à la prochaine section que, mis à part le sous-espace composé uniquement du vecteur nul, tout sous-espace
-    peut être vu comme l'espace engendré par un certain nombre de vecteurs. Les sous-espaces ne sont donc qu'un autre terme utilisé pour décrire droites, plans et hyperplans.<fn><p>En fait, on verra plus tard qu'on peut considérer des 
-    espaces plus arbitraires que <m>\R^n</m> et que les mots droites et plans n'auront plus de sens dans ces espaces.</p></fn></p>
+    peut être vu comme l'espace engendré par un certain nombre de vecteurs. Les sous-espaces ne sont donc qu'un autre terme utilisé pour décrire droites, plans et hyperplans.<fn>En fait, on verra plus tard qu'on peut considérer des 
+    espaces plus arbitraires que <m>\R^n</m> et que les mots droites et plans n'auront plus de sens dans ces espaces.</fn></p>
     <p>Les sous-espaces vectoriels possèdent certaines propriétés communes à tous. La plus importante est certainement la présence du vecteur nul.</p>
     <proposition xml:id="prop-vecnulssesp">
     <title>Le vecteur nul fait partie de tous les sous-espaces vectoriels</title>
@@ -256,7 +256,6 @@
     </example>
     <remark>
     <title>Le complément orthogonal n'est pas réservé aux sous-espaces vectoriels</title>
-    <statement>
     <p>On peut déterminer le complément orthogonal de n'importe quel ensemble de vecteurs, pas seulement des ensembles qui sont des sous-espaces vectoriels. Par exemple, si on considère la droite
     <me>
     \mathcal{D}: (x,y)=c(2,1)+(1,1)
@@ -265,7 +264,6 @@
     sur la droite perpendiculaire à <m>\mathcal{D}</m> et passant par le point <m>(1,1)</m>, mais la situation réelle est plus complexe. Puisque chaque valeur de <m>c</m> apporte une direction différente (dû à l'addition du point <m>(1,1)</m>),
     il y a en fait une infinité de droites qui composent le complément orthogonal. Comme on va principalement se concentrer sur les sous-espaces vectoriels dans le cadre de ces notes, on n'ira pas plus loin que cette remarque.
     </p>
-    </statement>
     </remark>
     <p>On a déjà rencontré des sous-espaces orthogonalement complémentaires à la section <xref ref="sec-transposee"/>. On y revient dans la prochaine sous-section. Pour le moment, on regarde les propriétés du
     complément orthogonal lorsque l'ensemble <m>V</m> est un sous-espace vectoriel.</p>
@@ -448,17 +446,15 @@ conclure que <m>\mathcal{N}(A^T)^{\perp}\subseteq C(A)</m>.</p>
     </proposition>
     <insight xml:id="con-egalensemble">
     <title>Égalité de deux ensembles</title>
-    <statement><p>
+    <p>
     Lorsqu'on veut montrer que deux ensembles <m>V,W</m> sont égaux, une manière efficace de le faire est de montrer que tous les éléments de <m>V</m> sont aussi dans <m>W</m>, et donc que <m>V\subseteq W</m>, et que
     tous les éléments de <m>W</m> sont dans <m>V</m>, entrainant alors que <m>W\subseteq V</m>. La seule conclusion est alors que <m>V=W</m>. C'est ce principe qui est utilisé dans la preuve de la proposition <xref ref="prop-espfondcomportho"/>.
     </p>
     <p>Le même principe est aussi utilisé pour démontrer l'égalité de deux nombres <m>x,y</m>. On peut dans un premier temps montrer que <m>x\leq y</m> et ensuite que <m>y\leq x</m>, ce qui entraine l'égalité.</p>
-    </statement>
     </insight>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation>
     <title>Les espaces fondamentaux et le complément orthogonal</title>
-    <statement>
     <p>À l'exemple <xref ref="sageex-espfond"/>, on a vu comment déterminer des vecteurs dont le <m>\vspan</m> sera un des quatre espaces fondamentaux d'une matrice <m>A</m>. Ces vecteurs sont ce qu'on appelle une base de
     ces espaces. Les bases seront le principal sujet de la prochaine section. Pour l'instant, on s'intéresse à vérifier l'orthogonalité des espaces fondamentaux tel qu'indiqué à la proposition <xref ref="prop-espfondcomportho"/>.</p>
     <p>On commence par définir la matrice <m>B</m> de l'exemple <xref ref="sageex-espfond"/> et les éléments qui génèrent chacun de ses quatre espaces fondamentaux.</p>
@@ -495,7 +491,6 @@ for v in nulgauche:
     </input>
     </sage>
     <p>Le produit scalaire entre les générateurs étant nul, le produit scalaire de chaque élément des espaces nul et ligne et chaque élément des espaces nul gauche et colonne sera aussi nul, comme le garantit la proposition <xref ref="prop-perpclin"/>. </p>
-    </statement>
     </computation>
     </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->

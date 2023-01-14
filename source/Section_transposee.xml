@@ -43,8 +43,8 @@ a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
 <me>
 (a^T_{i\, j})=a_{j\, i}
 </me>.</p></statement>
-<aside><title>En passant</title><p>La matrice transposée est parfois aussi notée avec la lettre &#x00AB; t &#x00BB; minuscule, ou encore avec une apostrophe &#x2b9; .</p></aside>
     </definition>
+    <aside><title>En passant</title><p>La matrice transposée est parfois aussi notée avec la lettre &#x00AB; t &#x00BB; minuscule, ou encore avec une apostrophe &#x2b9; .</p></aside>
     <p>On regarde quelques exemples de matrices et de leur transposée.</p>
     <example>
     <title>La transposée de certaines matrices</title>
@@ -63,7 +63,7 @@ a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
     </me>. La matrice transposée est la matrice 
    <md> <mrow>A^T&amp;=\begin{pmatrix}\rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_1 &amp; \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}\\
                                   \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_2 &amp; \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}\end{pmatrix}</mrow>
-             &amp;=\matcold{1}{-1}{2}{1}
+             <mrow>&amp;=\matcold{1}{-1}{2}{1} </mrow>
     </md>.</p>
     </solution>
     <solution><p>Cette fois, on convertit les lignes en colonnes. Soit <m>\vec{b}_1=(1,-1,3)</m>, <m>\vec{b}_2=(4,1,5)</m> et <m>\vec{b}_3=(0,-2,6)</m>. On a alors 
@@ -73,7 +73,7 @@ a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
                                   \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{b}_3 &amp; \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}\end{pmatrix}
     </me>. La matrice transposée est la matrice
     <md> <mrow>B^T&amp;=\begin{pmatrix} \lvert&amp; \lvert &amp; \lvert \\ \vec{b}_1 &amp; \vec{b}_2 &amp; \vec{b}_3\\ \lvert&amp; \lvert &amp; \lvert \end{pmatrix}</mrow>
-             &amp;=\matcolt{1}{-1}{3}{4}{1}{5}{0}{-2}{6}
+             <mrow>&amp;=\matcolt{1}{-1}{3}{4}{1}{5}{0}{-2}{6}</mrow>
     </md>.
     </p></solution>
     <solution><p>Qu'on transforme les lignes en colonnes ou les colonnes en lignes, le résultat sera le même. Tant que la correspondance <m>\vec{l}_i\leftrightarrow \vec{c}_i</m> est respectée, soit que la ligne <m>i</m>
@@ -166,12 +166,13 @@ a_{1\, n}&amp;a_{2\, n}&amp;\cdots &amp; a_{m\, n}\\
     <p>L'exemple <xref ref="ex-projorthomat"/> motive la définition suivante.</p>
     <definition xml:id="def-projorthomat">
     <title>La matrice d'une projection orthogonale</title>
+    <statement>
     <p>Soit <m>\vec{u}</m> un vecteur quelconque et soit <m>\hat{u}</m> un vecteur unitaire dans la même direction que <m>\vec{u}</m>. La projection orthogonale sur <m>\vec{u}</m>
     peut être représentée par la matrice
     <men xml:id="eq-projorthomat">
     P_\vec{u}=\hat{u}\hat{u}^T
     </men>.</p>
-    <p>On appelle la matrice de l'équation <xref ref="eq-projorthomat"/> la matrice standard de la projection.</p>
+    <p>On appelle la matrice de l'équation <xref ref="eq-projorthomat"/> la matrice standard de la projection.</p></statement>
     </definition>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation>

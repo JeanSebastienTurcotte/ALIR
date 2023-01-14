@@ -140,8 +140,8 @@
     </definition>
     <remark>
     <title>L'indépendance (linéaire)</title>
-    <statement><p>Il arrive souvent qu'on ne mentionne pas le terme linéairement dans l'expression linéairement indépendant. Puisqu'on a qu'un seul type d'indépendance, le contexte est toujours celui de l'indépendance 
-    linéaire.</p></statement>
+<p>Il arrive souvent qu'on ne mentionne pas le terme linéairement dans l'expression linéairement indépendant. Puisqu'on a qu'un seul type d'indépendance, le contexte est toujours celui de l'indépendance 
+    linéaire.</p>
 </remark>
     <example>
     <title>L'indépendance linéaire de deux vecteurs spécifiques</title>
@@ -219,11 +219,10 @@
     temps supposer qu'aucune paire de vecteurs n'est parallèle, car la partie précédente entraine que les vecteurs seraient dépendants. Comme aucun vecteur n'est parallèle, on peut prendre les vecteurs <m>\vec{u},\vec{v}</m>
     comme vecteurs directeurs du plan. Il existe donc <m>c_1,c_2</m> tels que <m>\vec{w}=c_1\vec{u}+c_2\vec{v}</m>, car <m>\vec{w}</m> est dans le plan de ces vecteurs. Or en écrivant <m>c_1\vec{u}+c_2\vec{v}-\vec{w}=\vec{0}</m>, on obtient 
     une combinaison linéaire non triviale des vecteurs <m>\vec{u},\vec{v},\vec{w}</m> donnant le vecteur nul, ce qui est impossible, car les vecteurs sont indépendants par hypothèse.</p>
-    <p>En contrepartie, si on suppose que les vecteurs ne sont pas sur un même plan et qu'on considère une combinaison linéaire des vecteurs <m>\vec{u},\vec{v},\vec{w}</m> donnant le vecteur nul, par exemple <m>c_1\vec{u}+c_2\vec{v}+c_3\vec{w}=\vec{0}</m>.
+    <p>En contrepartie, si on suppose que les vecteurs ne sont pas sur un même plan et qu'on considère une combinaison linéaire des vecteurs <m>\vec{u},\vec{v},\vec{w}</m> donnant le vecteur nul, par exemple <m>c_1\vec{u}+c_2\vec{v}+c_3\vec{w}=\vec{0}</m>.    </p>
     <p>On sait qu'au moins l'une de ces constantes est non nulle. On suppose que <m>c_1</m> est non nulle, l'argument sera similaire dans les autres cas. On peut alors isoler
     <m>\vec{u}=-\frac{c_2}{c_1}\vec{v}-\frac{c_3}{c_1}\vec{w}</m>. Or ceci signifie que <m>\vec{u}</m> est une combinaison linéaire des vecteurs <m>\vec{v},\vec{w}</m> et donc serait dans le même plan que ces vecteurs, ce qui contredit l'hypothèse initiale.
     Ainsi, les vecteurs sont indépendants.</p>
-    </p>
     </proof>
     </proposition>
     <p>La généralisation naturelle de ces situations est donnée dans la proposition suivante.</p>
@@ -238,7 +237,6 @@
   <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
   <computation xml:id="sageex-indlin">
   <title>Sage et l'indépendance linéaire</title>
-  <statement>
   <p>Pour vérifier si un ensemble de vecteurs est linéairement indépendant, il existe plusieurs options. La première consiste à utiliser la <xref ref="def-indlin" text="custom">définition</xref>.
   On peut alors résoudre l'équation <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_k\vec{v}_k=0</m> en utilisant les techniques du chapitre <xref ref="chap-SEL"/> et valider avec la définition <xref ref="def-indlin"/>.</p>
   <sage>
@@ -305,7 +303,6 @@ show(V.span(L)==V.span(Lv4))
 #Comme les span sont différents, les vecteurs sont indépendants.
   </input>
   </sage>
-  </statement>
   </computation>
     </subsection>
     <subsection xml:id="sssec-bases">
@@ -510,7 +507,7 @@ show(V.span(L)==V.span(Lv4))
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-base">
     <title>Les bases et Sage</title>
-    <statement><p>Avec Sage, on peut facilement déterminer une base d'un sous-espace vectoriel. La méthode la plus simple consiste à créer le <m>\vspan</m> d'un certain nombre de vecteurs et ensuite de demander une base à Sage. Comme il existe plusieurs bases, Sage en choisit une selon l'algorithme qui lui a été programmé.</p>
+<p>Avec Sage, on peut facilement déterminer une base d'un sous-espace vectoriel. La méthode la plus simple consiste à créer le <m>\vspan</m> d'un certain nombre de vecteurs et ensuite de demander une base à Sage. Comme il existe plusieurs bases, Sage en choisit une selon l'algorithme qui lui a été programmé.</p>
     <p>Pour tester, on reprend les vecteurs de l'exemple <xref ref="sageex-indlin"/> et on cherche une base aux sous-espaces créés par les différents <m>\vspan</m></p>
     <sage>
     <input>
@@ -534,7 +531,6 @@ show("Une base pour span(v1,v2,v3):",spanLv3.basis())
 show("Une base pour span(v1,v2,v4):",spanLv4.basis())
     </input>
     </sage>
-    </statement>
     </computation>
        </subsection>
    <subsection xml:id="sssec-dim">
@@ -576,13 +572,13 @@ show("Une base pour span(v1,v2,v4):",spanLv4.basis())
     </proposition>
     <remark xml:id="rem-depnbr">
     <title> L'indépendance linéaire n'était pas nécessaire</title>
-    <statement><p>Dans la proposition <xref ref="prop-depnbr"/>, les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> forment une base. On dit alors que tout ensemble comprenant plus de <m>k</m> vecteurs est forcément
+<p>Dans la proposition <xref ref="prop-depnbr"/>, les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> forment une base. On dit alors que tout ensemble comprenant plus de <m>k</m> vecteurs est forcément
     dépendant. En fait, on peut alléger un peu les hypothèses de la proposition et exiger seulement que les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> génèrent <m>V</m>, c'est-à-dire que
     <me>
     \vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)=V
     </me>.
     
-    Les détails sont faits à l'exercice <xref ref="exo-depnbr"/></p></statement>
+    Les détails sont faits à l'exercice <xref ref="exo-depnbr"/></p>
     </remark>
     <p>On obtient alors grâce à cette proposition le résultat principal de cette sous-section</p>
     <proposition>
@@ -609,7 +605,7 @@ show("Une base pour span(v1,v2,v4):",spanLv4.basis())
     </definition>
     <example>
     <title>La dimension de sous-espaces vectoriels</title>
-    <statement>On reprend les sous-espaces de l'exemple <xref ref="ex-ssesp"/> et on détermine leur dimension.</statement>
+    <statement><p>On reprend les sous-espaces de l'exemple <xref ref="ex-ssesp"/> et on détermine leur dimension.</p></statement>
     <solution>
     <p>À l'exemple <xref ref="ex-baseex"/>, on a trouvé comme base du plan <m>\mathcal{P}_1</m> les vecteurs <m>\vec{u}=(-1,1,0)</m> et <m>\vec{v}=(-1,0,1)</m>. Sans surprise, la dimension de l'espace est <m>2</m>.</p>
     </solution>
@@ -628,8 +624,8 @@ show("Une base pour span(v1,v2,v4):",spanLv4.basis())
     <solution>
     <p>Un plan peut être engendré par deux vecteurs non parallèles et donc qui sont indépendants. Ces deux vecteurs forment donc une base. La dimension d'un plan est donc toujours égale à <m>2</m>, tel qu'attendu.</p>
     </solution>
-    <p>Un hyperplan passant par l'origine dans <m>\R^n</m> est caractérisé par l'équation <m>a_1x_1+a_2x_2+\cdots +a_nx_n=0</m>. En considérant cette équation d'un point de vue matricielle, la matrice <m>1\times n</m> associée à
-    cette équation n'aura q'un pivot et <m>n-1</m> variables libres. Ces variables libres amèneront <m>n-1</m> solutions de base, donnant ainsi un sous-espace à <m>n-1</m> dimension.</p>
+    <solution><p>Un hyperplan passant par l'origine dans <m>\R^n</m> est caractérisé par l'équation <m>a_1x_1+a_2x_2+\cdots +a_nx_n=0</m>. En considérant cette équation d'un point de vue matricielle, la matrice <m>1\times n</m> associée à
+    cette équation n'aura q'un pivot et <m>n-1</m> variables libres. Ces variables libres amèneront <m>n-1</m> solutions de base, donnant ainsi un sous-espace à <m>n-1</m> dimension.</p></solution>
     </example>
     <p>L'exemple précédent fait allusion aux solutions de base d'un système d'équations linéaires. On est maintenant en mesure de comprendre l'utilisation du terme &#x00AB; de base &#x00BB;. Les solutions à l'équation
     <m>A\vec{x}=\vec{0}</m> forment un sous-espace vectoriel, l'espace nul. Cet espace est engendré par les vecteurs solutions de base définis à la section <xref ref="sec-SELgeo"/>. Les solutions de base sont toujours indépendantes (voir l'exercice <xref ref="exo-solbaseindep"/>) et forment
@@ -642,11 +638,11 @@ show("Une base pour span(v1,v2,v4):",spanLv4.basis())
     <ol>
     <li><p>Si <m>l&lt; k</m>, alors <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l)\neq V</m>.</p></li>
     <li><p>Si <m>l&gt; k</m>, alors les vecteurs sont dépendants. </p></li>
-    <li><p>Si <m>l=k</m></p>
+    <li><p>Si <m>l=k</m>
     <ol><li> et si <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l)= V</m>, alors les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l</m> sont aussi indépendants et donc, forment une base. </li>
         <li> et si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l</m> sont indépendants, alors  <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_l)= V</m>  et donc, forment une base. </li>
     </ol>
-    </li>
+    </p></li>
     </ol>
     </p>
     </statement>
@@ -710,7 +706,7 @@ show("rref(A)=",A.rref())
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-dimension">
     <title>Les bases et Sage</title>
-    <statement><p>Avec Sage, on peut aussi automatiquement obtenir la dimension d'un sous-espace vectoriel.</p>
+   <p>Avec Sage, on peut aussi automatiquement obtenir la dimension d'un sous-espace vectoriel.</p>
     <p>Pour tester, on reprend encore les vecteurs de l'exemple <xref ref="sageex-indlin"/> et on calcule la dimension à l'aide de la commande <c>dimension</c>.</p>
     <sage>
     <input>
@@ -734,7 +730,6 @@ show("la dimension de span(v1,v2,v3) est :",spanLv3.dimension())
 show("la dimension de span(v1,v2,v4) est :",spanLv4.dimension())
     </input>
     </sage>
-    </statement>
     </computation>
     </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->

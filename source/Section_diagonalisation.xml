@@ -107,7 +107,8 @@
     <p>La diagonalisation permet de voir la matrice sous un autre oeil, en permettant de la décrire par des transformations simples comme les étirements et les réflexions. Par exemple, la matrice <m>A</m> de l'exemple <xref ref="ex-vecvalpropres"/> semble être un étirement de facteur <m>2</m> dans la direction <m>(-1,1)</m> avec une direction inchangée en <m>(-1,2)</m>. La figure suivante illustre un parallélograme engendré par ces vecteurs et son image.</p>
         <figure xml:id="fig-vecpropre3">
     <caption>La transformation <m>A</m></caption>
-    <image xml:id="img-vecpropre3">
+    <image xml:id="img-vecpropre3">    
+    <description>Un parallélogramme engendré par les deux vecteurs propres de la matrices A est illustré avec son image, qui est un étirement de facteur deux dans la direction de l'un des vecteurs propres, l'autre direction étant inchangée.</description>
     <sageplot>
 v1=vector([-1,2])
 v2=vector([-1,1])
@@ -120,13 +121,13 @@ Pointsparatrans=[B*pt for pt in Pointspara]
 graph2=polygon(Pointsparatrans,color="red",alpha=0.25,aspect_ratio=0.75)+polygon(Pointspara,color="blue",alpha=0.25,aspect_ratio=0.75)
 graph2
     </sageplot>
-    <description><p>Un parallélogramme engendré par les deux vecteurs propres de la matrices A est illustré avec son image, qui est un étirement de facteur deux dans la direction de l'un des vecteurs propres, l'autre direction étant inchangée.</p></description>
     </image>
     </figure>
     <p>De même, la matrice <m>C</m> peut être vue comme un étirement de facteur <m>2</m> dans la direction <m>(1,2,0)</m>, un étirement aussi de facteur <m>2</m> ainsi qu'une réflexion dans la direction <m>(-1,0,1)</m>. Il y a aussi une projection sur le plan engendré par ces deux premiers vecteurs, mais c'est plus difficile à décrire puisque les projections générales n'ont pas encore été abordées. On les verra à la section <xref provisional="sec-projections"/>. On peut toutefois en observer l'effet sur la figure suivante. </p>
         <figure xml:id="fig-vecpropre4">
     <caption>La transformation <m>A</m></caption>
     <image xml:id="img-vecpropre4">
+    <description>Un parallélépipède engendré par les vecteurs propres de la matrices C est illustré avec son image par cette matrice. Dans ce cas, l'image est en fait un parallélograme dont les côtés sont parallèles aux deux premiers vecteurs propres.</description>
     <sageplot variant="3d">
 v1=vector([1,2,0])
 v2=vector([-1,0,1])
@@ -140,13 +141,13 @@ Pointsparatrans=[C*pt for pt in Pointspara]
 graph2=line(Pointsparatrans,color="red",alpha=0.25,aspect_ratio=1,axes=True)+line(Pointspara,color="blue",alpha=0.25,aspect_ratio=1,)+plot(v1,color="red")+plot(v2,color="darkgreen")+plot(v3,color="blue")
 graph2
     </sageplot>
-    <description><p>Un parallélépipède engendré par les vecteurs propres de la matrices C est illustré avec son image par cette matrice. Dans ce cas, l'image est en fait un parallélograme dont les côtés sont parallèles aux deux premiers vecteurs propres. </p></description>
     </image>
     </figure>
     <p>Finalement, la matrice <m>F</m> peut être vue comme une réflexion selon le plan perpendiculaire à <m>x=0</m> et laissant les directions <m>(1,2,1)</m> et <m>(0,0,1)</m> fixes. La figure ci-dessous illustre la transformation sur le parallélépipède engendré par ces trois directions.</p>
         <figure xml:id="fig-vecpropre5">
     <caption>La transformation <m>A</m></caption>
     <image xml:id="img-vecpropre5">
+    <description>Un parallélépipède engendré par les vecteurs propres de la matrices F est illustré avec son image par cette matrice. L'image est un parallélépipiède se trouvant à être la réflexion du parallélépipède initial selon le premier vecteur.</description>
     <sageplot variant="3d">
 v1=vector([1,0,0])
 v2=vector([1,2,0])
@@ -160,7 +161,6 @@ Pointsparatrans=[C*pt for pt in Pointspara]
 graph2=line(Pointsparatrans,color="red",alpha=0.25,aspect_ratio=1,axes=True)+line(Pointspara,color="blue",alpha=0.25,aspect_ratio=1,)+plot(v1,color="red")+plot(v2,color="darkgreen")+plot(v3,color="blue")
 graph2
     </sageplot>
-    <description><p>Un parallélépipède engendré par les vecteurs propres de la matrices F est illustré avec son image par cette matrice. L'image est un parallélépipiède se trouvant à être la réflexion du parallélépipède initial selon le premier vecteur.</p></description>
     </image>
     </figure>
     <p>L'un des principales avantages de la diagonalisation est lors du calcul des puissances de la matrices <m>A</m>. En général, calculer <m>A^n</m> pour une grande valeur de <m>n</m> peut être un exercice laborieux ou encore un procédé coûteux pour un ordinateur, mais si <m>A</m> est diagonalisable, alors on peut écrire
@@ -216,7 +216,7 @@ graph2
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation>
     <title>La diagonalisation sur Sage</title>
-    <statement><p>Sage a une commande appelé <c>eigenmatrix_right</c> qui retourne une paire de matrice, les matrices <m>D</m> et <m>P</m> lorsque la matrice est diagonalisable. On peut aussi vérifier si une matrice est diagonalisable avec la commande <m>is_diagonalizable()</m>, qui fonctionne si on ajoute l'option <c>QQ</c> à la matrice (ou <c>RR</c>,<c>RDF</c>). On regarde les matrices de l'exemple <xref ref="ex-vecvalpropres"/> et lorsque diagonalisable, on fait sortir les deux matrices afin de comparer avec celles obtenues à l'exemple <xref ref="ex-vecvalpropresdiago"/>.</p>
+    <p>Sage a une commande appelé <c>eigenmatrix_right</c> qui retourne une paire de matrice, les matrices <m>D</m> et <m>P</m> lorsque la matrice est diagonalisable. On peut aussi vérifier si une matrice est diagonalisable avec la commande <m>is_diagonalizable()</m>, qui fonctionne si on ajoute l'option <c>QQ</c> à la matrice (ou <c>RR</c>,<c>RDF</c>). On regarde les matrices de l'exemple <xref ref="ex-vecvalpropres"/> et lorsque diagonalisable, on fait sortir les deux matrices afin de comparer avec celles obtenues à l'exemple <xref ref="ex-vecvalpropresdiago"/>.</p>
     <sage>
     <input>
 A=matrix([[3,1],[-2,0]])
@@ -257,7 +257,6 @@ show(F.eigenmatrix_right())
     </input>
     </sage>
     <p>On remarque que lorsque la matrice n'est pas diagonalisable, la commande <c>eigenmatrix_right</c> retourne quand même la matrice <m>D</m> des valeurs propres et une matrice contenant des vecteurs propres indépendants et des colonnes de zéros pour la compléter.</p>
-    </statement>
     </computation>
     </subsection>
     <subsection><title>Changement de base</title>
@@ -287,7 +286,7 @@ show(F.eigenmatrix_right())
 On trouve de cette égalité matricielle un système à quatre équations et quatre inconnues:
 <md>
 <mrow>4a-2b+2c&amp;=0</mrow>
-<mrow>3a-b-2d&amp;=0</mrow>}
+<mrow>3a-b-2d&amp;=0</mrow>
 <mrow>a-c-2d&amp;=0</mrow>
 <mrow>b-3c-4d&amp;=0</mrow>
 </md>.
@@ -364,7 +363,7 @@ show(M.rref())
     <title>De la base standard à une base <m>\mathcal{B}</m></title>
     <statement><p>
     On veut convertir la matrice <m>A=\begin{pmatrix} 1&amp; 4&amp; 7\\ 2&amp; 5&amp; 8\\ 3&amp; 6&amp; 9\end{pmatrix}</m> dans la base <m>\mathcal{B}= \langle (1,0,1),(-1,2,-3),(2,2,1)\rangle</m>.
-    </p>
+    </p></statement>
     <solution><p>On pose <m>P=\begin{pmatrix}  1&amp;-1&amp;2 \\0&amp;2&amp;2\\ 1&amp;-3&amp;1 \end{pmatrix}</m>. Selon la proposition <xref ref="prop-changementdebase"/>, la formule pour écrire <m>A</m> dans la base <m>\mathcal{B}</m> est
     <me>
     A_{\mathcal{B}}=P^{-1}AP
@@ -389,7 +388,6 @@ show(M.rref())
     Les colonnes de <m>A_{\mathcal{B}}</m> correspondent à l'écriture des vecteurs <m>(1,2,3),(4,5,6),(7,8,9)</m> dans la base <m>\mathcal{B}</m>.
     </p>
     </solution>
-    </statement>
     </example>
     <example><title>D'une base <m>\mathcal{B}</m> à la base standard</title>
     <statement><p>Soit <m>C_{\mathcal{B}}=\begin{pmatrix} 1&amp;1&amp;1&amp;3 \\ 1&amp; -1&amp; 2&amp;-3\\ 1&amp; 1&amp; 2&amp;3\\ 1&amp; -1&amp; 1&amp;-3\end{pmatrix}_{\mathcal{B}}</m> où <m>\mathcal{B}=\langle (4,3,2,1),(-2,4,-6,8),(0,1,1,0),(3,5,-1,0)\rangle</m>. On cherche la représentation de ces vecteurs dans la base standard.</p></statement>

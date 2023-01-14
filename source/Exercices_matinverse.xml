@@ -783,7 +783,7 @@ show(etirR2(vector([u1,u2]),k).simplify_full())
                 </sage>
             </statement>
             <solution>
-                <p><listing>
+            <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
                <input>
@@ -816,8 +816,8 @@ show("Le nombre de matrices de permutation 4x4 qui ne sont pas leur propre inver
 show("Celles-ci ne sont pas leur propre inverse :",P4autreinverse)
 </input>
                    </program>
-                   </listing></p>
-            <p><listing>
+                   </listing>
+            <listing>
                    <caption>Une remarque concernant les copies créées simplement avec "=" </caption>
                <program language="sage">
                <input>
@@ -832,7 +832,7 @@ show(L2)
 show(L3)
 </input>
                    </program>
-                   </listing></p>
+                   </listing>
             </solution>
     </task>
     <task>
@@ -918,7 +918,7 @@ show("P3P3*v=",P3*P3*v)
     On doit donc la recopier au début du code. 
     On conseille de réutiliser le même code à chaque fois et de simplement modifier les matrices et l'équation à vérifier.
     Attention: le code peut prendre un certain temps à exécuter, surtout si on choisit des matrices de grands formats.
-    Noter qu'on n'a pas à définir la matrice <m>X</m> puisqu'elle est créée par l'équation où on l'a isolée.
+    Noter qu'on n'a pas à définir la matrice <m>X</m> puisqu'elle est créée par l'équation où on l'a isolée.</p>
                     <listing>
                     <caption>Le code où on définit la fonction <em>matquelc</em></caption>
                     <program language="sage">
@@ -934,10 +934,11 @@ def matquelc(m,n,lettre):
                    </input>
                    </program>
                    </listing>
+                   <p>
                 <ol marker="1.">
                     <li><p>Pour l'équation <m>XA+B=C</m>, on avait obtenu <m>X=(C-B)A^{-1}</m>. 
                     Les dimensions des matrices sont <m>A_{n\times n}</m>,  <m>B_{m\times n}</m> et  <m>C_{m\times n}</m>.
-                    On choisit donc <m>A_{3\times 3}</m>,  <m>B_{2\times 3}</m> et <m>C_{2\times 3}</m>.
+                    On choisit donc <m>A_{3\times 3}</m>,  <m>B_{2\times 3}</m> et <m>C_{2\times 3}</m>.</p>
                     <listing>
                     <caption>Le code solution pour l'exercice</caption>
                     <program language="sage">
@@ -951,10 +952,10 @@ X*A+B==C
                    </input>
                    </program>
                    </listing> 
-                   </p></li>
+                   </li>
                     <li><p>Pour l'équation <m>AX+B=X</m>, on avait obtenu <m>X=-(A-I)^{-1}B</m>. 
                     Les dimensions des matrices sont <m>A_{m\times m}</m>, <m>I_{m\times m}</m> et <m>B_{m\times n}</m>.
-                    On choisit donc <m>A_{2\times 2}</m>, <m>I_{2\times 2}</m> et <m>B_{2\times 3}</m>.
+                    On choisit donc <m>A_{2\times 2}</m>, <m>I_{2\times 2}</m> et <m>B_{2\times 3}</m>.</p>
                     <listing>
                     <caption>Le code solution pour l'exercice</caption>
                     <program language="sage">
@@ -967,10 +968,10 @@ A*X+B==X
                     </input>
                     </program>
                     </listing>
-                    </p></li>
+                    </li>
                     <li><p>Pour l'équation <m>AXB=D</m>, on avait obtenu <m>X=A^{-1}DB^{-1}</m>.
                     Les dimensions des matrices sont <m>A_{m\times m}</m>,  <m>B_{n\times n}</m> et <m>D_{m\times n}</m>.
-                    On choisit donc <m>A_{3\times 3}</m>,  <m>B_{2\times 2}</m> et <m>D_{3\times 2}</m>.
+                    On choisit donc <m>A_{3\times 3}</m>,  <m>B_{2\times 2}</m> et <m>D_{3\times 2}</m>.</p>
                     <listing>
                     <caption>Le code solution pour l'exercice</caption>
                     <program language="sage">
@@ -983,10 +984,10 @@ A*X*B==D
                     </input>
                     </program>
                     </listing>
-                    </p></li>
+                    </li>
                     <li><p>Pour l'équation <m>AX^{-1}+B=C</m>, on avait obtenu <m>X=(C-B)^{-1}A</m>.
                     Les dimensions des matrices sont <m>A_{m\times m}</m>,  <m>B_{m\times m}</m> et <m>C_{m\times m}</m>.
-                    On choisit donc <m>A_{2\times 2}</m>,  <m>B_{2\times 2}</m> et <m>C_{2\times 2}</m>.
+                    On choisit donc <m>A_{2\times 2}</m>,  <m>B_{2\times 2}</m> et <m>C_{2\times 2}</m>.</p>
                     <listing>
                     <caption>Le code solution pour l'exercice</caption>
                     <program language="sage">
@@ -999,7 +1000,7 @@ A*(X^(-1))+B==C
                     </input>
                     </program>
                     </listing>
-                    </p></li>
+                    </li>
                     <!--<li><m>(A+X)B+(B+X)A=I</m></li>-->
                 </ol></p>
     </solution>

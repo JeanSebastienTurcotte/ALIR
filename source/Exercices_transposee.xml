@@ -128,7 +128,7 @@ C^T+D=\left(\begin{array}{rr}
 </solution>
     </task>
     <task><statement><p><m> BD</m></p></statement>
-    <answer>C'est impossible</answer>
+    <answer><p>C'est impossible.</p></answer>
     <solution><p>Le format des matrices <m>B</m> et <m>D</m> ne sont pas compatibles pour la multiplication.</p></solution>
     </task>
     <task><statement><p><m> BD^T</m></p></statement>
@@ -295,15 +295,15 @@ DC=
     À l'inverse, le produit <m>A_{n,m}^TA_{m,n}</m>, aussi bien défini, donnera une matrice <m>C</m> de taille <m>n\times n</m>.</p></solution>
     </exercise>
     <exercise xml:id="exo-prodscaltransposee">
-    <introduction> Soit <m>A</m> une matrice <m>m\times n</m>. On considère l'équation <men xml:id="eq-prodscaltransposee">A\vec{x}\cdot \vec{y}=\vec{x}\cdot A^T\vec{y}</men>.</introduction>
-    <task><statement><p>Quelles doivent être les dimensions des vecteurs <m>\vec{x},\vec{y}</m> pour que l'équation <xref ref="eq-prodscaltransposee" symbol="star"/> soit bien définie?</p></statement>
+    <introduction><p> Soit <m>A</m> une matrice <m>m\times n</m>. On considère l'équation <men xml:id="eq-prodscaltransposee">A\vec{x}\cdot \vec{y}=\vec{x}\cdot A^T\vec{y}</men>.</p></introduction>
+    <task><statement><p>Quelles doivent être les dimensions des vecteurs <m>\vec{x},\vec{y}</m> pour que l'équation <xref ref="eq-prodscaltransposee"/> soit bien définie?</p></statement>
     <hint><p>Pour la démonstration, utiliser l'exercice <xref ref="exo-vectranspose"/>.</p></hint>
     <answer><p>Le vecteur <m>\vec{x}</m> doit être dans <m>\R^n</m>. Le produit <m>A\vec{x}</m> est un vecteur de <m>\R^m</m> et donc <m>\vec{y}\in\R^m</m>.</p></answer></task>
-    <task><statement><p>Démontrer l'équation <xref ref="eq-prodscaltransposee" symbol="star"/>.</p></statement>
+    <task><statement><p>Démontrer l'équation <xref ref="eq-prodscaltransposee"/>.</p></statement>
     <solution><p>Avec les vecteurs de dimension appropriée, on  réécrit le produit scalaire comme suit:
     <md>
     <mrow>A\vec{x}\cdot\vec{y}&amp;=(A\vec{x})^T\vec{y}&amp; &amp;\text{ selon } <xref ref="exo-vectranspose"/></mrow>
-    <intertext><p>On a utilisé le fait que <m>\vec{u}\cdot\vec{v}=u^T\vec{v}</m> avec <m>\vec{u}=A\vec{x}</m>.</p></intertext>
+    <intertext>On a utilisé le fait que <m>\vec{u}\cdot\vec{v}=u^T\vec{v}</m> avec <m>\vec{u}=A\vec{x}</m>.</intertext>
     <mrow>&amp;=(\vec{x}^TA^T)\vec{y} &amp; &amp; \text{ selon } <xref ref="prop-transposeeprop"/></mrow>
     <mrow>&amp;=\vec{x}^T(A^T\vec{y}) &amp;&amp;\text{ selon l'associativité }</mrow>
     <mrow>&amp;=\vec{x}\cdot A^T\vec{y} &amp;&amp; \text{ en utilisant à nouveau } <xref ref="exo-vectranspose"/> </mrow>
@@ -509,7 +509,7 @@ DC=
 0 &amp; 5
 \end{array}\right)</m>, une matrice diagonale. C'est aussi une matrice symétrique. </p></solution>
     </task>
-    <task><statement>Répéter la partie précédente avec <m>\vec{u}=(a,b)</m>.</statement>
+    <task><statement><p>Répéter la partie précédente avec <m>\vec{u}=(a,b)</m>.</p></statement>
     <answer><p><m>\left(\begin{array}{rr}
 a^{2} + b^{2} &amp; 0 \\
 0 &amp; a^{2} + b^{2}
@@ -525,7 +525,7 @@ a^{2} + b^{2} &amp; 0 \\
 0 &amp; a^{2} + b^{2}
 \end{array}\right)</m>, une matrice diagonale. C'est aussi une matrice symétrique. </p></solution>
     </task>
-    <task xml:id="exo-matcolortho"><statement>Soit <m>A</m> une matrice <m>n\times n</m> telles que ses colonnes sont orthogonales entre elles. Montrer que <m>A^TA</m> est une matrice dont les seules entrées non nulles se situent sur la diagonale principale. Que valent les entrées non nulles?</statement>
+    <task xml:id="exo-matcolortho"><statement><p>Soit <m>A</m> une matrice <m>n\times n</m> telles que ses colonnes sont orthogonales entre elles. Montrer que <m>A^TA</m> est une matrice dont les seules entrées non nulles se situent sur la diagonale principale. Que valent les entrées non nulles?</p></statement>
     <solution><p>On utilise la définition du produit matriciel. La colonne <m>j</m> du produit <m>A^TA</m> est donné par le produit matrice vecteut <m>A^T\vec{a}_j</m> où <m>\vec{a}_j</m> représente la colonne <m>j</m> de la matrice <m>A</m>.
     Les entrées de ce produit matrice vecteur correspondent à l'entrée <m>i,j</m> du produit <m>A^TA</m>. On les calcule en prenant le produit scalaire des lignes de <m>A^T</m> avec le vecteur <m>\vec{a}_j</m>. Comme les lignes
     de <m>A^T</m> sont les colonnes de <m>A</m>, on a <m>a_{i,j}=\vec{a}_i\cdot\vec{a}_j</m>. Par définition, les colonnes de la matrices <m>A</m> sont orthogonales entre elles et donc ce produit scalaire vaut <m>0</m>,
@@ -589,8 +589,8 @@ for P in P4:
     la colonne <m>i</m> avec la colonne <m>j</m>. Les colonnes sont orthogonales entre elle et donc, selon l'exercice <xref ref="exo-matcolortho"/>, le produit <m>E^TE=D</m>, où <m>D</m> est une matrice diagonale.
     Comme les colonnes sont des vecteurs dont la norme vaut <m>1</m>, le même exercice permet de déduire que <m>D=I</m>. On a donc <m>E^T=E^{-1}</m>.</p></solution>
     </task>
-    <task><statement><p>Utiliser l'exercice <xref ref="exo-matpermuelem"/> pour montrer qu'une matrice de permutation <m>P</m> quelconque possède la propriété <m>P^T=P^{-1}</m>.<aside><title>En passant</title> Une matrice
-    pour laquelle la transposée est son inverse est dite orthogonale. Ces matrices seront très importante dans le chapitre <xref provisional="chapitre orthogonal"/>.</aside></p>
+    <task><statement><p>Utiliser l'exercice <xref ref="exo-matpermuelem"/> pour montrer qu'une matrice de permutation <m>P</m> quelconque possède la propriété <m>P^T=P^{-1}</m>.<fn>Une matrice
+    pour laquelle la transposée est son inverse est dite orthogonale. Ces matrices seront très importantes dans le chapitre <xref provisional="chapitre orthogonal"/>.</fn></p></statement>
     <solution><p>Soit <m>P</m> une matrice de permutation quelconque. Selon l'exercice <xref ref="exo-matpermuelem"/>, il existe des matrices élémentaires telles que <m>P=E_1E_2\cdots E_k</m>. On a
     <md>
     <mrow>P^T&amp;=(E_1E_2\cdots E_k)^T</mrow>
@@ -599,7 +599,7 @@ for P in P4:
     <mrow> &amp;=(E_1E_2\cdots E_k)^{-1} &amp;&amp;\text{ car le produit d'inverses est égale à l'inverse du produit}</mrow>
     <mrow>&amp;=P^{-1}</mrow>
     </md>.</p></solution>
-    </statement></task>
+    </task>
     </task>
    </exercise>
    <exercise xml:id="exo-detcomblinettransposee">
@@ -620,7 +620,7 @@ for P in P4:
 <exercise>
 <introduction><p>Dans cet exercice, on veut donner un sens au mot &#x00AB; gauche &#x00BB; dans l'expression espace nul gauche.</p></introduction>
 <task><statement>
- <p>On considère la matrice <m>A=\matcolt{1}{2}{3}{-1}{-2}{-3}{2}{4}{6}</m>. Déterminer tous les vecteurs dans l'espace nul gauche.</p>
+<p>On considère la matrice <m>A=\matcolt{1}{2}{3}{-1}{-2}{-3}{2}{4}{6}</m>. Déterminer tous les vecteurs dans l'espace nul gauche.</p>
 </statement>
 <answer>
 <p><m>\text{span}((-2,1,0),(-3,0,1))</m></p>
@@ -636,7 +636,7 @@ Il y a une variable pivot et deux variables libres. Les solutions spéciales son
 de ces vecteurs, soit le plan <m>(x,y,z)=a\vec{s}_1+b\vec{s}_2</m>.</p>
 </solution>
 </task>
-<task><statement><p>Soit <m>\vec{u}=\vecddd{x}{y}{z}</m>. Montrer que les vecteurs de l'espace nul gauche satisfont l'équation <men xml:id="eq-nulgauche" symbol="star">\vec{u}^TA=\vec{0}^T</men>.</p></statement>
+<task><statement><p>Soit <m>\vec{u}=\vecddd{x}{y}{z}</m>. Montrer que les vecteurs de l'espace nul gauche satisfont l'équation <men xml:id="eq-nulgauche">\vec{u}^TA=\vec{0}^T</men>.</p></statement>
 <solution><p>On commence par vérifier que les vecteurs <m>\vec{s}_1,\vec{s}_2</m> satisfont l'équation. D'une part, on a
 <me>
 \vec{s}_1^T^TA=\begin{pmatrix} -2&amp; 1&amp; 0 \end{pmatrix}\matcolt{1}{2}{3}{-1}{-2}{-3}{2}{4}{6}=\begin{pmatrix} 0&amp;0&amp;0 \end{pmatrix}
@@ -779,7 +779,7 @@ deux solutions sera perpendiculaire aux lignes de <m>A_3^T</m> et donc, aux colo
 </solution>
 </task>
 </exercise>
-<exercise><introduction>Pour chaque description ci-dessous, donner une matrice qui la satisfait.</introduction>
+<exercise><introduction><p>Pour chaque description ci-dessous, donner une matrice qui la satisfait.</p></introduction>
 <task><statement><p>La matrice est <m>m\times n</m> avec <m>m\leq n</m>, ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-1}{2}</m>.</p></statement>
 <solution><p>La manière la plus simple est de mettre le vecteur <m>\vec{u}</m> dans les colonnes d'une matrice jusqu'à ce que <m>2=m\leq n</m>. Un exemple est donc <m>\matcold{-1}{2}{-1}{2}</m>. L'espace colonne
 étant l'ensemble des combinaisons linéaires des colonnes de la matrice, cette matrice respecte la condition que son espace colonne ne contient que les vecteurs parallèles à <m>\vec{u}</m> puisque les colonnes sont toutes
@@ -859,7 +859,7 @@ de la forme <m>\begin{pmatrix} k_1&amp; k_2\\3k_1&amp; 3k_2  \end{pmatrix}</m> f
 1&amp;2&amp;-3\\
 1&amp;1&amp;-1
 \end{pmatrix}</mrow>
-<intertext><p>Une étape de plus est requise pour ne pas avoir la troisième ligne parallèle à la première.</p></intertext>
+<intertext>Une étape de plus est requise pour ne pas avoir la troisième ligne parallèle à la première.</intertext>
 <mrow>&amp;\matsimilc{2}{}{3}\begin{pmatrix}
 1&amp;1&amp;-1\\
 1&amp;2&amp;-3\\
@@ -967,7 +967,7 @@ On peut ensuite appliquer des opérations élémentaires sur les lignes afin d'�
 \end{pmatrix}</mrow>
 </md>.
 </p>
-Finalement, pour que la matrice ait comme espace nul gauche l'espace engendré par les vecteurs <m>\vec{u},\vec{v}</m>, on prend la transposée de la matrice ci-dessus :
+<p>Finalement, pour que la matrice ait comme espace nul gauche l'espace engendré par les vecteurs <m>\vec{u},\vec{v}</m>, on prend la transposée de la matrice ci-dessus :
 <me>
 \begin{pmatrix}
 2&amp;1\\
@@ -975,7 +975,7 @@ Finalement, pour que la matrice ait comme espace nul gauche l'espace engendré p
 1&amp; 1\\
 -3&amp;-2
 \end{pmatrix}
-</me></solution>
+</me>.</p></solution>
 </task>
 </exercise>
 <!-- <exercise xml:id="exo-espfondcorr"><introduction><p>Pour chaque matrice <m>A</m> ci-dessous, donner si possible des matrices <m>B,C</m> telle que <m>\mathcal{C}(A)=\mathcal{N}(B)</m> et <m>\mathcal{N}(A)=\mathcal{C}(C)</m>.</p></introduction>
@@ -988,15 +988,16 @@ Finalement, pour que la matrice ait comme espace nul gauche l'espace engendré p
 2 &amp; -2 &amp; 1
 \end{array}\right)</m></p></statement></task></exercise> -->
 <exercisegroup><title>Exercices Sage</title>
-<p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écire les réponses. Évidemment, il y a plusieurs manières possibles d'arriver aux réponses.</p>
+<introduction><p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écire les réponses. Évidemment, il y a plusieurs manières possibles d'arriver aux réponses.</p></introduction>
 <exercise>
-<statement>
+<introduction>
 <p>Utiliser la fonction <c>matquelc</c> de l'exemple calculatoire <xref ref="sageex-algmat"/> pour vérifier les égalités suivantes. Recopier le code de la fonction <c>matquelc</c> ci-dessous dans un premier temps et exécuter la cellule.</p>
 <sage>
 <input>
 
 </input>
 </sage>
+</introduction>
 <task><statement><p>Une matrice de taille <m>5\times 4</m> multipliée par sa transposée est une matrice symétrique. (La commande <c>A.is_symmetric()</c> permet de vérifier si la matrice <m>A</m> est symétrique ou non.</p>
 <sage>
 <input>
@@ -1006,6 +1007,7 @@ Finalement, pour que la matrice ait comme espace nul gauche l'espace engendré p
 </sage></statement>
 <solution>
 <listing>
+<caption>Le code de la solution</caption>
 <program language="sage">
 <input>
 A=matquelc(5,4,'a')
@@ -1025,6 +1027,7 @@ show("A^T=",A.transpose())
 </sage></statement>
 <solution>
 <listing>
+<caption>Le code de la solution</caption>
 <program language="sage">
 <input>
 A=matquelc(5,5,'a')
@@ -1045,6 +1048,7 @@ show("A^T=",A.transpose())
 </sage></statement>
 <solution>
 <listing>
+<caption>Le code de la solution</caption>
 <program language="sage">
 <input>
 A=matquelc(7,7,'a')
@@ -1065,6 +1069,7 @@ show("A^T=",A.transpose())
 </sage></statement>
 <solution>
 <listing>
+<caption>Le code de la solution</caption>
 <program language="sage">
 <input>
 A=matquelc(4,5,'a')
@@ -1080,7 +1085,6 @@ show("La propriété 4 est ",(A*C).transpose()==(C.transpose())*(A.transpose()))
 </listing>
 </solution>
 </task>
-</statement>
 </exercise>
 <exercise>
 <statement><p>Refaire les cas possibles de l'exercice <xref ref="exo-transpose"/>.</p>
@@ -1092,7 +1096,8 @@ show("La propriété 4 est ",(A*C).transpose()==(C.transpose())*(A.transpose()))
 </sage></statement>
 <solution>
 <listing>
-<program laguage="sage">
+<caption>Le code de la solution</caption>
+<program language="sage">
 <input>
 A=matrix([[1,-2],[3,1]])
 B=matrix([[3,2],[1,5]])
@@ -1129,6 +1134,7 @@ show("D^TC^T=",D.transpose()*C.transpose())
 </statement>
 <solution>
 <listing>
+<caption>Le code de la solution</caption>
 <program language="sage">
 <input>
 A1=matrix(QQ,[[1,-3,-4,0],[0,0,0,1],[0,0,0,0]])

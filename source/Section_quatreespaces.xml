@@ -109,7 +109,7 @@ et on cherche une base de son espace ligne. On cherche aussi la dimension de l'e
     <md>
     <mrow>\vec{0}&amp;=A^{T}\vec{x}</mrow>
     <mrow>       &amp;=R^T(E^T)^{-1}\vec{x}</mrow>
-    <intertext><p>On pose <m>\vec{y}=(E^T)^{-1}\vec{x}</m></p></intertext>
+    <intertext>On pose <m>\vec{y}=(E^T)^{-1}\vec{x}</m></intertext>
     <mrow>       &amp;=R^T\vec{y}</mrow>
     </md>.
     On conclut donc que <m>\vec{y}\in \mathcal{N}(R^T)</m>. Selon le lemme <xref ref="lem-NRT"/>, l'espace nul de <m>R^T</m> est engendré par les <m>m-r</m> derniers vecteurs de la base standard de <m>R^m</m>, où <m>r</m> est le rang de <m>A</m>. Le vecteur <m>\vec{y}</m> est donc une combinaison linéaire de ces vecteurs. Si on isole <m>\vec{x}</m> dans l'équation <m>\vec{y}=(E^T)^{-1}\vec{x}</m>, on obtient <m>\vec{x}=E^T\vec{y}</m>. Puisque <m>\vec{y}</m> est une combinaison linéaire des <m>m-r</m> derniers vecteurs de la base standard, le vecteur <m>\vec{x}</m> est une combinaison linéaire des <m>m-r</m> dernières colonnes de <m>E^T</m> et donc, aux <m>m-r</m> lignes de <m>E</m>. Ce sont exactement ces lignes qui correspondent aux lignes nulles de <m>R</m>. Ceci montre que les <m>m-r</m> lignes de <m>E</m> forment une base pour <m>\mathcal{N}(A^T)</m>.</p>
@@ -267,8 +267,11 @@ show("E=",E)
     </theorem>
     <p>La figure ci-dessous illustre en image le concept du théorème fondamentale de l'algèbre linéaire. Les espaces fondamentaux y sont dessinés comme des plans, mais peuvent bien entendu être de dimension quelconque.</p>
     <figure xml:id="fig-fondalg">
-    <title>Une image du théorème fondamental de l'algèbre linéaire</title>
+    <caption>Une image du théorème fondamental de l'algèbre linéaire</caption>
     <image xml:id="img-fondalg">
+    <description>
+    À gauche, deux rectangles sont dessinés, se touchant en un coin à quatre-vingt-dix degrés. Sur le rectangle supérieur, on peut lire "dimension r" et "espace ligne". Sur le rectangle inférieur, on peut lire "espace nul" et "dimension n moins r". À droite un dessin similaire est présent, avec sur le rectangle supérieur les mots "dimension r" et "espace colonne" alors que sur le rectangle inférieur on peut lire les mots "espace nul-gauche" et "dimension m moins r".
+    </description>
     <sageplot>
 fsize=10
 L=polygon([[3,1],[12,10],[9,13],[0,4]],color="darkcyan",alpha=0.15,axes=False)+text("Espace ligne",(3,5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $r$",(2,6.7),color="black",fontsize=fsize,rotation=45,axes=False)#Espace ligne
@@ -278,9 +281,7 @@ Ng=polygon([[33,1],[26,-6],[29,-9],[36,-2]],color="darkred",alpha=0.15,axes=Fals
 AD=polygon([[3,1],[2.6,0.6],[2.2,1],[2.6,1.4]],color="black",alpha=1,axes=False)+polygon([[33,1],[33.4,0.6],[33.8,1],[33.4,1.4]],color="black",alpha=1,axes=False) #angles droits
 L+N+C+Ng+AD
     </sageplot>
-    <description>
-    À gauche, deux rectangles sont dessinés, se touchant en un coin à quatre-vingt-dix degrés. Sur le rectangle supérieur, on peut lire "dimension r" et "espace ligne". Sur le rectangle inférieur, on peut lire "espace nul" et "dimension n moins r". À droite un dessin similaire est présent, avec sur le rectangle supérieur les mots "dimension r" et "espace colonne" alors que sur le rectangle inférieur on peut lire les mots "espace nul-gauche" et "dimension m moins r".
-    </description>
+
     </image>
     </figure>
     <p>Pour voir une application concrète de ce théorème, on considère le problème familier suivant dans <m>\mathbb{R}^3</m>. On a un plan dans l'espace et un point <m>P</m> qui n'appartient pas au plan. On aimerait connaitre le point <m>Q</m> sur le plan qui est le plus près de <m>P</m>. Ce point <m>Q</m> est le même que celui à la figure <xref ref="fig-distpd"/>. On peut déjà le trouver grâce à la projection orthogonale. Si on voulait toutefois résoudre le même problème mais pour un sous-espace de dimension 5 dans <m>\mathbb{R}^7</m>, la méthode de la projection orthogonale ne fonctionnerait pas dû au fait qu'il y aurait plus qu'une direction perpendiculaire. On regarde donc ce problème à nouveau avec les concepts des espaces fondamentaux.</p>
@@ -354,7 +355,6 @@ show(ATA.solve_right(ATP))
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation>
     <title>Base des quatre espaces sur Sage</title>
-    <statement>
     <p>Dans la section <xref ref="sec-transposee"/>, on a introduit des commandes permettant de trouver une base des espaces fondamentaux, sans avoir défini au préalable la notion de base. Ceci a été fait à l'exemple calculatoire <xref ref="sageex-espfond"/>. On reprend ici ces commandes avec la notion de base maintenant bien définie.</p>
     <p>Les commandes pour les espaces ligne,colonne,nul et nul gauche sont respectivement <c>row_space().basis(),column_space().basis(),right_kernel(basis="pivot").basis(),left_kernel(basis="pivot").basis()</c>. On les utilise pour retrouver la base de chacun des quatre espaces de l'exemple <xref ref="ex-base4esp"/>.</p>
     <sage>
@@ -367,7 +367,6 @@ show("Une base pour l'espace nul-gauche est ",A.left_kernel(basis="pivot").basis
     </input>
     </sage>
     <p>À noter que pour l'espace colonne, Sage ne retourne pas la base prescrite par la proposition <xref ref="prop-baseespcolnulg"/>. Il préfère en fait trouver une base de l'espace ligne de <m>A^T</m>. On peut toutefois créer une fonction retournant la base suggérée par la proposition <xref ref="prop-baseespcolnulg"/> grâce à la fonction <c>pivots()</c>. C'est l'objet de l'exercice <xref provisional="sageexo-baseespcol"/>. </p>
-    </statement>
     </computation>
     </subsection>
     <subsection>
@@ -385,6 +384,9 @@ show("Une base pour l'espace nul-gauche est ",A.left_kernel(basis="pivot").basis
 <figure xml:id="fig-decomportho">
 <caption>Décomposition d'un vecteur selon un sous-espace et son complément orthogonal</caption>
 <image xml:id="img-decomportho">
+<description>
+Un sous-espace vectoriel V est illustré sous la forme d'un plan. Son complément orthogonal est aussi présent, sous la forme d'une droite. On y voit trois vecteurs, l'un dans V, un autre dans le complément et le troisième est quelconque. On peut voir la décomposition de ce troisième vecteur comme la somme des deux autres grâce à des lignes pointillées.
+</description>
 <sageplot variant="3d">
 var("y","k")
 G=plot3d(0,(x,-5,5),(y,-5,5),color="cyan",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+text3d("V",[5,-4,1],fontsize=30,frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+text3d("V",[-0,-3/4,4],fontsize=30,frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+line([(0,0,-5),(0,0,5)],color="black",thickness=4,frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+text3d("⊥",[-0,-1.5/4,4.3],fontsize=20,frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+line([(0,0,-5),(0,0,5)],color="black",thickness=4,frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+arrow((0,0,0),(0,0,3),width=5,color="black",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+arrow((0,0,0),(3,4,0),width=5,color="black",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])+arrow((0,0,0),(3,4,3),width=5,color="black",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])
@@ -393,9 +395,7 @@ for k in range(4):
     G+=line([(3,4,6*k/7),(3,4,3*(2*k+1)/7)],linestyle="dashed",color="black",thickness="3",frame=False,viewpoint=[[-0.6434,-0.4768,-0.5988],102.12])
 G
 </sageplot>
-<description>
-Un sous-espace vectoriel V est illustré sous la forme d'un plan. Son complément orthogonal est aussi présent, sous la forme d'une droite. On y voit trois vecteurs, l'un dans V, un autre dans le complément et le troisième est quelconque. On peut voir la décomposition de ce troisième vecteur comme la somme des deux autres grâce à des lignes pointillées.
-</description>
+
 </image>
 </figure>
     <proposition xml:id="prop-decomportho">
@@ -429,7 +429,7 @@ Un sous-espace vectoriel V est illustré sous la forme d'un plan. Son complémen
     </proposition>
     <remark xml:id="rem-decomportho">
     <title>Un commentaire additionnel</title>
-    <statement><p>La proposition dit que deux sous-espace orthogonaux "décompose" l'espace en deux parties. Cela ne signifie toutefois pas que tous les vecteurs de <m>\mathbb{R}^n</m> sont soit dans <m>V</m> ou soit dans <m>V^{\perp}</m>. En effet, si par exemple on prend un vecteur <m>\vec{v}\in V</m> et <m>\vec{w}\in V^{\perp}</m>, alors le vecteur <m>\vec{u}=\vec{v}+\vec{w}</m> n'est ni dans <m>V</m>, ni dans <m>V^{\perp}</m>. La figure <xref ref="fig-decomportho4esp"/> illustre ceci avec les quatre sous-espaces fondamentaux.</p></statement>
+<p>La proposition dit que deux sous-espace orthogonaux "décompose" l'espace en deux parties. Cela ne signifie toutefois pas que tous les vecteurs de <m>\mathbb{R}^n</m> sont soit dans <m>V</m> ou soit dans <m>V^{\perp}</m>. En effet, si par exemple on prend un vecteur <m>\vec{v}\in V</m> et <m>\vec{w}\in V^{\perp}</m>, alors le vecteur <m>\vec{u}=\vec{v}+\vec{w}</m> n'est ni dans <m>V</m>, ni dans <m>V^{\perp}</m>. La figure <xref ref="fig-decomportho4esp"/> illustre ceci avec les quatre sous-espaces fondamentaux.</p>
     </remark>
     <example>
     <title>Décomposition d'un vecteur selon des sous-espaces orthogonaux</title>
@@ -477,7 +477,10 @@ show(Baug.rref())
     On bonifie l'image de la figure <xref ref="fig-fondalg"/> afin d'illustrer l'effet d'une matrice comme fonction de <m>\mathbb{R}^n</m> vers <m>\mathbb{R}^m</m>.</p>
     <figure xml:id="fig-decomportho4esp">
     <caption>Décomposition orthogonale et quatre espaces fondamentaux</caption>
-    <image xml:id="img-decomportho4esp">
+    <image xml:id="img-decomportho4esp">    
+    <description>
+    Une reproduction des quatre espaces fondamentaux est faite comme celle d'une image précédente. Sur celle-ci est ajouté un point à gauche, décomposé en deux morceaux, l'un sur le rectangle représentant l'espace ligne et l'autre sur le rectangle représentant l'espace nul. Des flèches représentant l'effet d'une matrice A sur ces morceaux sont tracés. Le vecteur x et celui dans l'espace ligne sont envoyés dans le rectangle de l'espace colonne à droite alors que celui dans l'espace nul est envoyé à l'intersection des rectangles à droite.
+    </description>
     <sageplot>
 fsize=10
 L=polygon([[3,1],[12,10],[9,13],[0,4]],color="darkcyan",alpha=0.15,axes=False)+text("Espace ligne",(3,5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $r$",(2,6.7),color="black",fontsize=fsize,rotation=45,axes=False)#Espace ligne
@@ -490,9 +493,6 @@ Lgns=line(([9,2],[6.5,4.5]),color="black",linestyle="dashed")+line(([9,2],[5.5,-
 Txt=text("$\\vec{x}=\\vec{x}_l+\\vec{x}_n$",(12,1),color="black",fontsize=fsize+1,axes=False)+text("$A\\vec{x}_n=\\vec{0}$",(22,-1.5),color="black",fontsize=fsize+1,axes=False)+text("$A\\vec{x}_l=\\vec{b}$",(22,7.0),color="black",fontsize=fsize+1,axes=False)+text("$A\\vec{x}=\\vec{b}$",(22,3.5),color="black",fontsize=fsize+1,axes=False)+text("$\\vec{b}$",(32,5.5),color="black",fontsize=fsize+1,axes=False)+text("$\\vec{x}_l$",(5.5,5.5),color="black",fontsize=fsize+1,axes=False)+text("$\\vec{x}_n$",(5.5,-2.5),color="black",fontsize=fsize+1,axes=False)
 L+N+C+Ng+AD+Pts+Lgns+Txt
     </sageplot>
-    <description>
-    Une reproduction des quatre espaces fondamentaux est faite comme celle d'une image précédente. Sur celle-ci est ajouté un point à gauche, décomposé en deux morceaux, l'un sur le rectangle représentant l'espace ligne et l'autre sur le rectangle représentant l'espace nul. Des flèches représentant l'effet d'une matrice A sur ces morceaux sont tracés. Le vecteur x et celui dans l'espace ligne sont envoyés dans le rectangle de l'espace colonne à droite alors que celui dans l'espace nul est envoyé à l'intersection des rectangles à droite.
-    </description>
     </image>
     </figure>
     <p>Avec ces nouvelles notions, on peut augmenter une fois de plus les conditions équivalentes du théorème de la matrice inverse, qui découle du théorème fondamental de l'algèbre linéaire.</p>
@@ -572,7 +572,6 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     </proposition>
     <remark>
     <title>Quelques précisions sur les inverses</title>
-    <statement>
     <p>Il faut noter que, contrairement à <xref ref="prop-inverseunique" text="custom"> l'inverse d'une matrice carrée</xref> qui est unique, une matrice rectangulaire peut, si elle en a, avoir plusieurs inverses à gauche et à droite. Aussi, l'équation <m>A\vec{x}=\vec{b}</m> est liée à la notion d'inverse lorsque la matrice est carrée. Si la matrice est inversible, alors il existe une solution unique donnée par <m>\vec{x}=A^{-1}\vec{b}</m>. Dans le cas d'une matrice rectangulaire, l'existence d'un inverse à droite implique qu'une solution existe toujours. En effet, puisque <m>AA^{-1}_{\text{droite}}=I</m>, on a que <m>AA^{-1}_{\text{droite}}\vec{b}=\vec{b}</m>. Ainsi <m>\vec{x}=A^{-1}_{\text{droite}}\vec{b}</m> est une solution. Cette solution n'est peut-être pas unique par contre. Si un autre inverse existe, il pourrait mener à une solution différente. Si plutôt la matrice possède un inverse à gauche, alors là la solution, si elle existe, sera unique. D'une part, si <m>B</m> est un inverse à gauche, alors <m>B\vec{b}</m> est une solution puisque <m>BA=I</m> et donc <m>BA\vec{x}=B\vec{b}</m>. De plus, si <m>C</m> est un inverse à gauche différent de <m>B</m>, alors par le même raisonnement, <m>C\vec{b}</m> est aussi une solution. Or on a
     <md>
     <mrow>B\vec{b}&amp;=BA\vec{x}</mrow>
@@ -583,7 +582,6 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     Il est toutefois possible que le vecteur <m>\vec{b}</m> ne soit pas dans l'espace colonne et qu'il n'y ait pas de solution.
     </p>
     <p>En résumé, pour une matrice <m>m\times n</m> de rang <m>m</m>, l'équation <m>A\vec{x}=\vec{b}</m> possède <m>1</m> ou une infinité de solution alors que pour une matrice de rang <m>n</m>, elle en possède <m>0</m> ou une. Lorsque <m>m=n</m> (et que la rang est maximal), la solution ne peut être qu'unique.</p>
-    </statement>
     </remark>
 </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->

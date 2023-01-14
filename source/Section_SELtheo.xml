@@ -326,9 +326,9 @@
     </sage>
     <p>Tel qu'attendu, la matrice a la bonne forme. Les variables <m>x,y</m> sont liées et la variable <m>z</m> est libre. On remarque par contre que la commande <c>rref()</c> ne 
     donne pas explicitement la solution (c'était le cas aussi pour une solution unique), il faut la déduire de la forme échelonnée. Dans ce cas-ci, on obtient la droite
-    <men xml:id="eq-nbsoldroite" tag="star">
+    <md><mrow xml:id="eq-nbsoldroite" tag="star">
     \vecddd{x}{y}{z}=z\vecddd{1}{0}{1}+\vecddd{0}{1}{0}
-    </men>.
+    </mrow></md>.
     </p>
     <p>On essaie maintenant la commande <c>solve_right()</c> pour le même système.</p>
     <sage>
@@ -344,11 +344,9 @@
     </computation>
     <insight>
     <title>Lecture des messages d'erreur Sage</title>
-    <statement>
     <p>Les messages d'erreur Sage peuvent avoir l'air étranges lorsqu'on les rencontre pour la première fois. Un conseil pratique est de commencer sa lecture par le bas. Souvent,
     on peut détecter le problème à partir de la dernière phrase du message. Si celle-ci n'est pas suffisante, chercher les lignes avec des flèches de style <c>----></c>. Elles 
     indiquent souvent quelle(s) ligne(s) du code cause(nt) un problème.</p>
-    </statement>
     </insight>
     </subsection>
     <subsection xml:id="ssec-rang">
@@ -363,11 +361,10 @@
     </statement></definition>
     <remark xml:id="rem-ranglignenulle">
     <title>Le rang et les lignes d'une matrice</title>
-    <statement>
     <p>Le rang correspond au nombre de pivots d'une matrice, et donc par le fait même au nombre de colonnes pivots. On peut toutefois aussi lui associer un sens en termes du
     nombre de lignes. En effet, comme chaque pivot est sur une ligne différente, le rang <m>r</m> d'une matrice correspond aussi au nombre de lignes non nulles de la forme échelonnée
     réduite.</p>
-    </statement></remark>
+   </remark>
     <p>Parce que la forme échelonnée réduite est <xref ref="prop-erlunique">unique</xref>, le rang est bien défini, au sens où pour une matrice <m>A</m> donnée, elle ne peut avoir qu'une seule valeur pour <m>rg(A)</m>.
     On donne maintenant un résultat qui sera réinterprété géométriquement dans la section <xref ref="sec-SELgeo">suivante</xref>.</p>
     <proposition xml:id="prop-rangmcomp">

@@ -264,6 +264,7 @@ pas pour le parallélogramme ainsi obtenu. On peut maintenant définir la notion
 </me>,
 qui satisfait les quatre propriétés suivantes:</p>
 <list xml:id="li-detdef2x2">
+<title>Propriétés à satisfaire</title>
 <ol>
 <li xml:id="li-detI2x2"><p>Si <m>A=I</m>, alors <m>\det(A)=\det(I)=1</m>;</p></li>
 <li xml:id="li-detr2x2"><p><m>\det(r\vec{u},\vec{v})=\det(\vec{u},r\vec{v})=r\det(\vec{u},\vec{v})=r\det(A)</m>;</p></li>
@@ -276,7 +277,7 @@ qui satisfait les quatre propriétés suivantes:</p>
 <p>On fait maintenant quelques remarques sur la définition du déterminant.</p>
 <remark>
 <title>Précisions sur le déterminant</title>
-<statement><p>La définition du déterminant utilise plusieurs notations. Principalement, on utilisera la forme
+<p>La définition du déterminant utilise plusieurs notations. Principalement, on utilisera la forme
 <me>
 \det(A)=\begin{vmatrix} a&amp; c\\ b&amp; d \end{vmatrix}=\det(\vec{u},\vec{v})
 </me>.
@@ -285,7 +286,6 @@ La notation <m>\det(\vec{u},\vec{v})</m> sera surtout utile dans les démonstrat
 </p>
 <p>Les trois propriétés autre que le déterminant de l'identité rappellent d'une certaine façon les opérations élémentaires, bien que les propriétés définissant le déterminant s'appliquent sur les colonnes. On verra avec la proposition
 <xref ref="prop-dettranspo2x2"/> qu'il y a équivalence entre les lignes et les colonnes pour le déterminant et que cette observation est justifiée.</p>
-</statement>
 </remark>
 <p>On va maintenant réconcilier la définition <xref ref="def-determinant2x2"/> avec le facteur de changement d'aire de la section <xref ref="sssec-factchgaire"/>. Pour cela, on aura besoin d'une propriété additionnelle des 
 déterminants qui se déduit de la définition.</p>
@@ -299,8 +299,8 @@ déterminants qui se déduit de la définition.</p>
 <proposition xml:id="prop-detestfact">
 <title>Le déterminant et le facteur de changement d'aire</title>
 <statement>
-Soit <m>A</m> une matrice <m>2\times 2</m>. L'aire du parallélogramme engendré par les colonnes <m>\vec{u},\vec{v}</m> de la matrice est donnée par <m>\abs{\det(A)}=\abs{ad-bc}</m>. De plus si <m>\det(A)\neq 0</m>, le signe 
-de <m>\det(A)</m> détermine l'orientation du repère <m>\langle \vec{u},\vec{v} \rangle</m>.
+<p>Soit <m>A</m> une matrice <m>2\times 2</m>. L'aire du parallélogramme engendré par les colonnes <m>\vec{u},\vec{v}</m> de la matrice est donnée par <m>\abs{\det(A)}=\abs{ad-bc}</m>. De plus si <m>\det(A)\neq 0</m>, le signe 
+de <m>\det(A)</m> détermine l'orientation du repère <m>\langle \vec{u},\vec{v} \rangle</m>.</p>
 </statement>
 <proof>
 <p>La démonstration se fait en deux parties. D'une part, si on arrive à montrer à partir des propriétés que <m>\det(A)=ad-bc</m>, alors on saura que l'aire est donnée par la valeur absolue du déterminant.
@@ -399,7 +399,6 @@ faut changer le signe de la seconde composante. On aura une explication plus dé
 <computation xml:id="sageex-det2x2">
 <title>Les déterminants 
 et Sage</title>
-<statement>
 <p>Avec Sage, pour calculer le déterminant d'une matrice carrée <m>A</m>, il suffit d'utiliser la commande <c>A.determinant()</c>.</p>
 <sage>
 <input>
@@ -420,7 +419,6 @@ show("v=",v)
 show("w=",w)
 </input>
 </sage>
-</statement>
 </computation>
 </subsection>
 <subsection>
@@ -444,9 +442,9 @@ Les figures <xref ref="fig-det2x2sommememesigne"/> et <xref ref="fig-det2x2somme
             setCoordSystem(-20, 10,-6,10,);
             showResetIcon(true);
           </slate>
-         <description><p><alert>Instruction pour la figure interactive:</alert> Dans l'animation, les vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont initialement placés afin que les déterminants <m>\det(\vec{u},\vec{w})</m> et 
+         <instructions><p><alert>Instruction pour la figure interactive:</alert> Dans l'animation, les vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont initialement placés afin que les déterminants <m>\det(\vec{u},\vec{w})</m> et 
          <m>\det(\vec{v},\vec{w}</m> aient le même signe. Ainsi, l'aire (géométrique) du parallélogramme engendré par <m>\vec{u}+\vec{v}</m> et <m>\vec{w}</m> sera, selon la propriété, l'addition de l'aire
-         des parallélogramme engendrés respectivement par <m>\vec{u},\vec{w}</m> et <m>\vec{v}\vec{w}</m>. Suivre les indications et observer l'animation afin de visualiser l'addition des aires.</p></description>
+         des parallélogramme engendrés respectivement par <m>\vec{u},\vec{w}</m> et <m>\vec{v}\vec{w}</m>. Suivre les indications et observer l'animation afin de visualiser l'addition des aires.</p></instructions>
     </interactive>
 </figure>
 <figure xml:id="fig-det2x2sommesigneopp">
@@ -458,9 +456,9 @@ Les figures <xref ref="fig-det2x2sommememesigne"/> et <xref ref="fig-det2x2somme
             setCoordSystem(-20, 10,-6,10,);
             showResetIcon(true);
           </slate>
-         <description><p><alert>Instruction pour la figure interactive:</alert> Dans l'animation, les vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont initialement placés afin que les déterminants <m>\det(\vec{u},\vec{w})</m> et 
+         <instructions><p><alert>Instruction pour la figure interactive:</alert> Dans l'animation, les vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont initialement placés afin que les déterminants <m>\det(\vec{u},\vec{w})</m> et 
          <m>\det(\vec{v},\vec{w}</m> soient de  signe opposé. Ainsi, l'aire (géométrique) du parallélogramme engendré par <m>\vec{u}+\vec{v}</m> et <m>\vec{w}</m> sera, selon la propriété, la soustraction de l'aire
-         des parallélogramme engendrés respectivement par <m>\vec{u},\vec{w}</m> et <m>\vec{v}\vec{w}</m>. Suivre les indications et observer l'animation afin de visualiser l'addition des aires.</p></description>
+         des parallélogramme engendrés respectivement par <m>\vec{u},\vec{w}</m> et <m>\vec{v}\vec{w}</m>. Suivre les indications et observer l'animation afin de visualiser l'addition des aires.</p></instructions>
     </interactive>
 </figure>
 <p>La prochaine propriété est peut-être surprenante au niveau algébrique, mais vue sous l'oeil des transformations linéaires, elle devient presque évidente. Elle stipule que le déterminant d'un produit est égal au produit
@@ -500,6 +498,7 @@ En utilisant le résultat de l'exercice <xref ref="exo-detkA2x2"/>, on obtient <
 </proposition>
 <p>Pour terminer, on résume les propriétés du déterminant <m>2\times 2</m>, incluant celles de la définition.</p>
 <list xml:id="li-det2x2prop">
+<title>Les propriétés du déterminant</title>
 <ol>
 <li xml:id="li-detI2x2resum"><p>Si <m>A=I</m>, alors <m>\det(A)=\det(I)=1</m>;</p></li>
 <li xml:id="li-detr2x2resum"><p><m>\det(r\vec{u},\vec{v})=\det(\vec{u},r\vec{v})=r\det(\vec{u},\vec{v})=r\det(A)</m>;</p></li>

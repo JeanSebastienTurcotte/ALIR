@@ -148,7 +148,7 @@ graph2
     <p>On termine en avec des commandes Sage en lien avec la sous-section.</p>
     <computation>
     <title>Vecteurs et valeurs propres sur Sage</title>
-    <statement><p>En anglais, les mots pour vecteur propre et valeur propre sont respectivement <sq>eigenvector</sq> et <sq>eigenvalue</sq>, qui sont eux-mêmes dérivés du mot allemand <sq>eigen</sq>, qui signifie propre, caractéristique ou encore particulier. Sans surprise donc, la commande sur Sage pour trouver  valeurs propres est <c>A.eigenvalues()</c>. Pour les vecteurs propres, Sage doit aussi savoir si on veut un vecteur propre à droite (ce que l'on veut) ou à gauche (car il pourrait aussi exister un vecteur <m>\vec{v}</m> et un scalaire <m>\lambda</m> tels que <m>\vec{v}A=\lambda\vec{v}</m>). La commande est donc <c>A.eigenvectors_right()</c>. Sage retourne alors un triplet composé dans l'ordre de la valeur propre, d'un vecteur propre associée à celle-ci et d'un troisième nombre, appelé la multiplicité, qui sera considéré dans la sous-section suivante. Voici les valeurs et vecteurs propres de la matrice <m>A</m> de l'introduction.</p>
+    <p>En anglais, les mots pour vecteur propre et valeur propre sont respectivement <sq>eigenvector</sq> et <sq>eigenvalue</sq>, qui sont eux-mêmes dérivés du mot allemand <sq>eigen</sq>, qui signifie propre, caractéristique ou encore particulier. Sans surprise donc, la commande sur Sage pour trouver  valeurs propres est <c>A.eigenvalues()</c>. Pour les vecteurs propres, Sage doit aussi savoir si on veut un vecteur propre à droite (ce que l'on veut) ou à gauche (car il pourrait aussi exister un vecteur <m>\vec{v}</m> et un scalaire <m>\lambda</m> tels que <m>\vec{v}A=\lambda\vec{v}</m>). La commande est donc <c>A.eigenvectors_right()</c>. Sage retourne alors un triplet composé dans l'ordre de la valeur propre, d'un vecteur propre associée à celle-ci et d'un troisième nombre, appelé la multiplicité, qui sera considéré dans la sous-section suivante. Voici les valeurs et vecteurs propres de la matrice <m>A</m> de l'introduction.</p>
     <sage>
     <input>
 A=column_matrix([[10,6],[2,11]])
@@ -183,7 +183,6 @@ show(S.eigenvectors_right())
     </input>
     </sage>
     <p>On remarque que la valeur propre <m>1</m> apparait deux fois dans l'exécution de la commande <c>eigenvalues</c> et que le  vecteur propre qui lui est associé est en fait deux vecteurs. On remarque aussi que le troisième élément de la liste est <m>2</m>, qu'il y a deux vecteurs et que la valeur propre apparassait deux fois. Coincidence?</p>
-    </statement>
     </computation>
     </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
@@ -413,7 +412,7 @@ show(S.eigenvectors_right())
     <solution><p>On calcule le déterminant de la matrice <m>C-\lambda I</m> afin de déterminer les valeurs propres. On a
     <md>
     <mrow>\lvert C-\lambda I\rvert&amp;= \begin{vmatrix} -2-\lambda &amp; 2 &amp; 0 \\ 0 &amp; 2-\lambda &amp; 0 \\ 2 &amp; -1 &amp; -\lambda \end{vmatrix}</mrow>
-    <intertext><p>En se basant sur la proposition <xref ref="prop-detcofact"/>, on développe selon la deuxième ligne:</p></intertext>
+    <intertext>En se basant sur la proposition <xref ref="prop-detcofact"/>, on développe selon la deuxième ligne:</intertext>
     <mrow>&amp;=(2-\lambda)\begin{vmatrix} -2-\lambda &amp;  0  \\ 2 &amp;  -\lambda \end{vmatrix}</mrow>
     <mrow>&amp;=(2-\lambda)(-2-\lambda)(-\lambda)</mrow>
     </md>.
@@ -509,7 +508,7 @@ Le dernier vecteur propre est <m>\vec{v}_3=(0,0,1)</m>.
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation>
     <title>Polynôme caractéristique et Sage</title>
-    <statement><p>
+    <p>
     Bien que Sage soit capable directement de calculer les vecteurs et les valeurs propres, il peut aussi simplement donner le polynôme caractéristique d'une matrice <m>A</m>. Il suffit d'utiliser la commande <c>characteristic_polynomial()</c> ou son équivalent plus courte <c>charpoly()</c>. À noter que Sage utilise une version légèrement différente du polynôme caractéristique. Il considère plutôt le déterminant de <m>\lambda I-A</m>. Le polynôme retourné par Sage sera le même que celui de la définition <xref ref="def-polynomecaracteristique"/> lorsque <m>A</m> est une matrice de taille <m>n\times n</m> où <m>n</m> est paire et différera d'un facteur <m>-1</m> lorsque <m>n</m> est impair.
     </p>
     <sage>
@@ -539,7 +538,6 @@ show(E.eigenvectors_right())
     </input>
     </sage>
     <p>Cette matrice correspond à la matrice <m>E</m> de l'exemple <xref ref="ex-vecvalpropres"/>, où l'on avait trouvé que la valeur propre <m>\lambda=1</m> n'avait qu'un vecteur propre. Elle apparait toutefois avec une multiplicité algébrique de <m>2</m>.</p>
-    </statement>
     </computation>
     </subsection>
     <subsection>
@@ -547,7 +545,7 @@ show(E.eigenvectors_right())
     <p>On obtient dans cette section quelques résultats théoriques en lien avec les valeurs et vecteurs propres. En particulier, on obtiendra la sixième version du théorème de la matrice inverse, en ajoutant une équivalence sur les valeurs propres. Que peut-on dire d'une matrice inversible et ses valeurs propres? Puisque les valeurs et vecteurs propres satisfont l'équation <m>A\vec{v}=\lambda \vec{v}</m> et qu'un vecteur propre ne peut pas être le vecteur nul, il y a quelque chose de particulier qui se passe si la valeur propre est nulle. Cela entraine qu'il y a des vecteurs non nul dans l'espace nul de la matrice. Une telle matrice ne peut donc pas être inversible.</p>
     <theorem xml:id="thm-delamatriceinversev6">
     <title>Théorème de la matrice inverse, sixième version</title>
-    <statement><p>
+    <statement>
 <p>Soit <m>A</m> une matrice carrée d'ordre <m>n</m>. Les énoncés suivants sont équivalents:
     <ol>
     <li><p>La matrice <m>A</m> est inversible</p></li>
@@ -563,8 +561,7 @@ show(E.eigenvectors_right())
     <li><p>L'espace nul est de dimension <m>0</m>.</p></li>
     <li><p>L'espace nul-gauche est de dimension <m>0</m>.</p></li>
     <li><p>Toutes les valeurs propres de <m>A</m> sont non nulles.</p></li>
-    </ol>
-    </p>    
+    </ol>    
     </p></statement>
     <proof><p>Il faut seulement démontrer l'équivalence entre le dernier énoncé et l'un des autres. Dans un premier temps, si <m>A</m> est inversible, alors son espace nul est de dimension <m>0</m>. Il n'existe donc pas d'autres vecteurs que <m>\vec{0}</m> tels que <m>A\vec{v}=\vec{0}</m>. Il découle de cela que <m>\lambda=0</m> ne peut être une valeur propre.</p>
     <p>À l'inverse, si <m>A</m> est une matrice dont toutes les valeurs propres sont différentes de zéro, cela implique qu'aucun vecteur non nul ne possède la propriété que <m>A\vec{v}=0\vec{v}=\vec{0}</m>. Donc, le seul élément dans l'espace nul de <m>A</m> est le vecteur nul, ce qui signifie que l'espace nul est de dimension <m>0</m>. Ainsi, une matrice est inversible si et seulement si aucune de ses valeurs propres n'est nulle.</p>
@@ -573,15 +570,15 @@ show(E.eigenvectors_right())
     <p>Le prochain résultat sera utile dans la prochaine section. Il s'intéresse aux vecteurs propres et à leur indépendance.</p>
     <proposition xml:id="prop-propresindep">
     <title>Vecteurs propres et indépendance</title>
-    <statement><p>
+    <statement>
     <p>Soit <m>\lambda_1,\lambda_2,\ldots ,\lambda_k</m> des valeurs propres disctinctes d'une matrice <m>A</m> et <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> un vecteur propre associé à chacune de ces valeurs propres.
     Alors l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\}</m> est linéairement indépendant.</p>
-    </p></statement>
+    </statement>
     <proof>
     <p>Si <m>k=1</m>, il n'y a qu'un seul vecteur propre. Celui-ci étant non nul, il est par défaut indépendant. S'il y a plus de deux vecteurs, on procède par contradiction. On suppose que l'ensemble de ces vecteurs propres est dépendant. On peut alors affirmer qu'il existe un entier <m>p</m> tel que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est un ensemble indépendant, mais que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. Bien entendu, <m>p\neq k</m> puisqu'on suppose que l'ensemble de tous ces vecteurs est dépendant. On cherche donc le premier vecteur qui, combiné aux précédents vecteurs indépendants, rend l'ensemble dépendant. Si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}</m> est dépendant, il existe alors une combinaison linéaire des <m>p</m> premiers vecteurs qui donne le vecteur <m>\vec{v}_{p+1}</m> :
-    <men xml:id="eq-vecpropreindep" symbol="star">
+    <mdn><mrow xml:id="eq-vecpropreindep" tag="star">
     a_1\vec{v}_1+a_2\vec{v}_2+\ldots + a_p\vec{v}_p=\vec{v}_{p+1}
-    </men>.
+    </mrow></mdn>.
     On multiplie les deux côtés de cette équation par <m>A</m>. On obtient alors
     <md>
     <mrow>A(a_1\vec{v}_1+a_2\vec{v}_2+\ldots + a_p\vec{v}_p)&amp;=A\vec{v}_{p+1}</mrow>

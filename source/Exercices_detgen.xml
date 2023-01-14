@@ -236,10 +236,10 @@
     Déplacer le séparateur de fenêtres pour mieux voir le plan illustré dans la fenêtre de droite.</p></instructions></interactive>
     </figure>    
     </statement>
-    <solution>Il suffit d'appliquer la règle de la main droite en dirigeant nos doigts vers <m>\vec{u}</m>, notre paume vers <m>\vec{v}</m> et en déterminant si notre pouce pointe vers <m>\vec{w}</m> ou non.
+    <solution><p>Il suffit d'appliquer la règle de la main droite en dirigeant nos doigts vers <m>\vec{u}</m>, notre paume vers <m>\vec{v}</m> et en déterminant si notre pouce pointe vers <m>\vec{w}</m> ou non.
     Si c'est le cas, le repère est d'orientation positive et négative sinon.
     En affichant le plan engendré par <m>\vec{u}</m> et <m>\vec{v}</m>, si notre vue est au-dessus du plan et que <m>\vec{u}</m> est plus vers la droite et <m>\vec{v}</m>
-    vers la gauche, il sera facile de déterminer si <m>\vec{w}</m> pointe vers le pouce puisqu'il sera en pointillé sinon (sous le plan).</solution>
+    vers la gauche, il sera facile de déterminer si <m>\vec{w}</m> pointe vers le pouce puisqu'il sera en pointillé sinon (sous le plan).</p></solution>
     </exercise>
     <exercise>
     <introduction><p>Dans cet exercice, on s'intéresse à l'orientation d'un repère <m>\langle \vec{u},\vec{v},\vec{w}\rangle</m> et à l'angle entre <m>\vec{w}</m> et <m>\vec{u}\times \vec{v}</m>, le produit vectoriel de <m>\vec{u}</m> et <m>\vec{v}</m> </p>
@@ -323,7 +323,9 @@
     </task>
     <task>
     <statement><p>Répéter l'étape <xref ref="exo-oriprodvec"/> avec les vecteurs <m>\vec{u}=(1,-1,1),\vec{v}=(0,1,1)</m> et <m>\vec{w}=(-1,3,-1)</m></p></statement>
-    <answer><p>L'orientation du repère  <m>\langle \vec{u},\vec{v},\vec{w}\rangle</m> est négative.</p></answer>
+    <answer><p>L'orientation du repère  <m>\langle \vec{u},\vec{v},\vec{w}\rangle</m> est négative.</p>
+    <p><me>\vec{u}\times\vec{v}=(-2,-1,1)</me></p>
+    <p><me>\theta=\arccos\left(\frac{-2}{\sqrt{66}}\right) \approx 1.81954 \text{ rad} \approx 104.25^\circ</me></p></answer>
     <solution><p>Il y a plus d'une façon de procéder, mais on considère que de calculer le déterminant <m>\det(\vec{u},\vec{v},\vec{w})</m> et de regarder son signe est la meilleure approche.
     Pour calculer un déterminant, on peut procéder comme dans les exemples <xref ref="ex-det3x3-1"/> et <xref ref="ex-det3x3-2"/>, mais on préfère l'approche plus rapide de l'exemple <xref ref="ex-det3x3-3"/>.
     On échelonne donc la matrice 
@@ -355,9 +357,8 @@
     Puisqu'on n'a effectué que des opérations du type <xref ref="li-detk"/>, ce déterminant est le même que celui de <m>A</m>.
     On a donc <m>\det(A)=-2</m>. 
     Puisqu'il est négatif, l'orientation du repère  <m>\langle \vec{u},\vec{v},\vec{w}\rangle</m> est aussi négative.
-    </p></solution>
-    <answer><p><me>\vec{u}\times\vec{v}=(-2,-1,1)</me></p></answer>
-    <solution><p>
+    </p>
+    <p> Pour le produit vectoriel, on a
     <md>
     <mrow>\vec{u}\times\vec{v}&amp;=\left(\begin{vmatrix} u_2 &amp; v_2 \\ u_3 &amp; v_3\end{vmatrix},
     -\begin{vmatrix} u_1 &amp; v_1 \\ u_3 &amp; v_3\end{vmatrix},
@@ -366,17 +367,17 @@
     -\begin{vmatrix} 1 &amp; 0 \\ 1 &amp; 1\end{vmatrix},
     \begin{vmatrix} 1 &amp; 0 \\ -1 &amp; 1\end{vmatrix}\right) </mrow>
     <mrow>&amp;=(-2,-1,1) </mrow>
-    </md>
-    </p></solution>
-    <answer><p><me>\theta=\arccos\left(\frac{-2}{\sqrt{66}}\right) \approx 1.81954 \text{ rad} \approx 104.25^\circ</me></p></answer>
-    <solution><p>
+    </md>.
+    </p>
+    <p> Et finalement pour l'angle,
     <md>
     <mrow>\cos(\theta)&amp;=\frac{\vec{w}\cdot (\vec{u}\times\vec{v})}{\norm{\vec{w}}\norm{\vec{u}\times\vec{v}}}</mrow>
     <mrow>\cos(\theta)&amp;=\frac{(-1,3,-1)\cdot (-2,-1,1)}{\norm{(-1,3,-1)}\norm{(-2,-1,1)}}</mrow>
     <mrow>\cos(\theta)&amp;=\frac{-2}{\sqrt{11}\sqrt{6}}</mrow>
     <mrow>\theta &amp;=\arccos\left(\frac{-2}{\sqrt{66}}\right) \approx 1.81954 \text{ rad} \approx 104.25^\circ</mrow>
-    </md>
-    </p></solution>
+    </md>.
+    </p>
+    </solution>
     </task>
     <task><statement><p>Formuler une hypothèse entre la relation du troisième vecteur d'un repère et le produit vectoriel des deux premiers vecteurs de ce repère.</p></statement>
     <solution><p>Notre hypothèse est que si l'orientation du repère de ces trois vecteurs est positive, alors l'angle entre le produit vectoriel des deux premiers vecteurs
@@ -1068,8 +1069,7 @@ for k in range(6):
     <mrow>\begin{pmatrix} 1&amp;1&amp;1&amp;\cdots &amp; 1\\ 0&amp;1&amp;1&amp; \cdots &amp; 1\\ 0&amp; 1&amp;2&amp; \cdots &amp; 2\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 0&amp; 1&amp; 2&amp; \cdots &amp; n-1 \end{pmatrix}
     &amp;=\begin{pmatrix} 1&amp;0&amp;0&amp;\cdots &amp; 0\\ 0&amp;1&amp;1&amp; \cdots &amp; 1\\ 0&amp; 1&amp;2&amp; \cdots &amp; 2\\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 0&amp; 1&amp; 2&amp; \cdots &amp; n-1 \end{pmatrix}
     </mrow>
-    &amp;=\begin{pmatrix} 1&amp;0&amp;0&amp;\cdots &amp; 1\\ 0&amp;&amp;&amp;  &amp; \\ 0&amp; &amp;&amp; A_n &amp; \\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 0&amp; &amp; &amp;  &amp;  \end{pmatrix}
-    
+    <mrow>&amp;=\begin{pmatrix} 1&amp;0&amp;0&amp;\cdots &amp; 1\\ 0&amp;&amp;&amp;  &amp; \\ 0&amp; &amp;&amp; A_n &amp; \\ \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots\\ 0&amp; &amp; &amp;  &amp;  \end{pmatrix}</mrow>
     </md>.
     </p>
     <p>Puisque les opérations élémentaires de type <m>kL_j+L_i\rightarrow L_i</m> ne change pas le déterminant, en utilisant l'exercice <xref ref="exo-detsousmatrice"/> on a <m>\det(A_n)=\det(A_{n-1})=1</m>, selon l'hypothèse d'induction.</p>

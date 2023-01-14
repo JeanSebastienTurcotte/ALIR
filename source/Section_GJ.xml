@@ -561,19 +561,18 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <p>Comme un des quatre conditions n'est pas respectée, la matrice n'est pas échelonnée réduite.</p>
     </solution>
     </example>
-    <aside>
-    <title>En passant</title>
+    <remark>
+    <title>Origine du terme "échelon"</title>
     <p>Le mot échelonnée dans la forme échelonnée réduite vient d'échelle. On peut en effet percevoir un certain escalier en regardant les pivots d'une matrice
     échelonnée réduite.</p>
     <figure xml:id="fig-matechelon">
   <caption>Justification du mot "échelon"</caption>
-  <image source="code/LaTeX/fig-matechelon.svg">
-    
-  <description>Les pivots de la forme échelonnée réduite d'une matrice sont donnés. Comme ces pivots se trouvent à la droite les uns des autres lorsqu'on lit la 
+  <image source="code/LaTeX/fig-matechelon">
+    <description>Les pivots de la forme échelonnée réduite d'une matrice sont donnés. Comme ces pivots se trouvent à la droite les uns des autres lorsqu'on lit la 
   matrice de haut en bas, on peut y voir un escalier.</description>
   </image>
   </figure>
-    </aside>
+    </remark>
     <p>À ce stade-ci, on se doute bien qu'il est possible de transformer une matrice en une matrice équivalente qui sera échelonnée réduite en utilisant
     les opérations élémentaires. S'il s'avérait que la forme échelonnée réduite d'une matrice était unique, on obtiendrait une façon de savoir quand arrêter les 
     opérations élémentaires.
@@ -586,8 +585,8 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <m>
     rref(A)=erl(A)
     </m>
-    <fn><p> <c>erl</c> signifie "échelonnée réduite ligne", alors que <c>rref</c> vient de l'anglais "row reduced echelon form". Par choix,
-    on utilisera la version anglaise, car elle est identique à la commande Sage qui sera utilisée.</p></fn>
+    <fn> L'expression <c>erl</c> signifie "échelonnée réduite ligne", alors que <c>rref</c> vient de l'anglais "row reduced echelon form". Par choix,
+    on utilisera la version anglaise, car elle est identique à la commande Sage qui sera utilisée.</fn>
     comme étant l'unique forme échelonnée réduite de la matrice <m>A</m>.  </p>
     </statement>
     <proof>
@@ -629,15 +628,16 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <statement>
     <p>Soit <m>A</m> une matrice de taille <m>m\times n</m>. Il est possible d'obtenir la forme échelonnée réduite de <m>A, rref(A)</m>, en suivant le processus suivant:</p>
     <list xml:id="li-GJ">
+    <title>Algorithme de Gauss-Jordan</title>
     <ol>
-    <li xml:id="li-GJpivdown"><p>Si <m>i</m> n'est pas encore défini, on pose <m>i=1</m>. Si <m>i=m</m>, on saute à l'étape suivante. Sinon, si <m>i&lt;m</m>, on augmente <m>i</m> de <m>1</m>.</p>
+    <li xml:id="li-GJpivdown"><p>Si <m>i</m> n'est pas encore défini, on pose <m>i=1</m>. Si <m>i=m</m>, on saute à l'étape suivante. Sinon, si <m>i&lt;m</m>, on augmente <m>i</m> de <m>1</m>.
     <ol>
     <li><p>Si possible, échanger la ligne <m>i</m> avec une autre ligne (<m>j>i</m>) de sorte à avoir un pivot non nul dans la colonne la plus à gauche possible.</p></li>
     <li xml:id="li-GJpiv1"><p>Si nécessaire, multiplier la nouvelle ligne <m>i</m> par la constante appropriée pour avoir son pivot égal à <m>1</m>.</p></li>
     <li><p>Utiliser l'opération <m>rL_i+L_j\rightarrow L_j</m> pour que chaque entrée sous le pivot soit nulle. (<m>j&lt;i</m>).
     </p></li>
     <li><p>Retourner à la première étape.</p></li>
-    </ol></li>
+    </ol></p></li>
     <li xml:id="li-GJpivup">
     <p>Pour chaque pivot, utiliser la troisième opération élémentaire pour avoir des zéros au-dessus du pivot.</p>
     </li>
@@ -676,7 +676,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     C'est une matrice <m>3\times 4</m>, en comptant la partie augmentée. On a donc <m>m=3</m>.</p>
     <p>On commence l'algorithme de Gauss-Jordan.
     <ol>
-    <li><p>Comme <m>i</m> n'est pas défini, on pose <m>i=1</m>. </p>
+    <li><p>Comme <m>i</m> n'est pas défini, on pose <m>i=1</m>. 
     <ol>
     <li><p>
     Puisque la première colonne contient des valeurs non nulles, ce sera une colonne pivot. Toutefois, l'entrée de la 
@@ -707,7 +707,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
                                0&amp;1&amp;-7&amp;|&amp;-8\end{pmatrix}</me>.
     </p></li>
     <li><p>On retourne à la première étape.</p></li>
-                               </ol></li>
+                               </ol></p></li>
     <li><p>On a maintenant <m>i=2</m>.</p>
     <p><ol>
     <li><p>Les entrées de la seconde colonne à partir de la ligne deux ne sont pas toutes nulles, il y aura donc un pivot dans la colonne deux. Techniquement, l'algorithme
@@ -846,7 +846,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     \end{pmatrix}</mrow>
     </md>.
     </p>
-    La solution au premier système est donc <m>\vecddd{x}{y}{z}=\vecddd{-1}{\frac{1}{2}}{-\frac{1}{2}}</m> et celle du second est <m>\vecddd{x}{y}{z}=\vecddd{-\frac{7}{3}}{1}{-\frac{2}{3}}</m>. De plus, en reprenant la réponse de l'exemple
+    <p>La solution au premier système est donc <m>\vecddd{x}{y}{z}=\vecddd{-1}{\frac{1}{2}}{-\frac{1}{2}}</m> et celle du second est <m>\vecddd{x}{y}{z}=\vecddd{-\frac{7}{3}}{1}{-\frac{2}{3}}</m>. De plus, en reprenant la réponse de l'exemple
     <xref ref="ex-opelem"/>, on obtient
     <me>
     \begin{pmatrix}
@@ -854,12 +854,11 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     2&amp; 2&amp;-4\\
     -1&amp; 0&amp;2
     \end{pmatrix}^{-1}=\matcolt{\frac{2}{3}}{0}{\frac{1}{3}}{-1}{\frac{1}{2}}{-\frac{1}{2}}{-\frac{7}{3}}{1}{-\frac{2}{3}}
-    </me>
-    </solution>à
+    </me></p>
+    </solution>
     </example>
     <remark>
     <title>Les possibilités d'opérations</title>
-    <statement>
     <p>
     En combinant plusieurs opérations élémentaires, on obtient une opération valide (généralement pas élémentaire) pour échelonner une matrice. Ainsi, l'opération 
     <m> 3L_2+5L_1\rightarrow L_2</m> peut être vue comme la combinaison des opérations élémentaires <m>3L_2\rightarrow L_2</m> suivie de l'opération <m>5L_1+L_2\rightarrow L_2</m>.
@@ -877,7 +876,6 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     Cette opération rend le pivot de la première ligne égal à <m>1</m> sans créer de fraction dans la deuxième colonne.</p>
     <p>Finalement, on peut se permettre de faire plusieurs opérations en une étape, comme lors de l'équation <xref ref="eq-deuxopelem"/> de l'exemple <xref ref="ex-GJchaine"/>. Il est 
     par contre important de retenir qu'on ne doit pas utiliser une ligne qui a été modifiée auparavant dans la même étape pour modifier une autre ligne. Voir l'exercice <xref provisional="ex-GJremexo"/></p>
-    </statement>
     </remark>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-GJ">
