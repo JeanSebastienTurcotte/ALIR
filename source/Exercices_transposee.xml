@@ -183,7 +183,7 @@ DB=\left(\begin{array}{rr}
 2 &amp; 0 \\
 -2 &amp; 2 \\
 3 &amp; 1
-\end{array}</mrow>
+\end{array}\right)</mrow>
 <mrow>&amp;=\left(\begin{array}{rr}
 17 &amp; -1 \\
 -1 &amp; 5
@@ -203,7 +203,7 @@ DB=\left(\begin{array}{rr}
 2 &amp; 0 \\
 -2 &amp; 2 \\
 3 &amp; 1
-\end{array}\begin{pmatrix} 2&amp; -2&amp;3 \\ 0&amp; 2&amp;1 \end{pmatrix}</mrow>
+\end{array}\right)\begin{pmatrix} 2&amp; -2&amp;3 \\ 0&amp; 2&amp;1 \end{pmatrix}</mrow>
 <mrow>&amp;=\left(\begin{array}{rrr}
 4 &amp; -4 &amp; 6 \\
 -4 &amp; 8 &amp; -4 \\
@@ -238,7 +238,7 @@ CD=\left(\begin{array}{rr}
 2 &amp; 0 \\
 -2 &amp; 2 \\
 3 &amp; 1
-\end{array}\left(\begin{array}{rrr}
+\end{array}\right)\left(\begin{array}{rrr}
 7 &amp; 2 &amp; 1 \\
 -1 &amp; 4 &amp; 0
 \end{array}\right)</mrow>
@@ -281,7 +281,7 @@ DC=
 2 &amp; 0 \\
 -2 &amp; 2 \\
 3 &amp; 1
-\end{array}</mrow>
+\end{array}\right)</mrow>
 <mrow>&amp;=\left(\begin{array}{rr}
 13 &amp; 5 \\
 -10 &amp; 8
@@ -560,7 +560,7 @@ a^{2} + b^{2} &amp; 0 \\
 </exercise>
     <exercise><introduction><p>On considère les matrices de permutation  définies à l'exercice <xref ref="exo-matpermudef"/>.</p></introduction>
     <task><statement><p>Montrer que si <m>P</m> est une matrice de permutation <m>2\times 2</m>, alors <m>P^T=P^{-1}</m>.</p></statement>
-    <solution><p>Il y a deux cas à vérfier. Le premier est <m>P_1=\begin{pmatrix} 1&amp;0\\0&amp;1</m>, la matrice identité. On vérifie facilement que <m>P_1^T=P_1=P_1^{-1}</m>. Le deuxième cas est
+    <solution><p>Il y a deux cas à vérfier. Le premier est <m>P_1=\begin{pmatrix} 1&amp;0\\0&amp;1\end{pmatrix}</m>, la matrice identité. On vérifie facilement que <m>P_1^T=P_1=P_1^{-1}</m>. Le deuxième cas est
     <m>P_2=\begin{pmatrix}0&amp; 1\\ 1&amp;0\end{pmatrix}</m>. On sait que c'est une matrice qui est son propre inverse, et on remarque qu'elle est symétrique. On a donc bel et bien <m>P_2^T=P_2=P_2 ^{-1}</m>.</p></solution></task>
     <task><statement><p>Utiliser le code de l'exercice <xref ref="exosage-permmatrices"/> pour montrer que les matrices de permutation <m>P</m> de taille <m>3\times 3</m> et <m>4\times 4</m> ont cette propriété.</p></statement>
     <solution>
@@ -639,7 +639,7 @@ de ces vecteurs, soit le plan <m>(x,y,z)=a\vec{s}_1+b\vec{s}_2</m>.</p>
 <task><statement><p>Soit <m>\vec{u}=\vecddd{x}{y}{z}</m>. Montrer que les vecteurs de l'espace nul gauche satisfont l'équation <men xml:id="eq-nulgauche">\vec{u}^TA=\vec{0}^T</men>.</p></statement>
 <solution><p>On commence par vérifier que les vecteurs <m>\vec{s}_1,\vec{s}_2</m> satisfont l'équation. D'une part, on a
 <me>
-\vec{s}_1^T^TA=\begin{pmatrix} -2&amp; 1&amp; 0 \end{pmatrix}\matcolt{1}{2}{3}{-1}{-2}{-3}{2}{4}{6}=\begin{pmatrix} 0&amp;0&amp;0 \end{pmatrix}
+\vec{s}_1^TA=\begin{pmatrix} -2&amp; 1&amp; 0 \end{pmatrix}\matcolt{1}{2}{3}{-1}{-2}{-3}{2}{4}{6}=\begin{pmatrix} 0&amp;0&amp;0 \end{pmatrix}
 </me> et pour <m>\vec{s}_2</m>, on a 
 <me>
 \vec{s}_2^TA=\begin{pmatrix} -3&amp; 0&amp; 1 \end{pmatrix}\matcolt{1}{2}{3}{-1}{-2}{-3}{2}{4}{6}=\begin{pmatrix} 0&amp;0&amp;0 \end{pmatrix}
@@ -807,11 +807,11 @@ aux quatre lignes de la matrice. De manière générale, toute matrice de la for
 <me>
 \begin{pmatrix}
 -3k_1&amp; 1k_1\\
--3k2_&amp; 1k_2\\
--33k_&amp; 1k_3\\
--43k_&amp; 1k_4\\
+-3k_2&amp; 1k_2\\
+-3k_3&amp; 1k_3\\
+-4k_4&amp; 1k_4\\
 \end{pmatrix}
-</me> où <m>k_1,k_2,k_3,k_4\in \R\backslash\{0\} </m> fera l'affaire.</p></solution>
+</me> où <m>k_1,k_2,k_3,k_4\in \mathbb{R}\backslash\{0\} </m> fera l'affaire.</p></solution>
 </task>
 <task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul gauche seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-3}{1}</m>.</p></statement>
 <solution><p>De manière similaire à la matrice trouvée pour que l'espace nul soit composé uniquement des multiples de <m>(-1,2)</m>, on montre que la matrice
@@ -828,7 +828,7 @@ de la forme <m>\begin{pmatrix} k_1&amp; k_2\\3k_1&amp; 3k_2  \end{pmatrix}</m> f
 </p></solution>
 </task>
 <task><statement><p>La matrice <m>3\times 2</m> ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs parallèles à <m>\vec{u}=\vecddd{-1}{2}{1}</m>.</p></statement>
-<solution><p>L'idée est la même qu'avant, toute matrice de la forme <m>\begin{pmatrix} -k_1&amp; -k_2\\ 2k_1&amp; 2k_2 \\ k_1&amp; k_2</m> fera l'affaire.</p></solution>
+<solution><p>L'idée est la même qu'avant, toute matrice de la forme <m>\begin{pmatrix} -k_1&amp; -k_2\\ 2k_1&amp; 2k_2 \\ k_1&amp; k_2\end{pmatrix}</m> fera l'affaire.</p></solution>
 </task>
 <task><statement><p>La matrice est carrée, ne contient aucune entrée égale à zéro, les lignes ne sont pas parallèles entre elles et possède comme espace nul seulement les vecteurs parallèles à <m>\vec{u}=\vecddd{-1}{2}{1}</m>.</p></statement>
 <solution><p>Encore ici, on cherche une matrice qui dont la forme échelonnée n'aura qu'une solution de base. La matrice échelonnée réduite
@@ -879,25 +879,25 @@ On cherche donc comment à partir de <m>\vec{u},\vec{v}</m> on peut obtenir ces 
 </me>.
 Comme on ne se soucie pas de la première composante, on a que <m>1=2a+b</m> et <m>0=a+2b</m>. Pour le vecteur <m>\vec{v}^{'}</m>, on obtient de manière similaire les équations <m>0=2a+b</m> et <m>1=a+2b</m>. On peut résoudre simultanément ces systèmes en échelonnant la matrice augmentée
 <md>
-<mrow>\begin{array}{rr|rr}
+<mrow>\left(\begin{array}{rr|rr}
 2&amp; 1&amp; 1 &amp;0\\
 1&amp;2&amp;0 &amp;1
-\end{array}&amp;\matsimile{1}{2}\begin{array}{rr|r}
+\end{array}\right)&amp;\matsimile{1}{2}\left(\begin{array}{rr|rr}
 1&amp; 2&amp; 0&amp;1\\
 2&amp;1&amp;1&amp;0
-\end{array}</mrow>
-<mrow>&amp;\matsimilc{1}{-2}{2}\begin{array}{rr|r}
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{1}{-2}{2}\left(\begin{array}{rr|rr}
 1&amp; 2&amp; 0&amp;1\\
 0&amp;-3&amp;1&amp;-2
-\end{array}</mrow>
-<mrow>&amp;\matsimils{2}{-\frac{1}{3}}\begin{array}{rr|r}
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimils{2}{-\frac{1}{3}}\left(\begin{array}{rr|rr}
 1&amp; 2&amp; 0&amp;1\\
 0&amp;1&amp;-\frac{1}{3}&amp;\frac{2}{3}
-\end{array}</mrow>
-<mrow>&amp;\matsimilc{2}{-2}{1}\begin{array}{rr|r}
+\end{array}\right)</mrow>
+<mrow>&amp;\matsimilc{2}{-2}{1}\left(\begin{array}{rr|rr}
 1&amp; 0&amp; \frac{2}{3}&amp;-\frac{1}{3}\\
 0&amp;1&amp;-\frac{1}{3}&amp;\frac{2}{3}
-\end{array}</mrow>
+\end{array}\right)</mrow>
 </md>. Le vecteur premier vecteur est <m>\vec{u}^{'}=\frac{2}{3}\vecddd{-1}{2}{1}-\frac{1}{3}\vecddd{2}{1}{2}=\vecddd{-\frac{4}{3}}{1}{0}</m> et le deuxième vecteur est <m>\vec{v}^{'}=-\frac{1}{3}\vecddd{-1}{2}{1}+\frac{2}{3}\vecddd{2}{1}{2}=\vecddd{\frac{5}{3}}{0}{1}</m> .</p>
 <p>
 Une matrice échelonnée réduite ayant ces deux vecteurs comme solutions de base serait

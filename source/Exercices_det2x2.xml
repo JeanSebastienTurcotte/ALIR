@@ -399,17 +399,17 @@ Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xre
     <exercise>
     <introduction><p>Dans cet exercice, on s'intéresse au produit vectoriel, donné par l'équation <xref ref="eq-prodvecdet2x2"/>.</p></introduction>
     <task>
-    <statement><p>On fixe <m>\vec{v}=(1,2,3)</m>. Montrer que la transformation <m>T_\vec{v}(\vec{u})=\vec{u}\times\vec{v}</m> est linéaire et donner sa matrice.</p></statement>
+    <statement><p>On fixe <m>\vec{v}=(1,2,3)</m>. Montrer que la transformation <m>T_{\vec{v}}(\vec{u})=\vec{u}\times\vec{v}</m> est linéaire et donner sa matrice.</p></statement>
     <solution><p>
     On commence par montrer que la transformation est linéaire et on calculera ensuite sa matrice.
     On remarque que si l'on obtient sa matrice de transformation et qu'elle correspond effectivement à la transformation en termes de l'effet sur <m>(x,y,z)</m>, 
     alors on n'aurait pas besoin de démontrer que la transformation est linéaire en vertu de la proposition <xref ref="prop-matsonttransfos"/>.
     On le fait quand même pour le lecteur qui n'y aurait pas pensé.
-    On doit montrer que <m>T_\vec{v}</m> est linéaire en montrant que pour des vecteurs <m>\vec{u}=\vecddd{x}{y}{z}, \vec{u}'=\vecddd{x'}{y'}{z'}</m> et un scalaire <m>c\in\R</m>
+    On doit montrer que <m>T_{\vec{v}}</m> est linéaire en montrant que pour des vecteurs <m>\vec{u}=\vecddd{x}{y}{z}, \vec{u}'=\vecddd{x'}{y'}{z'}</m> et un scalaire <m>c\in\R</m>
     quelconques, on a les deux propriétés de la définition <xref ref="def-transfolin"/>. 
     Noter qu'on a décidé d'utiliser <m>\vec{u}'</m> au lieu de <m>\vec{v}</m> puisque ce dernier vecteur est déjà utilisé dans la transformation.
     <md>
-    <mrow>T_\vec{v}(\vec{u}+\vec{u}')&amp;=(\vec{u}+\vec{u}')\times \vec{v}</mrow>
+    <mrow>T_{\vec{v}}(\vec{u}+\vec{u}')&amp;=(\vec{u}+\vec{u}')\times \vec{v}</mrow>
     <mrow>&amp;=\left(\vecddd{x}{y}{z}+\vecddd{x'}{y'}{z'}\right)\times \vecddd{1}{2}{3}</mrow>
     <mrow>&amp;=\left(\begin{vmatrix} y+y' &amp; 2 \\ z+z' &amp; 3\end{vmatrix},
     -\begin{vmatrix} x+x' &amp; 1 \\ z+z' &amp; 3\end{vmatrix},
@@ -425,10 +425,10 @@ Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xre
     \begin{vmatrix} x' &amp; 1 \\ y' &amp; 2\end{vmatrix}\right)</mrow>
     <mrow>&amp;\vecddd{x}{y}{z}\times \vecddd{1}{2}{3}+\vecddd{x'}{y'}{z'}\times \vecddd{1}{2}{3}</mrow>
     <mrow>&amp;=\vec{u}\times\vec{v} + \vec{u}'\times\vec{v}</mrow>
-    <mrow>&amp;=T_\vec{v}(\vec{u})+T_\vec{v}(\vec{u}')</mrow>
+    <mrow>&amp;=T_{\vec{v}}(\vec{u})+T_{\vec{v}}(\vec{u}')</mrow>
     </md>
     <md>
-    <mrow>T_\vec{v}(c\vec{u})&amp;=(c\vec{u})\times \vec{v}</mrow>
+    <mrow>T_{\vec{v}}(c\vec{u})&amp;=(c\vec{u})\times \vec{v}</mrow>
     <mrow>&amp;=\left(c\vecddd{x}{y}{z}\right)\times \vecddd{1}{2}{3}</mrow>
     <mrow>&amp;=\vecddd{cx}{cy}{cz}\times \vecddd{1}{2}{3}</mrow>
     <mrow>&amp;=\left(\begin{vmatrix} cy &amp; 2 \\ cz &amp; 3\end{vmatrix},
@@ -442,33 +442,33 @@ Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xre
     \begin{vmatrix} x &amp; 1 \\ y &amp; 2\end{vmatrix}\right)</mrow>
     <mrow>&amp;=c\left(\vecddd{x}{y}{z}\times \vecddd{1}{2}{3}\right)</mrow>
     <mrow>&amp;=c(\vec{u}\times\vec{v})</mrow>
-    <mrow>&amp;=cT_\vec{v}(\vec{u})</mrow>
+    <mrow>&amp;=cT_{\vec{v}}(\vec{u})</mrow>
     </md>
     On a démontré que la transformation est linéaire. 
-    Pour trouver sa matrice, il suffit de trouver l'effet de <m>T_\vec{v}</m> sur les vecteurs de base.
+    Pour trouver sa matrice, il suffit de trouver l'effet de <m>T_{\vec{v}}</m> sur les vecteurs de base.
     <md>
-    <mrow>T_\vec{v}\vecddd{1}{0}{0}&amp;=\vecddd{1}{0}{0} \times \vecddd{1}{2}{3}</mrow>
+    <mrow>T_{\vec{v}}\vecddd{1}{0}{0}&amp;=\vecddd{1}{0}{0} \times \vecddd{1}{2}{3}</mrow>
     <mrow>&amp;=\left(\begin{vmatrix} 0 &amp; 2 \\ 0 &amp; 3\end{vmatrix},
     -\begin{vmatrix} 1 &amp; 1 \\ 0 &amp; 3\end{vmatrix},
     \begin{vmatrix} 1 &amp; 1 \\ 0 &amp; 2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
     <mrow>&amp;=(0,-3,2)=\vecddd{0}{-3}{2}</mrow>
     </md>
     <md>
-    <mrow>T_\vec{v}\vecddd{0}{1}{0}&amp;=\vecddd{0}{1}{0} \times \vecddd{1}{2}{3}</mrow>
+    <mrow>T_{\vec{v}}\vecddd{0}{1}{0}&amp;=\vecddd{0}{1}{0} \times \vecddd{1}{2}{3}</mrow>
     <mrow>&amp;=\left(\begin{vmatrix} 1 &amp; 2 \\ 0 &amp; 3\end{vmatrix},
     -\begin{vmatrix} 0 &amp; 1 \\ 0 &amp; 3\end{vmatrix},
     \begin{vmatrix} 0 &amp; 1 \\ 1 &amp; 2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
     <mrow>&amp;=(3,0,-1)=\vecddd{3}{0}{-1}</mrow>
     </md>
     <md>
-    <mrow>T_\vec{v}\vecddd{0}{0}{1}&amp;=\vecddd{0}{0}{1} \times \vecddd{1}{2}{3}</mrow>
+    <mrow>T_{\vec{v}}\vecddd{0}{0}{1}&amp;=\vecddd{0}{0}{1} \times \vecddd{1}{2}{3}</mrow>
     <mrow>&amp;=\left(\begin{vmatrix} 0 &amp; 2 \\ 1 &amp; 3\end{vmatrix},
     -\begin{vmatrix} 0 &amp; 1 \\ 1 &amp; 3\end{vmatrix},
     \begin{vmatrix} 0 &amp; 1 \\ 0 &amp; 2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
     <mrow>&amp;=(-2,1,0)=\vecddd{-2}{1}{0}</mrow>
     </md>
     On les met en colonnes dans la matrice et on obtient donc:
-    <me>T_\vec{v}=\begin{pmatrix}
+    <me>T_{\vec{v}}=\begin{pmatrix}
     0 &amp; 3 &amp; -2 \\
     -3 &amp; 0 &amp; 1 \\
     2 &amp; -1 &amp; 0
@@ -482,11 +482,11 @@ Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xre
     <solution><p>
     Attention, c'est exactement la même démarche que précédemment, mais avec des valeurs quelconques pour <m>\vec{v}</m>.
     On commence par montrer que la transformation est linéaire et on calculera ensuite sa matrice.
-    On doit montrer que <m>T_\vec{v}</m> est linéaire en montrant que pour des vecteurs <m>\vec{u}=\vecddd{x}{y}{z}, \vec{u}'=\vecddd{x'}{y'}{z'}</m> et un scalaire <m>c\in\R</m>
+    On doit montrer que <m>T_{\vec{v}}</m> est linéaire en montrant que pour des vecteurs <m>\vec{u}=\vecddd{x}{y}{z}, \vec{u}'=\vecddd{x'}{y'}{z'}</m> et un scalaire <m>c\in\R</m>
     quelconques, on a les deux propriétés de la définition <xref ref="def-transfolin"/>. 
     Noter qu'on a décidé d'utiliser <m>\vec{u}'</m> au lieu de <m>\vec{v}</m> puisque ce dernier vecteur est déjà utilisé dans la transformation.
     <md>
-    <mrow>T_\vec{v}(\vec{u}+\vec{u}')&amp;=(\vec{u}+\vec{u}')\times \vec{v}</mrow>
+    <mrow>T_{\vec{v}}(\vec{u}+\vec{u}')&amp;=(\vec{u}+\vec{u}')\times \vec{v}</mrow>
     <mrow>&amp;=\left(\vecddd{x}{y}{z}+\vecddd{x'}{y'}{z'}\right)\times \vecddd{v_1}{v_2}{v_3}</mrow>
     <mrow>&amp;=\left(\begin{vmatrix} y+y' &amp; v_2 \\ z+z' &amp; v_3\end{vmatrix},
     -\begin{vmatrix} x+x' &amp; v_1 \\ z+z' &amp; v_3\end{vmatrix},
@@ -502,10 +502,10 @@ Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xre
     \begin{vmatrix} x' &amp; v_1 \\ y' &amp; v_2\end{vmatrix}\right)</mrow>
     <mrow>&amp;\vecddd{x}{y}{z}\times \vecddd{v_1}{v_2}{v_3}+\vecddd{x'}{y'}{z'}\times \vecddd{v_1}{v_2}{v_3}</mrow>
     <mrow>&amp;=\vec{u}\times\vec{v} + \vec{u}'\times\vec{v}</mrow>
-    <mrow>&amp;=T_\vec{v}(\vec{u})+T_\vec{v}(\vec{u}')</mrow>
+    <mrow>&amp;=T_{\vec{v}}(\vec{u})+T_{\vec{v}}(\vec{u}')</mrow>
     </md>
     <md>
-    <mrow>T_\vec{v}(c\vec{u})&amp;=(c\vec{u})\times \vec{v}</mrow>
+    <mrow>T_{\vec{v}}(c\vec{u})&amp;=(c\vec{u})\times \vec{v}</mrow>
     <mrow>&amp;=\left(c\vecddd{x}{y}{z}\right)\times \vecddd{v_1}{v_2}{v_3}</mrow>
     <mrow>&amp;=\vecddd{cx}{cy}{cz}\times \vecddd{v_1}{v_2}{v_3}</mrow>
     <mrow>&amp;=\left(\begin{vmatrix} cy &amp; v_2 \\ cz &amp; v_3\end{vmatrix},
@@ -519,33 +519,33 @@ Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xre
     \begin{vmatrix} x &amp; v_1 \\ y &amp; v_2\end{vmatrix}\right)</mrow>
     <mrow>&amp;=c\left(\vecddd{x}{y}{z}\times \vecddd{v_1}{v_2}{v_3}\right)</mrow>
     <mrow>&amp;=c(\vec{u}\times\vec{v})</mrow>
-    <mrow>&amp;=cT_\vec{v}(\vec{u})</mrow>
+    <mrow>&amp;=cT_{\vec{v}}(\vec{u})</mrow>
     </md>
     On a démontré que la transformation est linéaire. 
-    Pour trouver sa matrice, il suffit de trouver l'effet de <m>T_\vec{v}</m> sur les vecteurs de base.
+    Pour trouver sa matrice, il suffit de trouver l'effet de <m>T_{\vec{v}}</m> sur les vecteurs de base.
     <md>
-    <mrow>T_\vec{v}\vecddd{1}{0}{0}&amp;=\vecddd{1}{0}{0} \times \vecddd{v_1}{v_2}{v_3}</mrow>
+    <mrow>T_{\vec{v}}\vecddd{1}{0}{0}&amp;=\vecddd{1}{0}{0} \times \vecddd{v_1}{v_2}{v_3}</mrow>
     <mrow>&amp;=\left(\begin{vmatrix} 0 &amp; v_2 \\ 0 &amp; v_3\end{vmatrix},
     -\begin{vmatrix} 1 &amp; v_1 \\ 0 &amp; v_3\end{vmatrix},
     \begin{vmatrix} 1 &amp; v_1 \\ 0 &amp; v_2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
     <mrow>&amp;=(0,-v_3,v_2)=\vecddd{0}{-v_3}{v_2}</mrow>
     </md>
     <md>
-    <mrow>T_\vec{v}\vecddd{0}{1}{0}&amp;=\vecddd{0}{1}{0} \times \vecddd{v_1}{v_2}{v_3}</mrow>
+    <mrow>T_{\vec{v}}\vecddd{0}{1}{0}&amp;=\vecddd{0}{1}{0} \times \vecddd{v_1}{v_2}{v_3}</mrow>
     <mrow>&amp;=\left(\begin{vmatrix} 1 &amp; v_2 \\ 0 &amp; v_3\end{vmatrix},
     -\begin{vmatrix} 0 &amp; v_1 \\ 0 &amp; v_3\end{vmatrix},
     \begin{vmatrix} 0 &amp; v_1 \\ 1 &amp; v_2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
     <mrow>&amp;=(v_3,0,-v_1)=\vecddd{v_3}{0}{-v_1}</mrow>
     </md>
     <md>
-    <mrow>T_\vec{v}\vecddd{0}{0}{1}&amp;=\vecddd{0}{0}{1} \times \vecddd{v_1}{v_2}{v_3}</mrow>
+    <mrow>T_{\vec{v}}\vecddd{0}{0}{1}&amp;=\vecddd{0}{0}{1} \times \vecddd{v_1}{v_2}{v_3}</mrow>
     <mrow>&amp;=\left(\begin{vmatrix} 0 &amp; v_2 \\ 1 &amp; v_3\end{vmatrix},
     -\begin{vmatrix} 0 &amp; v_1 \\ 1 &amp; v_3\end{vmatrix},
     \begin{vmatrix} 0 &amp; v_1 \\ 0 &amp; v_2\end{vmatrix}\right)&amp; \text{ par } <xref ref="eq-prodvecdet2x2"/></mrow>
     <mrow>&amp;=(-v_2,v_1,0)=\vecddd{-v_2}{v_1}{0}</mrow>
     </md>
     On les met en colonnes dans la matrice et on obtient donc:
-    <me>T_\vec{v}=\begin{pmatrix}
+    <me>T_{\vec{v}}=\begin{pmatrix}
     0 &amp; v_3 &amp; -v_2 \\
     -v_3 &amp; 0 &amp; v_1 \\
     v_2 &amp; -v_1 &amp; 0

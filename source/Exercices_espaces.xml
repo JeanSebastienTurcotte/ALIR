@@ -577,23 +577,23 @@ plot((1-2*x)/(2-x),x,-1/2,1/2,axes_labels=['$y$', '$\\frac{1-2y}{2-y}$'])
     </me>. Montrer que ceci définit bel et bien un produit scalaire.</p></statement>
     <solution><p>On prend trois polynômes quelconques <m>p,q,r</m> et un scalaire <m>c\in\mathbb{R}</m>. Il faut vérifier chacune des quatre propriétés. Pour la première, cela découle directement de la commutativité de la multiplication.
     <me>
-    \langle p(x)~|~q(x)\rangle=p(t_0)q(t_0)+p(t_1)q(t_1)+p(t_2)q(t_2)=q(t_0)p(t_0)+q(t_1)p(t_1)+q(t_2)p(t_2)=\langle q(x)~|~p(x)}\rangle
+    \langle p(x)~|~q(x)\rangle=p(t_0)q(t_0)+p(t_1)q(t_1)+p(t_2)q(t_2)=q(t_0)p(t_0)+q(t_1)p(t_1)+q(t_2)p(t_2)=\langle q(x)~|~p(x)\rangle
     </me>. De manière similaire, la deuxième propriété découle des propriétés de l'addition et multiplication:
     <me>
-    \langle rp(x)~|~q(x)\rangle=rp(t_0)q(t_0)+rp(t_1)q(t_1)+rp(t_2)q(t_2)=r(p(t_0)q(t_0)+p(t_1)q(t_1)+p(t_2)q(t_2))=r\langle rp(x)~|~q(x)}\rangle
+    \langle rp(x)~|~q(x)\rangle=rp(t_0)q(t_0)+rp(t_1)q(t_1)+rp(t_2)q(t_2)=r(p(t_0)q(t_0)+p(t_1)q(t_1)+p(t_2)q(t_2))=r\langle rp(x)~|~q(x)\rangle
     </me>
     alors que la propriété trois est similaire aussi
     <md>
-    <mrow>\langle p(x)+q(x)~|~r(x)}\rangle&amp;=(p(t_0)+q(t_0))r(t_0)+(p(t_1)+q(t_1))r(t_1)+(p(t_2)+q(t_2))r(t_2)</mrow>
+    <mrow>\langle p(x)+q(x)~|~r(x)\rangle&amp;=(p(t_0)+q(t_0))r(t_0)+(p(t_1)+q(t_1))r(t_1)+(p(t_2)+q(t_2))r(t_2)</mrow>
     <mrow>                                &amp;=p(t_0)r(t_0)+p(t_0)r(t_0)+p(t_1)r(t_1)+p(t_1)r(t_1)+p(t_2)r(t_2)+p(t_2)r(t_2)</mrow>
-    <mrow>                                &amp;=\langle p(x)~|~r(x)}+\langle q(x)~|~r(x)}</mrow>
+    <mrow>                                &amp;=\langle p(x)~|~r(x)\rangle+\langle q(x)~|~r(x)\rangle</mrow>
     </md>.
     </p>
     <p>La dernière propriété est celle qui demande un peu plus de réflexion. La première partie est relativement simple, si
     <me>
     \langle p(x)~|~p(x)\rangle=p(t_0)p(t_0)+p(t_1)p(t_1)+p(t_2)p(t_2)=p(t_0)^2+p(t_1)^2+p(t_2)^2\geq 0
     </me>.
-    Si <m>p(t_0)^2+p(t_1)^2+p(t_2)^2= 0</m>, alors <m>p(t_0)=p(t_1)=p(t_2)=0</m>. Comme <m>p(x)</m> est un polynôme de degré <m>2</m> ou moins, il ne peut avoir plus de deux zéros. Les points <m>t_0,t_1</m> et <m>t_2</m> étant distincts, il suit que le seul polynôme pour lequel <m>\langle p(x)~|~p(x)}\rangle=0</m> est possible est <m>p(x)=0</m>.
+    Si <m>p(t_0)^2+p(t_1)^2+p(t_2)^2= 0</m>, alors <m>p(t_0)=p(t_1)=p(t_2)=0</m>. Comme <m>p(x)</m> est un polynôme de degré <m>2</m> ou moins, il ne peut avoir plus de deux zéros. Les points <m>t_0,t_1</m> et <m>t_2</m> étant distincts, il suit que le seul polynôme pour lequel <m>\langle p(x)~|~p(x)\rangle=0</m> est possible est <m>p(x)=0</m>.
     </p>
     </solution>
     </exercise>
@@ -605,7 +605,7 @@ plot((1-2*x)/(2-x),x,-1/2,1/2,axes_labels=['$y$', '$\\frac{1-2y}{2-y}$'])
     <md>
     <mrow>\langle f(x)~|~g(x)\rangle&amp;=\int_a^b f(x)g(x)dx&amp;&amp;=\int_a^b g(x)f(x)dx&amp;&amp;=\langle g(x)~|~f(x)\rangle</mrow>
     <mrow>\langle rf(x)~|~g(x)\rangle&amp;=\int_a^b rf(x)g(x)dx&amp;&amp;=r\int_a^b f(x)g(x)dx&amp;&amp;=r\langle g(x)~|~f(x)\rangle</mrow>
-    <mrow>\langle f(x)+g(x)~|~h(x)\rangle&amp;=\int_a^b (f(x)+g(x))h(x)dx&amp;&amp;=\int_a^b f(x)h(x)dx+\int_a^b g(x)h(x)dx&amp;&amp;=\langle f(x)~|~h(x)\rangle+\langle g(x)~|~h(x)}\rangle</mrow>
+    <mrow>\langle f(x)+g(x)~|~h(x)\rangle&amp;=\int_a^b (f(x)+g(x))h(x)dx&amp;&amp;=\int_a^b f(x)h(x)dx+\int_a^b g(x)h(x)dx&amp;&amp;=\langle f(x)~|~h(x)\rangle+\langle g(x)~|~h(x)\rangle</mrow>
     </md>
     </p>
     <p>Pour la dernière propriété, il découle aussi des propriétés de l'intégrale (ou de l'interprétation en terme d'aire sous la courbe) que <m>\int_a^b f(x)f(x)dx=\int_a^b f(x)^2dx\geq 0</m>. De même, si <m>\int_a^b f(x)^2dx=0</m>, puisque la fonction est continue, on doit avoir que <m>f(x)=0</m>, sinon il y aurait aire sous la courbe.</p>
@@ -680,10 +680,10 @@ plot((1-2*x)/(2-x),x,-1/2,1/2,axes_labels=['$y$', '$\\frac{1-2y}{2-y}$'])
     </md>.</p>
     <p>Selon les propriétés de l'addition matricielle, de la transposée et de la trace, on a
     <md>
-    <mrow>\langle A+B~ |~ C\rangle&amp;=\text{tr((A+B)^TC)}</mrow>
+    <mrow>\langle A+B~ |~ C\rangle&amp;=\text{tr}((A+B)^TC)</mrow>
     <mrow>&amp;=\text{tr}((A^T+B^T)C) &amp;\text{ selon la troisième propriété de la proposition} <xref ref="prop-transposeeprop"/></mrow>
     <mrow>&amp;=\text{tr}(A^TC+B^TC)&amp; \text{ selon la deuxième propriété de la proposition}<xref ref="prop-prodmatprop"/> </mrow>
-    <mrow>&amp;=\tr(A^TC)+\text{B^TC} &amp;\text{ selon l'exercice} <xref ref="exo-tracesomme"/></mrow>
+    <mrow>&amp;=\text{tr}(A^TC)+\text{tr}(B^TC) &amp;\text{ selon l'exercice} <xref ref="exo-tracesomme"/></mrow>
     <mrow>&amp;=\langle A~ |~ C\rangle+\langle B~ |~ C\rangle</mrow>
     </md>.</p>
     <p>Finalement, pour montrer que <m>\langle A~ |~ A\rangle\geq 0</m>, on remarque que l'entrée sur la diagonale en position <m>i</m> de <m>A^TA</m> correspond à
