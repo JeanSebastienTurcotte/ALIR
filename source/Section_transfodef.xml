@@ -14,7 +14,7 @@
     <introduction xml:id= "intro-transfodef">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
         <p>Aller aux <xref ref="exo-transfodef">exercices</xref> de la section.</p>
     <p>
-    Il est commun d'avoir étudié le concept de fonction, <m>y=f(x)</m>, associant à tout nombre réel <m>x</m> un autre nombre réel <m>y</m>. Ces fonctions sont
+    Le concept de fonction <m>y=f(x)</m> associant à tout nombre réel <m>x</m> un autre nombre réel <m>y</m> est bien connu. Ces fonctions sont
     souvent représentées graphiquement, comme à la figure suivante.</p>
     <figure xml:id="fig-unefonction">
     <caption>La fonction <m>y=x^2+1</m></caption>
@@ -35,7 +35,7 @@
     </description>
     </image>
     </figure>
-    <p>Dans cette section, on définit la notion de transformation linéaire et on regarde les propriétés de ces transformations. On aborde aussi le concept de matrice,
+    <p>Dans cette section, on définit la notion de transformation linéaire et on regarde les propriétés de ce type de transformations. On aborde aussi le concept de matrice,
     étroitement lié aux transformations linéaires.</p>
     </introduction>
     
@@ -60,10 +60,10 @@
     <li xml:id="li-translation"><p> La translation de <m>\vec{w}</m>, qui transforme tout vecteur <m>\vec{u}</m> par <m>T_6(\vec{u})=\vec{u}+\vec{w}</m>.</p></li>
     </ol></list>
     </example>
-    <p>Une étude exhaustive de toutes les fonctions serait beaucoup trop technique et difficile. On se restreint donc à un type particulier de fonctions, dites linéaires, exception faite pour la transformation <xref ref="li-translation">translation</xref>.
-    Pour l'instant, la motivation derrière ce choix sera surtout de nature géométrique. <!-- ToDo: faire un ref sur l'importance des transf lin générale, polynome derivée etc. -->
+    <p>Une étude exhaustive de toutes les fonctions serait beaucoup trop difficile et sortirait du cadre de ce cours. On se restreint donc à un type particulier de fonctions, dites linéaires, exception faite de la transformation représentant une <xref ref="li-translation">translation</xref>.
+    Pour l'instant, la raison de ce choix est surtout de nature géométrique. <!-- ToDo: faire un ref sur l'importance des transf lin générale, polynome derivée etc. -->
     Il est assez difficile de représenter une fonction vectorielle, principalement dû à la dimension des vecteurs. Pour illustrer une fonction comme la fonction <m>T_3(x,y)</m>
-    de l'exemple <xref ref="ex-transfquelc"/>, il faut deux dimensions pour le domaine et deux pour l'image. On s'en sauve en utilisant deux copies de <m>\R^2</m> comme 
+    de l'exemple <xref ref="ex-transfquelc"/>, il faut deux dimensions pour le domaine et deux pour l'image. On contourne cette difficulté en utilisant deux copies de <m>\R^2</m> comme 
     dans la figure suivante.</p>
     <figure xml:id="fig-transfquelc">
     <caption>La fonction <m>T_3(x,y)=(x^2,y-xy)</m> </caption>
@@ -80,13 +80,12 @@
     </image>
     </sidebyside>
     </figure>
-    <p>Dans la figure, le plan à gauche représente le domaine. Certaines courbes ont été mises en évidence en couleur dans le but d'observer leur image. En réalité, tous les 
-    points de <m>\R^2</m> sont transformés. Dans le plan à droite, on retrouve l'image de chacune des courbes.
+    <p>Dans la figure, le plan de gauche représente le domaine et dans le plan de droite, on retrouve l'image de chacune des courbes. Certaines courbes ont été colorées afin de pouvoir associer la courbe originale, à gauche, et son image par la transformation, à droite. En réalité, tous les points de <m>\R^2</m> sont transformés. 
     </p>
     <p>On constate assez rapidement que la visualisation des fonctions vectorielles peut être difficile. Les exemples de la section <xref provisional="La section un peu plus loin du chapitre 1"/>
     sont des cas particuliers qui sont souvent étudiés à l'aide du calcul vectoriel. 
     </p>
-    <p>Quelles sont donc ces transformations dites linéaires? Dans un premier temps, on donne la définition, pour ensuite regarder les conséquences de cette définition, particulièrement au niveau géométrique.</p>
+    <p>Quelles sont donc ces transformations dites linéaires? Dans un premier temps, on donne la définition, pour ensuite regarder les conséquences de cette définition, particulièrement du point de vue géométrique.</p>
     <definition xml:id="def-transfolin">
     <title>Transformation linéaire</title>
     <statement><p>Une fonction <m>T</m> de <m>\R^n</m> vers <m>\R^m</m> est une transformation linéaire si elle satisfait les deux propriétés suivantes:
@@ -111,7 +110,7 @@
         </instructions>
         </interactive>
     </figure>
-    <p>Voici maintenant une série de conséquences et propriétés des transformations linéaires, découlant directement de la définition.</p>
+    <p>Voici maintenant une série de conséquences et de propriétés des transformations linéaires découlant directement de la définition.</p>
     <proposition xml:id="prop-transfolinprop">
     <title> Propriétés d'une transformation linéaire</title>
     <statement>
@@ -121,11 +120,11 @@
     <li><p>Si les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> sont parallèles, alors leur image est parallèle, c'est-à-dire si <m>\vec{u}\parallel\vec{v}</m>, alors <m>T(\vec{u})\parallel T(\vec{v})</m>.</p></li>
     <li><p>L'image d'une droite par une transformation linéaire est une droite<fn>Avec la particularité qu'elle pourrait être écrasée en un point. On considère ceci comme un cas limite.</fn>.</p></li>
     </ol>
-     Les transformations linéaires sont donc des transformations qui ne déforment pas trop l'espace, en lien avec le dernier point de la liste précédente. D'un point de vue géométrique, on peut voir la pertinence 
-     du mot <em>linéaire</em> dans transformation linéaire par le fait que les droites demeurent des droites (comparer avec l'image de la droite dans la figure <xref ref="fig-transfquelc"/>).</p></statement>
+     Les transformations linéaires sont donc des transformations qui ne déforment pas trop l'espace, comme cela est évoqué au point 3. D'un point de vue géométrique, on peut voir la pertinence 
+     du mot <em>linéaire</em> dans <em>transformation linéaire</em> par le fait que les droites demeurent des droites (ce n'est pas le cas pour l'image de la droite dans la figure <xref ref="fig-transfquelc"/>).</p></statement>
      <proof>
      <p><ol>
-     <li><p>On peut utiliser soit la propriété <xref ref="li-transfosomme"/> ou la propriété <xref ref="li-transfoscal"/>. On se propose ici d'utiliser la propriété <xref ref="li-transfosomme"/>
+     <li><p>On peut utiliser la propriété <xref ref="li-transfosomme"/> ou la propriété <xref ref="li-transfoscal"/>. On se propose ici d'utiliser la propriété <xref ref="li-transfosomme"/>
      et on laisse l'utilisation de l'autre propriété à explorer dans l'exercice <xref provisional="exercice vecteur 0 par la mult scal"/>.</p>
      <p> Soit <m>\vec{w}=T(\vec{0})</m> l'image du vecteur nul et <m>\vec{u}</m> un vecteur quelconque. Par la propriété <xref ref="li-transfosomme"/>, on a
      <md>
@@ -154,7 +153,7 @@
      </ol></p>
      </proof>
     </proposition>
-    <p>  Les transformations s'appliquent sur des vecteurs, mais comme la distinction entre point et vecteur est volontairement laissée floue, il est utile de faire la remarque suivante.</p>
+    <p>  Les transformations s'appliquent sur des vecteurs, mais, comme la distinction entre point et vecteur est volontairement laissée floue, il est utile de faire la remarque suivante.</p>
     <remark xml:id="rem-transfolinpoints">
     <title>Les transformations linéaires et les points</title>
     <p>
@@ -182,9 +181,9 @@
     </p>
     </solution>
     <solution>
-    <p>Si on essai <m>T_3(0)</m> pour la fonction <m>T_3(x,y)=(x^2,y-xy)</m>, on obtient bel et bien le vecteur <m>(0,0)</m>. Attention toutefois, cela ne signifie pas que la transformation est linéaire.
-    L'image du vecteur nul est un moyen rapide de tester si la fonction n'est pas linéaire, mais cela ne donne aucune information si cette image est bel et bien le vecteur nul. On regarde la propriété <xref ref="li-transfoscal"/>
-    pour la fonction <m>T_3</m>, mais la propriété <xref ref="li-transfosomme"/> n'est également pas respectée. Soit <m>c\in \R</m> et <m>\vec{v}</m> un vecteur quelconque. On a
+    <p>Si l'on essaie <m>T_3(0)</m> pour la fonction <m>T_3(x,y)=(x^2,y-xy)</m>, on obtient bel et bien le vecteur <m>(0,0)</m>. Attention toutefois, cela ne signifie pas que la transformation est linéaire.
+    L'image du vecteur nul est un moyen rapide de tester si la fonction n'est pas linéaire, mais dans le cas où <m>T(\vec{0})=\vec{0}</m>, aucune conclusion ne peut être faite. On regarde la propriété <xref ref="li-transfoscal"/>
+    pour la fonction <m>T_3</m>, mais la propriété <xref ref="li-transfosomme"/> n'est pas non plus respectée. Soit <m>c\in \R</m> et <m>\vec{v}</m> un vecteur quelconque. On a
     <md>
     <mrow>T_3(c\vec{v})&amp;=T_3(cx,cy)</mrow>
     <mrow>&amp;=((cx)^2,cy-cxcy)</mrow>
@@ -228,9 +227,9 @@
     <title>Satisfaire et ne pas satisfaire une définition</title>
     <p>Lorsqu'on doit vérifier si quelque chose satisfait une définition comme la définition <xref ref="def-transfolin"/>, où un certain nombre de propriétés doivent être satisfaites, il est important de comprendre la 
     distinction entre satisfaire la définition et ne pas la satisfaire. Montrer que la définition est satisfaite pour un, deux ou cent cas particuliers n'est jamais suffisant si la définition comprend des mots comme 
-    <em>pour tout vecteur</em> ou <em>pour tout nombre.</em> C'est souvent une bonne idée de regarder quelques cas simples afin de se donner une idée, mais jamais suffisant.</p>
+    <em>pour tout vecteur</em> ou <em>pour tout nombre.</em> C'est souvent une bonne idée de regarder quelques cas simples afin de se donner une idée, mais ce n'est jamais suffisant.</p>
      
-     <p>Par contre, si le but est de montrer qu'un objet ne satisfait pas une définition contenant des phrases du style <em>pour tout vecteur ou nombre</em>, alors là il est suffisant de trouver un seul cas qui ne satisfait pas à la définition.</p>
+     <p>Par contre, si le but est de montrer qu'un objet ne satisfait pas une définition contenant des phrases comme <em>pour tout vecteur ou nombre</em>, alors là, il est suffisant de trouver un seul cas qui ne satisfait pas à la définition.</p>
      <p>Par exemple, pour montrer que la norme d'un vecteur n'est pas une transformation linéaire, on aurait pu tout simplement prendre les vecteurs <m>\vec{u}=(1,0),\vec{v}=(0,1)</m> et constater que 
      <me>
      \norm{\vec{u}+\vec{v}}=\sqrt{2}
@@ -241,8 +240,8 @@
      </me>.</p>
     </insight>
     <p>Afin de se concentrer sur l'aspect intuitif et de s'appuyer sur la géométrie, on étudie dans un premier temps les transformations linéaires de <m>\R^2</m> vers <m>\R^2</m> et de <m>\R^3</m> vers <m>\R^3</m>.
-    Éventuellement, on étudiera les transformations linéaires de <m>\R^n</m> vers <m>\R^m</m> (voir le chapitre <xref ref="sec-transfodimsup"/>).</p>
-    <p>Dans l'exemple qui suit, on donne une liste de plusieurs transformations de <m>\R^2</m> vers <m>\R^2</m> qui sont linéaires. On y référera tout au long du chapitre.</p>
+    Plus tard, on étudiera les transformations linéaires de <m>\R^n</m> vers <m>\R^m</m> (voir le chapitre <xref ref="sec-transfodimsup"/>).</p>
+    <p>Dans l'exemple qui suit, on donne une liste de plusieurs transformations de <m>\R^2</m> vers <m>\R^2</m> qui sont linéaires. On y réfèrera tout au long du chapitre.</p>
     <example xml:id="ex-transfor2">
     <title>Des transformations linéaires du plan : dynamique</title>
     <statement>
@@ -256,11 +255,11 @@
     <li xml:id="li-transfor2-rot90"><p>La rotation de <m>90^\circ</m> ou <m>\frac{\pi}{2}</m> dans le sens antihoraire, donnée par la transformation <m>R_{\frac{\pi}{2}}(x,y)=(-y,x)</m>.</p></li>
     <li xml:id="li-transfor2-Ehr"><p>Un étirement horizontal de facteur <m>r\in\R</m> est une transformation linéaire donnée par <m>Eh_r(x,y)=(rx,y)</m>.</p> <p>De même, un étirement vertical est donné par <m>Ev_r(x,y)=(x,ry)</m>.</p></li>
     <li xml:id="li-transfor2-Evr"><p>Une homothétie est une transformation qui multiplie chaque composante d'un vecteur par un facteur <m>r\in\R</m>. Elle est donnée par la transformation <m>H_r(x,y)=(rx,ry)</m>.</p></li>
-    <li xml:id="li-transfor2-P"><p>Une matrice de permutation est une matrice qui change l'ordre des composantes du vecteur. Dans <m>\R^2</m>, la seule transformation qui fait ceci est <m>P(x,y)=(y,x)</m>.  </p></li>
+    <li xml:id="li-transfor2-P"><p>Une matrice de permutation est une matrice qui change l'ordre des composantes du vecteur. Dans <m>\R^2</m>, la seule transformation qui accomplit une telle permutation est <m>P(x,y)=(y,x)</m>, bien que l'identité est aussi vue comme une matrice de permutation.  </p></li>
     <li xml:id="li-transfor2-proj"><p>Soit <m>\vec{w}</m> un vecteur non nul. La projection orthogonale sur <m>\vec{w}</m> est une transformation linéaire.</p></li>
     </ol>
     </list>
-    <p> Les démonstrations algébriques et géométriques de la linéarité de ces fonctions sont faites ci-dessous.</p>
+    <p> Les démonstrations algébriques et géométriques de la linéarité de ces fonctions sont présentées ci-dessous.</p>
     </statement>
     <solution>
     <p>Intuitivement, la transformation laisse tout en place. Les propriétés de linéarité devraient donc découler automatiquement des propriétés des opérations sur les vecteurs.</p>
@@ -287,7 +286,7 @@
             setCoordSystem(-18, 18,-15,15,);
           </slate>
         <instructions>
-          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton fera animer la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
+          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton animera la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
         </instructions>
         </interactive>
     </figure>
@@ -317,7 +316,7 @@
             setCoordSystem(-18, 18,-15,15,);
           </slate>
         <instructions>
-          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton fera animer la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
+          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton animera la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
         </instructions>
         </interactive>
     </figure>
@@ -347,7 +346,7 @@
             setCoordSystem(-18, 18,-15,15,);
           </slate>
         <instructions>
-          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton fera animer la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
+          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton animera la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
         </instructions>
         </interactive>
     </figure>
@@ -380,7 +379,7 @@
             setCoordSystem(-18, 18,-15,15,);
           </slate>
         <instructions>
-          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton fera animer la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
+          <p>L'interaction permet de manipuler le vecteur <m>\vec{u}</m> et, en cliquant sur les boites, les vecteurs <m>\vec{v}</m> et <m>k\vec{u}</m>. Un clic sur un bouton animera la transformation ou reviendra à l'identité, selon le bouton cliqué.</p>
         </instructions>
         </interactive>
     </figure>
@@ -400,7 +399,7 @@
     </solution>
     <solution>
     <p>
-    On note <m>\text{proj}_{\vec{w}}(\vec{u})</m> la projection orthogonale du vecteur <m>\vec{u}</m> sur le vecteur <m>\vec{w}</m>. Algébriquement, on a
+    On note <m>\text{proj}_{\vec{w}}(\vec{u})</m>, la projection orthogonale du vecteur <m>\vec{u}</m> sur le vecteur <m>\vec{w}</m>. Algébriquement, on a
     <md>
     <mrow> \text{proj}_{\vec{w}}(\vec{u}+\vec{v})&amp;=\frac{(\vec{u}+\vec{v})\cdot \vec{w}}{\vec{w}\cdot \vec{w}}\vec{w} &amp;&amp; \text{ selon l'équation } <xref ref="eq-projortho"/></mrow>
     <mrow> &amp;=\frac{\vec{u}\cdot \vec{w}+\vec{v}\cdot \vec{w}}{\vec{w}\cdot \vec{w}}\vec{w} &amp;&amp; \text{selon la } <xref ref="prop-propprodscal" text="custom">propriété </xref>\text{ de distributivité du produit scalaire}</mrow>
@@ -416,17 +415,17 @@
     </p>
     </solution>
     </example> 
-    <p>Pour conclure cette sous-section, un résultat sur la composition de deux transformations linéaires.</p>
+    <p>Pour conclure cette sous-section, voici un résultat sur la composition de deux transformations linéaires.</p>
     <theorem xml:id="thm-transfocompo">
     <title>La composition de transformations linéaires</title>
-    <statement><p>Soit <m>T_1</m> et <m>T_2</m> des transformations linéaires telles que l'image de <m>T_2</m> est comprise dans le domaine de <m>T_1</m>. Alors la transformation
+    <statement><p>Soit <m>T_1</m> et <m>T_2</m>, des transformations linéaires telles que l'image de <m>T_2</m> est comprise dans le domaine de <m>T_1</m>. Alors la transformation
     <me>
     T_1\circ T_2(\vec{u})=T_1(T_2(\vec{u}))
     </me>
     est une transformation linéaire.
     </p></statement>
     <proof>
-    <p>Soit <m>\vec{u},\vec{v}</m> des vecteurs tels que <m>\vec{r}=T_2(\vec{u})</m> et <m>\vec{s}=T_2(\vec{v})</m> et <m>c</m> un scalaire. Alors
+    <p>Soit <m>\vec{u},\vec{v}</m>, des vecteurs tels que <m>\vec{r}=T_2(\vec{u})</m> et <m>\vec{s}=T_2(\vec{v})</m> et <m>c</m> un scalaire. Alors
     <md>
     <mrow>T_1\circ T_2(\vec{u}+\vec{v})&amp;=T_1(T_2(\vec{u}+\vec{v})) </mrow>
     <mrow>&amp;=T_1(T_2(\vec{u})+T_2(\vec{v})) &amp;&amp; \text{ car } T_2 \text{ est linéaire }</mrow>
@@ -448,8 +447,8 @@
     <p>Ainsi, la composition de deux transformations linéaires est linéaire.</p>
     </proof>
     </theorem>
-    <p>La composition de transformations est particulièrement intéressante, car elle signifie l'application successive des transformations. Si par exemple un concepteur de jeux vidéos doit faire subir une réflexion et une 
-    rotation à un objet, il lui suffit d'appliquer la composition de ces deux transformations. Calculons explicitement la composition de deux transformations.</p>
+    <p>La composition de transformations est particulièrement intéressante, car elle représente l'application successive des transformations. Si, par exemple, un concepteur de jeux vidéos doit faire subir une réflexion et une 
+    rotation à un objet, il lui suffit d'appliquer la composition de ces deux transformations. On calcule explicitement la composition de deux transformations dans l'exemple ci-dessous.</p>
     <example xml:id="ex-transfocomp">
     <title>
    La composition de deux transformations linéaires
@@ -479,8 +478,8 @@
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-deftransfo">
     <title>Les transformations sur Sage</title>
-    <p>On verra dans les prochaines sous-sections comment facilement vérifier si une transformation est linéaire ou non et comment l'appliquer efficacement sur un ensemble de points . Pour le moment, on construit sur l'exemple calculatoire <xref ref="sageex-utvec"/> en montrant comment on peut 
-    appliquer une translation sur un ensemble de points et illustrer cette translation. Pour cela, on définit un quadrilatère, un vecteur de translation et on applique ce vecteur à chaque point du quadrilatère. Pour être efficace, 
+    <p>On verra dans les prochaines sous-sections comment facilement vérifier si une transformation est linéaire ou non et comment l'appliquer efficacement sur un ensemble de points. Pour le moment, on construit à partir l'exemple calculatoire <xref ref="sageex-utvec"/> en montrant comment on peut 
+    appliquer une translation sur un ensemble de points et illustrer cette translation. Pour cela, on définit un quadrilatère, un vecteur de translation et l'on applique ce vecteur à chaque point du quadrilatère. Pour être efficace, 
     on utilise la commande <c>list</c>.</p>
     <sage>
     <input>
@@ -530,7 +529,7 @@
     En fait, cette décomposition est toujours possible avec <m>(x,y,z)\in \R^3</m>  avec les vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>, car <me>(x,y,z)=x(1,0,0)+y(0,1,0)+z(0,0,1)</me>
     ou même dans <m>\R^n</m> avec <me>\begin{pmatrix}x_1\\x_2 \\ x_3 \\\vdots \\ x_n\end{pmatrix}=x_1\begin{pmatrix}1\\0\\ 0\\ \vdots \\ 0\end{pmatrix}+x_2\begin{pmatrix}0\\1\\ 0\\ \vdots \\ 0\end{pmatrix}+x_n\begin{pmatrix}0\\ \vdots \\ 0 \\ 1\end{pmatrix}</me>.
 </p>
-<p>Si on considère une transformation linéaire <m>T</m>, et en se concentrant sur <m>\R^2</m> pour le moment, il est possible de voir que l'image d'un vecteur <m>(x,y)</m>
+<p>Si l'on considère une transformation linéaire <m>T</m>, en se concentrant sur <m>\R^2</m> pour le moment, il est possible de voir que l'image d'un vecteur <m>(x,y)</m>
 est simplement une combinaison linéaire des images des vecteurs <m>(1,0)</m> et <m>(0,1)</m>, dont les coefficients sont aussi <m>x</m> et <m>y</m>:
 <md>
 <mrow>T\begin{pmatrix}x\\ y\end{pmatrix}&amp;=T\left(x\begin{pmatrix}1\\ 0\end{pmatrix}+y\begin{pmatrix}0\\ 1\end{pmatrix}\right) &amp;&amp;\text{ selon l'équation } <xref ref="eq-decstd"/></mrow>
@@ -538,7 +537,7 @@ est simplement une combinaison linéaire des images des vecteurs <m>(1,0)</m> et
 <mrow>&amp;=xT\begin{pmatrix}1\\ 0\end{pmatrix}+yT\begin{pmatrix}0\\ 1\end{pmatrix} &amp;&amp;\text{ par la propriété de linéarité } <xref ref="li-transfoscal"/></mrow>
 </md>.
 </p>
-<p>Posons <m>(a,b)=T(1,0)</m> et <m>(c,d)=T(0,1)</m>, l'image des vecteurs <m>(1,0),(0,1)</m> par la transformation <m>T</m>. On pousse le calcul précédent un peu plus loin, en utilisant la notation verticale des vecteurs:
+<p>On pose <m>(a,b)=T(1,0)</m> et <m>(c,d)=T(0,1)</m>, l'image des vecteurs <m>(1,0),(0,1)</m> par la transformation <m>T</m>. On pousse le calcul précédent un peu plus loin, en utilisant la notation verticale des vecteurs:
 <md>
 <mrow>T(x,y)&amp;=xT(1,0)+yT(0,1)</mrow>
 <mrow >&amp;=x(a,b)+y(c,d)</mrow>
@@ -547,10 +546,9 @@ est simplement une combinaison linéaire des images des vecteurs <m>(1,0)</m> et
 <mrow>&amp;=\begin{pmatrix}ax+cy\\bx+dy\end{pmatrix}</mrow>
 <mrow>&amp;=\begin{pmatrix}(a,c)\cdot (x,y)\\(b,d)\cdot(x,y)\end{pmatrix}</mrow>
 </md>.
-En regardant la dernière ligne, on remarque un vecteur dont chaque composante est un produit scalaire, dont l'un des vecteurs est commun, <m>(x,y)</m>. On est tenté ici de
-vouloir mettre en évidence ce vecteur, mais un questionnement s'impose.
+En regardant la dernière ligne, on remarque un vecteur dont chaque composante est un produit scalaire, dont l'un des vecteurs est commun, <m>(x,y)</m>. On est tenté ici de mettre en évidence ce vecteur, mais une question s'impose.
 </p>
-<p>Puisque <m>\begin{pmatrix}(a,c)\cdot (x,y)\\(b,d)\cdot(x,y)\end{pmatrix}</m> est un vecteur, dont chaque composante est un produit scalaire de vecteurs, il ne suffit pas
+<p>Puisque <m>\begin{pmatrix}(a,c)\cdot (x,y)\\(b,d)\cdot(x,y)\end{pmatrix}</m> est un vecteur dont chaque composante est un produit scalaire de vecteurs, il ne suffit pas
 de mettre en évidence le vecteur <m>(x,y)</m> pour avoir <m>\begin{pmatrix}(a,c)\cdot \\(b,d)\cdot\end{pmatrix}(x,y)</m> ou encore <m>\begin{pmatrix}(a,c) \\(b,d)\end{pmatrix}\cdot(x,y)</m>.
 Ces deux expressions n'ont pas de sens mathématique. On propose la notation suivante pour la mise en évidence du vecteur <m>(x,y)</m>:
 <men xml:id="eq-matvecprod">
@@ -564,7 +562,7 @@ comme étant le produit de la matrice <m>\begin{pmatrix}a&amp;c \\b&amp;d\end{pm
 une combinaison linéaire des colonnes de la matrice, dont les coefficients sont <m>x</m> et <m>y</m>. On peut voir cela en se référant à l'équation <xref ref="eq-comblincol"/> où
 les vecteurs ont été écrits en colonne.
 </p>
-<p>Bien que pour le moment on se concentre sur les transformations linéaires dans <m>\R^2</m>, on définit quand même de manière plus précise la notion de matrice quelconque.</p>
+<p>Bien que, pour le moment, on se concentre sur les transformations linéaires dans <m>\R^2</m>, on définit quand même de manière plus précise la notion de matrice quelconque.</p>
 <definition xml:id="def-matrice">
 <title>Une matrice</title>
 <statement><p>Une matrice est un ensemble de <m>m*n</m> nombres agencés dans un tableau de <m>m</m> lignes et <m>n</m> colonnes. Si <m>A</m> est une matrice, on dénote par
@@ -710,7 +708,7 @@ P=\begin{pmatrix}
 </p>
 </solution>
 <solution>
-<p>La projection orthogonale sur un vecteur non nul <m>\vec{w}</m> est une transformation linéaire. Soit <m>\text{proj}_{\vec{w}}(\vec{u})</m> cette transformation.
+<p>La projection orthogonale sur un vecteur non nul <m>\vec{w}</m> est une transformation linéaire. Soit <m>\text{proj}_{\vec{w}}(\vec{u})</m>, cette transformation.
 Si <m>\vec{v}</m> est un vecteur quelconque, on peut calculer la
 projection orthogonale de <m>\vec{v}</m> sur <m>\vec{w}</m> à l'aide de l'équation <xref ref="eq-projortho"/> (en remplaçant <m>\vec{u}</m> par <m>\vec{w}</m>). On trouve 
 <md>
@@ -734,7 +732,7 @@ w_1w_2&amp; w_2^2
 \end{pmatrix}
 </me>.
 Cette matrice est plus compliquée que les précédentes, mais la section <xref ref="sec-matinverse"/> donnera une autre manière de déterminer la matrice d'une projection
-orthogonale, sans avoir à se rappeler de la matrice ci-dessus.
+orthogonale, sans avoir à se rappeler la matrice ci-dessus.
 </p>
 </solution>
 </example>
@@ -742,7 +740,7 @@ orthogonale, sans avoir à se rappeler de la matrice ci-dessus.
 <p>Dans l'exemple précédent, pour obtenir la matrice de la projection orthogonale, on a écrit <m>\frac{1}{\norm{\vec{w}}^2}\begin{pmatrix}
 w_1^2&amp; w_1w_2\\
 w_1w_2&amp; w_2^2
-\end{pmatrix}</m>, soit une matrice avec un scalaire devant. On comprend ici que pour toute matrice <m>A</m> et scalaire <m>r</m>, le terme <m>rA</m> est une 
+\end{pmatrix}</m>, soit une matrice précédé d'un scalaire devant. On comprend ici que, pour toute matrice <m>A</m> et scalaire <m>r</m>, le terme <m>rA</m> est une 
 matrice dont les entrées sont multipliées par <m>r</m>. Pour le cas <m>2</m> par <m>2</m>, on a 
 <me>
 r\begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}=\begin{pmatrix}ra&amp;rc \\ rb&amp;rd\end{pmatrix}
@@ -753,9 +751,9 @@ La démarche qui a mené à la forme matricielle d'une transformation linéaire 
 <m>\R^m</m> possède une forme matricielle. À titre d'exemple, regardons une transformation de <m>\R^3</m> vers <m>\R^2</m>.</p>
 <example>
 <title>Une transformation de l'espace vers le plan</title>
-<statement><p>Soit <m>T(x,y,z)=(x+y,x-z)</m> une transformation. On montre que <m>T</m> est linéaire et on détermine la matrice représentant la transformation.</p></statement>
+<statement><p>Soit <m>T(x,y,z)=(x+y,x-z)</m>, une transformation. On montre que <m>T</m> est linéaire et on détermine la matrice représentant la transformation.</p></statement>
 <solution>
-<p>Dans un premier temps, la linéarité de <m>T</m>. Soit <m>\vec{u}=(x_1,y_1,z_1),\vec{v}=(x_2,y_2,z_2)</m> des vecteurs de <m>\R^3</m> et <m>c\in\R</m> un scalaire. On a
+<p>Dans un premier temps, on vérifie la linéarité de <m>T</m>. Soit <m>\vec{u}=(x_1,y_1,z_1),\vec{v}=(x_2,y_2,z_2)</m> des vecteurs de <m>\R^3</m> et <m>c\in\R</m> un scalaire. On a
 <md>
 <mrow>T(\vec{u}+\vec{v})&amp;=T(x_1+x_2,y_1+y_2,z_1+z_2)</mrow>
 <mrow>&amp;=(x_1+x_2+y_1+y_2,x_1+x_2-(z_1+z_2))</mrow>
@@ -788,12 +786,12 @@ T=\begin{pmatrix}
 </me>.</p>
 </solution>
 </example>
-<p>Toute transformation linéaire <m>T</m> possède une forme matricielle la représentant. Est-ce que pour toute matrice on a également une transformation linéaire? En partant de la définition du produit d'une matrice par un vecteur,
+<p>Toute transformation linéaire <m>T</m> possède une forme matricielle la représentant. Peut-on affirmer que, pour toute matrice, on a également une transformation linéaire? En partant de la définition du produit d'une matrice par un vecteur,
 à l'équation <xref ref="eq-matvecprodgen"/>, on peut montrer que c'est le cas.</p>
 <proposition xml:id="prop-matsonttransfos">
 <title>Les matrices sont des transformations linéaires</title>
 <statement>
-<p>Soit <m>A</m> une matrice possédant <m>m</m> lignes et <m>n</m> colonnes. Si on considère la transformation <m>T(\vec{u})=A\vec{u}</m>, alors <m>T</m> est une transformation linéaire de <m>\R^n</m> vers <m>\R^m</m>. </p>
+<p>Soit <m>A</m> une matrice possédant <m>m</m> lignes et <m>n</m> colonnes. Si l'on considère la transformation <m>T(\vec{u})=A\vec{u}</m>, alors <m>T</m> est une transformation linéaire de <m>\R^n</m> vers <m>\R^m</m>. </p>
 </statement>
 <proof>
 <p>Soit <m>\vec{u},\vec{v}\in \R^n</m> et <m>r\in\R</m>. Posons <m>\vec{c}_1,\vec{c}_2,\ldots , \vec{c}_n</m> les colonnes de <m>A</m>. Alors on a
@@ -832,8 +830,8 @@ Toute matrice correspond donc à une transformation linéaire.
 </p>
 </proof>
 </proposition>
-<p>Cette proposition donne une autre option pour vérifier si une transformation est linéaire. Étant donnée <m>T</m> une transformation quelconque, on peut calculer l'image des vecteurs <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>,
- les mettre dans une matrice, et vérifier que cette matrice correspond à la transformation <m>T</m>. Si c'est le cas, <m>T</m> est linéaire, sinon elle ne l'est pas<fn>Techniquement, il faudrait s'assurer que la représentation
+<p>Cette proposition donne une autre option pour vérifier si une transformation est linéaire. Étant donnée <m>T</m>, une transformation quelconque, on peut calculer l'image des vecteurs <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>,
+ les mettre dans une matrice et vérifier que cette matrice correspond à la transformation <m>T</m>. Si c'est le cas, <m>T</m> est linéaire, sinon, elle ne l'est pas<fn>Techniquement, il faudrait s'assurer que la représentation
  par une matrice d'une transformation linéaire est unique. Pour cela, voir l'exercice <xref ref="exo-reptransfomatunique"/>.</fn>.</p>
  <example xml:id="ex-transfomatrice">
  <title>Les transformations et les matrices</title>
@@ -902,12 +900,12 @@ Toute matrice correspond donc à une transformation linéaire.
  <p>La proposition <xref ref="prop-matsonttransfos"/> affirme qu'il y a une équivalence entre transformation linéaire et matrice. Pour cette raison, on utilisera souvent la lettre <m>T</m> pour désigner à la fois
  la transformation ou sa matrice associée.</p>
  </remark>
- <p> Dans l'exemple <xref ref="ex-transfomatrice"/>, on a entre autre déterminé la matrice d'une rotation de <m>90^{\circ}</m> autour de l'origine. On s'intéresse maintenant
+ <p> Dans l'exemple <xref ref="ex-transfomatrice"/>, on a, entre autre, déterminé la matrice d'une rotation de <m>90^{\circ}</m> autour de l'origine. On s'intéresse maintenant
  au cas plus général d'une rotation d'angle <m>\theta</m> autour de l'origine.</p>
  <example xml:id="ex-rotr2">
  <title>Rotation autour de l'origine dans le plan: dynamique</title>
  <statement>
- <p>Considérons un angle <m>\theta</m>. On souhaite déterminer la matrice <m>R_{\theta}</m> correspondant à la rotation d'un angle <m>\theta</m>, mesuré dans le sens anti horaire.
+ <p>Considérons un angle <m>\theta</m>. On souhaite déterminer la matrice <m>R_{\theta}</m> correspondant à la rotation d'un angle <m>\theta</m>, mesuré dans le sens antihoraire.
  La figure interactive suivante permet d'explorer cette rotation avec les vecteurs <m>(1,0)</m> et <m>(0,1)</m>.</p>
  <figure xml:id="fig-rotr2">
  <caption> La rotation dans le plan</caption>
@@ -928,7 +926,7 @@ Toute matrice correspond donc à une transformation linéaire.
  <p>Puisqu'on cherche la matrice, il suffit de déterminer l'image des vecteurs <m>(1,0)</m> et <m>(0,1)</m> par la rotation. Comme ces vecteurs sont séparés par un angle
  de <m>90^{\circ}</m> et que la rotation de <m>\theta</m> ne changera pas ceci, on peut seulement trouver l'image de <m>(1,0)</m> et déterminer l'image de <m>(0,1)</m> en
  prenant le vecteur perpendiculaire à l'image de <m>(1,0)</m>. Selon la figure <xref ref="fig-rotr2"/>, l'image du vecteur <m>(1,0)</m> est
- <m>R_{\theta}(1,0)=(\cos(\theta),\sin(\theta))</m> et donc, <m>R_{\theta}(0,1)=(-\sin(\theta),\cos(\theta))</m>. On a alors
+ <m>R_{\theta}(1,0)=(\cos(\theta),\sin(\theta))</m> et donc <m>R_{\theta}(0,1)=(-\sin(\theta),\cos(\theta))</m>. On a alors
  <men xml:id="eq-rotr2">
  R_{\theta}=\begin{pmatrix}
  \cos(\theta) &amp; -\sin(\theta)\\
@@ -942,7 +940,7 @@ Toute matrice correspond donc à une transformation linéaire.
 On termine avec des commandes Sage en lien avec la sous-section.</p>
 <computation xml:id="sageex-transfomat">
 <title>Les matrices avec Sage</title>
-<p>Il est possible de définir des matrices dans Sage avec la commande <c>matrix</c>. À noter toutefois que Sage a une préférence pour les lignes plutôt que les colonnes, et que si on veut
+<p>Il est possible de définir des matrices dans Sage avec la commande <c>matrix</c>. À noter toutefois que Sage a une préférence pour les lignes plutôt que les colonnes et que si l'on veut
 définir la matrice selon ses colonnes, on doit utiliser la commande <c>column_matrix</c>.</p>
 <sage>
 <input>
@@ -954,9 +952,9 @@ show('A=',A)
 show('B=',B)
 </input>
 </sage>
-<p>Il n'est pas nécessaire de définir au préalable les vecteurs. C'est par contre pratique dans le contexte des transformations linéaires où l'on définit les matrices en fonction des images des vecteurs
-<m>(1,0,\ldots,0),(0,1,0,\ldots , 0),\ldots (0,\ldots, 0,1)</m>. Si on choisit de ne pas mettre des vecteurs, il faut procéder avec une paire de crochets contenant les lignes ou colonnes, chacune elle-même
-dans une paire de crochet.</p>
+<p>Il n'est pas nécessaire de définir au préalable les vecteurs. Cela peut cependant être pratique dans le contexte des transformations linéaires où l'on définit les matrices en fonction des images des vecteurs
+<m>(1,0,\ldots,0),(0,1,0,\ldots , 0),\ldots (0,\ldots, 0,1)</m>. Si l'on choisit de ne pas donner des vecteurs comme argument, il faut procéder avec une paire de crochets contenant les lignes ou colonnes, chacune de celles-ci insérées
+dans une paire de crochets.</p>
 <sage>
 <input>
 A=matrix([[1,3],[2,5]])
@@ -975,7 +973,7 @@ show('A[0][1]=',A[0][1])
 show('A[1][1]=',A[1][1])
 </input>
 </sage>
-<p>Si on omet une paire de crochets, par exemple <m>A[i]</m> alors Sage retourne un vecteur contenant ligne <m>i+1</m>. Il est également possible d'obtenir cette ligne avec 
+<p>Si l'on omet une paire de crochets, par exemple <m>A[i]</m>, alors Sage retourne un vecteur contenant ligne <m>i+1</m>. Il est également possible d'obtenir cette ligne avec 
 la commande <c>A.row(i)</c>. Pour obtenir la colonne <m>j+1</m>, on devra utiliser la commande <c>A.column(j)</c>.</p>
 <sage>
 <input>
@@ -985,7 +983,7 @@ show('La deuxième ligne de A est ', A.row(1))
 show('La première colonne de A est ', A.column(0))
 </input>
 </sage>
-<p>Avec une matrice et un vecteur, il est possible de faire la multiplication matrice vecteur, telle que définie à l'équation <xref ref="eq-matvecprodgen" />, en autant que les dimensions soient compatibles.
+<p>Avec une matrice et un vecteur, il est possible de faire la multiplication matrice vecteur, telle que définie à l'équation <xref ref="eq-matvecprodgen" />, pourvu que les dimensions soient compatibles.
 La deuxième cellule ci-dessous produit volontairement une erreur, car le vecteur ne peut être multiplié par la matrice <m>A</m>.</p>
 <sage>
 <input>
@@ -1002,7 +1000,7 @@ w=vector([1,3,-1])
 show('Aw='A*w)
 </input>
 </sage>
-<p>On peut définir une matrice dont tous les éléments sont nuls rapidement en utilisant la commande <c>matrix(m,n,0)</c>. On aura alors une matrice <m>m\times n</m> remplie de <m>0</m>.</p>
+<p>On peut définir une matrice dont tous les éléments sont nuls rapidement en utilisant la commande <c>matrix(m,n,0)</c>. On aura alors une matrice <m>m\times n</m> emplie de <m>0</m>.</p>
 <sage>
 <input>
 Z=matrix(3,5,0)
@@ -1016,7 +1014,7 @@ var("x,y")
 show('T(x,y)=', A*vector([x,y]))
 </input>
 </sage>
-<p>On peut aussi tracer graphiquement un graphique et sa transformation, à l'aide des commandes <c>plot</c>.</p>
+<p>On peut aussi tracer un vecteur et sa transformation, à l'aide des commandes <c>plot</c>.</p>
 <sage>
 <input>
 plot(u,color="blue")+plot(A*u,color="red")
@@ -1052,10 +1050,11 @@ plot(u,color="blue")+plot(A*u,color="red")
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert
 \end{pmatrix}\begin{pmatrix}u_1\\ u_2\\ \vdots\\ u_n \end{pmatrix}</mrow>
      </md>.
-     La matrice de la somme est donc une matrice composée de la somme des colonnes des matrices <m>A</m> et <m>B</m>. L'exercice <xref ref="exo-matsommelignes"/> montre que cela est équivalent à dire que la matrice <m>A+B</m> est
-     obtenue en prenant la somme des lignes des matrices <m>A</m> et <m>B</m> et donc qu'au final, on additionne chaque entrée correspondante. On arrive ainsi à la définition suivante.
+     La matrice de la somme est donc une matrice composée de la somme des colonnes des matrices <m>A</m> et <m>B</m>. L'exercice <xref ref="exo-matsommelignes"/> montre que cela revient à dire que la matrice <m>A+B</m> est
+     obtenue en prenant la somme des lignes des matrices <m>A</m> et <m>B</m> et que, en fin de compte, on additionne chaque entrée correspondante. On arrive ainsi à la définition suivante.
      </p>
      <definition xml:id="def-matsomme">
+     <title>Somme de deux matrices</title>
      <statement><p>Soit <m>A,B\in\mathcal{M}_{m\times n}</m> deux matrices. On définit la somme de <m>A</m> et <m>B</m> comme étant la matrice telle que
      <me>
      (A+B)_{i,j}=(a_{i,j}+b_{i,j})
@@ -1074,12 +1073,12 @@ plot(u,color="blue")+plot(A*u,color="red")
      <mrow>&amp;=\begin{pmatrix}1+5&amp;-3-2&amp;2+1\\ -2+0&amp; 1+2 &amp;0+7 \end{pmatrix}</mrow>
      <mrow>&amp;=\begin{pmatrix}6&amp;-5&amp;3\\ -2&amp; 3 &amp;7 \end{pmatrix}</mrow>
      </md>.
-     Comme la matrice <m>C</m> est de taille différente de <m>A</m>, l'addition n'est pas possible.
+     Comme les matrices <m>A</m> et <m>C</m> sont de tailles différentes, l'addition n'est pas possible.
      </p>
      </solution>
      </example>
-     <p>Si on multiplie une transformation par un scalaire, c'est encore une transformation linéaire, puisque c'est en fait une <xref ref="li-transfoscal">propriété</xref>  définissant les transformations linéaires. Une démarche similaire
-     à celle en début de sous-section permet d'arriver à la définition algébrique suivante.</p>
+     <p>Si l'on multiplie une transformation par un scalaire, c'est encore une transformation linéaire, puisque c'est en fait une <xref ref="li-transfoscal">propriété</xref>  définissant les transformations linéaires. Une démarche similaire
+     à celle  qui est présentée en début de sous-section permet d'arriver à la définition algébrique suivante.</p>
      <definition xml:id="def-matprodscal">
      <title>
      Multiplication d'une matrice par un scalaire
@@ -1108,7 +1107,7 @@ plot(u,color="blue")+plot(A*u,color="red")
      </example>
      <p>L'addition matricielle et la multiplication par un scalaire possèdent un ensemble de propriétés familières à l'addition et à la multiplication régulière, ainsi qu'à ces mêmes
      opérations sur les vecteurs. En fait, dans l'exercice <xref ref="exo-propvec2"/>, ces propriétés ont été démontrées pour les vecteurs. L'exercice <xref ref="exo-propopmat"/> fera
-     la même chose pour les propriétés, qui sont données ci-dessous à titre de référence.</p>
+     la même chose pour les propriétés des matrices qui sont données ci-dessous à titre de référence.</p>
      <proposition xml:id="prop-opmat">
      <title>Les propriétés de l'addition matricielle et de la multiplication par un scalaire </title>
     <statement> <p>Soit <m>A,B,C\in \mathcal{M}_{m\times n}</m> et <m>r,s\in \R</m>. Les propriétés suivantes sont toujours vraies:</p>
@@ -1146,13 +1145,13 @@ show("2A-5B=",2*A-5*B)
     <ul>
     <li><p> Les <xref ref="def-transfolin">propriétés</xref> définissant une transformation linéaire.</p></li>
     <li><p> Le produit d'une matrice avec un vecteur, défini à l'équation <xref ref="eq-matvecprodgen"/>.</p></li>
-    <li><p> Le fait que dans une matrice, les colonnes représentent l'image des vecteurs  <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>.</p></li>
+    <li><p> Le fait que, dans une matrice, les colonnes représentent l'image des vecteurs  <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>.</p></li>
     <li><p> L'équivalence entre une matrice et une transformation linéaire.</p></li>
     <li><p> La forme matricielle d'une <xref ref="eq-rotr2"> rotation </xref> dans <m>\R^2</m>.</p></li>
     <li><p> L'addition matricielle et la multiplication d'une matrice par un scalaire.</p></li>
     </ul> 
     De plus avec Sage, on peut définir une matrice avec la commande <c>matrix</c>. Par défaut, Sage définit les matrices selon les lignes. La commande <c>column_matrix()</c> permet
-    de le faire selon les colonnes. Lorsque compatible, on peut multiplier une matrice par un vecteur avec l'opération <c>*</c>. On peut accéder aux lignes et colonnes d'une matrice <m>A</m> avec les commandes
+    de le faire selon les colonnes. Lorsqu'ils sont compatibles, on peut multiplier une matrice par un vecteur avec l'opération <c>*</c>. On peut accéder aux lignes et colonnes d'une matrice <m>A</m> avec les commandes
     <c>A.row(i)</c> et <c>A.column(j)</c>. L'addition de deux matrices se fait avec l'opération <c>+</c> et la multiplication par un scalaire avec l'opération <c>*</c>.
     </p>
     </conclusion>
