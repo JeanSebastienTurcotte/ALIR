@@ -10,7 +10,7 @@
 <!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
 
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-vecndim">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
-    <title> Vecteurs de dimension supérieure</title>
+    <title> Vecteurs dans <m>\mathbb{R}^n</m></title>
     <introduction xml:id= "intro-vecndim">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
         <p>Aller aux <xref ref="exo-vecndim">exercices</xref> de la section.</p>
     <p>Bien que notre conception de la géométrie se limite aux objets dans <m>\R^2</m> ou <m>\R^3</m>, il y a de l'intérêt à considérer les objets de dimension supérieure.
@@ -27,9 +27,9 @@
     <subsection xml:id="sssec-defopvecn">
     <title> Définition et opérations sur les vecteurs</title>
     <p>
-    Un vecteur dans <m>\R^n</m> possède les mêmes caractéristiques qu'un vecteur dans <m>\R^2</m> ou <m>\R^3</m>, données dans la définition <xref ref="def-vecgeo"/>. Il est toujours
+    Un vecteur dans <m>\R^n</m> possède les mêmes caractéristiques qu'un vecteur dans <m>\R^2</m> ou <m>\R^3</m>; ces caractéristiques sont données dans la définition <xref ref="def-vecgeo"/>. Il est toujours
     possible de représenter le vecteur comme une flèche, mais on ne pourra pas le représenter dans l'espace au complet. Algébriquement, on décrit un vecteur à l'aide d'une suite
-    de nombres, entre parenthèses, et séparés par des virgules. Par exemple,
+    de nombres, entre parenthèses, séparés par des virgules. Par exemple,
     <md>
     <mrow> \vec{u}&amp;=(1,2,-3,4)</mrow>
     <mrow> \vec{v}&amp;=\left(-1,0,0,2,3,4,\frac{1}{2},\pi\right)</mrow>
@@ -62,7 +62,7 @@
     <p>Sage est capable de travailler avec les vecteurs de dimension <m>n</m>, à l'aide des mêmes commandes algébriques que celles définies tout au long du chapitre.</p>
     <computation xml:id="sageex-vecndim">
     <title>Les vecteurs de dimension supérieure avec Sage</title>
-    <p>On peut définir des vecteurs à l'aide de la commande <c>vector</c>, les multiplier par un scalaire, les additionner, etc.</p>
+    <p>On peut définir des vecteurs à l'aide de la commande <c>vector</c>. On peut les multiplier par un scalaire, les additionner, etc.</p>
     <sage>
     <input>
     u,v=vector([1,-3,4,5]),vector([-1,0,1,-2])
@@ -92,9 +92,7 @@
     </men>.
     Deux vecteurs non nuls sont dits orthogonaux si cet angle vaut <m>\frac{\pi}{2}</m> ou <m>90^\circ</m>. Notons encore une fois que le vecteur nul n'est orthogonal à aucun
     vecteur.</p>
-    <p>Les propriétés du produit scalaire, notamment celles de la proposition <xref ref="prop-propprodscal"/>, sont aussi vraies et un coup d'oeil à la démonstration
-    permet de voir que nulle part on a utilisé le fait que les vecteurs étaient dans <m>\R^2</m> ou <m>\R^3</m> spécifiquement, et qu'une généralisation des démonstrations s'obtient
-    facilement en modifiant celles de la proposition. L'inégalité de Cauchy-Schwarz <xref ref="prop-ineqCS"/> est aussi valide dans <m>\R^n</m>.
+    <p>Les propriétés du produit scalaire, notamment celles de la proposition <xref ref="prop-propprodscal"/>, sont aussi valides dans <m>\mathbb{R}^n</m>. Nulle part dans leur démonstration on n'a utilisé le fait que les vecteurs étaient dans <m>\R^2</m> ou <m>\R^3</m> spécifiquement. L'inégalité de Cauchy-Schwarz <xref ref="prop-ineqCS"/> est aussi valide dans <m>\R^n</m>.
     </p>
     <p>Finalement, la notion de projection orthogonale définie par l'équation <xref ref="eq-projortho"/> est aussi un concept qui se généralise, et comme deux vecteurs peuvent
     toujours être représentés dans un même plan, l'image est la même (figure <xref ref="fig-projortho"/>).
@@ -109,7 +107,7 @@
     </ol>
     </p></statement>
     <solution>
-    <p> On sait selon la formule <xref ref="eq-anglevec"/> que le cosinus de l'angle doit être égal à
+    <p> On sait selon, la formule <xref ref="eq-anglevec"/>, que le cosinus de l'angle doit être égal à
         <md>
         <mrow>\cos(\theta)&amp;=\frac{\vec{u}\cdot\vec{v}}{\norm{\vec{u}}\norm{\vec{v}}}</mrow>
         <mrow>&amp;=\frac{-2+3-4+1}{2*\sqrt{30}}</mrow>
@@ -145,8 +143,7 @@
     <subsection xml:id="sssec-droitesplanrn">
     <title>Espace engendré</title>
     <p>
-    Dans <m>\R^2</m> et <m>\R^3</m>, l'ensemble des combinaisons linéaires de vecteurs engendre toujours un point, une droite, un plan ou l'espace au complet. Comme la dimension de l'espace était limitée à trois,
-    il était toujours possible de décrire le résultat géométriquement. Que représente l'ensemble des combinaisons linéaires de deux, quatre ou sept vecteurs de <m>\R^8</m>?
+    Dans les espaces <m>\R^2</m> et <m>\R^3</m>, l'ensemble des combinaisons linéaires de vecteurs engendre toujours un point, une droite, un plan ou l'espace au complet. Comme la dimension de l'espace y est limitée à deux ou trois, il y est toujours possible de décrire le résultat géométriquement. Que représente l'ensemble des combinaisons linéaires de deux, quatre ou sept vecteurs de <m>\R^8</m>?
     Sans la géométrie, on se contente de définir certains termes analogues à ceux déjà définis et pour le reste, on y va d'une définition plus abstraite.
     </p>
     <p>
@@ -161,7 +158,7 @@
     </me>
     est appelé un plan, de vecteurs directeurs <m>\vec{u},\vec{v}</m>.
     </p>
-    <p>Dans <m>\R^2</m>, une droite pouvait être caractérisée par une équation normale, de la forme <m>\vec{n}\cdot\vecl{AP}=0</m>. Cette
+    <p>Dans <m>\R^2</m>, une droite peut être caractérisée par une équation normale, de la forme <m>\vec{n}\cdot\vecl{AP}=0</m>. Cette
     même équation avec des vecteurs de <m>\R^3</m> représente un plan.
     </p>
     <p>Que représente-t-elle dans un espace de dimension <m>n</m>? En la développant, on obtient une équation de la forme
@@ -169,7 +166,7 @@
     a_1x_1+a_2x_2+\cdots +a_{n}x_{n}=d
     </me>,
     où <m>\vec{n}=(a_1,a_2,\cdots , a_n)</m> est appelé un vecteur normal. On définit le lieu des points satisfaisant une telle équation comme un hyperplan de <m>\R^n</m>.
-    On verra éventuellement que cet objet est composé de <m>n-1</m> dimensions et peut donc aussi être décrit à partir d'un ensemble de <m>n-1</m> vecteurs possédant 
+    On verra plus loin que cet objet est composé de <m>n-1</m> dimensions et peut donc aussi être décrit à partir d'un ensemble de <m>n-1</m> vecteurs possédant 
     une propriété spécifique.
     </p>
     <p>De façon plus générale, on définit l'espace engendré par un ensemble de vecteurs.</p>
@@ -180,15 +177,14 @@
     \vspan(\vec{u}_1,\vec{u}_2,\ldots, \vec{u}_n)=\{a_1\vec{u}_1+a_2\vec{u}_2+\ldots +a_n\vec{u}_n~|~ a_1,a_2,\ldots, a_n\in\R\}
     </me>.</p></statement>
     </definition>
-    <p>À noter qu'on ne donne aucune condition sur les vecteurs engendrant l'espace. Certains pourraient être nuls, parallèles à d'autres vecteurs ou combinaison linéaire des autres 
-    vecteurs. </p>
+    <p>À noter qu'on ne donne aucune condition sur les vecteurs engendrant l'espace. Certains pourraient être nuls, parallèles à d'autres vecteurs ou  une combinaison linéaire des autres vecteurs. </p>
     <example xml:id="ex-span">
     <title>Un exemple d'espace engendré</title>
     <statement>
     <p>On considère les vecteurs <m>\vec{u}_1=(1,-2,3,1),\vec{u}_2=(0,3,-1,1),\vec{u}_3=(0,0,0,0)</m> et <m>\vec{u}_4=(0,-3,1,-1)</m>. On cherche à caractériser le <m>\vspan(\vec{u}_1,\vec{u}_2,\vec{u}_3,\vec{u}_4)</m>.</p>
     </statement>
     <solution>
-    <p>Techniquement, l'espace engendré est constitué de tous les vecteurs de la forme
+    <p>En principe, l'espace engendré est constitué de tous les vecteurs de la forme
     <me>
     \vec{v}=a\vec{u}_1+b\vec{u}_2+c\vec{u}_3+d\vec{u}_4
     </me>.
@@ -211,7 +207,7 @@
     <conclusion xml:id="concl-vecndim">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les éléments importants de cette section sont:
     <ul>
-    <li><p>Les vecteurs à <m>n</m> dimensions se comportent essentiellement comme ceux à <m>2</m> ou <m>3</m> dimensions, en particulier au niveau des opérations. </p></li>
+    <li><p>Les vecteurs à <m>n</m> dimensions se comportent essentiellement comme ceux à <m>2</m> ou <m>3</m> dimensions, en particulier pour ce qui est des opérations. </p></li>
    <li><p>Le <xref ref="eq-prodscal"> produit scalaire </xref> de deux vecteurs quelconques.</p></li> 
    <li><p><xref ref="eq-anglevec">L'angle</xref> entre deux vecteurs, défini à partir du produit scalaire.</p></li>
    <li><p>La définition du <xref ref="def-span">span</xref>, l'espace engendré par les combinaisons linéaires de vecteurs.</p></li>
