@@ -75,8 +75,8 @@
 0&amp;1\\
 1&amp;0
 \end{pmatrix}
-    </me>,
-    (voir l'exemple <xref ref="ex-mattransfor2"/>) on a
+    </me>
+    (voir l'exemple <xref ref="ex-mattransfor2"/>), on a
     <md>
     <mrow>PR_{\frac{\pi}{2}}&amp;=\begin{pmatrix}
 0&amp;1\\
@@ -233,7 +233,7 @@
     <definition xml:id="def-matid">
     <title>La matrice identité</title>
     <statement><p>Soit la matrice dont les entrées valent <m>1</m> si le numéro de la ligne correspond à celui de la colonne et <m>0</m> dans les autres cas. Ceci correspond à une transformation qui envoie les vecteurs
-    <m>(1,0,\ldots , 0),(0,1,0,\ldots , 0),\ldots (0,\ldots ,0,1)</m> sur eux-mêmes et donc, la transformation qui ne fait rien. On appelle cette matrice <em>l'identité</em> et on la note <m>I_n</m>, ou tout simplement <m>I</m> lorsque
+    <m>(1,0,\ldots , 0),(0,1,0,\ldots , 0),\ldots (0,\ldots ,0,1)</m> sur eux-mêmes et donc, cela correspond à la transformation qui ne fait rien. On appelle cette matrice <em>l'identité</em> et on la note <m>I_n</m>, ou tout simplement <m>I</m> lorsque
     la dimension est évidente par le contexte ou sans importance.</p></statement>
     </definition>
     <p>Lorsqu'on multiplie une matrice <m>A</m> par elle-même, on obtient alors le carré de cette matrice, noté <m>A^2</m>. En matière de transformations linéaires,
@@ -331,7 +331,7 @@ plot(D,layout='circular',vertex_color="blue")
        polygon(L,color="blue")+polygon(ALpoints,color="red")
     </input>
     </sage>
-    <p>La matrice <xref ref="def-matid"> identité </xref> est connue de sage et l'on peut l'obtenir à l'aide de la commande <c>identity_matrix(n)</c> où <m>n</m> est la 
+    <p>La matrice <xref ref="def-matid"> identité </xref> est connue de sage, on peut l'obtenir à l'aide de la commande <c>identity_matrix(n)</c> où <m>n</m> est la 
     taille de la matrice carrée.</p>
     <sage>
     <input>
@@ -573,7 +573,7 @@ show(produit.apply_map(lambda x: x.trig_reduce()))
        <mrow>&amp;(R_{\theta_1}R_{\theta_2})R_{\theta_3} &amp;&amp;\text{puisque la composition de deux rotations est une rotation dont l'angle est la somme des angles}</mrow>
        </md>. L'associativité est ainsi vérifiée et cohérente avec la composition de rotations.</p></li>
        <li><p>La composition de trois réflexions semble plus difficile à analyser. Deux réflexions composées ensemble donnent une rotation. Une rotation composée avec une réflexion donne une réflexion, mais on sait que 
-       l'ordre de la composition est important. Est-ce évident que l'associativité sera respectée? On a d'une part
+       l'ordre de la composition est important. Est-ce alors évident que l'associativité sera respectée? On a d'une part
        <md>
        <mrow>S_{\phi_1}(S_{\phi_2}S_{\phi_3})&amp;=S_{\phi_1}R_{2(\phi_2-\phi_3)} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}</mrow>
        <mrow>&amp;=S_{\frac{-(2(\phi_2-\phi_3))+2\phi_1}{2}} &amp;&amp; \text{puisque  la composition d'une rotation suivie d'une réflexion est une réflexion dont l'angle est la moitié de la différence entre le double de l'angle de la réflexion et l'angle de la rotation}</mrow>
@@ -594,7 +594,7 @@ show(produit.apply_map(lambda x: x.trig_reduce()))
     <conclusion xml:id="concl-prodmat">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont
     <ul>
-    <li><p> La multiplication matricielle, par la <xref ref="def-matmatprod"> définition par les colonnes</xref> ou selon un calcul <xref provisional="prop-matmatprod">entrée par entrée</xref>;</p></li>
+    <li><p> La multiplication matricielle, selon la <xref ref="def-matmatprod"> définition par les colonnes</xref> ou selon un calcul <xref provisional="prop-matmatprod">entrée par entrée</xref>;</p></li>
     <li><p> La définition de la matrice <xref ref="def-matid">identité </xref>;</p></li>
     <li><p>Le fait que la multiplication n'est pas commutative;</p></li>
     <li><p>Le concept de puissances d'une matrice;</p></li>
