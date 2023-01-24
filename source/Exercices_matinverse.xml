@@ -29,12 +29,12 @@
     -->
     <exercise xml:id="exo-SEL2x2matinverse">
             <statement>
-                <p>Dans la section, on a déterminé l'inverse d'une matrice <m>2\times 2</m> quelconque sous la condition que <m>ad-bc\neq 0</m>. On a toutefois laissé
+                <p>Dans la section, on a déterminé l'inverse d'une matrice <m>2\times 2</m> quelconque sous la condition que <m>ad-bc\neq 0</m>. On a toutefois laissé à compléter
                 les détails de la résolution du système d'équations 
                 <md>
     <mrow>ay+bw&amp;=0 </mrow>
     <mrow> cy+dw&amp;=1</mrow>
-    </md> à compléter. </p>
+    </md>. </p>
     <p>Montrer que la solution à ce système est <m>y=\frac{-b}{ad-bc}</m> et <m>w=\frac{a}{ad-bc}</m>.</p>
             </statement>
             <hint>
@@ -50,7 +50,7 @@
     <me>
     (ad-bc)w=a
     </me>.
-    Toujours sous l'hypothèse que <m>ad-bc\neq 0</m>, on obtient <m>w=\frac{a}{ad-bc}</m>. 
+    Toujours dans l'hypothèse que <m>ad-bc\neq 0</m>, on obtient <m>w=\frac{a}{ad-bc}</m>. 
     </p>
     <p>En multipliant maintenant la première équation du premier système par <m>d</m> et la seconde par <m>b</m>, on obtient
     <mdn>
@@ -67,7 +67,7 @@
     </exercise>
     <exercise xml:id="exo-vecteursesuffisants">
             <statement>
-                <p>Dans la remarque <xref ref="rem-obtenirinverse"/>, il est mentionné qu'une matrice <m>A</m> possède un inverse si pour tout les <m>\vec{v}</m> dans 
+                <p>Dans la remarque <xref ref="rem-obtenirinverse"/>, il est mentionné qu'une matrice <m>A</m> possède un inverse si pour tous les <m>\vec{v}</m> dans 
                 <m>\R^n</m>, il existe un <m>\vec{u}</m> tel que <m>A\vec{u}=\vec{v}</m>. Montrer qu'en fait, il suffit que les équations
                 <md>
                 <mrow>A\vec{u}&amp;=(1,0,\ldots, 0)</mrow>
@@ -82,7 +82,7 @@
             </hint>
             <solution>
             <p>En suivant l'indication, on cherche à démontrer que si une solution <m>\vec{u}</m> existe pour chacune de ces équations, 
-            il découle directement qu'une solution existe pour <m>A\vec{u}=\vec{v}</m>, peu importe le vecteur <m>\vec{v}</m>.</p>
+            il découle qu'une solution existe pour <m>A\vec{u}=\vec{v}</m>, peu importe le vecteur <m>\vec{v}</m>.</p>
             <p>Soit <m>\vec{v}=(v_1,v_2,\dots,v_n)\in\R^n</m>, un vecteur quelconque de dimension <m>n</m>. 
             Alors, si les équations données dans la question possèdent des solutions, on peut écrire:
             <md>
@@ -108,7 +108,7 @@
             </solution>
     </exercise> 
     <exercise xml:id="exo-Ainverseprod">
-    <statement><p>Soit <m>A,B</m> deux matrices carrées telles que <m>AB</m> est inversible. Compléter la preuve de la proposition <xref ref="prop-inverseproduit"/> en
+    <statement><p>Soit <m>A,B</m>, deux matrices carrées telles que <m>AB</m> est inversible. Compléter la preuve de la proposition <xref ref="prop-inverseproduit"/> en
     montrant que <m>A</m> est inversible.</p></statement>
     <solution><p>Puisque <m>AB</m> est inversible, il existe <m>C</m> telle que <m>CAB=ABC=I</m>, selon la définition <xref ref="def-matcarreeinverse"/>. On peut alors
     écrire à l'aide de l'associativité de la multiplication matricielle <m>A(BC)=I</m>. Toujours selon la définition <xref ref="def-matcarreeinverse"/>, la matrice
@@ -119,8 +119,8 @@
                 <p>Généraliser la proposition <xref ref="prop-inverseproduit"/> à trois matrices. Est-il possible de généraliser davantage?</p>
             </statement>
             <solution>
-            <p>Énonçons la proposition <xref ref="prop-inverseproduit"/> à trois matrices:</p>
-            <p>Soit <m>A</m>, <m>B</m> et <m>C</m> trois matrices carrées d'ordre <m>n</m>. Alors le produit <m>ABC</m> est inversible  si
+            <p>On énonce la proposition <xref ref="prop-inverseproduit"/> à trois matrices:</p>
+            <p>Soit <m>A</m>, <m>B</m> et <m>C</m>, trois matrices carrées d'ordre <m>n</m>. Le produit <m>ABC</m> est inversible  si
             et seulement si les matrices <m>A,B,C</m> sont inversibles. De plus, on a <m>(ABC)^{-1}=C^{-1}B^{-1}A^{-1}</m>.</p>
             <p>On commence en supposant que les matrices <m>A,B,C</m> sont inversibles. Il est assez intuitif que
             <me>
@@ -129,7 +129,7 @@
             On le vérifie algébriquement: <me>(C^{-1}B^{-1}A^{-1})(ABC)=C^{-1}B^{-1}A^{-1}ABC=C^{-1}B^{-1}IBC=C^{-1}B^{-1}BC=C^{-1}IC=C^{-1}C=I</me>. 
             Il ne reste donc qu'à vérifier l'existence de l'inverse.
             </p>
-            <p>Soit <m>\vec{v}\in \R^n</m> un vecteur de l'image de <m>ABC</m>. On cherche <m>\vec{u}</m> telle que <m>ABC\vec{u}=\vec{v}</m>. En vertu de la proposition 
+            <p>Soit <m>\vec{v}\in \R^n</m> un vecteur de l'image de <m>ABC</m>. On cherche <m>\vec{u}</m> tel que <m>ABC\vec{u}=\vec{v}</m>. En vertu de la proposition 
             <xref ref="prop-surjestinv"/>, si <m>\vec{u}</m> existe, la matrice <m>ABC</m> est inversible. 
             On construit <m>\vec{u}</m> en inversant successivement les matrices <m>A</m>, <m>B</m> et <m>C</m>. 
             Tel qu'attendu,
@@ -151,7 +151,7 @@
             <p>Finalement, en regroupant les matrices <m>AB=D</m>, on a que <m>ABC=DC</m> qu'on suppose inversible. 
             Par la proposition <xref ref="prop-inverseproduit"/> à deux matrices, cela implique que <m>D</m> et <m>C</m> sont inversibles. 
             Si <m>D=AB</m> est inversible, cela implique, encore par le même proposition, que <m>A</m> et <m>B</m> sont inversibles.</p>
-            <p>On voit clairement que, bien que cela prenne de plus en plus de temps, on pourrait continuer de généraliser la propostion à l'infini en multipliant 
+            <p>On voit clairement que, bien que cela prenne de plus en plus de temps, on pourrait continuer de généraliser la proposition à l'infini en multipliant 
             simplement plus de fois.</p>
             </solution>
     </exercise>
@@ -166,7 +166,7 @@
     </exercise>
     <exercise>
             <introduction>
-                <p>Soit <m>A</m> une matrice <m>m\times n</m> pas nécessairement carrée et <m>O</m> la matrice nulle de dimension appropriée. Montrer que</p>
+                <p>Soit <m>A</m>, une matrice <m>m\times n</m> qui n'est pas nécessairement carrée et <m>O</m>, la matrice nulle de dimension appropriée. Montrer que</p>
             </introduction>
             <task>
             <statement>
@@ -174,7 +174,7 @@
             </statement>
            <solution>
                 <p>
-                Si la matrice <m>A</m> est de format <m>m\times n</m>, alors la première matrice <m>O</m> doit être de format <m>n\times p</m> et la seconde sera de format <m>m\times p</m>.
+                Si la matrice <m>A</m> est de format <m>m\times n</m>, alors la première matrice <m>O</m> doit être de format <m>n\times p</m> et la seconde de format <m>m\times p</m>.
                 La matrice nulle est la matrice de transformation linéaire qui amène tous les vecteurs au vecteur nul, toujours de formats appropriés. 
                 On démontre que la transformation <m>AO</m> amène tous les vecteurs à l'origine. On précise les dimensions des matrices et des vecteurs.
                 Soit un vecteur <m>\vec{u}_p\in\R^p</m>. Alors,
@@ -211,7 +211,7 @@
             <p>Pour démontrer qu'une matrice <m>B</m> est l'inverse d'une matrice <m>A</m>, il faut démontrer que <m>AB=I</m>.</p>
             </hint>
             <solution>
-            <p>Tel que suggéré dans l'indication, on montre que <m>\frac{1}{k}A^{-1}</m> est bel et bien l'inverse de <m>kA</m> en les multipliant ensemble.
+            <p>Tel que suggéré dans l'indication, on montre que <m>\frac{1}{k}A^{-1}</m> est bel et bien l'inverse de <m>kA</m> en les multipliant.
             Si le résultat donne la matrice identité, on aura démontré que <m>(kA)^{-1}=\frac{1}{k}A^{-1}</m>.
             <md>
                 <mrow>(kA)\left(\frac{1}{k}A^{-1}\right)&amp;=(k*\frac{1}{k})AA^{-1} &amp;&amp;\text{ par } <xref ref="li-assoscalprodmat"/>\text{ et }<xref ref="li-assoprodmat"/></mrow>
@@ -223,8 +223,8 @@
     </exercise>
     <exercise>
             <introduction>
-                <p>Pour chaque énoncé suivant, les matrices sont supposées être carrées, de format approprié et inversibles lorsque nécessaire. 
-                Donner une preuve si l'énoncé est vrai, ou donner un contre-exemple si l'énoncé est faux.
+                <p>Pour chacun des énoncés suivants, les matrices sont censées être carrées, de format approprié et inversibles lorsque nécessaire. 
+                Donner une preuve si l'énoncé est vrai, ou donner un contrexemple si l'énoncé est faux.
                 </p>
             </introduction>
             <task>
@@ -232,7 +232,7 @@
                 <p><m>(A+B)^{-1}=A^{-1}+B^{-1}</m></p>
             </statement>
             <solution>
-                <p>Cet énoncé est faux, en général. On en donne un contre-exemple. Pour se simplifier la tâche, on utilise des matrices <m>2\times 2</m>.
+                <p>Cet énoncé est faux, en général. On en donne un contrexemple. Pour se simplifier la tâche, on utilise des matrices <m>2\times 2</m>.
                 Soit <m>A=\begin{pmatrix}0&amp;-1\\ 1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}1&amp;-1\\ 0&amp;1\end{pmatrix}</m>, alors
                 <md>
                     <mrow>(A+B)^{-1}&amp;=\left(\begin{pmatrix}0&amp;-1\\ 1&amp;0\end{pmatrix}+\begin{pmatrix}1&amp;-1\\ 0&amp;1\end{pmatrix}\right)^{-1}</mrow>
@@ -264,7 +264,7 @@
                 <p>Si <m>A</m> n'est pas inversible et que <m>AB=AC</m>, alors <m>B=C</m>.</p>
             </statement>
             <solution>
-                <p>Cet énoncé est faux. On donne un contre exemple avec des matrices <m>2\times 2</m>.
+                <p>Cet énoncé est faux. On donne un contrexemple avec des matrices <m>2\times 2</m>.
                 Soit <m>A=\begin{pmatrix}1&amp;1\\ 0&amp;0\end{pmatrix}</m>, <m>B=\begin{pmatrix}1&amp;0\\ 0&amp;1\end{pmatrix}</m> et <m>C=\begin{pmatrix}0&amp;1\\ 1&amp;0\end{pmatrix}</m>, 
                 alors
                 <md>
@@ -294,13 +294,13 @@
                 En effet, pour <m>A=\begin{pmatrix}a&amp;c\\ b&amp;d\end{pmatrix}</m>, on voit que:
                 <me>AP=\begin{pmatrix}a&amp;c\\ b&amp;d\end{pmatrix}\begin{pmatrix}0&amp;1\\ 1&amp;0\end{pmatrix}=\begin{pmatrix}c&amp;a\\ d&amp;b\end{pmatrix}</me>.
                 Cette matrice est toujours inversible et est même sa propre inverse, puisqu'en réfléchissant en termes de transformations linéaires, comment fait-on pour ramener les colonnes
-                permuttées à leur emplacement initial? On les repermutte de la même façon. 
+                permutées à leur emplacement initial? On les permute à nouveau et de la même manière. 
                 C'est toujours une matrice de symétrie que l'on construit.
-                Lorsqu'on trouve une telle matrice pour effectuer les permutations, il est immédiat de montrer que <m>B=AP</m> est inversible.
+                Lorsqu'on trouve une telle matrice pour effectuer les permutations, on montre immédiatement que <m>B=AP</m> est inversible.
                 En effet, 
                 <me>B^{-1}=(AP)^{-1}=P^{-1}A^{-1}</me>.
-                Bref, afin de généraliser cela, il ne nous reste qu'à fournir une matrice de permutation qui permet d'échanger la colonne <m>i</m> avec la colonne <m>j</m>. 
-                Cette matrice est simplement la matrice identité où on a échangé les colonnes <m>i</m> et <m>j</m>.
+                Bref, afin de généraliser cette situation, il ne nous reste qu'à fournir une matrice de permutation qui permet d'échanger la colonne <m>i</m> avec la colonne <m>j</m>. 
+                Cette matrice est simplement la matrice identité où l'on a interchangé les colonnes <m>i</m> et <m>j</m>.
                 Bref, <me>Pcol_{i\leftrightarrow j}=\begin{pmatrix}
                 \lvert &amp; \lvert &amp; \cdots &amp; \lvert &amp; \cdots &amp; \lvert &amp; \cdots &amp; \lvert \\
                 \vec{e}_1 &amp; \vec{e}_2 &amp;\cdots &amp; \vec{e}_j &amp;\cdots &amp; \vec{e}_i &amp; \cdots &amp; \vec{e}_n \\
@@ -315,8 +315,8 @@
                 \end{pmatrix}</me>.
                 On remarque finalement que, puisque permuter deux colonnes de la matrice identité ou deux lignes de la matrice identité donne exactement la même matrice,
                 les matrices de permutation de lignes et de colonnes sont les mêmes.
-                L'effet de permuter des lignes ou des colonnes d'une matrice <m>A</m> viendra si on multiplie à droite ou à gauche.
-                On pourrait en dire beaucoup plus long, mais on va s'arrêter là!
+                La permutation des lignes ou des colonnes d'une matrice <m>A</m> se produira selon si l'on multiplie à droite ou à gauche.
+                On pourrait en dire beaucoup plus long, mais on s'arrête ici!
                 </p>
             </solution>
             </task>
@@ -328,11 +328,11 @@
                 <p>Utiliser la propriété <xref ref="prop-investsurj"/>.</p>
             </hint>
             <solution>
-                <p>Cet énoncé est vrai. Tel que suggéré dans l'indication, on utilise la propriété <xref ref="prop-investsurj"/>.
-                Il faut trouver un vecteur <m>\vec{v}</m> tel que c'est impossible de trouver un vecteur <m>\vec{u}</m> tel que <m>A\vec{u}=\vec{v}</m>.
-                Un exemple simple d'un tel vecteur est un vecteur qui ne possède que des zéros, sauf à la position correspondant à la ligne de zéros de la matrice.
+                <p>Cet énoncé est vrai. Comme suggéré dans l'indication, on utilise la propriété <xref ref="prop-investsurj"/>.
+                Il faut trouver un vecteur <m>\vec{v}</m> pour lequel il est impossible de trouver un vecteur <m>\vec{u}</m> tel que <m>A\vec{u}=\vec{v}</m>.
+                Un exemple simple est un vecteur qui ne possède que des zéros, sauf à la position correspondant à la ligne de zéros de la matrice.
                 Ce vecteur est en fait <m>\vec{v}=\vec{e}_i</m> où la i-ème ligne de la matrice <m>A</m> est nulle.
-                Sans perdre trop de généralité, si <m>A</m> possède une ligne de zéros comme sa première ligne, on écrit donc
+                Sans perdre trop de généralité, si la première ligne de <m>A</m> est nulle, on écrit
                 <me>A=\begin{pmatrix}
                 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{0} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
                 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
@@ -359,8 +359,8 @@
                 \vec{r}_m\cdot\vec{u}  
                 \end{pmatrix}\neq
                 \begin{pmatrix}1\\ 0\\ \vdots\\ 0 \end{pmatrix}
-                </me>, peu importe le vecteur <m>\vec{u}</m> choisit.
-                La preuve serait très semblable si on choisissait une autre ligne nulle dans la matrice <m>A</m>.
+                </me>, peu importe le vecteur <m>\vec{u}</m> choisi.
+                La preuve serait semblable si l'on choisissait une autre ligne nulle dans la matrice <m>A</m>.
                 </p>
             </solution>
             </task>
@@ -385,7 +385,7 @@
     </exercise>
     <exercise xml:id="exo-2x2inverse">
             <introduction>
-                <p>En utilisant lorsque possible le fait que <m>A\vec{u}=\vec{v}</m> peut s'écrire sous la forme <m>\vec{u}=A^{-1}\vec{v}</m>, répondre aux questions suivantes:</p>
+                <p>En utilisant, lorsque c'est possible, le fait que <m>A\vec{u}=\vec{v}</m> peut s'écrire sous la forme <m>\vec{u}=A^{-1}\vec{v}</m>, répondre aux questions suivantes:</p>
             </introduction>
             <task>
             <statement>
@@ -485,7 +485,7 @@
             </answer>
             <solution>
                 <p>Cette transformation linéaire est un étirement vertical de facteur <m>3</m>, selon l'équation <xref ref="eq-etirementvr2"/>. 
-                Ainsi, la question est de savoir quel vecteur, si on l'étire verticalement de facteur <m>3</m> donnera le vecteur <m>\vec{v}=\vecd{2}{6}</m>.
+                Ainsi, la question est de savoir quel vecteur, si on l'étire verticalement de facteur <m>3</m>, donnera le vecteur <m>\vec{v}=\vecd{2}{6}</m>.
                 Puisque l'étirement n'affecte pas la coordonnée en <m>x</m>, on sait que la première composante du vecteur cherchée est <m>2</m>.
                 Pour la seconde, il faut simplement diviser par <m>3</m>, ce qui donne aussi <m>2</m>. 
                 Bref, le vecteur est <m>\vec{u}=\vecd{2}{2}</m>.
@@ -496,8 +496,8 @@
     </exercise>
     <exercise xml:id="exo-cisaillement">
     <statement>  
-    <p>Au niveau géomérique, une matrice de la forme <m>Ch_k=\begin{pmatrix}1\amp k\\ 0 \amp 1  \end{pmatrix}</m> ou <m>Cv_k=\begin{pmatrix}1\amp 0\\ k \amp 1  \end{pmatrix}</m> est
-    une matrice de cisaillement, dont l'effet est illustré à l'activité interactive <xref ref="fig-cisaillement"/>. Donner l'effet algébrique d'un cisaillement et son inverse, en justifiant  géométriqument et algébriquement.
+    <p>Du point de vue géométrique, une matrice de la forme <m>Ch_k=\begin{pmatrix}1\amp k\\ 0 \amp 1  \end{pmatrix}</m> ou <m>Cv_k=\begin{pmatrix}1\amp 0\\ k \amp 1  \end{pmatrix}</m> est
+    une matrice de cisaillement, dont l'effet est illustré à l'activité interactive <xref ref="fig-cisaillement"/>. Donner l'effet algébrique d'un cisaillement et son inverse, en justifiant  géométriquement et algébriquement.
     </p>
     <figure xml:id='fig-cisaillement'>
     <caption>Les transformations "cisaillement"</caption>
@@ -509,7 +509,7 @@
             showResetIcon(true);
           </slate>
         <instructions>
-          <p>La valeur de <m>k</m> est initialisée à <m>0</m>, ce qui donne la transformation identité. En changeant cette valeur, décrire la transformation. La figure bleue représente le cisaillement horizontal 
+          <p>La valeur de <m>k</m> est initialisée à <m>0</m>, ce qui donne la transformation identité. Décrire la transformation en changeant cette valeur. La figure bleue représente le cisaillement horizontal 
           <m>Ch_k</m> et la figure rouge le cisaillement vertical <m>Cv_k</m>.</p>
         </instructions>
         </interactive>
@@ -520,8 +520,8 @@
     </hint>
     <solution>
     <p>Géométriquement, on peut observer qu'un cisaillement horizontal, par exemple, prend le carré original et déplace son côté supérieur vers la droite créant ainsi un parallélogramme 
-    de côtés supérieurs et inférieurs égaux aux côtés du carrés original. Cependant, les côtés verticaux deviennent beaucoup plus longs.
-    Essentiellement, si on regarde l'effet sur les vecteurs de base, on voit dans les colonnes de la matrice que <m>T\vecd{1}{0}=\vecd{1}{0}</m> et n'est donc pas déplacé.
+    de côtés supérieurs et inférieurs égaux aux côtés du carré original. Cependant, les côtés verticaux deviennent beaucoup plus longs.
+    Essentiellement, si l'on regarde l'effet sur les vecteurs de base, on voit, dans les colonnes de la matrice, que <m>T\vecd{1}{0}=\vecd{1}{0}</m> et n'est donc pas déplacé.
     Pour l'autre colonne, on apprend que <m>T\vecd{0}{1}=\vecd{k}{1}</m>.
     Géométriquement, c'est un déplacement du vecteur<m>\vecd{0}{1}</m> vers la droite.
     Il conserve sa coordonnée en <m>y</m>, mais on lui ajoute une coordonnée en <m>x</m> de valeur <m>k</m>. 
@@ -533,13 +533,13 @@
     C'est la coordonnée qui changera (<m>x</m>), de façon proportionnelle à la coordonnée <m>y</m>.
     Une analogie pour ce genre de cisaillement est celle du vent. 
     On s'imagine un vent se dirigeant vers la droite sur la figure.
-    Si le carré est fait d'un matériel assez souple, mais qu'il est bien ancré dans le sol (axe des <m>x</m>), alors il se déplacera selon le cisaillement horizontal illustré en bleu.
+    Si le carré est fait d'un matériau assez souple, mais qu'il est bien ancré dans le sol (axe des <m>x</m>), alors il se déplacera selon le cisaillement horizontal illustré en bleu.
     Plus la valeur <m>k</m> est grande, plus le vent est fort!</p>
-    <p>Pour ce qui est de l'inverse, on peut intuitivement penser que pour <em>défaire</em> un cisaillement, on doit avoir le déplacement en sens inverse.
+    <p>Pour ce qui est de l'inverse, on peut intuitivement penser que, pour <em>défaire</em> un cisaillement, on doit avoir le déplacement en sens inverse.
     Ainsi, on a: <me>Ch_k^{-1}\vecd{x}{y}=\begin{pmatrix}1\amp -k\\ 0 \amp 1  \end{pmatrix}\vecd{x}{y}=\vecd{x-ky}{y}\text{.}</me>
     </p>
-    <p>Le cisaillement vertical est définit de façon semblable.
-    On va le résumer ainsi:
+    <p>Le cisaillement vertical est défini de façon semblable.
+    On  le résume ainsi:
     <me>Cv_k\vecd{1}{0}=\vecd{1}{0}+k\vecd{0}{1} \text{ et } Cv_k\vecd{0}{1}=\vecd{0}{1}</me>
     ou bien ainsi:
     <me>Cv_k\vecd{x}{y}=\begin{pmatrix}1\amp 0\\ k \amp 1  \end{pmatrix}\vecd{x}{y}=\vecd{x}{y+kx}\text{.}</me>
@@ -550,7 +550,7 @@
     </exercise>
     <exercise xml:id="exo-prodmatinversegeo">
     <introduction>
-        <p>Dans la figure <xref ref="fig-prodmatinversegeo"/>, un vecteur <m>\vec{u}</m> est montré, de même que son effet par une transformation <m>T_1</m> et la composition des transformations <m>T_1(T_2)</m>.
+        <p>La figure <xref ref="fig-prodmatinversegeo"/> montre un vecteur <m>\vec{u}</m>, de même que son effet par une transformation <m>T_1</m> et la composition des transformations <m>T_1(T_2)</m>.
     On cherche à déterminer la matrice de la transformation <m>T_2</m>.</p>
     <figure xml:id='fig-prodmatinversegeo'>
     <caption>La transformation intérieure d'une composition, géométriquement</caption>
@@ -562,10 +562,10 @@
             showResetIcon(true);
           </slate>
         <instructions>
-          <p>Déplacer le point bleue afin de voir l'effet de <m>T_1</m> et de <m>T_1(T_2(x,y))</m> sur le vecteur <m>\vec{u}</m>. Dans les champs de texte <m>a,b,c,d</m>, entrer les valeurs pour
+          <p>Déplacer le point bleu afin de voir l'effet de <m>T_1</m> et de <m>T_1(T_2(x,y))</m> sur le vecteur <m>\vec{u}</m>. Dans les champs de texte <m>a,b,c,d</m>, entrer les valeurs pour
           <me>
           T_2=\begin{pmatrix} a&amp;c\\ b&amp;d \end{pmatrix}
-          </me> et appuyer sur "Vérifier la réponse" pour valider. Si désiré, un nouveau problème peut être généré en cliquant sur "Nouveau problème".</p>
+          </me> et appuyer sur "Vérifier la réponse" pour valider la solution. Si désiré, un nouveau problème peut être généré en cliquant sur "Nouveau problème".</p>
         </instructions>
         </interactive>
     </figure>
@@ -577,10 +577,10 @@
             </statement>
             <solution>
                 <p>On peut procéder de diverses façons, mais généralement, on veut trouver l'effet de <m>T_2</m> sur les vecteurs <m>\vecd{1}{0}</m> et <m>\vecd{0}{1}</m>.
-                Par contre, pour y arriver, il faudra d'abord trouver la matrice <m>T_1</m>.
-                En plaçant d'abord le vecteur <m>\vec{u}</m> sur <m>\vecd{1}{0}</m>, on obtient <m>T_1\vecd{1}{0}</m>, qui sera la première colonne de <m>T_1</m>. 
+                Cependant, pour y arriver, il faudra d'abord trouver la matrice <m>T_1</m>.
+                En plaçant en premier lieu le vecteur <m>\vec{u}</m> sur <m>\vecd{1}{0}</m>, on obtient <m>T_1\vecd{1}{0}</m>, qui sera la première colonne de <m>T_1</m>. 
                 Ensuite, en déplaçant le vecteur <m>\vec{u}</m> sur <m>\vecd{0}{1}</m>, on obtient <m>T_1\vecd{0}{1}</m>, qui sera la deuxième colonne de <m>T_1</m>.
-                Maintenant que nous avons la matrice <m>T_1</m>, si on observe attentivement l'autre information fournie, on réalise qu'en multipliant à gauche par <m>T_1^{-1}</m>,
+                Maintenant que nous avons la matrice <m>T_1</m>, si l'on observe attentivement l'autre information fournie, on réalise qu'en multipliant à gauche par <m>T_1^{-1}</m>,
                 il est possible d'obtenir <m>T_2\vec{u}</m> et donc <m>T_2\vecd{1}{0}</m> ainsi que <m>T_2\vecd{0}{1}</m>, en repositionnant <m>\vec{u}</m> aux endroits voulus.
                 </p>
             </solution>
@@ -604,21 +604,21 @@
                <p><ol marker="1.">
                     <li><p>Pour l'équation <m>XA+B=C</m>, on avait obtenu <m>X=(C-B)A^{-1}</m>.
                     La matrice <m>A</m> doit être carrée (disons <m>n\times n</m>) puisqu'on calcule son inverse. 
-                    Les matrices <m>B</m> et <m>C</m> doivent être de mêmes formats et, puisqu'on les multiplie à gauche par <m>A^{-1}</m>, leur format sera <m>m\times n</m>.
+                    Les matrices <m>B</m> et <m>C</m> doivent être de même format et, puisqu'on les multiplie à gauche par <m>A^{-1}</m>, leur format sera <m>m\times n</m>.
                     Finalement, <m>X</m> sera également de format <m>m\times n</m>.</p></li>
                     <li><p>Pour l'équation <m>AX+B=X</m>, on avait obtenu <m>X=-(A-I)^{-1}B</m>. 
-                    Les matrices <m>A</m> et <m>I</m> sont de mêmes formats et elles sont carrées, disons <m>m\times m</m>.
+                    Les matrices <m>A</m> et <m>I</m> sont de même format et elles sont carrées, disons <m>m\times m</m>.
                     La matrice <m>B</m> doit donc être de format <m>m\times n</m> pour être compatible.
                     Finalement, <m>X</m> sera également de format <m>m\times n</m>.</p></li>
                     <li><p>Pour l'équation <m>AXB=D</m>, on avait obtenu <m>X=A^{-1}DB^{-1}</m>.
-                    Les matrices <m>A</m> et <m>B</m> sont inversées alors elles doivent être carrées, disons <m>m\times m</m> et <m>n\times n</m> respectivement.
+                    Les matrices <m>A</m> et <m>B</m> sont inversées, elles doivent donc être carrées, par exemple <m>m\times m</m> et <m>n\times n</m> respectivement.
                     Pour être compatible, la matrice <m>D</m> doit donc être de format <m>m\times n</m>.
                     Finalement, <m>X</m> sera également de format <m>m\times n</m>.</p></li>
                     <li><p>Pour l'équation <m>AX^{-1}+B=C</m>, on avait obtenu <m>X=(C-B)^{-1}A</m>.
-                    Les matrices <m>B</m> et <m>C</m> étant soustraites puis inversées se doivent d'être de même format et carrées, disons <m>m\times m</m>.
+                    Les matrices <m>B</m> et <m>C</m> étant soustraites puis inversées, elles se doivent d'être de même format et carrées, par exemple <m>m\times m</m>.
                     La matrice <m>A</m> doit donc être de format <m>m\times n</m> pour être compatible.
                     Finalement, <m>X</m> doit être carrée puisqu'on l'inverse dans l'équation de départ.
-                    Son format devrait être de <m>m\times n</m>, mais puisqu'elle doit être carrée et pour être compatible, elle devra être de <m>m\times m</m>.
+                    Son format devrait être de <m>m\times n</m>, mais puisqu'elle doit être carrée, elle devra être de <m>m\times m</m>.
                     La conséquence est que <m>A</m> doit être de format <m>m\times m</m> pour être compatible. 
                     Bref, toutes les matrices doivent être carrées et de même format (<m>m\times m</m>).</p></li>
                     <!--<li><m>(A+X)B+(B+X)A=I</m></li>-->
@@ -628,7 +628,7 @@
     <exercise xml:id="exo-etirquelcr2">
     <title>Un étirement quelconque dans <m>\R^2</m></title>
     <statement><p>Dans <m>\R^2</m>, un étirement de direction <m>\vec{u}</m> et de facteur <m>k</m> est une transformation linéaire <m>E_{\vec{u},k}</m> telle que
-    <m> E_{\vec{u},k}(\vec{u})=k\vec{u}</m> et <m>E_{\vec{u},k}(\vec{u}_{\perp})=\vec{u}_{\perp}</m>. En mots, la transformation
+    <m> E_{\vec{u},k}(\vec{u})=k\vec{u}</m> et <m>E_{\vec{u},k}(\vec{u}_{\perp})=\vec{u}_{\perp}</m>. Autrement dit, la transformation
     étire la direction <m>\vec{u}</m> d'un facteur <m>k</m> et laisse la direction perpendiculaire inchangée.
     </p>
     <p>On considère un étirement dans la direction <m>\vec{u}=(1,2)</m> et de facteur <m>k=3</m>. Déterminer la matrice de cette transformation en utilisant la formule
@@ -661,7 +661,7 @@
     </introduction>
     <exercise xml:id="exosage-matinverse-1">
     <statement>
-    <p>Donner les inverse des matrices suivantes. Vérifier aussi en effectuant la multiplication pour avoir l'identité.
+    <p>Donner l'inverse des matrices suivantes. Vérifier en effectuant la multiplication pour obtenir l'identité.
     <md>
     <mrow>A=\begin{pmatrix} 3 \amp -1 \\
 0 \amp -3 \end{pmatrix}</mrow>
@@ -698,7 +698,7 @@ show("AA^(-1)=",A*Ainv)
     <exercise>
     <statement><p>Considérer les matrices <m>B</m> et <m>C</m> de l'exercice <xref ref="exosage-matinverse-1"/>. 
     Vérifier que <m>(BC)^{-1}=C^{-1}B^{-1}</m> à l'aide de Sage (équation <xref ref="prop-inverseproduit"/>).
-    Il est possible de calculer les résultats, ou simplement
+    Il est possible de calculer les résultats ou simplement
     de comparer en utilisant la double égalité <c>==</c>.</p>
     <sage>
     <input>
@@ -765,7 +765,7 @@ show(etirR2(vector([u1,u2]),k).simplify_full())
                </input>
                    </program>
                    </listing> 
-                   <p>Remarquer qu'on a utiliser la commande <c>simplify_full()</c> afin d'avoir une forme plus compacte.</p>
+                   <p>Remarquer qu'on a utilisé la commande <c>simplify_full()</c> afin d'avoir une forme plus compacte.</p>
     </solution>
     </exercise>
     <exercise>
@@ -846,7 +846,7 @@ show(L3)
                 </sage>
             </statement>
             <solution>
-                <p>La principale caractéristique des matrices de permutation qui sont leur propre inverse est que les permutation ne se font que deux à deux. Par exemple, considérer les matrices
+                <p>La principale caractéristique des matrices de permutation qui sont leur propre inverse est que les permutations ne se font que deux à deux. Par exemple, considérer les matrices
                    <md>
                    <mrow>P_1=\begin{pmatrix} 
                    \amp0 \amp 1\amp 0\amp 0\\
@@ -882,7 +882,7 @@ show("P2*v=",P2*v)
 show("P3*v=",P3*v)
                    </input>
                    </sage>
-                   <p>On voit que les matrices <m>P_1\text{ et }P_2</m> permutent les composantes <m>x_1</m> et <m>x_2</m> du vecteurs <m>\vec{v}</m> entre elles, avec <m>P_2</m> qui permute également <m>x_3</m> avec <m>x_4</m>.
+                   <p>On voit que les matrices <m>P_1\text{ et }P_2</m> permutent les composantes <m>x_1</m> et <m>x_2</m> du vecteur <m>\vec{v}</m> entre elles, avec <m>P_2</m> qui permute également <m>x_3</m> avec <m>x_4</m>.
                    Par contre, <m>P_3</m> envoie <m>x_1</m> à la position de <m>x_2</m>, <m>x_2</m> à la position de <m>x_3</m> et <m>x_3</m> à la position de <m>x_1</m>.<fn>Le lecteur intéressé d'en apprendre plus peut se renseigner sur les cycles d'une
                    permutation.</fn>On applique une seconde fois les matrices <m>P_1,P_2,P_3</m> au vecteur <m>\vec{v}</m>. Peut-on prédire ce qui va se passer?
                    </p>
@@ -893,8 +893,8 @@ show("P2P2*v=",P2*P2*v)
 show("P3P3*v=",P3*P3*v)
                    </input>
                    </sage>
-                   <p>Puisque dans <m>P_1</m> et <m>P_2</m> les entrées permutent en paires, une application double de la permutation revient à ne rien faire. Par contre pour <m>P_3</m>, les entrées <m>x_1,x_2,x_3</m>
-                   permutent selon un cycle de longueur trois. On devrait donc avoir besoin d'une troisième application pour revenir à l'identité.</p>
+                   <p>Puisque dans <m>P_1</m> et <m>P_2</m> les entrées permutent en paires, une application double de la permutation revient à ne rien faire. Par contre, pour <m>P_3</m>, les entrées <m>x_1,x_2,x_3</m>
+                   permutent selon un cycle de longueur trois. On a donc besoin d'une troisième application pour revenir à l'identité.</p>
                    <sage>
                    <input>
                    show("P3P3P3*v=",P3*P3*P3*v)
@@ -916,11 +916,11 @@ show("P3P3*v=",P3*P3*v)
     <solution>
     <p>On recopie la définition de la fonction de l'exemple <xref ref="sageex-algmat"/> que l'on utilisera pour chaque équation. 
     On doit donc la recopier au début du code. 
-    On conseille de réutiliser le même code à chaque fois et de simplement modifier les matrices et l'équation à vérifier.
-    Attention: le code peut prendre un certain temps à exécuter, surtout si on choisit des matrices de grands formats.
+    On conseille de réutiliser le même code chaque fois et de modifier uniquement les matrices et l'équation à vérifier.
+    Attention: l'exécution du code peut prendre un certain temps, surtout si l'on choisit des matrices de grands formats.
     Noter qu'on n'a pas à définir la matrice <m>X</m> puisqu'elle est créée par l'équation où on l'a isolée.</p>
                     <listing>
-                    <caption>Le code où on définit la fonction <em>matquelc</em></caption>
+                    <caption>Le code où l'on définit la fonction <em>matquelc</em></caption>
                     <program language="sage">
                     <input>
 def matquelc(m,n,lettre):
@@ -1008,8 +1008,8 @@ A*(X^(-1))+B==C
     <exercise>
     <title> Une fonction pour trouver l'inverse</title>
     <statement><p>
-    Dans cet exercice, on cherche à créer une fonction qui va donner automatiquement la réponse à un exemple de la figure interactive  <xref ref="fig-prodmatinversegeo"/> en fonction des informations données.
-    On appellera la fonction <c>inversecompo(T11,T12,C1,C2)</c> où <m>T11,T12</m> sont respectivement les première et deuxième colonne de la matrice de la transformation <m>T1</m> et <m>C1,C2</m> sont respectivement les première et deuxième colonne de la matrice de la transformation <m>T1(T_2)</m>.
+    Dans cet exercice, on cherche à créer une fonction qui donne automatiquement la réponse à un exemple de la figure interactive  <xref ref="fig-prodmatinversegeo"/> en fonction des informations données.
+    On appellera la fonction <c>inversecompo(T11,T12,C1,C2)</c> où <m>T11,T12</m> sont respectivement les première et deuxième colonnes de la matrice de la transformation <m>T1</m> et <m>C1,C2</m> sont respectivement les première et deuxième colonnes de la matrice de la transformation <m>T1(T_2)</m>.
     </p>
     <p>Créer cette fonction et utiliser la figure <xref ref="fig-prodmatinversegeo"/> pour la tester.</p>
     <sage>
