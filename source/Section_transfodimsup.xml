@@ -13,20 +13,18 @@
     <title>Transformations linéaires de dimension supérieure </title>
     <introduction xml:id= "intro-transfodimsup">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
         <p>Aller aux <xref ref="exo-transfodimsup">exercices</xref> de la section.</p>
-    <p>On propose maintenant une courte section exploratoire sur les transformations linéaires de dimensions plus grandes. Les concepts géométriques demanderont
-    à être précisés afin d'avoir une signification dans les espaces plus abstraits et des questions comme trouver l'inverse mettront en avant-plan la nécessité de développer
+    <p>On propose maintenant une courte section exploratoire sur les transformations linéaires de plus grandes dimensions . Les concepts géométriques devront être précisés afin d'avoir une signification dans les espaces plus abstraits et des questions, comme quand il s'agit de trouver l'inverse d'une matrice, mettront à l'avant-plan la nécessité de développer
     les outils techniques du chapitre <xref ref="chap-SEL"/>.</p>
     
-    <p>On commence la section en terrain familier, soit avec les transformations linéaires de nature géométrique, mais dans <m>\R^3</m>. On verra rapidement des complexités
-    émerger pour le calcul d'un inverse.</p>
+    <p>On commence la section en terrain familier, soit avec les transformations linéaires de nature géométrique, mais dans <m>\R^3</m>. On verra rapidement que le calcul de l'inverse implique un niveau de difficulté supérieur à ce qui a été vu jusqu'ici.</p>
     <p>Finalement, on généralise en considérant les matrices de taille <m>m\times n</m> où <m>m</m> n'est pas nécessairement égal à <m>n</m>. On se questionne sur la signification
-    d'un inverse pour ces transformations, introduisant par le fait même des concepts qui seront détaillés au chapitre suivant.</p>
+    d'un inverse pour ces transformations, présentant par le fait même des concepts qui seront détaillés au chapitre suivant.</p>
     </introduction>
     <subsection xml:id="sssec-transfor3">
     <title>Transformations linéaires dans l'espace à trois dimensions</title>
     <p>N'importe quel vecteur de <m>\R^3</m> peut être écrit de manière unique comme une <xref ref="def-comblin">combinaison linéaire</xref> des vecteurs 
     <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>. On peut donc décrire une transformation linéaire dans <m>\R^3</m> par une matrice <m>3\times 3</m> où chaque colonne 
-    représente l'image de ces trois vecteurs. La transformation identité, qui ne consiste à rien faire est donnée par la matrice
+    représente l'image de ces trois vecteurs. La transformation identité, qui consiste à  ne rien faire, est donnée par la matrice
     <me>
     I_3=\begin{pmatrix}
     1&amp; 0&amp; 0\\
@@ -35,7 +33,7 @@
     \end{pmatrix}
     </me>.
     </p>
-    <p>Un exemple un peu plus élaboré consiste à regarder un étirement de facteur <m>k_1,k_2,k_3</m> dans la direction des vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>.
+    <p>Un étirement de facteurs <m>k_1,k_2,k_3</m> dans la direction des vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m> est un exemple plus élaboré d'une transformation de l'espace.
     </p>
     <example xml:id="ex-etirementr3">
     <title>Étirements dans <m>\R^3</m></title>
@@ -55,9 +53,9 @@
     </solution>
     
     </example>
-    <p>Une homotétie est un étirement simultané pour lequel <m>k_1=k_2=k_3</m>.</p>
+    <p>Une homothétie est un étirement simultané pour lequel <m>k_1=k_2=k_3</m>.</p>
     <p>On s'intéresse  maintenant aux rotations dans <m>\R^3</m>. Dans le plan, une rotation s'effectue autour d'un point. Comme on veut que l'origine reste fixe, il n'y 
-    avait qu'un choix possible, tourner autour du point <m>(0,0)</m>. Dans <m>\R^3</m>, les rotations s'effectuent autour d'une droite, appelée l'axe de rotation. On débute par
+    a qu'un choix possible: tourner autour du point <m>(0,0)</m>. Dans <m>\R^3</m>, les rotations s'effectuent autour d'une droite, appelée l'axe de rotation. On commence par
     déterminer les matrices de rotation par rapport aux axes de coordonnées.
     <!--Test bidon: <xref ref="fig-rotR3axes"/>.-->
     </p>
@@ -81,15 +79,15 @@
         </instructions>
         </interactive>
     </figure>
-    <p>Dans chacun des cas, on choisit de mesurer l'angle à partir du raisonnement suivant. On écrit la séquence <m>x\to y\to z \to x \to y</m>. On choisit l'axe de rotation et on supprime 
-    la première occurence de cet axe dans la séquence. L'angle est mesuré entre les demis axes positifs selon la première flèche à sa droite. Ainsi, l'angle pour une rotation par rapport à l'axe des <m>y</m>
+    <p>Dans chacun des cas, on choisit de mesurer l'angle à partir du raisonnement suivant. On écrit la séquence <m>x\to y\to z \to x \to y</m>. On choisit l'axe de rotation et l'on supprime 
+    la première occurrence de cet axe dans la séquence. L'angle est mesuré entre les demi-axes positifs selon la première flèche à sa droite. Ainsi, l'angle pour une rotation par rapport à l'axe des <m>y</m>
     est mesuré de l'axe des <m>z</m> vers l'axe des <m>x</m> positifs.</p>
     </statement>
     <solution>
     <p>On débute avec la rotation selon l'axe des <m>z</m>, car c'est celle qui est le plus près de la rotation dans <m>\R^2</m>. Dans un premier temps, l'image du vecteur 
     <m>(0,0,1)</m> est <m>(0,0,1)</m> car celui-ci est sur l'axe de rotation. Comme l'angle est mesuré de l'axe des <m>x</m> vers l'axe des <m>y</m>, l'image
     du vecteur <m>(1,0,0)</m> sera de la forme <m>(\cos(\theta),\sin(\theta),0)</m>. La figure <xref ref="fig-rotR3axes"/> illustre l'image du vecteur <m>(1,0,0)</m>
-    si on clique sur <em>rotation selon l'axe des </em> <m>z</m>.</p>
+    si l'on clique sur <em>rotation selon l'axe des </em> <m>z</m>.</p>
     
     <p>Comme le vecteur <m>(0,1,0)</m> est perpendiculaire au vecteur <m>(1,0,0)</m> dans le sens antihoraire, son image sera perpendiculaire à <m>(cos(\theta),\sin(\theta),0)</m>, aussi dans le sens anithoraire et sera aussi
     dans le plan <m>z=0</m>. En suivant un raisonnement similaire à celui de l'exemple <xref ref="ex-rotr2"/>, on obtient <m>R_{\theta_z}(0,1,0)=(-\sin(\theta),\cos(\theta),0)</m>. La matrice
@@ -102,10 +100,10 @@
     </solution>
     <solution>
     <p>On considère maintenant la rotation selon l'axe des <m>y</m>. Selon la séquence, l'angle sera mesuré de l'axe des <m>z</m> positifs vers l'axe des <m>x</m> positifs.
-    Évidemment, l'image du vecteur <m>(0,1,0)</m> est lui-même puisque celui-ci est sur l'axe de rotation.</p>
-    <p>On commence par trouver l'image du vecteur <m>(0,0,1)</m>. La figure <xref ref="fig-rotR3axes"/> peut être pratique pour visualiser. Un clic sur <em>rotation selon l'axe des </em> <m>y</m> fera apparaitre
+    Évidemment, l'image du vecteur <m>(0,1,0)</m> est le vecteur lui-même puisque celui-ci est sur l'axe de rotation.</p>
+    <p>On commence par trouver l'image du vecteur <m>(0,0,1)</m>. La figure <xref ref="fig-rotR3axes"/> peut être pratique pour visualiser les situations. Un clic sur <em>rotation selon l'axe des </em> <m>y</m> fera apparaitre
     l'image du vecteur <m>(0,0,1)</m>. L'image du vecteur <m>(0,0,1)</m> est <m>(\sin(\theta),0,\cos(\theta))</m>.</p>
-    <p>Comme le vecteur <m>(1,0,0)</m> est perpendiculaire au vecteur <m>(0,0,1)</m> dans le sens antihoraire, son image sera perpendiculaire à <m>(\sin(\theta),0,\cos(\theta))</m>, aussi dans le sens anithoraire 
+    <p>Comme le vecteur <m>(1,0,0)</m> est perpendiculaire au vecteur <m>(0,0,1)</m> dans le sens antihoraire, son image sera perpendiculaire à <m>(\sin(\theta),0,\cos(\theta))</m>, aussi dans le sens antihoraire 
     et sera aussi dans le plan <m>y=0</m>. En suivant un raisonnement similaire à celui de l'exemple <xref ref="ex-rotr2"/>, on obtient <m>R_{\theta_y}(1,0,0)=(\cos(\theta),0,-\sin(\theta))</m>. La matrice
     est donc
     <men xml:id="eq-rotR3y">
@@ -118,9 +116,9 @@
     <p>La matrice de rotation selon l'axe des <m>x</m> est obtenue à l'exercice <xref ref="exo-rotR3x"/>.</p>
     </solution>
     </example>
-    <p>Les rotations par rapport à des droites quelconques sont un peu plus difficiles à analyser. On explore le sujet dans l'exemple calculatoire <xref ref="sageex-transfodimsup"/> et on s'y intéressera
+    <p>Les rotations par rapport à des droites quelconques sont un peu plus difficiles à analyser. On explore le sujet dans l'exemple calculatoire <xref ref="sageex-transfodimsup"/> et l'on s'y intéressera
     davantage dans la section <xref provisional="matrices orthogonales"/>.</p>
-    <p>On regarde maintenant les réflexions de l'espace. Dans le plan, la réflexion s'effectue selon une droite, mais dans l'espace, c'est selon un plan que la réflexion s'effectue.
+    <p>On regarde maintenant les réflexions de l'espace. Dans le plan, la réflexion s'effectue selon une droite, mais, dans l'espace, c'est selon un plan que la réflexion s'effectue.
     On détermine les matrices de réflexion selon les plans <m>x=0</m>, <m>y=0</m> et <m>z=0</m>.</p>
     <example xml:id="ex-refR3plans0">
     <title> Réflexion par rapport aux plans <m>x=0</m>, <m>y=0</m> et <m>z=0</m></title>
@@ -131,8 +129,8 @@
      <p>On cherche les matrices <m>S_{yOz}</m>, <m>S_{xOz}</m>, <m>S_{xOy}</m>.</p>
     </statement>
     <solution>
-    <p>On commence avec la réflexion <m>S_{yOz}</m> selon le plan <m>x=0</m>. Comme le vecteur <m>(1,0,0)</m> est perpendiculaire au plan (c'est un vecteur normal de ce plan), sa 
-    réflexion est donnée par <m>(-1,0,0)</m>. Les vecteurs <m>(0,1,0)</m> et <m>(0,0,1)</m> eux sont sur le plan et ne sont donc pas affectés par la réflexion. La matrice est donc
+    <p>On commence par la réflexion <m>S_{yOz}</m> selon le plan <m>x=0</m>. Comme le vecteur <m>(1,0,0)</m> est perpendiculaire au plan (c'est un vecteur normal de ce plan), sa 
+    réflexion est donnée par <m>(-1,0,0)</m>. Les vecteurs <m>(0,1,0)</m> et <m>(0,0,1)</m>, quant à eux sont, sur le plan et ne sont pas affectés par la réflexion. La matrice est donc
     <men xml:id="eq-refR3yOz">
     S_{yOz}=\begin{pmatrix}
     -1&amp; 0&amp; 0\\
@@ -160,7 +158,7 @@
     </p>
     </solution>
     </example>
-    <p>Les réflexions par rapport à des plans quelconques sont plus difficiles à analyser. On explore le sujet dans l'exercice <xref ref="exo-refR3"/> et on s'y intéressera
+    <p>Les réflexions par rapport à des plans quelconques sont plus difficiles à analyser. On explore le sujet dans l'exercice <xref ref="exo-refR3"/> et l'on s'y intéressera
     davantage dans la section <xref provisional="matrices orthogonales"/>.</p>
     <p>
     En quoi consiste l'inverse des rotations et réflexions dans <m>\R^3</m>? Comme c'était le cas dans <m>\R^2</m>, l'inverse d'une rotation d'angle <m>\theta</m> et d'axe 
@@ -171,7 +169,7 @@
     <title>L'inverse de rotations et réflexions simples</title>
     <statement><p>On vérifie que l'inverse des matrices <m>R_{\theta_z}</m> et <m>S_{yOz}</m> est respectivement <m>R_{-\theta_z}</m> et <m>S_{yOz}</m>. </p></statement>
     <solution>
-    <p>On commence avec l'inverse de la rotation. Il suffit de vérifier que <m>R_{\theta_z}R_{-\theta_z}=I</m>. On a
+    <p>On commence par l'inverse de la rotation. Il suffit de vérifier que <m>R_{\theta_z}R_{-\theta_z}=I</m>. On a
     <md>
     <mrow>R_{\theta_z}R_{-\theta_z}&amp;=\begin{pmatrix} \cos(\theta) &amp; -\sin(\theta) &amp; 0 \\
                                  \sin(\theta) &amp; \cos(\theta) &amp; 0 \\
@@ -182,7 +180,7 @@
                                  \sin(\theta) &amp; \cos(\theta) &amp; 0 \\
                                   0 &amp; 0 &amp; 1\end{pmatrix}\begin{pmatrix} \cos(\theta) &amp; \sin(\theta) &amp; 0 \\
                                  -\sin(\theta) &amp; \cos(\theta) &amp; 0 \\
-                                  0 &amp; 0 &amp; 1\end{pmatrix} &amp;&amp; \text{grâce aux identitées trigonométriques}</mrow>
+                                  0 &amp; 0 &amp; 1\end{pmatrix} &amp;&amp; \text{grâce aux identités trigonométriques}</mrow>
 <mrow>&amp;=\begin{pmatrix} \lvert &amp; \lvert &amp; \lvert \\
                            R_{\theta_z}\vecddd{\cos(\theta)}{-\sin(\theta)}{0} &amp; R_{\theta_z}\vecddd{\sin(\theta)}{\cos(\theta)}{0}&amp; R_{\theta_z}\vecddd{0}{0}{1}\\  \lvert &amp; \lvert &amp; \lvert\end{pmatrix} &amp;&amp;\text{ par la définition } <xref ref="def-matmatprod"/></mrow>
    <mrow>&amp;=\begin{pmatrix} \cos^2(\theta)+\sin^2(\theta)&amp; 0&amp; 0 \\ 0&amp; \sin^2(\theta)+\cos^2(\theta)&amp; 0\\0&amp; 0&amp; 1 \end{pmatrix}</mrow>
@@ -192,7 +190,7 @@
     </p>
     <p>
  Pour la réflexion, on remarque que les deuxième et troisième colonnes de <m>S_{yOz}</m> <xref ref="eq-refR3yOz"/> sont respectivement <m>(0,1,0)</m> et <m>(0,0,1)</m>. Les produits 
- <m>S_{yOz}\vecddd{0}{1}{0}</m> et <m>S_{yOz}\vecddd{0}{0}{1}</m> seront donc égaux respectivement à la deuxième et troisième colonne de la matrice <m>S_{yOz}</m>.
+ <m>S_{yOz}\vecddd{0}{1}{0}</m> et <m>S_{yOz}\vecddd{0}{0}{1}</m> seront donc égaux, respectivement à la deuxième et la troisième colonne de la matrice <m>S_{yOz}</m>.
  De plus, comme le produit <m>S_{yOz}\vecddd{-1}{0}{0}</m> donne l'opposé de la première colonne, on a
  <me>
  S_{yOz}S_{yOz}=\begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}=I
@@ -209,10 +207,10 @@
     <computation xml:id="sageex-transfodimsup">
     <title>Les rotations selon une droite passant par l'origine dans <m>\R^3</m></title>
     <p>Il existe différentes manières de calculer ou d'obtenir la matrice d'une transformation linéaire. La méthode décrite à l'équation <xref ref="eq-matparvecteursuv"/>
-    fonctionne si on peut trouver l'image d'assez de vecteurs indépendants. L'exemple <xref ref="ex-refR2"/> montre une autre manière en se ramenant à un cas connu (voir aussi
+    fonctionne si l'on peut trouver l'image d'un nombre suffisant de vecteurs indépendants. L'exemple <xref ref="ex-refR2"/> montre une autre manière en se ramenant à un cas connu (voir aussi
      <xref ref="con-casconnu"/>)</p>
-     <p>On utilise la seconde méthode pour résoudre le problème de trouver la matrice d'une rotation dans <m>\R^3</m> dont l'axe de rotation est une droite quelconque, passant par l'origine.
-     L'idée va être d'effectuer des rotations connues pour apporter l'axe de rotation sur l'axe des <m>x</m>, faire une rotation selon l'axe des <m>x</m> et défaire
+     <p>On utilise la seconde méthode pour trouver la matrice d'une rotation dans <m>\R^3</m> dont l'axe de rotation est une droite quelconque, passant par l'origine.
+     L'idée est d'effectuer des rotations connues pour superposer l'axe de rotation sur l'axe des <m>x</m>, faire une rotation selon l'axe des <m>x</m> et défaire
      les rotations qui ont déplacé l'axe de rotation original. Le processus est illustré en étape dans la figure <xref ref="fig-rotR3gen"/>.</p>
       <figure xml:id="fig-rotR3gen">
       <caption>Les rotations dans <m>\R^3</m></caption>
@@ -229,8 +227,7 @@
         </instructions>
         </interactive>
     </figure>
-    <p>L'animation effectue les étapes suivantes au fil des clics sur
-          les boutons:
+    <p>L'animation effectue les étapes suivantes au fil des clics:
           <ol>
           <li><p>On commence par ramener l'axe de rotation dans le plan généré par les vecteurs <m>(1,0,0)</m> et <m>(0,0,1)</m>. On ramène ensuite l'axe sur l'axe
           des <m>z</m>.</p>
@@ -244,9 +241,9 @@
           <p>Une rotation par rapport à l'axe des <m>y</m> d'angle <m>-\theta_z</m> ramènera le vecteur sur l'axe des <m>z</m>.</p>
           <p>On fait aussi subir cette rotation au vecteur <m>\vec{u}</m> précédemment transformé.</p>
           </li>
-          <li><p>Ensuite, on effectue la rotation du vecteur <m>\vec{u}</m> ayant subi les deux rotations, par rapport à l'axe des <m>z</m>. Ceci est ainsi équivalent à la rotation
+          <li><p>Ensuite, on effectue la rotation du vecteur <m>\vec{u}</m> ayant subi les deux rotations, par rapport à l'axe des <m>z</m>. Ceci est équivalent à la rotation
           par rapport à l'axe original, mais le vecteur <m>\vec{u}</m> transformé  n'est pas au bon endroit. </p></li>
-          <li><p>Finalement, on défait les rotations par rapport à l'axe des <m>y</m> et à l'axe des <m>z</m> d'angle <m>\theta_z</m> et <m>\theta_x</m> (dans cet ordre) pour ramener
+          <li><p>Finalement, on défait les rotations par rapport à l'axe des <m>y</m> et à l'axe des <m>z</m> d'angle <m>\theta_z</m> et <m>\theta_x</m> (dans cet ordre) pour remettre
           en place le vecteur <m>\vec{u}</m> transformé et l'axe de rotation déplacé.</p></li>
           </ol></p>
           <p>On fait un exemple concret avec le vecteur <m>\vec{u}=(1,2,-1)</m> autour de l'axe <m>(-1,1,2)</m> et un angle de <m>60^\circ</m>. On effectue les calculs avec Sage.</p>
@@ -279,8 +276,8 @@ show('vrotz=',vrotz)
 show('urotz=',urotz)          
           </input>
           </sage>
-          <p>La prochaine étape est de calculer l'angle que fait le vecteur <m>\vecl{vrotz}</m> avec l'axe des <m>z</m> afin de le ramener sur celui-ci par une rotation selon l'axe des <m>y</m> appropriée. On 
-          applique aussi cette rotation sur le vecteur <m>\vecl{urotz}</m>.</p>
+          <p>La prochaine étape implique de calculer l'angle que fait le vecteur <m>\vecl{vrotz}</m> avec l'axe des <m>z</m> afin de le ramener sur celui-ci par une rotation appropriée selon l'axe des <m>y</m> . On 
+          applique aussi cette rotation au vecteur <m>\vecl{urotz}</m>.</p>
           <sage>
           <input>
 k=vector([0,0,1])
@@ -294,8 +291,8 @@ uroty=Ry*urotz
 show("uroty=",uroty.apply_map(lambda x: x.trig_reduce()))          
           </input>
           </sage>
-          <p>On remarque que pour la suite, il n'était pas nécessaire de calculer le vecteur <m>\vecl{vroty}</m>, mais que c'est une bonne manière de vérifier la validité des calculs.</p>
-          <p>Il reste maintenant à calculer l'image du vecteur <m>\vecl{uroty}</m> par une rotation selon l'axe des <m>z</m> d'un angle de <m>60</m> degrés. Par la suite, on défait les rotations afin de ramener le vecteur
+          <p>On remarque que, pour la suite, il n'était pas nécessaire de calculer le vecteur <m>\vecl{vroty}</m>, mais qu'il s'agit d'une bonne manière de valider les calculs.</p>
+          <p>Il reste maintenant à calculer l'image du vecteur <m>\vecl{uroty}</m> par une rotation selon l'axe des <m>z</m> d'un angle de <m>60</m> degrés. Par la suite, on défait les rotations afin de replacer le vecteur
           au bon endroit.</p>
           <sage>
           <input>
@@ -329,14 +326,14 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     <me>
     A=\begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}
     </me>.
-    Cet exemple simple est une transformation linéaire  qui apporte les vecteurs de <m>\R^2</m> dans <m>\R^3</m> 
+    Cet exemple simple est une transformation linéaire  qui transforme des vecteurs de <m>\R^2</m> en les associant à des vecteurs de <m>\R^3</m> 
     en faisant correspondre les coordonnées <m>x,y</m> de l'image à celles du domaine et en additionnant les valeurs <m>x,y</m> pour obtenir la valeur de <m>z</m>:
     <me>A\vecd{x}{y}=\begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}\vecd{x}{y}=\vecddd{x}{y}{x+y}</me>.
     </p>
     <p>La question du produit matriciel de deux matrices <m>m\times n</m> a déjà été considérée à la section <xref ref="sec-prodmat"/>,
-    bien que les exemples étaient principalement dans un contexte géométrique avec des matrices <m>2\times 2</m> ou <m>3\times 3</m>.
+    bien que ces exemples concernaient principalement un contexte géométrique avec des matrices <m>2\times 2</m> ou <m>3\times 3</m>.
     </p>
-    <p>La question de l'inverse demeure toutefois. Une première interrogation se pose si on se souvient de la proposition <xref ref="prop-investsurj"/> qui dit que les transformations inversibles atteignent tous les
+    <p>Toutefois, la question de l'inverse demeure. Une première question se pose si l'on se souvient de la proposition <xref ref="prop-investsurj"/> qui dit que les transformations inversibles atteignent tous les
     vecteurs de leur image. Comme la matrice <m>A</m> est restreinte aux vecteurs tels que <m>z=x+y</m>, elle n'atteint pas l'ensemble des vecteurs de <m>\R^3</m>. Serait-elle donc non inversible?</p>
     <p>Un calcul simple montre pourtant que
     <me>
@@ -348,11 +345,11 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     <me>
     \begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}\begin{pmatrix} 1&amp; 0&amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}=\begin{pmatrix} 1&amp; 0&amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 1 &amp; 1 &amp; 0 \end{pmatrix}
     </me>.
-    Comme cela ne coincide pas avec la matrice identité dans <m>\R^3</m>, on conclut que <m>A</m> n'est pas l'inverse de <m>B</m>, au sens de la définition <xref ref="def-transfoinverseprelim"/>, bien que <m>B</m> semble 
+    Comme cela ne coïncide pas avec la matrice identité dans <m>\R^3</m>, on conclut que <m>A</m> n'est pas l'inverse de <m>B</m>, au sens de la définition <xref ref="def-transfoinverseprelim"/>, bien que <m>B</m> semble 
     être l'inverse de <m>A</m> selon cette même définition. Afin de distinguer les choses, on propose la définition suivante.</p>
     <definition xml:id="def-invmn">
     <title>Les inverses d'une matrice qui n'est pas carrée</title>
-    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m>. Une matrice <m>B</m> de taille <m>n\times m</m> est un inverse à gauche de la matrice <m>A</m> si <m>BA=I_n</m>. De même, une matrice <m>C</m> de taille <m>n\times m</m>
+    <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m>. Une matrice <m>B</m> de taille <m>n\times m</m> est un inverse à gauche de la matrice <m>A</m> si <m>BA=I_n</m>. De même, une matrice <m>C</m> de taille <m>n\times m</m>
     est un inverse à droite de la matrice <m>A</m> si <m>AC=I_m</m>.</p></statement>
     </definition>
     <remark xml:id="rem-invmn">
@@ -361,7 +358,7 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     De plus, si <m>m=n</m>, alors le théorème <xref ref="thm-invgauchedroite"/> est satisfait et <m>B=C</m>.
     </p>
     </remark>
-    <p>Un autre malheureux problème existe lorsque les matrices ne sont pas carrées. Prenons la matrice 
+    <p>Un autre malheureux problème se pose lorsque les matrices ne sont pas carrées. Prenons la matrice 
     <m>D=\begin{pmatrix}
     2&amp; 1&amp; -1 \\ 1&amp; 2&amp; -1
     \end{pmatrix}</m>.
@@ -370,15 +367,15 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     </p>
     <p>Est-ce qu'une matrice <m>m\times n</m> avec <m>m\neq n</m> peut avoir à la fois un inverse à gauche et un inverse à droite? Comment calculer les inverses lorsqu'ils existent? Ces questions, en apparence simples, 
     s'avèrent complexes et motivent la nécessité de définir des concepts plus abstraits de la théorie matricielle. Avec les outils du chapitre <xref ref="chap-SEL"/>, on sera en mesure
-    de démontrer le théorème <xref provisional="thm-invrect"/>, qui stipule que seules les matrices carrées peuvent avoir un inverse à gauche et un inverse à droite et on
-    aura une manière de calculer les inverses à gauche ou à droite de matrices arbitraires, lorsque possible.</p>
+    de démontrer le théorème <xref provisional="thm-invrect"/>, qui stipule que seules les matrices carrées peuvent avoir un inverse à gauche et un inverse à droite et l'on
+    aura une manière de calculer les inverses à gauche ou à droite de matrices arbitraires, lorsque cela s'avère possible.</p>
     
 
     <p>On propose une démonstration partielle du résultat, qui sera revisité dans la section<xref provisional="rang d'une matrice"/>
     . Les deux propositions suivantes seront utiles.</p>
     <proposition xml:id="prop-invgauche">
     <title>L'inverse à gauche et l'image de la transformation</title>
-    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> possédant un inverse à gauche <m>B</m>. Alors pour tout vecteur <m>v\in \R^m</m>, il existe au plus un vecteur <m>\vec{u}\in \R^n</m> tel que
+    <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m> possédant un inverse à gauche <m>B</m>. Alors pour tout vecteur <m>v\in \R^m</m>, il existe au plus un vecteur <m>\vec{u}\in \R^n</m> tel que
     <me>
     A\vec{u}=\vec{v}
     </me>. En termes plus simples, si un vecteur de l'image est atteint par la transformation <m>A</m>, il ne l'est que par un seul vecteur du domaine.</p></statement>
@@ -390,8 +387,8 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
    <mrow>I_n\vec{u}_1 &amp;=B\vec{v}</mrow>
    <mrow>\vec{u}_1 &amp;=B\vec{v}</mrow>
     </md>.
-    Ainsi, <m>\vec{u}_1</m> est obtenu en prenant le produit de l'inverse à gauche  de <m>A</m> par <m>\vec{v}</m>. Or l'inverse de <m>A</m>, peut ne pas être unique. Si pour <m>C\neq B</m> on a <m>CA=I</m> également, alors
-       peut-être que <m>\vec{u}_2=C\vec{v}</m> est une solution aussi puisque  <md>
+    Ainsi, <m>\vec{u}_1</m> est obtenu en prenant le produit de l'inverse à gauche  de <m>A</m> par <m>\vec{v}</m>. Or l'inverse de <m>A</m>, peut ne pas être unique. Si, pour <m>C\neq B</m> on a également <m>CA=I</m>, alors
+       peut-être que <m>\vec{u}_2=C\vec{v}</m> est aussi une solution  puisque  <md>
     <mrow>A\vec{u}_2&amp;=\vec{v}</mrow>
    <mrow> CA\vec{u}_2&amp;=C\vec{v}</mrow>
    <mrow>I_n\vec{u}_2&amp;=C\vec{v}</mrow>
@@ -410,13 +407,13 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     </proposition>
     <proposition xml:id="prop-invdroite">
     <title>L'inverse à droite et l'image de la transformation</title>
-    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> possédant un inverse à droite <m>C</m>. Alors pour tout vecteur <m>\vec{v}\in \R^m</m>, il existe au moins un vecteur <m>\vec{u}\in \R^n</m> tel que
+    <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m> possédant un inverse à droite <m>C</m>. Alors pour tout vecteur <m>\vec{v}\in \R^m</m>, il existe au moins un vecteur <m>\vec{u}\in \R^n</m> tel que
     <me>
     A\vec{u}=\vec{v}
     </me>.
     En termes plus simples, tout vecteur de l'image est atteint par au moins un vecteur du domaine.</p></statement>
     <proof>
-    <p>Soit <m>\vec{v}</m> un vecteur de l'image. On pose <m>\vec{u}=C\vec{v}</m>. Alors
+    <p>Soit <m>\vec{v}</m,> un vecteur de l'image. On pose <m>\vec{u}=C\vec{v}</m>. Alors
     <md>
     <mrow>A\vec{u}&amp;=AC\vec{v}</mrow>
     <mrow>&amp;=I_m\vec{v}</mrow>
@@ -425,7 +422,7 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     et donc, il existe au moins un vecteur du domaine atteignant <m>\vec{v}</m>.</p>
     </proof>
     </proposition>
-    <p>L'existence d'un inverse à gauche et d'un inverse à droite est réservée aux matrices carrées seulement. À l'aide des deux propositions précédentes, on arrive à montrer le résultat suivant.</p>
+    <p>L'existence d'un inverse à gauche et d'un inverse à droite est réservée uniquement aux matrices carrées. À l'aide des deux propositions précédentes, on arrive à montrer le résultat suivant.</p>
     <theorem xml:id="thm-invrect">
     <title>Une matrice rectangulaire ne peut avoir d'inverse à gauche et à droite</title>
     <statement>
@@ -437,27 +434,27 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     </p>
     </statement>
     <proof>
-    <p>Soit <m>A</m> une matrice <m>m\times n</m> avec <m>m&lt; n</m>. Par simplicité, on suppose que <m>m=2</m>. On considère l'équation
+    <p>Soit <m>A</m>, une matrice <m>m\times n</m> avec <m>m&lt; n</m>. Pour simplifier, on suppose que <m>m=2</m>. On considère l'équation
     <men xml:id="eq-mltn">
     A\vec{u}=\vecd{0}{0}
-    </men>. Évidemment, <m>\vec{u}=\vec{0}</m> est une solution à l'équation. Soit <m>\vec{a}_1,\vec{a}_2</m> et <m>\vec{a_3}</m> les trois premières colonnes de <m>A</m> 
+    </men>. Évidemment, <m>\vec{u}=\vec{0}</m> est une solution à l'équation. Soit <m>\vec{a}_1,\vec{a}_2</m> et <m>\vec{a_3}</m>, les trois premières colonnes de <m>A</m> 
     (on se rappelle que <m>n&gt; m=2</m>). Si deux de ces vecteurs sont parallèles, disons <m>\vec{a_1}=k\vec{a_2}</m>, alors en prenant <m>\vec{u}=(1,-k,0,\ldots 0)</m>, on 
     obtient une solution à l'équation <xref ref="eq-mltn"/> différente du vecteur <m>\vec{u}=\vec{0}</m>. Si aucun des vecteurs n'est parallèle à un autre, alors l'exercice
-    <xref ref="exo-3vecr2dep"/> garanti l'existence d'une combinaison linéaire <m>a\vec{a}_1+b\vec{a}_2+c\vec{a}_3=\vec{0}</m> où <m>a,b,c</m> ne sont pas tous nuls.
+    <xref ref="exo-3vecr2dep"/> garantit l'existence d'une combinaison linéaire <m>a\vec{a}_1+b\vec{a}_2+c\vec{a}_3=\vec{0}</m> où <m>a,b,c</m> ne sont pas tous nuls.
     En prenant les trois premières composantes de <m>\vec{u}</m> égales à <m>a,b,c</m> et en prenant le reste des composantes nulles (si nécessaire) pour que le vecteur soit de dimension <m>m\geq 3</m>,
     on obtient aussi une solution à l'équation <xref ref="eq-mltn"/> différente du vecteur <m>\vec{u}=\vec{0}</m>. Si <m>A</m> possédait un inverse à gauche, ceci contredirait la proposition <xref ref="prop-invgauche"/>.
     </p>
-    <p>Soit maintenant <m>B</m> une matrice <m>m\times n</m> avec <m>m&gt; n</m>. Par simplicité, on suppose que <m>n=2</m>. On considère l'équation
+    <p>Maintenant soit  <m>B</m>, une matrice <m>m\times n</m> avec <m>m&gt; n</m>. Par simplicité, on suppose que <m>n=2</m>. On considère l'équation
     <men xml:id="eq-mgtn">
     B\vecd{x}{y}=\vec{v}
     </men>.
-    Soit <m>\vec{b}_1,\vec{b}_2</m> les colonnes de la matrice <m>B</m>. Alors l'équation <xref ref="eq-mgtn"/> revient à exprimer le vecteur <m>\vec{v}\in \R^m</m> comme
-    <m>\vec{v}=x\vec{b}_1+y\vec{b}_2</m>. C'est donc dire que le vecteur <m>\vec{v}</m> est dans le plan engendré par les colonnes de <m>B</m>. Or le plan est un objet à deux
+    Soit <m>\vec{b}_1,\vec{b}_2</m>, les colonnes de la matrice <m>B</m>. Alors l'équation <xref ref="eq-mgtn"/> revient à exprimer le vecteur <m>\vec{v}\in \R^m</m> comme
+    <m>\vec{v}=x\vec{b}_1+y\vec{b}_2</m>. C'est donc dire que le vecteur <m>\vec{v}</m> est dans le plan engendré par les colonnes de <m>B</m>. Or, le plan est un objet à deux
     dimensions et le vecteur <m>\vec{v}</m> vit dans un espace à <m>m&gt; 2</m> dimensions. Il y a donc certainement des vecteurs dans <m>\R^m</m> qui ne peuvent satisfaire 
     l'équation <xref ref="eq-mgtn"/>. Si <m>B</m> possédait un inverse à droite, ceci contredirait la proposition <xref ref="prop-invdroite"/>.
     </p>
-    <p>Évidemment, cette preuve n'est pas complète et se veut seulement une idée intuitive de la véracité du résultat. On reviendra sur ce dernier lorsque des notions
-    plus précises auront été établies dans les chapitres subséquents.</p>
+    <p>Évidemment, cette preuve n'est pas complète et veut seulement donner une idée intuitive de la véracité du résultat. On reviendra sur ce dernier lorsque des notions
+    plus précises auront été présentées dans les chapitres subséquents.</p>
     </proof>
     </theorem>
 
@@ -465,9 +462,9 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     <conclusion xml:id="concl-transfodimsup">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
    <p>Les points importants de cette section sont
     <ul>
-    <li><p>Les rotations selon les trois axes de coordonnées, définies à l'exemple <xref ref="ex-rotR3axes"/>.</p></li>
-    <li><p>Les réflexions par rapport aux trois plans standards, définies à l'exemple <xref ref="ex-refR3plans0"/>.</p></li>
-    <li><p>Les inverses de ces transformations, obtenus de manière géométrique à l'exemple <xref ref="ex-rotrefR3simpleinverse"/>.</p></li>
+    <li><p>Les rotations selon les trois axes de coordonnées, définies à l'exemple <xref ref="ex-rotR3axes"/>;</p></li>
+    <li><p>Les réflexions par rapport aux trois plans standards, définies à l'exemple <xref ref="ex-refR3plans0"/>;</p></li>
+    <li><p>Les inverses de ces transformations, obtenus de manière géométrique à l'exemple <xref ref="ex-rotrefR3simpleinverse"/>;</p></li>
     <li><p>Une matrice rectangulaire <m>(m\neq n)</m> peut avoir des inverses à gauche ou des inverses à droite, mais pas les deux.</p></li>
     </ul></p>
     </conclusion>

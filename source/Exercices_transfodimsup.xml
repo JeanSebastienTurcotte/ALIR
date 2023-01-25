@@ -44,7 +44,7 @@
         <mrow>&amp;=\begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1\end{pmatrix}</mrow>
         <mrow>&amp;=I_3</mrow>
     </md>
-    Le théorème <xref ref="thm-invrect"/> nous garanti que c'est impossible que cette matrice possède également un inverse à gauche. On a donc terminé.</p>
+    Le théorème <xref ref="thm-invrect"/> garantit qu'il est impossible que cette matrice possède également un inverse à gauche. On a donc terminé.</p>
     </solution>
     </task>
     <task>
@@ -64,7 +64,7 @@
         <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}</mrow>
         <mrow>&amp;=I_2</mrow>
     </md>
-    Le théorème <xref ref="thm-invrect"/> nous garanti que c'est impossible que cette matrice possède également un inverse à gauche. On a donc terminé.</p>
+    Le théorème <xref ref="thm-invrect"/> garantit qu'il est impossible que cette matrice possède également un inverse à gauche. On a donc terminé.</p>
     </solution>
     </task>
     </exercise>
@@ -86,11 +86,10 @@
     </me></p>
     </answer>
     <solution>
-    <p>Trouver un inverse juste comme ça sans trop avoir d'idée comment procéder peut sembler très difficile à première vue.
-    Cependant, la matrice intiale est suffisamment simple et comporte beaucoup de zéros, ce qui rend la tâche plus facile, sans être évidente.
+    <p>Trouver un inverse juste comme ça, sans avoir une idée claire de la manière de procéder, peut sembler très difficile à première vue.
+    Cependant, la matrice initiale est suffisamment simple et contient beaucoup de zéros, ce qui rend la tâche plus facile, sans être évidente.
     La façon la plus systématique de procéder est de créer une matrice des bonnes dimensions avec des variables et de les multiplier. 
-    On met le résultat égal à ce qu'on veut obtenir: la matrice identité de taille appropriée.
-    On obtient alors un système d'équations à quatre équations six inconnues.
+    On écrit <m>A^{-1}_{\text{gauche}}A=I</m> et l'on obtient un système d'équations à quatre équations et six inconnues.
     <md>
         <mrow>A^{-1}_{\text{gauche}}A&amp;=\begin{pmatrix}
 a &amp; c &amp; e \\
@@ -185,12 +184,12 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
 </statement></task>-->
     </exercise>
     <exercise>
-    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> et <m>B</m> un inverse à droite de <m>A</m>. Montrer que <m>C</m> est aussi un inverse à droite
+    <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m> et <m>B</m> un inverse à droite de <m>A</m>. Montrer que <m>C</m> est aussi un inverse à droite
     pour <m>A</m> si et seulement si <m>A(B-C)=O</m> où les matrices sont de formats appropriés.</p></statement>
     <solution>
-    <p>D'abord, soient <m>A</m> une matrice <m>m\times n</m> et <m>B</m> un inverse à droite de <m>A</m>.
+    <p>D'abord, soit <m>A</m>, une matrice <m>m\times n</m> et <m>B</m> un inverse à droite de <m>A</m>.
     Par la définition <xref ref="def-invmn"/>, on sait que <m>AB=I_m</m>. 
-    Le format de l'identité (<m>m\times m</m>) et de la matrice <m>B_{n \times m}</m> sont dictés par la multiplication matricielle.</p>
+    Le format de l'identité (<m>m\times m</m>) et celui de la matrice <m>B_{n \times m}</m> sont dictés par la multiplication matricielle.</p>
     <p>Si, dans un premier temps, <m>A(B-C)=O</m>, on a
     <md>
         <mrow>A(B-C)&amp;=O</mrow>
@@ -201,11 +200,11 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
     </md>
     Cela implique que <m>C</m> est un inverse à droite de <m>A</m>.
     </p>
-    <p>Inversement, on n'a qu'à remonter et faire le raisonnement à l'envers puisqu'on a utilisé des équivalences tout le long.</p>
+    <p>Inversement, on n'a qu'à remonter et faire le raisonnement dans l'autre sens puisqu'on a utilisé des équivalences tout au long de la démonstration.</p>
     </solution>
     </exercise>
     <exercise>
-    <introduction><p>Soit <m>A,B,C</m> des matrices carrées <m>n\times n</m> telles que
+    <introduction><p>Soit <m>A,B,C</m>, des matrices carrées <m>n\times n</m> telles que
     <ul>
     <li><p><m>A, A-AB </m> et <m>B</m>  sont inversibles</p></li>
     <li><p><m>(A-AB)^{-1}=B^{-1}C</m>.</p></li>
@@ -213,14 +212,14 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
     <task>
     <statement><p>Montrer que la matrice <m>C</m> est inversible</p></statement>
     <hint>
-    <p>On comprend le mot inversible partout dans la question dans le sens de la définition <xref ref="def-matcarreeinverse"/> qu'il convient de relire avant de commencer.</p>
+    <p>On comprend le mot inversible partout dans la question au sens qu'on lui donne dans la définition <xref ref="def-matcarreeinverse"/>, qu'il convient de relire avant de commencer.</p>
     </hint>
     <solution>
         <p>Par la définition <xref ref="def-matcarreeinverse"/> et les hypothèses du problème, les matrices <m>A, A-AB </m> et <m>B</m> possèdent des inverses (à droite et à gauche)
         que l'on note, respectivement <m>A^{-1}, (A-AB)^{-1} </m> et <m>B^{-1}</m>.
         Pour démontrer que <m>C</m> est inversible, il faut montrer qu'il existe une matrice <m>C^{-1}</m> telle que <m>CC^{-1}=C^{-1}C=I</m>.
-        En fait, par le théorème <xref ref="thm-invgauchedroite"/>, on n'a qu'à montrer un des deux côtés.
-        On part de l'équation donnée et on tente d'obtenir la défintion de l'inverse :
+        En fait, par le théorème <xref ref="thm-invgauchedroite"/>, il suffit de montrer un des deux côtés.
+        On part de l'équation donnée et l'on tente d'obtenir la définition de l'inverse :
         <md>
             <mrow>(A-AB)^{-1}&amp;=B^{-1}C</mrow>
             <mrow>(A-AB)(A-AB)^{-1}&amp;=(A-AB)B^{-1}C</mrow>
@@ -237,9 +236,9 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
         <p><me>C=B(A-AB)^{-1} \text{ et }C^{-1}=A(B^{-1}-I)</me></p>
     </answer>
     <solution>
-        <p>On a pas mal déjà obtenu ces matrices dans la preuve préccédente.
-        On peut simplement isoler <m>C</m> de l'équation intiale donnée en multipliant à gauche par <m>B</m> et on avait trouvé une expression pour <m>C^{-1}</m>.
-        <me>C=B(A-AB)^{-1} \text{ et }C^{-1}=A(B^{-1}-I)</me></p>
+        <p>On est arrivé assez près de ces matrices dans la preuve précédente.
+        On peut simplement isoler <m>C</m> de l'équation initiale donnée en multipliant à gauche par <m>B</m> et l'on avait trouvé une expression pour <m>C^{-1}</m>. Celà mène à
+        <me>C=B(A-AB)^{-1} \text{ et }C^{-1}=A(B^{-1}-I)</me>.</p>
     </solution></task>
     </exercise>
     <exercise xml:id="exo-invspecial">
@@ -256,7 +255,7 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
                         1&amp; 1 &amp; 1 &amp; \cdots &amp; 1\end{pmatrix}
     </me>?
     </p></statement>
-    <hint><p>Considérer la l'équation <m>AA^{-1}=I</m> et déterminer colonne par colonne les entrées de <m>A^{-1}</m>.</p></hint>
+    <hint><p>Considérer l'équation <m>AA^{-1}=I</m> et déterminer colonne par colonne les entrées de <m>A^{-1}</m>.</p></hint>
     <answer>
         <p><me>A^{-1}_3=\begin{pmatrix}1&amp; 0&amp; 0\\ -1&amp; 1&amp; 0\\ 0&amp; -1&amp; 1 \end{pmatrix}</me>
         <me>A^{-1}_4=\begin{pmatrix}1&amp; 0&amp; 0&amp;0\\ -1&amp; 1&amp; 0&amp;0\\ 0&amp; -1&amp; 1&amp;0 \\0&amp; 0&amp; -1&amp; 1\end{pmatrix}</me>
@@ -267,7 +266,7 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
                         0&amp; 0 &amp; 0 &amp;0 &amp; \cdots &amp; -1 &amp; 1\end{pmatrix}</me></p>
     </answer>
     <solution>
-        <p>On procède comme conseillé dans l'indication. On commence par <m>A_3</m>.
+        <p>On procède comme il est conseillé dans l'indice. On commence par <m>A_3</m>.
         Pour simplifier la notation, on utilise la notation donnée dans la définition <xref ref="def-matmatprod"/> à chaque matrice. 
         Soit <m>B_3</m>, la matrice inverse voulue. 
         On sait que
@@ -284,7 +283,7 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
         <me>\begin{pmatrix}1&amp; 0&amp; 0\\ 1&amp; 1&amp; 0\\ 1&amp; 1&amp; 1 \end{pmatrix}\vecddd{a}{b}{c}=\vecddd{1}{0}{0}\text{.}</me>
         On obtient les équations:
         <me>\begin{cases}a&amp;=1\\a+b&amp;=0\\a+b+c&amp;=0\end{cases}\Rightarrow \begin{cases}a&amp;=1\\b&amp;=-1\\c&amp;=0\end{cases}\Rightarrow \vec{b}_1=\vecddd{1}{-1}{0}</me>
-        On calcule ensuite la deuxième colonne de façon semblable et on obtient:
+        On calcule ensuite la deuxième colonne de façon semblable et l'on obtient:
         <me>\vec{b}_2=\vecddd{0}{1}{-1}\text{.}</me>
         Finalement, 
         <me>\vec{b}_3=\vecddd{0}{0}{1}\text{.}</me>
@@ -296,7 +295,7 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
      \end{pmatrix}=\begin{pmatrix}1&amp; 0&amp; 0\\ -1&amp; 1&amp; 0\\ 0&amp; -1&amp; 1 \end{pmatrix}\text{.}</me>
      On obtient <m>A^{-1}_4</m> avec une démarche semblable:
      <me>A^{-1}_4=\begin{pmatrix}1&amp; 0&amp; 0&amp;0\\ -1&amp; 1&amp; 0&amp;0\\ 0&amp; -1&amp; 1&amp;0 \\0&amp; 0&amp; -1&amp; 1\end{pmatrix}\text{.}</me>
-     On remarque la tendance. On peut donc conclure avec pas mal de confiance que :
+     On remarque la tendance. On peut donc conclure avec confiance que:
      <me>A^{-1}_n=\begin{pmatrix} 1&amp;0&amp; 0&amp; 0&amp; \cdots &amp; 0&amp; 0\\
                         -1&amp; 1&amp; 0 &amp;0&amp; \cdots &amp; 0&amp; 0\\
                         0&amp;-1&amp; 1&amp; 0&amp; \cdots &amp; 0&amp; 0\\
@@ -317,11 +316,11 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
             </answer>
             <solution>
                 <p>Selon la séquence, l'angle sera mesuré de l'axe des <m>y</m> positifs vers l'axe des <m>z</m> positifs.
-    Évidemment, l'image du vecteur <m>(1,0,0)</m> est lui-même puisque celui-ci est sur l'axe de rotation.</p>
-    <p>On commence par trouver l'image du vecteur <m>(0,1,0)</m>. La figure <xref ref="fig-rotR3axes"/> peut être pratique pour visualiser. Un clic sur <em>rotation selon l'axe des </em> <m>x</m> fera apparaitre
+    Évidemment, l'image du vecteur <m>(1,0,0)</m> est ce même vecteur puisque celui-ci est sur l'axe de rotation.</p>
+    <p>On commence par trouver l'image du vecteur <m>(0,1,0)</m>. La figure <xref ref="fig-rotR3axes"/> peut être pratique pour visualiser la situation. Un clic sur <em>rotation selon l'axe des </em> <m>x</m> fera apparaitre
     l'image du vecteur <m>(0,1,0)</m>. L'image du vecteur <m>(0,1,0)</m> est <m>(0,\cos(\theta),\sin(\theta))</m>.</p>
-    <p>Comme le vecteur <m>(0,0,1)</m> est perpendiculaire au vecteur <m>(0,1,0)</m> dans le sens antihoraire, son image sera perpendiculaire à <m>(0,\cos(\theta),\sin(\theta))</m>, aussi dans le sens anithoraire 
-    et sera aussi dans le plan <m>x=0</m>. En suivant un raisonnement similaire à celui de l'exemple <xref ref="ex-rotr2"/>, on obtient <m>R_{\theta_x}(0,0,1)=(0,-\sin(\theta),\cos(\theta))</m>. La matrice
+    <p>Comme le vecteur <m>(0,0,1)</m> est perpendiculaire au vecteur <m>(0,1,0)</m> dans le sens antihoraire, son image sera perpendiculaire à <m>(0,\cos(\theta),\sin(\theta))</m>, aussi dans le sens antihoraire 
+    et sera aussi dans le plan <m>x=0</m>. En suivant un raisonnement semblable à celui de l'exemple <xref ref="ex-rotr2"/>, on obtient <m>R_{\theta_x}(0,0,1)=(0,-\sin(\theta),\cos(\theta))</m>. La matrice
     est donc
     <men xml:id="eq-rotR3x">
     R_{\theta_x}=\begin{pmatrix} 1 &amp; 0&amp; 0  \\
@@ -333,12 +332,12 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
     
     <exercise>
     <statement><p>Dans <m>\R^2</m>, si <m>R_{\theta_1}</m> et <m>R_{\theta_2}</m> sont deux matrices de rotation, alors <m>R_{\theta_1}R_{\theta_2}=R_{\theta_2}R_{\theta_1}</m>.
-    Est-ce aussi vrai dans <m>\R^3</m>? Si oui, pourquoi et si non, donner un exemple.</p></statement>
+    Est-ce aussi vrai dans <m>\R^3</m>? Si oui, pourquoi, et si non, donner un exemple.</p></statement>
     <answer>
     <p>En général, ce ne sera pas commutatif. Par exemple, une rotation de <m>\frac{\pi}{2}</m> selon l'axe des <m>x</m> et une rotation de <m>\frac{\pi}{2}</m> selon l'axe des <m>z</m>.</p>
     </answer>
     <solution>
-    <p>Voici une animation qui permet de visualier les transformations données dans la réponse.
+    <p>Voici une animation qui permet de visualiser les transformations données dans la réponse.
     </p>
     <figure xml:id="fig-rotR3noncom">
       <caption>Les rotations dans <m>\R^3</m> ne sont pas commutatives en général</caption>
@@ -373,7 +372,7 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
     </introduction>
     <task>
     <statement>
-    <p>Soit <m>C_{xy,k},C_{xz,k}</m> les transformations qui ajoutent à la composante <m>x</m> respectivement <m>k</m> fois la composante en <m>y</m> ou <m>z</m>. D'une 
+    <p>Soit <m>C_{xy,k},C_{xz,k}</m>, les transformations qui ajoutent à la composante <m>x</m> respectivement <m>k</m> fois la composante en <m>y</m> ou <m>z</m>. D'une 
     manière analogue, on définit les transformations <m>C_{yx,k}, C_{yz,k}, C_{zx,k}, C_{zy,k}</m></p>
     <p>Donner la matrice de chacune de ces six transformations.</p>
     </statement>
@@ -436,12 +435,12 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
         </p>
     </answer>
     <solution>
-        <p>Logiquement, les transformations inverses seront toujours les transformations où au lieu d'additionner des multiples d'autres composantes, 
+        <p>Logiquement, les transformations inverses seront toujours les transformations où, au lieu d'additionner des multiples d'autres composantes, 
         on va soustraire ces multiples pour annuler l'effet. 
         Par exemple, pour le cisaillement <me>C_{xy,k}=\begin{pmatrix} 1 &amp; k&amp;0 \\ 0 &amp;1&amp;0\\0 &amp; 0&amp;1\end{pmatrix}\text{,}</me> on propose
         que la matrice inverse est: 
         <me>C_{xy,k}^{-1}=\begin{pmatrix} 1 &amp; -k&amp;0 \\ 0 &amp;1&amp;0\\0 &amp; 0&amp;1\end{pmatrix}\text{.}</me>
-        On vérifie en multipliant les deux matrices ensemble et on obtient la matrice identité.
+        On vérifie en multipliant les deux matrices et l'on obtient la matrice identité.
         <md>
             <mrow>C_{xy,k}C_{xy,k}^{-1}&amp;=\begin{pmatrix} 1 &amp; k&amp;0 \\ 0 &amp;1&amp;0\\0 &amp; 0&amp;1\end{pmatrix}
             \begin{pmatrix} 1 &amp; -k&amp;0 \\ 0 &amp;1&amp;0\\0 &amp; 0&amp;1\end{pmatrix}</mrow>
@@ -463,7 +462,7 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
     <exercisegroup>
     <title>Exercices Sage</title>
     <introduction>
-    <p>Les exercices qui suivent sont faits pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
+    <p>Les exercices qui suivent sont conçus pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>   
     </introduction>
     <exercise xml:id="exo-refR3" >
             <introduction>
@@ -471,8 +470,8 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
             </introduction>
             <task>
             <statement>
-                <p>Dans un premier temps, utiliser le principe derrière l'équation <xref ref="eq-matparvecteursuv"/> pour trouver la matrice de la transformation
-                en considérant l'image de trois vecteurs spécifiques.</p>
+                <p>Utiliser le principe derrière l'équation <xref ref="eq-matparvecteursuv"/> pour trouver la matrice de la transformation
+                en considérant l'image de trois vecteurs précis.</p>
             <sage>
             <input>
     
@@ -493,15 +492,15 @@ Réponse: Je ne sais pas sérieux! Je l'ai donc mis en commentaire...</p>
                 En effet, le vecteur normal sera transformé en son vecteur opposé et les vecteurs directeurs ne bougeront pas puisqu'ils sont dans le plan de réflexion.
                 Ainsi,
                 <me>T(\vec{n})=T\vecddd{1}{2}{-3}=\vecddd{-1}{-2}{3}\text{, }T(\vec{v}_1)=T\vecddd{3}{0}{1}=\vecddd{3}{0}{1}\text{, }T(\vec{v}_2)=T\vecddd{2}{-1}{0}=\vecddd{2}{-1}{0}</me>
-                On résume tout cela sous forme matricielle où <m>U</m> est la matrice des vecteurs initiaux et <m>V</m> celle des vecteurs transformés et on isole la matrice de <m>T</m>.
+                On résume tout cela sous forme matricielle où <m>U</m> est la matrice des vecteurs initiaux et <m>V</m> celle des vecteurs transformés et l'on isole la matrice de <m>T</m>.
                 <md>
                     <mrow>TU&amp;=V</mrow>
                     <mrow>T\begin{pmatrix}1&amp;3&amp;2\\2&amp;0&amp;-1\\-3&amp;1&amp;0\end{pmatrix}&amp;=\begin{pmatrix}-1&amp;3&amp;2\\-2&amp;0&amp;-1\\3&amp;1&amp;0\end{pmatrix}</mrow>
                     <mrow>T&amp;=\begin{pmatrix}-1&amp;3&amp;2\\-2&amp;0&amp;-1\\3&amp;1&amp;0\end{pmatrix}\begin{pmatrix}1&amp;3&amp;2\\2&amp;0&amp;-1\\-3&amp;1&amp;0\end{pmatrix}^{-1}</mrow>
                 </md>
                 Le calcul de l'inverse d'une matrice <m>3\times 3</m> n'a pas été fait explicitement dans les exemples. 
-                On pourrait procéder comme dans l'exemple <xref ref="ex-matinverse3"/>, mais cela nous mènerait à résoudre trois systèmes d'équations linéaires à 3 équations et 3 inconnues chacun.
-                On verra dans le chapitre <xref ref="chap-SEL"/> comment y arriver de façon efficace. Pour l'instant, on a fait les calculs avec Sage.</p>
+                On pourrait procéder comme dans l'exemple <xref ref="ex-matinverse3"/>, mais cela mènerait à résoudre trois systèmes d'équations linéaires à 3 équations et 3 inconnues chacun.
+                On verra, dans le chapitre <xref ref="chap-SEL"/>, comment y arriver de façon efficace. Pour l'instant, on a fait les calculs avec Sage.</p>
                 <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
@@ -538,7 +537,7 @@ show("T=",V*Uinv)
             </answer>
             <solution>
                 <p>La projection orthogonale sur le plan pour chaque vecteur s'obtient en considérant d'abord la projection sur le vecteur normal.
-                En effet, si on utilise la lettre <m>\mathcal{P}</m> pour désigner le plan de réflexion, 
+                En effet, si l'on utilise la lettre <m>\mathcal{P}</m> pour désigner le plan de réflexion, 
                 <me>\vec{u}_{\mathcal{P}}=\vec{u}-\vec{u}_{\vec{n}}\text{.}</me>
                 Une fois qu'on a obtenu la projection sur le plan <m>\mathcal{P}</m>, le vecteur transformé sera obtenu par 
                 <md>
@@ -546,7 +545,7 @@ show("T=",V*Uinv)
                 <mrow>&amp;=-(\vec{u}-(\vec{u}-\vec{u}_{\vec{n}}))+\vec{u}-\vec{u}_{\vec{n}}</mrow>
                 <mrow>&amp;=\vec{u}-2\vec{u}_{\vec{n}} \text{ (en simplifiant)}</mrow>
                 </md>
-                La dernière équation nous porte à croire qu'il aurait été beaucoup plus simple de visualiser uniquement en fonction de la projection sur le vecteur normal plutôt que sur le plan.
+                La dernière équation porte à croire qu'il aurait été beaucoup plus simple projeter directement sur le vecteur normal plutôt que sur le plan.
                 On effectuera ensuite tous les calculs sur Sage pour trouver les images des trois vecteurs. On rappelle la formule <xref ref="eq-projortho"/> pour la projection.</p>
                 <listing>
                    <caption>Le code solution pour l'exercice</caption>
@@ -582,9 +581,9 @@ show(T)
                    -\frac{96}{101}&amp;-\frac{12}{101}&amp;\frac{29}{101}\end{pmatrix}</me></p>
             </answer>
             <solution>
-                <p>Les démarches seront les mêmes, mais on doit rajouter une étape au début.
+                <p>Les démarches seront les mêmes, mais on doit ajouter une étape au début.
                 En effet, notre plan est défini par son équation vectorielle. 
-                Il nous faut trouver un vecteur normal pour effectuer nos projections.</p>
+                Il faut trouver un vecteur normal pour effectuer nos projections.</p>
                 <listing>
                    <caption>Le code solution pour trouver le vecteur normal</caption>
                <program language="sage">
@@ -610,7 +609,7 @@ show("n=",n)
                 En effet, le vecteur normal sera transformé en son vecteur opposé et les vecteurs directeurs ne bougeront pas puisqu'ils sont dans le plan de réflexion.
                 Ainsi,
                 <me>T(\vec{n})=T\vecddd{8}{1}{6}=\vecddd{-8}{-1}{-6}\text{, }T(\vec{v}_1)=T\vecddd{-1}{2}{1}=\vecddd{-1}{2}{1}\text{, }T(\vec{v}_2)=T\vecddd{3}{0}{-4}=\vecddd{3}{0}{-4}</me>
-                On résume tout cela sous forme matricielle où <m>U</m> est la matrice des vecteurs initiaux et <m>V</m> celle des vecteurs transformés et on isole la matrice de <m>T</m>.
+                On résume tout cela sous forme matricielle où <m>U</m> est la matrice des vecteurs initiaux et <m>V</m> celle des vecteurs transformés et l'on isole la matrice de <m>T</m>.
                 On a fait les calculs avec Sage.</p>
                 <listing>
                    <caption>Le code solution pour l'exercice</caption>
@@ -630,7 +629,7 @@ show("T=",V*Uinv)
                    <me>T=\begin{pmatrix}-\frac{27}{101}&amp;-\frac{16}{101}&amp;-\frac{96}{101}\\-\frac{16}{101}&amp;\frac{99}{101}&amp;-\frac{12}{101}\\ 
                    -\frac{96}{101}&amp;-\frac{12}{101}&amp;\frac{29}{101}\end{pmatrix}</me>
                    </p>
-                   <p>Alternativement, la projection orthogonale sur le plan pour chaque vecteur s'obtient en considérant d'abord la projection sur le vecteur normal.
+                   <p>Autrement, la projection orthogonale sur le plan pour chaque vecteur s'obtient en considérant d'abord la projection sur le vecteur normal.
                    On avait obtenu la formule:
                    <me>T(\vec{u})=\vec{u}-2\vec{u}_{\vec{n}}</me>
                 On effectue ensuite tous les calculs sur Sage pour trouver les images des trois vecteurs. On rappelle la formule <xref ref="eq-projortho"/> pour la projection.</p>
@@ -661,12 +660,12 @@ show(T)
     <exercise>
     <introduction><p>On s'intéresse à la matrice d'un étirement quelconque dans <m>\R^3</m>. Un étirement de direction <m>\vec{n}</m> et de facteur <m>k</m> est une
     transformation linéaire <m>E_{\vec{n},k}</m> telle que <m>E_{\vec{n},k}(\vec{n})=k\vec{n}</m> et <m>E_{\vec{n},k}(\vec{u})=\vec{u}</m> pour tout vecteur <m>\vec{u}</m>
-    tels que <m>\vec{n}\cdot \vec{u}=0</m></p></introduction>
+    tel que <m>\vec{n}\cdot \vec{u}=0</m></p></introduction>
     <task>
     <statement>
     <p>Quels sont les vecteurs qui demeurent inchangés par l'étirement.</p>
     </statement>
-    <answer><p>Ce sont les vecteurs perpendiculaires à <m>\vec{n}</m>, donc ceux dans le plan <m>\vec{n}\cdot (x,y,z)=0</m>.</p></answer></task>
+    <answer><p>Ce sont les vecteurs perpendiculaires à <m>\vec{n}</m>, donc ceux qui se retrouvent dans le plan <m>\vec{n}\cdot (x,y,z)=0</m>.</p></answer></task>
     <task>
     <statement><p>Déterminer la matrice d'un étirement dans la direction <m>\vec{n}=(1,3,5)</m> de facteur <m>k=\frac{1}{2}</m>.</p>
     <sage>
@@ -711,7 +710,7 @@ show(T)
                    </listing> 
     </solution>
     </task>
-    <task><statement><p>Adapter la fonction de la partie précédente pour créer ue fonction <c>etirR3</c>, similaire à celle développée à l'exercice <xref ref="exosage-etirquelcR2"/>,
+    <task><statement><p>Adapter la fonction de la partie précédente pour créer une fonction <c>etirR3</c>, similaire à celle qui est développée à l'exercice <xref ref="exosage-etirquelcR2"/>,
     qui détermine la matrice d'un étirement dans la direction <m>\vec{n}=(n1,n2,n3)</m> et 
     de facteur <m>k</m>. Vérifier la solution avec l'exercice précédent.</p></statement>
     <solution>
@@ -745,7 +744,7 @@ show(etirR3(vector([n1,n2,n3]),k).simplify_full())
     </exercise>
     <exercise>
     <statement>
-    <p>En continuant l'esprit de l'exercice <xref ref="exo-invspecial"/>, vérifier que la réponse donnée correspond bien pour les matrices
+    <p>Dans l'esprit de l'exercice <xref ref="exo-invspecial"/>, vérifier que la réponse donnée correspond bien pour les matrices
     <me>A=\begin{pmatrix} 1&amp; 0&amp; 0&amp; 0 \\ 1&amp; 1&amp; 0&amp; 0 \\ 1&amp; 1&amp; 1&amp; 0 \\ 1&amp; 1&amp; 1&amp; 1 \end{pmatrix}</me>
     et
     <me>B=\begin{pmatrix} 1&amp; 0&amp; 0&amp; 0&amp; 0 \\ 1&amp; 1&amp; 0&amp; 0&amp; 0\\ 1&amp; 1&amp; 1&amp; 0&amp; 0\\ 1&amp; 1&amp; 1&amp; 1&amp; 0\\ 1&amp; 1&amp; 1&amp; 1&amp; 1 \end{pmatrix}</me>.</p>
