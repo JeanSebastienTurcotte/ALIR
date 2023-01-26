@@ -94,7 +94,7 @@
     <me>
     Eh_0=\begin{pmatrix} 0&amp; 0\\ 0 &amp;1\end{pmatrix}
     </me>. 
-    On pose dès le départ qu'il ne peut exister d'inverse pour cette transformation. En effet, soit <m>A</m>, la matrice représentant l'inverse. Selon la définition <xref ref="def-transfoinverseprelim"/>, il faut que <m>AEh_0=I</m>. 
+    On affirme dès le départ qu'il ne peut exister d'inverse pour cette transformation. En effet, soit <m>A</m>, la matrice représentant l'inverse. Selon la définition <xref ref="def-transfoinverseprelim"/>, il faut que <m>AEh_0=I</m>. 
     En particulier, il faudrait que <m>A\vecd{0}{0}=\vecd{1}{0}</m> selon la définition du <xref ref="def-matmatprod">produit matriciel</xref>, puisque <m>\vecd{0}{0}</m> est la première colonne de <m>Eh_0</m> et <m>\vecd{1}{0}</m> 
     la première colonne de la matrice identité. Selon la proposition <xref ref="prop-transfolinprop"/>, l'image du vecteur nul sera toujours le vecteur nul et en conséquence, il est impossible d'avoir <m>\vecd{1}{0}</m> comme résultat.</p>
     <p>Il est cependant possible que l'inverse existe, mais ne soit pas une transformation linéaire. Quand on précisera la définition <xref ref="def-transfoinverseprelim"/>, cette possibilité sera invalidée.</p>
@@ -142,7 +142,7 @@
     <mrow number="yes" xml:id="eq-UUm1">TI&amp;=VU^{-1} &amp;&amp; \text{ car } UU^{-1}=I \text{ par définition de l'inverse}</mrow>
     <mrow number="yes" xml:id="eq-matparvecteursuv"> T&amp;=VU^{-1}</mrow>
     </md>.</p>
-    <p>En principe, l'équation <xref ref="eq-UUm1"/> suppose que l'inverse <m>U^{-1}</m> sera le même à droite (la définition <xref ref="def-transfoinverseprelim"/> parle seulement d'inverse à gauche). La définition 
+    <p>En principe, l'équation <xref ref="eq-UUm1"/> suppose que l'inverse à droite <m>U^{-1}</m> sera le même que l'inverse à gauche (la définition <xref ref="def-transfoinverseprelim"/> parle seulement d'inverse à gauche). La définition 
     <xref ref="def-matcarreeinverse"/> qui suivra permettra de lever l'ambigüité. On accepte l'incohérence temporaire puisque le but n'est que de donner un exemple de l'utilisation de la matrice inverse.</p>
     <p>On commence l'exploration de l'inverse d'une matrice quelconque par le calcul d'un tel inverse pour une matrice qui n'a pas d'interprétation géométrique claire.</p>
     <example xml:id="ex-matinverse1">
@@ -354,7 +354,7 @@ show("Tu2=",T*u2)
     show(Ainv*u)
     </input>
     </sage>
-    <p>Présentée ainsi, la séquence d'instructions ressemble à ce qui serait fait sur une feuille, les commandes dans l'ordre où l'on se pose les questions pertinentes lors de la résolution. Maintenant si l'on pose les mêmes questions pour la matrice <m>B=\begin{pmatrix} -1\amp 2\\ 4\amp -3 \end{pmatrix}</m>, on s'imagine alors recopier le code et corriger les lignes <c>2-5</c> et la ligne <c>8</c>. 
+    <p>Présentée ainsi, la séquence d'instructions ressemble à ce qui serait fait sur une feuille, les commandes étant effectuées dans l'ordre où l'on se pose les questions pertinentes lors de la résolution. Maintenant si l'on pose les mêmes questions pour la matrice <m>B=\begin{pmatrix} -1\amp 2\\ 4\amp -3 \end{pmatrix}</m>, on s'imagine recopier le code et corriger les lignes <c>2-5</c> et la ligne <c>8</c>. 
     </p>
     <p>Voici une deuxième option pour répondre aux questions initiales.</p>
     <sage>
@@ -492,7 +492,7 @@ show("Tu2=",T*u2)
     <mrow>\vec{e}_n&amp;=  (0,\ldots ,0,1) </mrow>
     </md>.
     </p>
-    <p>De plus, la proposition <xref ref="prop-surjestinv"/> donne une manière explicite pour obtenir l'inverse. Pour chaque vecteur <m>\vec{e}_k</m>, on cherche un
+    <p>De plus, la proposition <xref ref="prop-surjestinv"/> donne une démarche explicite pour obtenir l'inverse. Pour chaque vecteur <m>\vec{e}_k</m>, on cherche un
     vecteur <m>\vec{b}_k</m> tel que <m>A\vec{b}_k=\vec{e}_k</m>. La matrice inverse est alors
     <men xml:id="eq-matinversecol">
     A^{-1}=\begin{pmatrix}
@@ -624,7 +624,7 @@ show("A^(-1)A=",Ainv*A)
      </p>
      <p>On suppose maintenant que <m>A</m> et <m>B</m> sont deux matrices telles que leur produit <m>AB</m> est inversible. Il existe alors une matrice <m>C</m>
      telle que <m>CAB=I</m> selon la définition <xref ref="def-matcarreeinverse"/>. Selon l'associativité du produit matriciel, on peut écrire
-     <m>(CA)B=I</m> ce qui donne, toujours selon la définition <xref ref="def-matcarreeinverse"/>, la matrice <m>B</m> est inversible.</p>
+     <m>(CA)B=I</m> ce qui donne, toujours selon la définition <xref ref="def-matcarreeinverse"/>, que la matrice <m>B</m> est inversible.</p>
      <p>La preuve que <m>A</m> possède un inverse est laissée à l'exercice <xref ref="exo-Ainverseprod"/>.</p>
      </proof>
      </proposition>
@@ -669,7 +669,7 @@ show("A^(-1)A=",Ainv*A)
      la matrice nulle ne peut être inversible.</p>
      <proposition xml:id="prop-invdematscalaire">
      <title>L'inverse pour la multiplication par un scalaire</title>
-     <statement><p>Soit <m>A</m>, une matrice inversible qui possède un inverse <m>A^{-1}</m> et <m>k\in\R\setminus\{0\}</m> un scalaire non-nul. Alors,
+     <statement><p>Soit <m>A</m>, une matrice inversible qui possède un inverse <m>A^{-1}</m> et <m>k\in\R\setminus\{0\}</m>, un scalaire non-nul. Alors,
      <me>
      (kA)^{-1}=\frac{1}{k}A^{-1}
      </me>.</p>
@@ -775,8 +775,8 @@ show("A^(-1)A=",Ainv*A)
     <title>L'algèbre matricielle avec Sage</title>
     <p>Parfois, il est pratique de travailler avec des matrices génériques, de manière purement algébrique, sans se soucier des entrées spécifiques des matrices. 
     Malheureusement, Sage ne permet pas (encore) l'utilisation de variables pour des matrices comme on l'a fait dans les exemples <xref ref="ex-algmat1"/> et <xref ref="ex-algmat2"/>.
-    On fait un compromis en se créant une matrice arbitraire de taille spécifique. Les calculs faits ainsi ne pourront donc pas être considérés comme des preuves des
-    identités, mais au moins une vérification plus générale qu'un exemple précis.
+    On fait un compromis en se créant une matrice arbitraire de taille fixe. Les calculs faits ainsi ne pourront donc pas être considérés comme des preuves des
+    identités, mais au moins une vérification qui est plus générale qu'un exemple précis.
     </p>
     <p>On doit, dans un premier temps, créer une matrice dont les entrées seront arbitraires, par exemple
     <m>A=\begin{pmatrix} a_{1,1} &amp; a_{1,2} &amp; a_{1,3} \\ 
@@ -784,7 +784,7 @@ show("A^(-1)A=",Ainv*A)
     a_{3,1} &amp; a_{3,2} &amp; a_{3,3} 
     \end{pmatrix}</m>.</p>
     <p>Pour cela, on se sert du constructeur de matrices à partir d'une liste. Par exemple, pour créer une matrice dont les entrées seraient les nombres de <m>1</m> à <m>9</m>,
-    en ligne, on peut utiliser la suite d'instructions suivante.</p>
+    enumérées ligne par ligne, on peut utiliser la suite d'instructions suivante.</p>
     <sage>
     <input>
     liste=[i+1 for i in range(9)]   #range(9) va de 0 à 8, donc on fait 1+1

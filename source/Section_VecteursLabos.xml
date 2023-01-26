@@ -17,25 +17,25 @@
     <!--</introduction> -->
     <project>
     <title>De la géométrie particulièrement hasardeuse</title>
-    <introduction><p>La fonction <c>choice([])</c> de Sage permet d'obtenir un des éléments dans la liste <c>[ ]</c> de manière aléatoire. Par exemple, on simule un lancer de dé dans la cellule ci-dessous.</p>
+    <introduction><p>La fonction <c>choice([])</c> de Sage permet d'obtenir un des éléments dans la liste <c>[ ]</c> de manière aléatoire. Par exemple, on simule le lancer d'un dé dans la cellule ci-dessous.</p>
     <sage>
     <input>
     choice([1,2,3,4,5,6])
     </input>
     </sage>
     <p>Le résultat change entre chaque clic du bouton évaluer.</p>
-    <p>La fonction <c>triangle(n)</c> définie ci-dessous utilise la fonction <c>choice()</c> pour sélectionner de manière aléatoire un sommet d'un triangle équilatéral centré à l'origine. On note ce point <m>P</m>. On effectue ensuite le jeu suivant:
+    <p>La fonction <c>triangle(n)</c>, définie ci-dessous, utilise la fonction <c>choice()</c> pour sélectionner de manière aléatoire un sommet d'un triangle équilatéral centré à l'origine. On note ce point <m>P</m>. On effectue ensuite le jeu suivant:
     <ol>
     <li><p>On sélectionne un sommet du triangle <m>S</m>, au hasard avec la fonction <c>choice()</c>.</p></li>
-    <li><p>On calcule le point <m>Q</m>, situé à mi chemin entre <m>P</m> et <m>S</m>.</p></li>
+    <li><p>On calcule le point <m>Q</m>, situé à mi-chemin entre <m>P</m> et <m>S</m>.</p></li>
     <li><p>Le point <m>Q</m> devient le nouveau point <m>P</m>.</p></li>
     <li><p>On répète ce processus <m>n</m> fois et on affiche le graphique de tous les points ainsi obtenus.</p></li>
     </ol>
     </p>
     </introduction>
     <task>
-    <statement><p>Dans la fonction triangle ci-dessous, il faut compléter la ligne <c>####### À COMPLÉTER #######</c> afin de calculer le point <m>Q</m>. Une fois cela effectué,  exécuter la commande <c>triangle(10)</c> afin
-    de générer dix tours de ce jeu. Le résultat devrait ressembler à la figure <xref ref="fig-chaos10"/>, sans nécessairement lui être identique dû au hasard.</p>
+    <statement><p>Dans la fonction triangle ci-dessous, il faut compléter la ligne <c>####### À COMPLÉTER #######</c> afin de calculer le point <m>Q</m>. Une fois cette opération effectuée,  exécuter la commande <c>triangle(10)</c> afin
+    de générer dix tours de ce jeu. Le résultat devrait ressembler à la figure <xref ref="fig-chaos10"/>, sans nécessairement lui être identique, puisqu'il s'agit de hasard.</p>
     <figure xml:id="fig-chaos10">
     <caption>Dix tours du petit jeu</caption>
     <image source="images/chaos10">
@@ -99,8 +99,8 @@ triangle(10)
     </input>
     </sage></statement>
     </task>
-    <task><statement><p>Dans le cas présent, on prend le point milieu entre <m>P</m> et <m>S</m>. Que se passe-t-il si on prenait un point <m>Q</m> sur le segment <m>PS</m>, mais avec un rapport plus petit ou plus grand que <m>\frac{1}{2}</m>. Par exemple, si on prenait
-    <m>Q</m> au <m>2/3</m> du segment <m>PS</m> (en partant de <m>P</m>), qu'obtiendrait-on après <m>10000</m> tours? Tenter de faire une prédiction et modifier le code de la simulation en le copiant dans les cellules ci-dessous.</p>
+    <task><statement><p>Dans le cas présent, on prend le point milieu entre <m>P</m> et <m>S</m>. Que se passe-t-il si l'on prend un point <m>Q</m> sur le segment <m>PS</m>, mais avec un rapport plus petit ou plus grand que <m>\frac{1}{2}</m>. Par exemple, si on prend
+    <m>Q</m> au <m>2/3</m> du segment <m>PS</m> (en partant de <m>P</m>), qu'obtiendra-t-on après <m>10000</m> tours? Tenter de faire une prédiction et modifier le code de la simulation en le copiant dans les cellules ci-dessous.</p>
     <sage>
     <input>
     #Essayer des rapports plus petits que 1/2
