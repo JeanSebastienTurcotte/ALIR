@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-SA 4.0                                                               -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-Markov">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Chaines de Markov </title>
+    <introduction xml:id= "intro-Markov">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Aller aux <xref ref="exo-Markov">exercices</xref> de la section.</p>
+    <p>En général, le contenu du chapitre <xref ref="chap-transfos"/> et celui du chapitre <xref ref="chap-SEL"/> devrait suffire. Quelques résultats et notion du chapitre <xref ref="chap-propre"/> seront utilisés, mais la théorie général n'est pas nécessaire, bien qu'utile. Quelques éléments de probabilités et statistiques sont utilisés, mais rien d'approfondi.</p>
+    <p>On suppose que la météo d'une journée peut se manifester selon un seul des trois scénario suivant: il pleut, c'est nuageux, il fait soleil. On suppose de plus que, le scénario qui sera en vigueur le lendemain ne dépend seulement que du scénario en vigueur aujourd'hui. Ainsi, s'il a plu les cinq derniers jours, seulement le fait qu'il pleuve aujourd'hui influence le temps qu'il fera demain. Lorsqu'on applique des probabilités à chaque transition possible entre les différents scénarios, on obtient une chaine de Markov. L'objectif de cette section est de définir cet objet mathématiques et d'en découvrir les appliations. </p>
+    <p>Dans cette section, on présente la notion de chaine de Markov, quelques propriétés et plusieurs applications. </p>
+    </introduction>
+    <subsection><title>Définition et exemples</title>
+    <p>Pour parler de chaine de Markov, on doit commencer par restreindre les vecteurs et les matrices avec lesquels on travaille. Un vecteur de probabilité est un vecteur dont toutes les entrées sont supérieures ou égales à zéro et dont la somme est égale à un. Une matrice stochastique est une matrice carrée telle que toutes ses colonnes sont des vecteurs de probabilité. Par exemple, les vecteurs
+    <md>
+    <mrow>\vec{v}_1&amp;=\left(\frac{1}{2},\frac{1}{2}\right)</mrow>
+    <mrow>\vec{v}_2&amp;=\left(\frac{1}{3},\frac{2}{3}\right)</mrow>
+    <mrow>\vec{v}_3&amp;=\left(\frac{3}{5},0,\frac{2}{5}\right)</mrow>
+    <mrow>\vec{v}_4&amp;=\left(\underbrace{\frac{1}{n},\frac{1}{n},\ldots , \frac{1}{n}}_{n \text{ fois }}\right)</mrow>
+    </md>
+    sont des vecteurs de probabilité, mais pas les vecteurs
+    <md>
+    <mrow>\vec{v}_4&amp;=\left(\frac{1}{2},\frac{1}{4}\right)</mrow>
+    <mrow>\vec{v}_5&amp;=\left(-\frac{1}{3},\frac{4}{3}\right)</mrow>
+    </md>.
+    </p>
+    <p>De même, la matrice
+    <me>
+    T=\begin{pmatrix}
+    \frac{1}{2}&amp; 0&amp; 1\\
+    \frac{1}{3}&amp; \frac{1}{5}&amp; 0\\
+    \frac{1}{6}&amp; \frac{4}{5}&amp; 0\\
+    \end{pmatrix}</me>
+    est une matrice stochastique, mais pas 
+    <me>
+    A=\begin{pmatrix}
+    1&amp; -2&amp;\frac{1}{3}\\
+    1&amp; 3&amp;\frac{1}{4}\\
+    \frac{1}{2}&amp;0&amp;\frac{1}{5}
+    \end{pmatrix}
+    </me>.
+    </p>
+    <p>À noter qu'on dit parfois un vecteur de distribution, ou simplement distribution, pour parler d'un vecteur de probabilité. On dit aussi matrice de transition pour une matrice stochastique, pour des raisons qui deviendront évidente sous peu.</p>
+    <definition xml:id="def-Markov">
+    <title>Chaine de Markov</title>
+    <statement><p>Une chaine de Markov est une suite infinie de vecteurs de probabilité <m>X_0,X_1,\ldots</m> ainsi qu'une matrice <m>T</m> telle que
+    <md>
+    <mrow>X_1&amp;=TX_0</mrow>
+    <mrow>X_2&amp;=TX_1</mrow>
+    <mrow>\vdots&amp;=\vdots</mrow>
+    <mrow>X_n&amp;=TX_{n-1}</mrow>
+    <mrow>\vdots&amp;=\vdots</mrow>
+    </md>.</p>
+    <p>Le vecteur <m>X_0</m> est appelé l'état initial de la chaine de Markov.</p>
+    </statement>
+    </definition>
+    <p>Historiquement, les vecteurs de probabilité d'une chaine de Markov sont notés par une lettre majuscule, souvent <m>X</m>, sans la flèche au-dessus. Afin de suivre la tradition, on utilise aussi cette notation. Il est aussi possible qu'un vecteur de probabilité possède une infinité de composante. Dans ce cas, la matrice serait également infinie. L'étude de ces chaines de Markov est plus complexe, bien que certains résultats peuvent tout de même être obtenus sans trop de difficultés. Dans ce qui suit, on considère seulement les chaines de Markov finie.</p>
+    <p>On peut penser qu'en vertu de la définition <xref ref="def-Markov"/>, il faille connaitre toute la chaine des vecteurs de probabilité afin de vérifier si on a bel et bien une chaine de Markov, mais en réalité, on obtient souvent la chaine à partir de la description d'une situation ou d'un phénomène.</p>
+    <example xml:id="ex-BVMarkov">
+    <title>Une première chaine de Markov </title>
+    <statement><p>Dans un pays hypothétique, on retrouve uniquement deux compagnie de téléphone cellulaires. Une étude de marché a démontrer qu'un client de la compagnie <m>B</m> allait rester avec cette compagnie dans <m>80%</m> du temps au renouvellement, mais qu'autrement elle allait changer pour la compagnie <m>V</m>. Dans le cas d'un client de la compagnie <m>V</m>, cette même étude a montré qu'il allait lui rester fidèle <m>90%</m> du temps, mais qu'il allait changer pour <m>B</m> dans les autres cas.  </p>
+    <p>L'étude a également établi qu'en date de publication, la compagnie <m>B</m> s'accaparait <m>55%</m> des parts de marché contre <m>45%</m> pour la compagnie <m>V</m>.</p>
+    <p>On montre que l'évolution des parts de marché de ces deux compagnies obéit à une chaine de Markov.</p>
+    </statement>
+    <solution><p>On pose <m>X_0=\begin{pmatrix}0.55\\0.45\end{pmatrix}</m> et <me>T=\begin{pmatrix}0.8&amp; 0.1\\ 0.2&amp; 0.9\end{pmatrix}</me>. Soit <m>\vec{v}</m>, un vecteur de probabilité quelconque. On peut interpréter ce vecteur comme les parts de marché des compagnies <m>B</m> et <m>V</m>. Le produit <m>T\vec{v}</m> représente alors les nouvelles proportions, suite à une première transition de la population entre les compagnies. En effet, si on note <m>p_B</m> les parts de marché de la compagnie <m>B</m> et <m>p_V</m> celle de <m>V</m>, le produit matrice vecteur <m>T\vec{v}=T\begin{pmatrix}p_B\\p_V\end{pmatrix}</m> correspond à
+    <me>
+    T\vec{v}=p_B\begin{pmatrix}0.8\\ 0.2\end{pmatrix}+p_B\begin{pmatrix}0.1\\ 0.9\end{pmatrix}=\begin{pmatrix}0.8p_B+0.1p_V\\ 0.2p_B+0.9p_V\end{pmatrix}
+    </me>. Ceci est cohérent avec le modèle de l'énoncé qui dit que <m>80%</m> des clients chez <m>B</m> y restent et que <m>10%</m> de ceux chez <m>V</m> migrent vers <m>B</m>. Un raisonnement semblable démontre le même effet pour la deuxième compagnie.</p>
+    <p>De cette observation, on déduit que les parts de marché après un an seront de
+    <me>
+    X_1=TX_0=\begin{pmatrix} 0.485\\ 0.515 \end{pmatrix}
+    </me>.
+    Le reste de la suite s'obtient itérativement.
+    </p>
+    </solution>
+    </example>
+    <p>On reprend maintenant l'exemple de la météo présenté à l'introduction.</p>
+    <example xml:id="ex-meteoMarkov"><title>
+    Modèle markovien pour la météo
+    </title>
+    <statement><p>On suppose que la matrice suivante modélise adéquatement les transitions entre les scénarios météorologiques décrits à l'introduction de cette section 
+    <me>
+    T=\begin{pmatrix}
+    0.4 &amp; 0.3&amp; 0.05\\
+    0.5&amp;0.4&amp; 0.1\\
+    0.1&amp;0.3&amp; 0.85
+    \end{pmatrix}
+    </me>.
+    On identifie la première colonne par le scénario <rq/>pluie<lq/>, la deuxième par le scénario <rq/>nuageux<lq/> et la troisième par le scénario <rq/>ensoleillé<lq/>. Puisque l'image d'une matrice va des colonnes vers les lignes, l'entrée  <m>t_{1,2}</m> représente la probabilité de passer d'une journée nuageuse à une journée pluvieuse.
+    </p>
+    <p>Sachant que le temps est ensoleillé aujourd'hui, une famille veut connaitre les chances qu'il y ait de la pluie lors de leur annuel BBQ familial, qui est dans deux jours.</p>
+    </statement>
+    <solution><p>On pose <m>X_0=(0,0,1)</m>, puisqu'on est certain, selon les informations de la famille, que le temps est ensoleillé aujourd'hui. La réponse à la question se trouve dans la première composante du vecteur <m>X_2</m>. On commence par calculer les probabilités de chacun des scénario pour le lendemain. On a
+    <md>
+    <mrow>X_1&amp;=TX_0</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    0.4 &amp; 0.3&amp; 0.05\\
+    0.5&amp;0.4&amp; 0.1\\
+    0.1&amp;0.3&amp; 0.85
+    \end{pmatrix}\begin{pmatrix}0\\ 0\\ 1\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix} 0.05\\ 0.10 \\ 0.85\end{pmatrix}</mrow>
+    </md>.
+    Pour calculer <m>X_2</m>, on poursuit avec l'image du vecteur <m>X_1</m> par la matrice <m>T</m>, ce qui donne
+    <md>
+    <mrow>X_2&amp;=TX_1</mrow>
+    <mrow>&amp;=\begin{pmatrix}
+    0.4 &amp; 0.3&amp; 0.05\\
+    0.5&amp;0.4&amp; 0.1\\
+    0.1&amp;0.3&amp; 0.85
+    \end{pmatrix}\begin{pmatrix} 0.05\\ 0.10 \\ 0.85\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix} 0.0925,0.15,0.7575\end{pmatrix}</mrow>
+    </md>.
+    La probabilité que la pluie vienne ruiner cette fête est donc légèrement supérieure à <m>9%</m>.
+    </p></solution>
+    </example>
+    <p>Parfois, il peut être utile de représenter les transitions d'une chaine de Markov par un graphe. On retrouvera dans ce graphe les sommets, qui représentent les états possibles de la chaine, les arêtes, qui relient les sommets dont la transition de l'un vers l'autre est possible en une étape. Ces arêtes sont parfois dirigées, c'est-à-dire qu'elles ont une flèche pour indiquer le sens de la transition et elles peuvent être pondérées, pour donner la probabilité de cette transition. Lorsque toutes les transitions ont la même probabilité, on omet généralement les pondérations. L'exemple ci-dessous illustre l'habitat d'une souris domestique, composé de quatre pièces reliés par des portes.</p>
+    <example>
+    <title>L'habitat d'une souris domestique</title>
+    <statement><p>L'habitat d'une souris domestique est composé de quatre pièces dont certaines reliées par des portes. Le graphe de la figure suivante illustres les parcours possibles pour cette souris.</p>
+    <figure xml:id="fig-sourisMarkov">
+    <caption>Graphe représentant les transitions d'une souris domestique dans son habitat</caption>
+    <image xml:id="img-sourisMarkov">
+    <description>Un graphe à quatre sommet est illustré.</description>
+    <sageplot>
+A=column_matrix([[0,1/2,0,1/2],[1/2,0,1/2,0],[0,1,0,0],[1/2,1/2,0,0]])
+G=DiGraph(A)
+G.relabel({0:'1' , 1:'2', 2:'3', 3:'4'})
+plot(G,edge_labels=False,layout="circular")
+    </sageplot>
+    </image>
+    </figure>
+    <p>Lorsqu'elle est dans son habitat, la souris se promène de pièce en pièce en choisissant, à chaque fois, l'une des portes disponibles au hasard. On prend cette souris et on la place au hasard dans l'une des quatre pièces, sans préférence pour une pièce particulière. On se demande où la souris a le moins de chance de se trouver après trois transitions.</p>
+</statement>
+<solution><p>À partir du graphe de la figure <xref ref="fig-sourisMarkov"/>, on peut créer la matrice de transition associé à la chaine de Markov. On constate par exemple, qu'à partir de la première pièce, il est possible d'aller dans la deuxième ou dans la quatrième, de façon équiprobable. En raisonnant ainsi pour les trois autres pièces, on arrive à la matrice 
+<me>
+T=\begin{pmatrix}
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\
+\frac{1}{2} &amp; 0 &amp; 1 &amp; \frac{1}{2} \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
+\frac{1}{2} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+</me>.</p>
+<p>On pose ensuite <m>X_0=\begin{pmatrix}0.25 \\ 0.25\\ 0.25 \\ 0.25\end{pmatrix}</m>. Pour calculer la pièce qui a le moins de chance d'être occupée par la souris après trois déplacements, on utilise Sage.</p>
+<sage>
+<input>
+T=column_matrix([[0,1/2,0,1/2],[1/2,0,1/2,0],[0,1,0,0],[1/2,1/2,0,0]])
+X0=vector([0.25,0.25,0.25,0.25])
+X1=T*X0
+X2=T*X1
+X3=T*X2
+show(X3)
+</input>
+<output>
+(0.218750000000000, 0.468750000000000, 0.156250000000000, 0.156250000000000)
+</output>
+</sage>
+<p>Deux pièces ont en fait le moins de chance d'être occupée, les pièces <m>3</m> et <m>4</m> avec <m>15.625%</m> chacune.</p>
+</solution>
+    </example>
+    <p>Le prochain exemple est un cas classique en probabilité. Souvent appelé <rq/>la ruine du parieur<lq/>. La mention la plus vieille retracée remonte à Blaise Pascal, en 1656, dans une lettre à Pierre de Fermat. Pascal est considéré comme l'un des pionniers de la théorie des probabilités.</p>
+    <example xml:id="ex-ruine">
+    <title>La ruine du parieur</title>
+    <statement><p>On considère un parieur qui possède <m>2<dollar/></m>. Il joue au jeu suivant. Il lance un pièce de monnaie. Dans le cas où la pièce tombe sur <rq/> pile<lq/>, il gagne un dollar et dans le cas où la pièce tombe sur <rq/>face<lq/>, il perd plutôt un dollar. Afin de considérer une chaine de Markov finie, on suppose que le jeu s'arrête lorsqu'il n'a plus d'argent ou bien qu'il réussit à atteindre <m>5<dollar/></m>.
+    La figure suivante illustre le parcours de dix joueurs ayant participé à ce jeu.
+    </p>
+    <figure xml:id="fig-ruine"/>
+    <caption>La ruine du parieur illustrée</caption>
+    <image xml:id="img-ruine">
+    <sageplot>
+def ruine(n,depart,M):
+    v=[]
+    v.append(depart)
+    for i in range(n):
+        if v[i]==0:
+            v.append(0)
+        elif v[i]==M:
+            v.append(M)
+        else:
+            if random()&lt;1/2:
+                v.append(v[i]-1)
+            else:
+                v.append(v[i]+1)
+    return v
+P=plot([])
+for j in range(10):
+    L=zip([0,1,2,3,4,5],ruine(5,2,5))
+    P+=line(L,color=hue(random()))
+P
+    </sageplot>
+    </image>
+<p>Quelles sont les probabilités qu'il soit encore en train de jouer après cinq lancers de pièces?</p>
+    </statement>
+    <solution><p>
+    À tout moment, le joueur peut avoir en sa possession <m>0,1,2,3,4</m> ou <m>5</m> dollars. Pour les montant allant de <m>1</m> à <m>4</m>, on peut se déplacer vers chacun des nombres vosins avec probabilités <m>0.5</m>. Pour tenir comtpe de la fin du jeu, on fait en sorte qu'il est impossible de quitter les montants <m>0</m> et <m>5</m> en donnant comme seule possibilité à partir de ces états le fait de rester en place. La matrice suivante illustre ces transitions 
+    <me>
+    T=\begin{pmatrix}
+1 &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1}{2} &amp; 1
+    \end{pmatrix}
+    </me>.
+    On pose <m>X_0=(0,0,1,0,0,0)</m> puisque le joueur commence avec <m>2<dollar/></m>. La réponse à la question se trouve dans <m>X_5</m>. Il faut faire la somme de toutes les entrées de ce vecteurs qui ne sont pas les extrémitiés. On aura alors la probabilité, qu'après cinq lancers, le joueur ait en sa possession <m>1,2,3</m> ou <m>4</m> dollars. La cellule suivante définie une fonction Sage qui permettra de créer rapidement la matrice. Il faut l'exécuter, mais rien ne sera affiché. Cette fonction sera étudiée et modifiée à l'exercice <xref provisional="exo-ruineparieurgen"/>.
+    </p>
+    <sage><input>
+def ruinetransitionproba(i,j,n):
+    if i==0 and j==0:
+        return 1
+    if i==n-1 and j==n-1:
+        return 1
+    elif j==0:
+        return 0
+    elif j==n-1:
+        return 0
+    elif abs(i-j)==1:
+        return 1/2
+    else:
+        return 0
+    </input>
+    <output>
+[  1 1/2   0   0   0   0]
+[  0   0 1/2   0   0   0]
+[  0 1/2   0 1/2   0   0]
+[  0   0 1/2   0 1/2   0]
+[  0   0   0 1/2   0   0]
+[  0   0   0   0 1/2   1]    
+    </output>
+    </sage>
+    <p>On crée dans la celule suivante la matrice T et on calcule <m>X_5</m>.</p>
+    <sage><input>
+T=matrix(6,6, lambda i,j: ruinetransitionproba(i,j,6))
+show(T)
+X=vector([0,0,1,0,0,0])
+for i in range(5):
+    X=T*X
+show(X)
+    </input>
+    <ouput>(3/8, 5/32, 0, 1/4, 0, 7/32)</ouput>
+    </sage>
+    <p>On remarque qu'après cinq lancers, le joueur peut se retrouver avec <m>0,1,3</m> ou <m>5</m> dollars. La probabilité cherchée est <m>\frac{5}{32}+\frac{1}{4}=13/32</m>, soit légèrement en-dessous d'une chance sur deux.</p>
+    </solution>
+    </example>
+    </subsection>
+    <subsection>
+    <title>Le comportement limite</title>
+    <p>Dans la sous-setion précédente, on les vecteurs de probabilité pour des valeurs relativement petites de <m>n</m>. Dans ce qui suit, on cherche à trouver une manière efficace de calculer <m>X_n</m>. On s'intéresse aussi au comportement à long terme de la chaine de Markov, à savoir, quel est le comportement de <m>X_n</m> lorsque <m>n</m> tend vers l'infini? La réponse à cette question permet de dire, par exemple, quels seront les parts de marché auxquelles peuvent s'attendre les compagnies dans l'exemple <xref ref="BVMarkov"/> ou encore, quelle est la probabilité que le joueur se ruine avant d'atteindre son but dans l'exemple <xref ref="ex-ruine"/>. Pour commencer, une proposition qui ne devrait pas surprendre sur le calcul de <m>X_n</m>.</p>
+    <proposition>
+    <title>Calcul de <m>X_n</m></title>
+    <statement><p>Soit <m>T</m>, la matrice d'une chaine de Markov et <m>X_0</m>, l'état initial. Alors
+    <me>
+    X_n=T^tX_0
+    </me>.</p></statement>
+    <proof>
+    <p>Il suffit de remarque qu'en calculant <m>X_n</m> par itération, on finit par arriver à <m>X_0</m> :
+    <md>
+    <mrow>X_n&amp;=TX_{n-1}</mrow>
+    <mrow>&amp;=T(TX_{n-2})</mrow>
+    <mrow>&amp;=T^2X_{n-2})</mrow>
+    <mrow>&amp;=T^2(TX_{n-3})</mrow>
+    <mrow>&amp;=T^3(X_{n-3})</mrow>
+    <mrow>&amp;=\vdots</mrow>
+    <mrow>&amp;=T^nX_{n-n}</mrow>
+    <mrow>&amp;=T^nX_{0}</mrow>
+    </md>.</p>
+    </proof>
+    </proposition>
+    <p>Un état stable d'une matrice stochastique <m>T</m> est un vecteur de probabilité <m>X</m> tel que <m>TX=X</m>. Dans le chapitre <xref ref="chap-propre"/>, on étudie ces vecteurs, appelés <em>vecteurs propres</em>. Toutefois, on peut trouver ces vecteurs en n'utilisant que les notions des premiers chapitres.</p>
+    <example xml:id="ex-BVMarkovstable">
+    <title>L'état stable des compangies téléphoniques</title>
+    <statement><p>
+    On reprend la chaine de Markov de l'exemple <xref ref="ex-BVMarkov"/>. On cherche à déterminer s'il existe un état stable.
+    </p></statement>
+    <solution>
+    <p>On pose <m>X=(x,1-x)</m>, pour <m>x\geq 0</m>. Le vecteur <m>X</m> est un vecteur de probabilité. En effectuant le produit <m>TX=X</m>, on obtient un système d'équation à deux équations et une seule inconnue. On a
+    <md>
+    <mrow>TX&amp;=X</mrow>
+    <mrow>\begin{pmatrix}0.8&amp; 0.1\\ 0.2&amp; 0.9\end{pmatrix}\begin{pmatrix}x\\ 1-x\end{pmatrix}&amp;=\begin{pmatrix}x\\ 1-x\end{pmatrix}</mrow>
+    <mrow>\begin{pmatrix}0.8x+0.1(1-x)\\ 0.2x+0.9(1-x)\end{pmatrix}&amp;=\begin{pmatrix}x\\ 1-x\end{pmatrix}</mrow>
+    <mrow>\begin{pmatrix}0.1+0.7x\\ 0.9-0.7x\end{pmatrix}&amp;=\begin{pmatrix}x\\ 1-x\end{pmatrix}</mrow>
+    </md>,
+    ce qui donne les deux équations
+    <md>
+    <mrow>0.1&amp;=0.3x</mrow>
+    <intertext>et</intertext>
+    <mrow>-0.1&amp;=-0.3x</mrow>
+    </md>,
+    qui sont à fait, à un multiple près, la même équation. La solution est <m>x=1/3</m>. L'état stable de cette chaine de Markov existe et est <m>\left(\frac{1}{3},\frac{2}{3}\)</m>.
+    </p>   
+    </solution>
+    </example>
+    <p>Ce qui est intéressant avec l'état stable d'une matrice stochastique c'est que, sous certaines conditions, toute chaine de Markov ayant cette matrice de transition va converger vers l'état stable. La proposition suivante donne un critère garantissant l'existence et la convergence vers l'état stable. Elle ne sera pas démontrée, découlant davantage d'un cours de probabilités avancé que de l'algèbre linéaire. </p>
+    <proposition xml:id="prop-etatstable">
+    <title>L'état stable et convergence de la chaine de Markov</title>
+    <statement><p>Soit <m>T</m>, une matrice stochastique finie telle que toutes les entrées de <m>T^k</m> sont strictement plus grande que zéro pour un certain <m>k</m>. Alors <m>T</m> possède un unique état stable <m>X</m> et pour tout vecteur de probabilité <m>X_0</m>, on a
+    <me>
+    \lim_{n\to \infty} X_n=X
+    </me>.</p></statement>
+    </proposition>
+    <p>Avec Sage, on peut vérifier numériquement la convergence vers l'état stable dans la situation des compagnies téléphoniques, puisque dès le départ la matrice ne contient aucune valeur nulle.</p>
+    <sage>
+    <input>
+    T=column_matrix([[0.8,0.2],[0.1,0.9]])
+    X0=vector([0.55,0.45])
+    show("X10=",T^(10)*X0)
+    show("X100=",T^(100)*X0)
+    </input>
+    <output>
+    (0.339453630395000, 0.660546369605000)
+    (0.333333333333336, 0.666666666666671)
+    </output>
+    </sage>
+    <p>En commençant avec une distribution différente, on converge toujours vers l'état stable. Même dans le cas où l'une des compagnies commence avec toutes les parts de marché.</p>
+    <sage>
+    <input>
+    T=column_matrix([[0.8,0.2],[0.1,0.9]])
+    X0=vector([1,0])
+    show("X10=",T^(10)*X0)
+    show("X100=",T^(100)*X0)
+    </input>
+    <output>
+    (0.352165016600000, 0.647834983400000)
+    (0.333333333333336, 0.666666666666671)
+    </output>
+    </sage>
+    <p>La convergence est plus lente, comme le montre la différence après <m>10</m> transitions, mais à <m>100</m> transitions et à la précision utilisée, on ne peut voir de différence.</p>
+    <p>Comme la matrice de l'exemple sur le modèle météorologique ne contient pas de zéro, on peut aussi trouver son état stable. </p>
+    <example xml:id="ex-meteoMarkovstable">
+    <statement><p>
+    On cherche l'état stable de la matrice <m>T</m> de l'exemple <xref ref="ex-meteoMarkovstable"/>. On peut procéder en résolvant un système d'équations linéaires, comme on l'a fait à l'exemple <xref ref="ex-BVMarkovstable"/>, mais puisqu'on sait que l'état stable existe et que toute distribution va converger vers celui-ci, on peut procéder numériquement en calculant une grande valeur de <m>X_n</m>.
+    </p></statement>
+    <solution><p>On procède par un calcul numérique, qu'on validera ensuite avec une démarche théorique.</p>
+    <sage>
+    <input>
+    T=column_matrix([[0.4,0.5,0.1],[0.3,0.4,0.3],[0.05,0.10,0.85]])
+    X0=vector([1,0,0]) #L'état initial n'est pas important
+    X=T^(100)*X0
+    show(X)
+    </input>
+    <output>
+    (0.169014084507042, 0.239436619718310, 0.591549295774648)
+    </output>
+    </sage>
+    <p>On tente maintenant de trouver cette solution par une démarche algébrique. On pose <m>X=begin{pmatrix} x\\ y \\ 1-x-y \end{pmatrix}</m> pour <m>0\leq x,y\leq 1</m>. On a
+    <md>
+    <mrow>TX&amp;=X</mrow>
+    <mrow>\begin{pmatrix}
+    0.4 &amp; 0.3&amp; 0.05\\
+    0.5&amp;0.4&amp; 0.1\\
+    0.1&amp;0.3&amp; 0.85
+    \end{pmatrix}begin{pmatrix} x\\ y \\ 1-x-y \end{pmatrix}&amp;=begin{pmatrix} x\\ y \\ 1-x-y \end{pmatrix}</mrow>
+    <mrow>begin{pmatrix} 0.35x + 0.25y + 0.05\\ 0.4x + 0.3y + 0.1 \\ -0.75x - 0.55y + 0.85 \end{pmatrix}&amp;=begin{pmatrix} x\\ y \\ 1-x-y \end{pmatrix}</mrow>
+    </md>.
+    On en déduit les trois équations 
+    <md>
+    <mrow>-0.65x+0.25y&amp;=-0.05</mrow>
+    <mrow>0.4x-0.7y&amp;=-0.1</mrow>
+    <mrow>0.25x+0.45y=0.15</mrow>
+    </md>.A
+    Ce système possède une solution unique, que l'on calcule à l'aide de Sage.
+    </p>
+    <sage>
+    <input>
+    M=matrix([[-65/100,1/4],[4/10,-7/10],[1/4,45/100]])
+    b=vector([-5/100,-1/10,15/100])
+    Maug=M.augment(b,subdivide=True)
+    show(Maug.rref())
+    </input>
+    <ouput>
+[    1     0|12/71]
+[    0     1|17/71]
+[    0     0|    0]
+    </ouput>
+    </sage>
+    </solution>
+    </example>
+    <p>Dans le cas de l'habitat de la souris, il faut se rendre à la cinquième puissance avant de trouver une matrice qui ne contient pas de zéro. La proposition <xref ref="prop-etatstable"/> garantit alors qu'un état stable existe. Celui-ci sera déterminé à l'exercice <xref provisional="exo-etatstablesouris"/>. Pour ce qui est de la ruine du joueur, la proposition <xref ref="prop-etatstable"/> ne s'applique pas. Les puissances de la matrice de transition ont toujours des valeurs nulles. On ne peut quitter la position correspondant à zéro ou cinq dollars, la première et la dernière colonne possède toujours des zéros. Toutefois, cela ne signifie pas qu'un état stable est impossible.</p>
+    <example xml:id="ex-ruinestable">
+    <title>État stable pour la ruine de joueur</title>
+    <statement>
+    <p>On cherche à savoir si un état stable existe pour la matrice de l'exemple <xref ref="ex-ruine"/>. En fait, on peut déjà apercevoir qu'il y aura plus d'un état stable. Le vecteur <m>(1,0,0,0,0,0)</m> est stable , puisque celui-ci redonne la première colonne de la matrice qui se trouve à être ce vecteur. De même, le vecteur <m>(0,0,0,0,0,1)</m> fait la même chose avec la dernière colonne. Si l'on est un peu plus perspicace, on pourra déduire que tout vecteur de la forme <m>(x,0,0,0,0,0,1-x)</m> sera un état sable. Pour savoir si la chaine de Markov, pour un état initial donné, converge vers un état stable, on se tourne vers le calcul d'une grande puissance.</p>
+    </statement>
+    <solution>
+    <p>On recopie dans la cellule ci-dessous le code nécessaire pour fabriquer la matrice.</p>
+    <sage>
+    <input>
+def ruinetransitionproba(i,j,n):
+    if i==0 and j==0:
+        return 1
+    if i==n-1 and j==n-1:
+        return 1
+    elif j==0:
+        return 0
+    elif j==n-1:
+        return 0
+    elif abs(i-j)==1:
+        return 1/2
+    else:
+        return 0
+T=matrix(6,6, lambda i,j: ruinetransitionproba(i,j,6))
+    </input>
+    <output>
+[  1 1/2   0   0   0   0]
+[  0   0 1/2   0   0   0]
+[  0 1/2   0 1/2   0   0]
+[  0   0 1/2   0 1/2   0]
+[  0   0   0 1/2   0   0]
+[  0   0   0   0 1/2   1]
+    </output>
+    </sage>
+    <p>Avec le vecteur <m>X_0=(0,0,1,0,0,0)</m>, on obtient, en calculant une grande puissance de la chaine, que l'état stable est environ <m>X=(0.6,0,0,0,0,0.4)</m>. Ceci signifie que le joueur de l'exemple <xref ref="ex-ruine"/> a environ <m>60%</m> de chance de perdre tout son argent, contre <m>40%</m> de chance d'atteindre son objectif. Certains auront peut-être réalisé que l'état stable doit forcément dépendre de l'état initial, contrairement aux autres exemples. Si l'on considère un joueur dont le montant initial n'est que d'un dollar, dans <m>50%</m> des cas le joueur se retrouve déjà ruiné et dans les autres cas, il se retrouve avec deux dollars. On sait alors qu'il possède, à partir de deux dollars, <m>60%</m> des chances de se ruiner. Les règles de proabiblités établissent donc les chances de se ruiner à partir d'un montant initial égal à un dollar à
+    <me>
+    \frac{1}{2}+\frac{1}{2}\frac{60}{100}=\frac{80}{100}
+    </me>.
+    Ce calcul est un exemple de ce qu'on appelle <em>les probabilités conditionnelles</em> en théorie des probabilités. On vérifie le tout numériquement. La cellule ci-dessous donne l'état stable pour les chaines de Markov commençant à deux dollars et à un dollar.
+    </p>
+    <sage>
+    <input>
+show(T^100*vector([0,0,1,0,0,0]).n())
+show(T^100*vector([0,1,0,0,0,0]).n())
+    </input>
+    <ouput>
+(0.599999999672833, 0.000000000000000, 4.52133927054211e-10, 0.000000000000000, 2.79434134386468e-10, 0.399999999595599)
+(0.799999999750067, 1.72699792667743e-10, 0.000000000000000, 2.79434134386468e-10, 0.000000000000000, 0.199999999797800)
+    </ouput>
+    </sage>
+    <p>On note que chacun de ces états stable est de la forme <m>(x,0,0,0,0,0,1-x)</m>.</p>
+    </solution>
+    </example>
+    </subsection>
+    <conclusion xml:id="concl-Markov">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les points importants de cette section sont:
+    <ul>
+    <li><p>Les notions de vecteurs de probabilité et de matrice stochastique ou de transition;</p></li>
+    <li><p>La définition d'un <xref ref="def-Markov" text="custom">chaine de Markov</xref>;</p></li>
+    <li><p>La proposition pour le calcul de <xref ref="prop-etatstable" text="custom">l'état stable</xref> dans le cas d'une matrice possédant une puissance sans entrée nulle.</p></li>
+    </ul>
+    </p>
+    </conclusion>
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <!--<xi:include href="Exercices_.xml"/> -->
+</section>
+<!-- exo ruineparieugen  faire p 1-p, somme de départ différente, etc. -->
+<!-- exo-etatstablesouris -->
+<!-- Faire un exercice chapitre 3 concernant erreur d'arrondie c.f. l'exemple meteo -->
