@@ -94,7 +94,7 @@
             0&amp;0&amp;1
             \end{pmatrix}</me>  <!-- remarque sur le fait que le nombre d'incconues n'est pas important -->
             On remarque que cette réponse est identique à la précédente, ce qui signifie que le nombre d'inconnues n'est pas important.
-            Bref, on construit une matrice élémentaire en termes de l'opération élémentaire que l'on veut effectuer sur les lignes, peu importe le nombre de colonnes de la matrice du système.
+            Pour construire une matrice élémentaire, il faut uniquement regarder l'opération élémentaire que l'on veut effectuer sur les lignes. La taille de la matrice dépend donc du nombre de lignes, mais de du nombre de colonnes.
             </p>
             </answer>
                 </task>
@@ -166,17 +166,17 @@
     </exercise>
     <exercise xml:id="exo-matpermuelem">
     <statement>
-    <p>Montrer que les matrices de permutation, définies à l'exercice <xref ref="exo-matpermudef"/>, peuvent s'écrire que le produit de matrices élémentaires de type <m>L_i\leftrightarrow L_j</m>.</p>
+    <p>Montrer que les matrices de permutation, définies à l'exercice <xref ref="exo-matpermudef"/>, peuvent s'écrire comme un produit de matrices élémentaires en utilisant uniquement les matrices de type <m>L_i\leftrightarrow L_j</m>.</p>
     </statement>
     <solution>
-    <p>Tel que définit dans l'exercice, une matrice de permutation est une matrice <m>P</m> telle que chaque colonne et chaque ligne ne contient qu'une entrée non nulle égale à <m>1</m>.
-    On constate assez facilement qu'une telle matrice sera toujours obtenue à partir de la matrice identité en permuttant des lignes.
+    <p>Comme défini dans l'exercice, une matrice de permutation est une matrice <m>P</m> telle que chaque colonne et chaque ligne ne contient qu'une entrée non nulle égale à <m>1</m>.
+    On constate assez facilement qu'une telle matrice sera toujours obtenue à partir de la matrice identité en permutant des lignes.
     En effet, pour que la matrice <m>P</m> ait exactement un <m>1</m> et que des <m>0</m> dans chaque ligne et colonne, on doit avoir le <m>1</m> dans une colonne différente pour chaque ligne.
-    Ce sont donc les lignes de l'identité mais positionnées à différentes lignes.</p>
+    Ce sont donc les lignes de l'identité, mais positionnées à différentes lignes.</p>
     <p>Différents cas de figure sont possibles.
-    D'abord, on considère le cas où la matrice <m>P</m> est l'identité où seulement deux lignes ont été permutées, disons les lignes <m>i</m> et <m>j</m>.
-    Il est immédiat que <me>P=E_{L_i\leftrightarrow L_j}</me>.
-    Ensuite, on considère le cas où la matrice <m>P</m> est l'identité où exactement trois lignes ont été permutées, disons les lignes <m>i</m>, <m>j</m> et <m>k</m>.
+    D'abord, on considère le cas où la matrice <m>P</m> est l'identité et seulement deux lignes ont été permutées, par exemple les lignes <m>i</m> et <m>j</m>.
+    On constate que <me>P=E_{L_i\leftrightarrow L_j}</me>.
+    Ensuite, on considère le cas où la matrice <m>P</m> est l'identité et exactement trois lignes ont été permutées, par exemple les lignes <m>i</m>, <m>j</m> et <m>k</m>.
     Seulement deux options sont alors possibles: 
     <ol marker="1.">
     <li><p><m>L_i\rightarrow L_j\rightarrow L_k \rightarrow L_i</m></p></li>
@@ -187,12 +187,12 @@
     Remarquer que la seconde permutation permute en réalité les lignes <m>j</m> et <m>k</m> de la matrice initiale, mais que <m>L_j</m> est positionnée à <m>L_i</m>.
     Ainsi, <me>P_1=E_{L_i\leftrightarrow L_k}E_{L_i\leftrightarrow L_j}\text{ et }P_2=E_{L_i\leftrightarrow L_k}E_{L_i\leftrightarrow L_j}\text{.}</me>
     Le principe qui semble se dégager est qu'on utilise une matrice de permutation pour positionner la première ligne <m>L_i</m>, puis une seconde pour positionner la seconde ligne <m>L_j</m>.
-    La dernière ligne est nécessairement permutée par une de ces deux permutations puisque sinon ce ne serait pas une permutation triple.</p>
-    <p>On émet donc le principe pour permuter <m>n</m> lignes soient les lignes <m>i_1, i_2, \dots , i_n</m>.
+    La dernière ligne est nécessairement permutée par une de ces deux permutations puisque sinon, ce ne serait pas une permutation triple.</p>
+    <p>On établit maintenant le principe pour permuter <m>n</m> lignes, soient les lignes <m>i_1, i_2, \dots , i_n</m>.
     La matrice <m>P</m> sera formée de la multiplication d'au maximum <m>n-1</m> matrices élémentaires. 
     La première (en partant de la droite) permettra de positionner la ligne <m>i_1</m>.
     La seconde permettra de positionner la ligne (initialement positionnée à) <m>i_2</m>.
-    Ainsi de suite, jusqu'à la <m>(n-1)^e</m> qui permettra de positionner la ligne (initialement positionnée à) <m>i_{n-1}</m>.
+    Ainsi de suite, jusqu'à la <m>(n-1)^e</m>, qui permettra de positionner la ligne (initialement positionnée à) <m>i_{n-1}</m>.
     Alors, on écrit, avec une notation discutable puisqu'on ne sait pas toujours si la ligne <m>i_k</m> a été modifiée ou pas:
     <me>P=E_{L_{i_{n-1}}\leftrightarrow L_{j_{n-1}}}\cdots E_{L_{i_2}\leftrightarrow L_{j_2}}E_{L_{i_1}\leftrightarrow L_{j_1}}</me>.</p>
     </solution>
@@ -244,7 +244,7 @@
     </statement>
     <solution>
         <p>Pour obtenir cette propriété, on peut supposer que les matrices <m>A</m> et <m>B</m> sont toutes les deux inversibles. 
-        Bref, suivant l'énoncé de l'exercice et la lettre précédente, on peut écrire les matrices <m>A</m>, <m>B</m>, <m>A^{-1}</m> et <m>B^{-1}</m> des façons suivantes:
+        Bref, suivant l'énoncé de l'exercice et la réponse de la partie précédente, on peut écrire les matrices <m>A</m>, <m>B</m>, <m>A^{-1}</m> et <m>B^{-1}</m> des façons suivantes:
         <md>
         <mrow>A&amp;=E_1^{-1}E_2^{-1}\cdots E_k^{-1}</mrow>
         <mrow>B&amp;=F_1^{-1}F_2^{-1}\cdots F_n^{-1}</mrow>
@@ -293,11 +293,11 @@
     </task>
     </exercise>
     <exercise>
-    <introduction><p>Une grille de Sudoku résolue peut être vue comme une matrice <m>9\times 9</m>. Soit <m>S</m> une telle matrice. </p></introduction>
+    <introduction><p>Une grille de sudoku résolue peut être vue comme une matrice <m>9\times 9</m>. Soit <m>S</m> une telle matrice. </p></introduction>
     <task>
-    <statement><p>Parmi les <m>36</m> opérations élémentaires <m>L_i \leftrightarrow L_j</m>, lesquelles gardent la matrice transformée comme une solution sudoku valide? (Bonus: comment arriver à <m>36</m> matrices, sans les énumérer?)</p></statement>
+    <statement><p>Parmi les <m>36</m> opérations élémentaires <m>L_i \leftrightarrow L_j</m>, lesquelles gardent la matrice transformée comme une solution sudoku légale? (Bonus: comment arriver à <m>36</m> matrices, sans les énumérer?)</p></statement>
     <hint>
-    <p>Pour connaitre comment fonctionne un Sudoku, on conseille de simplement faire une petite recherche sur <em>Google</em>.</p>
+    <p>Pour connaitre comment fonctionne un sudoku, on conseille de faire une recherche sur <em>Google</em>.</p>
     </hint>
     <answer>
     <p><md>
@@ -313,14 +313,14 @@
     </md></p>
     </answer>
     <solution>
-    <p>On sait que les Sudokus résolus ont les trois propriétés suivantes:
+    <p>On sait que les sudokus résolus ont les trois propriétés suivantes:
     <ol>
     <li>Chaque ligne contient tous les chiffres de <m>1</m> à <m>9</m> une fois chacun.</li>
     <li>Chaque colonne contient tous les chiffres de <m>1</m> à <m>9</m> une fois chacun.</li>
     <li>Chaque sous-matrice <m>3\times 3</m> obtenue en divisant la grille en <m>9</m> contient tous les chiffres de <m>1</m> à <m>9</m> une fois chacun.</li>
     </ol>
-    Les première et deuxième propriétés ne seront jamais perdus par la multiplication d'une matrice élémentaire <m>L_i \leftrightarrow L_j</m> puisqu'en
-    interchangeant les lignes, on ne les change pas et les colonnes demeurent entièrement consituées des mêmes chiffres.</p>
+    Les première et deuxième propriétés ne seront jamais perdues par la multiplication d'une matrice élémentaire <m>L_i \leftrightarrow L_j</m> puisqu'en
+    interchangeant les lignes, on ne les change pas et les colonnes demeurent entièrement constituées des mêmes chiffres.</p>
     <p>On doit donc préserver la troisième propriété.
     Pour ce faire, on doit accepter seulement les permutations de lignes à l'intérieur des trois sous-groupes de lignes: 
     <m>1</m> à <m>3</m>, <m>4</m> à <m>6</m> et <m>7</m> à <m>9</m>. 
@@ -338,7 +338,7 @@
     <mrow>L_8 &amp; \leftrightarrow L_9</mrow>
     </md>.</p>
     <p>BONUS: On obtient le nombre de permutations possibles au total en calculant d'abord les permutations impliquant la ligne <m>1</m>, puis celles impliquant la seconde, 
-    mais excluant la première et ainsi de suite. On obtient donc : <m>8+7+6+5+4+3+2+1=\frac{8*9}{2}=36</m> permutations possibles.</p>
+    mais excluant la première, et ainsi de suite. On obtient donc : <m>8+7+6+5+4+3+2+1=\frac{8*9}{2}=36</m> permutations possibles.</p>
     </solution>
     </task>
     <task><statement><p>On pose <m>\vec{v}=(1,1,1,1,1,1,1,1,1)</m>. Que vaut <m>S\vec{v}</m>?</p><!-- p-e mettre dans la section ligne vs col--></statement>
@@ -357,7 +357,7 @@
     </answer>
     <solution>
     <p>On rappelle une <xref ref="eq-matvecprodgeneral"> définition </xref> du produit matrice vecteur donnée en fonction des lignes.
-    La <xref ref="eq-matvecprodgen"> définition usuelle </xref> pourrait aussi nous amener au résultat rapidemment, mais dans ce cas-ci, on préfère la première.
+    La <xref ref="eq-matvecprodgen"> définition usuelle </xref> pourrait aussi nous amener au résultat rapidement, mais, dans ce cas-ci, on préfère la première.
     <md>
     <mrow>S\vec{v}&amp;=\begin{pmatrix}
     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{s}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
@@ -398,29 +398,28 @@
     </statement>
     <solution>
     <p>Par la définition <xref ref="def-matelem"/>, toutes les matrices élémentaires sont le résultat d'une seule opération élémentaire.
-    Ainsi, si on démontre la deuxième portion de la proposition, en donnant la matrice inverse de chaque matrice élémentaire, 
+    Ainsi, si l'on démontre la deuxième portion de la proposition, en donnant la matrice inverse de chaque matrice élémentaire, 
     on aura montré la première portion qui dit que les matrices élémentaires sont toutes inversibles.
     On démontre donc pour chaque matrice élémentaire que son inverse est celui donné dans la proposition <xref ref="prop-mateleminverse"/>.
-    <ol marker="1."><li><p><m>E_{L_i\leftrightarrow L_j}</m> est la matrice élémentaire qui change la ligne <m>i</m> avec la ligne <m>j</m>, 
-     alors pour <em>défaire</em> cette opération, il nous faut en réalité que <em>refaire</em> la même opération.
-     En effet, on considère la matrice <m>E_{L_i\leftrightarrow L_j}</m> décrite et on se questionne à savoir quelle matrice la multipliera pour donner la matrice identité.
-     On réalise que <m>E_{L_i\leftrightarrow L_j}</m> est, par la défintion <xref ref="def-matelem"/>, est la matrice identité où on a changé la ligne <m>i</m> avec la ligne <m>j</m>.
-     C'est donc évident que c'est cette même matrice qui, lorsque multipliée avec <m>E_{L_i\leftrightarrow L_j}</m> rechangera la ligne <m>i</m> avec la ligne <m>j</m> pour obtenir l'identité.
+    <ol marker="1."><li><p><m>E_{L_i\leftrightarrow L_j}</m> est la matrice élémentaire qui permute la ligne <m>i</m> avec la ligne <m>j</m>, 
+     alors pour <em>défaire</em> cette opération, il faut en réalité <em>refaire</em> la même opération.
+     En effet, on considère la matrice <m>E_{L_i\leftrightarrow L_j}</m> décrite, et l'on se questionne à savoir quelle matrice la multipliera pour donner la matrice identité.
+     On réalise que <m>E_{L_i\leftrightarrow L_j}</m> est, par la définition <xref ref="def-matelem"/>, la matrice identité où l'on a permuté la ligne <m>i</m> et la ligne <m>j</m>.
+     Il est donc évident que c'est cette même matrice qui, lorsque multipliée avec <m>E_{L_i\leftrightarrow L_j}</m>, permutra à nouveau la ligne <m>i</m> et la ligne <m>j</m> pour obtenir l'identité.
      Ainsi, <m>E_{L_i\leftrightarrow L_j}^{-1}=E_{L_i\leftrightarrow L_j}</m>.</p></li>
-     <li><p><m>E_{rL_i}</m> est la matrice qui multiplie la ligne <m>i</m> par <m>r\neq 0</m>, alors par la définition <xref ref="def-matelem"/>, 
-     c'est la matrice identité où on a multiplié la ligne <m>i</m> par <m>r\neq 0</m>. 
+     <li><p><m>E_{rL_i}</m> est la matrice qui multiplie la ligne <m>i</m> par <m>r\neq 0</m>, alors, par la définition <xref ref="def-matelem"/>, 
+     c'est la matrice identité où l'on a multiplié la ligne <m>i</m> par <m>r\neq 0</m>. 
      Afin d'obtenir à nouveau la matrice identité, il faut la multiplier par une matrice qui effectuera l'opération élémentaire suivante: multiplier la ligne <m>i</m> par <m>\frac{1}{r}</m>.
-     C'est donc, encore par la définition <xref ref="def-matelem"/>, la matrice identité où on a multiplié la ligne <m>i</m> par <m>\frac{1}{r}</m>.
+     C'est donc, encore par la définition <xref ref="def-matelem"/>, la matrice identité où l'on a multiplié la ligne <m>i</m> par <m>\frac{1}{r}</m>.
      Ainsi, <m>E_{rL_i}^{-1}=E_{\frac{1}{r}L_i}</m>.</p></li>
-     <li><p><m>E_{L_i+rL_j}</m> est la matrice élémentaire qui ajoute à la ligne <m>i</m>, <m>r</m> fois la ligne <m>j</m>, 
-     alors on construit un raisonnement semblable aux deux précédents pour montrer qu'effectivement <m>E_{L_i+rL_j}^{-1}=E_{L_i-rL_j}</m>,
+     <li><p><m>E_{L_i+rL_j}</m> est la matrice élémentaire qui ajoute à la ligne <m>i</m>, <m>r</m> fois la ligne <m>j</m>, on construit alors un raisonnement semblable aux deux précédents pour montrer qu'effectivement <m>E_{L_i+rL_j}^{-1}=E_{L_i-rL_j}</m>,
      en se servant de la même définition.</p></li>
      </ol></p>
     </solution>
     </exercise>
     <exercise xml:id="exo-opelemperm">
     <statement>
-    <p>Montrer que l'opération élémentaire de permuter deux lignes n'est pas essentielle, dans le sens où il est possible de permuter deux lignes avec les deux autres opérations élémentaires.</p>
+    <p>Montrer que l'opération élémentaire qui consiste à permuter deux lignes n'est pas essentielle, c'est-à-dire qu'il est possible de permuter deux lignes en utilisant uniquement les deux autres opérations élémentaires.</p>
     </statement>
     <solution>
     <p>Voici une séquence d'opérations élémentaires qui permet d'échanger la ligne <m>i</m> avec la ligne <m>j</m>, en n'utilisant que l'opération de combinaison linéaire et celle de multiplication par une constante. On fait, dans l'ordre
@@ -434,7 +433,7 @@
     </exercise>
     <exercise>
     <introduction><p>Parmi les matrices suivantes, déterminer celles qui sont sous la forme échelonnée réduite. 
-    Pour chaque matrice qui n'est échelonnée réduite, effectuer les opérations élémentaires pour la rendre échelonnée réduite. 
+    Pour chaque matrice qui n'est pas échelonnée réduite, effectuer les opérations élémentaires pour la rendre échelonnée réduite. 
     Finalement, pour chaque matrice, identifier les colonnes pivots. </p></introduction>
     <task>
     <statement>
@@ -506,7 +505,7 @@
     <statement><p>Faire la liste de toutes les matrices <m>2\times 2</m> échelonnées réduites.</p></statement>
     <hint><p>Il y en a une infinité, mais elles peuvent se classer en quatre types.</p></hint>
     <answer>
-    <p>Les quatres types sont:
+    <p>Les quatre types sont:
     <me>\begin{pmatrix}
         1&amp; 0\\ 
         0&amp; 1
@@ -581,13 +580,13 @@
     </task>
     </exercise>
     <exercise>
-    <introduction><p>Soit <m>A</m> une matrice <m>m\times n</m>, <m>\vec{b},\vec{u},\vec{v}</m> des vecteurs tels que <m>A\vec{u}=\vec{b},A\vec{v}=\vec{b}</m>.</p></introduction>
+    <introduction><p>Soit <m>A</m>, une matrice <m>m\times n</m>, et <m>\vec{b},\vec{u},\vec{v}</m>, des vecteurs tels que <m>A\vec{u}=\vec{b},A\vec{v}=\vec{b}</m>.</p></introduction>
     <task>
     <statement><p>Quelles sont les dimensions des vecteurs <m>\vec{b},\vec{u},\vec{v}</m>?</p></statement>
     <answer><p><m>\vec{b}</m> est de dimension <m>m</m> et <m>\vec{u}</m> et <m>\vec{v}</m> sont de dimension <m>n</m>.</p></answer>
-    <solution><p>Si on voit la matrice <m>A</m> ainsi que les vecteurs <m>\vec{b},\vec{u},\vec{v}</m> comme représentant les différentes composantes de SELs décrits 
-    par les équations <m>A\vec{u}=\vec{b} \text{ et } A\vec{v}=\vec{b}</m>, on peut donc facilement voir les dimensions des vecteurs en s'aidant de la définition
-    <xref ref="def-SEL"/> ou plus simplement de l'exemple <xref ref="ex-sel2x2intro"/>.
+    <solution><p>Si l'on voit la matrice <m>A</m> ainsi que les vecteurs <m>\vec{b},\vec{u},\vec{v}</m> comme représentant les différentes composantes de SEL décrits 
+    par les équations <m>A\vec{u}=\vec{b} \text{ et } A\vec{v}=\vec{b}</m>, on peut voir les dimensions des vecteurs en s'aidant de la définition
+    <xref ref="def-SEL"/> ou, plus simplement, de l'exemple <xref ref="ex-sel2x2intro"/>.
     Le format de la matrice <m>A</m> étant <m>m\times n</m>, la dimension du vecteur <m>\vec{b}</m> correspondra au nombre de lignes, soit <m>m</m>,
     et la dimension des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> correspondra au nombre de colonnes, soit <m>n</m>.</p>
     <p>En résumé, <m>\vec{b}</m> est de dimension <m>m</m> et <m>\vec{u}</m> et <m>\vec{v}</m> sont de dimension <m>n</m>.</p></solution>
@@ -599,7 +598,7 @@
     <p><md>
     <mrow>\vec{b}&amp;=\vec{b}</mrow>
     <mrow>A\vec{u}&amp;=A\vec{v}</mrow>
-    <mrow>A\vec{u}-A\vec{v}&amp;=A\vec{v}-A\vec{v} &amp;&amp;\text{possible car de même dimension}</mrow>
+    <mrow>A\vec{u}-A\vec{v}&amp;=A\vec{v}-A\vec{v} &amp;&amp;\text{possible, car de même taille}</mrow>
     <mrow>A(\vec{u}-\vec{v})&amp;=A\vec{v}-A\vec{v}&amp;&amp;\text{puisque la matrice } A \text{ représente une transformation linéaire} <xref ref="li-transfosomme"/></mrow>
     <mrow>A(\vec{u}-\vec{v})&amp;=\vec{b}-\vec{b}&amp;&amp;\text{puisque }A\vec{v}=\vec{b}</mrow>
     <mrow>A(\vec{u}-\vec{v})&amp;=\vec{0}&amp;&amp;\text{puisque }A\vec{v}=\vec{b}</mrow>
@@ -628,7 +627,7 @@
     En effet, il faut avoir une ligne <em>et</em> une colonne associée à chaque pivot. </p></solution>
     </exercise>
     <exercise>
-    <introduction><p>Pour chacun des cas suivants, donner une ou deux matrices échelonnées réduites de format demandé qui respectent les conditions additionnelles:</p></introduction>
+    <introduction><p>Pour chacun des cas suivants, donner une ou deux matrices échelonnées réduites de format demandé qui respectent les conditions supplémentaires:</p></introduction>
     <task>
     <statement><p>Deux matrices <m>2\times 2</m> pour lesquelles la variable <m>x</m> est libre.</p></statement>
     <answer><p><me>\begin{pmatrix}
@@ -747,7 +746,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
    </statement>
    <answer><p>La solution est <me>\vecddd{x}{y}{z}=\vecddd{-\frac{19}{2}}{\frac{5}{2}}{3}</me>
    dans le cas où <m>x=6</m>.</p></answer>
-   <solution><p>On commence l'algorithme de Gauss-Jordan et on verra à quel moment cette opération serait nécessaire et quelle valeur de <m>x</m> cela prendra.
+   <solution><p>On commence l'algorithme de Gauss-Jordan et l'on verra à quel moment cette opération sera nécessaire et quelle valeur de <m>x</m> cela prendra.
    <me>\left(\begin{array}{rrr|r}
 1 &amp; 3 &amp; 1 &amp; 1 \\
 2 &amp; x &amp; 1 &amp; -1 \\
@@ -757,9 +756,9 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
 0 &amp; x-6 &amp; -1 &amp; -3 \\
 0 &amp; 2 &amp; -1 &amp; 2
 \end{array}\right)</me>
-   On constate déjà à ce stade que la deuxième ligne pourrait être un pivot dans le cas où <m>x-6\neq 0</m>. 
+   On constate déjà, à ce stade, que la deuxième ligne pourrait être un pivot dans le cas où <m>x-6\neq 0</m>. 
    Inversement, il sera impossible que cette ligne soit un pivot si <m>x-6=0</m> et il faudra faire l'opération élémentaire <m>L_2\leftrightarrow L_3</m>.
-   On pose donc <m>x=6</m> et on poursuit avec cette opération et le reste de l'algorithme.
+   On pose donc <m>x=6</m> et l'on poursuit avec cette opération et le reste de l'algorithme.
    <md>
     <mrow>\left(\begin{array}{rrr|r}
 1 &amp; 3 &amp; 1 &amp; 1 \\
@@ -802,7 +801,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     <exercise>
     <introduction>
     <p>
-     Mettre la matrice <m>\matcold{a}{c}{b}{d}</m> sous la forme échelonnée réduite. Quelles sont les hypothèses additionnelles qui sont faites si
+     Mettre la matrice <m>\matcold{a}{c}{b}{d}</m> sous la forme échelonnée réduite. Quelles sont les hypothèses supplémentaires qui sont faites si
     </p>
     </introduction>
     <task>
@@ -834,7 +833,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     0 &amp; 1
     \end{pmatrix}</mrow>
     </md>
-    La seule hypothèse additionnelle est que <m>ad-bc\neq 0</m> puisqu'on retrouve cette expression au dénominateur.
+    La seule hypothèse supplémentaire est que <m>ad-bc\neq 0</m> puisqu'on retrouve cette expression au dénominateur.
     On a vu à la section <xref ref="sec-matinverse"/> que les matrices <m>2 \times 2</m> étaient inversibles à condition que cette quantité soit non-nulle.
     Nous verrons au chapitre <xref provisional="chap-determinants"/> qu'il s'agit du déterminant d'une matrice <m>2 \times 2</m>. 
     </p></solution>
@@ -875,18 +874,18 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     <solution><p>Quatre opérations au maximum. 
     On l'a démontré en répondant aux deux questions précédentes.
     En effet, en couvrant les cas où <m>a \neq 0</m> et où <m>a = 0</m>, on couvre tous les cas possibles.
-    Les deux cas nous ont pris quatre opérations élémentaires. C'est donc le maximum.</p></solution>
+    Les deux cas ont exigé quatre opérations élémentaires. C'est donc le maximum.</p></solution>
     </task>
     </exercise>
     <exercise>
     <statement><p>À la section <xref ref="sec-matinverse"/>, on a établi qu'une matrice <m>A=\matcold{a}{b}{c}{d}</m> était inversible si <m>ad-bc\neq 0</m>. Montrer que
     toute matrice équivalente à une matrice telle que <m>ad-bc\neq 0</m> possède aussi cette condition.</p></statement>
     <hint>
-    <p>Il suffit d'appliquer chaque opération élémentaire à la matrice <m>A</m> et vérifier la condition.</p>
+    <p>Il suffit d'appliquer chaque opération élémentaire à la matrice <m>A</m> et de vérifier la condition.</p>
     </hint>
     <solution><p>
-    On procède comme suggéré dans l'indication. 
-    On vérifie donc pour chacune des trois opérations élémentaires que l'on obtient encore la condition.
+    On procède comme suggéré dans l'indice. 
+    On vérifie donc, pour chacune des trois opérations élémentaires, que l'on obtient encore la condition.
     <me>\begin{pmatrix}
     a &amp; c\\
     b &amp; d
@@ -912,7 +911,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     kb &amp; kd
     \end{pmatrix}</me>
     La condition est donc: <me>ka*d-b*kc=kad-kbc=k(ad-bc)\neq 0</me> ou bien <me>a*kd-kb*c=kad-kbc=k(ad-bc)\neq 0</me> 
-    qui sont toutes les deux équivalentes à <m>ad-bc\neq 0</m>, pourvu que <m>k \neq 0</m>, ce qui est le cas par la définition <xref ref="def-opelem"/>.</p>
+    qui sont équivalentes à <m>ad-bc\neq 0</m>, pourvu que <m>k \neq 0</m>, ce qui est le cas par la définition <xref ref="def-opelem"/>.</p>
     <p>Finalement, la dernière opération élémentaire doit également être vérifiée pour chaque ligne.
     <me>\begin{pmatrix}
     a &amp; c\\
@@ -952,7 +951,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     </task>
     <task>
     <statement><p>Combien de solutions peut-il y avoir à l'équation <m>A\vec{x}=\vec{b}</m> si <m>A</m> est une matrice <m>2\times 3</m>? Donner un exemple pour chaque cas possible.</p></statement>
-    <solution><p>Il peut y avoir soit une infinité de solutions ou aucune solution. Il n'y aura jamais de solution unique.
+    <solution><p>Il peut y avoir soit une infinité de solutions, soit aucune solution. Il n'y aura jamais de solution unique.
     Géométriquement, il y a deux façons d'avoir une infinité de solutions: deux plans sécants 
     (les solutions seront sur la droite formée par l'intersection des deux plans) ou deux plans parallèles confondus (les solutions seront l'ensemble des plans confondus).
     L'équation n'aura pas de solution si elle représente deux plans parallèles distincts.
@@ -980,7 +979,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     <li><p>sécants tous les trois sur un point.</p></li>
     </ol></p></solution></task>
     <task><statement><p>Déduire géométriquement que le système <m>A\vec{x}=\vec{b}</m> possède aucune, une seule ou une infinité de solutions.</p></statement>
-    <solution><p>On reprend les différentes situations décrites et attribue le nombre de solutions :
+    <solution><p>On reprend les différentes situations décrites et on attribue le nombre de solutions :
     <ol>
     <li><p>Tous parallèles distincts: aucune solution.</p></li>
     <li><p>Deux parallèles distincts et le troisième sécant aux deux: aucune solution.</p></li>
@@ -990,7 +989,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     </ol></p></solution></task>
     <task xml:id="exo-solimpinf"><statement><p>Expliquer algébriquement pourquoi si <m>\vec{u}\neq \vec{v}</m> sont des solutions au système <m>A\vec{x}=\vec{b}</m> 
     (peu importe la taille de la matrice <m>A</m>!), alors il existe une infinité de solutions.</p></statement>
-    <solution><p>Si <m>\vec{u}\neq \vec{v}</m> sont des solutions au système <m>A\vec{x}=\vec{b}</m>, alors on peut écrire <m>A\vec{u}=\vec{b}</m> et <m>A\vec{v}=\vec{b}</m>.
+    <solution><p>Si <m>\vec{u}\neq \vec{v}</m> sont des solutions au système <m>A\vec{x}=\vec{b}</m>, on peut écrire <m>A\vec{u}=\vec{b}</m> et <m>A\vec{v}=\vec{b}</m>.
     Ainsi, on peut créer une infinité de solutions <m>\vec{x}</m> :
     <me>\vec{x}=k_1\vec{u}+k_2\vec{v}\text{.}</me>
     où <m>k_2=1-k_1</m>
@@ -1246,7 +1245,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     <me>\vecddd{x}{y}{z}=A^{-1}\vecddd{-2}{3}{5}</me>.
     On peut calculer ce produit matrice vecteur directement ou avec l'approche par colonne. Dans tous les cas, on obtient <m>\vecddd{x}{y}{z}=\vecddd{-2}{1}{6}</m>.
     </p>
-    <p>Pour trouver la matrice <m>A</m>, on peut utiliser une démarche similaire à l'exemple <xref ref="ex-GJchaine"/> pour échelonner la matrice augmentée <m>(A^{-1}|I)\sim \cdots \sim (I| A)</m>.
+    <p>Pour trouver la matrice <m>A</m>, on peut utiliser une démarche semblable à l'exemple <xref ref="ex-GJchaine"/> pour échelonner la matrice augmentée <m>(A^{-1}|I)\sim \cdots \sim (I| A)</m>.
     On a 
     <md>
     <mrow>\left(\begin{array}{rrr|rrr}1&amp;0&amp;0 &amp;1 &amp; 0&amp; 0\\
@@ -1263,7 +1262,7 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     </exercise>
     <exercise xml:id="exo-mat2x2unpivot">
     <statement>
-    <p>On considère la matrice <m>\matcold{x}{1}{x}{x}</m>. Pour quelle(s) valeurs de <m>x</m> est-ce que la matrice possède un seul pivot?</p>
+    <p>On considère la matrice <m>\matcold{x}{1}{x}{x}</m>. Pour quelle(s) valeurs de <m>x</m> la matrice possède-t-elle un seul pivot?</p>
     </statement>
     <answer><p><m>x=0</m> et <m>x=1</m></p></answer>
     <solution><p>Afin de répondre à cette question, on va échelonner la matrice et voir sous quelles conditions elle ne possèdera qu'un seul pivot.

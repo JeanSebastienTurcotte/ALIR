@@ -26,7 +26,7 @@
     </md>
     n'est pas linéaire, dû à la présence des termes <m>x^2,\sin(x)</m> et <m>e^y</m>. 
     </p>
-    <p>Dans cette section, on définit la notion de système d'équations linéaires, la matrice associée à un tel système et on explore la résolution de ces systèmes à l'aide
+    <p>Dans cette section, on définit la notion de système d'équations linéaires, la matrice associée à un tel système et l'on explore la résolution de ces systèmes à l'aide
     de la méthode de Gauss-Jordan.</p>
     </introduction>
     <subsection xml:id="sssec-SELdef"> 
@@ -37,21 +37,21 @@
     <mrow>2x+3y&amp;=7</mrow>
     </md>.
     C'est un système d'équations linéaires à deux équations et à deux inconnues. On y reconnait aussi les équations <xref ref="eq-normale2" >normales</xref> de deux droites de <m>\R^2</m>.
-    Satisfaire ces deux équations simultanément serait donc équivalent à trouver l'intersection des deux droites. On peut ainsi se poser la question, étant données deux droites de <m>\R^2</m>,
-    de combien de façons peuvent-elles être configurées? Combien de points d'intersection y a-t-il dans chaque cas?
+    Satisfaire ces deux équations simultanément serait donc équivalent à trouver l'intersection des deux droites. On  se demander, étant données deux droites de <m>\R^2</m>,
+    quel est le nombre de configurations possibles? Combien de points d'intersection y a-t-il dans chaque cas?
     </p>
-    <p>Pour illustrer les autres possibilités, on change le SEL précédent en remplaçant le <m>3y</m>  de la seconde équation pour un <m>4y</m>.  On a donc le système
+    <p>Pour illustrer les autres possibilités, on change le SEL précédent en remplaçant le <m>3y</m>  de la seconde équation par un <m>4y</m>.  On a donc le système
     <md>
     <mrow>x+2y&amp;=4</mrow>
     <mrow>2x+4y&amp;=7</mrow>
-    </md>et les deux sont maintenant parallèles et distinctes (les vecteurs normaux sont parallèles).  </p>
+    </md>et les deux droites sont maintenant parallèles et distinctes (les vecteurs normaux sont parallèles).  </p>
     <p> Si, à partir de ce deuxième système, on change le <m>7</m> pour un <m>8</m>, on obtient
     <md>
     <mrow>x+2y&amp;=4</mrow>
     <mrow>2x+4y&amp;=8</mrow>
     </md>.
     On remarque que la seconde équation n'est rien d'autre que la première multipliée par <m>2</m>. Les deux droites sont donc en fait la même droite, puisqu'on peut
-    simplifier l'écriture de l'une pour obtenir l'autre. On peut aussi les voir comme des droites parallèles confondues.
+    simplifier l'écriture de l'une et obtenir l'autre. On peut aussi les voir comme des droites parallèles confondues.
     
     Ces trois cas sont en fait les seules possibilités pour un SEL à deux équations et à deux inconnues. Ils sont illustrés aux figures <xref first="fig-sel2x2geo-1" last="fig-sel2x2geo-3"/>.</p>
     <sidebyside widths="33% 34% 33%">
@@ -80,17 +80,17 @@
     </image>
     </figure>
     </sidebyside>
-    <p>Qu'en est-il du cas trois équations et trois inconnues? Puisqu'une équation de la forme <m>ax+by+cz=d</m> représente l'équation d'un plan dans <m>\R^3</m>, on peut
+    <p>Qu'en est-il du cas de trois équations et trois inconnues? Puisqu'une équation de la forme <m>ax+by+cz=d</m> représente l'équation d'un plan dans <m>\R^3</m>, on peut
     voir un système d'équations linéaires à trois équations et trois inconnues comme l'intersection de trois plans dans l'espace. Pour l'intersection de deux droites dans <m>\R^2</m>, on avait aucune, une seule
     ou une infinité de solutions. L'exercice <xref ref="exo-sel3x3geo"/> explorera la géométrie des cas possibles pour des plans dans <m>\R^3</m>.</p>
-    <p>Au-delà de la géométrie, on s'intéresse au cas plus général: <m>m</m> équations linéaires avec <m>n</m> inconnues. Quelques définitions sont de mise.</p>
+    <p>Au-delà de la géométrie, on s'intéresse au cas plus général: <m>m</m> équations linéaires avec <m>n</m> inconnues. Quelques définitions sont nécessaires.</p>
     <definition xml:id="def-eqlin">
     <title>Une équation linéaire</title>
-    <statement><p>Soit <m>x_1,x_2,\ldots , x_n</m> des variables. Une équation de ces variables est linéaire si elle est de la forme
+    <statement><p>Soit <m>x_1,x_2,\ldots , x_n</m>, des variables. Une équation de ces variables est linéaire si elle est de la forme
     <me>
     a_1x_1+a_2x_2+\cdots a_nx_n=b_1
     </me>,
-    où <m>a_1,a_2,\ldots a_n,b_1\in\R</m>. Si on pose <m>\vec{a}=(a_1,a_2,\ldots ,a_n), \vec{x}=(x_1,x_2,\ldots ,x_n)</m>, il est possible de réécrire l'équation comme <m>\pscal{a}{x}=b_1</m>.
+    où <m>a_1,a_2,\ldots a_n,b_1\in\R</m>. Si l'on pose <m>\vec{a}=(a_1,a_2,\ldots ,a_n), \vec{x}=(x_1,x_2,\ldots ,x_n)</m>, il est possible de réécrire l'équation comme <m>\pscal{a}{x}=b_1</m>.
     </p></statement>
     </definition>
     <definition xml:id="def-SEL">
@@ -110,7 +110,7 @@
     </md>.
     </p>
     <p>En posant <m>\vec{a}_1=(a_{1\, 1},a_{2\,1},\ldots , a_{m\,1}),\vec{a}_2=(a_{1\, 2},a_{2\,2},\ldots , a_{m\,2}),\ldots,\vec{a}_n=(a_{1\, n},a_{2\,n},\ldots , a_{m\,n}),\vec{b}=(b_1,b_2,\ldots , b_m)</m>, 
-    on reconnait dans le SEL la multiplication  <xref ref="eq-matvecprodgen"> matrice et vecteur</xref>. Donc pour 
+    on reconnait dans le SEL la multiplication  <xref ref="eq-matvecprodgen"> matrice et vecteur</xref>. Donc, pour 
     <me>
     A=\begin{pmatrix}
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
@@ -121,13 +121,13 @@
     <men xml:id="eq-SELmat">
     A\vec{x}=\vec{b}
     </men>.</p>
-    <p>L'ensemble des valeurs qui satisfont un SEL est appelé l'ensemble solution.</p>
+    <p>L'ensemble des valeurs qui satisfont un SEL est appelé <em>l'ensemble solution</em>.</p>
     </statement>
     </definition>
-    <p>Avant de déterminer comment on peut résoudre les systèmes d'équations linéaires, on donne quelques exemples.</p>
+    <p>Avant de déterminer de quelle manière il est possible de résoudre les systèmes d'équations linéaires, on donne quelques exemples.</p>
     <example xml:id="ex-sel2x2intro">
     <title>De la forme SEL à la forme matricielle</title>
-    <statement><p>On considère les systèmes d'équations linéaires introduits en tout début de sous-section. On avait
+    <statement><p>On considère les systèmes d'équations linéaires introduits en début de sous-section. On avait
     <md>
     <mrow>x+2y&amp;=4</mrow>
     <mrow>2x+3y&amp;=7</mrow>
@@ -144,7 +144,7 @@
     </p>
     <p>On veut écrire chacun de ces systèmes d'équations linéaires sous forme matricielle.</p></statement>
     <solution>
-    <p>Si on pose <m>A=\matcold{1}{2}{2}{3}, B=\matcold{1}{2}{2}{4},\vec{b}=\vecd{4}{7}</m> et <m>\vec{c}=\vecd{4}{8}</m>, les SELs s'écrivent respectivement comme
+    <p>Si l'on pose <m>A=\matcold{1}{2}{2}{3}, B=\matcold{1}{2}{2}{4},\vec{b}=\vecd{4}{7}</m> et <m>\vec{c}=\vecd{4}{8}</m>, les SEL s'écrivent respectivement comme
     <md>
     <mrow>A\vec{x}&amp;=\vec{b}</mrow>
     <mrow>B\vec{x}&amp;=\vec{b}</mrow>
@@ -165,7 +165,7 @@
     <mrow>A\vec{b}_2 &amp;= \vec{e}_2 </mrow>
     <mrow>A\vec{b}_3&amp;=\vec{e}_3 </mrow>
     </md>.
-    Ces réponses représentent un système d'équations linéaires sous leur forme actuelle et répondent à la question, mais pour montrer la forme en équations, on peut effectuer les multiplications. Les trois systèmes deviennent alors
+    Ces réponses représentent un système d'équations linéaires sous leur forme actuelle et répondent à la question, mais, pour montrer la forme en équations, on peut effectuer les multiplications. Les trois systèmes deviennent alors
     <me>
     \matcolt{1}{2}{-1}{3}{2}{0}{1}{-4}{2} \vecddd{b_{1\,1}}{b_{1\,2}}{b_{1\,3}}=\vecddd{1}{0}{0}
     </me>:
@@ -202,7 +202,7 @@
     <mrow>&amp;&amp;3y&amp;{}+{}&amp;z&amp;{}-{}&amp;2w&amp;{}={}&amp;1</mrow>
     <mrow>x&amp;{}+{}&amp;y&amp;{}-{}&amp;z&amp;{}-{}&amp;5w&amp;{}={}&amp;-1</mrow>
     </md>.
-    La matrice associée à ce système serait <m>\begin{pmatrix} 1&amp; 0 &amp;-3&amp;1 \\ 0&amp;3&amp;1&amp;-2 \\ 1&amp;1&amp;-1&amp;-5\end{pmatrix}</m>.</p>
+    La matrice associée à ce système est <m>\begin{pmatrix} 1&amp; 0 &amp;-3&amp;1 \\ 0&amp;3&amp;1&amp;-2 \\ 1&amp;1&amp;-1&amp;-5\end{pmatrix}</m>.</p>
     </example>
     </subsection>
     <!--                 -->
@@ -213,9 +213,9 @@
     <mrow>x&amp; {}{}&amp;&amp;{}={}&amp;2 </mrow>
     <mrow>&amp;{}{} &amp;y&amp;{}={}&amp;1</mrow>
     </md>.
-    La solution à un tel système se lit directement des équations, soit <m>x=2,y=1</m>. <!-- forme triangulaire puis général avec SEL d'intro. -->
+    La solution à un tel système se lit directement dans équations, soit <m>x=2,y=1</m>. <!-- forme triangulaire puis général avec SEL d'intro. -->
     </p>
-    <p>Voici une variante de ce système, qui possède la même solution:
+    <p>Voici une variante de ce système qui possède la même solution:
     <md alignment="alignat">
     <mrow>x&amp;{}+{}&amp;2y&amp;{}={}&amp;4</mrow>
     <mrow>&amp; &amp;y&amp;{}={}&amp;1</mrow>
@@ -228,8 +228,7 @@
     <mrow>x+2y&amp;=4</mrow>
     <mrow>2x+3y&amp;=7</mrow>
     </md>.
-    Une vérification rapide montre que le couple <m>x=2,y=1</m> satisfait cette paire d'équations. Plusieurs méthodes peuvent être utilisées pour résoudre ce système, par
-    exemple, par comparaison, par substitution, par réduction ou par une combinaison de ces trois techniques.</p>
+    Une vérification rapide montre que le couple <m>x=2,y=1</m> satisfait cette paire d'équations. Plusieurs méthodes peuvent être utilisées pour résoudre ce système, que ce soit par comparaison, par substitution, par réduction ou par une combinaison de ces trois techniques.</p>
     <p>Le but de cette section est de développer une méthode générale, par le biais d'un algorithme qui permettra de trouver la ou les solutions à n'importe quel système 
     d'équations linéaires. De plus, si le système n'a aucune solution, la méthode le dira. </p>
     <p>On s'intéresse au système 
@@ -243,7 +242,7 @@
     <mrow>4x&amp;{}+{}&amp;6y&amp;{}={}&amp;14</mrow>
     <mrow>-x&amp;{}-{}&amp;2y&amp;{}={}&amp;-4</mrow>
     </md>
-    devrait aussi posséder la même solution, puisqu'en divisant la première équation par <m>2</m> et la seconde par <m>-1</m> on obtient le système précédent. Une simple vérification
+    devrait aussi posséder la même solution, puisqu'en divisant la première équation par <m>2</m> et la seconde par <m>-1</m>, on obtient le système précédent. Une simple vérification
     permet de constater que <m>x=2,y=1</m> est bel et bien une solution.
     </p>
     <p>Finalement, on considère le système
@@ -251,7 +250,7 @@
     <mrow>2x\amp{}+{}&amp;3y&amp;{}={}&amp;7</mrow>
     <mrow number="yes" xml:id="eq-sys2x2-3">-x\amp{}-{}&amp;y\amp{}={}\amp-3</mrow>
     </md>.
-    Ce système a la même première équation que le premier système, mais la seconde est différente. En fait, géométriquement, c'est une toute autre droite. Pourtant, la solution <m>x=2,y=1</m>
+    Ce système a la même première équation que le premier système, mais la seconde est différente. En fait, géométriquement, c'est une tout autre droite. Pourtant, la solution <m>x=2,y=1</m>
 est encore valide. Les trois droites sont illustrées à la figure <xref ref="fig-sel2x2geo-4"/>. 
 </p>
 <figure xml:id="fig-sel2x2geo-4">
@@ -262,8 +261,8 @@ est encore valide. Les trois droites sont illustrées à la figure <xref ref="fi
     </sageplot>
     </image>
     </figure>
-    <p>Quelqu'un de perspicace aura peut-être remarqué que si on soustrait l'équation <xref ref="eq-sys2x2-1"/> à l'équation <xref ref="eq-sys2x2-2"/>, on obtient l'équation
-    <xref ref="eq-sys2x2-3"/>. On peut faire ici l'hypothèse que si on additionne (ou soustrait) à une ligne un multiple d'une autre ligne, la solution ne change pas. On 
+    <p>Quelqu'un de perspicace aura peut-être remarqué que, si l'on soustrait l'équation <xref ref="eq-sys2x2-1"/> de l'équation <xref ref="eq-sys2x2-2"/>, on obtient l'équation
+    <xref ref="eq-sys2x2-3"/>. On peut faire ici l'hypothèse que si l'on additionne (ou soustrait) à une ligne un multiple d'une autre ligne, la solution ne change pas. On 
     détaillera cette propriété sous peu.</p>
     <definition xml:id="def-opelem">
     <title>Les opérations élémentaires</title>
@@ -290,15 +289,13 @@ est encore valide. Les trois droites sont illustrées à la figure <xref ref="fi
      <title>Les opérations élémentaires</title>
      <statement><p>On considère le système <me>
     \matcolt{1}{2}{-1}{3}{2}{0}{1}{-4}{2}\vecddd{x}{y}{z}=\vecddd{1}{0}{0}
-    </me>. On tente de résoudre ce système en le transformant en un plus simple, à l'aide des opérations élémentaires. La proposition <xref ref="prop-opelemsol"/> viendra
-    justifier ces étapes, et l'algorithme de Gauss-Jordan <xref ref="algo-GJ"/> saura donner une manière méthodique derrière les étapes effectuées ici. L'algorithme clarifiera aussi quand il
-    est convenable d'arrêter.</p></statement>
+    </me>. On tente de résoudre ce système en le transformant en un autre, plus simple, à l'aide des opérations élémentaires. La proposition <xref ref="prop-opelemsol"/> justifiera ces étapes, et l'algorithme de Gauss-Jordan <xref ref="algo-GJ"/> saura donner une structure aux étapes effectuées ici. L'algorithme clarifiera aussi le moment convenable pour arrêter.</p></statement>
      <solution>
-     <p>On obtient, en soustrayant à la ligne deux le double de la ligne un, le SEL équivalent
+     <p>On obtient, en soustrayant de la ligne deux le double de la ligne un, le SEL équivalent
      <me>
      \matcolt{1}{0}{-1}{3}{-4}{0}{1}{-6}{2} \vecddd{x}{y}{z}=\vecddd{1}{-2}{0}
      </me>.
-     À partir de ce nouveau système, on additionne à la ligne trois la ligne un pour obtenir le SEL équivalent
+     À partir de ce nouveau système, on additionne la ligne un à la ligne trois  pour obtenir le SEL équivalent
      <me>
      \matcolt{1}{0}{0}{3}{-4}{3}{1}{-6}{3}\vecddd{x}{y}{z}=\vecddd{1}{-2}{1}
      </me>.
@@ -322,28 +319,28 @@ est encore valide. Les trois droites sont illustrées à la figure <xref ref="fi
      </md>.
      </p>
      <p>Même si les étapes pour y arriver ne sont peut-être pas encore claires, on remarque que le SEL est maintenant
-     triangulaire, et qu'on peut lire directement la valeur de la composante <m>z</m> de la solution, soit <m>z=\frac{1}{3}</m>. En substituant dans la seconde équation du SEL, on détermine <m>y=0</m> et finalement,
-     en remplaçant <m>y,z</m> dans la première ligne on trouve <m>x=\frac{2}{3}</m>.</p>
+     triangulaire et qu'on peut lire directement la valeur de la composante <m>z</m> de la solution, soit <m>z=\frac{1}{3}</m>. En substituant cette valeur pour <m>z</m> dans la seconde équation du SEL, on détermine <m>y=0</m> et finalement,
+     en remplaçant <m>y,z</m> dans la première ligne, on trouve <m>x=\frac{2}{3}</m>.</p>
      <p>Une vérification finale permettra de voir que le vecteur <m>\left(\frac{2}{3},0,\frac{1}{3}\right)</m> est une solution du système original.</p>
      </solution>
      </example>
-     <p>La solution de l'exemple précédent montre que si on arrive à transformer un SEL en utilisant les opérations élémentaires, on peut espérer arriver à un SEL équivalent
+     <p>La solution de l'exemple précédent montre que si l'on arrive à transformer un SEL en utilisant les opérations élémentaires, on peut espérer arriver à un SEL équivalent
      qui sera plus simple à résoudre. Toutefois, des questions demeurent. Est-on assuré que les solutions du nouveau système seront les mêmes que celles du système initial?
-     Qui plus est, si on avait effectué un choix différent d'opérations élémentaires, est-ce qu'on aurait obtenu la même solution? Combien de solutions peut-il y avoir?</p>
-     <p>La méthode de Gauss-Jordan qu'on présentera à la section <xref ref="sssec-GJ"/> donne une manière algorithmique de trouver toutes les solutions à un SEL, peu importe 
-     les opérations élémentaires effectuées. Elle fonctionne entre autres grâce à la proposition suivante.</p>
+     Qui plus est, si l'on avait effectué un choix différent d'opérations élémentaires, aurait-on obtenu la même solution? Combien de solutions peut-il y avoir?</p>
+     <p>La méthode de Gauss-Jordan, qu'on présentera à la section <xref ref="sssec-GJ"/>, donne une manière algorithmique de trouver toutes les solutions à un SEL, peu importe 
+     les opérations élémentaires effectuées. Elle fonctionne, entre autres, grâce à la proposition suivante.</p>
      <proposition xml:id="prop-opelemsol">
      <title>Les opérations élémentaires préservent les solutions</title>
-     <statement><p>Soit <m>A</m> et <m>B</m> deux matrices telles que les systèmes <m>A\vec{x}=\vec{b}</m> et <m>B\vec{y}=\vec{c}</m> sont équivalents. Alors l'ensemble solution
+     <statement><p>Soit <m>A</m> et <m>B</m>, deux matrices telles que les systèmes <m>A\vec{x}=\vec{b}</m> et <m>B\vec{y}=\vec{c}</m> sont équivalents. Alors l'ensemble solution
      à ces systèmes est le même.</p></statement>
      </proposition>
      <proof>
-     <p>Il suffit de montrer que chacune des trois opérations élémentaires préservent les solutions.</p>
+     <p>Il suffit de montrer que chacune des trois opérations élémentaires préserve les solutions.</p>
      <p>Dans un premier temps, si les deux systèmes n'ont pas de solution, alors l'ensemble solution est le même, c'est-à-dire que c'est l'ensemble vide. 
      Si toutefois un des systèmes a au moins une solution, on raisonne comme suit.</p>
-     <p>Il est clair que l'opération d'interchanger deux lignes
+     <p>Il est clair qu'interchanger deux lignes
      ne changera pas la solution, puisque ce sont exactement les mêmes équations. Leur position est un choix arbitraire.</p>
-     <p>Soit <m>\vec{u}</m> une solution au système <m>A\vec{x}=\vec{b}</m>.</p>
+     <p>Soit <m>\vec{u}</m>, une solution au système <m>A\vec{x}=\vec{b}</m>.</p>
      <p> On suppose que <m>B\vec{y}=\vec{c}</m> soit obtenu à partir du premier système
      en multipliant la ligne <m>i</m> par la constante <m>r\in\R, r\neq 0</m>. Puisque <m>\vec{u}</m> est une solution à <m>A\vec{x}=\vec{b}</m>, on a
      <md>
@@ -353,7 +350,7 @@ est encore valide. Les trois droites sont illustrées à la figure <xref ref="fi
      <mrow>b_{i\,1}u_1+b_{i\,2}u_2+\cdots + b_{i\,n}u_n&amp;=c_i</mrow>
      </md>.
      </p>
-     <p>Comme les autres lignes du SEL sont les mêmes, on conclut que <m>\vec{u}</m> est aussi une solution du système <m>B\vec{y}=\vec{c}</m>. Si au contraire on connait 
+     <p>Comme les autres lignes du SEL sont les mêmes, on conclut que <m>\vec{u}</m> est aussi une solution du système <m>B\vec{y}=\vec{c}</m>. Si, au contraire, on connait 
      une solution <m>\vec{v}</m> au système <m>B\vec{y}=\vec{c}</m>, on peut renverser l'ordre du calcul précédent pour montrer que <m>\vec{v}</m> est aussi une solution 
      au système <m>A\vec{x}=\vec{b}</m>.</p>
      <p>On suppose maintenant que la ligne <m>i</m> du système <m>B\vec{y}=\vec{c}</m> est obtenue en ajoutant <m>r</m> fois la ligne <m>j</m> à la ligne <m>i</m>.
@@ -364,16 +361,16 @@ est encore valide. Les trois droites sont illustrées à la figure <xref ref="fi
      <mrow>a_{i\,1}u_1+ra_{j\,1}u_1+a_{i\,2}u_2+ra_{j\,2}u_2+\cdots + a_{i\,n}u_n+ ra_{j\,n}u_n&amp;=c_i</mrow>
      <mrow>b_{i\,1}u_1+b_{i\,2}u_2+\cdots+b_{i\,n}u_n&amp;=c_i</mrow>
      </md>.
-     Ainsi, <m>\vec{u}</m> est aussi une solution du système <m>B\vec{y}=\vec{c}</m>. Si au contraire on connait 
+     Ainsi, <m>\vec{u}</m> est aussi une solution du système <m>B\vec{y}=\vec{c}</m>. Si, au contraire, on connait 
      une solution <m>\vec{v}</m> au système <m>B\vec{y}=\vec{c}</m>, on peut renverser l'ordre du calcul précédent pour montrer que <m>\vec{v}</m> est aussi une solution 
      au système <m>A\vec{x}=\vec{b}</m>.
      </p>
      </proof>
-     <p>Aussi, l'écriture à chaque ligne de la matrice, du vecteur <m>\vecddd{x}{y}{z}</m> et du vecteur <m>\vec{b}</m> était un peu encombrante. On constate en regardant les calculs
+     <p>L'écriture à chaque ligne de la matrice, du vecteur <m>\vecddd{x}{y}{z}</m> et du vecteur <m>\vec{b}</m> était un peu encombrante. On constate, en regardant les calculs,
      que seuls la matrice et le vecteur <m>\vec{b}</m> changent pendant le calcul. On propose la notation suivante, pour simplifier l'écriture.</p>
      <definition xml:id="def-mataug">
      <title>La matrice augmentée</title>
-     <statement><p>Soit <m>A\vec{x}=\vec{b}</m> un système d'équation linéaire <m>m\times n</m>. On définit la matrice augmentée de ce système comme étant la matrice
+     <statement><p>Soit <m>A\vec{x}=\vec{b}</m>, un système d'équation linéaire <m>m\times n</m>. On définit la matrice augmentée de ce système comme étant la matrice
      <me>
      (A|\vec{b})=\begin{pmatrix}a_{1\, 1}&amp;a_{1\, 2}&amp;\cdots &amp; a_{1\, n}&amp; |&amp; b_1\\
 a_{2\, 1}&amp;a_{2\, 2}&amp;\cdots &amp; a_{2\, n}&amp;|&amp; b_2\\
@@ -381,14 +378,14 @@ a_{2\, 1}&amp;a_{2\, 2}&amp;\cdots &amp; a_{2\, n}&amp;|&amp; b_2\\
 a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix}
      </me>.</p></statement>
      </definition>
-     <p>Lors du calcul d'un SEL équivalent, il est possible de travailler avec la matrice augmentée seulement et de facilement la convertir sous la forme SEL par la suite. Ceci sera
+     <p>Lors du calcul d'un SEL équivalent, il est possible de travailler uniquement avec la matrice augmentée seulement et de facilement la convertir sous la forme SEL par la suite. Ceci sera
      illustré dans les exemples subséquents.</p>
      <p>Avant de terminer cette sous-section, on montre que les opérations élémentaires peuvent être vues comme étant tout simplement une application du produit matriciel.
      Cette constatation a des applications plus théoriques que pratiques, mais on en verra l'utilité prochainement.</p>
      <definition xml:id="def-matelem">
      <title>Les matrices élémentaires</title>
      <statement><p>
-     Considérons la matrice identité d'ordre <m>n</m>. Une matrice élémentaire est une matrice obtenue à partir de la matrice identité en lui effectuant une et une seule opération
+     Considérons la matrice identité d'ordre <m>n</m>. Une matrice élémentaire est une matrice obtenue à partir de la matrice identité en effectuant sur celle-ci une et une seule opération
      élémentaire.
      </p></statement>
      </definition>
@@ -401,7 +398,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      <xref ref="sageex-matelem"/>.
      </p></statement>
      <solution>
-     <p>La première opération élémentaire qui a été effectuée était de soustraire le double de la ligne un à la ligne deux. Si on effectue cette opération élémentaire sur la matrice
+     <p>La première opération élémentaire effectuée soustrayait le double de la ligne un à la ligne deux. Si l'on effectue cette opération élémentaire sur la matrice
      identité, on obtient
      <me>
      \matcolt{1}{0}{0}{0}{1}{0}{0}{0}{1}\sim\matcolt{1}{-2}{0}{0}{1}{0}{0}{0}{1}=E_1
@@ -410,7 +407,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      notation suivante, qu'on écrira au-dessus du symbole <m>\sim</m>.
      <ol>
      <li><p>Pour illustrer la permutation de la ligne <m>i</m> avec la ligne <m>j</m>, on utilise la notation <m>L_i \leftrightarrow L_j</m>.</p></li>
-     <li><p>Pour illustrer que la ligne <m>i</m> est mutipliée par la constante non nulle <m>r</m>, on utilise la notation <m>rL_i\rightarrow L_i</m>.</p></li>
+     <li><p>Pour illustrer que la ligne <m>i</m> est multipliée par la constante non nulle <m>r</m>, on utilise la notation <m>rL_i\rightarrow L_i</m>.</p></li>
      <li><p>Finalement, pour illustrer qu'on ajoute <m>r</m> fois la ligne <m>j</m> à la ligne <m>i</m>, on utilise la notation <m>L_i+rL_j\rightarrow L_i</m>.</p></li>
      </ol>
      </p>
@@ -428,7 +425,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      <statement>
      <p>Les matrices élémentaires sont toutes inversibles. De plus, si 
      <ol><li><p>
-     <m>E_{L_i\leftrightarrow L_j}</m> est la matrice élémentaire qui change la ligne <m>i</m> avec 
+     <m>E_{L_i\leftrightarrow L_j}</m> est la matrice élémentaire qui interchange la ligne <m>i</m> avec 
      la ligne <m>j</m>, alors <m>E_{L_i\leftrightarrow L_j}^{-1}=E_{L_i\leftrightarrow L_j}</m></p></li>
      <li><p><m>E_{rL_i}</m> est la matrice qui multiplie la ligne <m>i</m> par <m>r\neq 0</m>, alors <m>E_{rL_i}^{-1}=E_{\frac{1}{r}L_i}</m>.</p></li>
      <li><p><m>E_{L_i+rL_j}</m> est la matrice élémentaire qui ajoute à la ligne <m>i</m>, <m>r</m> fois la ligne <m>j</m>, alors <m>E_{L_i+rL_j}^{-1}=E_{L_i-rL_j}</m>. </p></li>
@@ -442,9 +439,9 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      <computation xml:id="sageex-matelem">
      <title>Les matrices élémentaires sur Sage</title>
      <p>Les matrices élémentaires peuvent être codées avec Sage. La syntaxe est <c>elementary_matrix(n, row1=i,row2=j, scale=r)</c>, où <m>n</m> est la taille de la matrice carrée. 
-     Selon l'opération que l'on veut effectuer, certains arguments ne seront pas utilisés. Par exemple, si on ne met pas <m>r</m>, l'opération est d'interchanger les lignes. Si on omet le <m>j</m>, l'opération est
-     de multiplier la ligne <m>i</m> par <m>r</m> et si les trois arguments sont présents, l'opération est <m>rL_j+L_i\rightarrow L_i</m>.</p>
-     <p>On regarde cela en action, en utilisant les matrices élémentaires de l'exemple <xref ref="ex-matelem"/>.</p>
+     Selon l'opération que l'on veut effectuer, certains arguments ne seront pas utilisés. Par exemple, si l'on ne met pas <m>r</m>, l'opération est d'interchanger les lignes. Si l'on omet le <m>j</m>, l'opération est
+     de multiplier la ligne <m>i</m> par <m>r</m>, et si les trois arguments sont présents, l'opération est <m>rL_j+L_i\rightarrow L_i</m>.</p>
+     <p>On regarde l'utilisation de ces matrices avec Sage, en utilisant les matrices élémentaires de l'exemple <xref ref="ex-matelem"/>.</p>
      <sage>
      <input>
      E1=elementary_matrix(3,row1=1,row2=0,scale=-2)
@@ -454,7 +451,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
      E5=elementary_matrix(3,row1=2,scale=-2/3)
      </input>
      </sage>
-     <p>L'avantage de ces matrices, c'est que les opérations élémentaires peuvent être vues comme la multiplication par la gauche d'une matrice élémentaire. Afin de voir cela,
+     <p>L'avantage de ces matrices, c'est que les opérations élémentaires peuvent être vues comme la multiplication par la gauche d'une matrice élémentaire. Pour l'observer,
      on propose de refaire la simplification de l'exemple <xref ref="ex-opelem"/> à l'aide des matrices <m>E_1</m> à <m>E_5</m>. On introduit également la matrice augmentée avec
      Sage.</p>
      <sage>
@@ -487,7 +484,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <definition xml:id="def-matrref">
     <title>Forme échelonnée réduite d'une matrice</title>
     <statement>
-    <p>Soit <m>A</m> une matrice de taille <m>m\times n</m>. Le premier élément non nul de chaque ligne est appelé le pivot de cette ligne.</p>
+    <p>Soit <m>A</m>, une matrice de taille <m>m\times n</m>. Le premier élément non nul de chaque ligne est appelé <em>le pivot</em> de cette ligne.</p>
     <p>On dit que <m>A</m> est échelonnée réduite si elle satisfait chacune des caractéristiques suivantes:</p>
     <list xml:id="li-rref">
     <title>Condition pour être échelonnée réduite</title>
@@ -502,7 +499,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <p>Lorsqu'une matrice est sous la forme échelonnée réduite, la position de ses pivots sera particulièrement importante.</p>
     <definition xml:id="def-pivlib">
     <title>Pivots, variables liées et variables libres</title>
-    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> et <m>B</m> sa forme échelonnée réduite. <fn>La proposition <xref ref="prop-erlunique"/> confirmera qu'il n'y
+    <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m> et <m>B</m> sa forme échelonnée réduite. <fn>La proposition <xref ref="prop-erlunique"/> confirmera qu'il n'y
      a qu'une forme échelonnée réduite pour une matrice donnée.</fn> Si la colonne <m>j</m> de la matrice <m>B</m> contient un pivot, on dit que la colonne <m>j</m> est une colonne pivot pour la matrice <m>A</m> et que
      la variable <m>x_j</m> est une variable pivot, ou liée.</p>
      
@@ -530,8 +527,8 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     au pivot de la première ligne, ne contient que des zéros, sauf pour l'entrée pivot. La condition quatre est donc respectée.</p>
     <p>Comme une des quatre conditions n'est pas respectée, la matrice n'est pas échelonnée réduite.</p>
     </solution>
-    <solution><p>La matrice <m>B</m> respecte la première condition par défaut, car elle ne possède pas de ligne nulle. De plus les deux pivots sont égaux à <m>1</m> et le 
-    second se trouve à la droite du premier, donc les conditions deux et trois sont respectées. Par contre, la deuxième colonne est pivot et contient des entrées non nulles (le <m>2</m>) autre
+    <solution><p>La matrice <m>B</m> respecte la première condition par défaut, car elle ne possède pas de ligne nulle. De plus, les deux pivots sont égaux à <m>1</m> et le 
+    second se trouve à la droite du premier, donc les conditions deux et trois sont respectées. Par contre, la deuxième colonne est pivot et contient des entrées non nulles (le <m>2</m>) autres
     que le pivot de la deuxième ligne. Elle ne respecte donc pas la condition quatre.</p>
     <p>
     Comme une des quatre conditions n'est pas respectée, la matrice n'est pas échelonnée réduite.
@@ -539,15 +536,15 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <solution><p>
     La matrice <m>C</m> ne possède pas de ligne nulle, donc elle respecte la condition un. Les pivots sont tous égaux à <m>1</m>, ce qui fait que la condition deux est 
     respectée. Par contre, le second pivot est à gauche du premier. La troisième condition n'est donc pas respectée. La dernière condition l'est toutefois, car toutes les colonnes
-    pivots ne contiennent que des zéros aux endroits non pivots.
+    pivots ne contiennent que des zéros aux endroits non-pivots.
     </p>
     <p>
     Comme une des quatre conditions n'est pas respectée, la matrice n'est pas échelonnée réduite.
     </p></solution>
     <solution>
     <p>
-    La matrice <m>D</m> contient une ligne de zéros, qui se trouve dans le bas de la matrice. La première condition est respectée. De plus, les pivots sont tous égaux à <m>1</m> et
-    se trouvent à droite les uns des autres, lorsqu'on regarde les lignes de haut en bas. Les conditions deux et trois sont aussi respectées. Finalement, les colonnes pivots <m>2</m> et <m>3</m> ne contiennent que des zéros aux endroits non pivots.
+    La matrice <m>D</m> contient une ligne de zéros qui se trouve dans le bas de la matrice. La première condition est respectée. De plus, les pivots sont tous égaux à <m>1</m> et
+    se trouvent à droite les uns des autres, lorsqu'on regarde les lignes de haut en bas. Les conditions deux et trois sont aussi respectées. Finalement, les colonnes pivots <m>2</m> et <m>3</m> ne contiennent que des zéros aux endroits non-pivots.
     La condition quatre est donc aussi respectée.
     </p>
     <p>Comme les quatre conditions sont respectées, la matrice est échelonnée réduite.</p>
@@ -556,14 +553,14 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <p>
     La matrice <m>E</m> contient une ligne de zéro, soit la deuxième. Toutefois, la ligne trois contient des entrées non nulles. La première condition n'est donc pas respectée.
     Il y a deux pivots égaux à <m>1</m>, dans la ligne un et dans la ligne trois. Le pivot de la ligne trois se trouvant à droite de celui de la ligne un, les conditions 
-    deux et trois sont respectées. Finalement, les colonnes pivots (un et trois) ne contiennent que des zéros aux endroits non pivot. La quatrième condition est aussi respectée.
+    deux et trois sont respectées. Finalement, les colonnes pivots (un et trois) ne contiennent que des zéros aux endroits non-pivot. La quatrième condition est aussi respectée.
     </p>
-    <p>Comme un des quatre conditions n'est pas respectée, la matrice n'est pas échelonnée réduite.</p>
+    <p>Comme une des quatre conditions n'est pas respectée, la matrice n'est pas échelonnée réduite.</p>
     </solution>
     </example>
     <remark>
     <title>Origine du terme "échelon"</title>
-    <p>Le mot échelonnée dans la forme échelonnée réduite vient d'échelle. On peut en effet percevoir un certain escalier en regardant les pivots d'une matrice
+    <p>Le mot <em>échelonnée</em> dans la forme échelonnée réduite vient d'<em>échelle</em>. On peut en effet percevoir un certain effet d'escalier en regardant les pivots d'une matrice
     échelonnée réduite.</p>
     <figure xml:id="fig-matechelon">
   <caption>Justification du mot "échelon"</caption>
@@ -580,8 +577,8 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <proposition xml:id="prop-erlunique">
     <title>La forme échelonnée réduite d'une matrice est unique</title>
     <statement>
-    <p>Soit <m>A</m> une matrice de taille <m>m\times n</m>. Par une suite d'opérations élémentaires, on peut arriver à une forme échelonnée réduite. Peu importe le choix des opérations élémentaires
-    ou l'ordre de celles-ci, la forme échelonnée réduite sera toujours la même. Pour cette raison on définit
+    <p>Soit <m>A</m>, une matrice de taille <m>m\times n</m>. Par une suite d'opérations élémentaires, on peut arriver à une forme échelonnée réduite. Peu importe le choix des opérations élémentaires
+    ou l'ordre de celles-ci, la forme échelonnée réduite sera toujours la même. Pour cette raison, on définit
     <m>
     rref(A)=erl(A)
     </m>
@@ -593,28 +590,28 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <p>On utilise une preuve par induction <xref provisional="annexe preuves"/> sur le nombre de colonnes de la matrice <m>A</m>.
     <ol>
     <li>
-    <p>Le cas <m>n=1</m>:  Si la matrice <m>A</m> n'est qu'un vecteur colonne, alors soit ce vecteur est nul, auquel cas il est déjà sous la forme rref. Toutes les  opérations sur les lignes ne change pas
+    <p>Le cas <m>n=1</m>:  Si la matrice <m>A</m> n'est qu'un vecteur colonne, alors ce vecteur peut être est nul, auquel cas il est déjà sous la forme rref. Toutes les  opérations sur les lignes ne changent pas
     le vecteur nul et donc sa forme rref est unique. Si le vecteur n'est pas le vecteur nul, alors il existe au moins une entrée non nulle. On prend la première composante
-    non nulle du vecteur, disons en position <m>i</m>. Celle-ci est forcément un pivot de sa ligne. Peu importe sa valeur <m>r\neq 0</m>, on peut la normaliser à <m>1</m> en effectuant l'opétation <m>\matsimils{i}{\frac{1}{r}}</m>.
+    non nulle du vecteur, disons en position <m>i</m>. Celle-ci est forcément un pivot de sa ligne. Peu importe sa valeur <m>r\neq 0</m>, on peut la normaliser à <m>1</m> en effectuant l'opération <m>\matsimils{i}{\frac{1}{r}}</m>.
     Par la suite, chaque entrée non nulle <m>s</m> en  position <m>j>i</m> peut facilement être transformée en <m>0</m> à l'aide d'une application de l'opération <m>\matsimilc{i}{-s}{j}</m>. Le vecteur obtenu à la
-    suite de ces opérations contient un <m>1</m> en position <m>i</m>, la première entrée non nulle, et doit nécessairement avoir des <m>0</m> en-dessous. La forme rref est aussi unique dans ce cas.
+    suite de ces opérations contient un <m>1</m> en position <m>i</m>, la première entrée non nulle, et doit nécessairement avoir des <m>0</m> en dessous. La forme rref est aussi unique dans ce cas.
     </p></li>
-    <li><p>On suppose que pour une matrice de taille <m>m\times n</m>, la forme rref est unique.</p></li>
-    <li><p>Soit <m>A</m> une matrice de taille <m>m\times (n+1)</m> et soit <m>B,C</m> deux matrices échelonnée réduites équivalentes à <m>A.</m> De plus, on pose
-    <m>A^{'}</m> la matrice que l'on obtient de  <m>A</m> en supprimant la dernière colonne. Peu importe la chaine d'opérations élémentaires menant à <m>B</m> ou <m>C</m>,
+    <li><p>On suppose que, pour une matrice de taille <m>m\times n</m>, la forme rref est unique.</p></li>
+    <li><p>Soit <m>A</m>, une matrice de taille <m>m\times (n+1)</m> et soit <m>B,C</m>, deux matrices échelonnées réduites équivalentes à <m>A.</m> De plus, on pose
+    <m>A^{'}</m>, la matrice que l'on obtient de  <m>A</m> en supprimant la dernière colonne. Peu importe la chaine d'opérations élémentaires menant à <m>B</m> ou <m>C</m>,
     la matrice <m>A^{'}</m> est aussi transformée sous une forme échelonnée réduite lorsque ces opérations sont appliquées à <m>A</m>. </p>
     <p>
     Parce que <m>A^{'}</m> est une matrice de taille <m>m\times n</m>, l'hypothèse d'induction affirme que sa forme rref est unique. Donc si <m>B</m> et <m>C</m> sont différentes,
-    elle doivent l'être dans la dernière colonne seulement.
+    elles le sont uniquement dans la dernière colonne.
     </p>
     <p>On considère maintenant un vecteur <m>\vec{x}</m> tel que <m>A\vec{x}=\vec{0}</m>. On sait qu'au moins le vecteur <m>\vec{0}</m> est une solution à cette équation, mais
-    pas nécessairement la seule. Dans tous les cas, la proposition <xref ref="prop-opelemsol"/> dit que <m>B\vec{x}=\vec{0}</m> et <m>C\vec{x}=\vec{0}</m>. En particulier
+    qu'il n'est pas nécessairement la seule solution. Dans tous les cas, la proposition <xref ref="prop-opelemsol"/> dit que <m>B\vec{x}=\vec{0}</m> et <m>C\vec{x}=\vec{0}</m>. En particulier
     <m>(B-C)\vec{x}=\vec{0}</m>. En rappelant l'équation <xref ref="eq-matvecprodgen"/> et le fait que les <m>n</m> premières colonnes des matrices <m>B</m> et <m>C</m> concordent,
     la seule équation qui reste dans le produit <m>(B-C)\vec{x}=\vec{0}</m> est <m>x_{n+1}\vecl{(b-c)}_{n+1}=\vec{0}</m>.</p>
     <p>Si <m>\vecl{(b-c)}_{n+1}=\vec{b}_{n+1}-\vec{c}_{n+1}=\vec{0}</m>, alors les colonnes <m>n+1</m> des matrices <m>B</m> et <m>C</m> sont aussi égales, donnant <m>B=C</m> et 
     l'unicité de la forme échelonnée réduite. Sinon, comme les matrices <m>B</m> et <m>C</m> sont rref, elles doivent n'avoir que des <m>0</m> et un <m>1</m>.
-    Ce <m>1</m> est forcément à la même position, car une des conditions d'être rref est que les lignes de <m>0</m> soit dans le bas de la matrice. Les <m>1</m> se trouvent donc sous la dernière ligne de <m>A^{'}</m> ayant un pivot.
-    Dans ce cas aussi, la dernière colonne concorde et on a <m>B=C</m>.</p>
+    Ce <m>1</m> est forcément à la même position, car une des conditions d'être rref est que les lignes de <m>0</m> soient dans le bas de la matrice. Les <m>1</m> se trouvent donc sous la dernière ligne de <m>A^{'}</m> ayant un pivot.
+    Dans ce cas aussi, la dernière colonne concorde et l'on a <m>B=C</m>.</p>
     </li>
     </ol>
     </p>
@@ -626,13 +623,13 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <algorithm xml:id="algo-GJ">
     <title>La méthode de Gauss-Jordan</title>
     <statement>
-    <p>Soit <m>A</m> une matrice de taille <m>m\times n</m>. Il est possible d'obtenir la forme échelonnée réduite de <m>A, rref(A)</m>, en suivant le processus suivant:</p>
+    <p>Soit <m>A</m>, une matrice de taille <m>m\times n</m>. Il est possible d'obtenir la forme échelonnée réduite de <m>A, rref(A)</m>, en suivant le processus suivant:</p>
     <list xml:id="li-GJ">
     <title>Algorithme de Gauss-Jordan</title>
     <ol>
     <li xml:id="li-GJpivdown"><p>Si <m>i</m> n'est pas encore défini, on pose <m>i=1</m>. Si <m>i=m</m>, on saute à l'étape suivante. Sinon, si <m>i&lt;m</m>, on augmente <m>i</m> de <m>1</m>.
     <ol>
-    <li><p>Si possible, échanger la ligne <m>i</m> avec une autre ligne (<m>j>i</m>) de sorte à avoir un pivot non nul dans la colonne la plus à gauche possible.</p></li>
+    <li><p>Si possible, échanger la ligne <m>i</m> avec une autre ligne (<m>j>i</m>) de manière à avoir un pivot non nul dans la colonne la plus à gauche possible.</p></li>
     <li xml:id="li-GJpiv1"><p>Si nécessaire, multiplier la nouvelle ligne <m>i</m> par la constante appropriée pour avoir son pivot égal à <m>1</m>.</p></li>
     <li><p>Utiliser l'opération <m>rL_i+L_j\rightarrow L_j</m> pour que chaque entrée sous le pivot soit nulle. (<m>j&lt;i</m>).
     </p></li>
@@ -646,11 +643,10 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </algorithm>
     <remark xml:id="rem-GJeff">
     <title>L'efficacité de l'algorithme</title>
-    <p>Dans certaines étapes de <xref ref="algo-GJ">l'algorithme de Gauss-Jordan </xref>, il peut être avantageux au niveau des calculs de sélectionner une ligne en particulier plutôt
-    qu'une autre. Aussi, on peut vouloir retarder <xref ref="li-GJpiv1"/> afin d'éviter de travailler avec des fractions. L'algorithme décrit une manière automatique d'obtenir
+    <p>Dans certaines étapes de <xref ref="algo-GJ">l'algorithme de Gauss-Jordan </xref>, il peut être avantageux de sélectionner une ligne en particulier afin de simplifier les calculs. Aussi, on peut vouloir retarder <xref ref="li-GJpiv1"/> afin d'éviter de travailler avec des fractions. L'algorithme décrit une manière automatique d'obtenir
     la forme échelonnée réduite, un peu comme le ferait un ordinateur.</p>
     
-    <p>Également, si on se limite à ne faire que l'étape <xref ref="li-GJpivdown"/>, sans nécessairement avoir les pivots égaux à <m>1</m>, on obtient l'algorithme de Gauss.
+    <p>De même, si l'on se limite à ne faire que l'étape <xref ref="li-GJpivdown"/>, sans nécessairement avoir les pivots égaux à <m>1</m>, on obtient l'algorithme de Gauss.
     Une matrice ainsi transformée serait alors sous forme échelonnée seulement (pas réduite). L'exemple <xref ref="ex-opelem"/> était un exemple d'application de l'algorithme de Gauss seulement, soit
     sans faire l'étape <xref ref="li-GJpivup"/>.</p>
     </remark>
@@ -667,7 +663,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </p></statement>
     <solution>
     <p>
-    La matrice augmentée associé au SEL est
+    La matrice augmentée associée au SEL est
     <me>
     (A|\vec{b})=\begin{pmatrix}0&amp; -7&amp;-5&amp;|&amp;2 \\
                                2&amp;6&amp;4&amp;|&amp;6\\
@@ -710,7 +706,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
                                </ol></p></li>
     <li><p>On a maintenant <m>i=2</m>.</p>
     <p><ol>
-    <li><p>Les entrées de la seconde colonne à partir de la ligne deux ne sont pas toutes nulles, il y aura donc un pivot dans la colonne deux. Techniquement, l'algorithme
+    <li><p>Les entrées de la seconde colonne à partir de la ligne deux ne sont pas toutes nulles, il y aura donc un pivot dans la colonne deux. En principe, l'algorithme
     dit de passer à l'étape suivante et de multiplier par <m>-\frac{1}{7}</m>. On se sert ici de la remarque <xref ref="rem-GJeff"/> pour simplifier les calculs, en permutant les lignes deux et trois.
     <me>\begin{pmatrix}
                                1&amp;3&amp;2&amp;|&amp;3\\
@@ -752,7 +748,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </ol>
     </p></li>
     <li><p>Puisque <m>i=m=3</m>, on passe à la deuxième étape de l'algorithme.</p></li>
-    <li><p>Pour chaque pivot, on veut mettre des zéros au-dessus de la valeur <m>1</m> qui est pivot. On a trois pivots.
+    <li><p>Pour chaque pivot, on veut obtenir des zéros au-dessus de la valeur <m>1</m> qui est pivot. On a trois pivots.
     <ol>
     <li><p>On commence avec le pivot sur la deuxième ligne. On souhaite transformer le <m>3</m> de la ligne un en  <m>0</m> en utilisant la ligne deux.
     <me>
@@ -805,10 +801,10 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     </p>
     </statement>
     <solution>
-    <p>On peut travailler de manière efficace ici. Dans le sens où, il n'est pas nécessaire d'échelonner la matrice pour chaque système. En effet, peu importe la chaine d'opérations élémentaires effectuées pour
+    <p>On peut travailler de manière efficace. Il n'est pas nécessaire d'échelonner la matrice pour chaque système. En effet, peu importe la chaine d'opérations élémentaires effectuées pour
     échelonner le SEL dans le cas du premier système, cette chaine fonctionnera aussi pour le deuxième SEL. On peut donc augmenter la matrice des deux vecteurs <m>\vecddd{0}{1}{0},\vecddd{0}{0}{1}</m> et effectuer les opérations sur cette matrice augmentée.
-    De plus, les opérations élémentaires ayant servies à trouver la solution dans l'exemple <xref ref="ex-opelem"/> peuvent être réutilisées ici, puisqu'elles consistent en l'étape un de l'algorithme de Gauss-Jordan <xref ref="algo-GJ"/>, hormis le fait 
-    que les pivots ne sont pas égaux à <m>1</m>. Il faut par contre refaire les calculs sur la partie augmentée.
+    De plus, les opérations élémentaires ayant servies à trouver la solution dans l'exemple <xref ref="ex-opelem"/> peuvent être réutilisées ici, puisqu'elles constituent l'étape un de l'algorithme de Gauss-Jordan <xref ref="algo-GJ"/>, hormis le fait 
+    que les pivots ne sont pas égaux à <m>1</m>. Il faut, par contre, refaire les calculs sur la partie augmentée.
     <md>
     <mrow>\begin{pmatrix}
     1&amp; 3&amp;1&amp;|&amp; 0&amp; 0\\
@@ -835,7 +831,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     0&amp; 1&amp;\frac{3}{2}&amp;|&amp; -\frac{1}{4}&amp; 0\\
     0&amp; 0&amp;1&amp;|&amp; -\frac{1}{2}&amp; -\frac{2}{3}
     \end{pmatrix}</mrow>
-    <intertext>Dans la prochaine étape, on se permet de faire deux étapes en une, ce qui permet de réduire l'écriture.</intertext>
+    <intertext>Dans la prochaine étape, on se permet de faire deux étapes en une, ce qui réduit l'écriture.</intertext>
     <mrow tag="star" xml:id="eq-deuxopelem"> &amp;\overset{-\frac{3}{2}L_3+L_2\rightarrow L_2}{\overset{-L_3+L_1\rightarrow L_1}{\sim}}\begin{pmatrix} 1&amp; 3&amp;0&amp;|&amp; \frac{1}{2}&amp; \frac{2}{3}\\
     0&amp; 1&amp;0&amp;|&amp; \frac{1}{2}&amp; 1\\
     0&amp; 0&amp;1&amp;|&amp; -\frac{1}{2}&amp; -\frac{2}{3}
@@ -860,13 +856,13 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     <remark>
     <title>Les possibilités d'opérations</title>
     <p>
-    En combinant plusieurs opérations élémentaires, on obtient une opération valide (généralement pas élémentaire) pour échelonner une matrice. Ainsi, l'opération 
+    En combinant plusieurs opérations élémentaires, on obtient une opération valide (qui n'est généralement pas élémentaire) pour échelonner une matrice. Ainsi, l'opération 
     <m> 3L_2+5L_1\rightarrow L_2</m> peut être vue comme la combinaison des opérations élémentaires <m>3L_2\rightarrow L_2</m> suivie de l'opération <m>5L_1+L_2\rightarrow L_2</m>.
-    Bien qu'elle ne soit pas élémentaire, cette opération peut être pratique pour échelonner des matrices, comme dans l'exemple suivant.
+    Bien qu'elle ne soit pas élémentaire, cette opération s'avère pratique pour échelonner des matrices, comme dans l'exemple suivant.
     <me>
     \matcold{3}{-5}{1}{2}\overset{3L_2+5L_1\rightarrow L_2}{\sim}\matcold{3}{0}{1}{11}
     </me>.
-    L'opération permet d'obtenir le <m>0</m> sous le pivot de la ligne un, sans avoir à mettre ce pivot égal à <m>1</m>, ce qui aurait introduit une fraction dans la seconde colonne.
+    L'opération permet d'obtenir le <m>0</m> sous le pivot de la ligne un, sans que ce pivot soit égal à <m>1</m>, ce qui aurait introduit une fraction dans la seconde colonne.
     </p>
     <p>Bien que permises, on fait le choix d'éviter ces opérations. On voudra de toute manière déléguer beaucoup des calculs à l'ordinateur. On choisit donc de se concentrer sur les
     opérations élémentaires. Il est toutefois possible d'éviter les fractions avec les opérations élémentaires, comme dans l'exemple suivant.
@@ -874,8 +870,7 @@ a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}&amp; |&amp;b_m\\ \end{pmatrix
     \matcold{3}{2}{1}{2}\overset{-L_2+L_1\rightarrow L_1}{\sim}\matcold{1}{2}{-1}{2}
     </me>.
     Cette opération rend le pivot de la première ligne égal à <m>1</m> sans créer de fraction dans la deuxième colonne.</p>
-    <p>Finalement, on peut se permettre de faire plusieurs opérations en une étape, comme lors de l'équation <xref ref="eq-deuxopelem"/> de l'exemple <xref ref="ex-GJchaine"/>. Il est 
-    par contre important de retenir qu'on ne doit pas utiliser une ligne qui a été modifiée auparavant dans la même étape pour modifier une autre ligne. Voir l'exercice <xref provisional="ex-GJremexo"/></p>
+    <p>Finalement, on peut se permettre de faire plusieurs opérations en une étape, comme lors de l'équation <xref ref="eq-deuxopelem"/> de l'exemple <xref ref="ex-GJchaine"/>. Par contre, il est important de retenir qu'on ne doit pas utiliser une ligne qui a été modifiée auparavant dans la même étape pour modifier une autre ligne. Voir l'exercice <xref provisional="ex-GJremexo"/></p>
     </remark>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-GJ">
@@ -888,7 +883,7 @@ show("A=",A)
 show("rref(A)=",A.rref())
     </input>
     </sage>
-    <p>Pour résoudre un système d'équations linéaires <m>A\vec{x}=\vec{b}</m>, il existe plusieurs options. Laquelle on choisit dépendra parfois des informations que l'on veut avoir, en plus de la solution.
+    <p>Pour résoudre un système d'équations linéaires <m>A\vec{x}=\vec{b}</m>, il existe plusieurs possibilités. En plus de la solution au système, les informations supplémentaires que l’on peut obtenir guideront le choix parmi ces possibilités. 
     Dans un premier temps, on peut augmenter la matrice <m>A</m> avec le vecteur <m>\vec{b}</m> et obtenir la forme échelonnée réduite de la matrice augmentée. La dernière colonne contient alors 
     la solution.</p>
     <sage>
@@ -900,7 +895,7 @@ show("rref(A|b)=",(A.augment(b)).rref())
     </input>
     </sage>
     <p>Une autre option consiste à utiliser la commande <c>A.solve_right(b)</c> (le <c>_right</c> fait référence à l'équation <m>A\vec{x}=\vec{b}</m>, où le vecteur <m>\vec{x}</m>
-    est à droite, plutôt qu'à l'équation <m>x\vec{A}=\vec{b}</m>). Cette commande ne donne que la solution au système, pas la matrice échelonnée. Donc s'il est pratique 
+    est à droite, plutôt qu'à l'équation <m>x\vec{A}=\vec{b}</m>). Cette commande ne donne que la solution au système, pas la matrice échelonnée. Donc, s'il est pratique 
     de l'avoir, on utilisera l'échelonnage.</p>
     <sage>
     <input>
@@ -908,8 +903,8 @@ show("rref(A|b)=",(A.augment(b)).rref())
     </input>
     </sage>
     
-    <p>La commande <c>A.pivots()</c> retourne la position des colonnes pivots. Attention, on rappelle que Sage commence sa numérotation à <m>0</m> et donc la deuxième colonne
-    sera indicée par <m>1</m>.</p>
+    <p>La commande <c>A.pivots()</c> retourne la position des colonnes pivots. Attention, on rappelle que Sage commence sa numérotation à <m>0</m>, la deuxième colonne
+    sera donc indicée par <m>1</m>.</p>
     <sage>
     <input>
 A=matrix([[4,3,1],[24,18,4],[16,12,2]])
@@ -921,19 +916,25 @@ show("Les pivots sont en position ", A.pivots())
     </subsection>
     
     <conclusion xml:id="concl-GJ">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    <p>Les points importants de cette section sont
+    <p>Les points importants de cette section sont:
     <ul>
-    <li><p>La définition d'un <xref ref="def-SEL">système d'équations linéaires</xref> et la matrice associée au SEL.</p></li>
-    <li><p>Les <xref ref="def-opelem">opérations</xref> et les <xref ref="def-matelem">matrices</xref> élémentaires.</p></li>
-    <li><p>Le fait que les opérations élémentaires préservent les solutions d'un système.</p></li>
-    <li><p>La notion de <xref ref="def-mataug">matrice augmentée</xref>.</p></li>
-    <li><p>La notion de variable <xref ref="def-pivlib"> pivot et libre </xref> et la <xref ref="def-matrref">forme échelonnée réduite</xref> d'une matrice.</p></li>
+    <li><p>La définition d'un <xref ref="def-SEL">système d'équations linéaires</xref> et la matrice associée au SEL;</p></li>
+    <li><p>Les <xref ref="def-opelem">opérations</xref> et les <xref ref="def-matelem">matrices</xref> élémentaires;</p></li>
+    <li><p>Le fait que les opérations élémentaires préservent les solutions d'un système;</p></li>
+    <li><p>La notion de <xref ref="def-mataug">matrice augmentée</xref>;</p></li>
+    <li><p>La notion de variable <xref ref="def-pivlib"> pivot et libre </xref> et la <xref ref="def-matrref">forme échelonnée réduite</xref> d'une matrice;</p></li>
     <li><p><xref ref="algo-GJ">L'algorithme de Gauss-Jordan</xref>, pour échelonner des matrices.</p></li>
     </ul>
     </p>
-    <p>De plus, les commandes Sage utiles comme <c>A.augment(b)</c> pour augmenter la matrice <m>A</m> du vecteur <m>\vec{b}</m>, la commande <c>elementary_matrix</c> pour obtenir
-    une matrice élémentaire, la commande <c>A.rref()</c> pour avoir la forme échelonnée réduite d'une matrice, <c>A.solve_right(b)</c> pour résoudre un SEL et <c>A.pivots()</c> pour avoir
-    la position des colonnes pivots.</p>
+    <p>De plus, les commandes Sage utiles sont
+    <ul>
+    <li><p>la commande <c>A.augment(b)</c> pour augmenter la matrice <m>A</m> du vecteur <m>\vec{b}</m>;</p></li>
+    <li><p>la commande <c>elementary_matrix</c> pour obtenir une matrice élémentaire;</p></li>
+    <li><p>la commande <c>A.rref()</c> pour avoir la forme échelonnée réduite d'une matrice;</p></li>
+    <li><p>la commande <c>A.solve_right(b)</c> pour résoudre un SEL;</p></li>
+    <li><p>la commande <c>A.solve_right(b)</c> pour résoudre un SEL et <c>A.pivots()</c> pour avoir
+    la position des colonnes pivots.</p></li>
+    </ul></p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
    <xi:include href="Exercices_GJ.xml" />
