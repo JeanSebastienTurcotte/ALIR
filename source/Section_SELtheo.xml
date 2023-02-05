@@ -11,19 +11,19 @@
 <!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
 
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-SELtheo">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
-    <title> Les systèmes avec aucune ou une infinité de solutions</title>
+    <title> Les systèmes qui n'ont aucune ou  ayant une infinité de solutions</title>
     <introduction xml:id= "intro-SELtheo">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
         <p>Aller aux <xref ref="exo-SELtheo">exercices</xref> de la section.</p>
-    <p>Dans la section <xref ref="sec-GJ"/>, on a introduit <xref ref="algo-GJ"> l'algorithme de Gauss-Jordan </xref> et on l'a utilisé pour résoudre des systèmes
+    <p>Dans la section <xref ref="sec-GJ"/>, on a introduit <xref ref="algo-GJ"> l'algorithme de Gauss-Jordan </xref> que l'on a utilisé pour résoudre des systèmes
     d'équations linéaires, en échelonnant la matrice augmentée du système. Dans tous les exemples, on a réussi à trouver une solution. On sait toutefois qu'on peut associer
     un système d'équations linéaires à deux équations et deux inconnues à la position relative de deux droites dans <m>\R^2</m> et un système à trois équations et trois
-    inconnues à la position relative de trois plans dans <m>\R^3</m>. Dans certaines situations, il peut n'y avoir aucune solution, si les droites sont parallèles par exemple,
-    ou une infinité de solutions. Comment cela se manifeste dans la forme échelonnée réduite d'une matrice?</p>
+    inconnues à la position relative de trois plans dans <m>\R^3</m>. Dans certaines situations, il peut n'y avoir aucune solution,par exemple si les droites sont parallèles ,
+    ou une infinité de solutions. Comment cela se manifeste-t-il dans la forme échelonnée réduite d'une matrice?</p>
     
     <p>On considère les deux matrices échelonnées réduites suivantes:
     <men xml:id="eq-infsol">A=\begin{pmatrix} 1&amp; 0 &amp; 2 &amp;| &amp; 1 \\ 0&amp; 1 &amp; -3 &amp; |&amp; 2 \\ 0&amp; 0&amp; 0&amp;|&amp; 0\end{pmatrix}</men>
     <men xml:id="eq-aucsol">B=\begin{pmatrix} 1&amp; 0 &amp;2&amp;| &amp; 1 \\ 0&amp; 1 &amp; -3 &amp; |&amp; 2 \\  0 &amp;0&amp; 0&amp; |&amp; 1\end{pmatrix}</men>.
-    La forme de la première matrice est signe d'une infinité de solutions au système d'équations associé, alors que la forme de la seconde est signe qu'il n'y a pas de solution
+    La forme de la première matrice indique une infinité de solutions au système d'équations associé, alors que la forme de la seconde révèle qu'il n'y a pas de solution
     au système.
     </p>
     <p>Dans cette section, on décrit comment on peut déterminer si un système possède ou non des solutions. On définit la notion de rang d'une matrice.</p>
@@ -37,13 +37,13 @@
     <mrow> 0x&amp;{}+{} &amp;0y&amp;{}+{}&amp;0z&amp;{}={}&amp;0</mrow>
     </md>.
     La dernière équation de ce système se simplifie à <m>0=0</m> et elle est toujours vraie, peu importe les valeurs de <m>x,y,z</m>. Dans les deux autres équations, on peut 
-    remarquer que la variable <m>z</m> est présente dans chacune et que les coefficients de <m>x</m> et <m>y</m> valent <m>1</m>. Si on isole <m>x</m> et <m>y</m> dans ces équations, on obtient
+    remarquer que la variable <m>z</m> est présente dans chacune et que les coefficients de <m>x</m> et <m>y</m> valent <m>1</m>. Si l'on isole <m>x</m> et <m>y</m> dans ces équations, on obtient
     <md>
     <mrow>x&amp;=-2z+1</mrow>
     <mrow>y&amp;=3z+2</mrow>
     </md>.
     </p>
-    <p>Les variables <m>x,y</m> sont liées à <m>z</m>, qui elle ne possède pas de restrictions. Un point qui satisfait le système d'équations linéaires associé à la matrice
+    <p>Les variables <m>x,y</m> sont liées à <m>z</m>, qui elle, ne possède pas de restrictions. Un point qui satisfait le système d'équations linéaires associé à la matrice
     <xref ref="eq-infsol"/> doit donc être de la forme
     <md alignment="alignat">
     <mrow>(x,y,z)&amp;=(-2z+1,3z+2,z)</mrow>
@@ -52,7 +52,7 @@
     </md>.</p>
     <p>On reconnait <xref ref="eq-droitevec">l'équation vectorielle</xref> d'une droite de vecteur directeur <m>(-2,3,1)</m> passant par le point <m>(1,2,0)</m>. Ainsi,
     la solution au système est constituée de l'ensemble des points se trouvant sur cette droite. Il y en a donc une infinité.</p>
-    <p>On considère maintenant le système associé à la matrice <xref ref="eq-aucsol"/>. Traduite sous la forme d'équation, on obtient
+    <p>On considère maintenant le système associé à la matrice <xref ref="eq-aucsol"/>, celle-ci traduite sous la forme d'équation permet d'obtenir
     <md alignment="alignat">
    <mrow> x&amp;{}+{} &amp;0y&amp;{}+{}&amp;2z{}={}&amp;1</mrow>
    <mrow> 0x&amp;{}+{} &amp;y&amp;{}-{}&amp;3z&amp;{}={}2</mrow>
@@ -68,11 +68,11 @@
     le système est dit <em>incompatible, incohérent</em>.</p>
     </statement>
     </definition>
-    <p>Tel que vu dans l'exercice <xref ref="exo-solimpinf"/>, si un système compatible admet plus d'une solution, alors il y en a nécessairement une infinité. On a donc la proposition
+    <p>Comme vu dans l'exercice <xref ref="exo-solimpinf"/>, si un système compatible admet plus d'une solution, alors il y en a nécessairement une infinité. On a donc la proposition
     suivante.</p>
     <proposition xml:id="prop-nbsol">
     <title> Le nombre de solutions à un système d'équations linéaires</title>
-    <statement><p>Soit <m>A\vec{x}=\vec{b}</m> un système d'équations linéaires. Une seule des trois situations suivantes est possible:
+    <statement><p>Soit <m>A\vec{x}=\vec{b}</m>, un système d'équations linéaires. Une seule des trois situations suivantes est possible:
     <ul>
     <li><p>Le système est incompatible et n'admet pas de solutions;</p></li>
     <li><p>Le système est compatible et admet une solution unique;</p></li>
@@ -82,8 +82,8 @@
     <proof>
     <p>Le système est soit incompatible, soit compatible. S'il est incompatible, il n'y a rien à démontrer.</p>
     
-    <p>On suppose que le système est compatible. Alors il existe au moins une solution <m>\vec{u}</m> telle que <m>A\vec{u}=\vec{b}</m>. Si <m>\vec{v}</m> est un
-    vecteur différent de <m>\vec{u}</m> tel que <m>A\vec{v}=\vec{b}</m>, alors <m>\vec{w}=\frac{\vec{u}}{2}+\frac{\vec{v}}{2}</m> est aussi une solution différente,car
+    <p>On suppose que le système est compatible. Dans ce cas, il existe au moins une solution <m>\vec{u}</m> telle que <m>A\vec{u}=\vec{b}</m>. Si <m>\vec{v}</m> est un
+    vecteur différent de <m>\vec{u}</m> tel que <m>A\vec{v}=\vec{b}</m>, alors <m>\vec{w}=\frac{\vec{u}}{2}+\frac{\vec{v}}{2}</m> est aussi une solution différente, car
     <md>
    <mrow> A\vec{w}&amp;=A\left(\frac{\vec{u}}{2}+\frac{\vec{v}}{2}\right)</mrow>
    <mrow>&amp;= A\frac{\vec{u}}{2}+A\frac{\vec{v}}{2}</mrow>
@@ -93,17 +93,17 @@
     </md>.
     De plus, <m>\vec{w}\neq \vec{u},\vec{v}</m></p>
     <p>
-    On peut ensuite répéter ce processus à l'infini et obtenir des vecteurs différents, tous solution du système. Donc, soit la solution est unique, soit il en existe une infinité.
+    On peut ensuite répéter ce processus à l'infini et obtenir des vecteurs différents qui constituent tous  des solutions du système. Donc, soit la solution est unique, soit il en existe une infinité.
     </p></proof>
     </proposition>
     <p>On reconnait un système incompatible à l'existence d'un pivot dans la partie augmentée, comme pour la matrice <xref ref="eq-aucsol"/>. En effet, un pivot dans la
-    partie augmentée signifie que tous les coefficients des variables sont nuls et que le membre de droite (augmenté) est quant à lui non nul.</p>
+    partie augmentée signifie que tous les coefficients des variables sont nuls et que le membre de droite (augmenté) est, quant à lui, non nul.</p>
     <p>Lorsque le système est cohérent, on aura une solution unique si le nombre de pivots correspond au nombre de variables. S'il est plus petit, il y aura alors une infinité de solutions.
-    Le nombre de pivots d'une matrice est appelé le rang et sera défini au début de la prochaine sous-section.</p>
+    Le nombre de pivots d'une matrice est appelé <em>le rang</em> et sera défini au début de la prochaine sous-section.</p>
     <example>
-    <title>Un système avec aucune solution</title>
+    <title>Un système qui n'a aucune solution</title>
     <statement>
-    <p>On reprend le système du début de la section <xref ref="sec-GJ"/>, correspondant à des droites parallèles distinctes:
+    <p>On reprend le système du début de la section <xref ref="sec-GJ"/>, qui correspond à des droites parallèles distinctes:
     <md>
 <mrow>x+2y&amp;=4</mrow>
 <mrow>2x+4y&amp;=7</mrow>    
@@ -126,7 +126,7 @@
     Un système avec une infinité de solutions
     </title>
     <statement>
-    <p>On reprend l'autre système au début de la section <xref ref="sec-GJ"/>, correspondant à des droites parallèles confondues:
+    <p>On reprend l'autre système au début de la section <xref ref="sec-GJ"/>, qui correspond à des droites parallèles confondues:
     <md>
 <mrow>x+2y&amp;=4</mrow>
 <mrow>2x+4y&amp;=8</mrow>    
@@ -140,7 +140,7 @@
     <mrow>&amp;\matsimilc{1}{-2}{2}\begin{pmatrix} 1&amp; 2&amp; |&amp; 4\\ 0 &amp; 0 &amp;|&amp; 0\end{pmatrix}</mrow>
     </md>.
     </p>
-    <p>La dernière ligne étant équivalente à <m>0=0</m>, elle ne donne aucune information sur la solution. La première équation s'écrit <m>x+2y=4</m> et on y reconnait l'équation 
+    <p>La dernière ligne étant équivalente à <m>0=0</m>, elle ne donne aucune information sur la solution. La première équation s'écrit <m>x+2y=4</m> et l'on y reconnait l'équation 
     de la droite de départ. Pour avoir la forme vectorielle et suivre l'exemple de l'introduction de cette sous-section, on isole <m>x</m> dans l'équation:
     <me>
     x=-2y+4
@@ -211,7 +211,7 @@
                             0&amp; 9&amp; 1 &amp;|&amp; -12&amp; -5\\  
                             0&amp; 0 &amp; 0 &amp;|&amp; 0&amp;1\\
                             0 &amp; 0&amp; 0 &amp;|&amp; 0&amp;0 \end{pmatrix}</mrow>
-     <intertext>On pourrait cesser les opérations sur la dernière colonne, car ce système est incompatible. On choisit de poursuirve dans un but de clarté.</intertext>
+     <intertext>On pourrait cesser les opérations sur la dernière colonne, car ce système est incompatible. On choisit de poursuivre dans un but de clarté.</intertext>
      <mrow>&amp;\matsimils{2}{\frac{1}{9}}\begin{pmatrix} 1&amp; -\frac{3}{2}&amp; \frac{1}{2} &amp;|&amp; \frac{5}{2}&amp;\frac{3}{2} \\ 
                             0&amp; 1&amp; \frac{1}{9} &amp;|&amp; -\frac{4}{3}&amp; -\frac{5}{9}\\  
                             0&amp; 0 &amp; 0 &amp;|&amp; 0&amp;1\\
@@ -222,7 +222,7 @@
                             0 &amp; 0&amp; 0 &amp;|&amp; 0&amp;0\end{pmatrix}</mrow>
    </md>.
     </p>
-    <p>Après tous ces calculs (vive l'ordinateur), on constate que le système <m>A\vec{x}=\vec{b}_2</m> ne possède pas de solution et que pour le système <m>A\vec{x}=\vec{b}_1</m>,
+    <p>Après tous ces calculs (vive l'ordinateur!), on constate que le système <m>A\vec{x}=\vec{b}_2</m> ne possède pas de solution et que pour le système <m>A\vec{x}=\vec{b}_1</m>,
     il y en aura une infinité. On peut les obtenir en isolant <m>x,y</m> en fonction de <m>z</m> dans le SEL équivalent à la matrice échelonnée réduite. On a alors
     <md>
     <mrow>x&amp;=-\frac{2}{3}z+\frac{1}{2}</mrow>
@@ -283,7 +283,7 @@
     <li><p>Si la matrice <m>(A|\vec{b})</m> en tant que matrice elle-même contient un pivot dans sa forme échelonnée réduite, alors le système est incompatible. Il n'y a pas de solution.</p></li>
     <li><p>Si la partie augmentée ne contient pas de pivot et que toutes les variables sont pivots, alors la solution est unique et se lit directement de la forme échelonnée réduite.</p></li>
     <li><p>Si la partie augmentée ne contient pas de pivot et qu'au moins une des variables est libre, alors on réécrit le système d'équations linéaires correspondant à la forme
-    échelonnée réduite de la matrice <m>(A|\vec{b})</m>, en isolant chaque variable pivot en termes des variables libres. On obtient une forme paramétrique de la solution
+    échelonnée réduite de la matrice <m>(A|\vec{b})</m>, en isolant chaque variable pivot en fonction des variables libres. On obtient une forme paramétrique de la solution
     où le ou les paramètres correspondent aux variables libres.</p></li>
     </ol>
     </p></li>
@@ -296,8 +296,8 @@
     <title>Aucune et une infinité de solutions avec Sage</title>
     <p>On a vu à l'exemple <xref ref="sageex-GJ"/> qu'on peut résoudre les systèmes d'équations avec Sage, avec l'une des commandes <c>rref()</c> ou <c>solve_right()</c>.
     Toutefois, dans les exemples de la section <xref ref="sec-GJ"/>, il y avait toujours une solution unique. On regarde maintenant comment se comporte Sage lorsqu'un système
-    a aucune ou une infinité de solutions.</p>
-    <p>Le premier exemple que l'on considère est un exemple qui ne possède aucune solution. Pour cela, on prend deux plans parallèles distincts et on essaie de trouver leur intersection.
+    n'a aucune ou a une infinité de solutions.</p>
+    <p>Le premier exemple que l'on considère est un exemple qui ne possède aucune solution. Pour cela, on prend deux plans parallèles distincts et l'on essaie de trouver leur intersection.
     Les plans sont <m>\mathcal{P}_1 : x+y-z=1</m> et <m>\mathcal{P}_2 : x+y-z=-1</m>. La cellule suivante devrait donner une erreur.</p>
     <sage>
     <input>
@@ -314,7 +314,7 @@
     </input>
     </sage>
     <p>On regarde maintenant ce qu'on obtient lorsque le système possède une infinité de solutions. Pour cela, on prend deux plans non parallèles dans <m>\R^3</m>. Ceux-ci vont se croiser en une droite.
-    On peut anticiper la solution grâce à la géométrie. Une droite est un objet à une dimension, avec une variable libre. On s'attend donc à une matrice augmentée contenant deux variables pivots et une variable libre.
+    On peut anticiper la solution en utilisant la géométrie. Une droite est un objet à une dimension, avec une variable libre. On s'attend donc à une matrice augmentée contenant deux variables pivots et une variable libre.
     La forme paramétrique de la solution devrait être quelque chose du genre <m>t\vec{v}+\vecl{OA}</m>, où le vecteur <m>\vec{v}</m> est le vecteur directeur de la droite
     et <m>A</m> est un point de celle-ci. On commence par regarder la forme échelonnée de la matrice augmentée, avec <m>\mathcal{P}_1</m> et <m>\mathcal{P}_3 : x-y-z=-1</m>.</p>
         <sage>
@@ -324,7 +324,7 @@
     show((B.augment(b,subdivide=True)).rref())
     </input>
     </sage>
-    <p>Tel qu'attendu, la matrice a la bonne forme. Les variables <m>x,y</m> sont liées et la variable <m>z</m> est libre. On remarque par contre que la commande <c>rref()</c> ne 
+    <p>Comme attendu, la matrice a la bonne forme. Les variables <m>x,y</m> sont liées et la variable <m>z</m> est libre. On remarque, par contre, que la commande <c>rref()</c> ne 
     donne pas explicitement la solution (c'était le cas aussi pour une solution unique), il faut la déduire de la forme échelonnée. Dans ce cas-ci, on obtient la droite
     <md><mrow xml:id="eq-nbsoldroite" tag="star">
     \vecddd{x}{y}{z}=z\vecddd{1}{0}{1}+\vecddd{0}{1}{0}
@@ -336,16 +336,16 @@
     show(B.solve_right(b))
     </input>
     </sage>
-    <p>La réponse obtenue est peut-être surprenante. On sait de la géométrie qu'il devrait y avoir une infinité de solutions, mais Sage n'en retourne qu'une. En fait,
+    <p>La réponse obtenue est peut-être surprenante. On sait à partir des connaissances en géométrie qu'il devrait y avoir une infinité de solutions, mais Sage n'en retourne qu'une. En fait,
     en observant l'équation <xref ref="eq-nbsoldroite"/> ci-dessus, on peut remarquer que la solution donnée par Sage correspond à celle où les variables libres valent <m>0</m>.
     </p>
-    <p>Comment obtenir toutes les solutions dans ce cas? Pour l'instant, on se rabat sur la commande <c>rref()</c>. La section <xref provisional="Noyau et Sage"/> donnera 
-    éventuellement une réponse plus satisfaisante.</p>
+    <p>Comment obtenir toutes les solutions dans ce cas? Pour l'instant, on se rabat sur la commande <c>rref()</c>. La section <xref ref="sec-4esp"/> donnera 
+     une réponse plus satisfaisante.</p>
     </computation>
     <insight>
     <title>Lecture des messages d'erreur Sage</title>
-    <p>Les messages d'erreur Sage peuvent avoir l'air étranges lorsqu'on les rencontre pour la première fois. Un conseil pratique est de commencer sa lecture par le bas. Souvent,
-    on peut détecter le problème à partir de la dernière phrase du message. Si celle-ci n'est pas suffisante, chercher les lignes avec des flèches de style <c>----></c>. Elles 
+    <p>Les messages d'erreur Sage peuvent paraitre étranges lorsqu'on les rencontre pour la première fois. Il peut être utile de commencer sa lecture par le bas. Souvent,
+    on peut détecter le problème à partir de la dernière phrase du message. Si celle-ci n'est pas suffisante, chercher les lignes avec des flèches comme celle-ci <c>----></c>. Elles 
     indiquent souvent quelle(s) ligne(s) du code cause(nt) un problème.</p>
     </insight>
     </subsection>
@@ -356,26 +356,25 @@
     <definition xml:id="def-rang">
     <title>Le rang d'une matrice</title>
     <statement>
-    <p>Soit <m>A</m> une matrice <m>m\times n</m> quelconque. On définit le rang de la matrice <m>A</m> comme étant le nombre <me>rg(A)=r</me> où <m>r</m> correspond au
+    <p>Soit <m>A</m>, une matrice <m>m\times n</m> quelconque. On définit le rang de la matrice <m>A</m> comme étant le nombre <me>rg(A)=r</me> où <m>r</m> correspond au
     nombre de variables pivots dans la forme échelonnée réduite de la matrice <m>A</m>.</p>
     </statement></definition>
     <remark xml:id="rem-ranglignenulle">
     <title>Le rang et les lignes d'une matrice</title>
-    <p>Le rang correspond au nombre de pivots d'une matrice, et donc par le fait même au nombre de colonnes pivots. On peut toutefois aussi lui associer un sens en termes du
+    <p>Le rang correspond au nombre de pivots d'une matrice, et, par le fait même au nombre de colonnes pivots. On peut aussi lui associer un sens en fonction du
     nombre de lignes. En effet, comme chaque pivot est sur une ligne différente, le rang <m>r</m> d'une matrice correspond aussi au nombre de lignes non nulles de la forme échelonnée
     réduite.</p>
    </remark>
-    <p>Parce que la forme échelonnée réduite est <xref ref="prop-erlunique">unique</xref>, le rang est bien défini, au sens où pour une matrice <m>A</m> donnée, elle ne peut avoir qu'une seule valeur pour <m>rg(A)</m>.
+    <p>Parce que la forme échelonnée réduite est <xref ref="prop-erlunique">unique</xref>, le rang est bien défini, puisque, pour une matrice <m>A</m> donnée, elle ne peut avoir qu'une seule valeur pour <m>rg(A)</m>.
     On donne maintenant un résultat qui sera réinterprété géométriquement dans la section <xref ref="sec-SELgeo">suivante</xref>.</p>
     <proposition xml:id="prop-rangmcomp">
     <title>Rang et existence de solutions</title>
     <statement><p>
-    Soit <m>A</m> une matrice <m>m\times n</m> de rang <m>r</m> et <m>\vec{b}\in \R^m</m> un vecteur. Le système <m>A\vec{x}=\vec{b}</m> est compatible si et seulement si
+    Soit <m>A</m>, une matrice <m>m\times n</m> de rang <m>r</m> et <m>\vec{b}\in \R^m</m>, un vecteur. Le système <m>A\vec{x}=\vec{b}</m> est compatible si et seulement si
     le rang de la matrice augmentée <m>(A|\vec{b})</m> est aussi égal à <m>r</m>.
     </p></statement>
     <proof>
-    <p>Soit <m>(R|\vec{c})</m> la forme échelonnée réduite de la matrice augmentée, où <m>R=rref(A)</m> et <m>\vec{c}</m> correspond aux opérations élémentaires menant à <m>R</m>
-    effectuées sur le vecteur <m>\vec{b}</m>. Pour être compatible, chaque ligne nulle <m>l_i</m> de <m>R</m> doit correspondre avec une entrée nulle <m>c_i</m> du vecteur <m>\vec{c}</m>.
+    <p>Soit <m>(R|\vec{c})</m>, la forme échelonnée réduite de la matrice augmentée, où <m>R=rref(A)</m> et <m>\vec{c}</m> correspond au vecteur obtenu de <m>\vec{b}</m> en appliquant les opérations élémentaires menant <m>A</m> à <m>R</m>. Pour être compatible, chaque ligne nulle <m>l_i</m> de <m>R</m> doit correspondre avec une entrée nulle <m>c_i</m> du vecteur <m>\vec{c}</m>.
     Ceci survient si et seulement si le nombre de lignes non nulles de la matrice <m>(R|\vec{c})</m> est égal à celui de la matrice <m>R</m>, qui est égal à <m>rg(A)=r</m>. </p>
     </proof>
     </proposition>
@@ -383,14 +382,14 @@
     avoir <m>r=0</m>. La proposition suivante établit la valeur maximale que peut prendre le rang d'une matrice <m>A</m>.</p>
     <proposition xml:id="prop-rangmaximal">
     <title>Le rang maximal</title>
-    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m>. Alors
+    <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m>. Alors
     <me>
     rg(A)\leq \min(m,n)
     </me>.
     La valeur maximale du rang est donc bornée par le nombre de lignes ou de colonnes, le plus petit de ces deux nombres.
     </p></statement>
     <proof>
-    <p>Le rang correspond au nombres de colonnes pivots. Ce nombre ne peut donc pas dépasser <m>n</m>. Selon la remarque <xref ref="rem-ranglignenulle"/>, le rang est aussi
+    <p>Le rang correspond au nombre de colonnes pivots. Ce nombre ne peut donc pas dépasser <m>n</m>. Selon la remarque <xref ref="rem-ranglignenulle"/>, le rang est aussi
     le nombre de lignes non nulles de la matrice. Ce nombre ne peut donc pas dépasser <m>m</m>. Ainsi, on a <m>r\leq \min(m,n)</m>.</p>
     </proof>
     </proposition>
@@ -399,11 +398,11 @@
     <theorem xml:id="thm-delamatriceinversev2">
     <title>Théorème de la matrice inverse, seconde version</title>
     <statement>
-    <p>Soit <m>A</m> une matrice carrée d'ordre <m>n</m>. Les énoncés suivants sont équivalents:
+    <p>Soit <m>A</m>, une matrice carrée d'ordre <m>n</m>. Les énoncés suivants sont équivalents:
     <ol>
-    <li><p>La matrice <m>A</m> est inversible</p></li>
-    <li><p>Pour chaque vecteur <m>v\in \R^n</m>, il existe un seul vecteur <m>\vec{u}\in \R^n</m> tel que <m>A\vec{u}=\vec{v}</m>.</p></li>
-    <li><p>Le rang de la matrice est égal à <m>n</m>.</p></li>
+    <li><p>La matrice <m>A</m> est inversible;</p></li>
+    <li><p>Pour chaque vecteur <m>v\in \R^n</m>, il existe un seul vecteur <m>\vec{u}\in \R^n</m> tel que <m>A\vec{u}=\vec{v}</m>;</p></li>
+    <li><p>Le rang de la matrice est égal à <m>n</m>;</p></li>
     <li><p>La matrice <m>A</m> possède <m>n</m> pivots.</p></li>
     </ol>
     </p></statement>
@@ -411,8 +410,8 @@
     <p>L'équivalence des énoncés un et deux provient de la <xref ref="thm-delamatriceinversev1">première version</xref> du théorème. L'énoncé trois et l'énoncé
     quatre sont équivalents, par définition du <xref ref="def-rang">rang</xref>. Il faut donc montrer que l'un des deux premiers énoncés
     implique que le rang soit égal à <m>n</m> et qu'avoir un rang de <m>n</m> implique un des deux premiers énoncés.</p>
-   <p>On commence par prendre une matrice <m>A</m> inversible. Soit <m>B</m> son inverse et <m>\vec{b}_j</m> ses colonnes. Si on note <m>\vec{e}_j</m> le vecteur dont 
-   toutes les entrées sont nulles sauf celle en position <m>j</m> qui vaut <m>1</m>, alors selon la définition de la matrice inverse et de la multiplication, on a
+   <p>On commence par prendre une matrice <m>A</m> inversible. Soit <m>B</m>, son inverse et <m>\vec{b}_j</m>, ses colonnes. Si l'on note <m>\vec{e}_j</m> le vecteur dont 
+   toutes les entrées sont nulles sauf celle en position <m>j</m> qui vaut <m>1</m>, alors, selon la définition de la matrice inverse et de la multiplication, on a
    <m>A\vec{b}_j=\vec{e}_j</m>. Puisque l'inverse d'une matrice est unique, c'est aussi la seule solution. On note <m>(A|I)</m> la matrice <m>A</m> augmentée de l'identité.
    La forme échelonnée réduite de cette matrice augmentée correspond aux solutions des systèmes d'équations linéaires <m>A\vec{x}=\vec{e}_j</m>. Ces solutions sont les (uniques) colonnes de <m>B</m>,
    ce qui signifie que
@@ -422,7 +421,7 @@
    Cela signifie donc que <m>rref(A)=I</m> et donc, <m>rg(A)=n</m>.
    </p>
    <p>On suppose maintenant que <m>rg(A)=n</m>. Ceci signifie que chaque colonne est pivot et de même, chaque ligne, car la matrice est carrée. On a donc <m>rref(A)=I</m>.
-   Soit <m>\vec{v}</m> un vecteur de <m>\R^n</m>. Le système <m>A\vec{x}=\vec{v}</m> se résout en échelonnant la matrice augmentée <m>(A|\vec{v})</m>, ce qui donne
+   Soit <m>\vec{v}</m>, un vecteur de <m>\R^n</m>. Le système <m>A\vec{x}=\vec{v}</m> se résout en échelonnant la matrice augmentée <m>(A|\vec{v})</m>, ce qui donne
    <me>
    rref(A|\vec{v})=(I|\vec{u})
    </me>, 
@@ -433,14 +432,14 @@
     <corollary>
     <title>La forme échelonnée réduite d'une matrice carrée inversible</title>
     <statement>
-    <p>Soit <m>A</m> une matrice carrée inversible. Alors <m>rref(A)=I</m>.</p>
+    <p>Soit <m>A</m>, une matrice carrée inversible. Alors <m>rref(A)=I</m>.</p>
     </statement>
     <proof><p>La preuve a été faite dans la démonstration du théorème <xref ref="thm-delamatriceinversev2"/>, dans la deuxième partie.</p></proof>
     </corollary>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation>
     <title>Le rang et Sage</title>
-    <p>Sage possède la commande <c>rank</c> qui permet de calculer le rang d'une matrice. Elle s'utilise soit comme <c>rank(A)</c> ou <c>A.rank()</c>.</p>
+    <p>Sage possède la commande <c>rank</c> qui permet de calculer le rang d'une matrice. Elle s'utilise soit comme <c>rank(A)</c>, soit <c>A.rank()</c>.</p>
     <sage>
     <input>
 A=random_matrix(ZZ,4,3)  #On génère une matrice 4x3 aléatoire dont les entrées sont des entiers
@@ -456,13 +455,13 @@ show(A.rank())
     <conclusion xml:id="concl-SELtheo">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont:
     <ul>
-    <li><p>Les systèmes <xref ref="def-SELcomp"> compatibles et incompatibles</xref>.</p></li>
-    <li><p>Les trois seules possibilités quant au <xref ref="prop-nbsol">nombre de solutions</xref> du système d'équations linéaires <m>A\vec{x}=\vec{b}</m>.</p></li>
+    <li><p>Les systèmes <xref ref="def-SELcomp"> compatibles et incompatibles</xref>;</p></li>
+    <li><p>Les trois seules possibilités quant au <xref ref="prop-nbsol">nombre de solutions</xref> du système d'équations linéaires <m>A\vec{x}=\vec{b}</m>;</p></li>
     <li><p> <xref ref="algo-SELsol">L'algorithme </xref> permettant de trouver toutes les solutions d'un système d'équations linéaires.</p></li>
-    <li><p>Le <xref ref="def-rang"> rang</xref> d'une matrice et son lien avec <xref ref="prop-rangmcomp">l'existence</xref> de solutions.</p></li>
+    <li><p>Le <xref ref="def-rang"> rang</xref> d'une matrice et son lien avec <xref ref="prop-rangmcomp">l'existence</xref> de solutions;</p></li>
     <li><p>L'ajout de <xref ref="thm-delamatriceinversev2"> l'équivalence </xref> entre matrice inversible et rang maximal.</p></li>
     </ul>
-    De plus, avec Sage, lors de l'utilisation de la commande <c>solve_right()</c>, on a vu qu'un système avec aucune solution donne une erreur et qu'un système avec une infinité de solutions
+    De plus, avec Sage, lors de l'utilisation de la commande <c>solve_right()</c>, on a vu qu'un système qui n'a aucune solution donne une erreur et qu'un système avec une infinité de solutions
     n'en donne qu'une. Il est préférable d'utiliser la commande <c>rref()</c> et de déduire la solution de la forme échelonnée réduite, du moins pour le moment.
     On a aussi vu la commande <c>rank()</c>, qui retourne le rang d'une matrice.
     </p>

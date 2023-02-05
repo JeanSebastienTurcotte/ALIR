@@ -741,10 +741,10 @@ et
 Ainsi, le vecteur <m>c</m> est dans l'espace colonne du produit <m>AB</m>.</p>
 </solution></task>
 </exercise>
-<exercise><introduction>
+<exercise xml:id="exo-rangproduit2"><introduction>
 <p>Soit <m>A</m> une matrice <m>m\times n</m> et <m>B</m> une matrice <m>n\times p</m>. On s'intèresse maintenant au rang du produit <m>AB</m> en lien avec les rangs de <m>A</m> et de <m>B</m>.</p>
 </introduction>
-<task><statement><p>Montrer que <m>rg(AB)\leq rg(B)</m>.</p></statement>
+<task><statement><p>Montrer que <m>rg(AB)\leq rg(B)</m> en utilisant les espaces fondamentaux. On note qu'on a démontré ce résultat à l'exercice</p></statement>
 <hint><p>Utiliser le résultat de l'exercice <xref ref="exo-dimnulprod"/> et la proposition <xref ref="prop-diminclusion"/>.</p></hint>
 <solution><p>Soit <m>r</m> le rang de la matrice <m>B</m>. Selon l'exercice <xref ref="exo-dimnulprod"/>, on a <m>\mathcal{N}(B)\subseteq \mathcal{N}(AB)</m>. La dimension de l'espace nul est <m>p-r</m>. Selon la proposition <xref ref="prop-diminclusion"/>, on a alors <m>p-r\leq \text{dim}(\mathcal{N}(AB))</m>. Puisque la dimension de <m>\mathcal{N}(AB)</m> est égale à <m>p-\mathcal{L}(AB)=p-rg(AB)</m>, on a
 <me>
@@ -755,9 +755,9 @@ p-r\leq p-rg(AB)
 <hint><p>Utiliser l'exercice <xref ref="exo-dimnulprodeg"/>.</p></hint>
 <solution><p>Selon l'exercice <xref ref="exo-dimnulprodeg"/>, si la matrice <m>A</m> est inversible alors <m>\mathcal{N}(B)=\mathcal{N}(AB)</m>. On a donc <m>\text{dim}(\mathcal{N}(B))=\text{dim}(\mathcal{N}(AB))</m>. À la manière de l'exercice précédent, on a donc <m>p-rg(B)=p-rg(AB)</m>, qui devient en simplifiant <m>rg(AB)=rg(B)</m>.</p> </solution>
 </task>
-<task><statement><p>Montrer que <m>rg(AB)\leq rg(A)</m>.</p></statement>
+<task><statement><p>Montrer que <m>rg(AB)\leq rg(A)</m>. Conclure que <m>rg(AB)\leq \min(rg(A),rg(B))</m>.</p></statement>
 <hint><p>Utiliser l'exercice <xref ref="exo-dimcolprod"/> et la proposition <xref ref="prop-diminclusion"/>.</p></hint>
-<solution><p>Soit <m>r</m> le rang de la matrice <m>A</m>. Selon l'exercice <xref ref="exo-dimcolprod"/>, on a <m>\mathcal{C}(AB)\subseteq \mathcal{C}(A)</m>. Comme le rang correspond à la dimension de l'espace colonne, on obtient selon la proposition <xref ref="prop-diminclusion"/> <m>rg(AB)\leq r=rg(A)</m>. </p></solution>
+<solution><p>Soit <m>r</m> le rang de la matrice <m>A</m>. Selon l'exercice <xref ref="exo-dimcolprod"/>, on a <m>\mathcal{C}(AB)\subseteq \mathcal{C}(A)</m>. Comme le rang correspond à la dimension de l'espace colonne, on obtient selon la proposition <xref ref="prop-diminclusion"/> <m>rg(AB)\leq r=rg(A)</m>. Puisque <m>rg(AB)\leq rg(A)</m> et <m>rg(AB)\leq rg(B)</m>, on doit avoir <m>rg(AB)\leq \min(rg(A),rg(B))</m>.  </p></solution>
 </task>
 <task><statement><p>Montrer que si <m>B</m> est une matrice carrée inversible, alors <m>rg(AB)=rg(A)</m>.</p></statement>
 <hint><p>Utiliser l'exercice <xref ref="exo-dimcolprodeg"/>.</p></hint>
