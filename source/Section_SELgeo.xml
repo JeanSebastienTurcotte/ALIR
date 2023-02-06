@@ -17,7 +17,7 @@
     <p>Dans cette section, on fait le lien entre les systèmes d'équations linéaires et les transformations linéaires. En particulier, on s'intéresse
     aux zéros de la transformation linéaire <m>A</m>, donnés par les solutions au système d'équations <m>A\vec{x}=\vec{0}</m> et à l'image de la transformation, caractérisée
     par l'ensemble des vecteurs <m>\vec{b}</m> pour lesquels il existe une solution au système <m>A\vec{x}=\vec{b}</m>.</p>
-    <p>Dans cette section, on définit le concept de zéros d'une transformation linéaire, la notion de solutions de base à l'équation <m>A\vec{x}=\vec{0}</m> et de solution homogène et la sous-matrice <m>L</m> d'une matrice servant à trouver les solutions de base. On s'intéresse aussi à l'image 
+    <p>Dans cette section, on définit le concept de zéros d'une transformation linéaire, la notion de solutions de base à l'équation <m>A\vec{x}=\vec{0}</m> et la notion de solution homogène et la sous-matrice <m>L</m> d'une matrice servant à trouver les solutions de base. On s'intéresse aussi à l'image 
     d'une transformation linéaire, à la notion de solution particulière et de solution générale à l'équation <m>A\vec{x}=\vec{b}</m>.</p>
     </introduction>
     <subsection xml:id="sssec-transfozero">
@@ -28,11 +28,11 @@
     utilisations du mot dans ces notes. </p></aside>
     <p>Géométriquement, les solutions à ce système représentent l'ensemble
     des valeurs <m>\vec{x}</m> du domaine (<m>\R^n</m>) qui sont envoyées sur le vecteur nul de l'image (<m>\R^m</m>). Comme on l'a remarqué à la proposition <xref ref="prop-transfolinprop"/>,
-    le vecteur <m>\vec{0}\in \R^n</m> est toujours une solution de ce système. De plus, si la matrice <m>A</m> est carrée et inversible, c'est la <xref ref="thm-delamatriceinversev1">seule solution</xref>.</p>
+    le vecteur <m>\vec{0}\in \R^n</m> est toujours une solution de ce système. De plus, si la matrice <m>A</m> est carrée et inversible, c'est la <xref ref="thm-delamatriceinversev1" text="custom">seule solution</xref>.</p>
     <p>Dans les autres cas, il peut exister d'autres zéros à la transformation. On pourra les trouver à l'aide de <xref ref="algo-GJ">l'algorithme de Gauss-Jordan</xref>.</p>
     <example xml:id="ex-zerosgeo">
     <title>Les zéros de quelques transformations: dynamique</title>
-    <statement><p>On considère dans un premier temps les transformations de l'exemple <xref ref="ex-transfor2"/>. Puisque toutes ces transformations sont inversibles sauf la projection orthogonale,
+    <statement><p>Dans un premier temps, on considère  les transformations de l'exemple <xref ref="ex-transfor2"/>. Puisque toutes ces transformations sont inversibles sauf la projection orthogonale,
     on conclut qu'il n'y a que le vecteur nul comme zéro des premières. Pour la projection orthogonale, on peut réfléchir géométriquement. On cherche <m>T(\vec{x})=\vec{0}</m>. Or selon l'équation <xref ref="eq-projortho"/>, un vecteur perpendiculaire
     à <m>\vec{w}</m> sera projeté sur le vecteur nul. Si <m>c\in \R</m>, tout vecteur <m>c\vec{w}_{\perp}</m> est un zéro de la projection orthogonale.</p>
     
@@ -41,7 +41,7 @@
     <mrow>A&amp;=\matcolt{1}{2}{3}{-1}{4}{1}{1}{8}{7}</mrow>
     <mrow>B&amp;=\matcolt{3}{-2}{2}{-6}{4}{-4}{9}{-6}{6}</mrow>
     </md>.</p>
-    <p>La figure interactive suivante permet de visualiser l'image d'un vecteur par chacune des transformations. Les détails algébriques sont faits ci-dessous.</p>
+    <p>La figure interactive suivante permet de visualiser l'image d'un vecteur par chacune des transformations. Les détails algébriques se trouvent dans les solutions ci-dessous.</p>
     <figure xml:id="fig-Ax0">
     <caption>Les zéros de deux transformations linéaires de l'espace</caption>
     <interactive aspect="1:1" platform="geogebra" width="100%"
@@ -52,8 +52,8 @@
           </slate>
         <instructions>
           <p><alert>Instructions pour la figure interactive:</alert> L'interaction suivante permet de visualiser les zéros des transformations linéaires <m>A</m> et <m>B</m>. Il est possible de déplacer le point <m>P</m> afin de 
-          modifier le vecteur <m>\vec{u}</m>. Son image par la transformation choisie (<m>A</m> par défaut) est affichée, en rouge. Un clic sur le bouton &#x00AB; Point <m>P</m> fixé sur l'espace solution &#x00BB;
-          va faire en sorte que <m>P</m> ne puisse être déplacé que sur des points où l'image du vecteur <m>\vec{u}</m> libre sera  nulle. Un clic sur le bouton
+          modifier le vecteur <m>\vec{u}</m>. Son image par la transformation choisie (<m>A</m> par défaut) est affichée en rouge. Un clic sur le bouton &#x00AB; Point <m>P</m> fixé sur l'espace solution &#x00BB;
+          fera en sorte que <m>P</m> ne puisse être déplacé que sur des points où l'image du vecteur <m>\vec{u}</m> libre sera  nulle. Un clic sur le bouton
           &#x00AB;Point <m>P</m> libre &#x00BB; libèrera le point <m>P</m> pour qu'il puisse prendre n'importe quelle valeur à nouveau. </p>
         </instructions>
         </interactive>
@@ -101,7 +101,7 @@ show("rref(Baug)=",Baug.rref())
     <p>Les zéros d'une transformation linéaire possèdent une propriété particulièrement utile. Celle-ci fait l'objet de la proposition suivante.</p>
     <proposition xml:id="prop-Ax0sev">
     <title>Les zéros d'une transformation linéaire sont fermés pour l'addition et la multiplication par un scalaire</title>
-    <statement><p>Soit <m>A</m> la matrice d'une transformation linéaire, <m>c\in \R</m> et <m>\vec{u},\vec{v}</m> des vecteurs tels que <m>A\vec{u}=A\vec{v}=\vec{0}</m>.
+    <statement><p>Soit <m>A</m>, la matrice d'une transformation linéaire, <m>c\in \R</m> et <m>\vec{u},\vec{v}</m>, des vecteurs tels que <m>A\vec{u}=A\vec{v}=\vec{0}</m>.
     Alors
     <ul>
     <li><p><m>A(\vec{u}+\vec{v})=\vec{0}</m>,</p></li>
@@ -110,24 +110,24 @@ show("rref(Baug)=",Baug.rref())
     </p></statement>
     <proof><p>Voir l'exercice <xref ref="exo-Ax0sev"/>.</p></proof>
     </proposition>
-    <p>Si on s'attarde aux solutions des systèmes <m>A\vec{x}=\vec{0}</m> pour les matrices <m>3\times 3</m> de l'exemple <xref ref="ex-zerosgeo"/>, on peut y détecter une 
-    forme particulière au niveau des variables libres. Plus spécifiquement, pour l'exemple dont les solutions étaient contenues dans le plan de vecteurs directeurs
+    <p>Si l'on s'attarde aux solutions des systèmes <m>A\vec{x}=\vec{0}</m> pour les matrices <m>3\times 3</m> de l'exemple <xref ref="ex-zerosgeo"/>, on peut y détecter une 
+    forme particulière des variables libres. Plus spécifiquement, pour l'exemple dont les solutions étaient contenues dans le plan de vecteurs directeurs
     <m>\vec{u}=(2,1,0)</m> et <m>\vec{v}=(-3,0,1)</m>, les variables libres étaient <m>y</m> et <m>z</m>. Ces variables valent respectivement <m>1</m> et <m>0</m> dans le vecteur <m>\vec{u}</m> et <m>0</m> et <m>1</m> dans
     le vecteur <m>\vec{v}</m>. Cette remarque permet d'établir une autre manière de voir les solutions à un système d'équations linéaires <m>A\vec{x}=\vec{0}</m>.</p>
     <definition xml:id="def-solbase">
     <title>Les solutions de base à un système <m>A\vec{x}=\vec{0}</m></title>
     <statement>
-    <p>Soit <m>A</m> une matrice quelconque telle que l'équation <m>A\vec{x}=\vec{0}</m> possède plus d'une solution. On nomme les &#x00AB; solutions de base &#x00BB; 
-    les solutions obtenues lorsqu'exactement une des variables libres est égale à <m>1</m> et les autres sont nulles.<fn>On verra à la section <xref provisional="sec-base"/>
+    <p>Soit <m>A</m>, une matrice quelconque telle que l'équation <m>A\vec{x}=\vec{0}</m> possède plus d'une solution. On nomme les &#x00AB; solutions de base &#x00BB; 
+    les solutions obtenues lorsqu'une seule une des variables libres est égale à <m>1</m> et les autres sont nulles.<fn>On verra à la section <xref provisional="sec-base"/>
     que l'expression &#x00AB; de base &#x00BB; est reliée à la notion de base d'un espace vectoriel.</fn></p>
     <p> Il y a autant de solutions de base que de variables libres. Si la matrice <m>A</m> ne possède pas de variables libres, la seule solution à l'équation
     <m>A\vec{x}=\vec{0}</m> est le vecteur <m>\vec{0}</m>. Celui-ci n'est pas &#x00AB; spécial &#x00BB;.</p>
-    <p>L'ensemble de toutes les combinaisons linéaires des solutions de base additionnées du vecteur <m>nul</m> est appelé la solution homogène. 
+    <p>L'ensemble de toutes les combinaisons linéaires des solutions de base additionnées du vecteur <m>nul</m> est appelé la <em>solution homogène</em>. 
     On la note <m>\vec{x}_h</m>.</p>
     </statement>
     </definition>
-    <p>Les solutions de base sont un exemple du concept de base d'un espace, qui sera défini dans le chapitre <xref provisional="chap-espvec"/>. L'ensemble des combinaisons linéaires
-    des solutions de base décrit le lieu &#x00AB; géométrique &#x00BB; où se trouvent tous les zéros d'une transformation linéaire.  Dépendamment du nombre de ces solutions,
+    <p>Les solutions de base sont un exemple du concept de base d'un espace qui sera défini dans le chapitre <xref provisional="chap-espvec"/>. L'ensemble des combinaisons linéaires
+    des solutions de base décrit le lieu &#x00AB; géométrique &#x00BB; où se trouvent tous les zéros d'une transformation linéaire.  Suivant le nombre de ces solutions,
     ce lieu peut être une droite, un plan, un espace tridimensionnel ou un autre espace de dimension supérieure.</p>
     <p>Par la nature des opérations élémentaires, toute solution à l'équation <m>A\vec{x}=\vec{0}</m> doit satisfaire le système équivalent menant à la solution paramétrique
     des combinaisons linéaires des solutions de base. Ainsi, ces combinaisons génèrent toutes les solutions.</p>
@@ -169,7 +169,7 @@ show("rref(Baug)=",Baug.rref())
     <mrow>y-2z&amp;=0</mrow>
     <mrow>z&amp;=z \, \text{(libre)}</mrow>
     </md>.</p>
-    <p>Si on pose <m>z=1</m>, on obtient la solution de base <m>\vec{s}=(1,2,1)</m> et donc la solution homogène est <m>\vec{x}_h=z\vec{s}</m> pour <m>z\in \R</m>.</p>
+    <p>Si l'on pose <m>z=1</m>, on obtient la solution de base <m>\vec{s}=(1,2,1)</m>, la solution homogène est donc <m>\vec{x}_h=z\vec{s}</m> pour <m>z\in \R</m>.</p>
     </solution>
     <solution><p>Ici, il y a deux variables libres, la deuxième et la troisième. Les équations restantes sont
     <md>
@@ -178,7 +178,7 @@ show("rref(Baug)=",Baug.rref())
     <mrow>z&amp;=z \, \text{(libre)}</mrow>
     </md>.
     </p>
-    <p>Si on pose <m>y=1</m> et <m>z=0</m>, on obtient la première solution de base <m>\vec{s}_1=(3,1,0)</m>. Si on pose <m>y=0</m> et <m>z=1</m>, on obtient la deuxième
+    <p>Si l'on pose <m>y=1</m> et <m>z=0</m>, on obtient la première solution de base <m>\vec{s}_1=(3,1,0)</m>. Si l'on pose <m>y=0</m> et <m>z=1</m>, on obtient la deuxième
     solution de base <m>\vec{s}_2=(-1,0,1)</m>. La solution homogène est <m>\vec{x}_h=y\vec{s}_1+z\vec{s}_2</m> pour <m>y,z\in \R</m>.</p>
     </solution>
     <solution>
@@ -196,13 +196,13 @@ show("rref(Baug)=",Baug.rref())
     <p>Dans cet exemple, toutes les variables sont pivots. Il n'y a donc pas de solution de base. La seule solution à l'équation <m>D\vec{x}=\vec{0}</m> est le vecteur nul. Donc <m>\vec{x}_h=\vec{0}</m>.</p>
     </solution>
     </example>
-    <p>Il ne semble pas être pratique de devoir réécrire à chaque fois les équations du système pour trouver les solutions de base. On peut toutefois directement lire
-    ces solutions à partir de la matrice.</p>
+    <p>Il ne semble pas pratique de devoir réécrire chaque fois les équations du système pour trouver les solutions de base. On peut, toutefois, lire
+    ces solutions directement dans la matrice.</p>
     <example xml:id="ex-solbase2">
     <title>Lecture des solutions de base à partir de la matrice</title>
     <statement><p>On considère à nouveau les matrices <m>A,B,C</m> et <m>D</m> de l'exemple <xref ref="ex-solbase1"/>.</p>
-    <p> On commence avec la matrice <m>A</m>. Celle-ci avait une seule variable libre, <m>z</m>, et la solution de base trouvée était <m>\vecddd{1}{2}{1}</m>. On regarde la matrice <m>A</m>,
-    particulièrement la troisième colonne (car la variable <m>z</m> est libre) les entrées un et deux (correspondant aux lignes non nulles).</p>
+    <p> On commence par la matrice <m>A</m>. Celle-ci avait une seule variable libre, <m>z</m>, et la solution de base trouvée était <m>\vecddd{1}{2}{1}</m>. On regarde la matrice <m>A</m>,
+    particulièrement dans la troisième colonne (car la variable <m>z</m> est libre), les entrées un et deux (correspondant aux lignes non nulles).</p>
 <figure xml:id="fig-solbaseA">
   <caption>La solution de base de la matrice <m>A</m></caption>
   <image source="code/LaTeX/fig-solbasematA">
@@ -236,7 +236,6 @@ show("rref(Baug)=",Baug.rref())
   </figure>
   </solution>
     </example>
-    <!-- On commente l'exemple sur les matrices L et I ainsi que l'algorithme
     <p>Avec l'exemple précédent, on peut distinguer deux matrices à l'intérieur d'une matrice échelonnée réduite. En ne tenant pas compte des lignes nulles, on détecte
     dans les colonnes pivots une occurrence de la matrice identité. Toujours sans tenir compte des lignes nulles, les colonnes libres donnent lieu à une matrice, notée <m>L</m> (pour libre).
     Cette matrice contient l'information des solutions de base. On l'illustre à l'aide d'un exemple.
@@ -258,14 +257,14 @@ une matrice identité:</p>
 <figure xml:id="fig-sousmatI">
 <caption>La matrice identité dans la matrice échelonnée</caption>
 <image source="code/LaTeX/fig-sousmatI">
-<description>La matrice R est écrite avec les trois dernières lignes biffées, ainsi que les colonnes 2,4 et 6. On voit ensuite une flèche vers la matrice identité de taille 3, correspondant aux valeurs non biffées dans R.</description>
+<description>La matrice R est écrite avec les trois dernières lignes rayées, ainsi que les colonnes 2,4 et 6. On voit ensuite une flèche vers la matrice identité de taille 3, correspondant aux valeurs non rayées dans R.</description>
 </image>
 </figure>
-<p>En éliminant à nouveau les lignes nulles, mais cette fois-ci les colonnes pivots plutôt que les libres, on obtient une autre sous-matrice <m>L</m>:</p>
+<p>En éliminant à nouveau les lignes nulles, mais en éliminant cette fois-ci les colonnes pivots plutôt que les libres, on obtient une autre sous-matrice <m>L</m>:</p>
 <figure xml:id="fig-sousmatL">
 <caption>La matrice <m>L</m> dans la matrice échelonnée</caption>
 <image source="code/LaTeX/fig-sousmatL">
-<description>La matrice R est écrite avec les trois dernières lignes biffées, ainsi que les colonnes 1,3 et 5. On voit ensuite une flèche vers une matrice de taille 3, correspondant aux valeurs non biffées dans R.</description>
+<description>La matrice R est écrite avec les trois dernières lignes rayées, ainsi que les colonnes 1,3 et 5. On voit ensuite une flèche vers une matrice de taille 3, correspondant aux valeurs non rayées dans R.</description>
 </image>
 </figure>  
 <p>On montre maintenant comment on peut se servir de la matrice <m>L</m> pour obtenir les solutions de base. La matrice possède trois variables libres, <m>x_2,x_4,x_6</m>. Il y aura donc
@@ -294,8 +293,7 @@ show("Rs3=",R*s3)
 </sage>
  </statement>
     </example>
-    -->
-    <p>On regarde maintenant un aspect important de la géométrie des solutions à l'équation <m>A\vec{x}=\vec{0}</m>. Si on voit la matrice <m>A</m> selon ses lignes,
+    <p>On regarde maintenant un aspect important de la géométrie des solutions à l'équation <m>A\vec{x}=\vec{0}</m>. Si l'on voit la matrice <m>A</m> selon ses lignes,
     <me>A=\begin{pmatrix}
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
@@ -331,7 +329,7 @@ alors l'équation <m>A\vec{x}=\vec{0}</m> peut s'interpréter comme le système 
                                  \end{pmatrix}</mrow>
     </md>.
     </p>
-    <p>Pour chaque matrice, on cherche les solutions de base et on vérifie que celles-ci sont perpendiculaires aux lignes de la matrice.</p>
+    <p>Pour chaque matrice, on cherche les solutions de base et l'on vérifie que celles-ci sont perpendiculaires aux lignes de la matrice.</p>
     </statement>
     <solution>
     <p>On échelonne la matrice <m>A</m>. L'opération <m>3L_1+L_2\rightarrow L_2</m> permet d'obtenir la matrice échelonnée réduite équivalente
@@ -354,7 +352,7 @@ a+b+c+d+e
     </figure>
     </solution>
     <solution>
-    <p>On utilise Sage et la méthode de l'exemple <xref provisional="ex-sousmatriceIL"/> pour déterminer les solutions de base de la matrice <m>B</m>.</p>
+    <p>On utilise Sage et la méthode de l'exemple <xref ref="ex-sousmatriceIL"/> pour déterminer les solutions de base de la matrice <m>B</m>.</p>
     <sage>
     <input>
 B=matrix([[1,2,-3],[-2,-1,1],[-1,1,-2]])
@@ -378,7 +376,7 @@ show(B.rref())
         </instructions>
         </interactive>
     </figure>
-    <p>Comme la troisième ligne de la forme échelonnée réduite de <m>B</m> est nulle, on peut dire que le troisième vecteur est dans le plan engendré par les deux premières lignes. La géométrie de l'équation <m>B\vec{x}=\vec{0}</m> semble donc être composée du
+    <p>Comme la troisième ligne de la forme échelonnée réduite de <m>B</m> est nulle, on peut dire que le troisième vecteur est dans le plan engendré par les deux premières lignes. La géométrie de l'équation <m>B\vec{x}=\vec{0}</m> semble donc composée du
     plan engendré par les lignes de <m>B</m>, avec les zéros de la transformation linéaire sur le vecteur normal du plan.</p>
     </solution>
     <solution>
@@ -406,15 +404,15 @@ show(C.rref())
         </instructions>
         </interactive>
     </figure>
-    <p>Comme la deuxième et la troisième ligne de la forme échelonnée réduite de <m>C</m> sont nulles, ces vecteurs sont des multiples de la première ligne. La géométrie de l'équation <m>C\vec{x}=\vec{0}</m> semble donc être composée
+    <p>Comme la deuxième et la troisième ligne de la forme échelonnée réduite de <m>C</m> sont nulles, ces vecteurs sont des multiples de la première ligne. La géométrie de l'équation <m>C\vec{x}=\vec{0}</m> semble donc composée
     de la droite engendrée par les lignes de <m>C</m>, avec les zéros de la transformation linéaire sur le plan perpendiculaire à cette droite.</p>
     </solution>
     </example>
     <p>On fait de cette propriété une proposition.</p>
     <proposition xml:id="prop-zerosperplignes">
     <title>Les zéros sont perpendiculaires aux lignes de la matrice</title>
-    <statement><p>Soit <m>A</m> une matrice de taille <m>m\times n</m>, <m>\vec{a}_i</m> la ligne <m>i</m> de la matrice et
-    <m>\vec{z}</m> un vecteur tel que <m>A\vec{z}=\vec{0}</m>.</p>
+    <statement><p>Soit <m>A</m>, une matrice de taille <m>m\times n</m>, <m>\vec{a}_i</m>, la ligne <m>i</m> de la matrice et
+    <m>\vec{z}</m>, un vecteur tel que <m>A\vec{z}=\vec{0}</m>.</p>
     <p>Alors <m>\vec{z}\cdot \vec{a}_i=0</m>, c'est-à-dire les zéros de la matrice sont perpendiculaires à ses lignes.</p></statement>
     <proof><p>La preuve est essentiellement faite dans la discussion qui précède l'exemple <xref ref="ex-zerosperplignes"/>.</p></proof></proposition>
 
@@ -465,8 +463,8 @@ show("La matrice formée à partir de l'intersection des lignes 2,3 et des colon
 </input>
 </sage>
 </li>
-<li><p>Parfois, on ne sait pas quelles seront les entrées d'un vecteur, ou bien on veut construire un vecteur en étape, une entrée à la fois. Pour effectuer cela,
-on utilisera plutôt une liste Sage, que l'on convertira en vecteur par la suite. Par exemple, si on dispose d'une liste <c>l1=[1,3,4]</c> et d'une autre liste
+<li><p>Parfois, on ne sait pas quelles seront les entrées d'un vecteur, ou bien l'on veut construire un vecteur en étape, une entrée à la fois. Pour effectuer cette opération,
+on utilisera plutôt une liste Sage que l'on convertira en vecteur par la suite. Par exemple, si l'on dispose d'une liste <c>l1=[1,3,4]</c> et d'une autre liste
 <c>l2=[2,4,6]</c> et qu'on veut créer les vecteurs qui prennent ces valeurs en alternant d'une liste à l'autre, on fera</p>
 <sage>
 <input>
@@ -476,7 +474,7 @@ v1=[] #Ceci crée une liste vide
 v2=[]
 k,l=0,0 # pour itérer sur les listes l1 et l2
 for i in range(len(l1)+len(l2)): #on itère sur la longueur des deux listes. Celles-ci (pour cet exemple) doivent être de même longueur
-    if i%2==0: #Une manière de savoir si on a un nombre pair 
+    if i%2==0: #Une manière de savoir si l'on a un nombre pair 
         v1.append(l1[k])
         v2.append(l2[k])
         k+=1
@@ -499,8 +497,8 @@ show("v1+v2=",v1+v2)
 </ul>
 </p>
 <p>On débute avec la création de la fonction qui retourne la matrice <m>L</m>. On se pose dans un premier temps la question suivante: est-ce que la matrice <m>L</m> existe toujours?
-Dans l'algorithme, on élimine les lignes de zéros et on ne garde que les colonnes libres. Que faire si toutes les lignes sont nulles ou si toutes les colonnes sont pivots?
-Dans ces cas, il n'y a pas de matrice <m>L</m>, mais l'interprétation est différente au niveau des solutions de base. Lorsque toutes les lignes sont nulles, toutes les variables sont libres et l'ensemble solution est donc constitué de tous les vecteurs de l'espace <m>\R^n</m>. Si au contraire toutes les variables sont pivots, alors il n'y a pas de 
+Dans l'algorithme, on élimine les lignes de zéros et l'on ne garde que les colonnes libres. Que faire si toutes les lignes sont nulles ou si toutes les colonnes sont pivots?
+Dans ces cas, il n'y a pas de matrice <m>L</m>, mais l'interprétation est différente pour ce qui est des solutions de base. Lorsque toutes les lignes sont nulles, toutes les variables sont libres et l'ensemble solution est donc constitué de tous les vecteurs de l'espace <m>\R^n</m>. Si, au contraire, toutes les variables sont pivots, alors il n'y a pas de 
 solution de base. La seule solution à <m>A\vec{x}=\vec{0}</m> est le vecteur nul. C'est dans ce deuxième cas qu'il faudra dire à notre fonction qu'il n'y a pas de solution de base.
 </p>
 <p>Pour le cas où la matrice est nulle, selon l'algorithme <xref provisional="algo-solbase"/>, les solutions spéciales devraient sortir correctement et correspondre aux
@@ -516,7 +514,7 @@ def matL(A):
     return(L)  #On renvoie la matrice L comme réponse
 </input>
 </sage>
-<p>On teste avec la fonction avec la matrice de l'exemple <xref provisional="ex-sousmatriceIL"/>: </p>
+<p>On teste la fonction avec la matrice de l'exemple <xref provisional="ex-sousmatriceIL"/>: </p>
 <sage>
 <input>
 R=matrix([[1,2,0,-2,0,3],[0,0,1,4,0,-1],[0,0,0,0,1,2],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]])
@@ -524,7 +522,7 @@ show("R=",R)
 show("L=",matL(R))
 </input>
 </sage>
-<p>On va maintenant créer la fonction <c>solbase(A)</c>, qui à partir d'une matrice <m>A</m>, va retourner les solutions de base de l'équation <m>A\vec{x}=\vec{0}</m>. À
+<p>On va maintenant créer la fonction <c>solbase(A)</c>, qui, à partir d'une matrice <m>A</m>, va retourner les solutions de base de l'équation <m>A\vec{x}=\vec{0}</m>. À
 l'intérieur de celle-ci, on va utiliser la fonction <c>matL</c> créée ci-dessus.</p>
 <sage>
 <input>
@@ -547,7 +545,7 @@ def solbase(A):
             s=[] #une liste vide qui sera le vecteur s_i au terme de la boucle suivante
             k,l=0,0 #Pour itérer sur les la colonne vL et vI
             for j in range(A.ncols()): #la longueur du vecteur s_i est la même que le nombre de colonnes de A
-                if j in piv: #Si on est dans une entrée pivot
+                if j in piv: #Si l'on est dans une entrée pivot
                     s.append(-vL[k])# On ajoute l'entrée, en pensant de prendre le négatif
                     k+=1 #on itère pour passer à l'entrée suivante
                 else: #Si j est une entrée libre
@@ -612,7 +610,7 @@ solbase(R)
             setCoordSystem(-4, 4,-4,4);
           </slate>
         <instructions>
-          <p><alert>Instructions pour la figure interactive:</alert> Déplacer le point <m>A</m> afin de visualiser la transformation <m>P</m>. L'image de la transformation <m>P</m> semble être restreinte à la droite <m>y=x</m>.</p>
+          <p><alert>Instructions pour la figure interactive:</alert> Déplacer le point <m>A</m> afin de visualiser la transformation <m>P</m>. L'image de la transformation <m>P</m> semble restreinte à la droite <m>y=x</m>.</p>
         </instructions>
         </interactive>
      </figure>
@@ -656,7 +654,7 @@ solbase(R)
     <title>L'image de transformations algébriques</title>
     <statement><p>On considère à nouveau les matrices de l'exemple <xref ref="ex-imggeo"/>. On détermine algébriquement les images de ces transformations.</p></statement>
     <solution>
-    <p>On pose <m>\vec{b}=\vecd{b_1}{b_2}</m> et on augmente la matrice <m>\R_\theta</m> avec le vecteur <m>\vec{b}</m>, afin de procéder à l'échelonnage. On débute en supposant 
+    <p>On pose <m>\vec{b}=\vecd{b_1}{b_2}</m> et l'on augmente la matrice <m>\R_\theta</m> avec le vecteur <m>\vec{b}</m>, afin de procéder à l'échelonnage. On débute en supposant 
     que <m>\cos(\theta)\neq 0</m>.
     <md>
     <mrow>\left(\begin{array}{rr|r}
@@ -682,25 +680,25 @@ solbase(R)
     </md>.
     </p>
     <p>Comme toutes les colonnes sont pivots et qu'il n'y a pas de lignes nulles, on peut conclure que peu importe la valeur du vecteur <m>\vec{b}</m>, une solution existe (ce qui n'est 
-    pas surprenant, compte tenu de la géométrie de la transformation rotation). En plus, on obtient cette solution en fonction des entrées de <m>\vec{b}</m>.</p>
+    pas surprenant, compte tenu de la géométrie de la rotation). En plus, on obtient cette solution en fonction des entrées de <m>\vec{b}</m>.</p>
     <p>Puisque l'on a divisé par <m>\cos(\theta)</m>, on doit voir ce qui se passe lorsque ce dernier vaut <m>0</m>. Si c'est le cas, alors <m>\sin(\theta)=-1</m> ou <m>\sin(\theta)=1</m>.
     Dans les deux cas, la matrice se réduit aussi à l'identité à l'aide d'une permutation de lignes et d'une multiplication d'une ligne par <m>-1</m>.</p>
     </solution>
     <solution>
-    <p>On pose <m>\vec{b}=\vecd{b_1}{b_2}</m> et on augmente la matrice <m>P</m> avec le vecteur <m>\vec{b}</m>, afin de procéder à l'échelonnage.
+    <p>On pose <m>\vec{b}=\vecd{b_1}{b_2}</m> et l'on augmente la matrice <m>P</m> avec le vecteur <m>\vec{b}</m>, afin de procéder à l'échelonnage.
     <md>
     <mrow>
     \left ( \begin{array}{rr|r} 1&amp; 1&amp; b_1 \\ 1&amp; 1&amp; b_2 \end{array}\right) &amp;\matsimilc{1}{-}{2}     \left ( \begin{array}{rr|r} 1&amp; 1&amp; b_1 \\ 0&amp; 0&amp; b_2-b_1 \end{array}\right)
     </mrow>
     </md>.
     </p>
-    <p>La matrice est déjà sous la forme échelonnée réduite et on constate que la dernière ligne (de la partie non augmentée) est nulle. Pour que le système possède une solution,
+    <p>La matrice est déjà sous la forme échelonnée réduite et l'on constate que la dernière ligne (de la partie non augmentée) est nulle. Pour que le système possède une solution,
     il faut que le terme augmenté dans la dernière ligne soit nul aussi, c'est-à-dire, il faut que <m>b_2-b_1=0</m>. En réécrivant, on se rend compte que les vecteurs
     de l'image doivent satisfaire <m>b_1=b_2</m>. Ce sont précisément les vecteurs sur la droite de la figure <xref ref="fig-projimg"/>.</p>
     </solution>
     <solution><p>Voir l'exercice <xref provisional="exo-imgalgB"/>.</p></solution>
     <solution>
-    <p>On pose <m>\vec{b}=\vecddd{b_1}{b_2}{b_3}</m> et on augmente la matrice <m>C</m> avec le vecteur <m>\vec{b}</m>, afin de procéder à l'échelonnage.
+    <p>On pose <m>\vec{b}=\vecddd{b_1}{b_2}{b_3}</m> et l'on augmente la matrice <m>C</m> avec le vecteur <m>\vec{b}</m>, afin de procéder à l'échelonnage.
     <md>
     <mrow>
     \left(\begin{array}{rrr|r} 1&amp; 2&amp; -3&amp; b_1\\
@@ -713,7 +711,7 @@ solbase(R)
     </mrow>
     </md>.
     </p>
-    <p>La matrice est déjà sous la forme échelonnée réduite et on constate que les deux dernières lignes (de la partie non augmentée) sont nulles. Pour que le système possède une solution,
+    <p>La matrice est déjà sous la forme échelonnée réduite et l'on constate que les deux dernières lignes (de la partie non augmentée) sont nulles. Pour que le système possède une solution,
     il faut que les termes de la partie augmentée dans ces  lignes soient nuls aussi, c'est-à-dire, il faut que <m>b_2+2b_1=0</m> et <m>b_3+b_1=0</m>.
     Ceci amène un nouveau système d'équations linéaires homogène à deux équations et trois inconnues. La matrice de ce système est 
     <me>
@@ -731,7 +729,7 @@ solbase(R)
     </input>
     </sage>
     <p>Les vecteurs composant l'image de la transformation linéaire <m>C</m> se trouvent donc sur les combinaisons linéaires (donc ici, la droite) du vecteur 
-    <m>\vec{s}=(-1,2,1)</m>. Ceci coincide bien avec la droite de la figure <xref ref="fig-Cimg"/>, comme le montre l'animation suivante.</p>
+    <m>\vec{s}=(-1,2,1)</m>. Ceci coïncide bien avec la droite de la figure <xref ref="fig-Cimg"/>, comme le montre l'animation suivante.</p>
     <figure xml:id="fig-Cimganim">
      <caption>L'image de la transformation <m>C</m></caption>
      <interactive aspect="1:1" platform="geogebra" width="100%"
@@ -751,7 +749,7 @@ solbase(R)
     <p>Les vecteurs de l'image possèdent une propriété similaire à <xref ref="prop-Ax0sev">celle </xref> de l'ensemble des zéros.</p>
     <proposition xml:id="prop-imasev">
     <title>L'image d'une transformation est fermée pour l'addition et la multiplication par un scalaire</title>
-<statement><p>Soit <m>A</m> la matrice d'une transformation linéaire, <m>c\in \R</m> et <m>\vec{b}_1,\vec{b}_2</m> des vecteurs tels que <m>A\vec{x}=\vec{b}_1</m> et <m>A\vec{x}=\vec{b}_2</m> possèdent au moins
+<statement><p>Soit <m>A</m>, la matrice d'une transformation linéaire, <m>c\in \R</m> et <m>\vec{b}_1,\vec{b}_2</m>, des vecteurs tels que <m>A\vec{x}=\vec{b}_1</m> et <m>A\vec{x}=\vec{b}_2</m> possèdent au moins
 une solution.
     Alors
     <ul>
@@ -778,7 +776,7 @@ show("rref(B)=",B.echelon_form())
     </input>
     </sage>
     <p>On trouve la condition <m>b_3-b_1-b_2=0</m>. On reconnait ici l'équation normale d'un plan dans <m>\R^3</m>. On pourrait trouver l'équation vectorielle en isolant
-    par exemple <m>b_3</m> ou encore en utilisant <c>solbase</c>. Puisque ceci est un exemple Sage, on choisit ce &#x00AB; bazooka &#x00BB; pour tuer une mouche.<fn>Voir
+    par exemple <m>b_3</m> ou encore en utilisant <c>solbase</c>. Puisque ceci est un exemple Sage, on choisit ce bazooka pour tuer une mouche.<fn>Voir
     <url href="https://fr.wiktionary.org/wiki/tuer_une_mouche_avec_un_canon"/></fn></p>
     <sage>
     <input>
@@ -806,7 +804,7 @@ show("rref(C)=",C.echelon_form())
     <mrow>\vecddd{-1}{1}{0}&amp;=-\frac{1}{3}\vecddd{1}{-2}{-1}-\frac{1}{3}\vecddd{2}{-1}{1}</mrow>
     <mrow>\vecddd{1}{0}{1}&amp;=-\frac{1}{3}\vecddd{1}{-2}{-1}+\frac{2}{3}\vecddd{2}{-1}{1}</mrow>
     </md>.
-    Pour comprendre cela, on se rappelle que le produit <m>A\vec{x}</m> peut être interprété comme <xref ref="eq-matvecprodgen">les combinaisons linéaire des
+    Pour comprendre cela, on se rappelle que le produit <m>A\vec{x}</m> peut être interprété comme <xref ref="eq-matvecprodgen" text="custom">les combinaisons linéaires des
     colonnes de la matrice <m>A</m></xref>. L'ensemble des <m>\vec{b}</m> s'écrivant comme ces combinaisons linéaires  constitue donc l'image de la transformation <m>A</m>. 
     </p>
     <p>Il semble toutefois qu'il n'est pas nécessaire d'utiliser toutes les colonnes pour engendrer l'image, comme le montrent les images des matrices <m>P,C</m> et <m>B</m>.
@@ -820,7 +818,7 @@ show("rref(C)=",C.echelon_form())
     par l'origine. Lorsque le vecteur nul est remplacé par un vecteur <m>\vec{b}</m> quelconque, les solutions ont toujours la forme de droites, plans ou hyperplans, mais ceux-ci ne 
     passent plus nécessairement par l'origine. Il est possible d'écrire toutes les solutions à l'équation <m>A\vec{x}=\vec{b}</m> comme la translation des solutions
     à l'équation <m>A\vec{x}=\vec{0}</m>, un peu à l'image de la figure <xref ref="fig-planquelconque"/>.</p>
-    <p>En fait, si on suit la démarche de la section <xref ref="sec-SELtheo"/> lorsqu'il y a infinité de solutions, c'est précisément ce qui se passait lorsqu'on isolait les variables
+    <p>En fait, si l'on suit la démarche de la section <xref ref="sec-SELtheo"/> lorsqu'il y a infinité de solutions, c'est précisément ce qui se passait lorsqu'on isolait les variables
     pivots en fonction des variables libres. On ne fait donc que faire le lien avec la première sous-section.</p>
     <example xml:id="ex-solgen">
     <title>Des systèmes à quatre équations et trois inconnues, prise deux</title>
@@ -877,7 +875,7 @@ def solbase(A):
             s=[] #une liste vide qui sera le vecteur s_i au terme de la boucle suivante
             k,l=0,0 #Pour itérer sur les la colonne vL et vI
             for j in range(A.ncols()): #la longueur du vecteur s_i est la même que le nombre de colonnes de A
-                if j in piv: #Si on est dans une entrée pivot
+                if j in piv: #Si l'on est dans une entrée pivot
                     s.append(-vL[k])# On ajoute l'entrée, en pensant de prendre le négatif
                     k+=1 #on itère pour passer à l'entrée suivante
                 else: #Si j est une entrée libre
@@ -903,8 +901,8 @@ solbase(B)
     <p>On obtient la proposition suivante, sur l'allure des solutions à l'équation <m>A\vec{x}=\vec{b}</m>.</p>
     <proposition xml:id="prop-solgen">
     <title>La forme générale des solutions à l'équation <m>A\vec{x}=\vec{b}</m></title>
-    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m>, <m>\vec{b}</m> un vecteur de <m>\R^m</m> pour lequel l'équation <m>A\vec{x}=\vec{b}</m> possède
-    au moins une solution et soit <m>\vec{x}_h</m> la solution à l'équation homogène <m>A\vec{x}=\vec{0}</m>. Finalement, soit <m>\vec{x}_p</m> une solution particulière
+    <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m>, <m>\vec{b}</m>, un vecteur de <m>\R^m</m> pour lequel l'équation <m>A\vec{x}=\vec{b}</m> possède
+    au moins une solution et soit <m>\vec{x}_h</m>, la solution à l'équation homogène <m>A\vec{x}=\vec{0}</m>. Finalement, soit <m>\vec{x}_p</m>, une solution particulière
     à l'équation <m>A\vec{x}=\vec{b}</m>. Alors 
     <me>
     \vec{x}_g=\vec{x}_p+\vec{x}_h
@@ -922,7 +920,7 @@ solbase(B)
     <mrow>          &amp;=\vec{b}</mrow>
     </md>.
     </p>
-    <p>On montre maintenant que toute solution à l'équation <m>A\vec{x}=\vec{b}</m> peut s'écrire sous cette forme. Soit <m>\vec{x}</m> une solution à <m>A\vec{x}=\vec{b}</m>.
+    <p>On montre maintenant que toute solution à l'équation <m>A\vec{x}=\vec{b}</m> peut s'écrire sous cette forme. Soit <m>\vec{x}</m>, une solution à <m>A\vec{x}=\vec{b}</m>.
     On remarque que <md><mrow>A(\vec{x}-\vec{x}_p)&amp;=A\vec{x}-A\vec{x}_p</mrow><mrow>&amp;=\vec{b}-\vec{b}</mrow><mrow>&amp;=\vec{0}</mrow></md>.</p>
     <p>Ainsi, <m>\vec{x}-\vec{x}_p</m> est une solution à l'équation <m>A\vec{x}=\vec{0}</m>. Il existe donc <m>a_1,a_2,\ldots a_k\in \R</m> tels que
     <men xml:id="eq-solgencomb">
@@ -965,17 +963,17 @@ show("(B|b2)=",Baug.rref())
     <p>Ainsi, pour la matrice <m>B</m>, on obtient <m>\vec{x}_p=\vecddd{3}{0}{0}</m>, puisque la seule variable non libre est la première et les deux suivantes sont libres.</p>
     </solution>
     <solution><p>Selon ce qui est mentionné à la fin de la démarche pour les matrices <m>A,B</m>, la solution particulière se trouve dans la partie augmentée.
-    Les lignes un et deux contiennent des pivots. Ce sont donc les entrées <m>2</m> et <m>-4</m> qui sont importantes. Les pivots sont aux colonnes deux et quatres. La solution
+    Les lignes un et deux contiennent des pivots. Ce sont donc les entrées <m>2</m> et <m>-4</m> qui sont importantes. Les pivots sont aux colonnes deux et quatre. La solution
     particulière est donc <m>\vec{x}_p=(0,2,0,-4)</m>.
     </p></solution>
  </example>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-solstd">
     <title>La solution générale avec Sage</title>
-    <p>Dans cet exemple, on s'intéresse à créer une fonction <c>solgen</c> qui étant donné une matrice et un vecteur va retourner la solution générale à l'équation
+    <p>Dans cet exemple, on s'intéresse à créer une fonction <c>solgen</c> qui, étant donné une matrice et un vecteur, va retourner la solution générale à l'équation
     <m>A\vec{x}=\vec{b}</m>.  La fonction devrait être relativement simple à créer, puisqu'on peut partir de la fonction <c>solbase</c> qui retourne
     déjà les solutions de base. Ce qu'il faut considérer est que maintenant, il se peut que l'équation <m>A\vec{x}=\vec{b}</m> ne possède pas de solution(s). Pour cela, on
-    utilise la propositon <xref ref="prop-rangmcomp"/>.</p>
+    utilise la proposition <xref ref="prop-rangmcomp"/>.</p>
     <p>Pour ce qui est de la solution particulière, il suffit de rappeler que les entrées importantes de celle-ci se trouvent dans la colonne augmentée de la matrice. Ces 
     entrées sont dans les lignes non nulles de la forme échelonnée réduite et vont à la position du pivot de cette ligne.</p>
     <sage>
@@ -989,7 +987,7 @@ def solgen(A,b):
         sbase=solbase(A) #On va chercher les solutions de base
         piv=A.pivots() #La position des pivots
         xp=[]
-        ligne=0 #Sert à garder la ligne où on est rendu
+        ligne=0 #Sert à garder la ligne où l'on est rendu
         for i in range(A.ncols()):  #le vecteur xp a ncols() composantes
             if i in piv:
                 xp.append(Raug[ligne][-1]) #L'entrée de xp est dans la matrice augmentée rref(), ligne i dernière colonne
@@ -1024,13 +1022,12 @@ show(solgen(C,c))
     <ul>
     <li><p>Est-ce qu'elle fonctionne toujours lorsque la matrice est déjà échelonnée?</p></li>
     <li><p>Qu'arrive-t-il si toutes les variables sont pivots? Est-ce la réponse attendue?</p></li>
-    <li><p>Et si aucune des variables n'est pivot? Il faut qu'une autre fonction qui utilise <c>matL</c> puisse se 
+    <li><p>Et si aucune des variables n'est pivot? Il faut qu'une autre fonction utilisant <c>matL</c> puisse se 
     servir de la réponse &#x00AB; vide &#x00BB;.</p></li>
     </ul></p>
     <p>Dans le cas de la fonction <c>solbase</c>, on a pensé à gérer le cas où il n'y a pas de solution. Est-ce qu'il y a d'autres potentiels problèmes?
     <ul><li><p>
-    Encore une fois,
-    si on utilise la fonction <c>solbase</c> dans une autre fonction, est-ce que notre retour à un cas comme cela pourra être utilisé adéquatement
+    Encore une fois, si l'on utilise la fonction <c>solbase</c> dans une autre fonction, est-ce que notre retour à un cas comme cela pourra être utilisé adéquatement
     par cette autre fonction?</p></li>
     <li><p>Même question s'il n'y a pas de solution de base?</p></li></ul></p>
     <p>Finalement, la fonction <c>solgen</c> prend deux arguments. L'ordre de ces arguments est-il important? Et si les arguments n'étaient pas du tout ce à quoi
