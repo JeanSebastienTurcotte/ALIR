@@ -783,7 +783,7 @@
     <me>\vecddd{x}{y}{z}=\vecddd{3}{3}{0}</me>.
     </p></answer>
     <solution><p>Les équations vectorielles de ces deux droites cachent un système à trois équations et deux inconnues. 
-    En effet, en les égalisant et en écrivant les équations séparément pour chaque variable, on obtiendra un système qu'on écrit de la façon standard.
+    En effet, en comparant le membre de droite de chacune, et en écrivant les équations séparément pour chaque variable, on obtiendra un système qu'on écrit de la façon standard.
     <md>
     <mrow>\vecddd{x}{y}{z}&amp;=\vecddd{x}{y}{z}</mrow>
     <mrow>k_1\vecddd{5}{4}{-1}+\vecddd{3}{3}{0}&amp;=k_2\vecddd{-3}{-7}{-3}+\vecddd{0}{-4}{-3}</mrow>
@@ -848,7 +848,7 @@
     <mrow>x&amp;=2</mrow>
     <mrow>y&amp;=t \text{ (libre)}</mrow>
     </md>
-    Pour avoir une variable libre, il faut avoir une ligne de zéros (la deuxième ligne, pour respecter les conditions d'une matrice échelonnée réduite <xref ref="li-rref"/>).
+    Pour avoir une variable libre, on doit avoir une ligne de zéros (la deuxième ligne, pour respecter les conditions d'une matrice échelonnée réduite <xref ref="li-rref"/>).
     La première ligne sera donc constituée pour communiquer l'information que <m>x=2</m>.
     L'unique bonne réponse est donc:
     <me>\left(\begin{array}{rr|r} 1&amp; 0&amp; 2 \\ 0&amp;0&amp;0 \end{array}\right)</me>.
@@ -867,7 +867,7 @@
     <mrow>x&amp;=t \text{ (libre)}</mrow>
     <mrow>y&amp;=4</mrow>
     </md>
-    Pour avoir une variable libre, il faut avoir une ligne de zéros (la deuxième ligne, pour respecter les conditions d'une matrice échelonnée réduite <xref ref="li-rref"/>).
+    Pour avoir une variable libre, on doit avoir une ligne de zéros (la deuxième ligne, pour respecter les conditions d'une matrice échelonnée réduite <xref ref="li-rref"/>).
     La première ligne sera donc constituée pour communiquer l'information que <m>y=4</m>.
     L'unique bonne réponse est donc:
     <me>\left(\begin{array}{rr|r} 0&amp; 1&amp; 4 \\ 0&amp;0&amp;0 \end{array}\right)</me>.
@@ -1374,13 +1374,13 @@ Le reste de la preuve est identique.</p></solution></task>
 <solution><p>On se contente d'une preuve en mots puisque l'on ne gagnera rien clarté si l'on écrit des matrices <m>n\times n</m> arbitraires au long.
 On rappelle quand même la définition du rang <xref ref="def-rang"/>, la remarque <xref ref="rem-ranglignenulle"/> par rapport aux lignes 
 ainsi que la proposition <xref ref="prop-rangmaximal"/> sur le rang maximal.</p>
-<p>Si la matrice <m>A</m> possède deux colonnes identiques, alors, lorsqu'on fera des opérations élémentaires visant à obtenir un pivot sur la première des deux colonnes 
+<p>Si la matrice <m>A</m> possède deux colonnes identiques, alors, lorsqu'on fera des opérations élémentaires visant à obtenir un pivot dans la première des deux colonnes 
 et des zéros en haut et en bas, l'effet de ces opérations sera le même sur les éléments de la deuxième colonne.
-On se retrouvera donc avec deux colonnes identiques avec un pivot sur la première, mais pas de pivot sur la seconde.
+On se retrouvera donc avec deux colonnes identiques avec un pivot dans la première, mais pas de pivot dans la seconde.
 Dans ce cas, on ne peut avoir le rang maximal puisqu'on va manquer de colonnes.</p></solution></task>
 <task><statement><p>Si <m>A</m> possède deux <em>colonnes</em> parallèles, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement>
-<solution><p>Les opérations que l'on fait pour obtenir un pivot sur la première colonne et des zéros en haut et en bas du pivot amèneront également 
-une seule valeur non nulle sur la deuxième colonne.
+<solution><p>Les opérations que l'on fait pour obtenir un pivot dans la première colonne et des zéros en haut et en bas du pivot amèneront également 
+une seule valeur non nulle dans la deuxième colonne.
 Il est donc impossible d'avoir un pivot sur cette seconde colonne.</p></solution></task>
 <task><statement><p>Si <m>A</m> possède une <em>colonne</em> qui est une combinaison linéaire des autres <em>colonnes</em>, montrer que le rang de <m>A</m> n'est pas maximal.</p></statement>
 <solution><p>La solution suivra.<!-- à compléter--></p></solution></task>
@@ -1589,7 +1589,7 @@ A=\begin{pmatrix}
 \end{pmatrix}
 </me></p></answer>
 <solution><p>Une matrice de rang <m>1</m> possède des lignes qui sont toutes multiples les unes des autres.
-Ainsi, lorsqu'on échelonne, on obtiendra des zéros sur les deux lignes du bas, et donc un seul pivot.
+Ainsi, lorsqu'on échelonne, on obtiendra des zéros aux deux lignes du bas, et donc un seul pivot.
 Un exemple de réponse, obtenue en remplissant les valeurs pour que toutes les lignes soient parallèles est:
 <me>
 A=\begin{pmatrix}
@@ -1621,7 +1621,7 @@ A=\begin{pmatrix}
 </me></p></answer>
 <solution><p>Une matrice de rang <m>2</m> possède des lignes qui, lorsqu'on utilise des opérations élémentaires, doivent éliminer complètement une des trois lignes.
 Cela peut se faire en ayant deux lignes parallèles (notre approche) ou en ayant une ligne qui soit une combinaison linéaire des deux autres.
-Ainsi, lorsqu'on échelonne, on obtiendra des zéros à la ligne du bas et des pivots sur les deux autres lignes. 
+Ainsi, lorsqu'on échelonne, on obtiendra des zéros à la ligne du bas et des pivots aux deux autres lignes. 
 Le second pivot peut se retrouver dans la deuxième ou la troisième colonne. 
 Un exemple de réponse est:
 <me>
@@ -1705,7 +1705,7 @@ A=\begin{pmatrix}
 </me></p></answer>
 <solution><p>Une matrice de rang <m>2</m> possède des lignes qui, lorsqu'on utilise des opérations élémentaires, doivent éliminer complètement une des trois lignes.
 Cela peut se faire en ayant deux lignes parallèles (notre approche) ou en ayant une ligne qui soit combinaison linéaire des deux autres.
-Ainsi, lorsqu'on échelonne, on obtiendra des zéros sur la ligne du bas et des pivots sur les deux autres lignes. 
+Ainsi, lorsqu'on échelonne, on obtiendra des zéros à la ligne du bas et des pivots aux deux autres lignes. 
 Le second pivot peut se retrouver dans la deuxième ou la troisième colonne. 
 Un exemple de réponse est:
 <me>
@@ -1784,8 +1784,8 @@ qui possède trois pivots.</p></solution>
 <task><statement><p>Une solution unique;</p></statement>
 <answer><p>Impossible. Il y aura nécessairement des variables libres.</p></answer></task>
 <task><statement><p>Aucune solution;</p></statement><answer><p>Impossible. 
-On ne peut avoir de pivot additionnel dans la partie augmentée puisqu'il n'y a que trois lignes et la matrice <m>R</m> étant déjà de rang <m>3</m>, 
-on ne peut avoir de ligne de zéros.</p></answer></task>
+On ne peut avoir de pivot supplémentaire dans la partie augmentée puisqu'il n'y a que trois lignes et la matrice <m>R</m> étant déjà de rang <m>3</m>, 
+on ne peut avoir un ou des lignes de zéros.</p></answer></task>
 <task><statement><p>Une infinité de solutions.</p></statement><answer><p><me>\left(\begin{array}{rrrrr|r}
 1 &amp; 0 &amp;2 &amp; 1 &amp; 2 &amp; 1 \\
 0 &amp; 1 &amp;1 &amp; 1 &amp; -1 &amp; 0 \\
@@ -1811,7 +1811,7 @@ on ne peut avoir de ligne de zéros.</p></answer></task>
 \end{array}\right)</me></p></answer></task>
 <task><statement><p>Une infinité de solutions.</p></statement>
 <answer><p>Impossible. Si la matrice <m>R</m> n'a que <m>3</m> colonnes et qu'elle doit être de rang <m>3</m>, il ne reste pas d'espace pour une colonne 
-non-pivot et donc il est impossible d'avoir une variable libre.</p></answer>
+sans pivot et donc il est impossible d'avoir une variable libre.</p></answer>
 </task>
 </task>
 <task><introduction><p>La matrice <m>R</m> est <m>3\times 5</m>, de rang <m>2</m> et le système <m>R\vec{x}=\vec{c}</m> possède:</p></introduction>
@@ -1838,7 +1838,7 @@ système <m>A\vec{x}=\vec{b}</m> selon les conditions suivantes. </p></introduct
 Le vecteur étant de dimension <m>m</m>, il n'y a pas d'espace pour un pivot additionnel dans la partie augmentée.
 On peut même isoler la solution puisque la matrice est inversible: <m>\vec{x}=A^{-1}\vec{b}</m></p></solution></task>
 <task><statement><p>On a <m>r=m</m> et <m>r&lt;n</m>, c'est-à-dire une matrice &#x00AB; large &#x00BB;.</p></statement>
-<solution><p>Puisque l'on a plus de colonnes que de lignes, on a de l'espace pour des colonnes non-pivots.
+<solution><p>Puisque l'on a plus de colonnes que de lignes, on a de l'espace pour des colonnes sans pivot.
 Cela veut dire qu'on aura une infinité de solutions, s'il y en a.
 De même, le vecteur étant de dimension <m>m=r</m>, il n'y a pas d'espace pour un pivot additionnel dans la partie augmentée. 
 On aura donc toujours une infinité de solutions.</p></solution></task>
