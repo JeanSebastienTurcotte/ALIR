@@ -13,7 +13,7 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-SELlabos">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Activités et laboratoires </title>
    <!-- <introduction xml:id= "intro-SELlabos"> --> <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    <p>Dans cette section, on regarde différentes activités et laboratoires en lien avec des concepts du chapitre.</p>
+    <p>Dans cette section, on regarde des activités et des laboratoires en lien avec des concepts présentés dans le chapitre.</p>
     <!--</introduction>-->
     <project>
     <title>Des matrices magiques</title>
@@ -27,22 +27,22 @@
     appelle un carré magique. Dans la matrice <m>M</m>, on constate que les neuf entrées sont exactement les valeurs <m>1,2,\ldots , 9</m>, mais ce n'est pas nécessaire. Un tel exemple sera dit carré magique classique.</p>
     <definition>
     <title>Carré semi-magique et magique</title>
-    <statement><p>Soit <m>M</m> une matrice <m>n\times n</m>. Si toutes les lignes et toutes les colonnes de la matrice somment à la même valeur, on dit que <m>M</m> est semi-magique.
-    Si en plus les deux diagonales somment à cette même valeur, on dit alors que <m>M</m> est magique.</p></statement>
+    <statement><p>Soit <m>M</m>, une matrice <m>n\times n</m>. Si toutes les lignes et toutes les colonnes de la matrice somment à la même valeur, on dit que <m>M</m> est semi-magique.
+    Si, en plus, les deux diagonales somment à cette même valeur, on dit alors que <m>M</m> est magique.</p></statement>
     </definition>
     <p>Dans cette activité, on s'intéresse à la construction de carrés magiques.</p>
     </introduction>
     <task>
     <title>Le cas <m>3\times 3</m> </title>
     <introduction>
-    <p>On débute avec une méthode qui permettra d'obtenir la matrice <m>M</m> de l'introduction. On considère une matrice quelconque de taille <m>3\times 3</m>
+    <p>On commence avec une méthode qui permettra d'obtenir la matrice <m>M</m> de l'introduction. On considère une matrice quelconque de taille <m>3\times 3</m>
     <me>
     M=\begin{pmatrix} a&amp; d&amp; g\\
                       b&amp; e&amp; h\\
                       c&amp; f&amp; i\end{pmatrix}
     </me>.</p>
     </introduction>
-    <task><statement><p>Dans l'exemple en introduction, la somme magique est <m>15</m>. On peut écrire un système à 8 équations et 9 inconnues pour que la matrice quelconque soit magique avec somme <m>15</m>:
+    <task><statement><p>Dans l'exemple en introduction, la somme magique est <m>15</m>. On peut écrire un système à 8 équations et 9 inconnues pour que la matrice quelconque soit magique et que sa somme soit <m>15</m>:
     <md alignment="alignat">
     <mrow>a&amp;<!--{}+{}-->&amp;<!--b-->&amp;<!--{}+{}-->&amp;<!--c-->&amp;{}+{}&amp;d&amp;<!--{}+{}-->&amp;<!--e-->&amp;<!--{}+{}-->&amp;<!--f-->&amp;{}+{}&amp;g&amp;<!--{}+{}-->&amp;<!--h-->&amp;<!--{}+{}-->&amp;<!--i-->&amp;{}={}&amp; 15&amp;&amp;&amp;&amp;\text{ ligne 1}</mrow>
     <mrow><!--a-->&amp;<!--{}+{}-->&amp;b&amp;<!--{}+{}-->&amp;<!--c-->&amp;<!--{}+{}-->&amp;<!--d-->&amp;{}+{}&amp;e&amp;<!--{}+{}-->&amp;<!--f-->&amp;<!--{}+{}-->&amp;<!--g-->&amp;{}+{}&amp;h&amp;<!--{}+{}-->&amp;<!--i-->&amp;{}={}&amp; 15&amp;&amp;&amp;&amp; \text{ ligne 2}</mrow>
@@ -55,7 +55,7 @@
     </md>.
     Utiliser Sage pour résoudre ce système d'équations. Il devrait y avoir deux variables libres dans la forme échelonnée réduite. Quelles sont-elles et quelles doivent être les valeurs de ces variables libres pour que la solution soit égale à la 
     matrice <m>M</m> de l'introduction?</p>
-    <p>Il est possible mais non obligatoire d'utiliser les fonctions <c>solbase</c> et <c>solgen</c> des exemples calculatoires <xref ref="sageex-Ax0"/> et <xref ref="sageex-solstd"/>.</p>
+    <p>Il est possible, mais facultatif, d'utiliser les fonctions <c>solbase</c> et <c>solgen</c> des exemples calculatoires <xref ref="sageex-Ax0"/> et <xref ref="sageex-solstd"/>.</p>
     <sage>
     <input>
     
@@ -132,7 +132,7 @@ show(column_matrix(3,3,7*s1+6*s2+xp))
     </output> -->
     </sage>
     </statement></task>
-    <task><p>Déterminer le carré magique <m>3\times 3</m> où votre date de fête, sous le format (jj/mm) apparait aux variables libres, toujours avec une somme de <m>15</m>.</p>
+    <task><p>Déterminer le carré magique <m>3\times 3</m> où votre date de fête, sous le format (jj/mm), apparait aux variables libres, toujours avec une somme de <m>15</m>.</p>
     <sage>
     <input>
     
