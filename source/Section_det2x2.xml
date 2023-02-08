@@ -14,10 +14,9 @@
     <title>Le déterminant <m>2\times 2</m> </title>
     <introduction xml:id= "intro-det2x2">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
         <p>Aller aux <xref ref="exo-det2x2">exercices</xref> de la section.</p>
-    <p>On considère dans un premier temps les transformations linéaires dans le plan <m>\R^2</m>. Si on considère le carré unité formé des vecteurs <m>(1,0)</m> et <m>(0,1)</m>, celui-ci est transformé en un 
+    <p>Dans un premier temps, on considère  les transformations linéaires dans le plan <m>\R^2</m>. Si l'on considère le carré unité formé des vecteurs <m>(1,0)</m> et <m>(0,1)</m>, celui-ci est transformé en un 
     parallélogramme (peut être comprimé en une ligne ou un point à l'origine) engendré par les vecteurs <m>T(1,0)</m> et <m>T(0,1)</m>. Comment est l'aire de ce parallélogramme par rapport au carré unité?</p>
-    <p>Dans cette section, on définit le déterminant d'une transformation de <m>\R^2</m>.  On calcule des déterminants pour des transformations connues et on étudie les propriétés du déterminant. On regarde la notion d'orientation
-    d'un repère et on donne la formule pour le calcul du déterminant d'une matrice <m>2\times 2</m>.</p>
+    <p>Dans cette section, on définit le déterminant d'une transformation de <m>\R^2</m>.  On calcule des déterminants pour des transformations connues et l'on étudie les propriétés du déterminant. On regarde la notion <em>d'orientation</em> d'un repère et l'on donne la formule pour le calcul du déterminant d'une matrice <m>2\times 2</m>.</p>
     </introduction>
     <subsection xml:id="sssec-factchgaire">
     <title>Le facteur de changement d'aire</title>
@@ -34,7 +33,7 @@
     </md>.
     </p>
     <p>La première transformation représente un étirement horizontal de facteur <m>r</m>, la seconde est un <xref ref="exo-cisaillement" text="custom">cisaillement</xref> horizontal de facteur <m>k</m>, la troisième représente
-    une projection sur le vecteur <m>(1,1)</m> et finalement, la dernière est une transformation quelconque.</p>
+    une projection sur le vecteur <m>(1,1)</m> et, finalement, la dernière est une transformation quelconque.</p>
     <p>On cherche à évaluer l'impact de ces transformations sur l'aire des figures transformées. La figure interactive <xref ref="fig-det2x2"/> permet de manipuler les transformations.</p>
     <figure xml:id="fig-det2x2">
     <caption>Le facteur de changement d'aire pour quatre transformations</caption>
@@ -50,13 +49,13 @@
          de modifier le carré unité pour constater l'effet sur une autre figure.</p></instructions>
     </interactive>
     </figure>
-    <p>On constate que pour un étirement de facteur <m>r</m>, l'aire est aussi multipliée par un facteur <m>r</m>. Dans le cas du cisaillement, le facteur <m>k</m> ne semble pas avoir
+    <p>On constate que, pour un étirement de facteur <m>r</m>, l'aire est aussi multipliée par un facteur <m>r</m>. Dans le cas du cisaillement, le facteur <m>k</m> ne semble pas avoir
     d'impact sur l'aire de la figure transformée, qui reste égale à l'aire de la figure originale.</p>
     <p>Dans le cas de la projection, il n'y a plus d'aire. La figure est envoyée complètement sur la droite <m>y=x</m>. Finalement, l'aire de la figure transformée par la matrice <m>T</m> semble
     être <m>5</m> fois l'aire de la figure originale.</p>
     <p>On pourra bientôt comprendre d'où vient ce facteur <m>5</m>.</p>
     </example>
-    <p>Soit <m>T=\matcold{a}{b}{c}{d}</m> une transformation linéaire. Si <m>(a,b)\neq k(c,d)</m>, l'image des vecteurs <m>(1,0)</m> et <m>(0,1)</m> est un parallélogramme, comme celui illustré
+    <p>Soit <m>T=\matcold{a}{b}{c}{d}</m>, une transformation linéaire. Si <m>(a,b)\neq k(c,d)</m>, l'image des vecteurs <m>(1,0)</m> et <m>(0,1)</m> est un parallélogramme, comme illustré
     ci-dessous.</p>
     <figure xml:id="fig-airepara">
     <caption>L'aire d'un parallélogramme</caption>
@@ -78,18 +77,16 @@ P
     <p>L'aire de ce parallélogramme peut se calculer ainsi:
     <ol>
     <li><p>On prend l'aire du grand rectangle de côtés <m>a+c</m> et <m>b+d</m>, ce qui donne <m>(a+c)(b+d)=ab+ad+cb+cd</m>.</p></li>
-    <li><p>On soustrait à cela l'aire des rectangles de côtés <m>b,c</m>, en jaunes sur la figure <xref ref="fig-airepara"/>. Comme il y en a deux, on soustrait <m>2bc</m>.</p></li>
-    <li><p>On soustrait ensuite l'aire des triangles rectangles de côtés <m>a,b</m>, en verts sur la figure <xref ref="fig-airepara"/>. Comme il y en a deux, on soustrait <m>ab</m>.</p></li>
-    <li><p>Finalement, on soustrait l'aire des triangles rectangles de côtés <m>c,d</m>, en rouges sur la figure <xref ref="fig-airepara"/>. Comme il y en a deux, on soustrait <m>cd</m>.</p></li>
+    <li><p>On soustrait l'aire des rectangles de côtés <m>b,c</m>, en jaune sur la figure <xref ref="fig-airepara"/>. Comme il y en a deux, on soustrait <m>2bc</m>.</p></li>
+    <li><p>On soustrait ensuite l'aire des triangles rectangles de côtés <m>a,b</m>, en vert sur la figure <xref ref="fig-airepara"/>. Comme il y en a deux, on soustrait <m>ab</m>.</p></li>
+    <li><p>Finalement, on soustrait l'aire des triangles rectangles de côtés <m>c,d</m>, en rouge sur la figure <xref ref="fig-airepara"/>. Comme il y en a deux, on soustrait <m>cd</m>.</p></li>
     </ol>
     </p>
     <p>L'aire du parallélogramme est donc 
     <me>
     ab+ad+bc+cd-2bc-ab-cd=ad-bc
     </me>.
-    Ce terme devrait être familier. C'est le même terme qu'on a vu dans la section <xref ref="sec-matinverse"/> pour qu'une matrice <m>2\times 2</m> soit inversible. En y réfléchissant un peu,
-    on peut se convaincre du lien sachant que si <m>ad-bc=0</m>, alors l'aire du parallélogramme est nulle et on a plutôt une droite. La solution à &#x00AB; l'inverse &#x00BB; de la projection orthogonale
-    à l'exemple <xref ref="ex-transfor2inv"/> fournit une explication à l'impossibilité d'avoir un inverse si l'image de la transformation dans <m>\R^2</m> est une droite.
+    Ce terme devrait être familier. C'est le même terme que l'on a vu dans la section <xref ref="sec-matinverse"/> pour qu'une matrice <m>2\times 2</m> soit inversible. En y réfléchissant, on peut se convaincre du lien entre l'apparition de ce terme dans le calcul de l'aire du parallélogramme et la nécessité de sa présence pour qu'une matrice soit inversible, sachant que si <m>ad-bc=0</m>, alors l'aire du parallélogramme est nulle et que l'on a plutôt une droite ou un point. La solution à &#x00AB; l'inverse &#x00BB; de la projection orthogonale, à l'exemple <xref ref="ex-transfor2inv"/>, fournit une explication à l'impossibilité d'avoir un inverse si l'image de la transformation dans <m>\R^2</m> est une droite.
     </p>
     <example>
     <title>D'autres déterminants de taille <m>2\times 2</m></title>
@@ -103,8 +100,8 @@ P
     On cherche le déterminant de ces quatre matrices.
     </p></statement>
     <solution>
-    <p>La matrice identité est la transformation qui ne fait rien. Intuitivement, on devrait avoir un déterminant égal à un puisqu'il n'y a pas de changement d'aire. Puisque <m>a=d=1</m> et <m>b=c=0</m>, on a bel et bien
-    <m>ad-bc=1</m>. Évidemment, géométriqument, l'aire du parallélogramme correspond simplement à l'aire du carré unité.</p>
+    <p>La matrice identité est la transformation qui ne change rien. Intuitivement, on devrait avoir un déterminant égal à un puisqu'il n'y a pas de changement d'aire. Puisque <m>a=d=1</m> et <m>b=c=0</m>, on a bel et bien
+    <m>ad-bc=1</m>. Évidemment, géométriquement, l'aire du parallélogramme correspond simplement à l'aire du carré unité.</p>
     </solution>
     <solution>
     <p>L'effet de la transformation sur les vecteurs <m>(1,0)</m> et <m>(0,1)</m> est illustré à la figure ci-dessous.</p>
@@ -119,10 +116,9 @@ P
     <p>Puisque le carré unité est transformé en une droite, on s'attend à ce que le déterminant soit <m>0</m>. On a en effet <m>ad-bc=1*(-8)-(-2)*4=0</m>.</p>
     </solution>
     <solution>
-    <p>Les transformations <m>B</m> et <m>C</m> envoient le carré unité sur le même parallélogramme, soit celui engendré par les vecteurs <m>(1,-2)</m> et <m>(3,4)</m>. Dans le cas de la transformation <m>B</m>, c'est le vecteur
-    <m>(1,0)</m> qui est envoyé sur <m>(1,-2)</m> et <m>(0,1)</m> est quant à lui envoyé sur <m>(3,4)</m>, alors que dans le cas de la transformation <m>C</m>, c'est le contraire qui se produit.</p>
-    <p>D'un point de vue géométrique, on s'attend donc à ce que le déterminant de ces deux matrices soit le même. Pourtant, d'un point de vue algébrique, on a pour <m>B</m> que <m>ad-bc=1*4-(-2)*3=10</m> et pour <m>C</m> on a
-    que <m>ad-bc=3(-2)-4*1=-10</m>. L'argument de l'aire fait avec la figure <xref ref="fig-airepara"/> contient certainement une lacune, que l'on va considérer à l'instant. </p>
+    <p>Les transformations <m>B</m> et <m>C</m> envoient le carré unité sur le même parallélogramme, soit celui qui est engendré par les vecteurs <m>(1,-2)</m> et <m>(3,4)</m>. Dans le cas de la transformation <m>B</m>, c'est le vecteur
+    <m>(1,0)</m> qui est envoyé sur <m>(1,-2)</m> et <m>(0,1)</m> est, quant à lui, envoyé sur <m>(3,4)</m>, alors que dans le cas de la transformation <m>C</m>, c'est le contraire qui se produit.</p>
+    <p>D'un point de vue géométrique, on s'attend donc à ce que le déterminant de ces deux matrices soit le même. Pourtant, d'un point de vue algébrique, on a pour <m>B</m> que <m>ad-bc=1*4-(-2)*3=10</m> et pour <m>C</m>, on a que <m>ad-bc=3(-2)-4*1=-10</m>. L'argument de l'aire fait avec la figure <xref ref="fig-airepara"/> contient certainement une lacune, que l'on considère à l'instant. </p>
     </solution>
     </example>
     <p>L'exemple précédent a montré que la formule pour le calcul de l'aire du parallélogramme <m>Aire=ad-bc</m> peut donner un résultat négatif. Heureusement, l'exercice <xref ref="exo-aireparabc-ad"/> montre que
@@ -163,17 +159,15 @@ Pointsgraph+carre+Pointslabels
     </subsection>
     <subsection>
     <title>Définition du déterminant</title>
-    <p>Lorsqu'on parle du vecteur <m>\vec{u}=(3,2)</m> dans le plan, il est sous-entendu que ce vecteur est <m>\vec{u}=3(1,0)+2(0,1)</m>. La décomposition du vecteur <m>(3,2)</m> selon les vecteurs
-    <m>(1,0),(0,1)</m> dépend du choix arbitraire qu'on fait de quel vecteur est le &#x00AB; premier &#x00BB; vecteur qui sera utilisé pour décrire les autres vecteurs. En effet, on aurait très bien
-    pu prendre comme convention d'ordonner les vecteurs comme <m>(0,1),(1,0)</m> et ainsi, le vecteur <m>\vec{u}</m> aurait été <m>\vec{u}=(2,3)</m> dans cette convention. </p>
-<p>Ces subtilités vont revenir dans la section <xref provisional="Section sur les base"/>, mais pour le moment, on se contente de définir l'orientation de deux vecteurs non parallèles dans <m>\R^2</m>.</p>
+    <p>Lorsqu'on parle du vecteur <m>\vec{u}=(3,2)</m> dans le plan, il est sous-entendu que ce vecteur est <m>\vec{u}=3(1,0)+2(0,1)</m>. La décomposition du vecteur <m>(3,2)</m> selon les vecteurs <m>(1,0),(0,1)</m> dépend du vecteur choisi pour être le &#x00AB; premier &#x00BB; et du vecteur choisi pour être le &#x00AB; second &#x00BB;. Par convention, on aurait pu ordonner les vecteurs selon l'ordre <m>(0,1),(1,0)</m>. Ainsi, le vecteur <m>\vec{u}</m> aurait été <m>\vec{u}=(2,3)</m>, toujours selon cette convention. </p>
+<p>Ces subtilités reviendront dans la section <xref ref="sec-bases"/>, mais pour le moment, on se contente de définir l'orientation de deux vecteurs non parallèles dans <m>\R^2</m>.</p>
 <definition xml:id="def-orientationR2">
 <title>L'orientation dans <m>\R^2</m></title>
-<statement><p>Soit <m>\vec{u},\vec{v}</m> deux vecteurs non parallèles de <m>\R^2</m>. On note <m>\mathcal{B}=\langle \vec{u},\vec{v}\rangle</m> le repère formé dans l'ordre des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>.
-On dit que <m>\mathcal{B}</m> est orienté positivement si la rotation antihoraire qui apporte <m>\hat{u}</m> sur <m>\hat{v}</m> a un angle <m>0&lt;\theta &lt; \pi</m>. Sinon, le repère est orienté négativement. </p>
+<statement><p>Soit <m>\vec{u},\vec{v}</m>, deux vecteurs non parallèles de <m>\R^2</m>. On note <m>\mathcal{B}=\langle \vec{u},\vec{v}\rangle</m>, le repère formé dans l'ordre des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>.
+On dit que <m>\mathcal{B}</m> est orienté positivement si la rotation antihoraire qui amène <m>\hat{u}</m> sur <m>\hat{v}</m> a un angle <m>0&lt;\theta &lt; \pi</m>. Sinon, le repère est orienté négativement. </p>
 </statement>
 </definition>
-<p>Voici quelques exemples de repère <m>\langle \vec{u},\vec{v}\rangle</m> et leur orientation.</p>
+<p>Voici quelques exemples de repères <m>\langle \vec{u},\vec{v}\rangle</m> et leur orientation.</p>
 <sbsgroup>
 <sidebyside>
 <figure>
@@ -231,9 +225,8 @@ P
 </figure>
 </sidebyside>
 </sbsgroup>
-<p>On va associer au signe du déterminant l'orientation (positive ou négative) du repère formé des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. On verra à la proposition <xref ref="prop-detestfact"/> que le signe
-du déterminant va concorder avec le signe de l'orientation.</p>
-<p>Pour le moment, on va chercher à donner une définition axiomatique du déterminant. Cette définition sera utile à la section <xref ref="sec-detgen"/> lorsque la géométrie sera plus difficile à interpréter. Avec les observations
+<p>On va associer au signe du déterminant l'orientation (positive ou négative) du repère formé des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. On verra à la proposition <xref ref="prop-detestfact"/> que le signe du déterminant concorde avec le signe de l'orientation.</p>
+<p>Pour le moment, on cherche à donner une définition axiomatique du déterminant. Cette définition sera utile à la section <xref ref="sec-detgen"/> lorsque la géométrie sera plus difficile à interpréter. Avec les observations
 que l'on a jusqu'à maintenant, il semble plausible de dire que le déterminant d'une matrice devrait satisfaire les propriétés suivantes:
 <ul>
 <li><p>Le déterminant de l'identité est égal à <m>1</m>, car la transformation ne change pas l'aire des régions.</p></li>
@@ -258,7 +251,7 @@ La géométrie du cisaillement montre que le déterminant est <m>1</m>, car l'ai
 pas pour le parallélogramme ainsi obtenu. On peut maintenant définir la notion de déterminant d'une matrice.</p>
 <definition xml:id="def-determinant2x2">
 <title>Le déterminant d'une matrice</title>
-<statement><p>Soit <m>A=\begin{pmatrix} a&amp; c\\ b&amp; d\end{pmatrix}</m> une matrice <m>2\times 2</m>. On note <m>\vec{u}=\vecd{a}{b}</m> et <m>\vec{v}=\vecd{c}{d}</m>. Le déterminant de la matrice <m>A</m> est un scalaire, noté
+<statement><p>Soit <m>A=\begin{pmatrix} a&amp; c\\ b&amp; d\end{pmatrix}</m>, une matrice <m>2\times 2</m>. On note <m>\vec{u}=\vecd{a}{b}</m> et <m>\vec{v}=\vecd{c}{d}</m>. Le déterminant de la matrice <m>A</m> est un scalaire, noté
 <me>
 \det(A)=\begin{vmatrix} a&amp; c\\ b&amp; d \end{vmatrix}=\det(\vec{u},\vec{v})=\Delta(\vec{u},\vec{v})
 </me>,
@@ -277,34 +270,34 @@ qui satisfait les quatre propriétés suivantes:</p>
 <p>On fait maintenant quelques remarques sur la définition du déterminant.</p>
 <remark>
 <title>Précisions sur le déterminant</title>
-<p>La définition du déterminant utilise plusieurs notations. Principalement, on utilisera la forme
+<p>La définition du déterminant utilise plusieurs notations. On utilisera principalement la forme
 <me>
 \det(A)=\begin{vmatrix} a&amp; c\\ b&amp; d \end{vmatrix}=\det(\vec{u},\vec{v})
 </me>.
-Si le nombre en tant que tel est important, on va privilégier <m>\det(A)</m>, alors que s'il est pratique de voir les entrées de la matrice ou si on fait un calcul, on utilisera <m>\begin{vmatrix} a&amp; c\\ b&amp; d \end{vmatrix}</m>.
+Si le nombre en tant que tel est important, on privilégiera <m>\det(A)</m>, alors que s'il est pratique de voir les entrées de la matrice ou si l'on fait un calcul, on utilisera <m>\begin{vmatrix} a&amp; c\\ b&amp; d \end{vmatrix}</m>.
 La notation <m>\det(\vec{u},\vec{v})</m> sera surtout utile dans les démonstrations des propriétés du déterminant.
 </p>
-<p>Les trois propriétés autre que le déterminant de l'identité rappellent d'une certaine façon les opérations élémentaires, bien que les propriétés définissant le déterminant s'appliquent sur les colonnes. On verra avec la proposition
+<p>Les trois propriétés autres que le déterminant de l'identité rappellent d'une certaine façon les opérations élémentaires, bien que les propriétés définissant le déterminant s'appliquent sur les colonnes. On verra avec la proposition
 <xref ref="prop-dettranspo2x2"/> qu'il y a équivalence entre les lignes et les colonnes pour le déterminant et que cette observation est justifiée.</p>
 </remark>
 <p>On va maintenant réconcilier la définition <xref ref="def-determinant2x2"/> avec le facteur de changement d'aire de la section <xref ref="sssec-factchgaire"/>. Pour cela, on aura besoin d'une propriété additionnelle des 
 déterminants qui se déduit de la définition.</p>
 <proposition xml:id="prop-detcolnulle2x2">
 <title>Le déterminant et le vecteur nul</title>
-<statement><p>Soit <m>\vec{u}</m> un vecteur quelconque. Alors
+<statement><p>Soit <m>\vec{u}</m>, un vecteur quelconque. Alors
 <me>\det(\vec{u},\vec{0})=0</me>.</p></statement>
 <proof><p>Il suffit de remarquer que <m>\det(\vec{u},\vec{0})=\det(\vec{u},0*\vec{0})=0*\det(\vec{u},\vec{0})=0</m>. On a évidemment aussi <m>\det(\vec{0},\vec{u})=0</m>.</p></proof>
 </proposition>
-<p>Et maintenant pour relier déterminant et facteur de changement d'aire, on a la proposition suivante.</p>
+<p>Et maintenant, pour relier déterminant et facteur de changement d'aire, on a la proposition suivante.</p>
 <proposition xml:id="prop-detestfact">
 <title>Le déterminant et le facteur de changement d'aire</title>
 <statement>
-<p>Soit <m>A</m> une matrice <m>2\times 2</m>. L'aire du parallélogramme engendré par les colonnes <m>\vec{u},\vec{v}</m> de la matrice est donnée par <m>\abs{\det(A)}=\abs{ad-bc}</m>. De plus si <m>\det(A)\neq 0</m>, le signe 
+<p>Soit <m>A</m>, une matrice <m>2\times 2</m>. L'aire du parallélogramme engendré par les colonnes <m>\vec{u},\vec{v}</m> de la matrice est donnée par <m>\abs{\det(A)}=\abs{ad-bc}</m>. De plus, si <m>\det(A)\neq 0</m>, le signe 
 de <m>\det(A)</m> détermine l'orientation du repère <m>\langle \vec{u},\vec{v} \rangle</m>.</p>
 </statement>
 <proof>
-<p>La démonstration se fait en deux parties. D'une part, si on arrive à montrer à partir des propriétés que <m>\det(A)=ad-bc</m>, alors on saura que l'aire est donnée par la valeur absolue du déterminant.
-D'un autre côté, si on montre que le signe du déterminant est positif lorsque le repère est orienté positivement et négatif si le repère est orienté négativement, on complètera la preuve.
+<p>La démonstration se fait en deux parties. D'une part, si l'on arrive à montrer, à partir des propriétés, que <m>\det(A)=ad-bc</m>, alors on saura que l'aire est donnée par la valeur absolue du déterminant.
+D'autre part, si l'on montre que le signe du déterminant est positif lorsque le repère est orienté positivement et négatif si le repère est orienté négativement, on complètera la preuve.
 </p>
 <p>Soit <m>A=\matcold{a}{b}{c}{d}</m>. On suppose d'abord que <m>a\neq 0</m>. On a alors
 <md>
@@ -313,8 +306,8 @@ D'un autre côté, si on montre que le signe du déterminant est positif lorsque
 <mrow>&amp;=a\begin{vmatrix} 1&amp; 0\\ \frac{b}{a}&amp; \frac{ad-bc}{a} \end{vmatrix} </mrow>
 </md>.
 </p>
-<p>Si <m>ad-bc=0</m>, alors on a une colonne nulle et donc <m>\det(A)=0</m> en vertu de la propriété <xref ref="li-detcolnulle2x2resum"/>. De plus, <m>ad-bc=0</m> implique que l'aire du parallélogramme est nulle. Le déterminant et l'aire coïncident dans ce cas.
-Si toutefois <m>ad-bc\neq 0</m>, alors on peut soustraire à la colonne <m>1</m> le multiple <m>\frac{b}{ad-bc}</m> de la colonne <m>2</m> pour obtenir
+<p>Si <m>ad-bc=0</m>, alors on a une colonne nulle et donc, <m>\det(A)=0</m> en vertu de la propriété <xref ref="li-detcolnulle2x2resum"/>. De plus, <m>ad-bc=0</m> implique que l'aire du parallélogramme est nulle. Dans ce cas, le déterminant et l'aire coïncident .
+Toutefois, si <m>ad-bc\neq 0</m>, alors on peut soustraire à la colonne <m>1</m> le multiple <m>\frac{b}{ad-bc}</m> de la colonne <m>2</m> pour obtenir
 <md>
 <mrow>a\begin{vmatrix} 1&amp; 0\\ \frac{b}{a}&amp; \frac{ad-bc}{a} \end{vmatrix}&amp;=a\begin{vmatrix} 1&amp; 0\\ 0&amp; \frac{ad-bc}{a} \end{vmatrix}&amp; &amp; \text{ selon } <xref ref="li-detk2x2"/> \</mrow>
 <mrow>&amp;=(ad-bc)\begin{vmatrix} 1&amp; 0\\ 0&amp; 1\end{vmatrix} &amp;&amp; \text{ selon } <xref ref="li-detr2x2"/></mrow>
@@ -325,7 +318,7 @@ Si toutefois <m>ad-bc\neq 0</m>, alors on peut soustraire à la colonne <m>1</m>
 <md>
 <mrow>\begin{vmatrix} 0&amp; c\\ b&amp; d \end{vmatrix}&amp;=-\begin{vmatrix} c&amp; 0\\ d&amp; b \end{vmatrix}&amp;&amp; \text{ selon } <xref ref="li-detp2x2"/> </mrow>
 </md>.
-Encore une fois ici, si <m>b=0</m>, on a une colonne nul et l'argument ci-haut implique que le déterminant et  <m>ad-bc</m> sont nuls. Si toutefois <m>b</m> n'est pas nul, on peut soustraire à la colonne <m>1</m> le
+Encore une fois, si <m>b=0</m>, on a une colonne nulle et l'argument ci-haut implique que le déterminant et  <m>ad-bc</m> sont nuls. Toutefois, si <m>b</m> n'est pas nul, on peut soustraire à la colonne <m>1</m> le
 multiple <m>\frac{d}{b}</m> pour avoir
 <md>
 <mrow> -\begin{vmatrix} c&amp; 0\\ d&amp; b \end{vmatrix}&amp;=-\begin{vmatrix} c&amp; 0\\ 0&amp; b \end{vmatrix}&amp;&amp;\text{selon } <xref ref="li-detk2x2"/></mrow>
@@ -347,7 +340,7 @@ avec des vecteurs unitaires <m>\hat{u}=(u_1,u_2),\hat{v}=(v_1,v_2)</m>, on a <m>
 <mrow>&amp;=\norm{\vec{u}}\norm{\vec{v}}\sin(\theta)(u_1^2+u_2^2)&amp;&amp;\text{selon la formule du déterminant  } ad-bc</mrow>
 <mrow number="yes" xml:id="eq-detnormsin">&amp;=\norm{\vec{u}}\norm{\vec{v}}\sin(\theta)</mrow>
 </md>.
-Comme le signe  du déterminant est entièrement déterminé par le signe de <m>\sin(\theta)</m> (les normes étants positives) et que celui-ci est positif lorsque <m>0&lt;\theta&lt;\pi</m>, on conclut que le déterminant est 
+Comme le signe  du déterminant est entièrement déterminé par le signe de <m>\sin(\theta)</m> (les normes étant positives) et que celui-ci est positif lorsque <m>0&lt;\theta&lt;\pi</m>, on conclut que le déterminant est 
 aussi positif.</p>
 <p>Un argument similaire montre que l'orientation négative du repère coïncide avec le signe négatif du déterminant.</p>
 </proof>
@@ -355,7 +348,7 @@ aussi positif.</p>
 <p>On regarde maintenant quelques exemples de calculs et d'applications des déterminants.</p>
 <example>
 <title>L'aire d'un triangle</title>
-<statement><p>Soit <m>A(1,3),B(2,-1)</m> et <m>C(4,5)</m> trois points définissant un triangle dans <m>\R^2</m>. On cherche l'aire du triangle <m>ABC</m>.</p>
+<statement><p>Soit <m>A(1,3),B(2,-1)</m> et <m>C(4,5)</m>, trois points définissant un triangle dans <m>\R^2</m>. On cherche l'aire du triangle <m>ABC</m>.</p>
 <p>La stratégie usuelle pour trouver l'aire d'un triangle est de faire le produit de la base par la hauteur et de diviser par deux. On peut faire plus efficacement avec un déterminant.</p>
 </statement>
 <solution>
@@ -373,8 +366,7 @@ aussi positif.</p>
 <example xml:id="ex-prodvecdet2x2">
 <title>Le produit vectoriel</title>
 <statement><p>À l'exercice <xref ref="exo-prodvec"/>, on a introduit le produit vectoriel de deux vecteurs <m>\vec{u},\vec{v}\in \R^3</m> comme étant un vecteur <m>\vec{w}=\vec{u}\times \vec{v}</m> qui est à la fois
-perpendiculaire à <m>\vec{u}</m> et à <m>\vec{v}</m>. Géométriquement, ce vecteur est un vecteur normal du plan engendré par les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. On montre que le produit vectoriel tel que défini
-à l'exercice <xref ref="exo-prodvec"/> peut s'écrire comme 
+perpendiculaire à <m>\vec{u}</m> et à <m>\vec{v}</m>. Géométriquement, ce vecteur est un vecteur normal du plan engendré par les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. On montre que le produit vectoriel, tel que défini à l'exercice <xref ref="exo-prodvec"/>, peut s'écrire comme 
 <men xml:id="eq-prodvecdet2x2">
 \vec{u}\times\vec{v}=\left(\begin{vmatrix} u_2 &amp; v_2 \\ u_3 &amp; v_3\end{vmatrix},-\begin{vmatrix} u_1 &amp; v_1 \\ u_3 &amp; v_3\end{vmatrix},\begin{vmatrix} u_1 &amp; v_1 \\ u_2 &amp; v_2\end{vmatrix}\right)
 </men></p></statement>
@@ -383,15 +375,14 @@ perpendiculaire à <m>\vec{u}</m> et à <m>\vec{v}</m>. Géométriquement, ce ve
 On a 
 <md>
 <mrow>\left(\begin{vmatrix} u_2 &amp; v_2 \\ u_3 &amp; v_3\end{vmatrix},-\begin{vmatrix} u_1 &amp; v_1 \\ u_3 &amp; v_3\end{vmatrix},\begin{vmatrix} u_1 &amp; v_1 \\ u_2 &amp; v_2\end{vmatrix}\right)&amp;=
-(u_2v_3-u_3v_2,-(u_1v_3-u_3v_1),u_1v_2-u_2v_1</mrow>
+(u_2v_3-u_3v_2,-(u_1v_3-u_3v_1),u_1v_2-u_2v_1)</mrow>
 </md>.
 </p>
-<p>On a bel et bien égalité. Cet exemple donne un moyen simple de trouver un vecteur perpendiculaire à deux autres dans <m>\R^3</m>, qui requiert le calcul de trois déterminants.Si on regarde composante par composante le
-vecteur produit vectoriel de l'équation <xref ref="eq-prodvecdet2x2"/>, on peut s'imaginer une matrice <m>3\times 2</m> contenant les vecteurs <m>\vec{u},\vec{v}</m>
+<p>On a bel et bien l'égalité. Cet exemple propose un moyen simple de trouver un vecteur perpendiculaire à deux autres vecteurs dans <m>\R^3</m>, qui requiert le calcul de trois déterminants. En regardant composante par composante le vecteur produit vectoriel de l'équation <xref ref="eq-prodvecdet2x2"/>, on peut s'imaginer une matrice <m>3\times 2</m> contenant les vecteurs <m>\vec{u},\vec{v}</m>
 <me>
 M=\begin{pmatrix}u_1&amp; v_1\\ u_2&amp;v_2\\u_3&amp;v_3 \end{pmatrix}
 </me>.
-Pour obtenir la composante <m>i</m> du produit vectoriel (<m>i=1,2,3)</m>, on calcule le déterminant de la matrice obtenue de <m>M</m> en éliminant la ligne <m>i</m>. On doit se rappeler qu’il faut changer le signe de la seconde composante. On aura une explication plus détaillée à ce sujet dans la prochaine section.</p>
+Pour obtenir la composante <m>i</m> du produit vectoriel (<m>i=1,2,3)</m>, on calcule le déterminant de la matrice obtenue de <m>M</m> en éliminant la ligne <m>i</m>. On doit se rappeler qu’il faut changer le signe de la seconde composante. On aura une explication plus détaillée dans la prochaine section.</p>
 </solution>
 </example>
 <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
@@ -422,12 +413,12 @@ show("w=",w)
 </subsection>
 <subsection>
 <title>Propriétés du déterminant</title>
-<p>Dans cette sous-section, on énonce quelques propriétés des déterminants. On énoncera à nouveau et on démontrera ces résultats pour les déterminants de matrices <m>n\times n</m> dans la section suivante. Pour l'instant, on donne des arguments géométriques
+<p>Dans cette sous-section, on énonce quelques propriétés des déterminants. On énoncera à nouveau et l'on démontrera ces résultats pour les déterminants de matrices <m>n\times n</m> dans la section suivante. Pour l'instant, on donne des arguments géométriques
 justifiant le cas <m>2\times 2</m>.</p>
 <p>On débute avec une propriété simple, soit lorsque la matrice contient deux colonnes parallèles. Dans ce cas, le déterminant vaut zéro, car le parallélogramme engendré par les colonnes est en fait un segment de droite.
 En équation de déterminant, cela se traduit par <me>\det(\vec{u},k\vec{u})=0</me>.
 Une autre propriété, plus surprenante est que<md>
-<mrow>\det(\vec{u}+\vec{v},\vec{w})&amp; =\det(\vec{u},\vec{w})+\det(\vec{v},\vec{w})&amp; &amp; \text{et}</mrow>
+<mrow>\det(\vec{u}+\vec{v},\vec{w})&amp; =\det(\vec{u},\vec{w})+\det(\vec{v},\vec{w})&amp; &amp; \text{ et }</mrow>
 <mrow>\det(\vec{u},\vec{v}+\vec{w})&amp; =\det(\vec{u},\vec{v})+\det(\vec{u},\vec{w})&amp; &amp;</mrow>
 </md>.
 Les figures <xref ref="fig-det2x2sommememesigne"/> et <xref ref="fig-det2x2sommesigneopp"/> permettent de visualiser cette propriété.
@@ -441,9 +432,7 @@ Les figures <xref ref="fig-det2x2sommememesigne"/> et <xref ref="fig-det2x2somme
             setCoordSystem(-20, 10,-6,10,);
             showResetIcon(true);
           </slate>
-         <instructions><p><alert>Instruction pour la figure interactive:</alert> Dans l'animation, les vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont initialement placés afin que les déterminants <m>\det(\vec{u},\vec{w})</m> et 
-         <m>\det(\vec{v},\vec{w}</m> aient le même signe. Ainsi, l'aire (géométrique) du parallélogramme engendré par <m>\vec{u}+\vec{v}</m> et <m>\vec{w}</m> sera, selon la propriété, l'addition de l'aire
-         des parallélogramme engendrés respectivement par <m>\vec{u},\vec{w}</m> et <m>\vec{v}\vec{w}</m>. Suivre les indications et observer l'animation afin de visualiser l'addition des aires.</p></instructions>
+         <instructions><p><alert>Instruction pour la figure interactive:</alert> Dans l'animation, les vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont initialement placés afin que les déterminants <m>\det(\vec{u},\vec{w})</m> et <m>\det(\vec{v},\vec{w}</m> aient le même signe. Ainsi, l'aire (géométrique) du parallélogramme engendré par <m>\vec{u}+\vec{v}</m> et <m>\vec{w}</m> sera, selon la propriété, l'addition de l'aire des parallélogrammes engendrés respectivement par <m>\vec{u},\vec{w}</m> et <m>\vec{v}\vec{w}</m>. Suivre les indications et observer l'animation afin de visualiser l'addition des aires.</p></instructions>
     </interactive>
 </figure>
 <figure xml:id="fig-det2x2sommesigneopp">
@@ -455,37 +444,33 @@ Les figures <xref ref="fig-det2x2sommememesigne"/> et <xref ref="fig-det2x2somme
             setCoordSystem(-20, 10,-6,10,);
             showResetIcon(true);
           </slate>
-         <instructions><p><alert>Instruction pour la figure interactive:</alert> Dans l'animation, les vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont initialement placés afin que les déterminants <m>\det(\vec{u},\vec{w})</m> et 
-         <m>\det(\vec{v},\vec{w}</m> soient de  signe opposé. Ainsi, l'aire (géométrique) du parallélogramme engendré par <m>\vec{u}+\vec{v}</m> et <m>\vec{w}</m> sera, selon la propriété, la soustraction de l'aire
-         des parallélogramme engendrés respectivement par <m>\vec{u},\vec{w}</m> et <m>\vec{v}\vec{w}</m>. Suivre les indications et observer l'animation afin de visualiser l'addition des aires.</p></instructions>
+         <instructions><p><alert>Instruction pour la figure interactive:</alert> Dans l'animation, les vecteurs <m>\vec{u},\vec{v}</m> et <m>\vec{w}</m> sont initialement placés afin que les déterminants <m>\det(\vec{u},\vec{w})</m> et <m>\det(\vec{v},\vec{w}</m> soient de  signes contraires. Ainsi, l'aire (géométrique) du parallélogramme engendré par <m>\vec{u}+\vec{v}</m> et <m>\vec{w}</m> sera, selon la propriété, la soustraction de l'aire des parallélogrammes engendrés respectivement par <m>\vec{u},\vec{w}</m> et <m>\vec{v}\vec{w}</m>. Suivre les indications et observer l'animation afin de visualiser l'addition des aires.</p></instructions>
     </interactive>
 </figure>
-<p>La prochaine propriété est peut-être surprenante au niveau algébrique, mais vue sous l'oeil des transformations linéaires, elle devient presque évidente. Elle stipule que le déterminant d'un produit est égal au produit
-des déterminants, à savoir
+<p>La prochaine propriété est peut-être surprenante du point de vue algébrique, mais, vue sous l'&#x153;il des transformations linéaires, elle devient presque évidente. Elle stipule que le déterminant d'un produit est égal au produit des déterminants, à savoir
 <me>
 \det(AB)=\det(A)\det(B)
 </me>.
 Puisqu'on sait que le produit de deux transformations linéaires correspond à la composition des transformations, on comprend que le facteur de changement d'aire de la composition, qui applique <m>B</m> et ensuite <m>A</m>,
 va d'abord changer l'aire des régions transformées d'un facteur <m>\det(B)</m> et ensuite d'un facteur <m>\det(A)</m>.
 </p>
-<p>La prochaine proposition quant à elle se justifie difficilement géométriquement, mais elle est simple à démontrer algébriquement. Elle fait référence à la transposée d'une matrice et aura des implications importantes. On en fait une
-proposition officielle.</p>
+<p>La prochaine proposition, quant à elle, se justifie difficilement géométriquement, mais elle est simple à démontrer algébriquement. Elle fait référence à la transposée d'une matrice et aura des implications importantes. On en fait une proposition formelle.</p>
 <proposition xml:id="prop-dettranspo2x2">
 <title>Le déterminant de la transposée d'une matrice <m>2\times 2</m></title>
-<statement><p>Soit <m>A</m> une matrice <m>2\times 2</m> et <m>A^T</m> sa <xref ref="def-transposee" text="custom">transposée</xref>. Alors
+<statement><p>Soit <m>A</m>, une matrice <m>2\times 2</m> et <m>A^T</m>, sa <xref ref="def-transposee" text="custom">transposée</xref>. Alors
 <me>
 \det(A^T)=\det(A)
 </me>.</p></statement>
 <proof><p>Voir l'exercice <xref ref="exo-dettranspo2x2"/>.</p></proof>
 </proposition>
-<p>Cette proposition a pour conséquence que les propriétés des déterminants, énoncées en fonction des colonnes de la matrice, sont aussi valides si on considère plutôt les lignes de la matrice. Par exemple,
-les propriétés <xref ref="li-detdef2x2"/> de la définition du déterminant sont valides si on remplace <m>\vec{u}</m> par <m>\vec{u}{'}=(a,c)</m> et <m>\vec{v}</m> par <m>\vec{v}'=(b,d)</m>. En particulier, les
+<p>Cette proposition a pour conséquence que les propriétés des déterminants, énoncées en fonction des colonnes de la matrice, sont aussi valides si l'on considère plutôt les lignes de la matrice. Par exemple,
+les propriétés <xref ref="li-detdef2x2"/> de la définition du déterminant sont valides si l'on remplace <m>\vec{u}</m> par <m>\vec{u}{'}=(a,c)</m> et <m>\vec{v}</m> par <m>\vec{v}'=(b,d)</m>. En particulier, les
 trois dernières peuvent être vues comme l'effet des opérations élémentaires sur le déterminant. Cet effet sera utilisé lors du calcul du déterminant pour une matrice générale à la section <xref ref="sec-detgen"/>.</p>
-<p>Finalement, une propriété en lien avec l'inverse, qui dans la section <xref ref="sec-detgen"/>  donnera la prochaine version du théorème de la matrice inverse <xref provisional="thm-delamatriceinverse"/>.</p>
+<p>Finalement, une propriété en lien avec l'inverse, qui, dans la section <xref ref="sec-detgen"/>,  donnera la prochaine version du théorème de la matrice inverse <xref ref="thm-delamatriceinversev3"/>.</p>
 <proposition xml:id="prop-detinv2x2">
 <title>Le déterminant et l'inversibilité d'une matrice <m>2\times 2</m></title>
 <statement>
-<p>Soit <m>A</m> une matrice <m>2\times 2</m>. Alors <m>A</m> est inversible si et seulement si <m>\det(A)\neq 0</m>. De plus, si <m>A</m> est inversible, on a <m>\det(A^{-1})=\frac{1}{\det(A)}</m>.</p></statement>
+<p>Soit <m>A</m>, une matrice <m>2\times 2</m>. Alors <m>A</m> est inversible si et seulement si <m>\det(A)\neq 0</m>. De plus, si <m>A</m> est inversible, on a <m>\det(A^{-1})=\frac{1}{\det(A)}</m>.</p></statement>
 <proof><p>Après l'exemple <xref ref="ex-matinverse2"/>, on avait déjà établi que la condition pour qu'une matrice <m>2\times 2</m> soit inversible était que <m>ad-bc\neq 0</m>. Puisque cela coïncide avec le déterminant,
 la première partie de la proposition est immédiate. L'équation <xref ref="eq-matinverse2x2"/> donne la formule pour l'inverse d'une matrice de <m>\R^2</m> vers <m>\R^2</m>, on peut alors calculer directement son résultat.
 En utilisant le résultat de l'exercice <xref ref="exo-detkA2x2"/>, on obtient <md>
@@ -521,7 +506,7 @@ En utilisant le résultat de l'exercice <xref ref="exo-detkA2x2"/>, on obtient <
 <ul>
 <li><p>La notion <xref ref="def-orientationR2" text="custom">d'orientation</xref> dans <m>\R^2</m>;</p></li>
 <li><p>La définition du <xref ref="def-determinant2x2" text="custom">déterminant</xref> pour une matrice <m>2\times 2</m>;</p></li>
-<li><p>L'équivalence entre le déterminant et le facteur de changement d'aire ainsi que l'interprétation du signe du déterminant, donnés à la proposition <xref ref="prop-detestfact"/>;</p></li>
+<li><p>L'équivalence entre le déterminant et le facteur de changement d'aire ainsi que l'interprétation du signe du déterminant, données à la proposition <xref ref="prop-detestfact"/>;</p></li>
 <li><p>Le <xref ref="eq-prodvecdet2x2" text="custom"> produit vectoriel</xref> et son calcul par les déterminants <m>2\times 2</m>;</p></li>
 </ul>
 </p>
