@@ -175,7 +175,7 @@ On peut donc voir que la position la plus probable après deux transitions est l
 </p></solution>
 </task>
 <task><statement><p>L'objet est oublié et continue ses déplacements pendant un bon moment. Une personne finit par l'apercevoir et note la position de l'objet. Quelles sont les probabilbités qu'à ce moment, l'objet se trouve sur le sommet <m>3</m>?</p></statement>
-<answer><p>Environ <m>25%</m>.</p></answer>
+<answer><p>Environ <m>25\%</m>.</p></answer>
 <solution><p>La meilleure manière de répondre à cette question est de considérer l'état stable. Puisque l'objet se déplace depuis un certain moment, le système a eu le temps de se stabiliser et ce sera la meilleure estimation. On pose <m>X=(x,y,z,1-(x+y+z))</m>, le vecteur stable recherché. Ainsi,
 <me>\begin{pmatrix}
 0&amp;1/3&amp;1/3&amp;1\\
@@ -222,7 +222,7 @@ x\\y\\z\\1-x-y-z
 \end{pmatrix}=\begin{pmatrix}
 3/8\\3/16\\3/16\\1/4
 \end{pmatrix}</me>
-On conclut donc que la position  <m>3</m> est fréquenté <m>25%</m> du temps à l'état stable. C'est la meilleure estimation à donner pour la probabilité cherchée.</p></solution>
+On conclut donc que la position  <m>3</m> est fréquenté <m>25\%</m> du temps à l'état stable. C'est la meilleure estimation à donner pour la probabilité cherchée.</p></solution>
 </task>
 </exercise>
 <exercise><statement><p>On s'intéresse aux chaines de Markov à deux états dont la matrice de transition est
@@ -262,7 +262,7 @@ x\\
 \frac{1-a}{1+b-a}
 \end{pmatrix}.</me></p></solution>
 </exercise>
-<exercise><statement><p>Calculer l'état stable de la chaine de Markov représentant le déplacement de la souris dans l'exemple <xref ref="ex-sourisMarkov"/>.</p></statement>
+<exercise xml:id="exo-etatstablesouris"><statement><p>Calculer l'état stable de la chaine de Markov représentant le déplacement de la souris dans l'exemple <xref ref="ex-sourisMarkov"/>.</p></statement>
 <answer><p><m>X=(0.266666666791633, 0.399999999875033, 0.200000000077234, 0.133333333256100)</m></p></answer>
 <solution>
 <p>La matrice de transition est donnée par 
@@ -405,13 +405,33 @@ show(X5)
 <output>(0.532800000000000, 0.172800000000000, 0.000000000000000, 0.184320000000000, 0.000000000000000, 0.110080000000000)
 </output>
 </sage>
-<p>On constate que dans cette situation, le joueur a maintenant plus de <m>50%</m> de chance d'être ruiné après cinq jeux, contrairement à <m>37.5%</m> dans le jeu avec probabilité de succès égale à <m>1/2</m>.</p>
+<p>On constate que dans cette situation, le joueur a maintenant plus de <m>50\%</m> de chance d'être ruiné après cinq jeux, contrairement à <m>37.5\%</m> dans le jeu avec probabilité de succès égale à <m>1/2</m>.</p>
 </solution>
 </task>
 <task><statement>Déterminer les probabilités de succès du joueur.</statement>
-<solution><p>Tout comme à l'exemple <xref ref="ex-ruinestable"/>, il faut approximer <m>X</m> par <m>X_n</m> pour une grande valeur de <m>n</m> puisque l'état stable dépend de l'état initial. Avec Sage, on trouve que le joueur a maintenant moins de <m>19%</m> de chance d'atteindre les cinq dollars avant de se ruiner, comparativment à <m>40%</m> dans la situation équiprobable. Une changement dans la probabilité de gagner à chaque tour de <m>10%</m> entraine un changement dans la probabilité de succès net de plus du double.</p>
+<solution><p>Tout comme à l'exemple <xref ref="ex-ruinestable"/>, il faut approximer <m>X</m> par <m>X_n</m> pour une grande valeur de <m>n</m> puisque l'état stable dépend de l'état initial. Avec Sage, on trouve que le joueur a maintenant moins de <m>19\%</m> de chance d'atteindre les cinq dollars avant de se ruiner, comparativment à <m>40\%</m> dans la situation équiprobable. Une changement dans la probabilité de gagner à chaque tour de <m>10\%</m> entraine un changement dans la probabilité de succès net de plus du double.</p>
 <sage>
 <input>
+def ruinetransitionproba(i,j,p,n):
+    if i==0 and j==0:
+        return 1
+    if i==n-1 and j==n-1:
+        return 1
+    elif j==0:
+        return 0
+    elif j==n-1:
+        return 0
+    elif i-j==1:
+        return p
+    elif j-i==1:
+        return 1-p
+    else:
+        return 0
+    </input>
+</sage>
+<sage>
+<input>
+T=matrix(6,6, lambda i,j: ruinetransitionproba(i,j,p,6))
 show(T^100*vector([0,0,1,0,0,0]).n())
 </input>
 </sage>
@@ -440,8 +460,8 @@ T=\begin{pmatrix}
 </me></p></solution>
 </task>
 <task><statement><p>On transmet <m>10</m> comme information. Cette chaine passe de l'ordinateur d'un utilisateur à un réseau central, est ensuite envoyé à aux serveurs d'une compagnie et finalement, se retrouve sur l'ordinateur d'une autre utilisateur. La chaine a donc subit trois transferts. Quelle est la probabilité que le message soit toujours <m>10</m> lors de la lecture par le deuxième utilisateur? (On note que le message pourrait avoir été corrompu en chemin, mais s'être corrigé tout seul.)</p></statement>
-<answer><p><m>94%</m></p></answer>
-<solution><p>On pose <m>X_0=(0,0,1,0)</m> l'état initial. On cherche la troisième composante de <m>X_3</m>. Avec Sage, on trouve que cette probabilité est d'environ <m>0.94</m>, soit <m>94%</m>.</p>
+<answer><p><m>94\%</m></p></answer>
+<solution><p>On pose <m>X_0=(0,0,1,0)</m> l'état initial. On cherche la troisième composante de <m>X_3</m>. Avec Sage, on trouve que cette probabilité est d'environ <m>0.94</m>, soit <m>94\%</m>.</p>
 <sage>
 <input>
 T=column_matrix([[0.9801,0.0099,0.0099,0.0001],[0.0099,0.9801,0.0001,0.0099],[0.0099,0.0001,0.9801,0.0099],[0.0001,0.0099,0.0099,0.9801]])
@@ -484,7 +504,7 @@ T^1000
 </exercise>
 <exercise>
 <introduction><p>
-Au tennis, le système de points est tel qu'un joueur doit faire quatre points pour gagner un jeu. Toutefois, il doit y avoir un écart de deux points. Une situation particulière se produit lorsque le pointage est <m>40<ndash/>40</m> (ce qui correspond à trois points pour chacun des joueurs). On entre alors dans un état appelé <lq/>égalité<rq/> (aussi appelé <lq/>deuce<rq/> en anglais). Le prochain joueur à faire un point est alors considéré en <lq/>avantage<rq/>. S'il gagne le prochain point, il remporte le jeu et s'il le perd, on retourne à égalité. On peut modéliser la partie <lq/>égalité<rq/> d'un jeu de tennis par une chaine de Markov à cinq état. On note <m>E</m> pour égalité, <m>As</m> pour avantage serveur, <m>Ar</m> pour avantage retourneur, <m>S</m> pour la victoire du serveur et <m>R</m> pour la victoire du retourneur. Chez les professionnels, le serveur est presque toujours considéré comme favori pour remporter le point. On suppose que pour chaque point, le serveur a probabilité <m>p</m> de remporter l'échange.
+Au tennis, le système de points est tel qu'un joueur doit faire quatre points pour gagner un jeu. Toutefois, il doit y avoir un écart de deux points. Une situation particulière se produit lorsque le pointage est <m>40</m><ndash/><m>40</m> (ce qui correspond à trois points pour chacun des joueurs). On entre alors dans un état appelé <lq/>égalité<rq/> (aussi appelé <lq/>deuce<rq/> en anglais). Le prochain joueur à faire un point est alors considéré en <lq/>avantage<rq/>. S'il gagne le prochain point, il remporte le jeu et s'il le perd, on retourne à égalité. On peut modéliser la partie <lq/>égalité<rq/> d'un jeu de tennis par une chaine de Markov à cinq état. On note <m>E</m> pour égalité, <m>A_s</m> pour avantage serveur, <m>A_r</m> pour avantage retourneur, <m>S</m> pour la victoire du serveur et <m>R</m> pour la victoire du retourneur. Chez les professionnels, le serveur est presque toujours considéré comme favori pour remporter le point. On suppose que pour chaque point, le serveur a probabilité <m>p</m> de remporter l'échange.
 </p></introduction>
 <task><statement><p>Écrire la matrice de transition modélisant un jeu à partir de l'égalité.</p></statement>
 <answer>
@@ -514,12 +534,12 @@ show(T^5*X0)
 (0.000000000000000, 0.134763750000000, 0.110261250000000, 0.452237500000000, 0.672750000000000)
 </output>
 </sage>
-<p>On trouve qu'il y a environ <m>24.5%</m> de chance de que le jeu ne soit pas terminé.</p>
+<p>On trouve qu'il y a environ <m>24.5\%</m> de chance de que le jeu ne soit pas terminé.</p>
 </solution>
 </task>
 <task><statement><p>Quelle est la probabilité que le serveur remporte le jeu?</p></statement>
-<answer><p>Environ <m>60%</m>.</p></answer>
-<statement><p>Il faut trouver l'état stable à partir de l'état égalité. Comme la matrice possède toujours des entrées nulles, il faut procéder par le calcul d'une grande valeur de la chaine de Markov. On peut voir que le serveur a environ <m>60%</m> de chance de remporter le jeu.</p>
+<answer><p>Environ <m>60\%</m>.</p></answer>
+<statement><p>Il faut trouver l'état stable à partir de l'état égalité. Comme la matrice possède toujours des entrées nulles, il faut procéder par le calcul d'une grande valeur de la chaine de Markov. On peut voir que le serveur a environ <m>60\%</m> de chance de remporter le jeu.</p>
 <sage>
 <input>
 p=0.55
@@ -534,4 +554,347 @@ X0=vector([1,0,0,0,0])
 </statement>
 </task>
 </exercise>
+<exercisegroup>
+<title>Exercices Sage</title>
+<introduction><p>Les exercices qui suivent sont conçus pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p></introduction>
+<exercise>
+<introduction><p>Il est possible d'analyser certains jeux de société grâce aux chaines de Markov, particulièrement les jeux où peu de décision sont prises par les joueurs. Les jeux d'enfants, comme <em>serpents et échelles</em> ou <em>trouble</em>, se prêtent bien à cette analyse.</p>
+<p>On propose d'étudier le jeu <em>serpents et échelles</em>, en regardant dans un premier temps une version simplifiée.</p>
+<p>On considère une partie de <em>serpents et échelles</em> se déroulant sur le plateau suivant de la figure suivante.</p>
+<figure xml:id="fig-serpentsechellessimple">
+<caption>Une version simplifiée de serpents et échelles.</caption>
+<image xml:id="img-serpentsechellessimple" source="images/serpentsechellessimple">
+<description>
+Un plateau de huit cases est illustré, la première identifiée D et la dernière A. Celles centrales sont identifiées de un à six. Une flèche allant de cinq à deux et une autre allant de un à quatre sont présentes.
+</description>
+</image>
+</figure>
+<p>Dans ce jeu, il y a huit cases. D'abord, on va créer un vecteur de déplacement à huit composantes qui correspondent, pour une position <m>i</m>, à la case sur laquelle on se retrouve lorsqu'on atterit sur la case <m>i</m>. Pour les besoins de la cause, on associe la case départ à la position <m>0</m> et la case d'arrivée à la position <m>7</m>.</p>
+</introduction>
+<task><statement><p>Créer le vecteur décrit dans l'introduction.</p>
+<sage><input></input></sage>
+</statement>
+<answer><sage><input>
+d=vector([0,4,2,3,4,5,2,7])
+show(d)
+</input>
+<output>
+(0, 4, 2, 3, 4, 2, 6, 7)
+</output>
+</sage></answer>
+</task>
+<task>
+<statement xml:id="exo-serpechtour"><p>Étant donné la petite taille de ce plateau, le jeu se déroule avec une pièce de monnaie. Lorsqu'elle tombe sur <em>pile</em>, le joueur avance d'une case, et lorsqu'elle tombe sur face, le joueur avance de deux cases.</p>
+<p>Créer une fonction <c>tour</c> qui, étant donnés une position de départ et le vecteur de déplacement, retourne la nouvelle position du joueur suite au lancer d'une pièce. On rapelle que la fonction <c>choice</c> peut être utilisée pour simuler du hasard.</p>
+<sage><input></input></sage>
+</statement>
+<solution><listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+<input>
+def tour(d,p): #fonction qui simule un tour de jeu, selon le vecteur de déplacement d et la position de départ p
+    t=choice([1,2])
+    if p==7:
+        return 7
+    else:
+        return d[p+t]
+</input>
+</program>
+</listing></solution></task>
+<task><statement><p>Créer une fonction <c>serpech</c>, qui simule une partie de serpents et échelle sur ce plateau. La fonction prend comme argument le vecteur de déplacement et retourne le parcours du joueur. </p>
+<sage><input></input></sage>
+</statement>
+<solution>
+<listing>
+<caption>
+Le code de la solution.
+</caption>
+<program language="sage">
+<input>
+def serpech(d):
+    p=[0]
+    while p[-1]!=d[-1]:
+        p.append(tour(d,p[-1]))
+    return p
+</input>
+</program>
+</listing>
+</solution>
+</task>
+<task><statement><p>Approximer le nombre de coups nécessaires pour atteindre l'arrivée en simulant <m>1000</m> parties. La commande pour calculer la moyenne d'une liste est <c>numpy.mean</c>.</p>
+<sage><input></input></sage>
+</statement>
+<solution>
+<listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+<input>
+d=vector([0,4,2,3,4,5,2,7])
+M=[]
+for i in range(1000):
+    M.append(len(serpech(d))-1)
+numpy.mean(M)
+</input>
+<output>
+9.63  #Cette valeur sera évidemment différente chaque utilisation
+</output>
+</program>
+</listing>
+</solution>
+</task>
+<task xml:id="exo-serpechsimpleplusde20"><statement><p>Toujours en simulant <m>1000</m> parties, déterminer approximativement la proportion de parties nécessitant plus de <m>20</m> tours. </p>
+<sage><input></input></sage>
+</statement>
+<solution>
+<listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+<input>
+d=vector([0,4,2,3,4,5,2,7])
+M=[]
+for i in range(1000):
+    M.append(len(serpech(d))-1)
+M21=[m for m in M if m>20]
+(len(M21)/1000).n()
+</input>
+<output>
+0.086000000000000  #Cette valeur sera évidemment différente chaque utilisation
+</output>
+</program>
+</listing>
+</solution>
+</task>
+<task><statement><p>Créer une fonction <c>transition_serpech</c> qui, pour une liste de déplacements et un entier <m>n</m>, retourne la matrice de transition d'une chaine de Markov du jeu s'il est possible d'avancer de <m>1,2,\ldots , n</m> cases chaque tour.</p>
+<sage><input></input></sage>
+</statement>
+<solution>
+<listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+<input>
+def transition_serpech(d,n): #Retourne la matrice de transition selon un vecteur de déplacement d et un dé à n faces
+    cols=[]
+    for case in range(len(d)): #On crée les colonnes de la matrice
+        col=vector(QQ,[0 for i in range(len(d))]) #On initialise la colonne au vecteur nul. À noter qu'on spécifie QQ pour que Sage accepte les rationnels
+        if case==len(d)-1: #Si on est à l'arrivée
+            col[-1]=1
+            cols.append(col)
+            break
+        valide=0 #On compte combien de lancers de dés sont valides, au sens où ils ne dépasse pas l'arrivée
+        for poss in range(1,n+1): #On peut avancer de 1,2,...,n
+            if case+poss&lt;=len(d)-1:  #Si le déplacement est valide
+                valide+=1
+        for poss in range(1,valide+1):  #Pour les déplacements valides
+            col[d[case+poss]]+=1/valide  #On ajoute 1/valide aux chances de se retrouver à cette position. Important de l'ajouter de de ne pas remplacer, au cas où, lors d'un même tour, on peut atteindre une case à la fois par un lancer de dé et par un serpent ou une échelle.
+        cols.append(col)  #On ajoute la colonne à la liste des colonnes
+    T=column_matrix(cols) #La matrice de transition
+    return T
+</input>
+</program>
+</listing>
+</solution>
+</task>
+<task><statement><p>Utiliser cette fonction pour créer la matrice de transition du jeu simplifié <em>serpents et échelles</em>.</p>
+<sage><input></input></sage>
+</statement>
+<answer>
+<p><m>T=\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\frac{1}{2} &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\frac{1}{2} &amp; 0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1}{2} &amp; 1 &amp; 1
+\end{pmatrix}
+</m></p>
+</answer>
+</task>
+<task><statement><p>Quel est le nombre minimal de tours nécessaire pour terminer une partie? Quelle est la probabilité qu'une partie se termine en aussi peu de tours?</p>
+<sage><input></input></sage>
+</statement>
+<answer><p>Le nombre de tours minimal est <m>3</m> et les chances sont de <m>1/8</m>.</p></answer>
+<solution><listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+<input>
+T=transition_serpech(d,2)
+X0=vector([1,0,0,0,0,0,0,0])
+X=X0
+i=0
+while X[-1]==0:
+    i+=1
+    X=T*X
+print("Le nombre de tours minimal est ",i)
+print("Les chances sont ",X[-1])
+</input>
+<ouput>Le nombre de tours minimal est 3 et les chances sont de 1/8.</ouput>
+</program>
+</listing></solution>
+</task>
+<task><statement><p>À la partie <xref ref="exo-serpechsimpleplusde20"/>, le nombre de parties n'étant pas terminées après <m>20</m> tours a été estimé. Déterminer la véritable valeur de ce nombre à l'aide de la matrice de transition.</p>
+<sage><input></input></sage>
+</statement>
+<answer><p><m>0.0855073928833008</m></p></answer>
+<solution><listing><caption>
+Le code de la solution.
+</caption>
+<program language="sage">
+<input>
+(1-(T^20*X0)[-1]).n()
+</input>
+</program>
+</listing></solution>
+</task>
+<task><introduction><p>On regarde maintenant la véritable version du jeu <em>serpents et échelles</em>. L'original se déroule sur un plateau contenant <m>100</m> cases et possédant huit échelles et huit serpents. Plusieurs plateaux existent, selon la compagnie qui publie le jeu. Le dictionnaire python ci-dessous donne le début des serpents et des échelles ainsi que leur fin, pour la version accessible à l'auteur au moment de la rédaction.</p>
+<sage><input>
+config={1:38, 4:14, 9:31, 16:6, 21:42, 28:84, 36:44,47:26, 49:11, 51:67, 56:53, 62:19, 64:60,71:91, 80:100, 87:24, 93:73, 95:75, 98:78}
+</input></sage>
+</introduction>
+<task><statement><p>Le vecteur de déplacement dans ce jeu est un vecteur à <m>100+1</m> composantes, le départ étant toujours en position <m>0</m> et l'arrivée en position <m>100</m>. Créer une fonction qui prend comme argument la configuration des serpents et des échelles et qui retourne le vecteur de déplacement.</p>
+<sage><input></input></sage>
+</statement>
+<hint><p>Initialiser un vecteur contenant les valeurs de <m>0</m> à <m>100</m> et changer les entrées correspondant aux serpents et aux échelles.</p></hint>
+<solution>
+<listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+<input>
+def deplacement(config):
+    d=vector(range(101))
+    for i in config.keys():
+        d[i]=config[i]
+    return d
+deplacement(config)
+</input>
+<output>
+(0, 38, 2, 3, 14, 5, 6, 7, 8, 31, 10, 11, 12, 13, 14, 15, 6, 17, 18, 19, 20, 42, 22, 23, 24, 25, 26, 27, 84, 29, 30, 31, 32, 33, 34, 35, 44, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 26, 48, 11, 50, 67, 52, 53, 54, 55, 53, 57, 58, 59, 60, 61, 19, 63, 60, 65, 66, 67, 68, 69, 70, 91, 72, 73, 74, 75, 76, 77, 78, 79, 100, 81, 82, 83, 84, 85, 86, 24, 88, 89, 90, 91, 92, 73, 94, 75, 96, 97, 78, 99, 100)
+</output>
+</program>
+</listing>
+</solution>
+</task>
+<task><statement><p>Modifier la fonction <c>tour</c> de la partie <xref ref="exo-serpechtour"/> afin que les déplacements possibles soient compris entre <m>1</m> et <m>6</m> plutôt qu'entre <m>1</m> et <m>2</m>. Il pourrait aussi être nécessaire de modifier d'autres parties de la fonction selon la manière dont elle a été construte. Utiliser la fonction <c>serpech</c> pour simuler une partie.</p>
+<sage><input></input></sage>
+</statement>
+<solution>
+<listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+<input>
+def tour(d,p): #fonction qui simule un tour de jeu, selon le vecteur de déplacement d et la position de départ p
+    t=choice([1,2,3,4,5,6])
+    if p==100:  #On modifie l'arrivée
+        return 100
+    else:
+        return d[min(100,p+t)] #Une manière de s'assurer de ne pas dépasser 100
+def serpech(d):
+    p=[0]
+    while p[-1]!=d[-1]:
+        p.append(tour(d,p[-1]))
+    return p
+def deplacement(config):
+    d=vector(range(101))
+    for i in config.keys():
+        d[i]=config[i]
+    return d
+d=deplacement(config)
+serpech(d)
+</input>
+</program>
+</listing>
+</solution>
+</task>
+<task><statement><p>Approximer le nombre de coups nécessaires pour atteindre l'arrivée en simulant <m>1000</m> parties. La commande pour calculer la moyenne d'une liste est <c>numpy.mean</c>.</p>
+<sage><input></input></sage></statement>
+<solution>
+<listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+<input>
+M=[]
+for i in range(1000):
+    M.append(len(serpech(d))-1)
+numpy.mean(M)
+</input>
+<output>
+36.483  #Cette valeur sera évidemment différente chaque utilisation
+</output>
+</program>
+</listing>
+</solution>
+</task>
+<task xml:id="exo-serpechplusde20"><statement><p>Toujours en simulant <m>1000</m> parties, déterminer approximativement la proportion de parties nécessitant plus de <m>20</m> tours. </p>
+<sage><input></input></sage>
+</statement>
+<solution>
+<listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+<input>
+M=[]
+for i in range(1000):
+    M.append(len(serpech(d))-1)
+M21=[m for m in M if m>20]
+(len(M21)/1000).n()
+</input>
+<output>
+0.734000000000000  #Cette valeur sera évidemment différente chaque utilisation
+</output>
+</program>
+</listing>
+</solution>
+</task>
+<task><statement><p>Créer la matrice de transition de cette chaine de Markov.</p></statement></task>
+<task><statement><p>Quel est le nombre minimal de tours nécessaire pour terminer une partie? Quelle est la probabilité qu'une partie se termine en aussi peu de tours?</p>
+<sage><input></input></sage>
+</statement>
+<answer><p>Le nombre de tours minimal est <m>3</m> et les chances sont de <m>1/8</m>.</p></answer>
+<solution><listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+T=transition_serpech(d,2)
+X0=vector([1,0,0,0,0,0,0,0])
+X=X0
+X=X0
+i=0
+while X[-1]==0:
+    i+=1
+    X=T*X
+print("Le nombre de tours minimal est ",i)
+print("Les chances sont ",X[-1])
+</program>
+</listing></solution></task>
+<task><statement><p>À la partie <xref ref="exo-serpechplusde20"/>, le nombre de parties n'étant pas terminées après <m>20</m> tours a été estimé. Déterminer la véritable valeur de ce nombre à l'aide de la matrice de transition.</p>
+<sage><input></input></sage>
+</statement>
+<answer><p><m>0.743056171254892</m></p></answer>
+<solution><listing><caption>
+Le code de la solution.
+</caption>
+<program language="sage">
+<input>
+(1-(T^20*X0)[-1]).n()
+</input>
+</program>
+</listing></solution>
+</task>
+<task><statement><p>Créer une liste contenant les chances que le jeu soit terminé au tour <m>n</m>, pour <m>n</m> allant de <m>0</m> à <m>200</m>. À l'aide des fonctions <c>zip</c> et <c>point</c>, tracer le graphique des probabilités que le jeu soit terminé en fonction du nombre de tours.</p></statement>
+<solution>
+<listing>
+<caption>Le code de la solution.</caption>
+<program language="sage">
+<input>
+fin=[((T^n*X0)[-1]).n() for n in range(200)]
+coordx=list(range(200))
+point(list(zip(coordx,fin)))
+</input>
+</program>
+</listing>
+</solution>
+</task>
+</task>
+</exercise>
+</exercisegroup>
 </exercises>
