@@ -181,18 +181,18 @@
     </exercise>
     <exercise xml:id="exo-cof-iplusjmoins2">
     <statement>
-    <p>Soit <m>A</m> une matrice et <m>a_{i,j}</m> l'entrée en position <m>i,j</m>. Montrer que pour amener <m>a_{i,j}</m> en position <m>1,1</m> sans changer l'ordre relatif des autres lignes et colonnes, on a besoin
+    <p>Soit <m>A</m>, une matrice et <m>a_{i,j}</m>, l'entrée en position <m>i,j</m>. Montrer que pour amener <m>a_{i,j}</m> en position <m>1,1</m> sans changer l'ordre relatif des autres lignes et colonnes, on a besoin
     de faire <m>i+j-2</m> permutations de lignes/colonnes.</p>
     <p>Comme chacune de ces permutations change le déterminant par un facteur <m>-1</m>, on a <m>(-1)^{i+j-2}=(-1)^{i+j}</m>, ce qui explique la présence de ce terme dans la formule de la définition <xref ref="def-cofact"/>. </p>
     </statement>
     <solution><p>
     Essentiellement, il faut procéder en échangeant toujours deux lignes ou colonnes adjacentes.
-    En commençant par les lignes, si on veut amener la ligne <m>i</m> à la ligne <m>1</m> et que toutes les autres lignes gardent le même ordre,
-    il faut permuter la ligne <m>i</m> et la ligne <m>i-1</m>, puis la nouvelle ligne <m>i-1</m> avec le ligne <m>i-2</m>, 
+    En commençant par les lignes, si l'on veut amener la ligne <m>i</m> à la ligne <m>1</m> et que toutes les autres lignes gardent le même ordre,
+    il faut permuter la ligne <m>i</m> et la ligne <m>i-1</m>, puis la nouvelle ligne <m>i-1</m> avec la ligne <m>i-2</m>, 
     ainsi de suite jusqu'à la ligne <m>1</m>. Cela prend <m>i-1</m> opérations.</p>
     <p>Ensuite, pour les colonnes, en suivant le même principe, on déplacera la colonne <m>j</m> à la première colonne sans changer l'ordre
     relatif des colonnes en <m>j-1</m> opérations.
-    Toutes ces opérations étant des permutations, le déterminant est donc multiplié par un facteur <m>-1</m> à chaque fois et donc au total de 
+    Toutes ces opérations étant des permutations, le déterminant est donc multiplié par un facteur <m>-1</m> chaque fois et donc, un total de 
     <m>(-1)^{i-1}*(-1)^{j-1}=(-1)^{i+j-2}=(-1)^{i+j}</m>.</p>
     </solution>
     </exercise>
@@ -204,8 +204,7 @@
     <mrow>A_3&amp;=\begin{pmatrix} 2&amp;1&amp;0\\ 1&amp;2&amp;1\\ 1&amp;1&amp;2 \end{pmatrix}</mrow>
     <mrow>A_4&amp;=\begin{pmatrix} 2&amp;1&amp;0&amp;0\\ 1&amp;2&amp;1&amp;0\\ 1&amp;1&amp;2 &amp;1\\ 1&amp;1&amp;1&amp;2\end{pmatrix}</mrow>
     </md>
-    ou en général la matrice <m>A_n</m> est une matrice <m>n\times n</m> dont la diagonale principale vaut <m>2</m>, 
-    toutes les entrées sous la diagonale valent <m>1</m> et la diagonale au-dessus de la principale a aussi toutes ses entrées égalent à <m>1</m>.</p>
+    où en général la matrice <m>A_n</m> est une matrice <m>n\times n</m> dont la diagonale principale vaut <m>2</m>, où toutes les entrées sous la diagonale valent <m>1</m> et où la diagonale au-dessus de la principale a aussi toutes ses entrées égales à <m>1</m>.</p>
     </introduction>
     <task>
     <statement>
@@ -267,7 +266,7 @@
     </md>
     </p></solution>
     </task>
-    <task><statement><p>Calculer à l'aide de cette relation les déterminant des matrices <m>A_5,A_6,\ldots, A_{10}</m>. Ces nombres sont-ils familiers?</p></statement>
+    <task><statement><p>Calculer à l'aide de cette relation le déterminant des matrices <m>A_5,A_6,\ldots, A_{10}</m>. Ces nombres sont-ils familiers?</p></statement>
     <answer><p>
     <me>A_5=13</me>
     <me>A_6=21</me>
@@ -301,7 +300,7 @@
     -\frac{1}{5}&amp; -\frac{2}{5} &amp; \frac{3}{5}
     \end{pmatrix}</me></p></answer>
     <solution><p>
-    Pour utiliser la formule <xref ref="eq-matinversecofact"/>, il nous faut d'abord calculer le déterminant de la matrice <m>A</m>.
+    Pour utiliser la formule <xref ref="eq-matinversecofact"/>, il faut d'abord calculer le déterminant de la matrice <m>A</m>.
     <md>
     <mrow>\det(A)&amp;=\begin{vmatrix}  
     -1&amp; 3&amp; 1\\ 
@@ -361,7 +360,7 @@
     </statement>
     <solution><p>En utilisant la formule <xref ref="eq-matinversecofact"/>, on voit rapidement que la seule façon d'introduire des fractions dans le calcul 
     de l'inverse est en multipliant par <m>\frac{1}{\det(A)}</m>. 
-    En effet, puisque la matrice <m>A</m> ne contient que des entiers, tous les cofacteurs permettant de calculer la matrice adjointe seront des entiers 
+    En effet, comme la matrice <m>A</m> ne contient que des entiers, tous les cofacteurs permettant de calculer la matrice adjointe seront des entiers 
     puisqu'on les obtient à l'aide de la définition <xref ref="def-cofact"/>. 
     Bref, toutes les entrées de l'inverse seront des entiers.</p></solution>
     </task>
@@ -370,30 +369,21 @@
     <p>Si <m>A</m> et <m>A^{-1}</m> sont toutes les deux composées d'entiers, montrer que <m>\det(A)=\pm 1</m>.</p>
     </statement>
     <solution><p>
-    Encore par la formule <xref ref="eq-matinversecofact"/>, on voit que si <m>A</m> n'est que formée d'entiers, la matrice des cofacteurs ne sera que constituée 
-    d'entiers et ces entiers seront tous divisés par <m>\det(A)</m>.
-    Si le résultat, <m>A^{-1}</m> est lui aussi seulement constitué d'entiers, il faut absolument que <m>\det(A)</m> par lequel on a divisé soit <m>1</m> ou <m>-1</m>.
-    Sinon, on aurait créé des fractions dans <m>A^{-1}</m>, ce qui contredit l'hypothèse.
+    Encore par la formule <xref ref="eq-matinversecofact"/>, on voit que si <m>A</m> n'est formée que d'entiers, la matrice des cofacteurs ne sera elle aussi constituée que d'entiers et que ceux-ci seront tous divisés par <m>\det(A)</m>. Si le résultat <m>A^{-1}</m> est lui aussi seulement constitué d'entiers, il faut absolument que <m>\det(A)</m>, par lequel on a divisé, soit <m>1</m> ou <m>-1</m>. Sinon, on aurait créé des fractions dans <m>A^{-1}</m>, ce qui contredit l'hypothèse.
     </p></solution>
     </task>
     <task><statement>
-    <p>Dans un examen, un professeur veut faire calculer l'inverse d'une matrice à ses étudiants. Il ne veut pas que cet inverse soit trop complexe et veut éviter les fractions. Décrire comment obtenir une matrice <m>A</m>
-    qui sera composée d'entiers et telle que l'inverse sera aussi composée d'entiers.</p>
+    <p>Dans un examen, un professeur veut faire calculer l'inverse d'une matrice à ses élèves. Il ne veut pas que cet inverse soit trop complexe et veut éviter les fractions. Décrire comment obtenir une matrice <m>A</m>
+    qui sera composée d'entiers et telle que son inverse sera aussi composée d'entiers.</p>
     </statement>
-    <hint><p>Considérer la proposion <xref ref="prop-detmattriang"/>, les opérations élémentaires et la première partie de cet exercice.</p></hint>
-    <solution><p>Il faut d'abord créer une matrice triangulaire supérieure ne contenant que des entiers telle que le produit des éléments de sa diagonale va donner <m>1</m> ou <m>-1</m>.
-    Par la proposion <xref ref="prop-detmattriang"/>, il s'agit du déterminant de cette matrice.
-    On obtient une matrice non triangulaire supérieure (avec des éléments non-nuls partout si on le veut) en effectuant des opérations élémentaires ne changeant pas
-    le déterminant par une constance. 
-    On peut donc utiliser les permutations ou les combinaisons linéaires, mais pas les multiples de lignes. 
-    La matrice ainsi créée a comme déterminant <m>1</m> ou <m>-1</m> et ne contient que des entiers.</p>
-    <p>On conclut en utilisant la première partie de l'exercice qui nous garanti qu'une matrice ayant un déterminant de <m>1</m> ou <m>-1</m>
-    ne contenant que des entiers aura un inverse ne contenant que des entiers aussi.</p></solution>
+    <hint><p>Considérer la proposition <xref ref="prop-detmattriang"/>, les opérations élémentaires et la première partie de cet exercice.</p></hint>
+    <solution><p>Il faut d'abord créer une matrice triangulaire supérieure ne contenant que des entiers telle que le produit des éléments de sa diagonale va donner <m>1</m> ou <m>-1</m>. Par la proposion <xref ref="prop-detmattriang"/>, il s'agit du déterminant de cette matrice. On obtient une matrice non triangulaire supérieure (avec des éléments non nuls partout si on le veut) en effectuant des opérations élémentaires ne changeant pas le déterminant autrement que par un changement de signe. On peut donc utiliser les permutations ou les combinaisons linéaires, mais pas les multiples de lignes. La matrice ainsi créée a comme déterminant <m>1</m> ou <m>-1</m> et ne contient que des entiers.</p>
+    <p>On conclut en utilisant la première partie de l'exercice, qui garantit qu'une matrice dont les entrées sont des entiers et qui possède un déterminant de <m>1</m> ou <m>-1</m> a aussi un inverse dont les entrées sont des entiers.</p></solution>
     </task>
     </exercise>
     <exercise>
     <statement>
-    <p>Soit <m>Q</m> une matrice orthogonale, c'est-à-dire une matrice telle que <m>Q^{-1}=Q^T</m>. Montrer que <m>\text{adj}(Q)=\pm Q^T</m>.</p>
+    <p>Soit <m>Q</m>, une matrice orthogonale, c'est-à-dire une matrice telle que <m>Q^{-1}=Q^T</m>. Montrer que <m>\text{adj}(Q)=\pm Q^T</m>.</p>
     </statement>
     <hint>
     <p>Utiliser l'exercice <xref ref="exo-detortho"/>.</p>
@@ -410,7 +400,7 @@
     </p></solution>
     </exercise>
     <exercise xml:id="exo-eqdroitedet">
-    <statement><p>Soit <m>P(x_1,y_1)</m> et <m>Q(x_2,y_2)</m> deux points distincts de <m>\R^2</m>. 
+    <statement><p>Soit <m>P(x_1,y_1)</m> et <m>Q(x_2,y_2)</m>, deux points distincts de <m>\R^2</m>. 
     Montrer que l'équation de la droite passant par ces points est donnée par
     <me>0=\begin{vmatrix}
     1&amp; x&amp; y\\
@@ -431,7 +421,7 @@
     <mrow>0&amp;=1*(x_1y_2-x_2y_1)-x*(y_2-y_1)+y*(x_2-x_1)</mrow>
     <mrow>x*(y_2-y_1)-y*(x_2-x_1)&amp;=x_1y_2-x_2y_1</mrow>
     </md>
-    Cette expression nous rappelle l'équation normale <xref ref="eq-normale2"/> d'une droite dans <m>\R^2</m>.
+    Cette expression rappelle l'équation normale <xref ref="eq-normale2"/> d'une droite dans <m>\R^2</m>.
     Le vecteur normal serait donc <m>\vec{n}=(y_2-y_1,-(x_2-x_1))</m>. 
     On sait qu'on peut retrouver un vecteur directeur ainsi:
     <md>
@@ -443,7 +433,7 @@
     <mrow>&amp;=\vecl{PQ}</mrow>
     </md>.
     Le membre de gauche de l'équation normale correspond à l'expression obtenue lorsqu'on construit l'équation normale avec le produit scalaire 
-    entre le vecteur normal et le vecteur <m>\vecl{PA}</m> avec <m>A(x,y)</m> un point quelconque de la droite. En effet,
+    entre le vecteur normal et le vecteur <m>\vecl{PA}</m> avec <m>A(x,y)</m>, un point quelconque de la droite. En effet,
     <md>
     <mrow>0&amp;=\vec{n}\cdot\vecl{PA}</mrow>
     <mrow>0&amp;=(y_2-y_1,-(x_2-x_1))\cdot (x-x_1,y-y_1)</mrow>
@@ -452,12 +442,11 @@
     <mrow>0&amp;=  x*(y_2-y_1)-x_1y_2-y*(x_2-x_1)+x_2y_1</mrow>
     <mrow>x_1y_2-x_2y_1 &amp;=  x*(y_2-y_1)-y*(x_2-x_1)</mrow>
     </md>
-    ce qui est exactement ce qu'on avait obtenu en développant le déterminant intial.
+    ce qui est exactement ce qu'on avait obtenu en développant le déterminant initial.
     </p></solution>
     </exercise>
-    <!-- On commente ces exercices pour la session A20
     <exercise>
-    <statement><p>Soit <m>P(x_1,y_1,z_1),Q(x_2,y_2,z_2)</m> et <m>R(x_3,y_3,z_3)</m> trois points non alignés de <m>\R^3</m>. Généraliser l'idée de l'exercice <xref ref="exo-eqdroitedet"/> pour obtenir l'équation du
+    <statement><p>Soit <m>P(x_1,y_1,z_1),Q(x_2,y_2,z_2)</m> et <m>R(x_3,y_3,z_3)</m>, trois points non alignés de <m>\R^3</m>. Généraliser l'idée de l'exercice <xref ref="exo-eqdroitedet"/> pour obtenir l'équation du
     plan passant par ces trois points. </p></statement>
     <solution><p>
     On choisit de commencer en construisant l'équation normale d'un plan dans <m>\R^3</m>.
@@ -477,13 +466,13 @@
     </me>.
     </p>
     </statement>
-    </exercise>-->
+    </exercise>
     <exercisegroup>
     <title>
     Exercices Sage
     </title>
     <introduction>
-    <p>Les exercices qui suivent sont conçus pour être résolus avec Sage. Évidemment, il y a  plus d'une manière d'arriver à la réponse.</p>
+    <p>Les exercices qui suivent sont conçus pour être résolus avec Sage. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p>
     </introduction>
     <exercise>
 <statement><p>On considère la suite de matrices 
@@ -500,7 +489,7 @@
     </me>.</p></hint>
     <answer><p>Si <m>n</m> est impair, alors <m>\det(B_n)=0</m>. Lorsque <m>n</m> est pair et divisible par quatre, alors <m>\det(B_n)=1</m> et si <m>n</m> est pair, mais non divisible par quatre, alors <m>\det(B_n)=-1</m>.</p></answer>
     <solution>
-    <p>Voici une fonction permettant de créer les matrices <m>B_n</m>. Elle utilise la méthode de construction par une fonction intermédiaire <c>lambda</c>. Voir <xref provisional="Exemples sur les fonctions lambda"/>.</p>
+    <p>Voici une fonction permettant de créer les matrices <m>B_n</m>. Elle utilise la méthode de construction par une fonction intermédiaire <c>lambda</c>. Voir <xref provisional="Exemples sur les fonctions lambdas"/>.</p>
     <listing>
     <caption>Le code solution pour l'exercice</caption>
     <program language="sage">
@@ -516,7 +505,7 @@ for i in range(10):
     </input>
     </program>
     </listing>
-    <p>On remarque facilement que les premiers déterminants satisfont la relation et on tente maintenant de la démontrer. On développe le déterminant de <m>B_n</m> selon la première ligne. On aura
+    <p>On remarque facilement que les premiers déterminants satisfont la relation et l'on tente maintenant de la démontrer. On développe le déterminant de <m>B_n</m> selon la première ligne. On aura
     <md>
     <mrow>\det(B_n)&amp;=\begin{vmatrix}
     0&amp;1&amp;0&amp;\cdots &amp;0&amp;0\\
