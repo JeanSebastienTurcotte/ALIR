@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-SA 4.0                                                               -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-simplexe">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> La programmation linéaire </title>
+    <introduction xml:id= "intro-simplexe">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Aller aux <xref provisional="exo-simplexe">exercices</xref> de la section.</p>
+    <p>Au chapitre <xref ref="chap-vec"/>, on a vu comment représenter des droites dans le plan et dans l'espace, et comment déterminer l'intersection de droites. Au chapitre <xref ref="chap-SEL"/>, il a été question de la méthode de Gauss-Jordan, pour résoudre un système d'équations linéaires en échelonnant la matrice représentant ce système. L'analyse de cette forme échelonnée réduite a permis de décomposer les solutions en fonction de ce qu'on a appelé les solutions de base et la solution particulière, formant à eux deux la solution générale. Les notions de ces deux chapitres sont suffisantes pour comprendre cette section.</p>
+    <p>Dans cette section, on s'intéresse à la solution à des problèmes d'optimisation posés sous la forme d'un programme linéaire, c'est-à-dire comme un ensemble d'égalités et d'inégalités. L'objectif est de maximiser ou de minimiser une fonction tout en satisfaisant à plusieurs contraintes.</p>
+    <p>Historiquement, on retrouve les premières tentatives de résolution des problèmes que l'on étudiera dans cette section par le mathématicien russe Leonid Kantorovich et par l'économiste Wassily Leontief. Le premier était intéressé à résoudre des problèmes de fabrication d'horaires, alors que le second se penchait sur des problèmes économiques divers. La nécessité de résoudre ces problèmes efficacement et rapidement fut ensuite accentuée par la deuxième guerre mondiale. La méthode du simplexe, que l'on étudiera, a été établie en 1947 par George Dantzig et perfectionnée au fil des ans. La méthode s'applique aux problèmes qui demande d'optimiser une fonction de <m>\mathbb{R}^n</m> vers <m>\mathbb{R}</m> sujette à des contraintes d'inégalité.</p>
+    <p>Dans cette section, on présente le côté géométrique d'un problème de programmation linéaire lorsque le nombre de variables est relativement peu élevé. Par la suite, on présente l'algorithme du simplexe, qui permet de résoudre ces problèmes en utilisant les notions du chapitre <xref ref="chap-SEL"/>. On aborde, entre autres, la notion de fonction objectif, la notion de contraintes technologiques, la notion de région admissible, le concept de variables d'écart, le concept de variable en base et de variable hors base, la notion de matrice initiale du simplexe, et le concept de dualité en optimisation.</p>
+    </introduction>
+    <subsection>
+<title>Approche graphique à un problème d'optimisation linéaire</title>
+    <p>
+    On considère une fonction de deux variables <m>f(x_1,x_2)=2x_1+x_2</m>. Sans contraintes, cette fonction peut être aussi grande que l'on veut, en prenant de grandes valeurs pour <m>x_1,x_2</m>. Par contre, si on suppose que <m>0\leq x_1\leq 8</m>, <m>0\leq x_2\leq 5</m> et <m>x_1+x_2\leq 10</m>, alors les possibilités sont beaucoup plus restreintes. Il est possible d'illustrer chacune de ces contraintes dans le plan cartésien. Prise ensemble, on obtient ce que l'on appelle la <em>région admissible</em>, soit l'ensemble des valeurs des variables qui satisfont aux contraintes. La figure ci-dessous illustre la région admissible de la situation décrite ci-haut. En anglais, la région admissible est appelée <lq>feasible region</lq>, d'où le <m>F</m> au centre de la région admissible. On peut voir dans la figure chacune des contraintes ainsi que l'intersection, l'ensemble des valeurs qui satisfont simultanément toutes les contraintes.
+    </p>
+<figure xml:id="fig-regionadmissible1">
+<caption>Région admissible de la situation décrite.</caption>
+<image xml:id="img-regionadmissible1">
+<description>La région admissible est montrée en gris.</description>
+<sageplot>
+A = ([1, 0], [0, 1],[1,1])
+b = (8, 5,10)
+c = (2, 1)
+P = InteractiveLPProblem(A, b, c, ["x_1", "x_2"], variable_type=">=")
+P.plot_feasible_set(alpha=0.9)
+</sageplot>
+</image>
+</figure>
+<p>Parmi toutes les valeurs de la région admissible, au moins un couple devrait donner le maximum de la fonction <m>f(x_1,x_2)</m>. Pour trouver où ce maximum est atteint, il est impossible de tester chacune des valeurs possibles. On peut raisonner comme suit. Soit <m>P</m>, un point à l'intérieur de la région admissible. Selon la nature de la fonction <m>f(x_1,x_2)=2x_1+x_2</m>, la fonction est croissante selon la variable <m>x_1</m> et selon la variable <m>x_2</m>. Si le point <m>P</m> se trouve à l'intérieur de la région, par opposition à sur sa frontière, alors une variation vers la droite pour <m>x_1</m> ou vers le haut pour <m>x_2</m> entraine une augmentation de la valeur de <m>f</m>. Pour ces raisons, le maximum devrait être atteint sur la frontière. Un argument semblable montre qu'en fait, le maximum se trouvera en un sommet du polygone formant la frontière de la région admissible.</p>
+<p>On peut aussi arriver à cette conclusion en considérant les droites <m>2x_1+x_2=k</m>, pour des valeurs fixes de <m>k</m>. Ces droites sont un exemple de ce qu'on appelle les <em>courbes de niveau</em> d'une fonction. Ces courbes de niveau sont très utiles pour visualiser les fonctions de plusieurs variables à valeur réelle. Chaque valeur de <m>k</m> représente une valeur possible pour la fonction <m>f</m> et l'intersection de la région admissible avec une telle droite donne les points <m>P</m> de la région pour lesquels <m>f(P)=k</m>. En augmentant la valeur pour <m>k</m>, on arrive à trouver la plus grande valeur qui fait en sorte que la droite possède toujours au moins une intersection avec la région admissible. Cette intersection contient nécessairement un sommet, mais pourrait aussi contenir tout un segment du polygone.</p>
+<p>La figure interactive ci-dessous permet de manipuler un point <m>P</m> dans le polygone et de voir son image par la fonction <m>f</m>, ainsi que de visualiser les droites <m>2x_1+x_2=k</m> pour des valeurs positives de <m>k</m>.</p>
+<figure xml:id="fig-simplexe1">
+<caption>Optimisation sous forme dynamique</caption>
+<interactive aspect="1:1" platform="geogebra" width="100%" xml:id="geog-simplexe1">
+<slate aspect="1:1" source="code/geogebra/simplexe1.ggb" surface="geogebra" xml:id="slate-simplexe1">
+setCoordSystem(-8, 8,-8,8); 
+showResetIcon(true);
+</slate>
+          <instructions>
+            <p>Il est possible de déplacer le point<m>P</m> dans la région admissible. La valeur de <m>f(P)</m> apparait. On peut alors observer que le maximum doit être atteint sur la frontière de la région. De même, on peut varier la valeur de <m>k</m> et observer les droites <m>2x_1+x_2=k</m>. On observe à nouveau que le maximum doit se trouver sur la frontière. </p>
+          </instructions>
+</interactive>
+</figure>
+<p>L'exemple ci-dessus comporte les caractéristiques essentiels d'un problème de programmation linéaire en deux dimensions. L'exemple suivant contextualise un problème différent et le résout en utilisant les observations faites ci-dessus. La justification de ses observations sera présentée ultérieurement.</p>
+<example xml:id="ex-simplexe2">
+<title>Optimisation de l'allocation de ressources</title>
+<statement><p>
+On considère un fermier qui dispose d'une certaine superficie de terrain pour cultiver deux types de plantes : le maïs et le soja. Chaque culture nécessite un certain temps de travail et des ressources spécifiques pour atteindre un certain rendement. Le fermier dispose d'un nombre limité d'heures de travail par semaine et d'un nombre limité d'engrais.
+</p>
+<p>Pour une semaine donnée, le fermier est prêt à allouer <m>50</m> heures à la production de ces deux types de plantes et il possède <m>200</m> kg d'engrais. Chaque tonne de maïs se vend au marché pour <m>450$</m> et chaque tonne de soja se vend <m>1000$</m>. De plus,  la production d'une tonne de maïs nécessite <m>5</m> kg d'engrais et <m>2</m> heures de travail, tandis que la production d'une tonne de soja requiert <m>15</m> kg d'engrais et <m>3</m> heures de travail.</p>
+<p>Quelle devrait être la quantité produite pour chacune de ces plantes afin de maximiser le profit durant cette semaine?</p>
+</statement>
+<solution>
+<p>On pose <m>m,s</m> pour représenter les tonnes de maïs et de soja qui seront produits. La fonction à maximiser est
+<me>
+f(m,s)=450m+1000s
+</me>,
+qui est sujette aux contraintes <m>5m+15s\leq 200</m> et <m>2m+3s\leq 50</m>, qui constituent les contraintes logiques, ainsi que <m>m\geq 0,s\geq 0</m>, qui constituent les contraintes de non négativité. On trace la région admissible à la figure suivante.
+</p>
+<figure xml:id="fig-regionadmissible2">
+<caption>Région admissible de la situation décrite.</caption>
+<image xml:id="img-regionadmissible2">
+<description>La région admissible est montrée en gris.</description>
+<sageplot>
+A = ([5, 15], [2, 3])
+b = (200, 50)
+c = (450, 1000)
+P = InteractiveLPProblem(A, b, c, ["m", "s"], variable_type=">=")
+P.plot_feasible_set(0,50,0,20, alpha=0.9)
+</sageplot>
+</image>
+</figure>
+<p>La frontière possède quatre sommets dont l'un de ceux-ci sera le maximum. Pour le trouver, on évalue la fonction à chacun des sommets. La plus grande valeur sera le maximum. Les sommets étant <m>(0,0),(25,0),(10,10)</m> et <m>(\left(0,\frac{40}{3}\right)</m>, on trouve
+<md>
+<mrow>f(0,0)&amp;=0</mrow>
+<mrow>f(25,0)&amp;=11250</mrow>
+<mrow>f(10,10)&amp;=14500</mrow>
+<mrow>f\left(0,\frac{40}{3}\right)&amp;=1333.\bar{3}</mrow>
+</md>.
+Le maximum se trouve lorsque l'on produit dix tonnes de maïs et dix tonnes de soja.</p>
+</solution>
+</example>
+<example xml:id="ex-simplexe3">
+<title>Optimisation de la production de chaises et de tables</title>
+<statement>
+<p>Une entreprise fabrique des meubles en bois. Elle produit deux types de meubles, des chaises et des tables. La production d'une chaise nécessite <m>3</m> planches de bois, <m>3</m> boîte de vis et <m>1.5</m> heure de travail, tandis que la production d'une table nécessite <m>10</m> planches de bois, <m>2</m> boîtes de vis et <m>2.5</m> heures de travail. L'entreprise dispose de <m>150</m> planches de bois, <m>72</m> boîtes de vis et <m>45</m> heures de travail pour la production. Une chaise est vendue à <m>50</m> dollars et une table à <m>100</m> dollars. L'entreprise cherche à maximiser son chiffre d'affaires.</p>
+</statement>
+<solution>
+<p>
+On note par <m>c</m> le nombre de chaises produites et <m>t</m> le nombre de tables produites. La fonction à optimiser est 
+<me>
+f(c,t)=50c+100t
+</me>.
+La figure suivante représente la région admissible provenant des contraintes
+<md>
+<mrow>3c+10t&amp;\leq 150</mrow>
+<mrow>3c+2t&amp;\leq 72</mrow>
+<mrow>\frac{3}{2}c+\frac{5}{2}t&amp;\leq 45</mrow>
+<mrow>c\geq 0, t\geq 0</mrow>
+</md>.</p>
+<figure xml:id="fig-regionadmissible3">
+<caption>Région admissible de la situation décrite.</caption>
+<image xml:id="img-regionadmissible3">
+<description>La région admissible est montrée en gris.</description>
+<sageplot>
+A = ([3, 10],[3,2], [3/2, 5/2])
+b = (150,72,45)
+c = (50,100)
+P = InteractiveLPProblem(A, b, c, ["c", "t"], variable_type=">=")
+P.plot_feasible_set(0,50,0,20, alpha=0.9)
+</sageplot>
+</image>
+</figure>
+<p>La région admissible est formé d'un polygone à quatre sommets. En plus des axes, trois droites forment les côtés de ce polygone. On peut trouver les coordonnées des sommets qui ne se retrouvent pas sur les axes en déterminant les intersections de chaque paire de droites. Les équations des droites correspondent aux contraintes, en remplaçant l'inégalité par une égalité. On trouve <m>P_0(0,0),P_1(0,15),P_2(10,12),P_3(20,6)</m> et <m>P_4(24,0)</m>. L'image de chacun de ces points par la fonction <m>f(c,t)</m> est
+<md>
+<mrow>f(0,0)&amp;=0</mrow>
+<mrow>f(0,15)&amp;=1500</mrow>
+<mrow>f(10,12)&amp;=1700</mrow>
+<mrow>f(20,6)&amp;=1600</mrow>
+<mrow>f(24,0)&amp;=1200</mrow>
+</md>.
+On voit que la valeur maximale des ventes se trouve lorsque le nombre de chaises produites est égale à <m>10</m> et le nombre de tables fabriquées est de <m>12</m>.
+</p>
+</solution>
+</example>
+<p>Les exemples précédents montrent comment on peut maximiser une fonction linéaire soumises à des contraintes, mais la minimisation d'une telle fonction se résout avec la même méthode.</p>
+<example xml:id="ex-simplexe4">
+<title>Minimisation du coût de nutriments</title>
+<statement><p>Pour un régime particulier, une personne a besoin d'obtenir une quantité précise de nutriments chaque semaine. Il lui est possible de se procurer la poudre <m>p</m>, au coût de <m>4$</m> par <m>100</m> grammes, et la poudre <m>q</m>, au coût de <m>5$</m> par <m>100</m> grammes. La quantité pour chacun des trois nutriments, ainsi que la quantité quotidienne requise, sont données dans la table ci-dessous.</p>
+<table>
+  <title>Les nutriments nécessaires au régime.</title>
+  <tabular halign="center" top="major">
+    <row bottom="minor">
+      <cell halign="left">
+      </cell>
+      <cell>
+        <m>n_1</m>
+      </cell>
+      <cell>
+        <m>n_2</m>
+      </cell>
+      <cell>
+        <m>n_3</m>
+      </cell>
+    </row>
+    <row>
+      <cell halign="left">
+        A (par 100g)
+      </cell>
+      <cell>
+        3
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row bottom="minor">
+      <cell halign="left">
+        B (par 100g)
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        4
+      </cell>
+      <cell>
+        3
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell halign="left">
+      Besoins
+      </cell>
+      <cell>
+        28
+      </cell>
+      <cell>
+        30
+      </cell>
+      <cell>
+        20
+      </cell>
+    </row>
+  </tabular>
+</table>
+<p>La personne peut se permettre un budget maximal de <m>100$</m> par semaine pour ces produits.</p>
+<p>On peut traduire ce problème en considérant la fonction <m>g(A,B)=4x+5y</m> qui est assujettie au contraintes
+<md>
+<mrow>3p+2q&amp;\geq 28</mrow>
+<mrow>2p+4q&amp;\geq 30</mrow>
+<mrow>5p+7q&amp;\geq 70</mrow>
+<mrow>4p+5q&amp;\leq 100</mrow>
+<mrow>p\geq 0, q\geq 0</mrow>
+</md>.
+La figure ci-dessous illustre la région admissible.
+</p>
+<figure xml:id="fig-regionadmissible4">
+<caption>Région admissible de la situation décrite.</caption>
+<image xml:id="img-regionadmissible4">
+<description>La région admissible est montrée en gris.</description>
+<sageplot>
+A = ([3, 2],[2,4], [5, 7],[4,5])
+b = (28,30,70,100)
+c = (4, 5)
+P = InteractiveLPProblem(A, b, c, ["p", "q"], problem_type="min",
+    constraint_type=[">=",">=",">=", "&lt;="], variable_type=[">=", ">="])
+P.plot_feasible_set(0,30,0,30, alpha=0.9)
+</sageplot>
+</image>
+</figure>
+<p>Les sommets de la région admissible se trouve en <m>P_1(0,14),P_2(0,20),P_3(25,0),P_4(15,0),P_5\left(\frac{56}{11},\frac{70}{11}\right)</m> et <m>P_6\left(\frac{35}{3},\frac{5}{3}\right)</m>. Le coût pour chacune de ces paires est de
+<md>
+<mrow>g(0,14)=70</mrow>
+<mrow>g(0,20)=100</mrow>
+<mrow>g(25,0)=100</mrow>
+<mrow>g(15,0)=60</mrow>
+<mrow>g\left(\frac{56}{11},\frac{70}{11}\right)=52.18</mrow>
+<mrow>g\left(\frac{35}{3},\frac{5}{3}\right)=55</mrow>
+</md>.
+Le coût minimal est donc, à deux décimales près, de <m>52.18$</m>. À ce pris, la personne achètera, toujours à deux décimales près, <m>\frac{56}{11}\ast 100\approx 509,09</m> grammes de la poudre <m>p</m> et <m>\frac{70}{11}\ast 100\approx 636.36</m> grammes de la poudre <m>q</m>.
+</p>
+</statement>
+</example>
+<p>Une certaine structure se dégage des problèmes précédents. Une fonction linéaire doit être optimiser en fonction de contraintes, aussi linéaires, qui viennent restreindre les valeurs possibles de cette fonction. Comme tout est linéaire, il est plausible de penser que l'on peut encoder l'information pertinente à un tel problème dans une matrice ou un vecteur. La forme canonique d'un problème de programmation linéaire permet de faire l'encodage de cette manière. On donne dès maintenant la définition générale. La méthode pour résoudre un problème où un nombre trop grand de variables est présent pour résoudre géométriquement sera présenté dans la sous-section suivante.</p>
+<definition xml:id="def-proglincan">
+<title>Forme canonique d'un problème de programmation linéaire.</title>
+<statement><p>On considère une fonction linéaire <m>f(x_1,x_2,\ldots , x_n)=c_1x_2+c_2x_2+\cdots +c_nx_n</m> et un ensemble de contraintes de la forme
+<md>
+<mrow>
+    a_{1\,1}x_1+a_{1\,2}x_2+\cdots+ a_{1\,n}x_n &amp;\leq b_1 \\
+    </mrow>
+    <mrow>
+    a_{2\,1}x_1+a_{2\,2}x_2+\cdots+ a_{2\,n}x_n &amp;\leq b_2 \\
+    </mrow>
+    <mrow>\vdots </mrow>
+    <mrow>
+    a_{m\,1}x_1+a_{m\,2}x_2+\cdots+ a_{m\,n}x_n &amp;\leq b_m \\
+    </mrow>
+</md>,
+appelées les <em>contraintes d'inégalité</em>, ainsi que les contraintes de non-négativité
+<me>
+x_i\geq 0 \text{ pour tout } i=1,\ldots , n
+</me>.</p>
+<p>Si l'objectif est de maximiser la fonction <m>f</m> sous les contraintes, on dit alors que le problème est un problème de <em>programmation linéaire</em> et qu'il est sous forme <em>canonique</em>. La fonction <m>f</m> est appelé la <em>fonction objectif</em>. De manière naturelle, il en découle la réécriture suivante:
+<md>
+<mrow>\text{maximiser } f(\vec{x})=\vec{c}^T\vec{x}=\vec{c}\cdot \vec{x}</mrow>
+<mrow>\text{sujette aux contraintes } A\vec{x}\leq \vec{b}</mrow>
+<mrow>\text{et } \vec{x}\geq 0 </mrow>
+</md>.
+Il est sous-entendu dans cette formulation qu'une inégalité entre deux vecteurs s'applique sur chacune des composantes correspondantes.
+</p>
+<p>Un vecteur <m>\vec{x}</m> qui satisfait les deux contraintes est une <em>solution admissible</em>. L'ensemble des solutions admissible forme la <em>région admissible</em> <m>\mathcal{R}</m> et le vecteur <m>\vec{x}_{\max}=\max_{\vec{x}\in \mathcal{R}}(f(\vec{x}))</m> est la <em>solution optimale</em>.</p>
+</statement>
+</definition>
+<p>Cette forme suppose que l'on cherche toujours un maximum de la fonction objectif. Pour résoudre un problème de minimisation sur une fonction <m>g(x)</m>, on peut remplacer par <m>f(x)=-g(x)</m>. Ainsi, lorsque <m>f(\vec{x})</m> atteint son maximum, la fonction <m>g(\vec{x})</m>, elle, atteint son minimum. Également, on peut transformer les contraintes de la forme
+<me>
+a_{i\,1}x_1+a_{i\,2}x_2+\cdots +a_{i\,n}x_n\geq b_i 
+</me>
+en multipliant par <m>-1</m> pour obtenir
+<me>
+-a_{i\,1}x_1-a_{i\,2}x_2-\cdots -a_{i\,n}x_n\leq -b_i 
+</me>.
+Si une contrainte d'égalité était présente, on pourrait la remplacer par deux contraites d'inégalités. Ainsi,
+<me>
+a_{i\,1}x_1+a_{i\,2}x_2+\cdots a_{i\,n}x_n= b_i 
+</me>
+deviendrait
+<md>
+<mrow>a_{i\,1}x_1+a_{i\,2}x_2+\cdots a_{i\,n}x_n\leq b_i </mrow>
+<intertext>et</intertext>
+<mrow>-a_{i\,1}x_1-a_{i\,2}x_2-\cdots -a_{i\,n}x_n\leq -b_i </mrow>
+</md>
+</p>.
+<p>Dans l'exemple qui suit, on réécrit les trois problèmes, présentés plus haut, sous leur forme canonique.</p>
+<example xml:id="ex-simplexecanonique">
+<title>Forme canonique des trois problèmes</title>
+<statement><p>On considère à nouveau les problèmes des exemples <xref ref="ex-simplexe2"/>,<xref ref="ex-simplexe3"/> et <xref ref="ex-simplexe4"/>. On veut écrire la forme canonique de chacun de ces problèmes.</p></statement>
+<solution><p>On pose <m>\vec{c}=(450,1000)</m>,<m>\vec{x}=(m,s)</m>,<m>\vec{b}=(200,50)</m> et 
+<me>
+A=\begin{pmatrix}
+5&amp;15\\ 2&amp; 3
+\end{pmatrix}
+</me>.
+En tenant compte des contraintes de non-négativité, le problème est sous forme canonique. Les contraintes, de même que la fonction objectif, n'ont pas eu à être réécrite puisqu'elles était déjà sous la bonne forme.
+</p></solution>
+<solution><p>On pose <m>\vec{c}=(50,100)</m>,<m>\vec{x}=(c,t)</m>,<m>\vec{b}=(150,72,45)</m> et 
+<me>
+A=\begin{pmatrix}
+3&amp;10\\ 3&amp; 2\\ \frac{3}{2} &amp;\frac{5}{2}
+\end{pmatrix}
+</me>.
+En tenant compte des contraintes de non-négativité, le problème est sous forme canonique. Les contraintes, de même que la fonction objectif, n'ont pas eu à être réécrite puisqu'elles était déjà sous la bonne forme.
+</p></solution>
+<solution><p>Cette fois-ci, le problème, sous sa forme initiale, comprend des contraintes de la forme <m>\geq</m> et porte sur la minimisation d'une fonction. On remplace la fonction par <m>f(p,q)=-4p-5q</m>. On peut alors poser <m>\vec{c}=(-4,-5),\vec{x}=(p,q)</m>. On remplace les trois contraintes
+<md>
+<mrow>3p+2q&amp;\geq 28</mrow>
+<mrow>2p+4q&amp;\geq 30</mrow>
+<mrow>5p+7q&amp;\geq 70</mrow>
+</md>
+par 
+<md>
+<mrow>-3p-2q&amp;\leq -28</mrow>
+<mrow>-2p-4q&amp;\leq -30</mrow>
+<mrow>-5p-7q&amp;\leq -70</mrow>
+</md>
+qui, avec la contrainte sur le coût <m>4p+5q\leq 100</m> donne le vecteur <m>\vec{b}=(-28,-30,-70,100)</m> et la matrice
+<me>
+A=\begin{pmatrix}
+-3&amp;-2\\ 
+-2&amp; -4\\
+-5&amp;-7\\
+4&amp;5\\
+\end{pmatrix}
+</me>.
+En tenant compte des contraintes de non-négativité, le problème est maintenant sous forme canonique.
+</p></solution>
+</example>
+<p>Pour toute combinaison de fonction objectif et d'ensemble de contraintes sous forme canonique, il n'y a que trois choses qui peuvent survenir. Les contraintes peuvent être incompatibles, ce qui fait que le problème n'a pas de solution. Ce serait le cas si, par exemple, on demadait à la fois d'avoir <m>x\geq 5</m> et <m>x\leq 3</m>. Les contraintes peuvent faire en sorte que la région admissible n'est pas bornée. Si ceci entraine que la fonction objective peut prendre des valeurs aussi large que l'on veut, alors le maximum n'existe pas. Finalement, dans tous les autres cas, la fonction objective atteint un maximum. Ce dernier se trouve à au moins un des sommets de la région admissible. </p>
+<p>On termine avec des commandes Sage en lien avec la sous-section.</p>
+<computation xml:id="sageex-simplexegeo">
+<title>Géométrie de la programmation linéaire avec Sage</title>
+<statement><p>Sage possède un module pour explorer la programmation linéaire. On y définit les vecteurs <m>\vec{c},\vec{b}</m>, ainsi que la matrice <m>A</m>. En principe, il n'est pas obligatoire d'avoir la matrice du problème sous forme canonique, car il est possible de spécifier le type d'inégalité et le type de problème (maximisation ou minimisation). Une fois les vecteurs et la matrice définis, la commande <c>InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")</c> permet de créer la structure du programme linéaire. Les arguments <c>A,b,c</c> sont, dans l'ordre, la matrice des contraintes, le vecteur de ces contraintes et le vecteur des coefficients de la fonction objectif. L'argument <c>["x", "y"]</c> donne le nom aux variables. Finalement l'argument <c>variable_type</c> donne le type d'inégalité, à savoir si les variables doivent être non négatives ou autre chose.</p>
+<p>Dans un premier temps, on regarde l'exemple d'introduction qui a servi à motiver la sous-section. En ajoutant la ligne <c>%display typeset</c> à la cellule Sage, il est possible de visualiser l'écriture du problème à même sage. </p>
+<sage>
+<input>
+A = matrix([[1, 0], [0, 1],[1,1]])
+b = vector([8, 5,10])
+c = vector([2, 1])
+P = InteractiveLPProblem(A, b, c, ["x_1", "x_2"], variable_type=">=")
+%display typeset
+P
+</input>
+</sage>
+<p>La commande <c>feasible_set</c> permet de visualiser la région admissible (lorsque le nombre de variable est deux ou trois).</p>
+<sage><input>
+P.feasible_set()
+</input></sage>
+<p>On peut aussi reproduire la région admissible et les contraintes à l'aide de la commande <c>plot_feasible_set</c>. Cette dernière offre plus de flexibilité quant au secteur qui peut être visualisé et à l'opacité de la région admissible.</p>
+<sage>
+<input>
+P.plot_feasible_set(0,10,0,12,alpha=0.9)
+</input>
+</sage>
+<p>On peut obtenir directement les coordonnées des sommets de la région admissible à l'aide de la commande <c>vertices</c>.</p>
+<sage>
+<input>
+P.feasible_set().vertices()
+</input>
+<output>
+(A vertex at (8, 0),
+ A vertex at (5, 5),
+ A vertex at (8, 2),
+ A vertex at (0, 5),
+ A vertex at (0, 0))
+</output>
+</sage>
+<p>Ce format n'est pas pratique pour les calculs puisqu'il contient aussi du texte. On peut extraire les vecteurs à l'aide de la fonction suivante.</p>
+<sage>
+<input>
+L=P.feasible_set().vertices()
+S=[]
+for v in L:
+    S.append(v.vector())
+S
+</input>
+<output>
+[(8, 0), (5, 5), (8, 2), (0, 5), (0, 0)]
+</output>
+</sage>
+<p>S contient maintenant la liste des sommets de la région admissible. Comme la fonction objectif est encodée dans le vecteur <m>\vec{c}</m>, on peut l'évaluer en chacun des points de <c>S</c> à l'aide du produit scalaire.</p>
+<sage>
+<input>
+Valeurs=[c*v for v in S] 
+Valeurs
+</input>
+<ouput>
+[16, 15, 18, 5, 0]
+</ouput>
+</sage>
+<p>Bien entendu, on peut aussi calculer la solution optimale avec une commande.</p>
+<sage>
+<input>
+P.optimal_solution()
+</input>
+<output>
+(8,2)
+</output>
+</sage>
+<p>Sage peut aussi calculer graphiquement la solution. Il illustre quelques-unes des courbes de niveau et indique le maximum sur la graphique avec un flèche noire. Cette flèche, toujours parallèle à la courbe de niveau, indique la direction qui produit la plus grande variation de la fonction. Dans un cours de calcul de fonctions à plusieurs variables, cette direction est celle qui maximise le gradient de la fonction. Cette direction est aussi très utile dans les problèmes d'apprentissage profond.</p>
+<sage>
+<input>
+P.plot(0,10,0,12,alpha=0.9)
+</input>
+</sage>
+<p>On reprend maintenant l'exemple <xref ref="ex-simplexe4"/>, qui n'était pas sous forme canonique. On montre que Sage peut quand même travailler avec cette forme, si on lui spécifie correctement le type de contraintes et de problème. On peut aussi convertir un problème à sa forme canonique.</p>
+<p>Si on entre les valeurs telles qu'elles sont données dans le problème, sans égard à la forme canonique, on voit rapidement que le programme créé par Sage ne correspond pas à celui que l'on veut résoudre.</p>
+<sage>
+<input>
+A = matrix([[3, 2],[2,4], [5, 7],[4,5]])
+b = vector([28,30,70,100])
+c = vector([4, 5])
+P = InteractiveLPProblem(A, b, c, ["p", "q"],  variable_type=">=")
+</input>
+</sage>
+<p>On remédie à cette situation en ajoutant un argument <c>problem_type="max"</c> et un argument <c>constraint_type</c>. Ces arguments permettent à Sage de comprendre que l'on cherche le minimum de la fonction et que les trois premières contraintes sont de type <m>\geq</m>.</p>
+<sage>
+<input>
+P = InteractiveLPProblem(A, b, c, ["p", "q"], problem_type="min", constraint_type=[">=",">=",">=", "&lt;="], variable_type=">=")
+</input>
+</sage>
+<p>À partir de ce programme corrigé, on peut extraire les mêmes informations qui pour le problème d'introduction.</p>
+<sage>
+<input>
+show(P.feasible_set())
+show(P.plot_feasible_set(0,25,0,20,alpha=0.9))
+show("Liste des sommets: ",P.feasible_set().vertices())
+L=P.feasible_set().vertices()
+S=[]
+for v in L:
+    S.append(v.vector())
+Valeurs=[c*v for v in S] 
+show("Liste des sommets:", S)
+show("La valeur de la fonction à ces sommets:", Valeurs)
+show("La valeur optimale trouvée directement par Sage:", P.optimal_solution())
+show(P.plot(0,25,0,20,alpha=0.9))
+</input>
+</sage>
+<p>Il est possible d'obtenir la matrice, le vecteur <m>\vec{b}</m> et le vecteur <m>c</m> d'un problème de programmation linéaire.</p>
+<sage>
+<input>
+show("A=",P.A())
+show("b=",P.b())
+show("c=",P.c())
+</input>
+</sage>
+<p>Finalement, la commande <c>standard_form</c> permet de convertir un programme existant en forme canonique. On peut en constater l'effet en regardant la matrice et les vecteurs associés au nouveau programme.</p>
+<sage>
+<input>
+P=P.standard_form() #On redifnit P dans sa forme canonique
+show("A=",P.A())
+show("b=",P.b())
+show("c=",P.c())
+</input>
+<output>
+[-3 -2]                                        
+[-2 -4]                                        
+[-5 -7]                                        
+[ 4  5]
+(-28, -30, -70, 100)
+(-4, -5)
+</output>
+</sage>
+</statement>
+</computation>
+    </subsection>
+<subsection>
+<title>L'algorithme du simplexe</title>
+<p>La méthode de résolution par la géométrie des problèmes de programmation linéaire est pratique, mais n'est pas envisageable lorsque le problème comporte plusieurs variables. À titre d'exemple, on considère un compagnie qui possède plusieurs points de vente et un certain nombre d'entrepôts. Lorsque les points de vente passent une commande à la maison mère, celle-ci doit regarder l'inventaire disponible dans ses entrepôts et décider de la manière la plus efficace pour livrer à ses points de vente les biens demandés.</p>
+<p>On peut facilement imaginer une grande compagnie avec des centaines de boutiques, des dizaines d'entrepots et des milliers de produits. Imaginer la géomatrie d'un tel problème est impensable. Si l'on pense au fait que le maximum se trouve sur la frontière, plus particulièrement sur l'un des sommets de la région admissible, alors on peut intuitivement élaborer la méthode suivante pour le trouver. On fixe d'abord un sommet de la région admissible. Souvent, ce sommet sera celui où toutes les variables sont nulles, qui est rarement l'extremum cherché. Comme la valeur cherchée se trouve à l'un des sommets, on regarde tous les sommets voisins du sommet choisi initialement et l'on compare la variation dans chacune des directions. Celle qui offre la plus grande variation (dans le cas de la recherche d'un maximum, on voudra une variation positive) est choisie et l'on se rend jusqu'au prochain sommet. On répète ensuite jusqu'à ce que toutes les directions voisines à un sommet ne procurent plus de variation permettant d'améliorer la fonction objectif. On a alors atteint l'extremum recherchée. La figure <xref ref="fig-simplexe1"/> permet d'illustrer cela dans le cas où le nombre de variables est deux. En partant du point <m>P</m> à l'origine, on peut choisir de se déplacer horizontalement vers le point <m>(8,0)</m> ou verticalement vers le point <m>(0,5)</m>. Puisque chaque unité de déplacement en <m>x</m> produit une variation de la fonction objectif de <m>2</m> et que chaque unité de déplacement en <m>y</m> produit une variation de la fonction objectif de <m>1</m>, on choisit de se déplacer vers le point <m>(8,0)</m>. Par la suite, il ne reste qu'une direction à choisir étant donné que chaque sommet n'est relié qu'à deux autres. Le principe est le même pour un plus grand nombre de variables, avec plus de choix possibles pour naviguer entre les sommets.</p>
+<p>Pour effectuer la méthode du simplexe, on commence par transformer les contraintes d'inégalité (sauf les contraintes de positivité) en leur ajoutant une <em>variable d'écart</em> positive. Ainsi, la contrainte <m>x+y\leq 5</m> devient <m>x+y+e=5</m> où <m>e\geq 0</m>, puisque <m>e=5-(x+y)</m> et que l'inégalité stipule que <m>x+y</m> est inférieur à <m>5</m>.</p>
+<definition xml:id="def-variableecart"><title>Variable d'écart</title>
+<statement><p>Une variable d'écart est une variable positive qui est ajoutée au plus petit côté d'une inéquation afin de la transformer en égalité.</p></statement>
+</definition>
+<example><title>
+Ajout des variables d'écart dans les contraintes
+</title>
+<statement><p>On reprend les données de la forme canonique des exemples <xref ref="ex-simplexe2"/>, <xref ref="ex-simplexe3"/> et <xref ref="ex-simplexe4"/> afin de convertir les contraintes d'inégalité sous forme d'égalité.</p>
+</statement>
+<solution>
+<p>Dans le cas des contraintes du problème <xref ref="ex-simplexe2"/>, on a
+<md>
+<mrow>5m+15s&amp;\leq 200</mrow>
+<mrow>2m+3s&amp;\leq 50</mrow>
+</md>,
+qui deviennent
+<md>
+<mrow>5m+15s+e_1&amp;= 200</mrow>
+<mrow>2m+3s+e_2&amp;= 50</mrow>
+</md>
+</p>
+<p>Pour les contraintes du problème <xref ref="ex-simplexe3"/>, on a
+<md>
+<mrow>3c+10t&amp;\leq 150</mrow>
+<mrow>3c+2t&amp;\leq 72</mrow>
+<mrow>\frac{3}{2}c+\frac{5}{2}t&amp;\leq 45</mrow>
+</md>
+qui deviennent
+<md>
+<mrow>3c+10t+e_1&amp;= 150</mrow>
+<mrow>3c+2t+e_2&amp;= 72</mrow>
+<mrow>\frac{3}{2}c+\frac{5}{2}t+e_3&amp;= 45</mrow>
+</md>
+où <m>e_1,e_2,e_3\geq 0</m>.</p>
+<p>Finalement, pour les contraintes du problème <xref ref="ex-simplexe4"/>, sous sa forme canonique, on a
+<md>
+<mrow>-3p-2q&amp;\leq -28</mrow>
+<mrow>-2p-4q&amp;\leq -30</mrow>
+<mrow>-5p-7q&amp;\leq -70</mrow>
+</md>,
+qui deviennent
+<md>
+<mrow>-3p-2q+e_1&amp;= -28</mrow>
+<mrow>-2p-4q+e_2&amp;= -30</mrow>
+<mrow>-5p-7q+e_3&amp;= -70</mrow>
+</md>.
+</p>
+</solution>
+</example>
+<p>Lorsqu'un problème de programmation linéaire à <m>n</m> variables possède <m>m</m> contraintes d'inégalité, l'ajout de variables d'écart crée un système d'équations linéaires à <m>m</m> équations et <m>m+n</m> inconnues. Une solution à ce système d'équations est appelée une <em>solution de base</em> si au plus <m>m</m> des variables sont non nulles. La solution est admissible lorsque toutes les variables sont plus grandes ou égales à zéro. Ensemble, ces deux conditions mènent à la définition suivante. </p>
+<definition xml:id="def-solbaseadmissible">
+<title>Solution de base admissible</title>
+<statement>
+<p>Soit <m>A</m>, une matrice <m>m\times (m+n)</m> et <m>\vec{b}\in \mathbb{R}^m</m>, un vecteur. Une solution à l'équation <m>A\vec{x}=\vec{b}</m> est une <em>solution de base admissible</em> si toutes les valeurs de la solutions sont supérieures ou égales à zéro et qu'au plus <m>m</m> de ces valeurs sont non nulles.</p>
+<p>Les variables non nulles d'une solution de base sont appelés les variables <em>en base</em>. Les variables nulles sont dites <em>hors base</em>.</p>
+</statement>
+</definition>
+<p>On considère le problème d'introduction, cherchant à maximiser <m>f(x_1,x_2)=2x_1+2x_2</m> sous les contraintes
+<md>
+<mrow>x_1&amp;\leq 8</mrow>
+<mrow>x_2&amp;\leq 5</mrow>
+<mrow>x_1+x_2&amp;\leq 10</mrow>
+</md>.
+En ajoutant les variables d'écart, on obtient le système d'équations linéaires représenté par la matrice augmentée
+<men xml:id="eq-simplexesolbase1">
+A=\left(
+\begin{array}{rr|rrr|r}
+1&amp;0&amp;1&amp;0&amp;0&amp;8\\
+0&amp;1&amp;0&amp;1&amp;0&amp;5\\
+1&amp;1&amp;0&amp;0&amp;1&amp;10
+\end{array}
+\right)
+</men>.
+Les deux premières colonnes représentent les variables du problème en soi, les trois suivantes contiennent les valeurs des variables d'écart et la dernière est celle de la partie augmentée du système. En plus de la ligne verticale pour la partie augmentée, une autre ligne verticale a été ajoutée afin de séparer les deux catégories de variables.
+</p>
+<p>Sans même échelonner cette matrice, on peut voir que, si <m>x_1=x_2=0</m> et <m>e_1=8,e_2=5</m> et <m>e_3=10</m>, on a une solution. Comme il y a <m>3</m> variables non nulles, la solution est de base et puisque toutes les variables sont plus grandes ou égales à <m>0</m>, elle est aussi admissible.</p>
+<p>Une autre solution de base admissible est possible lorsque <m>x_1=8,x_2=5,e_1=0,e_2=0,e_3=-3</m>. On remarque alors que cette solution est de base, puisqu'il y a <m>3</m> variables non nulles, mais qu'elle n'est pas admissible, étant donné la présence du négatif dans la troisième variable d'écart.</p>
+<p>Les solutions admissibles se retrouvent dans la région admissible (sans surprise) et les solutions de base, elles, se retrouvent à l'intersection des contraintes d'inégalité. Les solutions de base admissibles sont donc aux sommets de la région admissible. La figure ci-dessous est une modification de la figure <xref ref="fig-simplexe1"/> dans laquelle on a libéré le point <m>P</m> et l'on a ajouté la valeurs des variables du problème et des variables d'écart. On peut voir qu'une solution est admissible si elle est dans la région admissible et est de base lorsqu'elle est sur l'un des sommets.</p>
+<figure xml:id="fig-simplexesolbase">
+<caption>Solution de base admissible.</caption>
+<interactive aspect="1:1" platform="geogebra" width="100%" xml:id="geog-simplexesolbase">
+<slate aspect="1:1" source="code/geogebra/simplexesolbase.ggb" surface="geogebra" xml:id="slate-simplexesolbase">
+setCoordSystem(-8, 8,-8,8); 
+showResetIcon(true);
+</slate>
+          <instructions>
+            <p>Il est possible de déplacer le point<m>P</m>. La valeur des cinq variables du SEL apparait. Le texte <lq/>solution de base<rq/> et le texte <lq/>solution admissible<rq/> changent de couleur selon la position du point <m>P</m>. </p>
+          </instructions>
+</interactive>
+</figure>
+<p>Dans la matrice <m>A</m> de l'équation <xref ref="eq-simplexesolbase1"/>, on peut voir dans les colonnes <m>3,4</m> et <m>5</m> une matrice identité. En fixant aux variables associées à ces colonnes les valeurs dans la dernière colonne, on a obtenu la première solution présentée plus haut. Si l'on effectue l'opération élémentaire <m>L_3-L_1\to L_3</m> suivi de l'opération élémentaire <m>L_3-L_2\to L_3</m>, on obtient la matrice 
+<men xml:id="eq-simplexesolbase2">
+A'=\left(
+\begin{array}{rr|rrr|r}
+1&amp;0&amp;1&amp;0&amp;0&amp;8\\
+0&amp;1&amp;0&amp;1&amp;0&amp;5\\
+0&amp;0&amp;-1&amp;-1&amp;1&amp;-3
+\end{array}
+\right)
+</men>. En regardant maintenant les colonnes <m>1,2</m> et <m>5</m>, on trouve à nouveau une matrice identité qui, comme ci-dessus, offre la solution de base <m>x_1=8,x_2=5,e_1=0,e_2=0,e_3=-3</m> obtenues auparavant. Le fait que les solutions de base se trouve de cette manière vient donner un sens à l'appellation <lq/>de base<rq/>. En effet, dans le cas des systèmes d'équations linéaires, la définition <xref ref="def-solbase"/> et le reste de cette section explique que, pour trouver les solutions de base d'un système d'équations linéaires, on peut utiliser la matrice identité qui se trouve à l'intérieur de la forme échelonnée réduite de la matrice du système. La solution trouvée ici n'est par contre pas admissible, car elle ne respecte pas la troisième contrainte.</p>
+<p>Il est donc possible de trouver les solutions de base (celles associée au problème d'optimisation) en effectuant des opérations élémentaires sur les lignes afin de changer la position de la matrice identité se trouvant à l'intérieur de la matrice des contraintes. Par exemple, à partir de la matrice <m>A'</m> de l'équation <xref ref="eq-simplexesolbase2"/>, on peut remettre la variable <m>e_2</m> en base et obtenir une solution de base en effectuant d'abord l'opération élémentaire <m>-L_3\to L_3</m>, puis l'opération élémentaire <m>L_2-L_3\to L_2</m>. Ces opérations donnent la matrice
+<me>
+A''=\left(
+\begin{array}{rr|rrr|r}
+1&amp;0&amp;1&amp;0&amp;0&amp;8\\
+0&amp;1&amp;0&amp;0&amp;0&amp;2\\
+0&amp;0&amp;1&amp;1&amp;-1&amp;3
+\end{array}
+\right)
+</me>,
+offrant cette fois-ci comme solution <m>x_1=8,x_2=2,e_1=0,e_2=3,e_3=0</m>. La figure <xref ref="fig-simplexesolbase"/> permet de constater que cette solution est la solution optimale trouvée au tout début de la section. L'opération de prendre une des variables et de transformer sa colonne à l'identité est appelé le <em>pivotage</em>. Le nom vient du fait que le role de la variable ressemble à celui d'un pivot, étant le seul élément non nul de sa colonne, valant <m>1</m>, mais sans toutefois être le premier élément non nul de la ligne.
+</p>
+<p>Comment choisir selon quelle entrée effectuer le pivotage? En excluant la dernière colonne, il y a un potentiel de soixante manières de transformer la matrice pour y faire apparaitre une matrice identité dans trois de ses colonnes. Pour un système à plus d'équations et d'inconnues, le nombre est encore plus élevé. Pour s'assurer de ne pas obtenir des solutions non admissibles, on choisit la ligne de l'équation pour effectuer le pivotage en considérant les deux critères suivants:
+<ul>
+<li><p>Si l'on veut pivoter l'entrée en position <m>i,j</m>, il faut que le coefficient <m>a_{i\,j}</m> soit plus grand que zéro. Ceci assure que le terme dans la partie augmentée sera positif. Comme ce terme correspond à la valeur de la variable de la colonne <m>j</m> dans la solution de base, elle doit être positive pour être admissible.</p></li>
+<li><p>Une fois la colonne <m>j</m> à pivoter choisie, on détermine la ligne <m>i</m> en choississant parmi celles où les entrées de la colonne <m>j</m> sont positives la ligne où le ratio <m>b_i/a_{i\,j}</m> est le plus petit. Ceci assure que, dans l'élimination de la colonne <m>j</m>, les autres termes de la partie augmentée restent positifs. </p></li>
+</ul>
+Une dernière considération, qui sera discuté plus tard, est lorsque le vecteur augmentée comporte des entrées nulles ou négatives. C'est fréquent lorsque le problème à résoudre est un problème de minimisation.
+</p>
+<example>
+<title>Choix de la ligne pour le pivotage</title>
+<statement><p>
+On considère le système
+<md>
+<mrow>3c+10t+e_1&amp;= 150</mrow>
+<mrow>3c+2t+e_2&amp;= 72</mrow>
+<mrow>\frac{3}{2}c+\frac{5}{2}t+e_3&amp;= 45</mrow>
+</md>,
+qui provient de l'ajout des variables d'écart aux données du problème <xref ref="ex-simplexe3"/>. La matrice associée est
+<me>
+A=\left(
+\begin{array}{rr|rrr|r}
+3&amp; 10&amp; 1&amp; 0&amp; 0&amp; 150\\
+3&amp; 2&amp;0&amp;1&amp;0&amp; 72\\
+\frac{3}{2}&amp; \frac{5}{2}&amp;0&amp;0&amp;1 &amp; 45
+\end{array}
+\right)
+</me>.
+Toutes les entrées de la matrice des coefficients sont positifs, ce qui signifie que l'on peut pivoter selon n'importe quelle variable. Si on veut pivoter selon la variable <m>c</m>, quelle ligne sera choisie?</p>
+</statement>
+<solution><p>
+La ligne deux sera choisie, puisque <m>\frac{72}{3}\leq\frac{45}{3/2}\leq \frac{150}{3}</m>. Afin de voir l'effet des trois choix de ligne et pour confirmer que la ligne deux est bien celle à utiliser, on utilise Sage pour voir l'effet du pivotage pour chaque entrée de la première colonne. 
+</p>
+<sage>
+<input>
+#La matrice A
+A=matrix([[3,10,1,0,0,150],[3,2,0,1,0,72],[3/2,5/2,0,0,1,45]])
+show(A)
+</input>
+</sage>
+<sage>
+<input>
+#Pivotage selon la première ligne
+#On divise par 3
+A=elementary_matrix(3,row1=0,scale=1/3)*A
+show("Après division",A)
+#On élimine la ligne 2
+A=elementary_matrix(3,row1=1,row2=0,scale=-3)*A
+show("Après élimination de la ligne 2",A)
+#On élimine la ligne 3
+A=elementary_matrix(3,row1=2,row2=0,scale=-3/2)*A
+show("Après élimination de la ligne 3",A)
+</input>
+</sage>
+<sage>
+<input>
+#Pivotage selon la deuxième ligne
+#On divise par 3
+A=elementary_matrix(3,row1=1,scale=1/3)*A
+show("Après division",A)
+#On élimine la ligne 1
+A=elementary_matrix(3,row1=0,row2=1,scale=-3)*A
+show("Après élimination de la ligne 1",A)
+#On élimine la ligne 3
+A=elementary_matrix(3,row1=2,row2=1,scale=-3/2)*A
+show("Après élimination de la ligne 3",A)
+</input>
+</sage>
+<sage>
+<input>
+#Pivotage selon la troisième ligne
+#On divise par 3
+A=elementary_matrix(3,row1=2,scale=2/3)*A
+show("Après division",A)
+#On élimine la ligne 1
+A=elementary_matrix(3,row1=0,row2=2,scale=-3)*A
+show("Après élimination de la ligne 1",A)
+#On élimine la ligne 2
+A=elementary_matrix(3,row1=1,row2=2,scale=-3)*A
+show("Après élimination de la ligne 2",A)
+</input>
+</sage>
+<p>On voit en effet que seule la ligne deux conservent des valeurs positives dans la partie augmentée.</p>
+</solution>
+</example>
+<p>Le choix de la ligne se fait donc à partir de conditions sur les éléments des lignes de la matrice. Qu'en est-il du choix de la colonne? C'est la fonction objectif qui guidera le choix de la variable sur laquelle pivoter. Comme il est décrit dans l'introduction de cette sous-section, on cherche à se déplacer d'une solution de base admissible à une autre en allant dans la direction qui offre la plus grande variation de la fonction objectif. Puisque la fonction est linéaire, les variations dans chacune des directions sont simplement données par la valeur des coefficients qui multiplient les variables. On ajoute une ligne au bas de la matrice contenant les contraintes avec les variables d'écart ainsi qu'une colonne entre la dernière variable d'écart et la colonne représentant la partie augmentée. Dans l'exemple d'introduction, où la fonction à maximiser est <m>f(x_1,x_2)=2x_1+x_2</m>, on crée une nouvelle équation en écrivant 
+<me>
+-2x_1-x_2+f=0
+</me>.
+La nouvelle variable <m>f</m> représente la fonction à optimiser. La matrice devient
+<me>
+A=\left(
+\begin{array}{rr|rrr|r|r}
+1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;8\\
+0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;5\\
+1&amp;1&amp;0&amp;0&amp;1&amp;0&amp;10\\
+\hline
+-2&amp;-1&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}
+\right)
+</me>.
+</p>
+<p>La colonne à choisir pour pivoter est celle qui a la plus petite valeur négative dans la dernière ligne (négative, car les coefficients ont changé de côté dans l'équation). Si toutes les valeurs sont positives, il n'est plus possible d'améliorer la solution. Dans ce cas, la première variable est celle sur laquelle on pivote et on choisit la première ligne, puisque <m>8\leq 10</m>. Lorsque l'on effectue les opérations élémentaire, on considère également la dernière ligne. Après pivotage en utilisant les opérations élémentaires <m>L_3-L_1\to L_3</m> et <m>L_4+2L_1\to L_4</m>, la matrice devient
+<me>
+A'=\left(
+\begin{array}{rr|rrr|r|r}
+1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;8\\
+0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;5\\
+0&amp;1&amp;-1&amp;0&amp;1&amp;0&amp;2\\
+\hline
+0&amp;-1&amp;2&amp;0&amp;0&amp;1&amp;16
+\end{array}
+\right)
+</me>.
+La matrice identité se trouve dans les colonnes un, quatre et cinq, offrant comme solution de base <m>x_1=8,x_2=0,e_1=0,e_2=5,e_3=2</m>, donnant comme valeur <m>16</m> pour la fonction <m>f</m>. Ceci correspond bien à une solution de base admissible, que l'on peut visualiser sur la figure <xref ref="fig-simplexesolbase"/>.
+</p>
+<p>La seule valeur négative de la dernière ligne est dans la deuxième colonne. C'est donc selon <m>x_2</m> que le pivotage se poursuit. La troisième ligne sera choisie étant donné que <m>2\leq 5</m>. Après les opérations élémentaires, on a
+<me>
+A''=\left(
+\begin{array}{rr|rrr|r|r}
+1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;8\\
+0&amp;0&amp;1&amp;1&amp;-1&amp;0&amp;3\\
+0&amp;1&amp;-1&amp;0&amp;1&amp;0&amp;2\\
+\hline
+0&amp;0&amp;1&amp;0&amp;1&amp;1&amp;18
+\end{array}
+\right)
+</me>.
+La solution de base correspondant à cette solution est <m>x_1=8,x_2=2,e_1=0,e_2=3,e_3=0</m>, qui donne comme valeur <m>18</m> à la fonction <m>f</m>. Cette solution est bel et bien la solution optimale au problème, que l'on voit dans la matrice <m>A''</m> par le fait que toutes les valeurs de la dernière ligne sont positives. En réécrivant l'équation correspondant à cette dernière ligne, on voit que <m>f=18-e_1-e_3</m> et comme <m>e_1,e_3</m> sont positives ou nulles, <m>18</m> doit être le maximum.
+</p>
+<definition xml:id="def-matinitsimplexe">
+<title>Matrice initiale du simplexe</title>
+<statement><p>
+On considère un problème de programmation linéaire à <m>n</m> variables et <m>m</m> contraintes, sous sa forme canonique. On note <m>A</m>, la matrice <m>m\times n</m> des coefficients des contraintes, on note <m>I_3</m>, la matrice identité <m>m\times m</m>, on note <m>\vec{b}\in\mathbb{R}^n</m>, le vecteur des membres de droite et finalement, on note <m>\vec{c}\in \mathbb{R}^n</m>, le vecteur des coefficients de la fonction objectif.
+</p>
+<p>La matrice initiale du simplexe associée au problème de programmation linéaire est la matrice
+<me>
+S=\left(\begin{array}{ccc|c|c}
+&amp;\lvert&amp; &amp; \lvert &amp; \lvert \\
+A&amp;\lvert&amp; I&amp; \vec{0} &amp; \vec{b}\\
+&amp;\lvert&amp; &amp; \lvert &amp; \lvert \\
+\hline
+\rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}&amp;\vec{v}\hspace{0.2cm}\rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}&amp;1&amp;0
+\end{array}
+\right)
+</me>.
+</p>
+<p>La partie de matrice contenant les matrices <m>A</m> et <m>I</m> est appelé le bloc principal de la matrice <m>S</m>.<fn>Cette appellation est de l'auteur.</fn></p>
+</statement>
+</definition>
+<p>La matrice initiale du simplexe permet d'exécuter les étapes de l'algorithme du simplexe, présenté ci-dessous, efficacement et offre une manière concise de visualiser les informations pertinentes.</p>
+<algorithm xml:id="algo-simplexe">
+<title>La méthode du simplexe</title>
+<statement>
+<p>On considère un problème de programmation linéaire sous forme canonique et <m>S</m> sa matrice initiale du simplexe. Pour trouver le maximum de la fonction objectif, on suit la procédure suivante.</p>
+<list xml:id="li-simplexe">
+<title>L'algorithme du simplexe</title>
+<ol>
+<li xml:id="li-simplexepivotcolonne"><p>Regarder la dernière ligne de la matrice du simplexe. Si toutes les entrées correspondants aux variables des contraintes et aux variables d'écart sont positives, la solution est optimale et l'algorithme est terminé. En cas de présence de valeurs négatives, sélectionner la colonne de la variable dont l'entrée de la dernière ligne est la plus petite (négative) pour effectuer le pivotage.</p></li>
+<li xml:id="li-simplexepivotligne"><p>Pour chaque entrée positive de la colonne choisie, calculer le rapport entre l'entrée de la dernière colonne et celle de la colonne choisie. La ligne où ce rapport est le plus petit est la ligne de pivot.</p></li>
+<li><p>Effectuer le pivotage en rendant chaque élément de la colonne pivot égal à zéro, hormis ce pivot. La matrice offre maintenant une nouvelle solution de base admissible pour le problème.</p></li>
+<li><p>Répéter les étapes ci-dessus jusqu'à ce que toutes les entrées de la dernière ligne soient positives.</p></li>
+</ol>
+</list>
+</statement>
+</algorithm>
+<example>
+<title>L'algorithme du simplexe en action</title>
+<statement><p>On considère le problème de la culture de maïs et de soja de <xref ref="ex-simplexe2"/>. La matrice initiale du simplexe est
+<me>
+S=\left(\begin{array}{rrrr|r|r}
+5&amp;15&amp;1&amp;0&amp;0&amp;200\\
+2&amp;3&amp;0&amp;1&amp;0&amp;50\\
+\hline
+-450&amp;-1000&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)
+</me>.
+On veut appliquer l'algorithme du simplexe à cette matrice afin de trouver la solution optimale.
+</p></statement>
+<solution><p>
+On applique les étapes de l'algorithme du simplexe.
+<ol>
+<li><p>La dernière ligne comporte deux valeurs négatives. La plus petite est dans la deuxième colonne, c'est donc la variable <m>s</m> qui sera sélectionnée pour effectuer le pivotage.</p></li>
+<li><p>Toutes les valeurs de la partie supérieure de la matrice sont positives. On calcule les rapports de l'entrée de la dernière colonne sur l'entrée de la deuxième colonne pour les des lignes de la matrice. On obtient, pour la ligne un, le rapport <m>200/15\approx 13.33</m>, et pour la deuxième ligne, le rapport <m>50/3\approx 16.66</m>. On sélectionne la première ligne pour effectuer le pivotage. </p></li>
+<li><p>Le pivot est donc l'entrée de la première ligne et de la deuxième colonne. On applique les opérations élémentaires pour modifier la matrice. On a
+<md>
+<mrow>\left(\begin{array}{rrrr|r|r}
+5&amp;15&amp;1&amp;0&amp;0&amp;200\\
+2&amp;3&amp;0&amp;1&amp;0&amp;50\\
+\hline
+-450&amp;-1000&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)&amp;\begin{array}{r} L_1/15\to L_1\\ \sim \end{array}\left(\begin{array}{rrrr|r|r}
+\frac{1}{3}&amp;1&amp;\frac{1}{15}&amp;0&amp;0&amp;\frac{40}{3}\\
+2&amp;3&amp;0&amp;1&amp;0&amp;50\\
+\hline
+-450&amp;-1000&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{r}L_2-3L_1\to L_2\\ L_3+1000L_1\to L_3\\ \sim \end{array}\left(\begin{array}{rrrr|r|r}
+\frac{1}{3}&amp;1&amp;\frac{1}{15}&amp;0&amp;0&amp;\frac{40}{3}\\
+1&amp;0&amp;-\frac{1}{5}&amp;1&amp;0&amp;10\\
+\hline
+-\frac{350}{3}&amp;0&amp;\frac{200}{3}&amp;0&amp;1&amp;\frac{40000}{3}
+\end{array}\right)</mrow>
+</md>
+Puisque la dernière ligne comporte toujours une entrée négative, on recommence le processus.
+</p></li>
+</ol>
+<ol>
+<li><p>La seule valeur négative de la matrice est dans la première colonne. On pivote selon la variable <m>m</m>.</p></li>
+<li><p>Les deux valeurs du haut de la première colonne sont positives. On compare donc les ratios. Puisque <m>10\leq 40</m>, on pivote par rapport à la deuxième ligne. </p></li>
+<li><p>On applique les opérations élémentaires pour retrouver des zéros aux lignes non pivots, l'entrée en position <m>2,1</m> étant déjà égale à <m>1</m>. On obtient
+<md>
+<mrow>\left(\begin{array}{rrrr|r|r}
+\frac{1}{3}&amp;1&amp;\frac{1}{15}&amp;0&amp;0&amp;\frac{40}{3}\\
+1&amp;0&amp;-\frac{1}{5}&amp;1&amp;0&amp;10\\
+\hline
+-\frac{350}{3}&amp;0&amp;\frac{200}{3}&amp;0&amp;1&amp;\frac{40000}{3}
+\end{array}\right)&amp;\begin{array}{r}L_1-\frac{1}{3}L_2\to L_1\\ L_3+\frac{350}{3}L_1\to L_3\\ \sim  \end{array}\left(\begin{array}{rrrr|r|r}
+0&amp;1&amp;\frac{2}{15}&amp;-\frac{1}{3}&amp;0&amp;10\\
+1&amp;0&amp;-\frac{1}{5}&amp;1&amp;0&amp;10\\
+\hline
+0&amp;0&amp;\frac{130}{3}&amp;\frac{350}{3}&amp;1&amp;14500
+\end{array}\right)</mrow>
+</md>.
+Comme la dernière ligne ne contient des des entrées positives, l'algorithme est terminé.
+</p></li>
+</ol>
+On lit la solution dans la matrice. La valeur maximale se trouve dans la dernière ligne et vaut <m>14500</m>. La solution est atteinte lorsque <m>s=10</m> (obtenue de la deuxième ligne) et <m>m=10</m> (tirée de la première ligne).
+</p></solution>
+</example>
+<p>On regarde un autre exemple dans lequel on ne décrit pas tous les détails des étapes de l'algorithme. On se contente de faires les opérations nécessaires en justifiant à l'occasion certains choix. </p>
+<example xml:id="ex-simplexe3-2">
+<title>Optimisation de la production de chaises et de tables avec la méthode du simplexe</title>
+<statement>
+<p>On considère à nouveau le problème de l'exemple <xref ref="ex-simplexe3"/>, dont la matrice initiale du simplexe est donnée par
+<me>
+S=\left(\begin{array}{rrrrr|r|r}
+3&amp;10&amp;1&amp;0&amp;0&amp;0&amp;150\\
+3&amp;2&amp;0&amp;1&amp;0&amp;0&amp;72\\
+\frac{3}{2}&amp;\frac{5}{2}&amp;0&amp;0&amp;1&amp;0&amp;45\\
+\hline
+-50&amp;-100&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)
+</me>.</p>
+<p>On trouve la valeur maximale de la fonction objectif à l'aide de la méthode du simplexe.</p>
+</statement>
+<solution>
+<p>En suivant les étapes de l'algorithme du simplexe, on choisit comme premier pivot l'entrée de la deuxième colonne et de la première ligne. On obtient
+<md>
+<mrow>\left(\begin{array}{rrrrr|r|r}
+3&amp;10&amp;1&amp;0&amp;0&amp;0&amp;150\\
+3&amp;2&amp;0&amp;1&amp;0&amp;0&amp;72\\
+\frac{3}{2}&amp;\frac{5}{2}&amp;0&amp;0&amp;1&amp;0&amp;45\\
+\hline
+-50&amp;-100&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)&amp;\begin{array}{l} L_1/10\to L_1 \end{array}\left(\begin{array}{rrrrr|r|r}
+\frac{3}{10}&amp;1&amp;\frac{1}{10}&amp;0&amp;0&amp;0&amp;15\\
+3&amp;2&amp;0&amp;1&amp;0&amp;0&amp;72\\
+\frac{3}{2}&amp;\frac{5}{2}&amp;0&amp;0&amp;1&amp;0&amp;45\\
+\hline
+-50&amp;-100&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{l}L_2-2L_1\to L_2\\ L_3-\frac{5}{2}L_1\to L_3\\ L_4+100L_1\to L_4\end{array}\left(\begin{array}{rrrrr|r|r}\frac{3}{10} &amp; 1 &amp; \frac{1}{10} &amp; 0 &amp; 0 &amp; 0 &amp; 15 \\
+\frac{12}{5} &amp; 0 &amp; -\frac{1}{5} &amp; 1 &amp; 0 &amp; 0 &amp; 42 \\
+\frac{3}{4} &amp; 0 &amp; -\frac{1}{4} &amp; 0 &amp; 1 &amp; 0 &amp; \frac{15}{2} \\
+-20 &amp; 0 &amp; 10 &amp; 0 &amp; 0 &amp; 1 &amp; 1500\end{array}\right)</mrow>
+<intertext>L'entrée de la première colonne et de la troisième ligne est sélectionnée comme prochain pivot.</intertext>
+<mrow>&amp;\begin{array}{l}\frac{4}{3}L_3\to L_3\\ \sim\end{array}\left(\begin{array}{rrrrr|r|r}
+\frac{3}{10} &amp; 1 &amp; \frac{1}{10} &amp; 0 &amp; 0 &amp; 0 &amp; 15 \\
+\frac{12}{5} &amp; 0 &amp; -\frac{1}{5} &amp; 1 &amp; 0 &amp; 0 &amp; 42 \\
+1 &amp; 0 &amp; -\frac{1}{3} &amp; 0 &amp; \frac{4}{3} &amp; 0 &amp; 10 \\
+-20 &amp; 0 &amp; 10 &amp; 0 &amp; 0 &amp; 1 &amp; 1500
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{l} L_1-\frac{3}{10}L_3\to L_1 \\ L_2-\frac{12}{5}L_3\to L_2 \\ L_4+20L_3\to L_4\end{array}\left(\begin{array}{rrrrr|r|r}
+0 &amp; 1 &amp; \frac{1}{5} &amp; 0 &amp; -\frac{2}{5} &amp; 0 &amp; 12 \\
+0 &amp; 0 &amp; \frac{3}{5} &amp; 1 &amp; -\frac{16}{5} &amp; 0 &amp; 18 \\
+1 &amp; 0 &amp; -\frac{1}{3} &amp; 0 &amp; \frac{4}{3} &amp; 0 &amp; 10 \\
+0 &amp; 0 &amp; \frac{10}{3} &amp; 0 &amp; \frac{80}{3} &amp; 1 &amp; 1700
+\end{array}\right)</mrow>
+</md>.
+Toutes les entrées de la dernière ligne étant positives, l'algorithme se termine. La solution maximale donne une production de <m>10</m> chaises et <m>12</m> tables, pour une valeur de <m>1700</m> dollars. La solution correspond à celle trouvée graphiquement à l'exemple <xref ref="ex-simplexe3"/>.
+</p>
+</solution>
+</example>
+<p>Avec la méthode du simplexe, comme présentée à l'algorithme <xref ref="algo-simplexe"/>, il peut y avoir certains problèmes qui surviennent. Par exemple, il n'est pas impossible que dans les colonnes correspondants aux entrées négatives de la dernière ligne, il n'y ait pas de valeurs positives dans le haut de la matrice. On ne pourra pas effectuer le pivotage de l'étape <xref ref="li-simplexepivotligne"/>. Cette situation se produit lorsque la région admissible n'est pas bornée. Dans ce cas, il n'y a pas de maximum possible. </p>
+<p>Aussi, autant à l'étape <xref ref="li-simplexepivotcolonne"/> qu'à l'étape <xref ref="li-simplexepivotligne"/>, il pourrait y avoir égalité entre les valeurs considérées et un choix à faire. Dans de rares cas, cela peut amener l'algorithme à revenir sur lui-même (il devient cyclique) et rendre la recherche d'optimum impossible. Toutefois, ces cas ne surviennent presque jamais. Dans les autres cas où, en cas d'égalité, un choix est à faire, tous les choix devraient s'équivaloir, à peu de choses près.</p>
+<p>La dernière chose à considérer est le cas des problèmes de minimisation. En théorie, la forme canonique transforme le problème en un problème de maximisation, mais la dernière colonne pourrait alors contenir des nombres négatifs. Cette situation ne survient normalement pas dans le cadre d'un vrai problème de maximisation, de par le fonctionnement de l'algorithme qui s'assure en choississant le pivot que toutes les entrées de la dernière colonne demeurent positives. Donc si aucune des entrées étaient négatives au départ, elles resteront positives tout le long du processus. La prochaine sous-section explique comment traiter,avec l'algorithme du simplexe, les problèmes de minimisation et le cas où un membre de droite négatif est présent dès le départ. </p>
+</subsection>
+<subsection>
+<title>Problèmes de minimisation</title>
+<p>Pour que l'algorithme du simplexe fonctionne, toutes les entrées de la dernière colonne doivent être positives afin que les variables d'écart puissent fournir une solution admissible, ces variables devant être positives. L'idée est de faire le pivotage sur une entrée négative d'une ligne dont l'élément de la dernière colonne est aussi négatif. Si une telle entrée n'existe pas et que la seule entrée négative de la ligne se trouve dans la dernière colonne, alors le problème ne possède pas de solution (cela signifierait, par exemple, que la somme de variables positives doit être plus petite qu'un nombre négatif).</p>
+<p>À titre d'exemple, on considère le problème de maximisation sous forme canonique suivant. La fonction à maximiser est
+<me>
+f(x,y)=-2x-3y
+</me>,
+qui est sujette aux contraintes
+<md>
+<mrow>-x-y&amp;\leq -9</mrow>
+<mrow>x-y&amp;\leq 1</mrow>
+</md>.
+La matrice initiale du simplexe est
+<me>
+S=\left(\begin{array}{rrrr|r|r}
+-1&amp;-1&amp;1&amp;0&amp;0&amp;-9\\
+1&amp;-1&amp;0&amp;1&amp;0&amp;1\\
+2&amp;3&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)
+</me>.
+</p>
+<p>Dans un premier temps, on remarque qu'aucune entrée de la dernière ligne est négative. Par contre, la matrice possède un élément négatif dans sa dernière colonne, ce qui fait qu'elle n'est en principe pas une matrice initiale du simplexe. La solution initiale de cette matrice, donnée par <m>x=y=0, e_1=-9,e_2=1</m> et <m>f=0</m> n'est même pas admissible, puisque <m>e_1&lt; 0</m>. Afin de pouvoir utiliser l'algorithme du simplexe, on débute par un pivotage sur la première ligne, qui contient l'entrée négative égale à <m>-9</m>. Dans ce cas-ci, on peut pivoter par rapport à n'importe quelle variable, puisque <m>x</m> et <m>y</m> sont tous deux négatifs dans la première ligne. Si l'on choisit de pivoter pour <m>x</m>, la matrice devient
+<md>
+<mrow>\left(\begin{array}{rrrr|r|r}
+-1&amp;-1&amp;1&amp;0&amp;0&amp;-9\\
+1&amp;-1&amp;0&amp;1&amp;0&amp;1\\
+2&amp;3&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)&amp;\begin{array}{l} -L_1\to L_1 \\ \sim\end{array}\left(\begin{array}{rrrr|r|r}
+1&amp;1&amp;-1&amp;0&amp;0&amp;9\\
+1&amp;-1&amp;0&amp;1&amp;0&amp;1\\
+2&amp;3&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{l} L_2-L_1\to L_1 \\ L_3-2L_1\to L_3\\ \sim \end{array}\left(\begin{array}{rrrr|r|r}
+1&amp;1&amp;-1&amp;0&amp;0&amp;9\\
+0&amp;-2&amp;1&amp;1&amp;0&amp;-8\\
+0&amp;1&amp;2&amp;0&amp;1&amp;-18
+\end{array}\right)</mrow>
+</md>.
+Encore une fois, il y a une entrée négative dans la colonne des <m>b_i</m>, ce qui fait que l'on doit pivoter dans la ligne correspondante avant de poursuivre. L'exercice <xref provisional="faire pivoter sur y l'exemple de minimum"/> va montrer que l'on aurait pu éviter une étape en choissisant <m>y</m> comme premier pivot. La seule entrée négative du bloc principal de la ligne deux étant dans la colonne <m>y</m>, on pivote sur cette valeur. On obtient
+<md>
+<mrow>
+\left(\begin{array}{rrrr|r|r}
+1&amp;1&amp;-1&amp;0&amp;0&amp;9\\
+0&amp;-2&amp;1&amp;1&amp;0&amp;-8\\
+0&amp;1&amp;2&amp;0&amp;1&amp;-18
+\end{array}\right)&amp;\begin{array}{l}-\frac{1}{2}L_2\to L_2\\ \sim \end{array}\left(\begin{array}{rrrr|r|r}
+1&amp;1&amp;-1&amp;0&amp;0&amp;9\\
+0&amp;1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;4\\
+0&amp;1&amp;2&amp;0&amp;1&amp;-18
+\end{array}\right)
+</mrow>
+<mrow>&amp;\begin{array}{l}L_1-L_2\to L_2\\ L_3-L_2\to L_3\\ \sim\end{array}\left(\begin{array}{rrrr|r|r}
+1&amp;0&amp;-\frac{1}{2}&amp;\frac{1}{2}&amp;0&amp;5\\
+0&amp;1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;4\\
+0&amp;0&amp;\frac{5}{2}&amp;\frac{1}{2}&amp;1&amp;-22
+\end{array}\right)</mrow>
+</md>.
+Cette fois, les valeurs des <m>b_i</m> sont toutes positives. Mais comme les coefficients sur la dernière ligne sont tous positifs (sauf pour la valeur de <m>f</m>), l'algorithme se termine. Le maximum de la fonction est donc <m>-22</m>. Dans un scénario concret, ce problème aurait sans doute été un problème de minimisation et donc, le minimum cherché aurait été de <m>22</m>.
+</p>
+<example>
+<title>
+Résolution du problème des nutriments par la méthode du simplexe
+</title>
+<statement><p>On considère à nouveau le problème de la minimisation du coût dans l'optimisation du régime de l'exemple <xref ref="ex-simplexe4"/>. La forme canonique de ce problème a été donnée à l'exemple <xref ref="ex-simplexecanonique"/>. On veut résoudre ce problème à nouveau, mais à l'aide de la méthode du simplexe. La matrice initiale du simplexe est
+<me>
+S=\left(\begin{array}{l}
+-3&amp;-2&amp;1&amp;0&amp;0&amp;0&amp;0&amp;-28\\
+-2&amp;-4&amp;0&amp;1&amp;0&amp;0&amp;0&amp;-30\\
+-5&amp;-7&amp;0&amp;0&amp;1&amp;0&amp;0&amp;-70\\
+4&amp;5&amp;0&amp;0&amp;0&amp;1&amp;0&amp;100
+4&amp;5&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)
+</me>.</p></statement>
+<solution><p>
+La section du vecteur <m>\vec{b}</m> contient trois entrées négatives. La ligne de chacune de ces entrée contient plusieurs valeurs négatives. Bien qu'en théorie on peut effectuer le pivotage sur n'importe laquelle de ces valeurs, on a intérêt à en choisir une qui réduira le nombre de calculs subséquents à faire. Pour cela, contrairement à ce qui est normalement fait, on choisit l'entrée dont le ratio <m>b_i/a_{i\,j}</m> est le plus <em>grand</em>. Ceci éliminera en une étape de pivotage les négatifs de la section des <m>b_i</m>. Dans la matrice <m>S</m> de cet exemple, c'est l'entrée de la ligne deux et de la colonne un qui produit ce plus grand ratio. Le pivotage donne la nouvelle matrice
+<md>
+<mrow>
+\left(\begin{array}{l}
+-3&amp;-2&amp;1&amp;0&amp;0&amp;0&amp;0&amp;-28\\
+-2&amp;-4&amp;0&amp;1&amp;0&amp;0&amp;0&amp;-30\\
+-5&amp;-7&amp;0&amp;0&amp;1&amp;0&amp;0&amp;-70\\
+4&amp;5&amp;0&amp;0&amp;0&amp;1&amp;0&amp;100
+4&amp;5&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)&amp;\begin{array}{l}-\frac{1}{2}L_2\to L_2 \\ \sim\end{array}\left(\begin{array}{l}
+-3&amp;-2&amp;1&amp;0&amp;0&amp;0&amp;0&amp;-28\\
+1&amp;2&amp;0&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;15\\
+-5&amp;-7&amp;0&amp;0&amp;1&amp;0&amp;0&amp;-70\\
+4&amp;5&amp;0&amp;0&amp;0&amp;1&amp;0&amp;100
+4&amp;5&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)
+</mrow>
+<mrow>
+&amp;\begin{array}{l}3L_2+L_1\to L_1 \\ L_3+5L_2\to L_3\\ -4L_2+L_4\to L_4\\ -4L_2+L_5\to L_5\\  \sim\end{array}\left(\begin{array}{l}
+0&amp;4&amp;1&amp;-\frac{3}{2}&amp;0&amp;0&amp;0&amp;17\\
+1&amp;2&amp;0&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;15\\
+0&amp;3&amp;0&amp;-\frac{5}{2}&amp;1&amp;0&amp;0&amp;5\\
+0&amp;-3&amp;0&amp;2&amp;0&amp;1&amp;0&amp;40
+0&amp;-3&amp;0&amp;2&amp;0&amp;0&amp;1&amp;-60
+\end{array}\right)
+</mrow>
+</md>.
+</p>
+<p>Maintenant que la section du vecteur <m>\vec{b}</m> ne contient que des valeurs positives, l'algorithme du simplexe se poursuit comme dans le contexte régulier. Il reste une entrée négative dans la dernière ligne. On effectue un pivotage selon la deuxième variable. Parmi les entrées positives de la colonne, celle avec le plus petit ratio se trouve dans la troisième ligne. C'est donc par rapport à cette entrée que le pivotage s'effectue. On obtient
+<md>
+<mrow>\left(\begin{array}{l}
+0&amp;4&amp;1&amp;-\frac{3}{2}&amp;0&amp;0&amp;0&amp;17\\
+1&amp;2&amp;0&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;15\\
+0&amp;3&amp;0&amp;-\frac{5}{2}&amp;1&amp;0&amp;0&amp;5\\
+0&amp;-3&amp;0&amp;2&amp;0&amp;1&amp;0&amp;40
+0&amp;-3&amp;0&amp;2&amp;0&amp;0&amp;1&amp;-60
+\end{array}\right)&amp;\begin{array}{l} \frac{1}{3}L_3\to L_3 \\ \sim \end{array}\left(\begin{array}{l}
+0&amp;4&amp;1&amp;-\frac{3}{2}&amp;0&amp;0&amp;0&amp;17\\
+1&amp;2&amp;0&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;15\\
+0&amp;1&amp;0&amp;-\frac{5}{6}&amp;\frac{1}{3}&amp;0&amp;0&amp;\frac{5}{3}\\
+0&amp;-3&amp;0&amp;2&amp;0&amp;1&amp;0&amp;40
+0&amp;-3&amp;0&amp;2&amp;0&amp;0&amp;1&amp;-60
+\end{array}\right)</mrow>
+<mrow>
+&amp;\begin{array}{l} -4L_3+L_1\to L_1 \\ -2L_3+L_2\to L_2\\ 3L_3+L_4\to L_4\\ 3L_3+L_5 \to L_5\\ \sim \end{array}\left(\begin{array}{l}
+0&amp;0&amp;1&amp;\frac{11}{6}&amp;-\frac{4}{3}&amp;0&amp;0&amp;\frac{31}{3}\\
+1&amp;0&amp;0&amp;\frac{7}{6}&amp;-\frac{2}{3}&amp;0&amp;0&amp;\frac{35}{3}\\
+0&amp;1&amp;0&amp;-\frac{5}{6}&amp;\frac{1}{3}&amp;0&amp;0&amp;\frac{5}{3}\\
+0&amp;0&amp;0&amp;-\frac{1}{2}&amp;1&amp;1&amp;0&amp;45
+0&amp;0&amp;0&amp;-\frac{1}{2}&amp;1&amp;0&amp;1&amp;-55
+\end{array}\right)
+</mrow>
+</md>.
+Une autre entrée négative est apparue dans la dernière ligne, ce qui nécessite la poursuite de l'algorithme. Le pivot se trouve dans la première ligne, à la quatrième colonne. On obtient
+<md>
+<mrow>\left(\begin{array}{l}
+0&amp;0&amp;1&amp;\frac{11}{6}&amp;-\frac{4}{3}&amp;0&amp;0&amp;\frac{31}{3}\\
+1&amp;0&amp;0&amp;\frac{7}{6}&amp;-\frac{2}{3}&amp;0&amp;0&amp;\frac{35}{3}\\
+0&amp;1&amp;0&amp;-\frac{5}{6}&amp;\frac{1}{3}&amp;0&amp;0&amp;\frac{5}{3}\\
+0&amp;0&amp;0&amp;-\frac{1}{2}&amp;1&amp;1&amp;0&amp;45
+0&amp;0&amp;0&amp;-\frac{1}{2}&amp;1&amp;0&amp;1&amp;-55
+\end{array}\right)&amp;\begin{array}{l}\frac{6}{11}L_1\to L_1\\ \sim \end{array}\left(\begin{array}{rrrrr|r|r}
+0 &amp; 0 &amp; \frac{6}{11} &amp; 1 &amp; -\frac{8}{11} &amp; 0 &amp; 0 &amp; \frac{62}{11} \\
+1 &amp; 0 &amp; 0 &amp; \frac{7}{6} &amp; -\frac{2}{3} &amp; 0 &amp; 0 &amp; \frac{35}{3} \\
+0 &amp; 1 &amp; 0 &amp; -\frac{5}{6} &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; \frac{5}{3} \\
+0 &amp; 0 &amp; 0 &amp; -\frac{1}{2} &amp; 1 &amp; 1 &amp; 0 &amp; 45 \\
+0 &amp; 0 &amp; 0 &amp; -\frac{1}{2} &amp; 1 &amp; 0 &amp; 1 &amp; -55
+\end{array}\right)
+</mrow>
+<mrow>
+&amp;\begin{array}{l} L_2-\frac{7}{6}L_1\to L_1\\ L_3+\frac{5}{6}L_1\to L_3\\ L_4+\frac{1}{2}L_1\to L_4\\L_5+\frac{1}{2}L_1\to L_5\\ \sim \end{array}\left(\begin{array}{rrrrr|r|r}0 &amp; 0 &amp; \frac{6}{11} &amp; 1 &amp; -\frac{8}{11} &amp; 0 &amp; 0 &amp; \frac{62}{11} \\
+1 &amp; 0 &amp; -\frac{7}{11} &amp; 0 &amp; \frac{2}{11} &amp; 0 &amp; 0 &amp; \frac{56}{11} \\
+0 &amp; 1 &amp; \frac{5}{11} &amp; 0 &amp; -\frac{3}{11} &amp; 0 &amp; 0 &amp; \frac{70}{11} \\
+0 &amp; 0 &amp; \frac{3}{11} &amp; 0 &amp; \frac{7}{11} &amp; 1 &amp; 0 &amp; \frac{526}{11} \\
+0 &amp; 0 &amp; \frac{3}{11} &amp; 0 &amp; \frac{7}{11} &amp; 0 &amp; 1 &amp; -\frac{574}{11}\end{array}\right)
+</mrow>
+</md>.
+Cette nouvelle matrice ne contient que des entrées positives dans la section du vecteur des coefficients de la fonction objectif. L'algorithme se termine. La solution optimale est <m>-\frac{574}{11}\approx -52.18</m>, ce qui signifie que le minimum de la fonction objectif associé au problème initiale est d'environ <m>52.18</m> dollars. Ce minimum est atteint lorsque la quantité de poudre <m>A</m> achetée est environ de <m>\frac{56}{11}\times 100 \approx 509.09</m> grammes et que la quantité de poudre <m>B</m> est d'environ <m>\frac{70}{11}\times 100\approx 636.36</m> grammes. Ceci est conforme avec la solution trouvée à l'aide d'arguments géométrique à l'exemple <xref ref="ex-simplexe4"/>.
+</p>
+</solution>
+</example>
+<p>Si l'on a un problème de programmation linéaire et, que pour raison quelconque, l'on considère le problème équivalent d'optimalité opposé (un problème de maximum pour un problème de minimum initial et vice-versa), on parle parfois du problème dual. Le problème initial est, quant à lui, appelé le problème primal. Le problème dual d'un problème de minimisation est toujours un problème de maximisation et le problème dual d'un problème de maximisation est toujours un problème de minimisation. La méthode du simplexe modifiée pour résoudre les problèmes de minimisation est parfois appelée la méthode du simplex dual.</p>
+<computation xml:id="sageex-simplexealg">
+<title>La méthode du simplexe sur Sage</title>
+<statement><p>Sage est capable de produire le résultat de la méthode du simplexe, de même que de faire, étape par étape, l'algorithme. On sait déjà, grâce à l'exemple <xref ref="sageex-simplexegeo"/>, que Sage est en mesure de donner la solution à l'aide de la commande <c>optimal_solution</c>. On peut aussi lui demander d'effectuer la méthode du simplexe et il retournera le résultat produit par l'algorithme. Il faut toujours convertir le problème à sa forme canonique, même s'il l'est déjà. </p>
+<sage>
+<input>
+A = matrix([[1, 0], [0, 1],[1,1]])
+b = vector([8, 5,10])
+c = vector([2, 1])
+P = InteractiveLPProblem(A, b, c, ["x_1", "x_2"], variable_type=">=")
+P=P.standard_form()
+P.run_simplex_method()
+</input>
+</sage>
+<p>Le rendu de Sage est différent de celui présentée dans la section. Sage présente un tableau du simplexe dans lequel les variables en base, soit celles qui correspondent aux colonnes de la matrice identité dans la méthode présentée dans la section, sont isolées à gauche du tableau, les lignes correspondantes à ces entrées écrites sous la forme d'une équation. Le membre de droite composé des entrées du vecteur <m>\vec{b}</m> se trouve plutôt à gauche et Sage inscrit l'information à l'aide des équations plutôt qu'à l'aide de la matrice. De plus, la dernière ligne, associée à la fonction objectif, a ses coefficients positifs plutôt que négatif. Sage va toujours nommer les variables d'écart par <m>x_k,x_{k+1},\ldots, x_{k+m-1}</m> où <m>k</m> est égal au nombre de variables du problème.</p>
+<p>L'écriture comme Sage le propose a pour avantage d'être plus concise et elle permet de voir encore plus rapidement la solution. Elle a par contre le désavantage qu'il est difficile de passer d'un tableau à l'autre sans faire d'erreurs, puisque la position des variables change souvent. La méthode présentée fait le compromis entre la facilité de lecture et l'organisation mieux structurée. Pour un ordinateur bien programmé, on peut sauver beaucoup de calculs en ne considérant que les éléments importants.</p>
+<p>Afin de voir la différence entre la méthode présentée dans la section et celle offerte par Sage, on regarde l'application de l'algorithme du simplexe sur le problème de l'exemple <xref ref="ex-simplexe3-2"/> pour comparer le rendu des deux démarches.</p>
+<sage>
+<input>
+A = matrix([[3, 10], [3, 2],[3/2,5/2]])
+b = vector([150, 72,45])
+c = vector([50, 100])
+P = InteractiveLPProblem(A, b, c, ["c", "t"], variable_type=">=")
+P=P.standard_form()
+P.run_simplex_method()
+</input>
+</sage>
+<p>La première étape que l'on avait fait à l'exemple <xref ref="ex-simplexe3-2"/> était de pivoter selon l'entrée de la première ligne et deuxième colonne. Exprimé dans le langage des variables en base et hors base, cela signifie que l'on fait entrer <m>t</m> en base, ce qui fait sortir la première variable d'écart. On peut d'ores et déjà constater que Sage diverge de l'algorithme, car il fait plutôt entrer la variable <m>c</m> en base, ce qui fait sortir la deuxième variable d'écart. En d'autres mots, il semble que Sage ne suivent pas l'algorithme du simplexe pour sélectionner la bonne colonne. Il y a probablement une raison à cela, mais l'auteur ne la connait pas.</p>
+<p>Comme la première étape ne concorde pas, il est difficile de comparer les démarches. Par contre, il est possible de demander à Sage d'effectuer une opération de pivotage choisie. Ainsi, on pourra comparer le visuel des deux approches. Dans sage, la matrice initiale du simplexe est appelé <c>initial_dictionary</c>. On attribue à <c>D</c> ce tableau initial. L'option <c>%display typeset</c> permet de visualiser. Le tableau correspond au même tableau que Sage présente dans l'application de son algorithme, sans les couleurs.</p>
+<sage>
+<input>
+D=P.initial_dictionary()
+%display typeset
+D
+</input>
+</sage>
+<p>Sage peut vérifier si le tableau en cours est admissible ou optimal.</p>
+<sage>
+show("Solution admissible:",D.is_feasible())
+show("Solution optimale:", D.is_optimal())
+</sage>
+<p>On peut vérifier quelles sont les variables en base, la solution de base et la valeur de la fonction objectif.</p>
+<sage>
+<input>
+show("Les variables en base:",D.basic_variables())
+show("La solution de base:",D.basic_solution())
+show("La valeur de la fonction objectif:",D.objective_value())
+</input>
+</sage>
+<p>Pour effectuer une étape de pivotage, on doit préciser quelle variable entre en base et quelle variable sort. Ceci revient à préciser la colonne et la ligne. Pour reproduire la démarche de l'exemple <xref ref="ex-simplexe3-2"/>, on fait entrer <m>c</m> et sortir ce que Sage appelle <m>x_3</m>. On peut faire afficher le tableau afin de voir le choix effectuer et de valider s'il correspond à ce que l'on veut. Par la suite, on met le tableau à jour. On affiche à nouveau pour voir l'effet du pivotage.</p>
+<sage>
+<input>
+D.enter("t")
+D.leave("x3")
+show(D)
+D.update()
+show(D)
+</input>
+</sage>
+<p>On peut reconnaitre dans le tableau les éléments correspondant à la matrice du simplexe une fois le premier pivotage effectué. On valide encore les informations avec Sage.</p>
+<sage>
+<input>
+show("Solution admissible:",D.is_feasible())
+show("Solution optimale:", D.is_optimal())
+show("Les variables en base:",D.basic_variables())
+show("La solution de base:",D.basic_solution())
+show("La valeur de la fonction objectif:",D.objective_value())
+</input>
+</sage>
+<p>La prochaine étape avait été de pivoter selon l'entrée en position <m>3,1</m>, soit la troisième ligne et première colonne. Ceci signifie que l'on fait entrer la variable <m>c</m> en base et que l'on rend <m>e_5</m> (<m>x_5</m> pour Sage) hors base.</p>
+<sage>
+<input>
+D.enter("c")
+D.leave("x5")
+show(D)
+D.update()
+show(D)
+</input>
+</sage>
+<p>La solution optimale est atteinte, l'algorithme est terminé.</p>
+<sage>
+<input>
+show("Solution admissible:",D.is_feasible())
+show("Solution optimale:", D.is_optimal())
+show("Les variables en base:",D.basic_variables())
+show("La solution de base:",D.basic_solution())
+show("La valeur de la fonction objectif:",D.objective_value())
+</input>
+</sage>
+</statement>
+</computation>
+</subsection>
+<subsection>
+<title>Un peu plus loin</title>
+<p>D'importance historique, l'algorithme du simplexe a maintenant été surpassé par d'autres, plus efficaces, plus rapides ou pouvant résoudre des problèmes plus complexes. Par exemple, dans beaucoup de problème, il n'est pas pratique d'avoir une solution optimale où certaines des variables sont des fractions. On ne pourrait pas produire trois quarts de chaise, par exemple, ou cinq tables et demie. La programmation linéaire en nombres entiers et plus généralement la programmation linéaire mixte entière permettent d'ajouter ces contraintes particulières et de résoudre les problèmes associés. La complexité de ces problèmes rend leur résolution difficile. On parle parfois de problème <em>NP-complet</em>. Les algoritmes modernes se contentent souvent de déterminer une solution acceptable plutôt qu'optimal. L'un des problèmes d'optimisation les plus connus et étudiés est le problème du commis voyageur. La page <url href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce#:~:text=En%20informatique%2C%20le%20probl%C3%A8me%20du,une%20et%20une%20seule%20fois." text="custom">Wikipedia</url> offre une bonne introduction ainsi qu'une liste de références pour en apprendre davantage.</p>
+<p>Bien que les applications linéaires soient toujours importantes et étudiées, de nombreux problèmes comportent des fonctions à optimiser et des contraintes qui ne sont pas linéaires. Des méthodes existent pour résoudre ces problèmes, notamment l'optimisation par les multiplicateurs de Lagrange, la descente du gradient et bien d'autres. Il existe même des algorithmes inspirés de la biologie, appelés algorithmes génétiques, qui s'inspirent de la sélection naturelle pour résoudre un problème.</p>
+</subsection>
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-simplexe">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les points importants de cette section sont: 
+    <ul>
+    <li><p>La notion de région admissible associée à un problème d'optimisation;</p></li>
+    <li><p>L'idée que la solution à un problème d'optimisation linéaire se trouve sur la frontière de la région admissible;</p></li>
+    <li><p>La <xref ref="def-proglincan" text="custom">forme canonique</xref> d'un problème d'optimisation linéaire;</p></li>
+    <li><p>La matrice <m>A</m> et les vecteurs <m>\vec{b},\vec{c}</m> contenant l'information d'un tel problème;</p></li>
+    <li><p>La notion d'une <xref ref="def-variableecart" text="custom">variable d'écart</xref>, ajoutée à une contrainte d'inégalité afin de la transformer en contrainte d'égalité;</p></li>
+    <li><p>Les concepts de solution de base admissible, de variable en base et de variable hors base, présentée à la définition <xref ref="def-solbaseadmissible"/>; </p></li>
+    <li><p>La <xref ref="def-matinitsimplexe" text="custom">matrice initiale du simplexe</xref> et sa construction à partir des matrices <m>A</m> et <m>I</m>, ainsi que des vecteurs <m>\vec{b}</m> et <m>\vec{c}</m>; </p></li>
+    <li><p>La <xref ref="algo-simplexe" text="custom">méthode du simplexe</xref> et la méthode du simplexe dual.</p></li>
+    </ul>
+    <p>De plus avec Sage, on a exploré le module <c>InteractiveLPProblem</c> qui permet de visualiser et résoudre des problèmes de programmation linéaire. On réfère à l'exemple <xref ref="sageex-simplexegeo"/> et à l'exemple <xref ref="sageex-simplexealg"/> pour les commandes précises et leur utilisation.</p>
+    </p>
+    </conclusion>
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <!--<xi:include href="Exercices_.xml"/> -->
+</section>
+<!-- exercice pivotage du y dans l'exemple du min -->
+<!-- relire pour réécrire avec bloc principal -->
