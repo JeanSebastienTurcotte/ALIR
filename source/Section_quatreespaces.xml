@@ -15,30 +15,29 @@
     <introduction xml:id= "intro-4esp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
         <p>Aller aux <xref ref="exo-4esp">exercices</xref> de la section.</p>
     <p>Dans la section <xref ref="sec-transposee"/>, on définit les <xref ref="def-4espaces"> quatre sous-espaces fondamentaux</xref> d'une matrice. À la sous-section <xref ref="sssec-quatressesp"/>, on a ensuite montré que ces ensembles sont des sous-espaces vectoriels et qu'il existe une relation de complément orthogonal entre certains de ces ensembles pris deux à deux.</p>
-    <p>Dans cette section, on cherche à établir une base et la dimension de chacun de ces sous-espaces. Une marche à suivre pour trouver une base pour les quatre sous-espaces d'une matrice sera donnée. On définit également une importante relation entre la dimension des sous-espaces fondamentaux qui sont compléments orthogonaux.</p>
+    <p>Dans cette section, on cherche à établir une base et la dimension de chacun de ces sous-espaces. On donne une marche à suivre pour trouver une base pour les quatre sous-espaces d'une matrice. On définit également une importante relation entre la dimension des sous-espaces fondamentaux qui sont compléments orthogonaux.</p>
     </introduction>
     <subsection>
     <title>Une base pour les sous-espaces fondamentaux</title>
-    <p>On débute cette section avec la recherche d'une base pour les quatre espaces fondamentaux. On pourra alors obtenir la dimension de chaque espace directement en comptant le nombre de vecteurs dans la base trouvée.</p>
+    <p>On débute cette section avec la recherche d'une base pour les quatre espaces fondamentaux. À partir de là, on pourra obtenir la dimension de chaque espace directement en comptant le nombre de vecteurs dans la base trouvée.</p>
     <proposition xml:id="prop-baseesplignenul">
     <title>Une base pour l'espace ligne et une base pour l'espace nul</title>
     <statement>
-    <p>Soit <m>A</m> une matrice <m>m\times n</m> et soit <m>R=rref(A)</m> sa forme échelonnée réduite. Alors
+    <p>Soit <m>A</m>, une matrice <m>m\times n</m> et soit <m>R=rref(A)</m>, sa forme échelonnée réduite. Alors
     <ol>
     <li><p>Les lignes non nulles de <m>R</m> forment une base de <m>\mathcal{L}(A)</m>;</p></li>
     <li><p>Les solutions de base à l'équation <m>A\vec{x}=\vec{0}</m> sont une base de l'espace nul.</p></li>
     </ol></p>
     </statement>
     <proof>
-    <p>Les lignes de <m>R</m> sont nécessairement indépendantes puisqu'en regardant les positions pivots, la seule manière avec une combinaison linéaire d'obtenir le vecteur nul est de prendre zéro fois chaque ligne. Puisque les lignes nulles de <m>R</m> ne contribuent pas à <m>\mathcal{L}(R)</m>, on a que <m>\mathcal{L}(R)</m> est égal au span des lignes non nulles de <m>R</m>. Comme elles sont indépendantes, elles forment une base, en vertu de la proposition <xref ref="prop-ensemblevecetdim"/>.</p>
-    <p>De plus, puisqu'on obtient <m>R</m> à partir de <m>A</m> par une suite d'opérations élémentaires, toutes réversibles, les lignes de <m>A</m> peuvent s'écrire comme une combinaison linéaire des lignes de <m>R</m>. Ceci entraine
-    en particulier que <m>\mathcal{L}(A)=\mathcal{L}(R)</m>. Les lignes de <m>R</m> forment donc une base pour l'espace ligne de <m>A</m>.</p>
+    <p>Les lignes de <m>R</m> sont nécessairement indépendantes, puisqu'en regardant les positions pivots, la seule manière d'obtenir le vecteur nul avec une combinaison linéaire est de prendre zéro fois chaque ligne. Puisque les lignes nulles de <m>R</m> ne contribuent pas à <m>\mathcal{L}(R)</m>, on a que <m>\mathcal{L}(R)</m> est égal au span des lignes non nulles de <m>R</m>. Comme elles sont indépendantes, elles forment une base en vertu de la proposition <xref ref="prop-ensemblevecetdim"/>.</p>
+    <p>De plus, puisqu'on obtient <m>R</m> à partir de <m>A</m> par une suite d'opérations élémentaires, toutes réversibles, les lignes de <m>A</m> peuvent s'écrire comme une combinaison linéaire des lignes de <m>R</m>. Ceci entraine que <m>\mathcal{L}(A)=\mathcal{L}(R)</m>. Les lignes de <m>R</m> forment donc une base pour l'espace ligne de <m>A</m>.</p>
     </proof>
     <proof><p>
-    Tout vecteur dans <m>\mathcal{N}(A)</m> peut bien sûr s'écrire comme une combinaison linéaire des solutions de base, par construction de celles-ci. Ainsi, elles engendrent <m>\mathcal{N}(A)</m>. De plus, l'exercice <xref ref="exo-solbaseindep"/> montre que les solutions de bases sont indépendantes. Elles forment donc bel et bien une base de l'espace nul.
+    Tout vecteur dans <m>\mathcal{N}(A)</m> peut bien sûr s'écrire comme une combinaison linéaire des solutions de base par construction de celles-ci. Ainsi, elles engendrent <m>\mathcal{N}(A)</m>. De plus, l'exercice <xref ref="exo-solbaseindep"/> montre que les solutions de bases sont indépendantes. Elles forment donc bel et bien une base de l'espace nul.
     </p></proof>
     </proposition>
-    <p>Afin de déterminer si un ensemble de <m>k</m> vecteurs est indépendant ou non, on savait déjà qu'on pouvait utiliser le <xref ref="prop-indeprang">rang</xref>. Si jamais les vecteurs ne sont pas indépendants, la proposition <xref ref="prop-baseesplignenul"/> permet de trouver une base de leur espace engendré.</p>
+    <p>Afin de déterminer si un ensemble de <m>k</m> vecteurs est indépendant ou non, on sait déjà qu'on pouvait utiliser le <xref ref="prop-indeprang">rang</xref>. Si jamais les vecteurs ne sont pas indépendants, la proposition <xref ref="prop-baseesplignenul"/> permet de trouver une base de leur espace engendré.</p>
     <example>
     <title>Base de l'espace ligne</title>
     <statement>
@@ -50,7 +49,7 @@
 0 &amp; -1 &amp; 2 &amp; 0 &amp; 1 \\
 -1 &amp; 1 &amp; 1 &amp; -1 &amp; 0
 \end{array}\right)</me>
-et on cherche une base de son espace ligne. On cherche aussi la dimension de l'espace ligne.</p>
+et l'on cherche une base de son espace ligne. On cherche aussi la dimension de l'espace ligne.</p>
     </statement>
     <solution>
     <p>On utilise Sage pour échelonner la matrice et trouver la base.</p>
@@ -68,7 +67,7 @@ et on cherche une base de son espace ligne. On cherche aussi la dimension de l'e
     <lemma xml:id="lem-NRT">
     <title>L'espace nul de la transposée d'une matrice échelonnée réduite</title>
     <statement>
-    <p>Soit <m>R</m> une matrice <m>m\times n</m> de rang <m>r&lt; m</m> qui est échelonnée réduite et soit <m>\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_m</m> les vecteurs de la base standard de <m>\R^m</m>.
+    <p>Soit <m>R</m>, une matrice <m>m\times n</m> de rang <m>r&lt; m</m> qui est échelonnée réduite et soit <m>\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_m</m>, les vecteurs de la base standard de <m>\R^m</m>.
     Alors une base possible pour l'espace nul gauche <m>\mathcal{N}(R^T)</m> est <m>\langle \vec{e}_{r+1},\vec{e}_{r+2},\ldots , \vec{e}_m \rangle</m>.
     </p>
     </statement>
@@ -79,43 +78,43 @@ et on cherche une base de son espace ligne. On cherche aussi la dimension de l'e
     <proposition xml:id="prop-baseespcolnulg">
     <title>Une base pour l'espace colonne et l'espace nul gauche </title>
     <statement>
-    <p>Soit <m>A</m> une matrice <m>m\times n</m>, <m>R=rref(A)</m> sa forme échelonnée réduite et soit <m>E</m> une matrice <m>m\times m</m> telle que <m>EA=R</m> (la matrice <m>E</m> correspond à la multiplication de matrices élémentaires permettant d'échelonner <m>A</m>). Alors
+    <p>Soit <m>A</m>, une matrice <m>m\times n</m>, <m>R=rref(A)</m> sa forme échelonnée réduite et soit <m>E</m>, une matrice <m>m\times m</m> telle que <m>EA=R</m> (la matrice <m>E</m> correspond à la multiplication de matrices élémentaires permettant d'échelonner <m>A</m>). Alors
     <ol>
     <li><p>Les colonnes pivots de <m>A</m> (celles qui sont pivots dans <m>R</m>) forment une base de <m>\mathcal{C}(A)</m>;</p></li>
     <li><p>Les lignes de <m>E</m> qui sont aux mêmes positions que les lignes nulles de <m>R</m> forment une base de l'espace nul gauche.</p></li>
     </ol></p>
     </statement>
     <proof>
-    <p>Soit <m>j_1,j_2,\ldots , j_r</m> l'indice des colonnes de <m>R</m> contenant un pivot, avec <m>j_1&lt; j_2&lt; \cdots &lt; j_r</m>. Soit <m>\vec{a}_{j_{1}},\vec{a}_{j_{2}},\ldots ,\vec{a}_{j_{r}}</m> les colonnes de <m>A</m> correspondants à ces positions. On veut montrer que ces colonnes forment une base de <m>\mathcal{C}(A)</m>.</p>
-    <p>D'abord, l'indépendance. Soit <m>c_1,c_2,\ldots ,c_r\in \R</m> tels que
+    <p>Soit <m>j_1,j_2,\ldots , j_r</m>, l'indice des colonnes de <m>R</m> contenant un pivot, avec <m>j_1&lt; j_2&lt; \cdots &lt; j_r</m>. Soit <m>\vec{a}_{j_{1}},\vec{a}_{j_{2}},\ldots ,\vec{a}_{j_{r}}</m>, les colonnes de <m>A</m> correspondant à ces positions. On veut montrer que ces colonnes forment une base de <m>\mathcal{C}(A)</m>.</p>
+    <p>D'abord la question de l'indépendance. Soit <m>c_1,c_2,\ldots ,c_r\in \R</m> tels que
     <me>
     c_1\vec{a}_{j_{1}}+c_2\vec{a}_{j_{2}}+\ldots +c_r\vec{a}_{j_{r}}=\vec{0}
     </me>.
-    On pose <m>\vec{v}</m> le vecteur qui a une valeur <m>0</m>  en position <m>i</m> si <m>i\notin \{j_1,j_2,\ldots , j_r\}</m> qui qui vaut <m>c_{j_{i}}</m> aux positions <m>j_1,j_2,\ldots , j_r</m>. Le vecteur <m>\vec{v}</m> est donc une solution à l'équation <m>A\vec{x}=\vec{0}</m>. Par le fait même, on a <m>R\vec{v}=\vec{0}</m>. Ceci entraine que
+    On pose <m>\vec{v}</m>, le vecteur qui a une valeur <m>0</m>  en position <m>i</m> si <m>i\notin \{j_1,j_2,\ldots , j_r\}</m> et qui vaut <m>c_{j_{i}}</m> aux positions <m>j_1,j_2,\ldots , j_r</m>. Le vecteur <m>\vec{v}</m> est donc une solution à l'équation <m>A\vec{x}=\vec{0}</m>. Par le fait même, on a <m>R\vec{v}=\vec{0}</m>. Ceci entraine que
         <me>
     c_1\vec{a^{'}}_{j_{1}}+c_2\vec{a^{'}}_{j_{2}}+\ldots +c_r\vec{a^{'}}_{j_{r}}=\vec{0}
     </me>,
-    où <m>\vec{a^{'}}_{j_{k}}</m> est la <m>k</m>-ème colonne de <m>R</m>. Puisque par définition celles-ci sont pivots, ces colonnes ne contiennent qu'un <m>1</m> et des zéros partout ailleurs. On conclut que <m>c_1=c_2=c_r=0</m> et donc, que les colonnes de <m>A</m> qui correspondent aux positions pivots de <m>R</m> sont indépendantes.
+    où <m>\vec{a^{'}}_{j_{k}}</m> est la <m>k</m>-ème colonne de <m>R</m>. Puisque, par définition, celles-ci sont pivots, ces colonnes ne contiennent qu'un <m>1</m> et des zéros partout ailleurs. On conclut que <m>c_1=c_2=c_r=0</m> et que les colonnes de <m>A</m> qui correspondent aux positions pivots de <m>R</m> sont indépendantes.
     </p>
-    <p>Il reste donc à montrer que ces colonnes engendrent <m>\mathcal{C}(A)</m>. Évidemment, <m>\mathcal{C}(A)=\vspan(\vec{a}_1,\vec{a}_2,\ldots ,\vec{a}_n)</m>. Si on montre que les colonnes qui ne sont pas pivots peuvent s'écrire comme une combinaison linéaire des colonnes pivots, alors on pourra les retirer du <m>\vspan</m> et il ne restera dans celui-ci que les colonnes pivots.</p>
-    <p>Dans la matrice <m>R</m>, on a vu comment lire les solutions de base à partir des colonnes qui ne sont pas pivots. Ces solutions de base offrent une solution à l'équation <m>R\vec{x}=\vec{0}</m>. Elles donnent une combinaison linéaire de la colonne libre ainsi que des colonnes pivots à sa gauche donnant le vecteur nul. Puisque l'équation <m>A\vec{x}=\vec{0}</m> possède les mêmes solutions que l'équation <m>R\vec{x}=\vec{0}</m>, on obtient aussi une combinaison linéaire des colonnes correspondantes dans <m>A</m> qui donne le vecteur nul. En isolant la colonne correspondant à la colonne libre, on voit qu'ele s'écrit comme une combinaison linéaire des colonnes pivots.</p>
+    <p>Il reste à montrer que ces colonnes engendrent <m>\mathcal{C}(A)</m>. Évidemment, <m>\mathcal{C}(A)=\vspan(\vec{a}_1,\vec{a}_2,\ldots ,\vec{a}_n)</m>. Si l'on montre que les colonnes qui ne sont pas pivots peuvent s'écrire comme une combinaison linéaire des colonnes pivots, alors on pourra les retirer du <m>\vspan</m> et il ne restera dans celui-ci que les colonnes pivots.</p>
+    <p>Dans la matrice <m>R</m>, on a vu comment lire les solutions de base à partir des colonnes qui ne sont pas pivots. Ces solutions de base offrent une solution à l'équation <m>R\vec{x}=\vec{0}</m>. Elles donnent une combinaison linéaire de la colonne libre ainsi que des colonnes pivots à sa gauche donnant le vecteur nul. Puisque l'équation <m>A\vec{x}=\vec{0}</m> possède les mêmes solutions que l'équation <m>R\vec{x}=\vec{0}</m>, on obtient aussi une combinaison linéaire des colonnes correspondantes dans <m>A</m> qui donne le vecteur nul. En isolant la colonne correspondant à la colonne libre, on voit qu'elle s'écrit comme une combinaison linéaire des colonnes pivots.</p>
     <p>On a donc bel et bien que <m>\mathcal{C}(A)=\vspan(\vec{a}_{j_{1}},\vec{a}_{j_{2}},\ldots ,\vec{a}_{j_{r}})</m>, les colonnes pivots de <m>A</m>.</p>
     </proof>
     <proof>
     <p>
-    Finalement, on veut montrer que les lignes de <m>E</m> qui sont aux mêmes positions que que les lignes nulles de <m>R</m> forment une base pour l'espace nul gauche. La matrice <m>E</m> est la matrice obtenue en multipliant chaque matrice élémentaire transformant <m>A</m> à <m>R</m>. Chaque matrice élémentaire étant inversible, leur produit l'est aussi, tel qu'indiqué à la proposition <xref ref="prop-inverseproduit"/> (sa généralisation). Les lignes de <m>E</m> sont donc indépendantes. En particulier, celles correspondantes aux lignes nulles de <m>R</m> le sont. Il reste à montrer que ces lignes engendrent l'espace nul gauche.
+    Finalement, on veut montrer que les lignes de <m>E</m> qui sont aux mêmes positions que les lignes nulles de <m>R</m> forment une base pour l'espace nul gauche. La matrice <m>E</m> est la matrice obtenue en multipliant chaque matrice élémentaire transformant <m>A</m> en <m>R</m>. Chaque matrice élémentaire étant inversible, leur produit l'est aussi, comme indiqué à la proposition <xref ref="prop-inverseproduit"/> (sa généralisation). Les lignes de <m>E</m> sont donc indépendantes, plus particulièrement celles qui correspondent aux lignes nulles de <m>R</m>. Il reste à montrer que ces lignes engendrent l'espace nul gauche.
     </p>
-    <p>L'espace nul gauche consiste à l'ensemble des vecteurs <m>\vec{x}</m> tels que <m>A^{T}\vec{x}=\vec{0}</m>. Puisque <m>EA=R</m>, on réécrit <m>A^T=(E^{-1}R)^T=R^T(E^T)^{-1}</m> en vertu des <xref ref="prop-transposeeprop">propriétés de la transposée</xref>. On a donc
+    <p>L'espace nul gauche est consistué de l'ensemble des vecteurs <m>\vec{x}</m> tels que <m>A^{T}\vec{x}=\vec{0}</m>. Puisque <m>EA=R</m>, on réécrit <m>A^T=(E^{-1}R)^T=R^T(E^T)^{-1}</m> en vertu des <xref ref="prop-transposeeprop">propriétés de la transposée</xref>. On a donc
     <md>
     <mrow>\vec{0}&amp;=A^{T}\vec{x}</mrow>
     <mrow>       &amp;=R^T(E^T)^{-1}\vec{x}</mrow>
     <intertext>On pose <m>\vec{y}=(E^T)^{-1}\vec{x}</m></intertext>
     <mrow>       &amp;=R^T\vec{y}</mrow>
     </md>.
-    On conclut donc que <m>\vec{y}\in \mathcal{N}(R^T)</m>. Selon le lemme <xref ref="lem-NRT"/>, l'espace nul de <m>R^T</m> est engendré par les <m>m-r</m> derniers vecteurs de la base standard de <m>R^m</m>, où <m>r</m> est le rang de <m>A</m>. Le vecteur <m>\vec{y}</m> est donc une combinaison linéaire de ces vecteurs. Si on isole <m>\vec{x}</m> dans l'équation <m>\vec{y}=(E^T)^{-1}\vec{x}</m>, on obtient <m>\vec{x}=E^T\vec{y}</m>. Puisque <m>\vec{y}</m> est une combinaison linéaire des <m>m-r</m> derniers vecteurs de la base standard, le vecteur <m>\vec{x}</m> est une combinaison linéaire des <m>m-r</m> dernières colonnes de <m>E^T</m> et donc, aux <m>m-r</m> lignes de <m>E</m>. Ce sont exactement ces lignes qui correspondent aux lignes nulles de <m>R</m>. Ceci montre que les <m>m-r</m> lignes de <m>E</m> forment une base pour <m>\mathcal{N}(A^T)</m>.</p>
+    On conclut que <m>\vec{y}\in \mathcal{N}(R^T)</m>. Selon le lemme <xref ref="lem-NRT"/>, l'espace nul de <m>R^T</m> est engendré par les <m>m-r</m> derniers vecteurs de la base standard de <m>R^m</m>, où <m>r</m> est le rang de <m>A</m>. Le vecteur <m>\vec{y}</m> est donc une combinaison linéaire de ces vecteurs. Si l'on isole <m>\vec{x}</m> dans l'équation <m>\vec{y}=(E^T)^{-1}\vec{x}</m>, on obtient <m>\vec{x}=E^T\vec{y}</m>. Puisque <m>\vec{y}</m> est une combinaison linéaire des <m>m-r</m> derniers vecteurs de la base standard, le vecteur <m>\vec{x}</m> est une combinaison linéaire des <m>m-r</m> dernières colonnes de <m>E^T</m> et donc, aux <m>m-r</m> lignes de <m>E</m>. Ce sont exactement ces lignes qui correspondent aux lignes nulles de <m>R</m>. Ceci montre que les <m>m-r</m> lignes de <m>E</m> forment une base pour <m>\mathcal{N}(A^T)</m>.</p>
     </proof>
     </proposition>
-    <p>Dans la pratique, il est souvent plus simple de déterminer une base de l'espace nul-gauche de <m>A</m> en considérant directement l'espace nul de sa transposée, mais la proposition <xref ref="prop-baseespcolnulg"/> donne une manière à partir de <m>A</m> et de son processus d'échelonnage. On montre tout de même un exemple complet utilisant les propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>.</p>
+    <p>Dans la pratique, il est souvent plus simple de déterminer une base de l'espace nul gauche de <m>A</m> en considérant directement l'espace nul de sa transposée, mais la proposition <xref ref="prop-baseespcolnulg"/> donne une manière différente à partir de <m>A</m> et de son processus d'échelonnage. On montre tout de même un exemple complet utilisant les propositions <xref ref="prop-baseesplignenul"/> et <xref ref="prop-baseespcolnulg"/>.</p>
     <example xml:id="ex-base4esp">
     <title>Une base des quatre espaces fondamentaux d'une matrice</title>
     <statement>
@@ -229,32 +228,32 @@ show("E=",E)
     </input>
     </sage>
     <p>Selon la proposition <xref ref="prop-baseesplignenul"/>, l'espace ligne est engendré par les lignes non nulles de <m>R</m>. On a donc <m>\mathcal{L}(A)=\vspan((1,0,3,0,3),(0,1,3,0,2),(0,0,0,1,-2))</m>. Toujours selon cette proposition, l'espace nul est engendré par les solutions de base à l'équation <m>A\vec{x}=\vec{0}</m> qui se trouvent à même la matrice <m>R</m>, comme indiqué à l'exemple <xref ref="ex-solbase2"/>. On a donc <m>\mathcal{N}(A)=\vspan((-3,-3,1,0,0),(-3,-2,0,2,1))</m>.</p>
-<p>Selon la proposition <xref ref="prop-baseespcolnulg"/>, l'espace colonne est engendré par les colonnes de <m>A</m> qui correspondent aux colonnes pivots de sa forme échelonnée réduite <m>R</m>. On a donc <m>\mathcal{C}(A)=\vspan((1,0,0,2),(2,1,-2,0),(7,2,-3,7))</m>. Toujours selon cette proposition, l'espace nul-gauche est engendré par les lignes de la matrice <m>E</m> qui correspondent aux lignes nulles de la matrice <m>R</m>. On a donc <m>\mathcal{N}(A^T)=\vspan((-2,2,-1,1))</m>.</p>
+<p>Selon la proposition <xref ref="prop-baseespcolnulg"/>, l'espace colonne est engendré par les colonnes de <m>A</m> qui correspondent aux colonnes pivots de sa forme échelonnée réduite <m>R</m>. On a donc <m>\mathcal{C}(A)=\vspan((1,0,0,2),(2,1,-2,0),(7,2,-3,7))</m>. Toujours selon cette proposition, l'espace nul gauche est engendré par les lignes de la matrice <m>E</m> qui correspondent aux lignes nulles de la matrice <m>R</m>. On a donc <m>\mathcal{N}(A^T)=\vspan((-2,2,-1,1))</m>.</p>
     </solution>
     </example>
-    <p>On a déjà observé la relation de complément orthogonal que possède les sous-espaces fondamentaux à la proposition <xref ref="prop-espfondcomportho"/>. Ce qui ajoute à l'importance des sous-espaces fondamentaux toutefois, c'est le lien entre leur dimension et l'espace dans lequel ils vivent.</p>
+    <p>On a déjà observé la relation de complément orthogonal des sous-espaces fondamentaux à la proposition <xref ref="prop-espfondcomportho"/>. Toutefois, les sous-espaces fondamentaux gagnent en importance par le lien entre leur dimension et l'espace dans lequel ils vivent.</p>
     <proposition xml:id="prop-dim4esp">
     <title>La dimension des quatre espaces fondamentaux</title>
-    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m> de rang <m>r</m>. Alors
+    <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m> de rang <m>r</m>. Alors
     <ul>
     <li><p><m>\text{dim}(\mathcal{L}(A))=\text{dim}(\mathcal{C}(A))=r</m>;</p></li>
     <li><p><m>\text{dim}(\mathcal{N}(A))=n-r</m>;</p></li>
     <li><p><m>\text{dim}(\mathcal{N}(A^T))=m-r</m>.</p></li>
     </ul>
     </p>
-    <p>En particulier, on remarque que la somme des espaces ligne et nul, qui sont des sous-espaces de <m>\R^n</m>, donne <m>n</m> et que la dimension des espaces colonne et nul gauche, qui sont des sous-espaces de <m>\R^m</m>, donne <m>m</m>.</p>
+    <p>Plus particulièrement, on remarque que la somme des espaces ligne et nul, qui sont des sous-espaces de <m>\R^n</m>, donne <m>n</m> et que la dimension des espaces colonne et nul gauche, qui sont des sous-espaces de <m>\R^m</m>, donne <m>m</m>.</p>
     </statement>
     <proof>
-    <p>Pour les espaces ligne et colonne, le nombre de vecteur dans la base correspond respectivement au nombre de lignes non nulles de la forme échelonnée réduite de la matrice <m>A</m> et au nombre de colonnes pivots de cette même matrice échelonée réduite. Dans les deux cas, ce nombre est égal au rang de la matrice. La dimension est donc égale au rang, soit <m>r</m>.</p>
-    <p>Pour l'espace nul, le nombre de vecteurs dans la base correspond au nombre de solutions de base. Celles-ci sont aussi nombreuse qu'il y a de variables libres, soit <m>n-r</m> (<m>n</m> variables moins les <m>r</m> qui sont pivots). </p>
-    <p>Finalement pour l'espace nul gauche, le nombre de vecteur dans la base correspond au nombre de lignes nulles dans la forme échelonnée réduite. Celles-ci sont en nombre de <m>m-r</m> (<m>m</m> lignes moins les <m>r</m> qui contiennent un pivot). </p>
+    <p>Pour les espaces ligne et colonne, le nombre de vecteurs dans la base correspond respectivement au nombre de lignes non nulles de la forme échelonnée réduite de la matrice <m>A</m> et au nombre de colonnes pivots de cette même matrice échelonnée réduite. Dans les deux cas, ce nombre est égal au rang de la matrice. La dimension est donc égale au rang, soit <m>r</m>.</p>
+    <p>Pour l'espace nul, le nombre de vecteurs dans la base correspond au nombre de solutions de base. Celles-ci sont aussi nombreuses qu'il y a de variables libres, soit <m>n-r</m> (<m>n</m> variables moins les <m>r</m> qui sont pivots). </p>
+    <p>Finalement pour l'espace nul gauche, le nombre de vecteurs dans la base correspond au nombre de lignes nulles dans la forme échelonnée réduite. Celles-ci sont en nombre de <m>m-r</m> (<m>m</m> lignes moins les <m>r</m> qui contiennent un pivot). </p>
     </proof>
     </proposition>
     <p>Ensemble, les propositions <xref ref="prop-espfondcomportho"/> et <xref ref="prop-dim4esp"/> donnent le théorème fondamental de l'algèbre linéaire.<fn>L'adjectif <lsq/>fondamental<rsq/> de ce théorème n'est pas aussi répandu que son homologue en calcul différentiel et intégral. Il a été caractérisé ainsi pour la première fois par Gilbert Strang, professeur au MIT.</fn></p>
     <theorem xml:id="thm-fondalg">
-    <title>Le théorème fondamental de l'algèbre linéaire</title>
+    <title>Théorème fondamental de l'algèbre linéaire</title>
     <statement>
-    <p>Soit <m>A</m> une matrice <m>m\times n</m> de rang <m>r</m>. Alors
+    <p>Soit <m>A</m>, une matrice <m>m\times n</m> de rang <m>r</m>. Alors
     <ul>
     <li><p><m>\text{dim}(\mathcal{L}(A))=\text{dim}(\mathcal{C}(A))=r</m>;</p></li>
     <li><p><m>\text{dim}(\mathcal{N}(A))=n-r</m> et <m>(\mathcal{L}(A))^{\perp}=\mathcal{N}(A)</m>;</p></li>
@@ -265,26 +264,26 @@ show("E=",E)
     <p>Le résultat découle des propositions <xref ref="prop-espfondcomportho"/> et <xref ref="prop-dim4esp"/>. </p>
     </proof>
     </theorem>
-    <p>La figure ci-dessous illustre en image le concept du théorème fondamentale de l'algèbre linéaire. Les espaces fondamentaux y sont dessinés comme des plans, mais peuvent bien entendu être de dimension quelconque.</p>
+    <p>La figure ci-dessous illustre le concept du théorème fondamental de l'algèbre linéaire. Les espaces fondamentaux y sont dessinés comme des plans, mais peuvent bien entendu être d'une dimension quelconque.</p>
     <figure xml:id="fig-fondalg">
     <caption>Une image du théorème fondamental de l'algèbre linéaire</caption>
     <image xml:id="img-fondalg">
     <description>
-    À gauche, deux rectangles sont dessinés, se touchant en un coin à quatre-vingt-dix degrés. Sur le rectangle supérieur, on peut lire "dimension r" et "espace ligne". Sur le rectangle inférieur, on peut lire "espace nul" et "dimension n moins r". À droite un dessin similaire est présent, avec sur le rectangle supérieur les mots "dimension r" et "espace colonne" alors que sur le rectangle inférieur on peut lire les mots "espace nul-gauche" et "dimension m moins r".
+    À gauche, deux rectangles sont dessinés, se touchant en un coin à quatre-vingt-dix degrés. Sur le rectangle supérieur, on peut lire "dimension r" et "espace ligne". Sur le rectangle inférieur, on peut lire "espace nul" et "dimension n moins r". À droite un dessin similaire est présent, avec sur le rectangle supérieur les mots "dimension r" et "espace colonne" alors que sur le rectangle inférieur on peut lire les mots "espace nul gauche" et "dimension m moins r".
     </description>
     <sageplot>
 fsize=10
 L=polygon([[3,1],[12,10],[9,13],[0,4]],color="darkcyan",alpha=0.15,axes=False)+text("Espace ligne",(3,5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $r$",(2,6.7),color="black",fontsize=fsize,rotation=45,axes=False)#Espace ligne
 N=polygon([[3,1],[3-0.5*3,1-0.5*3],[13-0.5*3,-9-0.5*3],[13,-9]],color="crimson",alpha=0.15,axes=False)+text("Espace nul",(4,-2.2),color="black",fontsize=fsize,rotation=-45,axes=False)+text("dimension $n-r$",(5,-5),color="black",fontsize=fsize,rotation=-45,axes=False)#Espace nul
 C=polygon([[33,1],[36,4],[27,13],[24,10]],color="dodgerblue",alpha=0.15,axes=False)+text("Espace colonne",(29.5,9.5),color="black",fontsize=fsize,rotation=-45,axes=False)+text("dimension $r$",(30,11.4),color="black",fontsize=fsize,rotation=-45,axes=False)#Espace colonne
-Ng=polygon([[33,1],[26,-6],[29,-9],[36,-2]],color="darkred",alpha=0.15,axes=False)+text("Espace nul-gauche",(32,-5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $m-r$",(33,-6.4),color="black",fontsize=fsize,rotation=45,axes=False)#Espace nul-gauche
+Ng=polygon([[33,1],[26,-6],[29,-9],[36,-2]],color="darkred",alpha=0.15,axes=False)+text("Espace nul gauche",(32,-5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $m-r$",(33,-6.4),color="black",fontsize=fsize,rotation=45,axes=False)#Espace nul gauche
 AD=polygon([[3,1],[2.6,0.6],[2.2,1],[2.6,1.4]],color="black",alpha=1,axes=False)+polygon([[33,1],[33.4,0.6],[33.8,1],[33.4,1.4]],color="black",alpha=1,axes=False) #angles droits
 L+N+C+Ng+AD
     </sageplot>
 
     </image>
     </figure>
-    <p>Pour voir une application concrète de ce théorème, on considère le problème familier suivant dans <m>\mathbb{R}^3</m>. On a un plan dans l'espace et un point <m>P</m> qui n'appartient pas au plan. On aimerait connaitre le point <m>Q</m> sur le plan qui est le plus près de <m>P</m>. Ce point <m>Q</m> est le même que celui à la figure <xref ref="fig-distpd"/>. On peut déjà le trouver grâce à la projection orthogonale. Si on voulait toutefois résoudre le même problème mais pour un sous-espace de dimension 5 dans <m>\mathbb{R}^7</m>, la méthode de la projection orthogonale ne fonctionnerait pas dû au fait qu'il y aurait plus qu'une direction perpendiculaire. On regarde donc ce problème à nouveau avec les concepts des espaces fondamentaux.</p>
+    <p>Pour voir une application concrète de ce théorème, on considère le problème familier suivant dans <m>\mathbb{R}^3</m>. On a un plan dans l'espace et un point <m>P</m> qui n'appartient pas au plan. On aimerait connaitre le point <m>Q</m> sur le plan qui est le plus près de <m>P</m>. Ce point <m>Q</m> est le même que celui à la figure <xref ref="fig-distpd"/>. On peut déjà le trouver grâce à la projection orthogonale. Si l'on voulait toutefois résoudre le même problème, mais pour un sous-espace de dimension 5 dans <m>\mathbb{R}^7</m>, la méthode de la projection orthogonale ne fonctionnerait pas parce qu'il y aurait plus qu'une direction perpendiculaire. On regarde donc ce problème à nouveau avec les concepts des espaces fondamentaux.</p>
     <example xml:id="ex-pointplusprochemoindrescarres">
     <title>
     Le point le plus proche
@@ -300,11 +299,11 @@ L+N+C+Ng+AD
     2&amp;4\\
     1&amp;-3
     \end{pmatrix}
-    </me>. Puisque le point <m>Q</m> sur le plan le plus proche du point <m>P</m>  est un point pour lequel le vecteur <m>\vecl{QP}</m> est perpendiculaire au plan, on peut déduire du théorème <xref ref="thm-fondalg"/> que ce vecteur est dans l'espace nul-gauche de la matrice <m>A</m>, pour laquelle le plan représente l'espace colonne. Il faut donc que <m>\vecl{QP}=\vecl{OP}-\vecl{OQ}</m> soit dans l'espace nul-gauche ou, de façon équivalente, il faut que
+    </me>. Puisque le point <m>Q</m> sur le plan le plus proche du point <m>P</m>  est un point pour lequel le vecteur <m>\vecl{QP}</m> est perpendiculaire au plan, on peut déduire du théorème <xref ref="thm-fondalg"/> que ce vecteur est dans l'espace nul gauche de la matrice <m>A</m>, pour laquelle le plan représente l'espace colonne. Il faut donc que <m>\vecl{QP}=\vecl{OP}-\vecl{OQ}</m> soit dans l'espace nul gauche ou, de façon équivalente, il faut que
     <me>
     A^T(\vecl{OP}-\vecl{OQ})=\vec{0}
     </me>.</p>
-    <p>Pour progresser, on remarque que comme le point <m>Q</m> est sur le plan, il doit nécessairement exister un vecteur <m>\vec{x}</m> tel que <m>A\vec{x}=\vecl{OQ}</m>. Ainsi,
+    <p>Pour progresser, on remarque que, comme le point <m>Q</m> est sur le plan, il doit nécessairement exister un vecteur <m>\vec{x}</m> tel que <m>A\vec{x}=\vecl{OQ}</m>. Ainsi,
     <md>
     <mrow>A^T(\vecl{OP}-\vecl{OQ})&amp;=\vec{0}</mrow>
     <mrow>A^T(\vecl{OP}-A\vec{x})&amp;=\vec{0}</mrow>
@@ -351,36 +350,36 @@ show(ATA.solve_right(ATP))
     </p>
     </solution>
     </example>
-    <p>Ce dernier exemple peut sembler long et fastidieux, surtout que les outils de la section <xref ref="sec-droitesplans"/> permettaient une résolution beaucoup plus rapide. En regardant attentivement la démarche de l'exemple <xref ref="ex-pointplusprochemoindrescarres"/>, on peut déduire une méthode générale pour ce genre de problème qui est fondamentale en statistique et en informatique (apprentissage profond et intelligence artificielle): la méthode des moindres carrées. Elle sera présentée plus en détails dans le chapitre <xref provisional="chap-applications"/>.</p>
+    <p>Ce dernier exemple peut sembler long et fastidieux, surtout que les outils de la section <xref ref="sec-droitesplans"/> permettaient une résolution beaucoup plus rapide. En regardant attentivement la démarche de l'exemple <xref ref="ex-pointplusprochemoindrescarres"/>, on peut déduire une méthode générale pour ce genre de problème qui est fondamentale en statistique et en informatique (apprentissage profond et intelligence artificielle): la méthode des moindres carrés. Elle sera présentée plus en détail dans le chapitre <xref ref="chap-applications"/>.</p>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation>
     <title>Base des quatre espaces sur Sage</title>
-    <p>Dans la section <xref ref="sec-transposee"/>, on a introduit des commandes permettant de trouver une base des espaces fondamentaux, sans avoir défini au préalable la notion de base. Ceci a été fait à l'exemple calculatoire <xref ref="sageex-espfond"/>. On reprend ici ces commandes avec la notion de base maintenant bien définie.</p>
-    <p>Les commandes pour les espaces ligne,colonne,nul et nul gauche sont respectivement <c>row_space().basis(),column_space().basis(),right_kernel(basis="pivot").basis(),left_kernel(basis="pivot").basis()</c>. On les utilise pour retrouver la base de chacun des quatre espaces de l'exemple <xref ref="ex-base4esp"/>.</p>
+    <p>Dans la section <xref ref="sec-transposee"/>, on a introduit des commandes permettant de trouver une base des espaces fondamentaux sans avoir défini au préalable la notion de base. Ceci a été fait à l'exemple calculatoire <xref ref="sageex-espfond"/>. On reprend ici ces commandes avec la notion de base maintenant bien définie.</p>
+    <p>Les commandes pour les espaces ligne, colonne, nul et nul gauche sont respectivement <c>row_space().basis(),column_space().basis(),right_kernel(basis="pivot").basis(),left_kernel(basis="pivot").basis()</c>. On les utilise pour retrouver la base de chacun des quatre espaces de l'exemple <xref ref="ex-base4esp"/>.</p>
     <sage>
     <input>
 A=column_matrix(QQ,[[1,0,0,2],[2,1,-2,0],[9,3,-6,6],[7,2,-3,7],[-7,-2,2,-8]]) #Rappel qu'il faut spécifier QQ pour que cela fonctionne
 show("Une base pour l'espace ligne est ",A.row_space().basis())
 show("Une base pour l'espace colonne est ",A.column_space().basis())
 show("Une base pour l'espace nul est ",A.right_kernel(basis="pivot").basis())
-show("Une base pour l'espace nul-gauche est ",A.left_kernel(basis="pivot").basis())
+show("Une base pour l'espace nul gauche est ",A.left_kernel(basis="pivot").basis())
     </input>
     </sage>
-    <p>À noter que pour l'espace colonne, Sage ne retourne pas la base prescrite par la proposition <xref ref="prop-baseespcolnulg"/>. Il préfère en fait trouver une base de l'espace ligne de <m>A^T</m>. On peut toutefois créer une fonction retournant la base suggérée par la proposition <xref ref="prop-baseespcolnulg"/> grâce à la fonction <c>pivots()</c>. C'est l'objet de l'exercice <xref provisional="sageexo-baseespcol"/>. </p>
+    <p>À noter que pour l'espace colonne, Sage ne retourne pas la base prescrite par la proposition <xref ref="prop-baseespcolnulg"/>. En fait, il préfère trouver une base de l'espace ligne de <m>A^T</m>. On peut toutefois créer une fonction retournant la base suggérée par la proposition <xref ref="prop-baseespcolnulg"/> grâce à la fonction <c>pivots()</c>. C'est l'objet de l'exercice <xref provisional="sageexo-baseespcol"/>. </p>
     </computation>
     </subsection>
     <subsection>
     <title>Quelques résultats supplémentaires</title>
-    <p>À la proposition <xref ref="prop-comporthocomportho"/>, on a montré que si <m>V</m> est une sous-espace vectoriel, alors <m>(V^{\perp})^{\perp}=V</m>. On peut se demander si la relation entre les dimensions d'un sous-espace quelconque et son complément orthogonal est aussi complémentaire à l'espace sous-jacent.</p>
+    <p>À la proposition <xref ref="prop-comporthocomportho"/>, on a montré que si <m>V</m> est un sous-espace vectoriel, alors <m>(V^{\perp})^{\perp}=V</m>. On peut se demander si la relation entre les dimensions d'un sous-espace quelconque et son complément orthogonal est aussi complémentaire à l'espace sous-jacent.</p>
     <proposition>
     <title>La dimension du complément orthogonal</title>
-    <statement><p>Soit <m>V\subseteq \mathbb{R}^n</m> un sous-espace vectoriel de dimension <m>k</m>. Alors la dimension de son complément orthogonal est <m>n-k</m>.</p></statement>
+    <statement><p>Soit <m>V\subseteq \mathbb{R}^n</m>, un sous-espace vectoriel de dimension <m>k</m>. La dimension de son complément orthogonal est <m>n-k</m>.</p></statement>
     <proof>
     <p>Si <m>V=\vspan{\vec{0}}</m>, alors <m>k=0</m> et le complément orthogonal de <m>V</m> est <m>\R^n</m>. La dimension est bien <m>n-0=n</m>.</p>
-    <p>Si <m>k>0</m>, alors selon la proposition <xref ref="prop-baseexiste"/>, on peut trouver une base <m>\langle \vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k \rangle</m> engendrant <m>V</m>. On crée une matrice ligne avec ces <m>k</m> vecteurs. Par construction, l'espace ligne de la matrice correspond à <m>V</m> et est de dimension <m>k</m> puisque les vecteurs sont indépendants. Selon le théorème <xref ref="thm-fondalg"/>, l'espace nul de <m>A</m> (qui est le complément de <m>V=\mathcal{L}(A)</m>) est de dimension <m>n-k</m>.</p>
+    <p>Si <m>k>0</m>, alors selon la proposition <xref ref="prop-baseexiste"/>, on peut trouver une base <m>\langle \vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k \rangle</m> engendrant <m>V</m>. On crée une matrice ligne avec ces <m>k</m> vecteurs. Par construction, l'espace ligne de la matrice correspond à <m>V</m> et est de dimension <m>k</m>, puisque les vecteurs sont indépendants. Selon le théorème <xref ref="thm-fondalg"/>, l'espace nul de <m>A</m> (qui est le complément de <m>V=\mathcal{L}(A)</m>) est de dimension <m>n-k</m>.</p>
     </proof>
     </proposition>
-    <p>Dans l'espace à deux dimensions, les seuls sous-espaces non trivaux sont les droites passant par l'origine. Dans le cas d'une de ces droite, avec vecteur directeur <m>\vec{u}</m>, son complément orthogonal est aussi une droite passant par l'origine avec vecteur directeur <m>\vec{v}</m> qui lui est perpendiculaire (<m>\vec{u}\cdot\vec{v}=0)</m>. N'importe quel vecteur de <m>\R^2</m> peut s'écrire comme une combinaison linéaire de <m>\vec{u}</m> et <m>\vec{v}</m>. Dans l'espace à trois dimensions, on peut ajouter les plans passant par l'origine comme sous-espace non trivial. Puisque le complément orthogonal d'un plan est la droite ayant comme vecteur directeur le vecteur normal du plan, et que les deux vecteurs directeurs du plan et ce vecteur normal forment une base, il s'avère que l'on peut écrire n'importe quel vecteur de <m>\R^3</m> comme la somme d'un vecteur du plan et de son complément orthogonal. Ce résultat est aussi valide pour les autres espaces vectoriels. Il est illustré à la figure <xref ref="fig-decomportho"/> et est l'objet de la prochaine proposition. </p>
+    <p>Dans l'espace à deux dimensions, les seuls sous-espaces non triviaux sont les droites passant par l'origine. Dans le cas d'une de ces droites, avec vecteur directeur <m>\vec{u}</m>, son complément orthogonal est aussi une droite passant par l'origine avec vecteur directeur <m>\vec{v}</m> qui lui est perpendiculaire (<m>\vec{u}\cdot\vec{v}=0)</m>. N'importe quel vecteur de <m>\R^2</m> peut s'écrire comme une combinaison linéaire de <m>\vec{u}</m> et <m>\vec{v}</m>. Dans l'espace à trois dimensions, on peut ajouter les plans passant par l'origine comme sous-espace non trivial. Puisque le complément orthogonal d'un plan est la droite ayant comme vecteur directeur le vecteur normal du plan, et que les deux vecteurs directeurs du plan et ce vecteur normal forment une base, il s'avère que l'on peut écrire n'importe quel vecteur de <m>\R^3</m> comme la somme d'un vecteur du plan et de son complément orthogonal. Ce résultat est aussi valide pour les autres espaces vectoriels. Il est illustré à la figure <xref ref="fig-decomportho"/> et est l'objet de la prochaine proposition. </p>
 <figure xml:id="fig-decomportho">
 <caption>Décomposition d'un vecteur selon un sous-espace et son complément orthogonal</caption>
 <image xml:id="img-decomportho">
@@ -401,15 +400,15 @@ G
     <proposition xml:id="prop-decomportho">
     <title>Décomposition d'un vecteur par rapport à des sous-espaces orthogonaux</title>
     <statement>
-    <p>Soit <m>V\subseteq \mathbb{R}^n</m> un sous-espace vectoriel. Alors n'importe quel vecteur de <m>\mathbb{R}^n</m> peut s'écrire de manière unique comme la somme d'un vecteur dans <m>V</m> et d'un vecteur dans <m>V^{\perp}</m>. Ceci implique en particulier que <m>\mathbb{R}^n</m> se "décompose":
+    <p>Soit <m>V\subseteq \mathbb{R}^n</m>, un sous-espace vectoriel. Alors n'importe quel vecteur de <m>\mathbb{R}^n</m> peut s'écrire de manière unique comme la somme d'un vecteur dans <m>V</m> et d'un vecteur dans <m>V^{\perp}</m>. Ceci implique en particulier que <m>\mathbb{R}^n</m> se "décompose":
     <me>
     \mathbb{R}^n=V+V^{\perp}
     </me>.</p>
     </statement>
     <proof>
-    <p>Si la dimension de <m>V</m> est <m>0</m>, alors son complément orthogonal est <m>\R^n</m> et il suit que tout vecteur <m>\vec{u}\in\mathbb{R}^n</m> peut s'écrire comme <m>\vec{u}+\vec{0}</m>. La situation est similaire si <m>\text{dim}(V)=n</m>.</p>
-    <p>Soit <m>0&lt;k&lt;n</m> la dimension de <m>V</m>. Selon le théorème <xref ref="thm-fondalg"/>, la dimension de <m>V^{\perp}</m> est <m>n-k</m>. Pour chacun de ces sous-espaces vectoriels, on peut trouver une base. Soit <m>\langle \vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k \rangle</m> une base pour <m>V</m> et <m>\langle \vec{v}_{k+1},\vec{v}_{k+2},\ldots , \vec{v}_n \rangle</m>. On souhaite montrer que ces vecteurs génèrent <m>\mathbb{R}^n</m>. Cela entrainera que tout vecteur peut s'écrire comme une combinaison linéaire de cet ensemble. La partie de la combinaison linéaire avec les <m>k</m> premiers vecteurs sera dans <m>V</m> et l'autre partie dans <m>V^{\perp}</m>. Pour l'unicité, cela découle du fait que les vecteurs forment une base, puisqu'on aura <m>n</m> vecteurs indépendants dans <m>\mathbb{R}^n</m>. </p>
-    <p>Pour montrer l'indépendance des <m>n</m> vecteurs, on suppose qu'on connait une combinaison linéaire donnant le vecteur nul:
+    <p>Si la dimension de <m>V</m> est <m>0</m>, alors son complément orthogonal est <m>\R^n</m> et il s'ensuit que tout vecteur <m>\vec{u}\in\mathbb{R}^n</m> peut s'écrire comme <m>\vec{u}+\vec{0}</m>. La situation est similaire si <m>\text{dim}(V)=n</m>.</p>
+    <p>Soit <m>0&lt;k&lt;n</m>, la dimension de <m>V</m>. Selon le théorème <xref ref="thm-fondalg"/>, la dimension de <m>V^{\perp}</m> est <m>n-k</m>. Pour chacun de ces sous-espaces vectoriels, on peut trouver une base. Soit <m>\langle \vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k \rangle</m>, une base pour <m>V</m> et <m>\langle \vec{v}_{k+1},\vec{v}_{k+2},\ldots , \vec{v}_n \rangle</m>, une base pour <m>V^{\perp}</m>. On souhaite montrer que ces vecteurs génèrent <m>\mathbb{R}^n</m>. Cela entrainera que tout vecteur peut s'écrire comme une combinaison linéaire de cet ensemble. La partie de la combinaison linéaire avec les <m>k</m> premiers vecteurs sera dans <m>V</m> et l'autre partie dans <m>V^{\perp}</m>. Pour l'unicité, cela découle du fait que les vecteurs forment une base, puisqu'on aura <m>n</m> vecteurs indépendants dans <m>\mathbb{R}^n</m>. </p>
+    <p>Pour montrer l'indépendance des <m>n</m> vecteurs, on suppose que l'on connait une combinaison linéaire donnant le vecteur nul:
     <me>
     c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_k\vec{v}_k+c_{k+1}\vec{v}_{k+1}+c_{k+2}\vec{v}_{k+2},\ldots + c_n\vec{v}_n=\vec{0}
     </me>.
@@ -417,25 +416,25 @@ G
     <me>
     c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_k\vec{v}_k=-(c_{k+1}\vec{v}_{k+1}+c_{k+2}\vec{v}_{k+2},\ldots + c_n\vec{v}_n)
     </me>.
-    Comme le membre de droite s'écrit comme une combinaison linéaire de vecteurs dans <m>V</m> et que <m>V</m> est un sous-espace vectoriel, il faut que le membre de droite soit aussi dans <m>V</m>. Par contre le membre de droite est une combinaison linéaire de vecteurs dans <m>V^{\perp}</m> et donc doit aussi être dans <m>V^{\perp}</m>. Le seul vecteur commun à <m>V</m> et <m>V^{\perp}</m> est le vecteur nul. On a donc
+    Comme le membre de droite s'écrit comme une combinaison linéaire de vecteurs dans <m>V</m> et que <m>V</m> est un sous-espace vectoriel, il faut que le membre de droite soit aussi dans <m>V</m>. Par contre, le membre de droite est une combinaison linéaire de vecteurs dans <m>V^{\perp}</m> et doit donc être dans <m>V^{\perp}</m>. Le seul vecteur commun à <m>V</m> et <m>V^{\perp}</m> est le vecteur nul. On obtient ainsi
     <md>
     <mrow>c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_k\vec{v}_k&amp;=\vec{0}</mrow>
     <intertext>et</intertext>
     <mrow>-(c_{k+1}\vec{v}_{k+1}+c_{k+2}\vec{v}_{k+2},\ldots + c_n\vec{v}_n)=&amp;0</mrow>
     </md>.
-    Comme les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k</m> forment une base de <m>V</m>, il faut que les coefficients <m>c_1,c_2,\ldots ,c_n</m> soient tous égaux à zéro. De même, les vecteurs <m>\vec{v}_{k+1},\vec{v}_{k+2},\ldots, \vec{v}_n</m> formant une base de <m>V^{\perp}</m>, les coefficients <m>c_{k+1},c_{k+2},\ldots, c_n</m> sont aussi tous nuls.
+    Comme les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k</m> forment une base de <m>V</m>, il faut que les coefficients <m>c_1,c_2,\ldots ,c_n</m> soient tous égaux à zéro. De même, les vecteurs <m>\vec{v}_{k+1},\vec{v}_{k+2},\ldots, \vec{v}_n</m> formant une base de <m>V^{\perp}</m>, les coefficients <m>c_{k+1},c_{k+2},\ldots, c_n</m> sont aussi nuls.
     </p>
     </proof>
     </proposition>
     <remark xml:id="rem-decomportho">
     <title>Un commentaire additionnel</title>
-<p>La proposition dit que deux sous-espace orthogonaux "décompose" l'espace en deux parties. Cela ne signifie toutefois pas que tous les vecteurs de <m>\mathbb{R}^n</m> sont soit dans <m>V</m> ou soit dans <m>V^{\perp}</m>. En effet, si par exemple on prend un vecteur <m>\vec{v}\in V</m> et <m>\vec{w}\in V^{\perp}</m>, alors le vecteur <m>\vec{u}=\vec{v}+\vec{w}</m> n'est ni dans <m>V</m>, ni dans <m>V^{\perp}</m>. La figure <xref ref="fig-decomportho4esp"/> illustre ceci avec les quatre sous-espaces fondamentaux.</p>
+<p>La proposition dit que deux sous-espaces orthogonaux "décomposent" l'espace en deux parties. Cela ne signifie toutefois pas que tous les vecteurs de <m>\mathbb{R}^n</m> sont soit dans <m>V</m> ou soit dans <m>V^{\perp}</m>. En effet, si, par exemple, on prend un vecteur <m>\vec{v}\in V</m> et <m>\vec{w}\in V^{\perp}</m>, alors le vecteur <m>\vec{u}=\vec{v}+\vec{w}</m> n'est ni dans <m>V</m>, ni dans <m>V^{\perp}</m>. La figure <xref ref="fig-decomportho4esp"/> illustre ceci avec les quatre sous-espaces fondamentaux.</p>
     </remark>
     <example>
     <title>Décomposition d'un vecteur selon des sous-espaces orthogonaux</title>
     <statement><p>Afin d'illustrer la proposition <xref ref="prop-decomportho"/>, on décompose le vecteur <m>\vec{u}=(9,16,21,24)</m> en une composante provenant de <m>V=\vspan{(5,6,7,8),(0,-1,-2,-3)}</m> et son complément orthogonal.</p></statement>
     <solution>
-    <p>On commence par trouver une base pour le complément orthogonal. Si on pose <me>
+    <p>On commence par trouver une base pour le complément orthogonal. Si l'on pose <me>
     A=\begin{pmatrix}
     5&amp;6&amp;7&amp;8\\
     0&amp;-1&amp;-2&amp;-3
@@ -452,7 +451,7 @@ v4=A.right_kernel(basis="pivot").basis()[1]
 show(v3,v4)
     </input>
     </sage>
-    <p>Donc, <m>V^{\perp}=\vspan((1, -2, 1, 0),(2, -3, 0, 1))</m>. Pour exprimer le vecteur <m >\vec{u}</m> en terme de la base générée par <m>V,V^{\perp}</m>, on met les quatre vecteurs dans une matrice colonne et on utilise Sage à nouveau pour échelonner la matrice augmentée du vecteur <m>\vec{u}</m>.</p>
+    <p>Donc, <m>V^{\perp}=\vspan((1, -2, 1, 0),(2, -3, 0, 1))</m>. Pour exprimer le vecteur <m >\vec{u}</m> en fonction de la base générée par <m>V,V^{\perp}</m>, on met les quatre vecteurs dans une matrice colonne et l'on utilise Sage à nouveau pour échelonner la matrice augmentée du vecteur <m>\vec{u}</m>.</p>
     <sage>
     <input>
 B=column_matrix([v1,v2,v3,v4])
@@ -473,7 +472,7 @@ show(Baug.rref())
     <men xml:id="eq-decomplignenul">
     \vec{x}=\vec{x}_l+\vec{x}_n
     </men>
-    avec <m>\vec{x}_l\in\mathcal{L}(A)</m> et <m>\vec{x}_n\in\mathcal{N}(A)</m>, en vertu de la proposition <xref ref="prop-decomportho"/>. Quel est l'effet de la matrice <m>A</m> sur le vecteur <m>\vec{x}</m>? La décomposition combinée à la linéarité de la multiplication matrice vecteur donne la réponse. La composante de <m>\vec{x}</m> provenant de l'espace nul est envoyé sur le vecteur nul et la composante provenant de l'espace ligne est envoyé dans l'espace colonne. Cela signifie que, bien que le domaine de la transformation linéaire soit <m>\mathbb{R}^n</m> au complet, il est seulement utile de connaitre l'image de l'espace ligne pour connaitre l'image de la transformation.
+    avec <m>\vec{x}_l\in\mathcal{L}(A)</m> et <m>\vec{x}_n\in\mathcal{N}(A)</m>, en vertu de la proposition <xref ref="prop-decomportho"/>. Quel est l'effet de la matrice <m>A</m> sur le vecteur <m>\vec{x}</m>? La décomposition combinée à la linéarité de la multiplication matrice vecteur donne la réponse. La composante de <m>\vec{x}</m> provenant de l'espace nul est envoyée sur le vecteur nul et la composante provenant de l'espace ligne est envoyée dans l'espace colonne. Cela signifie que, bien que le domaine de la transformation linéaire soit <m>\mathbb{R}^n</m> au complet, il est seulement utile de connaitre l'image de l'espace ligne pour connaitre l'image de la transformation.
     On bonifie l'image de la figure <xref ref="fig-fondalg"/> afin d'illustrer l'effet d'une matrice comme fonction de <m>\mathbb{R}^n</m> vers <m>\mathbb{R}^m</m>.</p>
     <figure xml:id="fig-decomportho4esp">
     <caption>Décomposition orthogonale et quatre espaces fondamentaux</caption>
@@ -486,7 +485,7 @@ fsize=10
 L=polygon([[3,1],[12,10],[9,13],[0,4]],color="darkcyan",alpha=0.15,axes=False)+text("Espace ligne",(3,5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $r$",(2,6.7),color="black",fontsize=fsize,rotation=45,axes=False)#Espace ligne
 N=polygon([[3,1],[3-0.5*3,1-0.5*3],[13-0.5*3,-9-0.5*3],[13,-9]],color="crimson",alpha=0.15,axes=False)+text("Espace nul",(4,-2.2),color="black",fontsize=fsize,rotation=-45,axes=False)+text("dimension $n-r$",(5,-5),color="black",fontsize=fsize,rotation=-45,axes=False)#Espace nul
 C=polygon([[33,1],[36,4],[27,13],[24,10]],color="dodgerblue",alpha=0.15,axes=False)+text("Espace colonne",(29.5,9.5),color="black",fontsize=fsize,rotation=-45,axes=False)+text("dimension $r$",(30,11.4),color="black",fontsize=fsize,rotation=-45,axes=False)#Espace colonne
-Ng=polygon([[33,1],[26,-6],[29,-9],[36,-2]],color="darkred",alpha=0.15,axes=False)+text("Espace nul-gauche",(32,-5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $m-r$",(33,-6.4),color="black",fontsize=fsize,rotation=45,axes=False)#Espace nul-gauche
+Ng=polygon([[33,1],[26,-6],[29,-9],[36,-2]],color="darkred",alpha=0.15,axes=False)+text("Espace nul gauche",(32,-5),color="black",fontsize=fsize,rotation=45,axes=False)+text("dimension $m-r$",(33,-6.4),color="black",fontsize=fsize,rotation=45,axes=False)#Espace nul gauche
 AD=polygon([[3,1],[2.6,0.6],[2.2,1],[2.6,1.4]],color="black",alpha=1,axes=False)+polygon([[33,1],[33.4,0.6],[33.8,1],[33.4,1.4]],color="black",alpha=1,axes=False) #angles droits
 Pts=point((9,2),color="black",size=20)+point((6.5,4.5),color="black",size=20)+point((5.5,-1.5),color="black",size=20)+point((31,6),color="black",size=20)# points
 Lgns=line(([9,2],[6.5,4.5]),color="black",linestyle="dashed")+line(([9,2],[5.5,-1.5]),color="black",linestyle="dashed")+line(([9+(31-9)*3/4,2+(6-2)*3/4],[31,6]),color="black",linestyle="solid")+arrow((9,2),(9+(31-9)*3/4,2+(6-2)*3/4),color="black" ,arrowsize=5,width=1)+line(([6.5+(31-6.5)*2/3,4.5+(6-4.5)*2/3],[31,6]),color="black",linestyle="solid")+arrow((6.5,4.5),(6.5+(31-6.5)*2/3,4.5+(6-4.5)*2/3),color="black" ,arrowsize=5,width=1)+line(([5.5+(33-5.5)*3/4,-1.5+(1+1.5)*3/4],[33,1]),color="black",linestyle="solid")+arrow((5.5,-1.5),(5.5+(33-5.5)*3/4,-1.5+(1+1.5)*3/4),color="black" ,arrowsize=5,width=1)#lignes
@@ -499,40 +498,40 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     <theorem xml:id="thm-delamatriceinversev5">
     <title>Théorème de la matrice inverse, cinquième version</title>
     <statement>
-    <p>Soit <m>A</m> une matrice carrée d'ordre <m>n</m>. Les énoncés suivants sont équivalents:
+    <p>Soit <m>A</m>, une matrice carrée d'ordre <m>n</m>. Les énoncés suivants sont équivalents:
     <ol>
-    <li><p>La matrice <m>A</m> est inversible</p></li>
-    <li><p>Pour chaque vecteur <m>\vec{v}\in \R^n</m>, il existe un seul vecteur <m>\vec{u}\in \R^n</m> tel que <m>A\vec{u}=\vec{v}</m>.</p></li>
-    <li><p>Le rang de la matrice est égal à <m>n</m>.</p></li>
-    <li><p>La matrice <m>A</m> possède <m>n</m> pivots.</p></li>
-    <li><p>La forme échelonnée réduite de <m>A</m> est la matrice identité.</p></li>
-    <li><p>Aucune ligne n'est une combinaison linéaire des autres lignes.</p></li>
-    <li><p>Aucune colonne n'est une combinaison linéaire des autres colonnes.</p></li>
-    <li><p>Le déterminant de la matrice <m>A</m> est non nul.</p></li>
-    <li><p>L'espace colonne est de dimension <m>n</m>.</p></li>
-    <li><p>L'espace ligne est de dimension <m>n</m>.</p></li>
-    <li><p>L'espace nul est de dimension <m>0</m>.</p></li>
-    <li><p>L'espace nul-gauche est de dimension <m>0</m>.</p></li>
+    <li><p>La matrice <m>A</m> est inversible;</p></li>
+    <li><p>Pour chaque vecteur <m>\vec{v}\in \R^n</m>, il existe un seul vecteur <m>\vec{u}\in \R^n</m> tel que <m>A\vec{u}=\vec{v}</m>;</p></li>
+    <li><p>Le rang de la matrice est égal à <m>n</m>;</p></li>
+    <li><p>La matrice <m>A</m> possède <m>n</m> pivots;</p></li>
+    <li><p>La forme échelonnée réduite de <m>A</m> est la matrice identité;</p></li>
+    <li><p>Aucune ligne n'est une combinaison linéaire des autres lignes;</p></li>
+    <li><p>Aucune colonne n'est une combinaison linéaire des autres colonnes;</p></li>
+    <li><p>Le déterminant de la matrice <m>A</m> est non nul;</p></li>
+    <li><p>L'espace colonne est de dimension <m>n</m>;</p></li>
+    <li><p>L'espace ligne est de dimension <m>n</m>;</p></li>
+    <li><p>L'espace nul est de dimension <m>0</m>;</p></li>
+    <li><p>L'espace nul gauche est de dimension <m>0</m>.</p></li>
     </ol>
     </p></statement>
     </theorem>
     </subsection>
     <subsection>
     <title>La géométrie de la transposée et un retour sur l'inverse à gauche et à droite</title>
-    <p>Lorsqu'on a introduit la transposée à la section <xref ref="sec-transposee"/>, on l'a fait par besoin algébrique pour la suite, sans avoir tous les outils nécessaire à la compréhension de sa géométrie. Une matrice <m>A</m> de taille <m>m\times n</m> est une fonction de <m>\mathbb{R}^n</m> vers <m>\mathbb{R}^m</m>. Le <xref ref="thm-fondalg" text="title"/> et la proposition <xref ref='prop-decomportho'/> disent que la matrice décompose le domaine et l'ensemble d'arrivée en deux sous-espaces dont les dimensions sont complémentaires et que chaque vecteur de l'espace peut-être écrit comme la somme de vecteurs dans chacun de ces sous-espaces. On considère les deux transformations linéaires <m>A:\mathbb{R}^n\to \mathbb{R}^m</m> et <m>A^T:\mathbb{R}^m\to \mathbb{R}^n</m>. La matrice <m>A</m> envoie tous les vecteurs de <m>\mathcal{N}(A)</m> (son espace nul) sur le vecteur <m>\vec{0}\in\mathbb{R}^m</m> et la matrice <m>A^T</m> envoie tous les vecteurs de <m>\mathcal{N}(A^T)</m> (aussi son espace nul) sur le vecteur <m>\vec{0}\in \mathbb{R}^n</m>. Qui plus est, la dimension des espaces colonnes et lignes de la matrice est la même et on a bien sûr que <m>\mathcal{L}(A)=\mathcal{C}(A^T)</m> et <m>\mathcal{C}(A)=\mathcal{L}(A^T)</m>. Tout ceci suggère que <m>A</m> envoie son espace ligne sur l'espace colonne et <m>A^T</m> envoie l'espace colonne de <m>A</m> sur son espace ligne. On pourrait (à tort) penser que la transposée doit alors être l'inverse de la matrice <m>A</m>. En se rappelant la remarque <xref ref="rem-decomportho"/>, il peut exister des vecteurs en dehors de l'espace ligne ou de l'espace nul, mais qui s'écrivent comme combinaison linéaire de vecteurs dans ces espaces. Comme le montre la figure <xref ref="fig-decomportho4esp"/>, deux vecteurs peuvent être envoyé sur le même vecteur <m>\vec{b}</m> dans l'espace colonne. En général, la transposée ne retournera même pas le vecteur <m>\vec{b}</m> sur la composante provenant de l'espace ligne. On a toutefois le résultat suivant. </p>
+    <p>Lorsqu'on a introduit la transposée à la section <xref ref="sec-transposee"/>, on l'a fait par besoin algébrique pour la suite, sans avoir tous les outils nécessaires à la compréhension de sa géométrie. Une matrice <m>A</m> de taille <m>m\times n</m> est une fonction de <m>\mathbb{R}^n</m> vers <m>\mathbb{R}^m</m>. Le <xref ref="thm-fondalg" text="title"/> et la proposition <xref ref='prop-decomportho'/> disent que la matrice décompose le domaine et l'ensemble d'arrivée en deux sous-espaces dont les dimensions sont complémentaires et que chaque vecteur de l'espace peut-être écrit comme la somme de vecteurs dans chacun de ces sous-espaces. On considère les deux transformations linéaires <m>A:\mathbb{R}^n\to \mathbb{R}^m</m> et <m>A^T:\mathbb{R}^m\to \mathbb{R}^n</m>. La matrice <m>A</m> envoie tous les vecteurs de <m>\mathcal{N}(A)</m> (son espace nul) sur le vecteur <m>\vec{0}\in\mathbb{R}^m</m> et la matrice <m>A^T</m> envoie tous les vecteurs de <m>\mathcal{N}(A^T)</m> (aussi son espace nul) sur le vecteur <m>\vec{0}\in \mathbb{R}^n</m>. Qui plus est, la dimension des espaces colonnes et lignes de la matrice est la même et l'on a bien sûr que <m>\mathcal{L}(A)=\mathcal{C}(A^T)</m> et <m>\mathcal{C}(A)=\mathcal{L}(A^T)</m>. Tout ceci suggère que <m>A</m> envoie son espace ligne sur l'espace colonne et <m>A^T</m> envoie l'espace colonne de <m>A</m> sur son espace ligne. On pourrait (à tort) penser que la transposée doit alors être l'inverse de la matrice <m>A</m>. En se rappelant la remarque <xref ref="rem-decomportho"/>, il peut exister des vecteurs en dehors de l'espace ligne ou de l'espace nul, mais qui s'écrivent comme combinaison linéaire de vecteurs dans ces espaces. Comme le montre la figure <xref ref="fig-decomportho4esp"/>, deux vecteurs peuvent être envoyés sur le même vecteur <m>\vec{b}</m> dans l'espace colonne. En général, la transposée ne retournera même pas le vecteur <m>\vec{b}</m> sur la composante provenant de l'espace ligne. On a toutefois le résultat suivant. </p>
     <proposition xml:id="prop-relesplignecol">
     <title>Relation entre <m>\mathcal{L}(A)</m> et <m>\mathcal{C}(A)</m></title>
-    <statement><p>Soit <m>A</m> une matrice <m>m\times n</m>. Pour chaque vecteur <m>\vec{b}</m> dans l'espace colonne <m>\mathcal{C}(A)</m>, il existe une unique vecteur <m>\vec{x}_0</m> dans l'espace ligne de <m>A</m> tel que <me>A\vec{x}_0=\vec{b}</me>.</p></statement>
+    <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m>. Pour chaque vecteur <m>\vec{b}</m> dans l'espace colonne <m>\mathcal{C}(A)</m>, il existe un unique vecteur <m>\vec{x}_0</m> dans l'espace ligne de <m>A</m> tel que <me>A\vec{x}_0=\vec{b}</me>.</p></statement>
     <proof>
-    <p>Soit <m>r</m> la dimension de l'espace ligne et de l'espace colonne et soit <m>\langle\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_r\rangle</m> une base de l'espace ligne. Alors les vecteurs <m>A\vec{v}_1,A\vec{v}_2,\ldots , A\vec{v}_r</m> sont tous dans <m>\mathcal{C}(A)</m>. Si on montre qu'ils sont indépendants, alors ils formeront une base de <m>\mathcal{C}(A)</m>. On considère une combinaison linéaire de ces vecteurs donnant le vecteur nul:
+    <p>Soit <m>r</m>, la dimension de l'espace ligne et de l'espace colonne et soit <m>\langle\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_r\rangle</m>, une base de l'espace ligne. Dans ce cas, les vecteurs <m>A\vec{v}_1,A\vec{v}_2,\ldots , A\vec{v}_r</m> sont tous dans <m>\mathcal{C}(A)</m>. Si l'on montre qu'ils sont indépendants, ils formeront alors une base de <m>\mathcal{C}(A)</m>. On considère une combinaison linéaire de ces vecteurs donnant le vecteur nul:
     <me>c_1A\vec{v}_1+c_2A\vec{v}_2+\ldots + c_rA\vec{v}_r=\vec{0}</me>.
-    En mettant la matrice <m>A</m> en évidence, on obtient que <m>A(c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r)=\vec{0}</m> et donc que la combinaison linéaire <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r</m> est dans l'espace nul de la matrice <m>A</m>. Or comme les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_r</m> sont  une base pour l'espace ligne et que celui-ci est un sous-espace vectoriel, la combinaison linéaire <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r</m> est aussi dans l'espace ligne. Le seul vecteur qui est à la fois dans l'espace ligne et l'espace nul étant le vecteur nul, on conclut que
+    En mettant la matrice <m>A</m> en évidence, on obtient que <m>A(c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r)=\vec{0}</m> et que la combinaison linéaire <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r</m> est dans l'espace nul de la matrice <m>A</m>. Or comme les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_r</m> sont  une base pour l'espace ligne et que celui-ci est un sous-espace vectoriel, la combinaison linéaire <m>c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r</m> est aussi dans l'espace ligne. Le seul vecteur qui est à la fois dans l'espace ligne et l'espace nul étant le vecteur nul, on conclut que
     <me>
     c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r=\vec{0}
     </me>.
     Ceci entraine à son tour que les coefficients <m>c_1,c_2,\ldots, c_r</m> sont tous nuls, puisque les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_r</m> sont indépendants. Ainsi, la seule combinaison linéaire des vecteurs <m>A\vec{v}_1,A\vec{v}_2,\ldots , A\vec{v}_r</m> donnant le vecteur nul étant celle où tous les coefficients sont nuls, on peut conclure que ces <m>r</m> vecteurs sont aussi indépendants et, puisque la dimension de l'espace colonne est <m>r</m>, ils forment une base de cet espace.
     </p>
-    <p>On considère maintenant un vecteur <m>\vec{b}\in\mathcal{C}(A)</m>. Alors puisque <m>A\vec{v}_1,A\vec{v}_2,\ldots , A\vec{v}_r</m> forment une base de l'espace colonne, il existe une unique manière d'écrire <m>\vec{b}</m> comme une combinaison linéaire de ces vecteurs:
+    <p>On considère maintenant un vecteur <m>\vec{b}\in\mathcal{C}(A)</m>. Puisque <m>A\vec{v}_1,A\vec{v}_2,\ldots , A\vec{v}_r</m> forment une base de l'espace colonne, il existe une unique manière d'écrire <m>\vec{b}</m> comme une combinaison linéaire de ces vecteurs:
     <md>
     <mrow>\vec{b}&amp;=c_1A\vec{v}_1+c_2A\vec{v}_2+\ldots + c_rA\vec{v}_r</mrow>
     <mrow>&amp;=A(c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r)</mrow>
@@ -541,25 +540,25 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     où <m>\vec{x}_0=c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_r\vec{v}_r</m>. La preuve que ce vecteur est unique est faite dans l'exercice <xref ref="exo-vecuniqueespligne"/>.</p>
     </proof>
     </proposition>
-    <p>Lorsque la matrice est carrée, on connait une multitude d'équivalences pour déterminer si la matrice est inversible ou non. Celle-ci sont répertoriées dans le théorème <xref ref="thm-delamatriceinversev5"/>. À la section <xref ref="sec-transfodimsup"/>, on a brièvement mentionné la notion d'inverse à gauche et d'inverse à droite pour les matrices rectangulaires, notamment au théorème <xref ref="thm-invrect"/>. Le théorème fondamental de l'algèbre linéaire permet d'apporter un autre point de vue sur la non-existence des inverses. En effet, si une matrice est de taille <m>m\times n</m> avec <m>m&lt; n</m>, alors l'espace nul gauche de la matrice <m>A</m> est de dimension supérieure ou égale à <m>1</m>. Cela entraine que l'équation <m>A\vec{x}=\vec{b}</m> peut ne pas avoir de solution si le vecteur <m>\vec{b}</m> se trouvent dans l'espace nul gauche. On ne peut donc pas inverser à gauche la matrice <m>A</m> et écrire <m>\vec{x}=A^{-1}\vec{b}</m>. De manière similaire, si la matrice est de taille <m>m\times n</m> avec <m>m&gt; n</m> et possède un inverse à droite <m>B</m>, alors <m>B^T</m> est un inverse à gauche pour <m>A^T</m> puisque 
+    <p>Lorsque la matrice est carrée, on connait une multitude d'équivalences pour déterminer si la matrice est inversible ou non. Celles-ci sont répertoriées dans le théorème <xref ref="thm-delamatriceinversev5"/>. À la section <xref ref="sec-transfodimsup"/>, on a brièvement mentionné la notion d'inverse à gauche et d'inverse à droite pour les matrices rectangulaires, notamment au théorème <xref ref="thm-invrect"/>. Le théorème fondamental de l'algèbre linéaire permet d'apporter un autre point de vue sur la non-existence des inverses. En effet, si une matrice est de taille <m>m\times n</m> avec <m>m&lt; n</m>, alors l'espace nul gauche de la matrice <m>A</m> est de dimension supérieure ou égale à <m>1</m>. Cela entraine que l'équation <m>A\vec{x}=\vec{b}</m> peut ne pas avoir de solution si le vecteur <m>\vec{b}</m> se trouve dans l'espace nul gauche. On ne peut donc pas inverser à gauche la matrice <m>A</m> et écrire <m>\vec{x}=A^{-1}\vec{b}</m>. De la même manière, si la matrice est de taille <m>m\times n</m> avec <m>m&gt; n</m> et possède un inverse à droite <m>B</m>, alors <m>B^T</m> est un inverse à gauche pour <m>A^T</m>, puisque 
     <men xml:id="eq-idtransposeinverse">
     I=I^T=(AB)^T=B^TA^T
     </men>.
-    Le même argument appliqué à la matrice <m>A</m> signifie que parce que l'espace nul de <m>A</m> est de dimension plus grande ou égale à <m>1</m>, l'équation <m>A^T\vec{x}=\vec{b}</m> peut ne pas avoir de solution si le vecteur <m>b</m> se trouve dans l'espace colonne de <m>A^T</m>, ou de façon équivalente dans l'espace ligne de <m>A</m>.
+    Le même argument appliqué à la matrice <m>A</m> signifie que, parce que l'espace nul de <m>A</m> est de dimension plus grande ou égale à <m>1</m>, l'équation <m>A^T\vec{x}=\vec{b}</m> peut ne pas avoir de solution si le vecteur <m>b</m> se trouve dans l'espace colonne de <m>A^T</m>, ou de façon équivalente dans l'espace ligne de <m>A</m>.
     </p>  
-    <p>On a des conditions pour la non existence des inverses des matrices rectangulaires, mais qu'en est-il pour l'existence? Tout est basé sur le rang, le nombre de pivots ou encore la dimension des espaces lignes et colonne. Une matrice de taille <m>m\times n</m> peut avoir pour rang maximal la valeur minimale entre <m>m</m> et <m>n</m>. Il ne peut pas y avoir plus de pivots qu'il y a de lignes ou de colonnes, la plus petite de ces dimensions. Pour trouver un inverse à droite, il faut une matrice <m>B</m> de taille <m>n\times m</m> telle que <m>AB=I_m</m>. La matrice <m>A</m> multiplie chaque colonne de <m>B</m> pour avoir l'identité. Il faut donc que les colonnes de l'identité soit dans l'espace colonne. Si le rang de la matrice est <m>m</m>, alors <m>\text{dim}(\mathcal{C}(A))=m=\text{dim}(\mathbb{R}^m)</m>. Si au contraire on cherche un inverse à gauche, c'est-à-dire une matrice <m>B</m> de taille <m>n\times m</m> telle que <m>BA=I_n</m>, alors un argument utilisant l'équation <xref ref="eq-idtransposeinverse"/> et l'idée ci-dessus montre que si le rang de la matrice <m>A</m> est <m>n</m>, c'est-à-dire maximal pour les colonnes, on aura une solution.</p>
-    <p>Ces idées sont résumés dans la proposition ci-dessous.</p>
+    <p>On a des conditions pour la non-existence des inverses des matrices rectangulaires, mais qu'en est-il pour leur existence? Tout est basé sur le rang, le nombre de pivots ou encore la dimension des espaces lignes et colonne. Une matrice de taille <m>m\times n</m> peut avoir pour rang maximal la valeur minimale entre <m>m</m> et <m>n</m>. Il ne peut pas y avoir plus de pivots qu'il y a de lignes ou de colonnes, la plus petite de ces dimensions. Pour trouver un inverse à droite, il faut une matrice <m>B</m> de taille <m>n\times m</m> telle que <m>AB=I_m</m>. La matrice <m>A</m> multiplie chaque colonne de <m>B</m> pour avoir l'identité. Il faut donc que les colonnes de l'identité soient dans l'espace colonne. Si le rang de la matrice est <m>m</m>, alors <m>\text{dim}(\mathcal{C}(A))=m=\text{dim}(\mathbb{R}^m)</m>. Si, au contraire, on cherche un inverse à gauche, c'est-à-dire une matrice <m>B</m> de taille <m>n\times m</m> telle que <m>BA=I_n</m>, alors un argument utilisant l'équation <xref ref="eq-idtransposeinverse"/> et l'idée ci-dessus montre que si le rang de la matrice <m>A</m> est <m>n</m>, c'est-à-dire maximal pour les colonnes, on aura une solution.</p>
+    <p>Ces idées sont résumées dans la proposition ci-dessous.</p>
     <proposition xml:id="prop-invgauchedroite">
     <title>L'existence d'inverse à gauche et à droite</title>
     <statement><p>
-    Soit <m>A</m> une matrice de taille <m>m\times n</m> avec rang <m>r</m>.
+    Soit <m>A</m>, une matrice de taille <m>m\times n</m> avec rang <m>r</m>.
     <ol>
-    <li><p>Si <m>r=m</m>, alors il existe une inverse à droite.</p></li>
-    <li><p>Si <m>r=n</m>, alors il existe une inverse à gauche.</p></li>
+    <li><p>Si <m>r=m</m>, alors, il existe une inverse à droite;</p></li>
+    <li><p>Si <m>r=n</m>, alors, il existe une inverse à gauche.</p></li>
     </ol>
     </p></statement>
     <proof>
-    <p>Dans le cas où le rang est égal au nombre de lignes, on peut trouver <m>m</m> colonnes pivots qui sont indépendantes et donc, génèrent <m>\mathbb{R}^m</m>. Il y a donc toujours une solution à l'équation <m>A\vec{x}=\vec{b}</m> puisque l'espace colonne est <m>\mathbb{R}^m</m> au complet. On peut donc trouver une matrice inverse en résolvant les équations matrices vecteurs 
+    <p>Dans le cas où le rang est égal au nombre de lignes, on peut trouver <m>m</m> colonnes pivots qui sont indépendantes et génèrent <m>\mathbb{R}^m</m>. On voit qu'il y a toujours une solution à l'équation <m>A\vec{x}=\vec{b}</m>, puisque l'espace colonne est <m>\mathbb{R}^m</m> au complet. On peut donc trouver une matrice inverse en résolvant les équations matrices vecteurs 
     <md>
     <mrow>A\vec{x}_1&amp;=\vec{e}_1</mrow>
     <mrow>A\vec{x}_2&amp;=\vec{e}_2</mrow>
@@ -572,7 +571,7 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     </proposition>
     <remark>
     <title>Quelques précisions sur les inverses</title>
-    <p>Il faut noter que, contrairement à <xref ref="prop-inverseunique" text="custom"> l'inverse d'une matrice carrée</xref> qui est unique, une matrice rectangulaire peut, si elle en a, avoir plusieurs inverses à gauche et à droite. Aussi, l'équation <m>A\vec{x}=\vec{b}</m> est liée à la notion d'inverse lorsque la matrice est carrée. Si la matrice est inversible, alors il existe une solution unique donnée par <m>\vec{x}=A^{-1}\vec{b}</m>. Dans le cas d'une matrice rectangulaire, l'existence d'un inverse à droite implique qu'une solution existe toujours. En effet, puisque <m>AA^{-1}_{\text{droite}}=I</m>, on a que <m>AA^{-1}_{\text{droite}}\vec{b}=\vec{b}</m>. Ainsi <m>\vec{x}=A^{-1}_{\text{droite}}\vec{b}</m> est une solution. Cette solution n'est peut-être pas unique par contre. Si un autre inverse existe, il pourrait mener à une solution différente. Si plutôt la matrice possède un inverse à gauche, alors là la solution, si elle existe, sera unique. D'une part, si <m>B</m> est un inverse à gauche, alors <m>B\vec{b}</m> est une solution puisque <m>BA=I</m> et donc <m>BA\vec{x}=B\vec{b}</m>. De plus, si <m>C</m> est un inverse à gauche différent de <m>B</m>, alors par le même raisonnement, <m>C\vec{b}</m> est aussi une solution. Or on a
+    <p>Il faut noter que, contrairement à <xref ref="prop-inverseunique" text="custom"> l'inverse d'une matrice carrée</xref>, qui est unique, une matrice rectangulaire peut, si elle en a, avoir plusieurs inverses à gauche et à droite. De plus, l'équation <m>A\vec{x}=\vec{b}</m> est liée à la notion d'inverse lorsque la matrice est carrée. Si la matrice est inversible, alors il existe une solution unique donnée par <m>\vec{x}=A^{-1}\vec{b}</m>. Dans le cas d'une matrice rectangulaire, l'existence d'un inverse à droite implique qu'une solution existe toujours. En effet, puisque <m>AA^{-1}_{\text{droite}}=I</m>, on a que <m>AA^{-1}_{\text{droite}}\vec{b}=\vec{b}</m>. Ainsi <m>\vec{x}=A^{-1}_{\text{droite}}\vec{b}</m> est une solution. Par contre, cette solution n'est peut-être pas unique. Si un autre inverse existe, il pourrait mener à une solution différente. Si la matrice possède plutôt un inverse à gauche, alors là la solution, si elle existe, sera unique. D'une part, si <m>B</m> est un inverse à gauche, alors <m>B\vec{b}</m> est une solution puisque <m>BA=I</m> et donc <m>BA\vec{x}=B\vec{b}</m>. De plus, si <m>C</m> est un inverse à gauche différent de <m>B</m>, alors par le même raisonnement, <m>C\vec{b}</m> est aussi une solution. Or on a
     <md>
     <mrow>B\vec{b}&amp;=BA\vec{x}</mrow>
     <mrow>&amp;=I\vec{x}</mrow>
@@ -581,7 +580,7 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     </md>.
     Il est toutefois possible que le vecteur <m>\vec{b}</m> ne soit pas dans l'espace colonne et qu'il n'y ait pas de solution.
     </p>
-    <p>En résumé, pour une matrice <m>m\times n</m> de rang <m>m</m>, l'équation <m>A\vec{x}=\vec{b}</m> possède <m>1</m> ou une infinité de solution alors que pour une matrice de rang <m>n</m>, elle en possède <m>0</m> ou une. Lorsque <m>m=n</m> (et que la rang est maximal), la solution ne peut être qu'unique.</p>
+    <p>En résumé, pour une matrice <m>m\times n</m> de rang <m>m</m>, l'équation <m>A\vec{x}=\vec{b}</m> possède <m>1</m> ou une infinité de solutions, alors que pour une matrice de rang <m>n</m>, elle en possède <m>0</m> ou une. Lorsque <m>m=n</m> (et que le rang est maximal), la solution ne peut être qu'unique.</p>
     </remark>
 </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
@@ -589,12 +588,12 @@ L+N+C+Ng+AD+Pts+Lgns+Txt
     <conclusion xml:id="concl-4esp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont:
     <ul>
-    <li><p>Comment obtenir une <xref ref="prop-baseesplignenul" text="custom">base pour l'espace ligne et l'espace nul</xref>.</p></li>
-    <li><p>Comment obtenir une <xref ref="prop-baseespcolnulg" text="custom">base pour l'espace colonne et l'espace nul-gauche</xref>.</p></li>
-    <li><p>La <xref ref="prop-dim4esp" text="custom">dimension des quatre espaces fondamentaux</xref> et le lien avec le rang de la matrice.</p></li>
+    <li><p>Comment obtenir une <xref ref="prop-baseesplignenul" text="custom">base pour l'espace ligne et l'espace nul</xref>;</p></li>
+    <li><p>Comment obtenir une <xref ref="prop-baseespcolnulg" text="custom">base pour l'espace colonne et l'espace nul gauche</xref>;</p></li>
+    <li><p>La <xref ref="prop-dim4esp" text="custom">dimension des quatre espaces fondamentaux</xref> et le lien avec le rang de la matrice;</p></li>
     <li><p>Le <xref ref="thm-fondalg" text="title"/>.</p></li>
-    <li><p>La  nouvelle version du <xref ref="thm-delamatriceinversev5" text="custom">théorème de la matrice inverse</xref>.</p></li>
-    <li><p> La <xref ref="prop-relesplignecol" text="custom">relation</xref> entre l'espace ligne et l'espace colonne d'une matrice.</p></li>
+    <li><p>La  nouvelle version du <xref ref="thm-delamatriceinversev5" text="custom">théorème de la matrice inverse</xref>;</p></li>
+    <li><p> La <xref ref="prop-relesplignecol" text="custom">relation</xref> entre l'espace ligne et l'espace colonne d'une matrice;</p></li>
     <li><p> Les conditions d'existence pour les inverses à gauche et à droite, détaillées à la proposition <xref ref="prop-invgauchedroite"/>.</p></li>
     </ul>
     </p>
