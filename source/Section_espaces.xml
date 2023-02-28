@@ -14,44 +14,44 @@
     <title> Espaces vectoriels </title>
     <introduction xml:id= "intro-espaces">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Aller aux <xref ref="exo-espaces">exercices</xref> de la section.</p>
-    <p>Dans ce chapitre, on a vu que chaque sous-espace vectoriel de dimension <m>k</m> dans <m>\mathbb{R}^n</m> se comporte de manière similaire à une copie de <m>\mathbb{R}^k</m>. Ainsi, un plan, peu importe l'espace dans lequel il se trouve, se comporte essentiellement comme <m>\mathbb{R}^2</m>. La structure d'addition et de multiplication par un scalaire obéit à des règles précises qui font en sorte que des éléments d'un sous-espaces demeurent dans le sous-espace lorsqu'ils sont combinés par ces opérations. On s'intéresse maintenant à généraliser cette structure et voir si ces règles s'appliquent en dehors du contexte des vecteurs et des nombres. On peut penser aux fonctions, qui demeurent des fonctions lorsqu'additionner ou multiplier par des nombres réels, ou encore plus simplement aux polynômes. Si on pouvait montrer une forme d'équivalence entre ce que l'on a fait avec <m>\mathbb{R}^n</m> et ses sous-espaces et d'autres objets mathématiques ayant des opérations similaires, on pourrait peut-être utiliser beaucoup des résultats démontrés précédemment et les appliquer dans ces nouveaux contexte.</p>
-    <p>Dans cette section, on introduit la notion d'espace vectoriel et on généralise certaines notions pour des espaces plus abstraits. On donne aussi quelques exemples et leurs applications.</p>
+    <p>Dans ce chapitre, on a vu que chaque sous-espace vectoriel de dimension <m>k</m> dans <m>\mathbb{R}^n</m> se comporte de manière équivalente à une copie de <m>\mathbb{R}^k</m>. Ainsi, un plan, peu importe l'espace dans lequel il se trouve, se comporte essentiellement comme <m>\mathbb{R}^2</m>. La structure d'addition et de multiplication par un scalaire obéit à des règles précises qui font en sorte que des éléments d'un sous-espace demeurent dans le sous-espace lorsqu'ils sont combinés par ces opérations. On s'intéresse maintenant à généraliser cette structure et l'on cherche à voir si ces règles s'appliquent en dehors du contexte des vecteurs et des nombres. On peut penser aux fonctions, qui demeurent des fonctions lorsqu'additionnées ou multipliées par des nombres réels, ou encore plus simplement aux polynômes. Si l'on pouvait montrer une forme d'équivalence entre ce que l'on a fait avec <m>\mathbb{R}^n</m> et ses sous-espaces et d'autres objets mathématiques ayant des opérations similaires, on pourrait utiliser plusieurs des résultats démontrés précédemment et les appliquer dans ces nouveaux contextes.</p>
+    <p>Dans cette section, on introduit la notion d'espace vectoriel et l'on généralise certaines notions pour des espaces plus abstraits. On donne aussi quelques exemples et leurs applications.</p>
     </introduction>
     <subsection>
     <title>Espace vectoriel</title>
-    <p>Les espaces dans lesquels vivent les vecteurs étudiés jusqu'ici sont tous similaires. Ils sont composés de nombres réels, d'une opération addition et d'une opération multiplication. Ces opérations satisfont certaines propriétés naturelles et classiques. On s'intéresse maintenant à généraliser ce concept. Dans un premier temps, on peut changer les objets, ce qui constitue les vecteurs. On peut également changer les opérations d'addition et de multiplication. Ces deux changements , individuellement ou ensemble, apportent un nouveau regard sur les notions de sous-espaces, base, etc. On commence avec la définition d'un espace vectoriel.</p>
+    <p>Les espaces dans lesquels vivent les vecteurs étudiés jusqu'ici sont tous similaires. Ils sont composés de nombres réels, d'une opération addition et d'une opération multiplication. Ces opérations satisfont certaines propriétés naturelles et classiques. On cherche maintenant à généraliser ce concept. Dans un premier temps, on peut changer les objets, ce qui constitue les vecteurs. On peut également changer les opérations d'addition et de multiplication. Ces deux changements, individuellement ou ensemble, apportent un nouveau regard sur les notions de sous-espaces, base, etc. On commence par la définition d'un espace vectoriel.</p>
     <definition xml:id="def-espacevectoriel">
     <title>Espace vectoriel</title>
     <statement>
-    <p>Un espace vectoriel sur les réels est un ensemble <m>V</m> munis de deux opérations, une opération d'addition, notée <m>\oplus</m> et une opération de multiplication par un scalaire réel, notée <m>\otimes</m>, qui satisfont les propriétés suivantes. Pour chaque <m>\vec{u},\vec{v},\vec{w}\in V</m> et pour tout <m>r,s\in \mathbb{R}</m>:</p>
+    <p>Un espace vectoriel sur les réels est un ensemble <m>V</m> munis de deux opérations, une opération d'addition, notée <m>\oplus</m>, et une opération de multiplication par un scalaire réel, notée <m>\otimes</m>, qui satisfont les propriétés suivantes. Pour chaque <m>\vec{u},\vec{v},\vec{w}\in V</m> et pour tout <m>r,s\in \mathbb{R}</m>, on a</p>
     <list xml:id="li-espacevectoriel">
     <title>Condition à respecter pour être un espace vectoriel</title>
     <ol>
-    <li xml:id="li-espacevectoriel1"><p><m>\vec{u}\oplus \vec{v}\in V</m> (fermeture par rapport à l'addition)</p></li>
-    <li xml:id="li-espacevectoriel2"><p><m>\vec{u}\oplus \vec{v}=\vec{v}\oplus \vec{u}</m> (commutativité de l'addition vectorielle)</p></li>
-    <li xml:id="li-espacevectoriel3"><p><m>\vec{u}\oplus (\vec{v}\oplus \vec{w})=(\vec{u}\oplus \vec{v})\oplus \vec{w}</m> (associativité de l'addition vectorielle)</p></li>
-    <li xml:id="li-espacevectoriel4"><p><m>\vec{u}\oplus \vec{0}=\vec{u}</m> (neutre additif)</p></li>
-    <li xml:id="li-espacevectoriel5"><p><m>\vec{u}\oplus (-\vec{u})=\vec{0}</m> (inverse additif)</p></li>
-    <li xml:id="li-espacevectoriel6"><p><m>r\otimes\vec{u}\in V</m> (fermeture par rapport à la multiplication par un scalaire)</p></li>
-    <li xml:id="li-espacevectoriel7"><p><m>(rs)\otimes\vec{u}=r\otimes(s\otimes\vec{u})</m> (associativité de la multiplication par un scalaire)</p></li>
-    <li xml:id="li-espacevectoriel8"><p><m>r\otimes(\vec{u}\oplus \vec{v})=r\otimes\vec{u}\oplus r\otimes\vec{v}</m> (distributivité sur l'addition vectorielle)</p></li>
-    <li xml:id="li-espacevectoriel9"><p><m>(r+ s)\otimes\vec{u}=r\otimes\vec{u}\oplus s\otimes\vec{u}</m> (distributivité de l'addition des scalaires)</p></li>
-    <li xml:id="li-espacevectoriel10"><p><m>1\otimes\vec{u}=\vec{u}</m> (neutre multiplicatif)</p></li>
+    <li xml:id="li-espacevectoriel1"><p><m>\vec{u}\oplus \vec{v}\in V</m> (fermeture par rapport à l'addition);</p></li>
+    <li xml:id="li-espacevectoriel2"><p><m>\vec{u}\oplus \vec{v}=\vec{v}\oplus \vec{u}</m> (commutativité de l'addition vectorielle);</p></li>
+    <li xml:id="li-espacevectoriel3"><p><m>\vec{u}\oplus (\vec{v}\oplus \vec{w})=(\vec{u}\oplus \vec{v})\oplus \vec{w}</m> (associativité de l'addition vectorielle);</p></li>
+    <li xml:id="li-espacevectoriel4"><p><m>\vec{u}\oplus \vec{0}=\vec{u}</m> (neutre additif);</p></li>
+    <li xml:id="li-espacevectoriel5"><p><m>\vec{u}\oplus (-\vec{u})=\vec{0}</m> (inverse additif);</p></li>
+    <li xml:id="li-espacevectoriel6"><p><m>r\otimes\vec{u}\in V</m> (fermeture par rapport à la multiplication par un scalaire);</p></li>
+    <li xml:id="li-espacevectoriel7"><p><m>(rs)\otimes\vec{u}=r\otimes(s\otimes\vec{u})</m> (associativité de la multiplication par un scalaire);</p></li>
+    <li xml:id="li-espacevectoriel8"><p><m>r\otimes(\vec{u}\oplus \vec{v})=r\otimes\vec{u}\oplus r\otimes\vec{v}</m> (distributivité sur l'addition vectorielle);</p></li>
+    <li xml:id="li-espacevectoriel9"><p><m>(r+ s)\otimes\vec{u}=r\otimes\vec{u}\oplus s\otimes\vec{u}</m> (distributivité de l'addition des scalaires);</p></li>
+    <li xml:id="li-espacevectoriel10"><p><m>1\otimes\vec{u}=\vec{u}</m> (neutre multiplicatif).</p></li>
                 </ol>
     </list>
     </statement>
     </definition>
     <aside><title>En passant</title>
-    <p>En fait, la définition d'un espace vectoriel est plus générale que celle donnée. Les scalaires ne sont pas nécessairement des nombres réels. La seul importance et que ceux-ci forment ce qu'on appelle en mathématique un <url href="https://fr.wikipedia.org/wiki/Corps_commutatif" visual="corps"/>.</p></aside>
+    <p>En fait, la véritable définition d'un espace vectoriel est plus générale que celle que l'on a donnée. Les scalaires ne sont pas nécessairement des nombres réels. La seule chose importante est que ceux-ci forment ce qu'on appelle en mathématique un <url href="https://fr.wikipedia.org/wiki/Corps_commutatif" visual="corps"/>.</p></aside>
     <p>Pour toute valeur de <m>n</m>, l'espace <m>\mathbb{R}^n</m> muni des opérations usuelles d'addition et de multiplication est un espace vectoriel. On regarde des exemples un peu moins standards.</p>
     <example xml:id="ex-espacesvectoriels">
     <title>Des espaces vectoriels</title>
     <statement><p>Les espaces suivants sont des espaces vectoriels:
     <ol>
-    <li><p>L'ensemble des matrices de taille <m>m\times n</m>, noté <m>\mathcal{M}_{m\times n}</m> et muni de l'addition matricielle et de la multiplication par un scalaire usuelles.</p></li>
+    <li><p>L'ensemble des matrices de taille <m>m\times n</m>, noté <m>\mathcal{M}_{m\times n}</m>, et muni de l'addition matricielle et de la multiplication par un scalaire, toutes les deux dans leur forme usuelle.</p></li>
     
-    <li><p>L'ensemble <m>\mathscr{P}_2(x)</m> constitué des polynômes de degré inférieur ou égal à <m>2</m> à coefficients réels, muni de l'addition et de la multiplication usuelle.</p></li>
-    <li><p>L'ensemble <m>\mathbb{R}^{\infty}</m> des suites infinies de nombres réels muni  de l'addition et de la multiplication usuelle. Un élément de <m>\mathbb{R}^{\infty}</m> est de la forme
+    <li><p>L'ensemble <m>\mathscr{P}_2(x)</m>, constitué des polynômes de degré inférieur ou égal à <m>2</m> à coefficients réels, muni de l'addition et de la multiplication usuelle.</p></li>
+    <li><p>L'ensemble <m>\mathbb{R}^{\infty}</m> des suites infinies de nombres réels, muni  de l'addition et de la multiplication usuelle. Un élément de <m>\mathbb{R}^{\infty}</m> est de la forme
     <me>
     \vec{x}=(x_1,x_2,x_3,\ldots)
     </me>. L'addition et la multiplication se font composante par composante.</p></li>
@@ -62,9 +62,9 @@
     </md>.</p></li>
     </ol>
     </p></statement>
-    <solution><p>C'était l'objet de l'exercice <xref ref="exo-propopmat"/>. Il ne manque qu'à justifier l'addition de deux matrices de taille <m>m\times n</m> est aussi une matrice de taille <m>m\times n</m> et de même pour la multiplication par un scalaire. Comme ces opérations se font composante par composante, c'est bien le cas.</p></solution>
-    <solution><p>Un polynôme de degré inférieur ou égal à <m>2</m> peut s'écrire sous la forme <m>p(x)=a+bx+cx^2</m> où <m>a,b,c\in \mathbb{R}</m>. On considère un deuxième polynôme de cette forme <m>q(x)=d+ex+fx^2</m> et des scalaire réels <m>r,s</m>. On démontre certaines des propriétés, laissant les autres à l'exercice <xref provisional="exo-polyespace"/>.</p>
-    <p>Dans un premier temps, si on additionne les polynômes <m>p(x)</m> et <m>q(x)</m>, on obtient
+    <solution><p>C'était l'objet de l'exercice <xref ref="exo-propopmat"/>. Il ne manque qu'à justifier que l'addition de deux matrices de taille <m>m\times n</m> est aussi une matrice de taille <m>m\times n</m>, et de même pour la multiplication par un scalaire. Comme ces opérations se font composante par composante, c'est bien le cas.</p></solution>
+    <solution><p>Un polynôme de degré inférieur ou égal à <m>2</m> peut s'écrire sous la forme <m>p(x)=a+bx+cx^2</m> où <m>a,b,c\in \mathbb{R}</m>. On considère un deuxième polynôme de cette forme <m>q(x)=d+ex+fx^2</m> et des scalaires réels <m>r,s</m>. On démontre certaines des propriétés, laissant les autres à l'exercice <xref provisional="exo-polyespace"/>.</p>
+    <p>Dans un premier temps, si l'on additionne les polynômes <m>p(x)</m> et <m>q(x)</m>, on obtient
     <me>
     p(x)+q(x)=a+bx+cx^2+d+ex+fx^2=a+d+(b+e)x+(c+f)x^2
     </me>. Puisque <m>a+d,b+e,c+f\in \mathbb{R}</m>, l'addition de deux polynômes de degré inférieur ou égal à <m>2</m> est encore un polynôme de degré inférieur ou égal à <m>2</m>.</p>
@@ -79,9 +79,9 @@
     <mrow>&amp;=rp(x)+rq(x)</mrow>
     </md>.</p>
     </solution>
-    <solution><p>Cet espace est très similaire à <m>\mathbb{R}^n</m>, mais il y a une infinité de composante aux vecteurs. Puisque l'addition et la multiplication se font composante par composante, l'espace est fermé sous les opérations d'addition et de multiplication par un scalaire. Une simple modification de la solution à l'exercice <xref ref="exo-propopmat"/> démontre les autres propriétés.</p></solution>
+    <solution><p>Cet espace est très similaire à <m>\mathbb{R}^n</m>, mais il y a une infinité de composantes aux vecteurs. Puisque l'addition et la multiplication se font composante par composante, l'espace est fermé sous les opérations d'addition et de multiplication par un scalaire. Une simple modification de la solution à l'exercice <xref ref="exo-propopmat"/> démontre les autres propriétés.</p></solution>
     <solution>
-    <p>Cet exemple est particulier puisque c'est la première apparition d'opérations non usuelles. Puisque tous les nombres sont réels, <m>\mathbb{R^2}</m> est fermé sous les opérations d'addition et de multiplication par un scalaire. En effet, <m>(u_1+v_1+1,u_2+v_2-1)\in\mathbb{R}^2</m> puisque <m>u_1+v_1+1,u_2+v_2-1\in \mathbb{R}</m>. De même, <m>(ru_1+(r-1),ru_2-(r-1))\in\mathbb{R}^2</m> puisque <m>ru_1+(r-1),ru_2-(r-1)\in \mathbb{R}</m>.</p>
+    <p>Cet exemple est particulier puisque c'est la première apparition d'opérations non usuelles. Puisque tous les nombres sont réels, <m>\mathbb{R^2}</m> est fermé sous les opérations d'addition et de multiplication par un scalaire. En effet, <m>(u_1+v_1+1,u_2+v_2-1)\in\mathbb{R}^2</m>, puisque <m>u_1+v_1+1,u_2+v_2-1\in \mathbb{R}</m>. De même, <m>(ru_1+(r-1),ru_2-(r-1))\in\mathbb{R}^2</m>, puisque <m>ru_1+(r-1),ru_2-(r-1)\in \mathbb{R}</m>.</p>
     <p>Pour les autres propriétés, on doit vérifier. On commence avec la commutativité.
     <md>
     <mrow>\vec{u}\oplus \vec{v}&amp;=(u_1+v_1+1,u_2+v_2-1)</mrow>
@@ -97,7 +97,7 @@
     <mrow>                                     &amp;=(u_1+v_1+1,u_2+v_2+1)\oplus (w_1,w_2)&amp;\text{définition de l'addition spéciale}</mrow>
     <mrow>                                     &amp;=(\vec{u}\oplus \vec{v})\oplus \vec{w}&amp;\text{définition de l'addition spéciale}</mrow>
     </md>.</p>
-    <p>Les choses se compliquent un peut lorsqu'on arrive à la propriété du neutre additif. Si on essaie naivement d'additionner le vecteur<m>(0,0)</m> au vecteur <m>\vec{u}</m>, on obtient
+    <p>Les choses se compliquent un peu lorsqu'on arrive à la propriété du neutre additif. Si l'on essaie naïvement d'additionner le vecteur<m>(0,0)</m> au vecteur <m>\vec{u}</m>, on obtient
     <me>
     (u_1,u_2)\oplus(0,0)=(u_1+0+1,u_2+0-1)\neq(u_1,u_2)
     </me>.
@@ -107,7 +107,7 @@
     </me>.
     Ainsi, dans cet espace, on a <m>\vec{0}=(-1,1)</m>.
     </p>
-    <p>Pour l'existence d'un inverse additif, il faut se rappeler dans un premier temps que l'on cherche à obtenir le vecteur nul de cet espace, soit <m>(-1,1)</m>. Ainsi, si on essaie <m>-\vec{u}=(-u_1,-u_2)</m>, on aura
+    <p>Pour l'existence d'un inverse additif, il faut se rappeler, dans un premier temps, que l'on cherche à obtenir le vecteur nul de cet espace, soit <m>(-1,1)</m>. Ainsi, si l'on essaie <m>-\vec{u}=(-u_1,-u_2)</m>, on aura
     <me>
     (u_1,u_2)\oplus(-u_1,-u_2)=(u_1-u_1+1,u_2-u_2-1)\neq(-1,1)
     </me>.
@@ -120,14 +120,14 @@
     <mrow>&amp;=\vec{0}&amp;\text{vecteur nul de cet espace}</mrow>
     </md>.
     </p>
-    <p>On termine avec la distributivité de la multiplication par le scalaire sur l'addition. Les propriétés restantes seront faites à l'exercices <xref provisional="exo-propR2speciale"/>. Donc pour <m>\vec{u},\vec{v}\in\mathbb{R}^2</m> et <m>r\in \mathbb{R}</m>, on a
+    <p>On termine avec la distributivité de la multiplication par le scalaire sur l'addition. Les propriétés restantes seront faites à l'exercice <xref provisional="exo-propR2speciale"/>. Donc, pour <m>\vec{u},\vec{v}\in\mathbb{R}^2</m> et <m>r\in \mathbb{R}</m>, on a
     <md>
     <mrow>r\otimes(\vec{u}\oplus \vec{v})&amp;r\otimes (u_1+v_1+1,u_2+v_2-1)</mrow>
     <mrow>&amp;=(r(u_1+v_1+1)+(r-1),r(u_1+v_2-1)-(r-1))</mrow>
     <mrow>&amp;=(ru_1+rv_1+r+r-1,ru_1+ru_2-r-r+1)</mrow>
      <mrow>&amp;=(ru_1+rv_1+2r-1,ru_1+ru_2-2r+1)</mrow>
     </md>.
-    À ce stade-ci, il semble complexe de voir comment se rendre à l'objectif <m>r\otimes\vec{u}\oplus r\otimes\vec{v}</m>. Une stratégie courante dans ce cas et de partir de l'autre côté de de développer. On obtient
+    À ce stade-ci, il semble complexe de voir comment se rendre à l'objectif <m>r\otimes\vec{u}\oplus r\otimes\vec{v}</m>. Une stratégie courante dans ce cas consiste à commencer avec l'autre côté et de développer. On obtient
     <md>
     <mrow>r\otimes\vec{u}\oplus r\otimes\vec{v}&amp;(ru_1+(r-1),ru_2-(r-1))\oplus(rv_1+(r-1),rv_2-(r-1))</mrow>
     <mrow>&amp;=(ru_1+(r-1)+rv_1+(r-1)+1,ru_2-(r-1)+rv_2-(r-1)-1)</mrow>
@@ -137,11 +137,11 @@
     </p>
     </solution>
     </example>
-    <p>Évidemment, le dernier exemple avec les opérations spéciales est un peu arbitraire et on s'explique mal pourquoi on ferait une telle définition. La prochaine sous-section donnera un exemple un peu plus concret d'un espace vectoriel muni d'opérations spéciales. Les notions de sous-espaces, dimension, base etc. sont aussi des concepts qui s'appliquent aux sous-espaces plus abstraits. On revoit les définitions dans leur contexte plus général afin d'avoir un portrait global des espaces vectoriels.</p>
+    <p>Évidemment, le dernier exemple avec les opérations spéciales est un peu arbitraire et l'on s'explique mal pourquoi on proposerait une telle définition. La prochaine sous-section donnera un exemple un peu plus concret d'un espace vectoriel muni d'opérations spéciales. Les notions de sous-espaces, dimension, base, etc. sont aussi des concepts qui s'appliquent aux sous-espaces plus abstraits. On revoit les définitions dans leur contexte plus général afin d'avoir un portrait global des espaces vectoriels.</p>
     <definition xml:id="def-ssesp2">
     <title>Sous-espace vectoriel</title>
     <statement>
-    <p>Soit <m>W</m> un espace vectoriel. On dit que <m>V\neq \emptyset</m> est un sous-espace vectoriel de <m>W</m> si les vecteurs dans <m>V</m> satisfont les propriétés suivantes:</p>
+    <p>Soit <m>W</m>, un espace vectoriel. On dit que <m>V\neq \emptyset</m> est un sous-espace vectoriel de <m>W</m> si les vecteurs dans <m>V</m> satisfont les propriétés suivantes:</p>
     <list xml:id="li-ssesp2">
     <title>Sous-espace vectoriel</title>
     <ol>
@@ -150,7 +150,7 @@
     </ol></list>
     </statement>
     </definition>
-    <p>Cette définition n'est qu'une reformulation de la définition <xref ref="def-ssesp"/> où l'on a remplacé toute allusion à <m>\mathbb{R}^n</m> par un espace vectoriel quelconque <m>W</m>. Un sous-espace hérite des propriétés de l'espace vectoriel, puisque par défaut il est inclus dans ce dernier. Les propriétés des opérations sont automatiquement satisfaites à l'intérieur d'un sous-espace vectoriel. En plus, par définition, un sous-espace vectoriel est fermé par rapport à ces opérations, ce qui fait qu'un sous-espace vectoriel est aussi un espace vectoriel. Il y a toutefois un point plus contentieux, qui pourra être résolu grâce à la proposition suivante.</p>
+    <p>Cette définition n'est qu'une reformulation de la définition <xref ref="def-ssesp"/> où l'on a remplacé toute allusion à <m>\mathbb{R}^n</m> par un espace vectoriel quelconque <m>W</m>. Un sous-espace hérite des propriétés de l'espace vectoriel, puisque, par défaut, il est inclus dans ce dernier. Les propriétés des opérations sont automatiquement satisfaites à l'intérieur d'un sous-espace vectoriel. En plus, par définition, un sous-espace vectoriel est fermé par rapport à ces opérations, ce qui fait qu'un sous-espace vectoriel est aussi un espace vectoriel. Il y a toutefois un point plus contentieux, qui pourra être résolu grâce à la proposition suivante.</p>
     <proposition xml:id="prop-propespaces">
     <title>Vecteur nul et inverse additif</title>
     <statement><p>Soit <m>W</m>, un espace vectoriel sur <m>\mathbb{R}</m>, soit <m>r \in \mathbb{R}</m> et <m>\vec{u} \in W</m>. Alors, on a les propriétés suivantes:</p>
@@ -193,7 +193,7 @@ Ainsi <m>0\otimes \vec{u}=\vec{0}</m>.
 </p>
 </proof>
 <proof><p>
-Pour démontrer cette affirmation, on fait une hypothèse additionnelle sur <m>r</m>. En effet, soit <m>r=0</m>, soit <m>r\neq 0</m>. Dans le cas où <m>r=0</m>, la preuve est terminée puisque c'est ce qu'on voulait montrer. Maintenant si  <m>r\neq 0</m>, on doit montrer que <m>\vec{u}=\vec{0}</m>. On a
+Pour démontrer cette affirmation, on fait une hypothèse additionnelle sur <m>r</m>. En effet, soit <m>r=0</m>, soit <m>r\neq 0</m>. Dans le cas où <m>r=0</m>, la preuve est terminée puisque c'est ce qu'on voulait montrer. Maintenant, si  <m>r\neq 0</m>, on doit montrer que <m>\vec{u}=\vec{0}</m>. On a
 <md>
 <mrow>\vec{u}&amp;=1\otimes \vec{u} &amp;\text{ neutre multiplicatif}</mrow>
 <mrow>&amp;=\frac{r}{r}\otimes \vec{u}&amp;=\text{ puisque } r\neq 0</mrow>
@@ -203,9 +203,9 @@ Pour démontrer cette affirmation, on fait une hypothèse additionnelle sur <m>r
 </md>.
 Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
 </p></proof>
-<proof><p>Voir l'exercice <xref provisional="exo-neutremultiplicatif"/>.</p></proof>
+<proof><p>Voir l'exercice <xref ref="exo-neutremultiplicatif"/>.</p></proof>
     </proposition>
-    <p>La proposition précédente peut sembler anodine, mais on doit se souvenir que les opérations <m>\oplus,\otimes</m> peuvent être définies de manière un peu arbitraire et on a pu voir à l'exemple <xref ref="ex-espacesvectoriels"/> que le vecteur nul et l'inverse additif n'étaient pas toujours aussi naturel qu'on aurait pu le croire. Il est donc utile de savoir que l'on peut déterminer ces éléments uniquement en utilisant la multiplication.</p>
+    <p>La proposition précédente peut sembler anodine, mais on doit se souvenir que les opérations <m>\oplus,\otimes</m> peuvent être définies de manière un peu arbitraire. On a aussi pu voir à l'exemple <xref ref="ex-espacesvectoriels"/> que le vecteur nul et l'inverse additif n'étaient pas toujours aussi naturels qu'on aurait pu le croire. Il est donc utile de savoir que l'on peut déterminer ces éléments uniquement en utilisant la multiplication.</p>
     <example>
     <title>Retour sur l'espace vectoriel avec opérations spéciales</title>
     <statement><p>On considère à nouveau l'espace <m>\mathbb{R}^2</m> muni de l'addition et de la multiplication
@@ -215,7 +215,7 @@ Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
     </md>.</p>
     <p>On cherche à déterminer le vecteur nul et l'inverse additif en utilisant la proposition <xref ref="prop-propespaces"/>.</p>
     </statement>
-    <solution><p>Soit <m>\vec{u}</m> un vecteur quelconque de <m>\mathbb{R}^2</m>. En vertu de la propriété <xref ref="li-propespaces2"/>, on a 
+    <solution><p>Soit <m>\vec{u}</m>, un vecteur quelconque de <m>\mathbb{R}^2</m>. En vertu de la propriété <xref ref="li-propespaces2"/>, on a 
     <md>
     <mrow>\vec{0}&amp;=0\otimes (u_1,u_2)</mrow>
     <mrow>&amp;=(0u_1+(0-1),0u_2-(0-1))</mrow>
@@ -233,15 +233,15 @@ Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
     </example>
     <proposition xml:id="prop-ssespestespace">
     <title>Un sous-espace vectoriel est aussi un espace vectoriel</title>
-    <statement><p>Soit <m>W</m> un espace vectoriel et <m>V\subseteq W</m> un sous-espace vectoriel. Alors <m>V</m> est aussi un espace vectoriel.</p></statement>
+    <statement><p>Soit <m>W</m>, un espace vectoriel et <m>V\subseteq W</m> un sous-espace vectoriel. Alors <m>V</m> est aussi un espace vectoriel.</p></statement>
     <proof>
-    <p>Les deux propriétés de fermeture découlent directement de la définition d'un sous-espace vectoriel <xref ref="def-ssesp2"/>. Pour les propriétés plus algébriques, elles sont satisfaites en vertu du fait que pour des vecteurs <m>\vec{u},\vec{v},\vec{w}</m> dans <m>V</m>, ces vecteurs sont aussi dans <m>W</m> et devaient donc naturellement satisfaire aux propriétés de la définition <xref ref="def-espacevectoriel"/>. </p>
-    <p>Le seul point à vérifier est que le vecteur nul appartient au sous-espace et que l'inverse additif d'un vecteur du sous-espace est aussi dans le sous-espace, car à priori rien ne garantit cela. </p>
-    <p>Pour le vecteur nul, il suffit de constater qu'en prenant n'importe quel vecteur <m>\vec{v}</m> de <m>V</m>, la propriété de fermeture par rapport à la multiplication par un scalaire combiné avec le scalaire <m>0</m> font en sorte que <m>0\otimes \vec{v}</m> est dans le sous-espace. La propriété <xref ref="li-propespaces2"/> montre que <m>0\otimes \vec{v}=\vec{0}</m>.</p>
-    <p>Pour l'inverse additif, la même idée s'applique puisque <m>-\vec{v}=(-1)\otimes \vec{v}</m> selon la propriété <xref ref="li-propespaces4"/>. Comme c'est un multiple d'un vecteur dans le sous-espace, il est ausis dans le sous-espace. Tout ceci entraine qu'un sous-espace possède toutes les propriétés d'un espace et donc, peut être vu aussi comme un espace vectoriel.</p>
+    <p>Les deux propriétés de fermeture découlent directement de la définition d'un sous-espace vectoriel <xref ref="def-ssesp2"/>. Pour les propriétés plus algébriques, elles sont satisfaites en vertu du fait que, pour des vecteurs <m>\vec{u},\vec{v},\vec{w}</m> dans <m>V</m>, ces vecteurs sont aussi dans <m>W</m> et devaient donc naturellement satisfaire aux propriétés de la définition <xref ref="def-espacevectoriel"/>. </p>
+    <p>Le seul point à vérifier est que le vecteur nul appartient au sous-espace et que l'inverse additif d'un vecteur du sous-espace est aussi dans le sous-espace, car à priori, rien ne garantit cela. </p>
+    <p>Pour le vecteur nul, il suffit de constater qu'en prenant n'importe quel vecteur <m>\vec{v}</m> de <m>V</m>, la propriété de fermeture par rapport à la multiplication par un scalaire combiné avec la multiplication par le scalaire <m>0</m> font en sorte que <m>0\otimes \vec{v}</m> est dans le sous-espace. La propriété <xref ref="li-propespaces2"/> montre que <m>0\otimes \vec{v}=\vec{0}</m>.</p>
+    <p>Pour l'inverse additif, la même idée s'applique, puisque <m>-\vec{v}=(-1)\otimes \vec{v}</m> selon la propriété <xref ref="li-propespaces4"/>. Comme c'est un multiple d'un vecteur dans le sous-espace, il est aussi dans le sous-espace. Tout ceci entraine qu'un sous-espace possède toutes les propriétés d'un espace et peut donc être vu aussi comme un espace vectoriel.</p>
     </proof>
     </proposition>
-    <p>La stratégie pour montrer qu'un ensemble <m>V</m> est un sous-espace d'un espace <m>W</m> demeure la même que celle utilisée à la section <xref ref="sec-ssesp"/>. Les objets ont changé, mais les idées sont les mêmes.</p>
+    <p>La stratégie pour montrer qu'un ensemble <m>V</m> est un sous-espace d'un espace <m>W</m> demeure la même que celle qui est utilisée à la section <xref ref="sec-ssesp"/>. Les objets ont changé, mais les idées sont les mêmes.</p>
     <example>
     <title>Des sous-espaces vectoriels</title>
     <statement><p>Les ensembles suivants sont des sous-espaces vectoriels des espaces vectoriels indiqués.
@@ -250,8 +250,8 @@ Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
     <li><p>L'ensemble <m>\mathcal{Z}_n</m> des polynômes de degré inférieur ou égal à <m>n</m> tels que <m>p(0)=0</m> est un sous-espace vectoriel de l'espace des polynômes de degré inférieur ou égal à <m>n</m>, <m>\mathcal{P}_n</m>.</p></li>
     <li><p>L'ensemble des suites infinies qui sont éventuellement <m>0</m> est un sous-espace de <m>\mathbb{R}^{\infty}</m> muni des opérations usuelles.</p></li>
     </ol></p></statement>
-    <solution><p>Soit <m>D_1</m> et <m>D_2</m> deux matrices diagonales et <m>r\in\mathbb{R}</m> un scalaire. Parce que l'addition matricielle se fait entrée par entrée et que les entrées autres que celles sur la diagonales sont nulles, la somme des matrices <m>D_1</m> et <m>D_2</m> a aussi seulement des zéros sur les entrées autres que la diagonales. Elle est donc aussi une matrice diagonale, ce qui montre que l'ensemble est fermé par rapport à l'addition.</p>
-    <p>De même, en multipliant <m>D_1</m> par <m>r</m>, il n'y a que les entrées sur la diagonale qui sont potentiellement modifiées, les autres étant nulles. Le produit <m>rD_1</m> est aussi une matrice diagonale, ce qui montre que l'ensemble est fermée par rapport à la multiplication par un scalaire. L'ensemble <m>\mathcal{D}_n</m> est donc un sous-espace vectoriel de l'espace des matrices carrées.</p></solution>
+    <solution><p>Soit <m>D_1</m> et <m>D_2</m>, deux matrices diagonales et <m>r\in\mathbb{R}</m>, un scalaire. Parce que l'addition matricielle se fait entrée par entrée et que les entrées autres que celles qui sont sur la diagonale sont nulles, la somme des matrices <m>D_1</m> et <m>D_2</m> a aussi que des zéros sur les entrées autres que la diagonale. Elle est donc également une matrice diagonale, ce qui montre que l'ensemble est fermé par rapport à l'addition.</p>
+    <p>De même, en multipliant <m>D_1</m> par <m>r</m>, il n'y a que les entrées sur la diagonale qui sont potentiellement modifiées, les autres étant nulles. Le produit <m>rD_1</m> est aussi une matrice diagonale, ce qui montre que l'ensemble est fermé par rapport à la multiplication par un scalaire. L'ensemble <m>\mathcal{D}_n</m> est donc un sous-espace vectoriel de l'espace des matrices carrées.</p></solution>
     <solution><p>On considère deux polynômes <m>p(x),q(x)</m> de degré inférieur ou égal à <m>n</m> ayant la propriété que <m>p(0)=q(0)=0</m>. On pose <m>s(x)=p(x)+q(x)</m>. Alors
     <md>
     <mrow>s(0)&amp;=p(0)+q(0)</mrow>
@@ -260,15 +260,15 @@ Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
     </md>. Cet ensemble est donc fermé par rapport à l'addition. De même
     <me>
     rs(0)=r(0)=0
-    </me>, montrant que l'ensemble est aussi fermé par raport à la multiplication par un scalaire.</p></solution>
-    <solution><p>Soit <m>a=(a_1,a_2,\ldots a_{n-1},0,0,0,\ldots)</m> et <m>b=(b_1,b_2,\ldots , b_{m-1},0,0,\ldots)</m> deux suites qui sont éventuellement nulle passé un certain indice. Lorsqu'on les additionne, les entrées seront toujours nulles au-delà de l'indice <m>\max(m,n)</m>. L'ensemble est donc fermé par rapport à l'addition. </p>
-    <p>De même, si on multiplie les éléments de <m>a</m> par un scalaire quelconque, toutes les entrées au-delà de l'indice <m>n</m> sont encore nulles. L'ensemble est donc aussi fermé par rapport à la multiplication par un scalaire. C'est un sous-espace vectoriel de <m>\mathbb{R}^{\infty}</m>.</p>
+    </me>, montrant que l'ensemble est aussi fermé par rapport à la multiplication par un scalaire.</p></solution>
+    <solution><p>Soit <m>a=(a_1,a_2,\ldots a_{n-1},0,0,0,\ldots)</m> et <m>b=(b_1,b_2,\ldots , b_{m-1},0,0,\ldots)</m>, deux suites qui sont éventuellement nulles passé un certain indice. Lorsqu'on les additionne, les entrées seront toujours nulles au-delà de l'indice <m>\max(m,n)</m>. L'ensemble est donc fermé par rapport à l'addition. </p>
+    <p>De même, si l'on multiplie les éléments de <m>a</m> par un scalaire quelconque, toutes les entrées au-delà de l'indice <m>n</m> sont encore nulles. L'ensemble est donc aussi fermé par rapport à la multiplication par un scalaire. C'est un sous-espace vectoriel de <m>\mathbb{R}^{\infty}</m>.</p>
     </solution>
     </example>
-    <p>On écrit maintenant la définition de plusieurs concepts déjà connus, mais reformulée dans les termes plus généraux d'un espace vectoriel quelconque.</p>
+    <p>On écrit maintenant la définition de plusieurs concepts déjà connus, mais reformulés dans les termes plus généraux d'un espace vectoriel quelconque.</p>
     <definition>
     <title>Span, indépendance linéaire, base et dimension</title>
-    <statement><p>Soit <m>V</m> un espace vectoriel et soit <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n</m> des éléments de <m>V</m>. On définit l'espace engendré par ces vecteurs comme l'ensemble de leurs combinaisons linéaires:
+    <statement><p>Soit <m>V</m>, un espace vectoriel et soit <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n</m>, des éléments de <m>V</m>. On définit l'espace engendré par ces vecteurs comme l'ensemble de leurs combinaisons linéaires:
     <me>
     \vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n)=\left\{c_1\vec{v}_1+c_2\vec{v}_2,\ldots +c_n\vec{v}_n ~|~ c_1,c_2,\ldots c_n\in \mathbb{R}\right\}
     </me>.</p>
@@ -282,10 +282,10 @@ Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
     </ol></p>
     </statement>
     </definition>
-    <p>Encore une fois, les techniques et stratégies utilisées dans le cas des espaces vectoriels quelconques sont très similaires à celles utilisées avec les espaces <m>\mathbb{R}^n</m>. </p>
+    <p>Encore une fois, les techniques et stratégies utilisées dans le cas des espaces vectoriels quelconques sont similaires à celles qui sont utilisées avec les espaces <m>\mathbb{R}^n</m>. </p>
     <example xml:id="ex-basepoly2">
     <title>Base d'un espace de polynômes</title>
-    <statement><p>On considère à nouveau l'espace <m>\mathcal{P}_2(x)</m> des polynômes de degré inférieur ou égal à <m>2</m> et on cosidère les polynômes <m>p_1(x)=x,p_2(x)=x^2-1</m> et <m>>p_3(x)=x^2+1</m>. On souhaite montrer que
+    <statement><p>On considère à nouveau l'espace <m>\mathcal{P}_2(x)</m> des polynômes de degré inférieur ou égal à <m>2</m> et l'on considère les polynômes <m>p_1(x)=x,p_2(x)=x^2-1</m> et <m>>p_3(x)=x^2+1</m>. On souhaite montrer que
     <ol>
     <li><p>l'ensemble <m>\{p_1,p_2,p_3\}</m> est linéairement indépendant et</p></li>
     <li><p>engendre l'espace <m>\mathcal{P}_2(x)</m>,</p></li>
@@ -296,7 +296,7 @@ Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
     <me>
     c_1x+c_2(x^2-1)+c_3(x^2+1)=0
     </me>.
-    Deux stratégie sont possibles ici. L'équation précédente peut être développée et réécrite en regroupant les puissances de <m>x</m> ensemble:
+    Deux stratégies sont possibles ici. L'équation précédente peut être développée et réécrite en regroupant les puissances de <m>x</m>:
     <me>
     (c_3-c_2)x^0+c_1x+(c_2+c_3)x^2=0x^0+0x+0x^2
     </me>.
@@ -310,14 +310,14 @@ Caug=C.augment(m,subdivide=True)
 show(Caug.rref())    
     </input>
     </sage>
-    <p>On voit donc qu'il faut en effet que chaque coefficient soit nul pour satisfaire l'équation. Les polynômes sont donc indépendants.</p>
-    <p>Une autre stratégie consiste à réaliser que l'équation <m>   c_1x+c_2(x^2-1)+c_3(x^2+1)=0</m> doit être satisfaite pour toutes les valeurs de <m>x</m>. En prenant des valeurs spécifiques de <m>x</m>, on peut se créer un autre système d'équations à résoudre. Par exemple, en prenant respesctivement <m>x=0,x=1,x=-1</m>, on obtient les équations
+    <p>On voit donc qu'il faut que chaque coefficient soit nul pour satisfaire l'équation. Les polynômes sont donc indépendants.</p>
+    <p>Une autre stratégie consiste à réaliser que l'équation <m>   c_1x+c_2(x^2-1)+c_3(x^2+1)=0</m> doit être satisfaite pour toutes les valeurs de <m>x</m>. En prenant des valeurs spécifiques de <m>x</m>, on peut se créer un autre système d'équations à résoudre. Par exemple, en prenant respectivement <m>x=0,x=1,x=-1</m>, on obtient les équations
     <md>
     <mrow>&amp;-c_2&amp;+c_3&amp;=0</mrow>
     <mrow>c_1&amp;&amp;+2c_3&amp;=0</mrow>
     <mrow>-c_1&amp;&amp;+2c_3&amp;=0</mrow>
     </md>.
-    Les deux dernières équations demandent à avoir <m>c_1=-2c_3</m> et <m>c_1=2c_3</m>, ce qui n'est possible que lorsque <m>c_1=c_3=0</m>. La première équation complète finalement avec <m>c_2=c_3=0</m>.
+    Les deux dernières équations demandent à avoir <m>c_1=-2c_3</m> et <m>c_1=2c_3</m>, ce qui n'est possible que lorsque <m>c_1=c_3=0</m>. La première équation complète finalement la preuve avec <m>c_2=c_3=0</m>.
     </p>
     <p>Selon le contexte, ces deux méthodes peuvent s'avérer efficaces, parfois l'une plus que l'autre.</p>
     </solution>
@@ -326,7 +326,7 @@ show(Caug.rref())
     <me>
     a+bx+cx^2=c_1x+c_2(x^2-1)+c_3(x^2+1)
     </me>.
-    Encore une fois, on peut développer ou utiliser des valeurs spécifiques de <m>x</m>. On propose de reprendre le calcul Sage fait précédemment mais de résoudre en fonction du vecteur <m>(a,b,c)</m> plutôt que du vecteur nul.
+    Encore une fois, on peut développer ou utiliser des valeurs spécifiques de <m>x</m>. On propose de reprendre le calcul Sage fait précédemment, mais de résoudre l'équation en fonction du vecteur <m>(a,b,c)</m> plutôt que du vecteur nul.
     </p>
     <sage>
     <input>
@@ -335,15 +335,15 @@ C=matrix([[0,-1,1,a],[1,0,0,b],[0,1,1,c]])
 show(C.echelon_form())
     </input>
     </sage>
-    <p>Puisqu'il est possible d'écrire tout polynôme comme une combinaison linéaire de <m>p_1,p_2,p_3</m>, combinés au fait qu'ils sont linéairement indépendants, ces trois polynomes forment une base de <m>\mathcal{P}_2(x)</m>.</p>
+    <p>Puisqu'il est possible d'écrire tout polynôme comme une combinaison linéaire de <m>p_1,p_2,p_3</m>, combinés au fait qu'ils sont linéairement indépendants, ces trois polynômes forment une base de <m>\mathcal{P}_2(x)</m>.</p>
     </solution>
     </example>
-    <p>Les résultats des sections précédentes de ce chapitre s'appliquent  et s'obtiennent presque tous sans changement. Tout ce qui a à trait à l'existence d'une base (<xref ref="prop-baseexiste"/>), à la dimension, au complément orthogonal et ses résultats associés reste valide.  On propose ici une nouvelle définition de dimension s'inspirant de celle pour les espaces <m>\mathbb{R}^n</m>, avec une remarque qui apportera peut-être davantage de questions que de réponses.</p>
+    <p>Les résultats des sections précédentes de ce chapitre s'appliquent  et s'obtiennent presque tous sans changement. Tout ce qui a trait à l'existence d'une base (<xref ref="prop-baseexiste"/>), à la dimension, au complément orthogonal et ses résultats associés reste valide.  On propose ici une nouvelle définition de dimension s'inspirant de celle qui concerne les espaces <m>\mathbb{R}^n</m>, avec une remarque qui apportera peut-être davantage de questions que de réponses.</p>
     <definition>
     <title>La dimension d'un espace vectoriel</title>
-    <statement><p>Soit <m>V</m> un espace vectoriel. S'il existe <m>k\in\mathbb{N}</m> et des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k</m> qui engendrent <m>V</m>, on dit que <m>V</m> est de dimension finie et sa dimension est <m>k</m>. Dans le cas contraire, on dit que <m>V</m> est de dimension infinie.</p></statement>
+    <statement><p>Soit <m>V</m>, un espace vectoriel. S'il existe <m>k\in\mathbb{N}</m> et des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k</m> qui engendrent <m>V</m>, on dit que <m>V</m> est de dimension finie et sa dimension est <m>k</m>. Dans le cas contraire, on dit que <m>V</m> est de dimension infinie.</p></statement>
     </definition>
-    <p>Comme dans beaucoup de domaines mathématiques, l'infini apporte son lot de particularités et celles-ci dépassent le niveau souhaité ici. Un aperçu de ces particularités pourra être vu dans la section <xref provisional="sec-unpeuplusloinespace"/>.</p>
+    <p>Comme dans beaucoup de domaines mathématiques, l'infini apporte son lot de particularités et qui dépassent le niveau souhaité ici. On aura un aperçu de ces particularités dans la section <xref provisional="sec-unpeuplusloinespace"/>.</p>
     <example xml:id="ex-espacesetdimension">
     <title>Quelques espaces et leur dimension</title>
     <statement><p>On cherche à caractériser la dimension des espaces suivants:
@@ -369,14 +369,14 @@ show(C.echelon_form())
     </solution>
     <solution><p>Le nom de l'espace suggère fortement que la dimension de cet espace sera infinie. Il faut montrer qu'il est impossible d'engendrer cette espace avec un nombre fini de vecteurs. Pour montrer que cela est impossible, on procède par contradiction.
     </p>
-    <p>On suppose qu'il existe <m>k</m> suites engendrant <m>\mathbb{R}^{\infty}</m>. On considère le sous-espace vectoriel composé des suites dont les éléments valent <m>0</m> lorsque l'indice est plus grand  que <m>k+1</m>. Ce sous-espace est, à toute fin pratique, équivalent à <m>R^{k+1}</m> puisqu'on peut ignorer les composantes nulles à partir de l'indice <m>k+2</m>. Or on sait que la dimension de <m>R^{k+1}</m> est <m>k+1</m>, signifiant qu'il faut <m>k+1</m> vecteurs pour engendrer ce sous-espace. Ceci entraine que les <m>k</m> vecteurs en hypothèse ne peuvent engendrer le sous-espace vectoriel, mais comme celui-ci est inclus dans l'espace <m>\mathbb{R}^{\infty}</m>, cela contredit le fait que les suites existent.</p>
-    <p>Comme il ne peut y avoir d'ensemble de taille fini qui engendre cet espace, il est de dimension infini. </p>
+    <p>On suppose qu'il existe <m>k</m> suites engendrant <m>\mathbb{R}^{\infty}</m>. On considère le sous-espace vectoriel composé des suites dont les éléments valent <m>0</m> lorsque l'indice est plus grand  que <m>k+1</m>. Ce sous-espace est, tout compte fait, équivalent à <m>R^{k+1}</m> puisqu'on peut ignorer les composantes nulles à partir de l'indice <m>k+2</m>. Or on sait que la dimension de <m>R^{k+1}</m> est <m>k+1</m>, ce qui signifie qu'il faut <m>k+1</m> vecteurs pour engendrer ce sous-espace. Ceci entraine que les <m>k</m> vecteurs en hypothèse ne peuvent engendrer le sous-espace vectoriel, mais comme celui-ci est inclus dans l'espace <m>\mathbb{R}^{\infty}</m>, cela contredit le fait que les suites existent.</p>
+    <p>Comme il ne peut y avoir d'ensemble de taille finie qui engendre cet espace, il est de dimension infinie. </p>
     </solution>
     </example>
     </subsection>
     <subsection>
     <title>Quelques espaces importants</title>
-    <p>Au-delà des espaces <m>\mathbb{R}^n</m>, il existe plusieurs autres espaces vectoriels qui sont d'un intérêt particulier. Même les fonctions usuelles peuvent être vues comme des espaces vectoriels, bien que ces espaces soient de dimension infinie et donc, plus complexe que les espaces <m>\mathbb{R}^n</m> et autres espaces de dimension finie.</p>
+    <p>Au-delà des espaces <m>\mathbb{R}^n</m>, il existe plusieurs autres espaces vectoriels qui sont d'un intérêt particulier. Même les fonctions usuelles peuvent être vues comme des espaces vectoriels, bien que ces espaces soient de dimension infinie et donc plus complexe que les espaces <m>\mathbb{R}^n</m> et autres espaces de dimension finie.</p>
     <example>
     <title>Les espaces de fontions</title>
     <statement><p>On considère un intervalle <m>I</m>, possiblement <m>\mathbb{R}</m> en entier. On note par
@@ -388,7 +388,7 @@ show(C.echelon_form())
     <li><p><m>\mathscr{C}^{\infty}(I)</m> l'ensemble des fonctions réelles et continues infiniment dérivables de manière continue sur <m>I</m>.</p></li>
     </ol>
     </p>
-    <p>On munit ces espaces de l'addition usuelle des fonctions ainsi que de la multiplication usuelle par un scalaire. Ces espaces sont tous des espaces vectoriels. La preuve utilise le résultat bien connu en calcul différentiel que la somme de deux fonctions continues est continue ainsi que la multiplication d'une fonction continue par une constante.</p></statement>
+    <p>On munit ces espaces de l'addition usuelle des fonctions ainsi que de la multiplication usuelle par un scalaire. Ces espaces sont tous des espaces vectoriels. La preuve utilise le résultat bien connu en calcul différentiel qui stipule que la somme de deux fonctions continues est continue ainsi que la multiplication d'une fonction continue par une constante.</p></statement>
     </example>
     <p>À partir de ces espaces, on peut s'intéresser à leurs sous-espaces vectoriels et conclure certains résultats classiques en calcul différentiel et intégral en utilisant les résultats d'algèbre linéaire.</p>
     <example><title>
@@ -398,31 +398,30 @@ show(C.echelon_form())
     <me>
     V=\{f\in\mathscr{C}^1(\mathbb{R})~ |~ f^{'}(x)=f(x) \text{ pour tout } x\in\mathbb{R}\}
     </me>.
-    Ce sous-espace représente l'ensemble des fonctions qui sont égales à leur dérivée première. On montre dans un premier temps que c'est bel et bien un sous-espace vectoriel et on détermine une base de ce sous-espace.
+    Ce sous-espace représente l'ensemble des fonctions qui sont égales à leur dérivée première. On montre dans un premier temps que c'est bel et bien un sous-espace vectoriel et l'on détermine une base de ce sous-espace.
     </p></statement>
     <solution>
     <p>Puisque <m>f(x)=0</m> est un membre de l'ensemble <m>V</m>, il y a au moins un élément dans l'ensemble. On considère deux éléments quelconque  de <m>f,g\in V</m> ainsi qu'un scalaire réel <m>c</m>. Pour la somme, on a
     <md>
     <mrow>(f(x)+g(x))^{'}&amp;=f^{'}(x)+g^{'}(x) &amp; \text{ en vertu de la règle sur la somme des dérivées}</mrow>
     <mrow>&amp;=f(x)+g(x) &amp;\text{par hypothèse}</mrow>
-    </md>
-    et donc, la somme fait aussi partie de <m>V</m>. De même, on a 
+    </md>, la somme fait donc partie de <m>V</m>. De même, on a 
     <me>(cf(x))^{'}=cf^{'}(x)=cf(x)</me>
     en vertu de la règle sur la dérivée d'un multiple d'une fonction. <m>V</m> est donc un sous-espace vectoriel.
     </p>
-    <p>En plus de la fonction nulle, une fonction bien connue qui est égale à sa dérivée est <m>f(x)=e^x</m>. Cette fonction constitue en fait une base pour ce sous-espace vectoriel, qui est donc de dimension <m>1</m>. Puisqu'il n'y a qu'un seul élément, il suffit de montrer que celui-ci génère <m>V</m>. On considère un élément quelconque du sous-espace <m>g(x)\in V</m> et on considère la fonction <m>h(x)=g(x)f(-x)=g(x)e^{-x}</m>. En dérivant cette fonction, on trouve
+    <p>En plus de la fonction nulle, une fonction bien connue qui est égale à sa dérivée est <m>f(x)=e^x</m>. Cette fonction constitue, en fait, une base pour ce sous-espace vectoriel, qui est donc de dimension <m>1</m>. Puisqu'il n'y a qu'un seul élément, il suffit de montrer que celui-ci génère <m>V</m>. On considère un élément quelconque du sous-espace <m>g(x)\in V</m> et l'on considère la fonction <m>h(x)=g(x)f(-x)=g(x)e^{-x}</m>. En dérivant cette fonction, on trouve
     <md>
     <mrow>h^{'}(x)&amp;=(g(x)e^{-x})^{'}</mrow>
     <mrow>&amp;=g^{'}(x)e^{-x}-g(x)e^{-x} &amp;\text{ selon la dérivée d'un produit et la dérivation en chaine appliquée à l'exponentielle}</mrow>
     <mrow>&amp;=g^(x)e^{-x}-g(x)e^{-x} &amp;\text{ car la fonction } g\in V</mrow>
     <mrow>&amp;=0</mrow>
     </md>.
-    Si la fonction <m>h(x)</m> a pour dérivée <m>0</m>, c'est donc qu'elle est constante et ainsi <m>g(x)e^{-x}=c</m>, ce qui entraine que <m>g(x)=ce^x</m>. Toutes les fonctions dans <m>V</m> peuvent donc s'écrire comme un multiple de la fonction <m>f(x)=e^x</m>, signifiant que celle-ci génère le sous-espace.
+    Si la fonction <m>h(x)</m> a pour dérivée <m>0</m>, c'est donc qu'elle est constante et ainsi <m>g(x)e^{-x}=c</m>, ce qui entraine que <m>g(x)=ce^x</m>. Toutes les fonctions dans <m>V</m> peuvent alors s'écrire comme un multiple de la fonction <m>f(x)=e^x</m>, ce qui signifie qu'elle génère le sous-espace.
     </p>
     </solution>
     </example>
-    <p>Il y a beaucoup d'autres liens et applications à faire entre les espaces vectoriels (ou l'algèbre linéaire en général) et les équations différentiels. On en explore quelques-unes au chapitre <xref provisional="chap-applications"/>.</p>
-    <p>Le deuxième exemple est en fait l'espace <m>\mathbb{R}</m>, mais munie d'une addition et d'une multiplication spéciales. En physique newtonienne, on calcule la vitesse à laquelle deux objets s'approchent l'un de l'autre en additionnant les vitesses de chacun des objets. Lorsqu'on considère de très grandes vitesses (près de la vitesse de la lumière), cette addition n'a plus de sens étant donné que rien ne peut dépasser la vitesse de la lumière. Il se trouve que la véritable manière d'additionner les vitesses en physique repose sur une modification du concept d'addition, qui respecte toutefois les mêmes propriétés que l'addition usuelle. Ceci fait en sorte qu'on peut définir un espace vectoriel.</p>
+    <p>Il y a beaucoup d'autres liens et d'autres applications à faire entre les espaces vectoriels (ou l'algèbre linéaire en général) et les équations différentielles. On en explore quelques-unes au chapitre <xref provisional="chap-applications"/>.</p>
+    <p>Le deuxième exemple est en fait l'espace <m>\mathbb{R}</m>, mais muni d'une addition et d'une multiplication spéciales. En physique newtonienne, on calcule la vitesse à laquelle deux objets s'approchent l'un de l'autre en additionnant les vitesses de chacun des objets. Lorsqu'on considère de très grandes vitesses (près de la vitesse de la lumière), cette addition n'a plus de sens étant donné que rien ne peut dépasser la vitesse de la lumière. Il se trouve que la véritable manière d'additionner les vitesses en physique repose sur une modification du concept d'addition, qui respecte toutefois les mêmes propriétés que l'addition usuelle. Ceci fait en sorte qu'on peut définir un espace vectoriel.</p>
     <example xml:id="ex-relativite">
     <title>Addition de vitesses en relativité</title>
     <statement>
@@ -434,7 +433,7 @@ et
 <me>
 r\otimes x=\frac{(1+x)^r-(1-x)^r}{(1+x)^r+(1-x)^r}
 </me>
-est un espace vectoriel sur les réels. Ici, les variables <m>x,y</m> représente des fractions de la vitesse de la lumière, avec les signes positif ou négatif indiquant la direction.
+est un espace vectoriel sur les réels. Ici, les variables <m>x,y</m> représentent des fractions de la vitesse de la lumière, les signes positif ou négatif indiquant la direction.
 </p>
 <p>On montre que les propriétés d'un espace vectoriel sont respectées avec ces opérations.</p>
     </statement>
@@ -447,7 +446,7 @@ est un espace vectoriel sur les réels. Ici, les variables <m>x,y</m> représent
     <mrow>&amp;\Leftrightarrow &amp;\frac{x+y}{1+xy}&amp;&lt;1&amp;&amp;\text{ car } 1+xy>0</mrow>
     </md>.
 
-L'argument pour montrer que <m>-1&lt;\frac{x+y}{1+xy}</m> est similaire et sera fait à l'exercice <xref provisional="exo-proprelativite"/>. On a donc fermeture pour l'addition car on a montré que <m>x\oplus y\in V</m>.</p>
+L'argument pour montrer que <m>-1&lt;\frac{x+y}{1+xy}</m> est similaire et sera explicité à l'exercice <xref ref="exo-proprelativite"/>. On a donc fermeture pour l'addition, car on a montré que <m>x\oplus y\in V</m>.</p>
     </solution>
     <solution><p>La commutativité de l'addition usuelle ainsi que de la multiplication usuelle montre que
     <md>
@@ -457,7 +456,7 @@ L'argument pour montrer que <m>-1&lt;\frac{x+y}{1+xy}</m> est similaire et sera 
     </md>.</p></solution>
     <solution>
     <p>
-    L'associativité sera démontrée à l'exercice <xref provisional="exo-proprelativite"/>.
+    L'associativité sera démontrée à l'exercice <xref ref="exo-proprelativite"/>.
     </p></solution>
     <solution>
     <p>Selon la propriété <xref ref="li-propespaces2"/>, on peut obtenir le vecteur nul en multipliant un vecteur quelconque par le scalaire <m>0</m>. On a donc
@@ -469,8 +468,8 @@ L'argument pour montrer que <m>-1&lt;\frac{x+y}{1+xy}</m> est similaire et sera 
     </md>.
     Le vecteur nul est donc simplement <m>0</m>. Évidemment, on aurait aussi pu deviner et vérifier que <m>x\oplus 0=x</m>.</p>
     </solution>
-    <solution><p>Voir l'exercice <xref provisional="exo-proprelativite"/>.</p></solution>
-    <solution><p>Voir l'exercice <xref provisional="exo-proprelativite"/>.</p></solution>
+    <solution><p>Voir l'exercice <xref ref="exo-proprelativite"/>.</p></solution>
+    <solution><p>Voir l'exercice <xref ref="exo-proprelativite"/>.</p></solution>
     <solution><p>Soit <m>x\in V</m> et <m>r,s\in \mathbb{R}</m>. On cherche à montrer que <m>(rs)\otimes\vec{x}=r\otimes(s\otimes\vec{x})</m>. Dans un premier temps, on a
     <md>
     <mrow>(rs)\otimes\vec{x}&amp;=\frac{(1+x)^{rs}-(1-x)^{rs}}{(1+x)^{rs}+(1-x)^{rs}}</mrow>
@@ -499,7 +498,7 @@ L'argument pour montrer que <m>-1&lt;\frac{x+y}{1+xy}</m> est similaire et sera 
     <mrow>&amp;=\frac{2(1-x)^s}{(1+x)^s+(1-x)^s}</mrow>
     </md>    
     </p>
-    <p>On pose <m>z=(1+x)^s+(1-x)^s</m> et on revient à <m>r\otimes (s\otimes x)</m>. On a
+    <p>On pose <m>z=(1+x)^s+(1-x)^s</m> et l'on revient à <m>r\otimes (s\otimes x)</m>. On a
     <md>
     <mrow>r\otimes(sx)&amp;=r\otimes y</mrow>
     <mrow>&amp;=\frac{(1+y)^r-(1-y)^r}{(1+y)^r+(1-y)^r}</mrow>
@@ -510,7 +509,7 @@ L'argument pour montrer que <m>-1&lt;\frac{x+y}{1+xy}</m> est similaire et sera 
 On a donc égalité entre <m>(rs)\otimes\vec{x}</m> et <m>r\otimes(s\otimes\vec{x})</m>.
     </p>
     </solution>
-    <solution><p>Encore un gros exercices de manipulation algébriques ici. On veut montrer que <m>r\otimes(x\oplus y)=r\otimes x\oplus r\otimes y</m>. Dans un premier temps, on a
+    <solution><p>Encore un gros exercice de manipulation algébriques. On veut montrer que <m>r\otimes(x\oplus y)=r\otimes x\oplus r\otimes y</m>. Dans un premier temps, on a
 <md>
 <mrow>r\otimes(x\oplus y)&amp;=r\otimes\left(\frac{x+y}{1+xy}\right)</mrow>
 <mrow>&amp;=\frac{\left(1+\frac{x+y}{1+xy}\right)^r-\left(1-\frac{x+y}{1+xy}\right)^r}{\left(1+\frac{x+y}{1+xy}\right)^r+\left(1-\frac{x+y}{1+xy}\right)^r}</mrow>
@@ -559,7 +558,7 @@ rx\oplus ry=\frac{\left( 1+y \right) ^{r} \left( 1+x \right) ^{r}-\, \left( 1-y
 La propriété est donc respectée.
     </p>
     </solution>
-    <solution><p>Voir l'exercice <xref provisional="exo-proprelativite"/>.</p></solution>
+    <solution><p>Voir l'exercice <xref ref="exo-proprelativite"/>.</p></solution>
     <solution><p>On a 
     <md>
     <mrow>1\otimes x&amp;=\frac{(1+x)^1-(1-x)^1}{(1+x)^1+(1-x)^1}</mrow>
