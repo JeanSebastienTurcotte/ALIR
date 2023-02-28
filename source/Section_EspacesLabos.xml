@@ -16,16 +16,16 @@
     <p>Dans cette section, on regarde des activités et des laboratoires en lien avec des concepts présentés dans le chapitre.</p>
    <!-- </introduction>-->
     <project>
-    <title>Le jeu "Lights out"</title>
+    <title>Le jeu <lq/>Lights out<rq/></title>
     <introduction>
-    <p>Le jeu "Lights out" est un jeu électronique sorti en 1995. Il consiste en une grille de taille <m>5\times 5</m> dans laquelle on retrouve de petites lumières qui peuvent soit être allumées ou éteintes. Lorsqu'on touche un élément de la grille, celui-ci ainsi que ses quatre voisins changent d'état, passant d'allumé à éteint ou d'éteint à allumer. Le but du jeu est, étant donnée une configuration initiale, d'éteindre toutes les lumières. Voici une image tirée de Wikipedia<fn>Image par Life of Riley, libre de droits, tirée de <url href="https://en.wikipedia.org/wiki/Lights_Out_(game)#/media/File:LightsOutIllustration.svg" visual="Wikipedia"/>.</fn> qui montre le fonctionnement.</p>
+    <p><lq/>Lights Out<rq/> est un jeu électronique mis en marché en 1995. Il consiste en une grille de taille <m>5\times 5</m> dans laquelle on retrouve de petites lumières qui peuvent être allumées ou éteintes. Lorsqu'on touche un élément de la grille, celui-ci, ainsi que ses quatre voisins, changent d'état, passant d'allumé à éteint ou d'éteint à allumé. Le but du jeu est, étant donnée une configuration initiale, d'éteindre toutes les lumières. Voici une image tirée de Wikipedia<fn>Image par Life of Riley, libre de droits, tirée de <url href="https://en.wikipedia.org/wiki/Lights_Out_(game)#/media/File:LightsOutIllustration.svg" visual="Wikipedia"/>.</fn> qui montre le fonctionnement du jeu.</p>
     <figure>
-    <caption>Le jeu Lights out</caption>
+    <caption>Le jeu <lq/>Lights Out<rq/>.</caption>
     <image source="images/LightsOutIllustration">
     <description> Cinq grille de taille cinq de taille cinq par cinq sont illustrées. Les grilles sont de couleur vert foncé avec certains carrés plus brillant, simulant une lumière ouverte. Dans celle à l'extrémité gauche, il n'y a que le carré au coin supérieur gauche qui est en position ouvert. Une flèche amenant à la seconde grille dans laquelle on voit une main appuyé sur le carré inférieur droit. Dans la troisième grille, les trois carrés formant un L inversé dans le coin inférieur droit sont maintenant allumés. La quatrième grille voit une main appuyer sur le carré dans la quatrième ligne et quatrième colonne. Celui-ci passe de éteint à allumé dans la cinquième grille tout comme celui à sa gauche et au-dessus. Les carrés à sa droite et en dessous eux passent d'allumés à éteints.</description>
     </image>
     </figure>
-    <p>On considère dans un premier temps une version simplifiée du jeu où la grille est de taille <m>3\times 3</m>. On peut représenter une grille de jeu par une matrice où les entrées sont <m>1</m> si la lumière est allumée et <m>0</m> si la lumière est éteinte. La figure <xref ref="fig-lightsout3x3-1"/> illustre un exemple associé à la matrice
+    <p>On considère, dans un premier temps, une version simplifiée du jeu où la grille est de taille <m>3\times 3</m>. On peut représenter une grille de jeu par une matrice où les entrées sont <m>1</m> si la lumière est allumée et <m>0</m> si la lumière est éteinte. La figure <xref ref="fig-lightsout3x3-1"/> illustre un exemple associé à la matrice
     <men xml:id="eq-lightsoutmatL1">
     L_1=\begin{pmatrix}
     1&amp;0&amp;1\\
@@ -43,7 +43,7 @@
     </figure>
     <p>Pour le cas <m>3\times 3</m>, il s'avère qu'il existe une solution peu importe la configuration initiale. L'image interactive ci-dessous permet de jouer avec une configuration aléatoire et montre aussi la solution optimale dans chaque cas.</p>
     <figure xml:id="fig-lightsout3x3interactive">
-    <caption>Lights out en version interactive <m>3\times 3</m></caption>
+    <caption><lq/>Lights Out<rq/> en version interactive <m>3\times 3</m></caption>
  <interactive aspect="1:1" platform="geogebra" width="100%"
         xml:id="geog-lightsout3x3interactive">
           <slate aspect="1:1" source="code/geogebra/LightsOut.ggb"
@@ -51,7 +51,7 @@
               setCoordSystem(-6,10,-8,8); 
           </slate>
           <instructions>
-            <p>Cliquer sur Nouvelle Version pour obtenir une grille à résoudre. Cliquer ensuite sur les différents carrés afin de changer l'état de ceux-ci et de ses voisins. Pour afficher la solution, cliquer sur le bouton du même nom. On peut ensuite revenir à une grille résolue en cliquant sur Réinitialiser.</p>
+            <p>Cliquer sur <em>Nouvelle Version</em> pour obtenir une grille à résoudre. Cliquer ensuite sur les différents carrés afin de changer l'état de ceux-ci et de leurs voisins. Pour afficher la solution, cliquer sur le bouton du même nom. On peut ensuite revenir à une grille résolue en cliquant sur <em>Réinitialiser</em>.</p>
           </instructions>
         </interactive>
     </figure>
@@ -66,7 +66,7 @@
     et pour <m>r\neq 1</m>, on définit <m>r\otimes 1=0</m> et <m>r\otimes 0=0</m> alors que pour <m>r=1</m>, on définit <m>r\otimes 1=1</m> et toujours <m>r\otimes 0=0</m>.</p>
     <p>Montrer que l'ensemble des nombres <m>\{0,1\}</m> muni de ces opérations est un espace vectoriel.</p>
     <p>Ceci entraine que l'espace des matrices muni de l'addition entrée par entrée avec ces opérations est aussi un espace vectoriel.</p></statement></task>
-    <task><introduction><p>Sur Sage, il est possible de travailler avec l'addition définie plus haut. Cela correspond à travailler en modulo <m>2</m>. Pour cela, on ajoute un argument <c>GF(2)</c> dans la définition des matrices et des vecteurs, stipulant à Sage qu'on ne travaille qu'avec les nombres <m>0</m> et <m>1</m>. Sage connait déjà les règles arithmétiques de cet espace.</p>
+    <task><introduction><p>Sur Sage, il est possible de travailler avec l'addition définie plus haut. Cela correspond à travailler en modulo <m>2</m>. Pour cela, on ajoute un argument <c>GF(2)</c> dans la définition des matrices et des vecteurs, indiquant à Sage qu'on ne travaille qu'avec les nombres <m>0</m> et <m>1</m>. Sage connait déjà les règles arithmétiques de cet espace.</p>
     <sage>
     <input>
     L1=matrix(GF(2),[[1,0,1],[0,1,0],[0,1,0]]) #La matrice de l'exemple
@@ -74,7 +74,7 @@
     </input>
     </sage>
     </introduction>
-    <task><statement><p>On peut associer à chaque case une matrice donnant son effet lorsqu'on clique sur la case. L'effet d'un clic revient donc à additionner à une matrice représentant une grille de Lights Out la matrice du clic, selon les règles de l'addition définies plus haut. Par exemple, un clic sur la case en position <m>(2,2)</m> correspond à la matrice
+    <task><statement><p>On peut associer à chaque case une matrice donnant son effet lorsqu'on clique sur la case. L'effet d'un clic revient donc à additionner à une matrice représentant une grille de <lq/>Lights Out<rq/> la matrice du clic, selon les règles de l'addition définies plus haut. Par exemple, un clic sur la case en position <m>(2,2)</m> correspond à la matrice
     <me>
     C_{2\,1}=\begin{pmatrix}
     1&amp;0&amp;0\\
@@ -137,11 +137,11 @@
     </input>
     </sage>
     </statement></task>
-    <task><statement><p>Justifier le fait que l'ordre dans lequel on clique les carrés d'une solution n'est pas important.</p></statement></task>
+    <task><statement><p>Justifier le fait que, pour une solution, l'ordre dans lequel on clique sur les carrés n'est pas important.</p></statement></task>
     <task><statement><p>Montrer que chaque matrice est son propre inverse dans cet espace.</p></statement></task>
     </task>
     <task><introduction>
-    <p>On s'intéresse maintenant à l'obtention d'une solution pour une configuration de départ spécifique <m>L</m>. On cherche une suite de matrice <m>C_k\in\{C_{1\,1},C_{2\,2},\ldots , C_{3\,3}\} </m> telles que
+    <p>On s'intéresse maintenant à obtenir une solution pour une configuration de départ spécifique <m>L</m>. On cherche une suite de matrice <m>C_k\in\{C_{1\,1},C_{2\,2},\ldots , C_{3\,3}\} </m> telles que
     <me>
     L+C_1+C_2+\cdots C_n=O
     </me>.
@@ -155,7 +155,7 @@
     <men xml:id="eq-lightsout3x3">
     x_1C_{1\,1}+x_2C_{2\,2}+\ldots + x_9C_{3\,3}=L
     </men>,
-    avec les <m>x_k\in\{0,1\}</m>. Comme l'espace des matrices de taille <m>3\times 3</m> est de dimension <m>9</m> et qu'une base de cette espace est donnée par les neuf matrices qui ne contiennent qu'une entrée non nulle égale à <m>1</m> (voir l'exemple <xref ref="ex-espacesetdimension"/>), on peut écrire l'équation <xref ref="eq-lightsout3x3"/> sous la forme matricielle
+    avec les <m>x_k\in\{0,1\}</m>. Comme l'espace des matrices de taille <m>3\times 3</m> est de dimension <m>9</m> et qu'une base de cet espace est donnée par les neuf matrices qui ne contiennent qu'une entrée non nulle égale à <m>1</m> (voir l'exemple <xref ref="ex-espacesetdimension"/>), on peut écrire l'équation <xref ref="eq-lightsout3x3"/> sous la forme matricielle
     <me>
     \begin{pmatrix}
 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
@@ -178,29 +178,29 @@
     <mrow>&amp;=(1,1,0,1,0,0,0,0,0)_{\mathcal{B}}</mrow>
     </md>. 
     </p>
-    <p>Montrer que la solution pour la matrice <m>L_1</m> est bel et bien celle donnée à l'équation <xref ref="eq-lightsoutsol3x3-1"/> en résolvant ce système d'équations.</p>
+    <p>Montrer que la solution pour la matrice <m>L_1</m> est bel et bien celle qui est donnée à l'équation <xref ref="eq-lightsoutsol3x3-1"/> en résolvant ce système d'équations.</p>
     <sage>
     <input>
     
     </input>
     </sage>
     </statement></task>
-    <task><introduction><p>Les questions suivantes s'intéresse au nombre de solutions et à l'existence de solutions pour la grille <m>3\times 3</m>.</p></introduction>
+    <task><introduction><p>Les questions suivantes s'intéressent au nombre de solutions et à l'existence de solutions pour la grille <m>3\times 3</m>.</p></introduction>
     <task><statement><p>Montrer que la solution est unique.</p>
     <sage><input></input></sage></statement></task>
     <task><statement><p>Est-ce que toute configuration initiale possède une solution?</p></statement></task>
     </task></task>
     <task><introduction><p>On explore maintenant quelques variantes. </p></introduction>
-        <task><introduction><p>La première est de considérer tout simplement la grille carrée de taille <m>5\times 5</m>.</p></introduction>
+        <task><introduction><p>La première variante considère tout simplement la grille carrée de taille <m>5\times 5</m>.</p></introduction>
             <task><statement><p>Montrer que la configuration de départ où seulement la case au coin supérieur gauche est allumée ne possède pas de solutions.</p>
             <sage><input></input></sage></statement></task>
-            <task><statement><p>Montrer que la grille où toutes les cases sont initialement allumées possèdent plusieurs solutions et donner l'une de celles-ci.</p><sage><input></input></sage></statement></task>
+            <task><statement><p>Montrer que la grille où toutes les cases sont initialement allumées possède plusieurs solutions et donner l'une de celles-ci.</p><sage><input></input></sage></statement></task>
         </task>
-        <task><introduction><p>Rien n'empêche la grille d'être carrée, on pourrait avoir une grille rectangulaire.</p></introduction>
-        <task><statement><p>Il existe <m>64</m> configuations initiales pour une grille de taille <m>3\times 2</m>. Combien possèdent une solution?</p></statement></task>
+        <task><introduction><p>Rien n'empêche la grille d'être carrée, on pourrait tout aussi bien avoir une grille rectangulaire.</p></introduction>
+        <task><statement><p>Il existe <m>64</m> configurations initiales pour une grille de taille <m>3\times 2</m>. Combien possèdent une solution?</p></statement></task>
         <task><statement><p>Déterminer si possible une solution pour la grille suivante: </p>
         <figure xml:id="fig-Lightsout4x3">
-        <caption>Une grille de Lights Out de taille <m>4\times 3</m></caption>
+        <caption>Une grille de <lq/>Lights Out<rq/> de taille <m>4\times 3</m></caption>
         <image source="images/Lightsout4x3">
         <description>Une grille de taille quatre par trois est illustrée. Les carrés sur la premières lignes sont allumés, ceux sur la deuxième ligne de même que celui sur en position trois;deux sont éteints et les autres sont également allumés. </description>
         </image>
