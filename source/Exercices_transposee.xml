@@ -538,7 +538,7 @@ a^{2} + b^{2} &amp; 0 \\
 </statement>
 <hint><p>À quoi ressemblent les lignes d'une matrice de la forme <m>\vec{u}\vec{v}^T</m>?</p></hint>
 <solution><p>
- On pose <m>\vec{v}^T=(a_{1,1},a_{1,2},\ldots , a_{1,n})</m> la première ligne non nulle de <m>A</m>. Par simplicité, on suppose que c'est la première ligne. Soit <m>\vec{a}_1,\vec{a}_2,\ldots \vec{a}_m</m>, les lignes de la matrice <m>A</m>. Si la matrice <m>A</m> est de rang <m>1</m>, alors toutes ses lignes sont parallèles. Il existe donc <m>c_2,c_3,\ldots ,c_m</m> tels que <m>\vec{a}_2=c_2\vec{a_1},\vec{a}_3=c_3\vec{a_1},\ldots ,\vec{a}_m=c_m\vec{a_1}</m>. On pose <m>\vec{u}=(1,c_2,c_3,\ldots, c_m)</m>. On a alors
+ On pose <m>\vec{v}^T=(a_{1,1},a_{1,2},\ldots , a_{1,n})</m>, la première ligne non nulle de <m>A</m>. Par simplicité, on suppose que c'est la première ligne. Soit <m>\vec{a}_1,\vec{a}_2,\ldots \vec{a}_m</m>, les lignes de la matrice <m>A</m>. Si la matrice <m>A</m> est de rang <m>1</m>, alors toutes ses lignes sont parallèles. Il existe donc <m>c_2,c_3,\ldots ,c_m</m> tels que <m>\vec{a}_2=c_2\vec{a_1},\vec{a}_3=c_3\vec{a_1},\ldots ,\vec{a}_m=c_m\vec{a_1}</m>. On pose <m>\vec{u}=(1,c_2,c_3,\ldots, c_m)</m>. On a alors
  <md>
  <mrow>\vec{u}\vec{v}^T&amp;\begin{pmatrix}1\\c_2\\ \vdots \\ c_m\end{pmatrix}(a_{1,1},a_{1,2},\ldots , a_{1,n})</mrow>
  <mrow number="yes" xml:id="eq-rang1mat">&amp;=\begin{pmatrix}
@@ -778,7 +778,7 @@ deux solutions sera perpendiculaire aux lignes de <m>A_3^T</m> et donc, aux colo
 </task>
 </exercise>
 <exercise><introduction><p>Pour chaque description ci-dessous, donner une matrice qui la satisfait.</p></introduction>
-<task><statement><p>La matrice est <m>m\times n</m> avec <m>m\leq n</m>, ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-1}{2}</m>.</p></statement>
+<task><statement><p>La matrice est <m>m\times n</m> avec <m>m\leq n</m>, elle ne contient aucune entrée égale à zéro et possède comme espace colonne que les vecteurs parallèles à <m>\vec{u}=\vecd{-1}{2}</m>.</p></statement>
 <solution><p>La manière la plus simple est de mettre le vecteur <m>\vec{u}</m> dans les colonnes d'une matrice jusqu'à ce que <m>2=m\leq n</m>. Un exemple est donc <m>\matcold{-1}{2}{-1}{2}</m>. L'espace colonne
 étant l'ensemble des combinaisons linéaires des colonnes de la matrice, cette matrice respecte la condition que son espace colonne ne contient que les vecteurs parallèles à <m>\vec{u}</m>, puisque les colonnes sont toutes
 égales à <m>\vec{u}</m>. De manière générale, on aurait pu avoir n'importe quelle matrice de la forme
@@ -788,7 +788,7 @@ deux solutions sera perpendiculaire aux lignes de <m>A_3^T</m> et donc, aux colo
 où <m>k_1,k_2,\ldots , k_n\in \R\backslash\{0\}</m> et <m>n\geq 2</m>.
 </p></solution>
 </task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-1}{2}</m>.</p></statement>
+<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul que les vecteurs parallèles à <m>\vec{u}=\vecd{-1}{2}</m>.</p></statement>
 <solution>
 <p>En d'autres mots, on veut que la solution spéciale à l'équation <m>A\vec{x}=\vec{0}</m> soit un multiple du vecteur <m>\vec{u}</m>. Le vecteur <m>\vec{s}=\left(-\frac{1}{2},1\right)</m> satisfait cette 
 contrainte. La matrice échelonnée réduite la plus simple qui correspond à cette situation serait <m>\begin{pmatrix} 1&amp; \frac{1}{2}\\ 0&amp; 0  \end{pmatrix}</m>. Pour respecter la condition de n'avoir aucune entrée
@@ -799,7 +799,7 @@ contrainte. La matrice échelonnée réduite la plus simple qui correspond à ce
 . De manière générale, toute matrice de la forme <m>\begin{pmatrix} k_1&amp; \frac{k_1}{2}\\k_2&amp; \frac{k_2}{2}  \end{pmatrix}</m> ferait l'affaire.  </p>
 </solution>
 </task>
-<task><statement><p>La matrice <m>m\times n</m> avec <m>m=n+2</m> ne contient aucune entrée égale à zéro et possède comme espace ligne seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-3}{1}</m>.</p></statement>
+<task><statement><p>La matrice <m>m\times n</m> avec <m>m=n+2</m> ne contient aucune entrée égale à zéro et possède comme espace ligne que les vecteurs parallèles à <m>\vec{u}=\vecd{-3}{1}</m>.</p></statement>
 <solution><p>Il doit y avoir deux colonnes, car l'espace ligne est dans <m>\R^2</m>. Il y aura donc quatre lignes pour satisfaire <m>m=n+2=2+2</m>. La manière la plus simple est de copier le vecteur <m>\vec{u}</m>
 aux quatre lignes de la matrice. De manière générale, toute matrice de la forme
 <me>
@@ -811,7 +811,7 @@ aux quatre lignes de la matrice. De manière générale, toute matrice de la for
 \end{pmatrix}
 </me> où <m>k_1,k_2,k_3,k_4\in \mathbb{R}\backslash\{0\} </m> fera l'affaire.</p></solution>
 </task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul gauche seulement les vecteurs parallèles à <m>\vec{u}=\vecd{-3}{1}</m>.</p></statement>
+<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul gauche que les vecteurs parallèles à <m>\vec{u}=\vecd{-3}{1}</m>.</p></statement>
 <solution><p>De manière semblable à la matrice trouvée pour que l'espace nul soit composé uniquement des multiples de <m>(-1,2)</m>, on montre que la matrice
 <m>
 \begin{pmatrix}
@@ -825,10 +825,10 @@ A=\begin{pmatrix} k_1&amp; 3k_1\\k_2&amp; 3k_2  \end{pmatrix}
 de la forme <m>\begin{pmatrix} k_1&amp; k_2\\3k_1&amp; 3k_2  \end{pmatrix}</m> fera l'affaire.
 </p></solution>
 </task>
-<task><statement><p>La matrice <m>3\times 2</m> ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs parallèles à <m>\vec{u}=\vecddd{-1}{2}{1}</m>.</p></statement>
+<task><statement><p>La matrice <m>3\times 2</m> ne contient aucune entrée égale à zéro et possède comme espace colonne que les vecteurs parallèles à <m>\vec{u}=\vecddd{-1}{2}{1}</m>.</p></statement>
 <solution><p>L'idée est la même que précédemment, toute matrice de la forme <m>\begin{pmatrix} -k_1&amp; -k_2\\ 2k_1&amp; 2k_2 \\ k_1&amp; k_2\end{pmatrix}</m> fera l'affaire.</p></solution>
 </task>
-<task><statement><p>La matrice est carrée, ne contient aucune entrée égale à zéro, les lignes ne sont pas parallèles entre elles et possède comme espace nul seulement les vecteurs parallèles à <m>\vec{u}=\vecddd{-1}{2}{1}</m>.</p></statement>
+<task><statement><p>La matrice est carrée, ne contient aucune entrée égale à zéro, les lignes ne sont pas parallèles entre elles et possède comme espace nul que les vecteurs parallèles à <m>\vec{u}=\vecddd{-1}{2}{1}</m>.</p></statement>
 <solution><p>Encore ici, on cherche une matrice dont la forme échelonnée n'aura qu'une solution de base. La matrice échelonnée réduite
 <me>
 \begin{pmatrix}
@@ -864,11 +864,11 @@ de la forme <m>\begin{pmatrix} k_1&amp; k_2\\3k_1&amp; 3k_2  \end{pmatrix}</m> f
 2&amp;3&amp;-4
 \end{pmatrix}</mrow>
 </md>. Évidemment, d'autres choix de facteurs auraient pu être faits pour les opérations élémentaires.</p></solution></task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace colonne seulement les vecteurs qui sont des combinaisons linéaires des vecteurs  <m>\vec{u}=\vecddd{-1}{2}{1}, \vec{v}=\vecddd{2}{1}{2}</m>.</p></statement>
+<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace colonne que les vecteurs qui sont des combinaisons linéaires des vecteurs  <m>\vec{u}=\vecddd{-1}{2}{1}, \vec{v}=\vecddd{2}{1}{2}</m>.</p></statement>
 <solution><p>Le plus simple consiste à mettre les deux vecteurs comme des colonnes d'une matrice. Ainsi,
 <m>\begin{pmatrix}-1&amp; 2\\ 2&amp;1 \\ 1&amp; 2 \end{pmatrix}</m> fait l'affaire.</p></solution>
 </task>
-<task><statement><p>La matrice carrée ne contient aucune entrée égale à zéro, aucune fraction et possède comme espace nul seulement les vecteurs qui sont des combinaisons linéaires des vecteurs  <m>\vec{u}=\vecddd{-1}{2}{1}, \vec{v}=\vecddd{2}{1}{2}</m>.</p></statement>
+<task><statement><p>La matrice carrée ne contient aucune entrée égale à zéro, aucune fraction et possède comme espace nul que les vecteurs qui sont des combinaisons linéaires des vecteurs  <m>\vec{u}=\vecddd{-1}{2}{1}, \vec{v}=\vecddd{2}{1}{2}</m>.</p></statement>
 <solution><p>
 Les vecteurs <m>\vec{u},\vec{v}</m> n'ont pas la forme de solutions de base. Le fait qu'il faut deux vecteurs pour générer l'espace nul signifie qu'il doit y avoir deux variables libres.  Si l'on suppose que <m>y,z</m> sont les variables libres, il faudrait que les vecteurs soit de la forme <m>\vec{u}^{'}=(u_1,1,0),\vec{v}^{'}=(v_1,0,1)</m> pour respecter la forme des solutions de base.
 On cherche donc comment, à partir de <m>\vec{u},\vec{v}</m>, on peut obtenir ces vecteurs. On veut
@@ -912,7 +912,7 @@ Une matrice échelonnée réduite ayant ces deux vecteurs comme solutions de bas
 \end{pmatrix}
 </me></p>
 </solution></task>
-<task><statement><p>La matrice carrée ne contient aucune ligne parallèle, aucune entrée égale à zéro et possède comme espace ligne seulement les vecteurs qui sont des combinaisons linéaires des vecteurs <m>\vec{u}=\vecddd{1}{0}{3},\vec{v}=\vecddd{1}{1}{0}</m>.</p></statement>
+<task><statement><p>La matrice carrée ne contient aucune ligne parallèle, aucune entrée égale à zéro et possède comme espace ligne que les vecteurs qui sont des combinaisons linéaires des vecteurs <m>\vec{u}=\vecddd{1}{0}{3},\vec{v}=\vecddd{1}{1}{0}</m>.</p></statement>
 <solution><p>La réponse la plus simple consiste à inscrire les vecteurs dans les deux premières lignes d'une matrice dont la troisième sera nulle et d'utiliser les opérations élémentaires pour éliminer les zéros. On a donc
 <md>
 <mrow>\begin{pmatrix}
@@ -941,7 +941,7 @@ Une matrice échelonnée réduite ayant ces deux vecteurs comme solutions de bas
 \end{pmatrix}</mrow>
 </md>, la dernière étape étant nécessaire pour respecter la condition que les lignes ne soient pas parallèles.</p></solution>
 </task>
-<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul gauche seulement les vecteurs qui sont des combinaisons linéaires des vecteurs <m>\vec{u}=\vecddd{1}{1}{0}{0},\vec{v}=\vecddd{1}{0}{1}{1}</m>.</p></statement>
+<task><statement><p>La matrice ne contient aucune entrée égale à zéro et possède comme espace nul gauche que les vecteurs qui sont des combinaisons linéaires des vecteurs <m>\vec{u}=\vecddd{1}{1}{0}{0},\vec{v}=\vecddd{1}{0}{1}{1}</m>.</p></statement>
 <solution><p>On cherche une matrice telle que la transposée aura deux solutions de base. On commence par construire la transposée. Les vecteurs <m>\vec{u},\vec{v}</m> ont la forme de solution de base si les variables <m>x_2,x_4</m> sont libres.
 On construit donc une matrice échelonnée réduite qui aura ces vecteurs comme solution de base:
 <me>
@@ -950,7 +950,7 @@ On construit donc une matrice échelonnée réduite qui aura ces vecteurs comme 
 0&amp;0&amp;1&amp;-1\\
 \end{pmatrix}
 </me>.
-On peut ensuite appliquer des opérations élémentaires sur les lignes afin d'éliminer les zéros. On pourrait avoir par exemple
+On peut ensuite appliquer des opérations élémentaires sur les lignes afin d'éliminer les zéros. On pourrait avoir, par exemple,
 <md>
 <mrow>\begin{pmatrix}
 1&amp;-1&amp;0&amp;-1\\
