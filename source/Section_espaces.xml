@@ -101,7 +101,7 @@
     <me>
     (u_1,u_2)\oplus(0,0)=(u_1+0+1,u_2+0-1)\neq(u_1,u_2)
     </me>.
-    Cela ne veut toutefois pas dire que la propriété n'est pas respectée. Celle-ci dit qu'il doit exister un vecteur qui ne change rien lors de l'addition, pas que ce vecteur doit être <m>(0,0)</m>. En observant la structure de l'opération <m>\oplus</m>, on voit qu'il faut être en mesure d'annuler les contributions du <m>+1</m> dans la première composante et <m>-1</m> dans la seconde. On essaie alors avec le vecteur <m>(-1,1)</m>:
+    Cela ne veut toutefois pas dire que la propriété n'est pas respectée. Celle-ci dit qu'il doit exister un vecteur qui ne change rien lors de l'addition, et non pas que ce vecteur doit être <m>(0,0)</m>. En observant la structure de l'opération <m>\oplus</m>, on voit qu'il faut être en mesure d'annuler les contributions du <m>+1</m> dans la première composante et <m>-1</m> dans la seconde. On essaie alors avec le vecteur <m>(-1,1)</m>:
     <me>
     (u_1,u_2)\oplus(-1,1)=(u_1-1+1,u_2+1-1)=(u_1,u_2)
     </me>.
@@ -250,7 +250,7 @@ Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
     <li><p>L'ensemble <m>\mathcal{Z}_n</m> des polynômes de degré inférieur ou égal à <m>n</m> tels que <m>p(0)=0</m> est un sous-espace vectoriel de l'espace des polynômes de degré inférieur ou égal à <m>n</m>, <m>\mathcal{P}_n</m>.</p></li>
     <li><p>L'ensemble des suites infinies qui sont éventuellement <m>0</m> est un sous-espace de <m>\mathbb{R}^{\infty}</m> muni des opérations usuelles.</p></li>
     </ol></p></statement>
-    <solution><p>Soit <m>D_1</m> et <m>D_2</m>, deux matrices diagonales et <m>r\in\mathbb{R}</m>, un scalaire. Parce que l'addition matricielle se fait entrée par entrée et que les entrées autres que celles qui sont sur la diagonale sont nulles, la somme des matrices <m>D_1</m> et <m>D_2</m> a aussi que des zéros sur les entrées autres que la diagonale. Elle est donc également une matrice diagonale, ce qui montre que l'ensemble est fermé par rapport à l'addition.</p>
+    <solution><p>Soit <m>D_1</m> et <m>D_2</m>, deux matrices diagonales et <m>r\in\mathbb{R}</m>, un scalaire. Parce que l'addition matricielle se fait entrée par entrée et que les entrées autres que celles qui sont sur la diagonale sont nulles, la somme des matrices <m>D_1</m> et <m>D_2</m> n'a aussi des zéros que sur les entrées différentes de la diagonale. Elle est donc également une matrice diagonale, ce qui montre que l'ensemble est fermé par rapport à l'addition.</p>
     <p>De même, en multipliant <m>D_1</m> par <m>r</m>, il n'y a que les entrées sur la diagonale qui sont potentiellement modifiées, les autres étant nulles. Le produit <m>rD_1</m> est aussi une matrice diagonale, ce qui montre que l'ensemble est fermé par rapport à la multiplication par un scalaire. L'ensemble <m>\mathcal{D}_n</m> est donc un sous-espace vectoriel de l'espace des matrices carrées.</p></solution>
     <solution><p>On considère deux polynômes <m>p(x),q(x)</m> de degré inférieur ou égal à <m>n</m> ayant la propriété que <m>p(0)=q(0)=0</m>. On pose <m>s(x)=p(x)+q(x)</m>. Alors
     <md>
@@ -388,7 +388,7 @@ show(C.echelon_form())
     <li><p><m>\mathscr{C}^{\infty}(I)</m> l'ensemble des fonctions réelles et continues infiniment dérivables de manière continue sur <m>I</m>.</p></li>
     </ol>
     </p>
-    <p>On munit ces espaces de l'addition usuelle des fonctions ainsi que de la multiplication usuelle par un scalaire. Ces espaces sont tous des espaces vectoriels. La preuve utilise le résultat bien connu en calcul différentiel qui stipule que la somme de deux fonctions continues est continue ainsi que la multiplication d'une fonction continue par une constante.</p></statement>
+    <p>On munit ces espaces de l'addition usuelle des fonctions ainsi que de la multiplication usuelle par un scalaire. Ces espaces sont tous des espaces vectoriels. La preuve utilise le résultat bien connu en calcul différentiel qui stipule que la somme de deux fonctions continues est continue, tout comme le résultat de la multiplication d'une fonction continue par une constante.</p></statement>
     </example>
     <p>À partir de ces espaces, on peut s'intéresser à leurs sous-espaces vectoriels et conclure certains résultats classiques en calcul différentiel et intégral en utilisant les résultats d'algèbre linéaire.</p>
     <example><title>
