@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                     -->
+<!--                                                                        -->
+<!--      Algèbre linéaire : Intuition et rigueur                           -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte, Philémon Turcotte                             -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-simplexe">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
+            <statement>
+                <p>La première lettre de la question.</p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>
+    </task>
+    </exercise>
+    -->
+<exercise xml:id="exo-proglin1">
+<introduction>
+<p>Pour chaque problème de programmation linéaire ci-dessous, illustrer la région admissible.</p>
+</introduction>
+<task><statement>
+<p>Maximiser <m>f_1(x,y)=3x+2y</m> sous les contraintes
+<md>
+<mrow>-x+y&amp;\leq 0</mrow>
+<mrow>x+5y&amp;\leq 24</mrow>
+<mrow>x-7y&amp;\leq -12</mrow>
+</md>
+et <m>x,y\geq 0</m>.</p>
+</statement>
+<answer>
+<figure xml:id="fig-exo-regionadmissible1">
+<caption>La région admissible</caption>
+<image xml:id="img-exo-regionadmissible1">
+<sageplot>
+A = matrix([[-1,1], [1,5],[1,-7]])
+b = vector([0,24,-12])
+c = vector([3,2])
+P = InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
+P.feasible_set()
+</sageplot>
+<description>La région admissible est tracée.</description>
+</image></figure></answer>
+<solution><p>Les trois contraintes d'inégalité forment un triangle, puisque chaque contrainte décrit un demi-plan dans <m>\mathbb{R}^2</m> et que les trois droites bordant les demi-plans s'intersectent deux à deux. Les premières s'intersectent lorsque <m>x=4,y=4</m>. La première et la troisième s'intersectent lorsque <m>x=2,y=2</m>. La deuxième et la troisième s'intersectent lorsque <m>x=9,y=3</m>. La région admissible est illustrée à la figure <xref ref="fig-exo-regionadmissible1"/>.</p></solution>
+</task>
+<task><statement>
+<p>Maximiser <m>f_2(x,y)=x+2y</m> sous les contraintes
+<md>
+<mrow>-2x+y&amp;\leq -5</mrow>
+<mrow>-x+y&amp;\leq -1</mrow>
+<mrow>2x+y&amp;\leq 14</mrow>
+<mrow>x-3y&amp;\leq 0</mrow>
+</md>
+et <m>x,y\geq 0</m>.</p>
+</statement>
+<answer>
+<figure xml:id="fig-exo-regionadmissible2">
+<caption>La région admissible</caption>
+<image xml:id="img-exo-regionadmissible2">
+<sageplot>
+A = matrix([[-2,1], [-1,1],[2,1],[1,-3]])
+b = vector([-5,-1,14,0])
+c = vector([1,2])
+P = InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
+P.feasible_set()
+</sageplot>
+<description>La région admissible est tracée.</description>
+</image></figure></answer>
+<solution><p>Les quatre contraintes d'inégalité forment un quadrilatère. Les quatre droites bordant les demi-plans s'intersectent deux à deux. Les premières s'intersectent lorsque <m>x=4,y=3</m>. La première et la troisième s'intersectent lorsque <m>x=\frac{19}{4},y=\frac{9}{2}</m>. La première et la quatrième s'intersectent lorsque <m>x=3,y=1</m>. La deuxième et la troisième s'intersectent lorsque <m>x=5,y=4</m>. La deuxième et la quatrième s'intersectent lorsque <m>x=\frac{3}{2},y=\frac{1}{2}</m>. La troisième et la quatrième s'intersectent lorsque <m>x=6,y=2</m>. En tenant compte du sens des inégalités, on élimine l'intersection des contraintes deux et quatre ainsi que l'intersection des contraintes un et trois. La région admissible est illustrée à la figure <xref ref="fig-exo-regionadmissible2"/>.</p></solution>
+</task>
+<task><statement>
+<p>Maximiser <m>f_3(x,y)=-2x+3y</m> sous les contraintes
+<md>
+<mrow>-x+2y&amp;\leq 3</mrow>
+<mrow>3x+y&amp;\geq 26</mrow>
+<mrow>x+2y&amp;\geq 12</mrow>
+<mrow>x-2y&amp;\leq 8</mrow>
+<mrow>x+2y&amp;\leq 21</mrow>
+<mrow>3x+y&amp;\leq 38</mrow>
+</md>
+et <m>x,y\geq 0</m>.</p>
+</statement>
+<answer><figure xml:id="fig-exo-regionadmissible3">
+<caption>La région admissible</caption>
+<image xml:id="img-exo-regionadmissible3">
+<sageplot>
+A = matrix([[-1,2], [-3,-1],[-1,-2],[1,-2],[1,2],[3,1]])
+b = vector([3,-26,-12,8,21,38])
+c = vector([-2,3])
+P = InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
+P.feasible_set()
+</sageplot>
+<description>La région admissible est tracée.</description>
+</image></figure></answer>
+<solution><p>Avec six contraintes qui peuvent potentiellement toutes avoir une intersection prises deux à deux, il y a quinze intersection à déterminer. On se contente de donner les paires dont l'intersection fait partie de la région admissible. La première et la deuxième contrainte s'intersectent lorsque <m>x=7</m> et <m>y=5</m>. La première et la cinquième contrainte s'intersectent quand <m>x=9</m> et <m>y=6</m>. La deuxième et la troisième contrainte s'intersectent lorsque <m>x=8,y=2</m>. La troisième et la quatrième contrainte s'intersectent quand <m>x=10,y=1</m>. La quatrième et la sixième s'intersectent lorsque <m>x=12,y=2</m>. Finalement, la cinquième et la sixième s'intersectent quand <m>x=11,y=5</m>. La région admissible est illustrée à la figure <xref ref="fig-exo-regionadmissible3"/>.</p></solution>
+</task>
+<task><statement><p>Minimiser <m>f_4(x,y)=x+y</m> sous les contraintes
+<md>
+<mrow>-2x+5y&amp;\geq 1</mrow>
+<mrow>3x+2y&amp;\leq 27</mrow>
+<mrow>5x-3y&amp;\geq 7</mrow>
+</md>
+et <m>x,y\geq 0</m>.</p></statement>
+<answer>
+<figure xml:id="fig-exo-regionadmissible4">
+<caption>La région admissible</caption>
+<image xml:id="img-exo-regionadmissible4">
+<sageplot>
+A = matrix([[2,-5],[3,2],[-5,3]])
+b = vector([-1,27,-7])
+c = vector([1,1])
+P = InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
+P.feasible_set()
+</sageplot>
+<description>La région admissible est tracée.</description>
+</image></figure>
+</answer>
+<solution>
+<p>La première et la deuxième contrainte s'intersectent en <m>(x,y)=(7,3)</m>, la première et la troisième s'intersectent en <m>(x,y)=(2,1)</m> et la deuxième et la troisième s'intersectent en <m>(x,y)=(5,6)</m>. Ces trois intersections forment un triangle, qui représente la région admissible. Elle est illustrée à la figure <xref ref="fig-exo-regionadmissible4"/>.</p>
+</solution>
+</task>
+</exercise>
+<exercise xml:id="exo-proglin2">
+<statement><p>Résoudre chacun des problème de l'exercice <xref ref="exo-proglin1"/> à l'aide de la méthode graphique.</p></statement>
+<answer><p>La solution optimale se trouve en <m>(9,3)</m> et vaut <m>f_1(9,3)=33</m></p></answer>
+<answer><p>La solution optimale se trouve en <m>(5,4)</m> et vaut <m>f_2(5,4)=13</m></p></answer>
+<answer><p>La solution optimale se trouve en <m>(7,5)</m> et vaut <m>f_3(7,5)=1</m></p></answer>
+<answer><p>La solution optimale se trouve en <m>(2,1)</m> et vaut <m>f_4(2,1)=3</m></p></answer>
+<solution><p>Il faut évaluer la fonction objective en chacun des sommets de la région admissible. Puisque
+<md>
+<mrow>f_1(4,4)&amp;=20</mrow>
+<mrow>f_1\left(2,2\right)&amp;=10</mrow>
+<mrow>f_1(9,3)&amp;=33</mrow>
+</md>,
+ la solution optimale est <m>f_1(9,3)=33</m>.</p></solution>
+ <solution><p>Il faut évaluer la fonction objective en chacun des sommets de la région admissible. Puisque
+<md>
+<mrow>f_2(4,3)&amp;=10</mrow>
+<mrow>f_2\left(6,2)\right)&amp;=10</mrow>
+<mrow>f_2(5,4)&amp;=13</mrow>
+<mrow>f_2\left3,1\right)&amp;=5</mrow>
+</md>,
+ la solution optimale est <m>f_2(5,4)=13</m>.</p></solution>
+ <solution><p>Il faut évaluer la fonction objective en chacun des sommets de la région admissible. Puisque
+<md>
+<mrow>f_3(7,5)&amp;=1</mrow>
+<mrow>f_3(9,6)&amp;=0</mrow>
+<mrow>f_3(8,2)&amp;=-10</mrow>
+<mrow>f_3(10,1)&amp;=-17</mrow>
+<mrow>f_3(12,2)&amp;=-18</mrow>
+<mrow>f_3(11,5)&amp;=-7</mrow>
+</md>,
+ la solution optimale est <m>f_(7,5)=1</m>.</p></solution>
+ <solution><p>Il faut évaluer la fonction objective en chacun des sommets de la région admissible. Puisque
+<md>
+<mrow>f_4(7,3)&amp;=10</mrow>
+<mrow>f_4(2,1)&amp;=3</mrow>
+<mrow>f_4(5,6)&amp;=11</mrow>
+</md>,
+ la solution optimale est <m>f_4(2,1)=3</m>.</p></solution>
+</exercise>
+<exercise xml:id="exo-proglin3">
+<statement><p>Écrire chacun des problèmes de l'exercice <xref ref="exo-proglin1"/> sous la forme canonique.</p></statement>
+<answer><p>Ce problème est déjà sous la forme canonique.</p></answer>
+<answer><p>Ce problème est déjà sous la forme canonique.</p></answer>
+<answer><p>Maximiser <m>f_3(x,y)=-2x+3y</m> sous les contraintes
+<md>
+<mrow>-x+2y&amp;\leq 3</mrow>
+<mrow>-3x-y&amp;\leq -26</mrow>
+<mrow>-x-2y&amp;\leq 12</mrow>
+<mrow>x-2y&amp;\leq 8</mrow>
+<mrow>x+2y&amp;\leq 21</mrow>
+<mrow>3x+y&amp;\leq 38</mrow>
+</md>
+et <m>x,y\geq 0</m>.</p></answer>
+<solution><p>Comme ce problème est déjà sous la forme canonique, il n'y a rien à faire.</p></solution>
+<solution><p>Comme ce problème est déjà sous la forme canonique, il n'y a rien à faire.</p></solution>
+<solution><p>Pour qu'un problème soit sous la forme canonique, il faut que ce soit un problème de maximisation et que toutes les contraintes soit des contraintes de la forme <q><m>\leq</m></q>. On a donc: maximiser <m>f_3(x,y)=-2x+3y</m> sous les contraintes
+<md>
+<mrow>-x+2y&amp;\leq 3</mrow>
+<mrow>-3x-y&amp;\leq -26</mrow>
+<mrow>-x-2y&amp;\leq 12</mrow>
+<mrow>x-2y&amp;\leq 8</mrow>
+<mrow>x+2y&amp;\leq 21</mrow>
+<mrow>3x+y&amp;\leq 38</mrow>
+</md>
+et <m>x,y\geq 0</m>.</p></solution>
+<solution><p>Pour qu'un problème soit sous la forme canonique, il faut que ce soit un problème de maximisation et que toutes les contraintes soit des contraintes de la forme <q><m>\leq</m></q>. On a donc: maximiser <m>g_4(x,y)=-x-y</m> sous les contraintes
+<md>
+<mrow>2x-5y&amp;\leq -1</mrow>
+<mrow>3x+2y&amp;\leq 27</mrow>
+<mrow>-5x+3y&amp;\leq -7</mrow>
+</md>
+et <m>x,y\geq 0</m>.</p></solution>
+</exercise>
+<exercise xml:id="exo-proglin4"><statement><p>Résoudre chacun des problème de l'exercice <xref ref="exo-proglin1"/> à l'aide de l'algorithme du simplexe.</p></statement>
+<solution>
+<p>On commence par créer la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
+<me>
+S=\left(\begin{array}{rrrrr|r|r}
+-1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0\\
+1&amp; 5&amp;0&amp;1&amp;0&amp;0&amp;24\\
+1&amp;-7&amp;0&amp;0&amp;1&amp;1&amp;-12\\
+-3&amp;-2&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)
+</me>.
+Puisque la dernière colonne contient une entrée négative, on doit, dans un premier temps, pivoter sur la ligne trois avant de faire l'algorithme. La seule variable négative est <m>y</m>, on effectue ainsi le pivotage selon l'entrée en position <m>3,2</m>, ce qui donne
+<md>
+<mrow>\left(\begin{array}{rrrrr|r|r}
+-1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0\\
+1&amp; 5&amp;0&amp;1&amp;0&amp;0&amp;24\\
+1&amp;-7&amp;0&amp;0&amp;1&amp;0&amp;-12\\
+-3&amp;-2&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)&amp;\begin{array}{c} -\frac{1}{7}L_3\to L_3\sim\end{array}\left(\begin{array}{rrrrr|r|r}
+-1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0\\
+1&amp; 5&amp;0&amp;1&amp;0&amp;0&amp;24\\
+-\frac{1}{7}&amp;1&amp;0&amp;0&amp;-\frac{1}{7}&amp;\frac{1}{7}&amp;\frac{12}{7}\\
+-3&amp;-2&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{c}L_1-L_3\to L_3\\ L_2-5L_3\to L_2\\ L_4+2L_3\to L_4\sim\end{array}\left(\begin{array}{rrrrr|r|r}
+-\frac{6}{7}&amp;0&amp;1&amp;0&amp;\frac{1}{7}&amp;0&amp;-\frac{12}{7}\\
+\frac{12}{7}&amp; 0&amp;0&amp;1&amp;\frac{5}{7}&amp;0&amp;\frac{108}{7}\\
+-\frac{1}{7}&amp;1&amp;0&amp;0&amp;-\frac{1}{7}&amp;0&amp;\frac{12}{7}\\
+-\frac{23}{7}&amp;0&amp;0&amp;0&amp;-\frac{2}{7}&amp;1&amp;\frac{24}{7}
+\end{array}\right)</mrow>
+</md>.
+La première entrée de la dernière colonne est, à son tour, négative. On pivote selon l'entrée en position <m>1,1</m> pour la rendre positive.
+<md>
+<mrow>\left(\begin{array}{rrrrr|r|r}
+-\frac{6}{7}&amp;0&amp;1&amp;0&amp;\frac{1}{7}&amp;0&amp;-\frac{12}{7}\\
+\frac{12}{7}&amp; 0&amp;0&amp;1&amp;\frac{5}{7}&amp;0&amp;\frac{108}{7}\\
+-\frac{1}{7}&amp;1&amp;0&amp;0&amp;-\frac{1}{7}&amp;0&amp;\frac{12}{7}\\
+-\frac{23}{7}&amp;0&amp;0&amp;0&amp;-\frac{2}{7}&amp;1&amp;\frac{24}{7}
+\end{array}\right)&amp;\begin{array}{c}-\frac{7}{6}L_1/\to L_1\sim\end{array}\left(\begin{array}{rrrrr|r|r}
+1&amp;0&amp;-\frac{7}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+\frac{12}{7}&amp; 0&amp;0&amp;1&amp;\frac{5}{7}&amp;0&amp;\frac{108}{7}\\
+-\frac{1}{7}&amp;1&amp;0&amp;0&amp;-\frac{1}{7}&amp;0&amp;\frac{12}{7}\\
+-\frac{23}{7}&amp;0&amp;0&amp;0&amp;-\frac{2}{7}&amp;1&amp;\frac{24}{7}
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{c}L_2-\frac{12}{7}L_1\to L_2 \\ L_3+\frac{1}{7}L_1\to L_3 \\ L_4+\frac{23}{7}L_1\to L_1\sim\end{array}\left(\begin{array}{rrrrr|r|r}
+1&amp;0&amp;-\frac{7}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp; 0&amp;2&amp;1&amp;1&amp;0&amp;12\\
+0&amp;1&amp;-\frac{1}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp;0&amp;-\frac{23}{6}&amp;0&amp;-\frac{5}{6}&amp;1&amp;10
+\end{array}\right)</mrow>
+</md>.
+</p>
+<p>À présent, l'algorithme du simplexe, au sens usuel, peut commencer. La plus petite entrée de la dernière ligne se trouve dans la colonne trois. Le pivotage s'effetue donc par rapport à la première variable d'écart. La seule entrée positive dans cette colonne est à la ligne deux. C'est par rapport à cette ligne que s'effectuera le pivotage. On obtient
+<md>
+<mrow>\left(\begin{array}{rrrrr|r|r}
+1&amp;0&amp;-\frac{7}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp; 0&amp;2&amp;1&amp;1&amp;0&amp;12\\
+0&amp;1&amp;-\frac{1}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp;0&amp;-\frac{23}{6}&amp;0&amp;-\frac{5}{6}&amp;1&amp;10
+\end{array}\right)&amp;\begin{array}{c} \frac{1}{2}L_2\to L_2\sim \end{array}\left(\begin{array}{rrrrr|r|r}
+1&amp;0&amp;-\frac{7}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp; 0&amp;1&amp;\frac{1}{2}&amp;\frac{1}{2}&amp;0&amp;6\\
+0&amp;1&amp;-\frac{1}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp;0&amp;-\frac{23}{6}&amp;0&amp;-\frac{5}{6}&amp;1&amp;10
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{c}L_1+\frac{7}{6}L_2\to L_1 \\ L_3+\frac{1}{6}L_2\to L_3 \\ L_4+\frac{23}{6}L_2\to L_4\sim \end{array}\left(\begin{array}{rrrrr|r|r}
+1&amp;0&amp;0&amp;\frac{7}{12}&amp;\frac{5}{12}&amp;0&amp;9\\
+0&amp; 0&amp;1&amp;\frac{1}{2}&amp;\frac{1}{2}&amp;0&amp;6\\
+0&amp;1&amp;0&amp;\frac{1}{12}&amp;-\frac{1}{12}&amp;0&amp;3\\
+0&amp;0&amp;0&amp;\frac{23}{12}&amp;\frac{13}{12}&amp;1&amp;33
+\end{array}\right)</mrow>
+</md>.
+À ce stade, toutes les entrées de la dernière lignes sont positives. L'algorithme se termine, offrant comme solution optimale la valeur <m>33</m>, atteinte lorsque <m>x=9</m> et <m>y=3</m>, ce qui correspond à la solution obtenue à l'exercice <xref ref="exo-proglin2"/>.
+</p>
+</solution>
+<solution><p>On commence par créer la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
+<me>
+S=\left(\begin{array}{rrrrrr|r|r}
+-2&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;-5\\
+-1&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;-1\\
+2&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;14\\
+1&amp;-3&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
+-1&amp;-2&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)
+</me>. Cette matrice contient deux entrées négatives dans la dernière colonne. On doit d'abord les éliminer avant de procéder avec l'algorithme du simplexe. Pour optimiser le nombre d'étapes, on choisit de pivoter dans la première ligne, puisque <m>(-5)/(-2)\geq (-2)/(-1)</m> et dans la première colonne, seule valeur négative de la ligne. Cela rendra la valeur dans la deuxième ligne également positive. Ainsi, on a
+<md>
+<mrow>\left(\begin{array}{rrrrrr|r|r}
+-2&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;-5\\
+-1&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;-1\\
+2&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;14\\
+1&amp;-3&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
+-1&amp;-2&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)&amp;\begin{array}{c}-\frac{1}{2}L_1\to L_1\sim\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;0&amp;\frac{5}{2}\\
+-1&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;-1\\
+2&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;14\\
+1&amp;-3&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
+-1&amp;-2&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{c} L_2+L_1\to L_2\\ L_3+2L_1\to L_3\\ L_4-L_1\to L_4\\ L_5+L_1\to L_5\sim \end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;0&amp;\frac{5}{2}\\
+0&amp;\frac{1}{2}&amp;-\frac{1}{2}&amp;1&amp;0&amp;0&amp;0&amp;\frac{3}{2}\\
+0&amp;2&amp;1&amp;0&amp;1&amp;0&amp;0&amp;9\\
+0&amp;-\frac{5}{2}&amp;\frac{1}{2}&amp;0&amp;0&amp;1&amp;0&amp;-\frac{5}{2}\\
+0&amp;-\frac{5}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;1&amp;\frac{5}{2}
+\end{array}\right)</mrow>
+</md>. Une nouvelle entrée négative est apparue à la ligne quatre. L'entrée de la deuxième colonne est négative et est choisie pour faire le pivotage. On a
+<md>
+<mrow>\left(\begin{array}{rrrrrr|r|r}
+1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;0&amp;\frac{5}{2}\\
+0&amp;\frac{1}{2}&amp;-\frac{1}{2}&amp;1&amp;0&amp;0&amp;0&amp;\frac{1}{2}\\
+0&amp;2&amp;1&amp;0&amp;1&amp;0&amp;0&amp;9\\
+0&amp;-\frac{5}{2}&amp;\frac{1}{2}&amp;0&amp;0&amp;1&amp;0&amp;-\frac{5}{2}\\
+0&amp;-\frac{5}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;1&amp;\frac{5}{2}
+\end{array}\right)&amp;\begin{array}{c}-\frac{2}{5}L_4\to L_4 \\ \sim\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;0&amp;\frac{5}{2}\\
+0&amp;\frac{1}{2}&amp;-\frac{1}{2}&amp;1&amp;0&amp;0&amp;0&amp;\frac{1}{2}\\
+0&amp;2&amp;1&amp;0&amp;1&amp;0&amp;0&amp;9\\
+0&amp;1&amp;-\frac{1}{5}&amp;0&amp;0&amp;-\frac{2}{5}&amp;0&amp;1\\
+0&amp;-\frac{5}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;1&amp;\frac{5}{2}
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{c}L_1+\frac{1}{2}L_4\to L_1\\ L_2-\frac{1}{2}L_4\to L_2\\ L_3-2L_4\to L_3\\ L_5+\frac{5}{2}L_4\to L_5\\ \sim\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;-\frac{3}{5}&amp;0&amp;0&amp;-\frac{1}{5}&amp;0&amp;3\\
+0&amp;0&amp;-\frac{2}{5}&amp;1&amp;0&amp;\frac{1}{5}&amp;0&amp;1\\
+0&amp;0&amp;\frac{7}{5}&amp;0&amp;1&amp;\frac{4}{5}&amp;0&amp;7\\
+0&amp;1&amp;-\frac{1}{5}&amp;0&amp;0&amp;-\frac{2}{5}&amp;0&amp;1\\
+0&amp;0&amp;-1&amp;0&amp;0&amp;-1&amp;1&amp;5
+\end{array}\right)</mrow>
+</md>.
+À présent, l'algorithme du simplexe peut commencer. Il y a deux valeurs négatives dans la dernières lignes et celles-ci valent la même chose. On choisit la valeur dans la troisième colonne. Il n'y a qu'une entrée positive dans cette colonne, le pivotage s'effectue selon l'entrée en position  <m>3,3</m>. On obtient
+<md>
+<mrow>\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;-\frac{3}{5}&amp;0&amp;0&amp;-\frac{1}{5}&amp;0&amp;3\\
+0&amp;0&amp;-\frac{2}{5}&amp;1&amp;0&amp;\frac{1}{5}&amp;0&amp;0\\
+0&amp;0&amp;\frac{7}{5}&amp;0&amp;1&amp;\frac{4}{5}&amp;0&amp;7\\
+0&amp;1&amp;-\frac{1}{5}&amp;0&amp;0&amp;-\frac{2}{5}&amp;0&amp;1\\
+0&amp;0&amp;-1&amp;0&amp;0&amp;-1&amp;1&amp;5
+\end{array}\right)&amp;\begin{array}{c}\frac{5}{7}L_3\to L_3 \\ \sim\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;-\frac{3}{5}&amp;0&amp;0&amp;-\frac{1}{5}&amp;0&amp;3\\
+0&amp;0&amp;-\frac{2}{5}&amp;1&amp;0&amp;\frac{1}{5}&amp;0&amp;0\\
+0&amp;0&amp;1&amp;0&amp;\frac{5}{7}&amp;\frac{4}{7}&amp;0&amp;5\\
+0&amp;1&amp;-\frac{1}{5}&amp;0&amp;0&amp;-\frac{2}{5}&amp;0&amp;1\\
+0&amp;0&amp;-1&amp;0&amp;0&amp;-1&amp;1&amp;5
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{c}L_1+\frac{3}{5}L_3\to L_1\\ L_2+\frac{2}{5}L_3\to L_2\\ L_4+\frac{1}{5}L_3\to L_4\\ L_5+L_3\to L_5\\ \sim\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;0&amp;0&amp;\frac{3}{7}&amp;\frac{1}{7}&amp;0&amp;6\\
+0&amp;0&amp;0&amp;1&amp;\frac{2}{7}&amp;\frac{3}{7}&amp;0&amp;3\\
+0&amp;0&amp;1&amp;0&amp;\frac{5}{7}&amp;\frac{4}{7}&amp;0&amp;5\\
+0&amp;1&amp;0&amp;0&amp;\frac{1}{7}&amp;-\frac{2}{7}&amp;0&amp;2\\
+0&amp;0&amp;0&amp;0&amp;\frac{5}{7}&amp;-\frac{3}{7}&amp;1&amp;10
+\end{array}\right)</mrow>
+</md>, qui possède encore une entrée négative dans la dernière ligne. Dans la colonne correspondante, il y a trois valeurs positives. Celle ayant le plus petit rapport avec la colonne des <m>b_i</m>, comme prescrit dans l'algorithme <xref ref="algo-simplexe"/>, est l'entrée dans la ligne deux. On pivote alors pour obtenir
+<md>
+<mrow>\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;0&amp;0&amp;\frac{3}{7}&amp;\frac{1}{7}&amp;0&amp;6\\
+0&amp;0&amp;0&amp;1&amp;\frac{2}{7}&amp;\frac{3}{7}&amp;0&amp;2\\
+0&amp;0&amp;1&amp;0&amp;\frac{5}{7}&amp;\frac{4}{7}&amp;0&amp;5\\
+0&amp;1&amp;0&amp;0&amp;\frac{1}{7}&amp;-\frac{2}{7}&amp;0&amp;2\\
+0&amp;0&amp;0&amp;0&amp;\frac{5}{7}&amp;-\frac{3}{7}&amp;1&amp;10
+\end{array}\right)&amp;\begin{array}{c}\frac{7}{3}L_2\to L_2\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;0&amp;0&amp;\frac{3}{7}&amp;\frac{1}{7}&amp;0&amp;6\\
+0&amp;0&amp;0&amp;\frac{7}{3}&amp;\frac{2}{3}&amp;1&amp;0&amp;7\\
+0&amp;0&amp;1&amp;0&amp;\frac{5}{7}&amp;\frac{4}{7}&amp;0&amp;5\\
+0&amp;1&amp;0&amp;0&amp;\frac{1}{7}&amp;-\frac{2}{7}&amp;0&amp;2\\
+0&amp;0&amp;0&amp;0&amp;\frac{5}{7}&amp;-\frac{3}{7}&amp;1&amp;10
+\end{array}\right)</mrow>
+<mrow>&amp;\begin{array}{c}L_1-\frac{1}{7}L_2\to L_2\\ L_3-\frac{4}{7}L_2\to L_3\\ L_4+\frac{2}{7}L_2\to L_4\\ L_5+\frac{3}{7}L_2\to L_5\\ \sim \end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;0&amp;-\frac{1}{3}&amp;\frac{1}{3}&amp;0&amp;0&amp;5\\
+0&amp;0&amp;0&amp;\frac{7}{3}&amp;\frac{2}{3}&amp;1&amp;0&amp;7\\
+0&amp;0&amp;1&amp;-\frac{4}{3}&amp;\frac{1}{3}&amp;0&amp;0&amp;1\\
+0&amp;1&amp;0&amp;\frac{2}{3}&amp;\frac{1}{3}&amp;0&amp;0&amp;4\\
+0&amp;0&amp;0&amp;1&amp;1&amp;0&amp;1&amp;13
+\end{array}\right)</mrow>
+</md>.
+L'algoritme se termine, offrant comme solution maximale la valeur <m>13</m>, atteinte lorsque <m>x=5</m> et <m>y=4</m>, comme trouvé à l'exercice <xref ref="exo-proglin2"/>.
+</p></solution>
+<solution><p>On commence par créer la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
+<me>
+S=\left(\begin{array}{rrrrrrrr|r|r}
+-1&amp;2&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;3\\
+-3&amp;-1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-26\\
+-1&amp;-2&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;12\\
+1&amp;-2&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;8\\
+1&amp;2&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;21\\
+3&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;38\\
+2&amp;-3&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)
+</me>.
+L'entrée de la deuxième ligne et de la dernière colonne contient est négative. On pivote sur l'entrée en position <m>2,1</m> afin de la rendre positive. On a
+<md>
+<mrow> \left(\begin{array}{rrrrrrrrrr}
+-1 &amp; 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
+-3 &amp; -1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -26 \\
+-1 &amp; -2 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 12 \\
+1 &amp; -2 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 8 \\
+1 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 21 \\
+3 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 38 \\
+2 &amp; -3 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right) &amp; \begin{array}{c} -\frac{1}{3}L_{2} \to L_{2} \\ \sim \end{array} \left(\begin{array}{rrrrrrrrrr}
+-1 &amp; 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
+1 &amp; \frac{1}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{26}{3} \\
+-1 &amp; -2 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 12 \\
+1 &amp; -2 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 8 \\
+1 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 21 \\
+3 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 38 \\
+2 &amp; -3 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right) </mrow>
+<mrow>&amp; \begin{array}{c} L_{1} + 1L_{1} \to L_{1} \\ L_{3} + 1L_{3} \to L_{3} \\ L_{4} - 1L_{4} \to L_{4} \\ L_{5} - 1L_{5} \to L_{5} \\ L_{6} - 3L_{6} \to L_{6} \\ L_{7} - 2L_{7} \to L_{7} \\ \sim \end{array} \left(\begin{array}{rrrrrrrrrr}
+0 &amp; \frac{7}{3} &amp; 1 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{35}{3} \\
+1 &amp; \frac{1}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{26}{3} \\
+0 &amp; -\frac{5}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{62}{3} \\
+0 &amp; -\frac{7}{3} &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; -\frac{2}{3} \\
+0 &amp; \frac{5}{3} &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; \frac{37}{3} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; -\frac{11}{3} &amp; 0 &amp; \frac{2}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; -\frac{52}{3}
+\end{array}\right) </mrow>
+</md>, qui contient à nouveau une valeur négative dans la dernière colonne, à la quatrième ligne. Un pivotage selon l'entrée <m>4,2</m> la rendra positive. On obtient
+<md>
+
+<mrow> \left(\begin{array}{rrrrrrrrrr}
+0 &amp; \frac{7}{3} &amp; 1 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{35}{3} \\
+1 &amp; \frac{1}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{26}{3} \\
+0 &amp; -\frac{5}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{62}{3} \\
+0 &amp; -\frac{7}{3} &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; -\frac{2}{3} \\
+0 &amp; \frac{5}{3} &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; \frac{37}{3} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; -\frac{11}{3} &amp; 0 &amp; \frac{2}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; -\frac{52}{3}
+\end{array}\right) &amp; \begin{array}{c} -\frac{3}{7}L_{4} \to L_{4} \\ \sim \end{array} \left(\begin{array}{rrrrrrrrrr}
+0 &amp; \frac{7}{3} &amp; 1 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{35}{3} \\
+1 &amp; \frac{1}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{26}{3} \\
+0 &amp; -\frac{5}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{62}{3} \\
+0 &amp; 1 &amp; 0 &amp; -\frac{1}{7} &amp; 0 &amp; -\frac{3}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{2}{7} \\
+0 &amp; \frac{5}{3} &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; \frac{37}{3} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; -\frac{11}{3} &amp; 0 &amp; \frac{2}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; -\frac{52}{3}
+\end{array}\right) </mrow>
+
+<mrow>&amp; \begin{array}{c} L_{1} - \frac{7}{3}L_{4} \to L_{1} \\ L_{2} - \frac{1}{3}L_{4} \to L_{2} \\ L_{3} + \frac{5}{3}L_{4} \to L_{3} \\ L_{5} - \frac{5}{3}L_{4} \to L_{5} \\ L_{7} + \frac{11}{3}L_{4} \to L_{7} \\ \sim \end{array} \left(\begin{array}{rrrrrrrrrr}
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 11 \\
+1 &amp; 0 &amp; 0 &amp; -\frac{2}{7} &amp; 0 &amp; \frac{1}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{60}{7} \\
+0 &amp; 0 &amp; 0 &amp; -\frac{4}{7} &amp; 1 &amp; -\frac{5}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{148}{7} \\
+0 &amp; 1 &amp; 0 &amp; -\frac{1}{7} &amp; 0 &amp; -\frac{3}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{2}{7} \\
+0 &amp; 0 &amp; 0 &amp; \frac{4}{7} &amp; 0 &amp; \frac{5}{7} &amp; 1 &amp; 0 &amp; 0 &amp; \frac{83}{7} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; 0 &amp; 0 &amp; \frac{1}{7} &amp; 0 &amp; -\frac{11}{7} &amp; 0 &amp; 0 &amp; 1 &amp; -\frac{114}{7}
+\end{array}\right) </mrow>
+</md>.
+Toutes les entrées de la section du vecteur <m>\vec{b}</m> sont positives. L'algorithme du simplexe peut débuter. L'entrée de la dernière ligne et de la sixième colonne est négative. Dans la colonne six, parmi les entrées positives, celle qui offre le plus petit ratio avec la colonne des <m>b_i</m> se trouve dans la ligne un. Cette ligne est choisie pour pivoter. On a
+<md>
+<mrow> \left(\begin{array}{rrrrrrrrrr}
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 11 \\
+1 &amp; 0 &amp; 0 &amp; -\frac{2}{7} &amp; 0 &amp; \frac{1}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{60}{7} \\
+0 &amp; 0 &amp; 0 &amp; -\frac{4}{7} &amp; 1 &amp; -\frac{5}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{148}{7} \\
+0 &amp; 1 &amp; 0 &amp; -\frac{1}{7} &amp; 0 &amp; -\frac{3}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{2}{7} \\
+0 &amp; 0 &amp; 0 &amp; \frac{4}{7} &amp; 0 &amp; \frac{5}{7} &amp; 1 &amp; 0 &amp; 0 &amp; \frac{83}{7} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; 0 &amp; 0 &amp; \frac{1}{7} &amp; 0 &amp; -\frac{11}{7} &amp; 0 &amp; 0 &amp; 1 &amp; -\frac{114}{7}
+\end{array}\right) &amp; \begin{array}{c} L_{5} - \frac{5}{7}L_{1} \to L_{5} \\ L_{2} - \frac{1}{7}L_{1} \to L_{2} \\ L_{3} + \frac{5}{7}L_{1} \to L_{3} \\ L_{4} + \frac{3}{7}L_{1} \to L_{4} \\ L_{7} + \frac{11}{7}L_{1} \to L_{7} \\ \sim \end{array} \left(\begin{array}{rrrrrrrrrr}
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 11 \\
+1 &amp; 0 &amp; -\frac{1}{7} &amp; -\frac{2}{7} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 7 \\
+0 &amp; 0 &amp; \frac{5}{7} &amp; -\frac{4}{7} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 29 \\
+0 &amp; 1 &amp; \frac{3}{7} &amp; -\frac{1}{7} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 5 \\
+0 &amp; 0 &amp; -\frac{5}{7} &amp; \frac{4}{7} &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 4 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; 0 &amp; \frac{11}{7} &amp; \frac{1}{7} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1
+\end{array}\right) </mrow>
+</md>,
+qui ne contient que des entrées positives dans la dernière ligne. L'algoritme est terminé et offre comme solution la valeur maximale <m>1</m>, atteinte lorsque <m>(x,y)=(7,5)</m>.
+</p></solution>
+<solution><p>On commence par écrire la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
+<me>
+S=\left(\begin{array}
+2&amp;-5&amp;1&amp;0&amp;0&amp;0&amp;-1\\
+3&amp;2&amp;0&amp;1&amp;0&amp;0&amp;27\\
+-5&amp;3&amp;0&amp;0&amp;1&amp;0&amp;-7\\
+1&amp;1&amp;0&amp;0&amp;0&amp;1&amp;0\\
+\end{array}\right)
+</me>.
+On applique l'algorithme du simplexe dual. D'abord, on pivote sur l'entrée en position <m>(3,1)</m>.
+<md>
+<mrow> \left(\begin{array}{rrrrrrr}
+2 &amp; -5 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; -1 \\
+3 &amp; 2 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 27 \\
+-5 &amp; 3 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; -7 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right) &amp; \begin{array}{c} -\frac{1}{5}L_{3} \to L_{3} \\ \sim \end{array} \left(\begin{array}{rrrrrrr}
+2 &amp; -5 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; -1 \\
+3 &amp; 2 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 27 \\
+1 &amp; -\frac{3}{5} &amp; 0 &amp; 0 &amp; -\frac{1}{5} &amp; 0 &amp; \frac{7}{5} \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right) </mrow>
+<mrow>&amp; \begin{array}{c} L_{1} - 2L_{1} \to L_{1} \\ L_{2} - 3L_{2} \to L_{2} \\ L_{4} - 1L_{4} \to L_{4} \\ \sim \end{array} \left(\begin{array}{rrrrrrr}
+0 &amp; -\frac{19}{5} &amp; 1 &amp; 0 &amp; \frac{2}{5} &amp; 0 &amp; -\frac{19}{5} \\
+0 &amp; \frac{19}{5} &amp; 0 &amp; 1 &amp; \frac{3}{5} &amp; 0 &amp; \frac{114}{5} \\
+1 &amp; -\frac{3}{5} &amp; 0 &amp; 0 &amp; -\frac{1}{5} &amp; 0 &amp; \frac{7}{5} \\
+0 &amp; \frac{8}{5} &amp; 0 &amp; 0 &amp; \frac{1}{5} &amp; 1 &amp; -\frac{7}{5}
+\end{array}\right) </mrow>
+<intertext>On pivote sur l'entrée en position <m>1,2</m>.</intertext>
+<mrow>&amp; \begin{array}{c} -\frac{5}{19}L_{1} \to L_{1} \\ \sim \end{array} \left(\begin{array}{rrrrrrr}
+0 &amp; 1 &amp; -\frac{5}{19} &amp; 0 &amp; -\frac{2}{19} &amp; 0 &amp; 1 \\
+0 &amp; \frac{19}{5} &amp; 0 &amp; 1 &amp; \frac{3}{5} &amp; 0 &amp; \frac{114}{5} \\
+1 &amp; -\frac{3}{5} &amp; 0 &amp; 0 &amp; -\frac{1}{5} &amp; 0 &amp; \frac{7}{5} \\
+0 &amp; \frac{8}{5} &amp; 0 &amp; 0 &amp; \frac{1}{5} &amp; 1 &amp; -\frac{7}{5}
+\end{array}\right) </mrow>
+<mrow>&amp; \begin{array}{c} L_{3} + \frac{3}{5}L_{1} \to L_{3} \\ L_{2} - \frac{19}{5}L_{1} \to L_{2} \\ L_{4} - \frac{8}{5}L_{1} \to L_{4} \\ \sim \end{array} \left(\begin{array}{rrrrrrr}
+0 &amp; 1 &amp; -\frac{5}{19} &amp; 0 &amp; -\frac{2}{19} &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 19 \\
+1 &amp; 0 &amp; -\frac{3}{19} &amp; 0 &amp; -\frac{5}{19} &amp; 0 &amp; 2 \\
+0 &amp; 0 &amp; \frac{8}{19} &amp; 0 &amp; \frac{7}{19} &amp; 1 &amp; -3
+\end{array}\right) </mrow>
+</md>.
+La dernière ligne ne contenant que des entrées positives sous le bloc principale, l'algorithme se termine. Le problème dual de maximisation a pour solution optimale <m>-3</m>, atteinte lorsque <m>x=2</m> et <m>y=1</m>. La solution au problème primal est ainsi <m>f_4(2,1)=3</m>. 
+</p></solution>
+</exercise>
+<exercise><introduction>
+<p>La figure <xref ref="fig-regionsadmissibleatrouver"/> représente différentes droites dans le premier quadrant, ainsi que quatre régions identifiées par <m>A,B,C</m> et <m>D</m>.</p>
+<figure xml:id="fig-regionsadmissibleatrouver">
+<image xml:id="img-regionsadmissibleatrouver">
+<sageplot>
+var("y")
+g=plot((8+x)/3,(x,0,18),ymax=9,color="blue",legend_label="-x+3y=8")+plot(16-x,(x,0,18),color="red",legend_label="x+y=16")+plot(x,(x,0,18),color="black",legend_label="-x+y=0")+plot((8+x)/5,(x,0,18),color="green",legend_label="-x+5y=16")
+g+=text("$A$",(1,2.5), color="black",fontsize=20)+text("$B$",(8,1), color="black",fontsize=20)+text("$C$",(8,4), color="black",fontsize=20)+text("$D$",(8,6.5), color="black",fontsize=20)
+g
+</sageplot>
+<description>
+Les droites moins x plus trois y égal huit, x plus y égal seize, moins x plus y égal zéro et moins x plus cinq y égal huit sont illustrées dans le premier quadrant. On y voit également quatre régions appelées A,B,C et D.
+</description>
+</image>
+</figure>
+</introduction>
+<task><introduction><p>On porte le regard sur les quatre régions identifiées dans la figure. On veut écrire des contraintes correspondant à chacune de ces régions.</p></introduction>
+<task><statement><p>Écrire les contraintes d'un programme linéaire dont la région admissible correspond à la région <m>A</m> de la figure <xref ref="fig-regionsadmissibleatrouver"/>.</p></statement>
+<answer>
+<p><md>
+<mrow>-x+5y&amp;\geq 8</mrow>
+<mrow>-x+y&amp;\geq 0</mrow>
+<mrow>-x+3y&amp;\leq 8</mrow>
+</md>
+avec <m>x\geq 0,y\geq 0</m>.</p>
+</answer>
+<solution><p>Il y a trois droites délimitant la région <m>A</m>, soit <m>-x+5y= 8,-x+y= 0</m> et <m>-x+3y= 8</m>. Pour les convertir en inégalité, on peut prendre un point dans la région, par exemple <m>(0,2)</m> et déterminer quel sens l'inégalité doit avoir. Puisque <m>-0+5*2=10\geq 8</m>, la première contrainte est <m>-x+5y\geq 8</m>. La deuxième, puisque <m>-0+2=2\geq 0</m>, est <m>-x+y\geq 0</m> et la dernière est <m>-x+3y\leq 8</m>, car <m>-0+3*2=6\leq 8</m>.  </p></solution>
+</task>
+<task><statement><p>Écrire les contraintes d'un programme linéaire dont la région admissible correspond à la région <m>B</m> de la figure <xref ref="fig-regionsadmissibleatrouver"/>.</p></statement>
+<answer>
+<p><md>
+<mrow>-x+5y&amp;\leq 8</mrow>
+<mrow>-x+y&amp;\leq 0</mrow>
+<mrow>x+y&amp;\leq 16</mrow>
+</md>
+avec <m>x\geq 0,y\geq 0</m>.</p>
+</answer>
+<solution><p>Il y a trois droites délimitant la région <m>B</m>, soit <m>-x+5y= 8,-x+y= 0</m> et <m>x+y=16</m>. Pour les convertir en inégalité, on peut prendre un point dans la région, par exemple <m>(2,0)</m> et déterminer quel sens l'inégalité doit avoir. Puisque <m>-2+5*0=-2\leq 8</m>, la première contrainte est <m>-x+5y\leq 8</m>. La deuxième, puisque <m>-2+0=-2\leq 0</m>, est <m>-x+y\leq 0</m> et la dernière est <m>x+y\leq 16</m>, car <m>2+0=2\leq 16</m>.  </p></solution>
+</task>
+<task><statement><p>Écrire les contraintes d'un programme linéaire dont la région admissible correspond à la région <m>C</m> de la figure <xref ref="fig-regionsadmissibleatrouver"/>.</p></statement>
+<answer>
+<p><md>
+<mrow>-x+5y&amp;\geq 8</mrow>
+<mrow>-x+y&amp;\leq 0</mrow>
+<mrow>-x+3y&amp;\leq 8</mrow>
+<mrow>x+y&amp;\leq 16</mrow>
+</md>
+avec <m>x\geq 0,y\geq 0</m>.</p>
+</answer>
+<solution><p>Il y a quatre droites délimitant la région <m>C</m>, soit <m>-x+5y= 8,-x+y= 0,-x+3y= 8</m> et <m>x+y=16</m>. Pour les convertir en inégalité, on peut prendre un point dans la région, par exemple <m>(6,4)</m> et déterminer quel sens l'inégalité doit avoir. Puisque <m>-6+5*4=14\geq 8</m>, la première contrainte est <m>-x+5y\geq 8</m>. La deuxième, puisque <m>-6+4=-2\leq 0</m>, est <m>-x+y\leq 0</m>. La troisième contrainte est <m>-x+3y\leq 8</m>, car <m>-6+3*4=6\leq 8</m> et la dernière est <m>x+y\leq 16</m>, car <m>6+4=10\leq 16</m>.  </p></solution>
+</task>
+<task><statement><p>Écrire les contraintes d'un programme linéaire dont la région admissible correspond à la région <m>D</m> de la figure <xref ref="fig-regionsadmissibleatrouver"/>.</p></statement>
+<answer>
+<p><md>
+<mrow>-x+3y&amp;\geq 8</mrow>
+<mrow>-x+y&amp;\leq 0</mrow>
+<mrow>x+y&amp;\leq 16</mrow>
+</md>
+avec <m>x\geq 0,y\geq 0</m>.</p>
+</answer>
+<solution><p>Il y a trois droites délimitant la région <m>D</m>, soit <m>-x+3y= 8,-x+y= 0</m> et <m>x+y=16</m>. Pour les convertir en inégalité, on peut prendre un point dans la région, par exemple <m>(8,6)</m> et déterminer quel sens l'inégalité doit avoir. Puisque <m>-6+3*6=12\geq 8</m>, la première contrainte est <m>-x+3y\geq 8</m>. La deuxième, puisque <m>-8+6=-2\leq 0</m>, est <m>-x+y\leq 0</m> et la dernière est <m>x+y\leq 16</m>, car <m>8+6=14\leq 16</m>.  </p></solution>
+</task>
+</task>
+<task><introduction>
+<p>Dans cette partie, on tente de trouver, pour chaque sommet de la région <m>C</m>, une fonction objectif qui a pour valeur optimale le sommet en question.</p>
+</introduction>
+<task><statement><p>Déterminer une fonction objectif pour laquelle le sommet <m>(2,2)</m> est la seule solution maximale.</p></statement>
+<hint><p>S'inspirer de la droite dans la figure <xref ref="fig-simplexe1"/>.</p></hint>
+<solution><p>Une fonction objectif <m>f(x,y)</m> sera optimale au point <m>(2,2)</m> si, pour une valeur <m>k\in\mathbb{R}</m>, la courbe de niveau <m>f(x,y)=k</m> a pour seul intersection avec la région admissible le point <m>C</m>. Ce fait ne garantit pas que l'intersection sera un maximum, mais en prenant <m>g(x,y)=-f(x,y)</m> au besoin, on aura une fonction qui satisfait au problème.</p>
+<p>Si le vecteur des coefficients de la fonction objectif était parallèle au vecteur de l'un des contraintes qui sert à déterminer le point <m>D</m>, alors la totalité du segment composé de l'intersection de la droite formant la contrainte et de la région admissible offrirait une solution optimale au problème. Pour trouver une fonction où le point <m>(2,2)</m> est la seule solution optimale, on change le vecteur des coefficients</p>
+</solution>
+</task>
+</task>
+</exercise>
+</exercises>
