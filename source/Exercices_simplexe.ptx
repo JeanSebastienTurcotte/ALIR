@@ -45,14 +45,14 @@ et <m>x,y\geq 0</m>.</p>
 <figure xml:id="fig-exo-regionadmissible1">
 <caption>La région admissible</caption>
 <image xml:id="img-exo-regionadmissible1">
+<description>La région admissible est tracée.</description>
 <sageplot>
 A = matrix([[-1,1], [1,5],[1,-7]])
 b = vector([0,24,-12])
 c = vector([3,2])
 P = InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
-P.feasible_set()
+P.feasible_set().plot()
 </sageplot>
-<description>La région admissible est tracée.</description>
 </image></figure></answer>
 <solution><p>Les trois contraintes d'inégalité forment un triangle, puisque chaque contrainte décrit un demi-plan dans <m>\mathbb{R}^2</m> et que les trois droites bordant les demi-plans s'intersectent deux à deux. Les premières s'intersectent lorsque <m>x=4,y=4</m>. La première et la troisième s'intersectent lorsque <m>x=2,y=2</m>. La deuxième et la troisième s'intersectent lorsque <m>x=9,y=3</m>. La région admissible est illustrée à la figure <xref ref="fig-exo-regionadmissible1"/>.</p></solution>
 </task>
@@ -70,14 +70,14 @@ et <m>x,y\geq 0</m>.</p>
 <figure xml:id="fig-exo-regionadmissible2">
 <caption>La région admissible</caption>
 <image xml:id="img-exo-regionadmissible2">
+<description>La région admissible est tracée.</description>
 <sageplot>
 A = matrix([[-2,1], [-1,1],[2,1],[1,-3]])
 b = vector([-5,-1,14,0])
 c = vector([1,2])
 P = InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
-P.feasible_set()
+P.feasible_set().plot()
 </sageplot>
-<description>La région admissible est tracée.</description>
 </image></figure></answer>
 <solution><p>Les quatre contraintes d'inégalité forment un quadrilatère. Les quatre droites bordant les demi-plans s'intersectent deux à deux. Les premières s'intersectent lorsque <m>x=4,y=3</m>. La première et la troisième s'intersectent lorsque <m>x=\frac{19}{4},y=\frac{9}{2}</m>. La première et la quatrième s'intersectent lorsque <m>x=3,y=1</m>. La deuxième et la troisième s'intersectent lorsque <m>x=5,y=4</m>. La deuxième et la quatrième s'intersectent lorsque <m>x=\frac{3}{2},y=\frac{1}{2}</m>. La troisième et la quatrième s'intersectent lorsque <m>x=6,y=2</m>. En tenant compte du sens des inégalités, on élimine l'intersection des contraintes deux et quatre ainsi que l'intersection des contraintes un et trois. La région admissible est illustrée à la figure <xref ref="fig-exo-regionadmissible2"/>.</p></solution>
 </task>
@@ -96,14 +96,14 @@ et <m>x,y\geq 0</m>.</p>
 <answer><figure xml:id="fig-exo-regionadmissible3">
 <caption>La région admissible</caption>
 <image xml:id="img-exo-regionadmissible3">
+<description>La région admissible est tracée.</description>
 <sageplot>
 A = matrix([[-1,2], [-3,-1],[-1,-2],[1,-2],[1,2],[3,1]])
 b = vector([3,-26,-12,8,21,38])
 c = vector([-2,3])
 P = InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
-P.feasible_set()
+P.feasible_set().plot()
 </sageplot>
-<description>La région admissible est tracée.</description>
 </image></figure></answer>
 <solution><p>Avec six contraintes qui peuvent potentiellement toutes avoir une intersection prises deux à deux, il y a quinze intersection à déterminer. On se contente de donner les paires dont l'intersection fait partie de la région admissible. La première et la deuxième contrainte s'intersectent lorsque <m>x=7</m> et <m>y=5</m>. La première et la cinquième contrainte s'intersectent quand <m>x=9</m> et <m>y=6</m>. La deuxième et la troisième contrainte s'intersectent lorsque <m>x=8,y=2</m>. La troisième et la quatrième contrainte s'intersectent quand <m>x=10,y=1</m>. La quatrième et la sixième s'intersectent lorsque <m>x=12,y=2</m>. Finalement, la cinquième et la sixième s'intersectent quand <m>x=11,y=5</m>. La région admissible est illustrée à la figure <xref ref="fig-exo-regionadmissible3"/>.</p></solution>
 </task>
@@ -118,14 +118,14 @@ et <m>x,y\geq 0</m>.</p></statement>
 <figure xml:id="fig-exo-regionadmissible4">
 <caption>La région admissible</caption>
 <image xml:id="img-exo-regionadmissible4">
+<description>La région admissible est tracée.</description>
 <sageplot>
 A = matrix([[2,-5],[3,2],[-5,3]])
 b = vector([-1,27,-7])
 c = vector([1,1])
 P = InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
-P.feasible_set()
+P.feasible_set().plot()
 </sageplot>
-<description>La région admissible est tracée.</description>
 </image></figure>
 </answer>
 <solution>
@@ -523,16 +523,17 @@ La dernière ligne ne contenant que des entrées positives sous le bloc principa
 <exercise><introduction>
 <p>La figure <xref ref="fig-regionsadmissibleatrouver"/> représente différentes droites dans le premier quadrant, ainsi que quatre régions identifiées par <m>A,B,C</m> et <m>D</m>.</p>
 <figure xml:id="fig-regionsadmissibleatrouver">
+<caption>Quatre région du premier quadrant</caption>
 <image xml:id="img-regionsadmissibleatrouver">
+<description>
+Les droites moins x plus trois y égal huit, x plus y égal seize, moins x plus y égal zéro et moins x plus cinq y égal huit sont illustrées dans le premier quadrant. On y voit également quatre régions appelées A,B,C et D.
+</description>
 <sageplot>
 var("y")
 g=plot((8+x)/3,(x,0,18),ymax=9,color="blue",legend_label="-x+3y=8")+plot(16-x,(x,0,18),color="red",legend_label="x+y=16")+plot(x,(x,0,18),color="black",legend_label="-x+y=0")+plot((8+x)/5,(x,0,18),color="green",legend_label="-x+5y=16")
 g+=text("$A$",(1,2.5), color="black",fontsize=20)+text("$B$",(8,1), color="black",fontsize=20)+text("$C$",(8,4), color="black",fontsize=20)+text("$D$",(8,6.5), color="black",fontsize=20)
 g
 </sageplot>
-<description>
-Les droites moins x plus trois y égal huit, x plus y égal seize, moins x plus y égal zéro et moins x plus cinq y égal huit sont illustrées dans le premier quadrant. On y voit également quatre régions appelées A,B,C et D.
-</description>
 </image>
 </figure>
 </introduction>

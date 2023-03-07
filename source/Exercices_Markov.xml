@@ -120,7 +120,7 @@ x\\
 \end{pmatrix}</me>.</p></solution>
 </task>
 </exercise>
-<exercise><introduction><p>On considère la chaine de Markov se déroulant sur le graphe de la figure suivante.
+<exercise><introduction><p>On considère la chaine de Markov se déroulant sur le graphe de la figure suivante.</p>
 <figure xml:id="fig-exoMarkov1">
 <caption>Le graphe de l'exercice</caption>
 <image xml:id="img-exoMarkov1">
@@ -134,7 +134,7 @@ plot(G,edge_labels=False,layout="circular")
 </sageplot>
 </image>
 </figure>
-</p></introduction>
+</introduction>
 <task>
 <statement><p>Déterminer la matrice de transition associée à une chaince de Markov sur ce graphe.</p></statement>
 <answer><p><m>T=\begin{pmatrix}
@@ -408,7 +408,7 @@ show(X5)
 <p>On constate que dans cette situation, le joueur a maintenant plus de <m>50\%</m> de chance d'être ruiné après cinq jeux, contrairement à <m>37.5\%</m> dans le jeu avec probabilité de succès égale à <m>1/2</m>.</p>
 </solution>
 </task>
-<task><statement>Déterminer les probabilités de succès du joueur.</statement>
+<task><statement><p>Déterminer les probabilités de succès du joueur.</p></statement>
 <solution><p>Tout comme à l'exemple <xref ref="ex-ruinestable"/>, il faut approximer <m>X</m> par <m>X_n</m> pour une grande valeur de <m>n</m> puisque l'état stable dépend de l'état initial. Avec Sage, on trouve que le joueur a maintenant moins de <m>19\%</m> de chance d'atteindre les cinq dollars avant de se ruiner, comparativment à <m>40\%</m> dans la situation équiprobable. Une changement dans la probabilité de gagner à chaque tour de <m>10\%</m> entraine un changement dans la probabilité de succès net de plus du double.</p>
 <sage>
 <input>
@@ -539,7 +539,7 @@ show(T^5*X0)
 </task>
 <task><statement><p>Quelle est la probabilité que le serveur remporte le jeu?</p></statement>
 <answer><p>Environ <m>60\%</m>.</p></answer>
-<statement><p>Il faut trouver l'état stable à partir de l'état égalité. Comme la matrice possède toujours des entrées nulles, il faut procéder par le calcul d'une grande valeur de la chaine de Markov. On peut voir que le serveur a environ <m>60\%</m> de chance de remporter le jeu.</p>
+<solution><p>Il faut trouver l'état stable à partir de l'état égalité. Comme la matrice possède toujours des entrées nulles, il faut procéder par le calcul d'une grande valeur de la chaine de Markov. On peut voir que le serveur a environ <m>60\%</m> de chance de remporter le jeu.</p>
 <sage>
 <input>
 p=0.55
@@ -551,7 +551,7 @@ X0=vector([1,0,0,0,0])
 0.599009900990099
 </output>
 </sage>
-</statement>
+</solution>
 </task>
 </exercise>
 <exercisegroup>
@@ -635,9 +635,9 @@ for i in range(1000):
     M.append(len(serpech(d))-1)
 numpy.mean(M)
 </input>
-<output>
+<!--<output>
 9.63  #Cette valeur sera évidemment différente chaque utilisation
-</output>
+</output>-->
 </program>
 </listing>
 </solution>
@@ -657,9 +657,9 @@ for i in range(1000):
 M21=[m for m in M if m>20]
 (len(M21)/1000).n()
 </input>
-<output>
+<!--<output>
 0.086000000000000  #Cette valeur sera évidemment différente chaque utilisation
-</output>
+</output>-->
 </program>
 </listing>
 </solution>
@@ -729,7 +729,7 @@ while X[-1]==0:
 print("Le nombre de tours minimal est ",i)
 print("Les chances sont ",X[-1])
 </input>
-<ouput>Le nombre de tours minimal est 3 et les chances sont de 1/8.</ouput>
+<!--<ouput>Le nombre de tours minimal est 3 et les chances sont de 1/8.</ouput>-->
 </program>
 </listing></solution>
 </task>
@@ -768,9 +768,9 @@ def deplacement(config):
     return d
 deplacement(config)
 </input>
-<output>
+<!--<output>
 (0, 38, 2, 3, 14, 5, 6, 7, 8, 31, 10, 11, 12, 13, 14, 15, 6, 17, 18, 19, 20, 42, 22, 23, 24, 25, 26, 27, 84, 29, 30, 31, 32, 33, 34, 35, 44, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 26, 48, 11, 50, 67, 52, 53, 54, 55, 53, 57, 58, 59, 60, 61, 19, 63, 60, 65, 66, 67, 68, 69, 70, 91, 72, 73, 74, 75, 76, 77, 78, 79, 100, 81, 82, 83, 84, 85, 86, 24, 88, 89, 90, 91, 92, 73, 94, 75, 96, 97, 78, 99, 100)
-</output>
+</output>-->
 </program>
 </listing>
 </solution>
@@ -818,9 +818,9 @@ for i in range(1000):
     M.append(len(serpech(d))-1)
 numpy.mean(M)
 </input>
-<output>
+<!--<output>
 36.483  #Cette valeur sera évidemment différente chaque utilisation
-</output>
+</output>-->
 </program>
 </listing>
 </solution>
@@ -839,9 +839,9 @@ for i in range(1000):
 M21=[m for m in M if m>20]
 (len(M21)/1000).n()
 </input>
-<output>
+<!--<output>
 0.734000000000000  #Cette valeur sera évidemment différente chaque utilisation
-</output>
+</output>-->
 </program>
 </listing>
 </solution>
@@ -854,6 +854,7 @@ M21=[m for m in M if m>20]
 <solution><listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
+<input>
 T=transition_serpech(d,2)
 X0=vector([1,0,0,0,0,0,0,0])
 X=X0
@@ -864,6 +865,7 @@ while X[-1]==0:
     X=T*X
 print("Le nombre de tours minimal est ",i)
 print("Les chances sont ",X[-1])
+</input>
 </program>
 </listing></solution></task>
 <task><statement><p>À la partie <xref ref="exo-serpechplusde20"/>, le nombre de parties n'étant pas terminées après <m>20</m> tours a été estimé. Déterminer la véritable valeur de ce nombre à l'aide de la matrice de transition.</p>

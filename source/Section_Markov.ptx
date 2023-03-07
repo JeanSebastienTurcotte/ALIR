@@ -171,7 +171,7 @@ show(X3)
     <statement><p>On considère un parieur qui possède <m>2$</m>. Il joue au jeu suivant. Il lance un pièce de monnaie. Dans le cas où la pièce tombe sur <rq/> pile<lq/>, il gagne un dollar et dans le cas où la pièce tombe sur <rq/>face<lq/>, il perd plutôt un dollar. Afin de considérer une chaine de Markov finie, on suppose que le jeu s'arrête lorsqu'il n'a plus d'argent ou bien qu'il réussit à atteindre <m>5$</m>.
     La figure suivante illustre le parcours de dix joueurs ayant participé à ce jeu.
     </p>
-    <figure xml:id="fig-ruine"/>
+    <figure xml:id="fig-ruine">
     <caption>La ruine du parieur illustrée</caption>
     <image xml:id="img-ruine">
     <sageplot>
@@ -196,6 +196,7 @@ for j in range(10):
 P
     </sageplot>
     </image>
+    </figure>
 <p>Quelles sont les probabilités qu'il soit encore en train de jouer après cinq lancers de pièces?</p>
     </statement>
     <solution><p>
@@ -237,7 +238,7 @@ for i in range(5):
     X=T*X
 show(X)
     </input>
-    <ouput>(3/8, 5/32, 0, 1/4, 0, 7/32)</ouput>
+    <output>(3/8, 5/32, 0, 1/4, 0, 7/32)</output>
     </sage>
     <p>On remarque qu'après cinq lancers, le joueur peut se retrouver avec <m>0,1,3</m> ou <m>5</m> dollars. La probabilité cherchée est <m>\frac{5}{32}+\frac{1}{4}=13/32</m>, soit légèrement en-dessous d'une chance sur deux.</p>
     </solution>
@@ -288,7 +289,7 @@ show(X)
     <p>On termine cette sous-section avec un exemple Sage qui permet de simuler une chaine de Markov.</p>
     <computation>
     <title>Chaine de Markov et Sage</title>
-    <statement><p>On va créer une fonction Sage qui prend comme argument une matrice de transition <m>T</m>, un vecteur de probabilité <m>X_0</m> et un entier facultatif <m>n</m> qui retournera <m>X_n</m>. Si l'entier <m>n</m> n'est pas fourni, on retournera par défaut <m>X_1</m>. </p>
+    <p>On va créer une fonction Sage qui prend comme argument une matrice de transition <m>T</m>, un vecteur de probabilité <m>X_0</m> et un entier facultatif <m>n</m> qui retournera <m>X_n</m>. Si l'entier <m>n</m> n'est pas fourni, on retournera par défaut <m>X_1</m>. </p>
     <sage><input>
 def chaine_Markov(T,X0,n=1):
     X=X0
@@ -305,7 +306,6 @@ for n in range(1,11):
     show(chaine_Markov(T,X0,n))
     </input>
     </sage>
-    </statement>
     </computation>
     </subsection>
     <subsection>
@@ -434,11 +434,11 @@ for n in range(1,11):
     Maug=M.augment(b,subdivide=True)
     show(Maug.rref())
     </input>
-    <ouput>
+    <output>
 [    1     0|12/71]
 [    0     1|17/71]
 [    0     0|    0]
-    </ouput>
+    </output>
     </sage>
     </solution>
     </example>
@@ -487,10 +487,10 @@ T=matrix(6,6, lambda i,j: ruinetransitionproba(i,j,6))
 show(T^100*vector([0,0,1,0,0,0]).n())
 show(T^100*vector([0,1,0,0,0,0]).n())
     </input>
-    <ouput>
+    <output>
 (0.599999999672833, 0.000000000000000, 4.52133927054211e-10, 0.000000000000000, 2.79434134386468e-10, 0.399999999595599)
 (0.799999999750067, 1.72699792667743e-10, 0.000000000000000, 2.79434134386468e-10, 0.000000000000000, 0.199999999797800)
-    </ouput>
+    </output>
     </sage>
     <p>On note que chacun de ces états stable est de la forme <m>(x,0,0,0,0,0,1-x)</m>.</p>
     </solution>

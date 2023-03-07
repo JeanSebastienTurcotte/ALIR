@@ -21,8 +21,7 @@
     </introduction>
     <subsection>
 <title>Approche graphique à un problème d'optimisation linéaire</title>
-    <p>
-    On considère une fonction de deux variables <m>f(x_1,x_2)=2x_1+x_2</m>. Sans contraintes, cette fonction peut être aussi grande que l'on veut, en prenant de grandes valeurs pour <m>x_1,x_2</m>. Par contre, si on suppose que <m>0\leq x_1\leq 8</m>, <m>0\leq x_2\leq 5</m> et <m>x_1+x_2\leq 10</m>, alors les possibilités sont beaucoup plus restreintes. Il est possible d'illustrer chacune de ces contraintes dans le plan cartésien. Prise ensemble, on obtient ce que l'on appelle la <em>région admissible</em>, soit l'ensemble des valeurs des variables qui satisfont aux contraintes. La figure ci-dessous illustre la région admissible de la situation décrite ci-haut. En anglais, la région admissible est appelée <lq>feasible region</lq>, d'où le <m>F</m> au centre de la région admissible. On peut voir dans la figure chacune des contraintes ainsi que l'intersection, l'ensemble des valeurs qui satisfont simultanément toutes les contraintes.
+    <p> On considère une fonction de deux variables <m>f(x_1,x_2)=2x_1+x_2</m>. Sans contraintes, cette fonction peut être aussi grande que l'on veut, en prenant de grandes valeurs pour <m>x_1,x_2</m>. Par contre, si on suppose que <m>0\leq x_1\leq 8</m>, <m>0\leq x_2\leq 5</m> et <m>x_1+x_2\leq 10</m>, alors les possibilités sont beaucoup plus restreintes. Il est possible d'illustrer chacune de ces contraintes dans le plan cartésien. Prise ensemble, on obtient ce que l'on appelle la <em>région admissible</em>, soit l'ensemble des valeurs des variables qui satisfont aux contraintes. La figure ci-dessous illustre la région admissible de la situation décrite ci-haut. En anglais, la région admissible est appelée <lq/>feasible region<rq/>, d'où le <m>F</m> au centre de la région admissible. On peut voir dans la figure chacune des contraintes ainsi que l'intersection, l'ensemble des valeurs qui satisfont simultanément toutes les contraintes.
     </p>
 <figure xml:id="fig-regionadmissible1">
 <caption>Région admissible de la situation décrite.</caption>
@@ -58,7 +57,7 @@ showResetIcon(true);
 <statement><p>
 On considère un fermier qui dispose d'une certaine superficie de terrain pour cultiver deux types de plantes : le maïs et le soja. Chaque culture nécessite un certain temps de travail et des ressources spécifiques pour atteindre un certain rendement. Le fermier dispose d'un nombre limité d'heures de travail par semaine et d'un nombre limité d'engrais.
 </p>
-<p>Pour une semaine donnée, le fermier est prêt à allouer <m>50</m> heures à la production de ces deux types de plantes et il possède <m>200</m> kg d'engrais. Chaque tonne de maïs se vend au marché pour <m>450$</m> et chaque tonne de soja se vend <m>1000$</m>. De plus,  la production d'une tonne de maïs nécessite <m>5</m> kg d'engrais et <m>2</m> heures de travail, tandis que la production d'une tonne de soja requiert <m>15</m> kg d'engrais et <m>3</m> heures de travail.</p>
+<p>Pour une semaine donnée, le fermier est prêt à allouer <m>50</m> heures à la production de ces deux types de plantes et il possède <m>200</m> kg d'engrais. Chaque tonne de maïs se vend au marché pour <m>450</m>$ et chaque tonne de soja se vend <m>1000</m>$. De plus,  la production d'une tonne de maïs nécessite <m>5</m> kg d'engrais et <m>2</m> heures de travail, tandis que la production d'une tonne de soja requiert <m>15</m> kg d'engrais et <m>3</m> heures de travail.</p>
 <p>Quelle devrait être la quantité produite pour chacune de ces plantes afin de maximiser le profit durant cette semaine?</p>
 </statement>
 <solution>
@@ -137,7 +136,7 @@ On voit que la valeur maximale des ventes se trouve lorsque le nombre de chaises
 <p>Les exemples précédents montrent comment on peut maximiser une fonction linéaire soumises à des contraintes, mais la minimisation d'une telle fonction se résout avec la même méthode.</p>
 <example xml:id="ex-simplexe4">
 <title>Minimisation du coût de nutriments</title>
-<statement><p>Pour un régime particulier, une personne a besoin d'obtenir une quantité précise de nutriments chaque semaine. Il lui est possible de se procurer la poudre <m>p</m>, au coût de <m>4$</m> par <m>100</m> grammes, et la poudre <m>q</m>, au coût de <m>5$</m> par <m>100</m> grammes. La quantité pour chacun des trois nutriments, ainsi que la quantité quotidienne requise, sont données dans la table ci-dessous.</p>
+<statement><p>Pour un régime particulier, une personne a besoin d'obtenir une quantité précise de nutriments chaque semaine. Il lui est possible de se procurer la poudre <m>p</m>, au coût de <m>4</m>$ par <m>100</m> grammes, et la poudre <m>q</m>, au coût de <m>5</m>$ par <m>100</m> grammes. La quantité pour chacun des trois nutriments, ainsi que la quantité quotidienne requise, sont données dans la table ci-dessous.</p>
 <table>
   <title>Les nutriments nécessaires au régime.</title>
   <tabular halign="center" top="major">
@@ -198,7 +197,7 @@ On voit que la valeur maximale des ventes se trouve lorsque le nombre de chaises
     </row>
   </tabular>
 </table>
-<p>La personne peut se permettre un budget maximal de <m>100$</m> par semaine pour ces produits.</p>
+<p>La personne peut se permettre un budget maximal de <m>100</m>$ par semaine pour ces produits.</p>
 <p>On peut traduire ce problème en considérant la fonction <m>g(A,B)=4x+5y</m> qui est assujettie au contraintes
 <md>
 <mrow>3p+2q&amp;\geq 28</mrow>
@@ -232,7 +231,7 @@ P.plot_feasible_set(0,30,0,30, alpha=0.9)
 <mrow>g\left(\frac{56}{11},\frac{70}{11}\right)=52.18</mrow>
 <mrow>g\left(\frac{35}{3},\frac{5}{3}\right)=55</mrow>
 </md>.
-Le coût minimal est donc, à deux décimales près, de <m>52.18$</m>. À ce pris, la personne achètera, toujours à deux décimales près, <m>\frac{56}{11}\ast 100\approx 509,09</m> grammes de la poudre <m>p</m> et <m>\frac{70}{11}\ast 100\approx 636.36</m> grammes de la poudre <m>q</m>.
+Le coût minimal est donc, à deux décimales près, de <m>52.18</m>$. À ce pris, la personne achètera, toujours à deux décimales près, <m>\frac{56}{11}\ast 100\approx 509,09</m> grammes de la poudre <m>p</m> et <m>\frac{70}{11}\ast 100\approx 636.36</m> grammes de la poudre <m>q</m>.
 </p>
 </statement>
 </example>
@@ -284,8 +283,8 @@ deviendrait
 <mrow>a_{i\,1}x_1+a_{i\,2}x_2+\cdots a_{i\,n}x_n\leq b_i </mrow>
 <intertext>et</intertext>
 <mrow>-a_{i\,1}x_1-a_{i\,2}x_2-\cdots -a_{i\,n}x_n\leq -b_i </mrow>
-</md>
-</p>.
+</md>.
+</p>
 <p>Dans l'exemple qui suit, on réécrit les trois problèmes, présentés plus haut, sous leur forme canonique.</p>
 <example xml:id="ex-simplexecanonique">
 <title>Forme canonique des trois problèmes</title>
@@ -334,7 +333,7 @@ En tenant compte des contraintes de non-négativité, le problème est maintenan
 <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
 <computation xml:id="sageex-simplexegeo">
 <title>Géométrie de la programmation linéaire avec Sage</title>
-<statement><p>Sage possède un module pour explorer la programmation linéaire. On y définit les vecteurs <m>\vec{c},\vec{b}</m>, ainsi que la matrice <m>A</m>. En principe, il n'est pas obligatoire d'avoir la matrice du problème sous forme canonique, car il est possible de spécifier le type d'inégalité et le type de problème (maximisation ou minimisation). Une fois les vecteurs et la matrice définis, la commande <c>InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")</c> permet de créer la structure du programme linéaire. Les arguments <c>A,b,c</c> sont, dans l'ordre, la matrice des contraintes, le vecteur de ces contraintes et le vecteur des coefficients de la fonction objectif. L'argument <c>["x", "y"]</c> donne le nom aux variables. Finalement l'argument <c>variable_type</c> donne le type d'inégalité, à savoir si les variables doivent être non négatives ou autre chose.</p>
+<p>Sage possède un module pour explorer la programmation linéaire. On y définit les vecteurs <m>\vec{c},\vec{b}</m>, ainsi que la matrice <m>A</m>. En principe, il n'est pas obligatoire d'avoir la matrice du problème sous forme canonique, car il est possible de spécifier le type d'inégalité et le type de problème (maximisation ou minimisation). Une fois les vecteurs et la matrice définis, la commande <c>InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")</c> permet de créer la structure du programme linéaire. Les arguments <c>A,b,c</c> sont, dans l'ordre, la matrice des contraintes, le vecteur de ces contraintes et le vecteur des coefficients de la fonction objectif. L'argument <c>["x", "y"]</c> donne le nom aux variables. Finalement l'argument <c>variable_type</c> donne le type d'inégalité, à savoir si les variables doivent être non négatives ou autre chose.</p>
 <p>Dans un premier temps, on regarde l'exemple d'introduction qui a servi à motiver la sous-section. En ajoutant la ligne <c>%display typeset</c> à la cellule Sage, il est possible de visualiser l'écriture du problème à même sage. </p>
 <sage>
 <input>
@@ -388,9 +387,9 @@ S
 Valeurs=[c*v for v in S] 
 Valeurs
 </input>
-<ouput>
+<output>
 [16, 15, 18, 5, 0]
-</ouput>
+</output>
 </sage>
 <p>Bien entendu, on peut aussi calculer la solution optimale avec une commande.</p>
 <sage>
@@ -465,7 +464,6 @@ show("c=",P.c())
 (-4, -5)
 </output>
 </sage>
-</statement>
 </computation>
     </subsection>
 <subsection>
@@ -1028,7 +1026,7 @@ Cette nouvelle matrice ne contient que des entrées positives dans la section du
 <p>Si l'on a un problème de programmation linéaire et, que pour raison quelconque, l'on considère le problème équivalent d'optimalité opposé (un problème de maximum pour un problème de minimum initial et vice-versa), on parle parfois du problème dual. Le problème initial est, quant à lui, appelé le problème primal. Le problème dual d'un problème de minimisation est toujours un problème de maximisation et le problème dual d'un problème de maximisation est toujours un problème de minimisation. La méthode du simplexe modifiée pour résoudre les problèmes de minimisation est parfois appelée la méthode du simplex dual.</p>
 <computation xml:id="sageex-simplexealg">
 <title>La méthode du simplexe sur Sage</title>
-<statement><p>Sage est capable de produire le résultat de la méthode du simplexe, de même que de faire, étape par étape, l'algorithme. On sait déjà, grâce à l'exemple <xref ref="sageex-simplexegeo"/>, que Sage est en mesure de donner la solution à l'aide de la commande <c>optimal_solution</c>. On peut aussi lui demander d'effectuer la méthode du simplexe et il retournera le résultat produit par l'algorithme. Il faut toujours convertir le problème à sa forme canonique, même s'il l'est déjà. </p>
+<p>Sage est capable de produire le résultat de la méthode du simplexe, de même que de faire, étape par étape, l'algorithme. On sait déjà, grâce à l'exemple <xref ref="sageex-simplexegeo"/>, que Sage est en mesure de donner la solution à l'aide de la commande <c>optimal_solution</c>. On peut aussi lui demander d'effectuer la méthode du simplexe et il retournera le résultat produit par l'algorithme. Il faut toujours convertir le problème à sa forme canonique, même s'il l'est déjà. </p>
 <sage>
 <input>
 A = matrix([[1, 0], [0, 1],[1,1]])
@@ -1116,12 +1114,11 @@ show("La solution de base:",D.basic_solution())
 show("La valeur de la fonction objectif:",D.objective_value())
 </input>
 </sage>
-</statement>
 </computation>
 </subsection>
 <subsection>
 <title>Un peu plus loin</title>
-<p>D'importance historique, l'algorithme du simplexe a maintenant été surpassé par d'autres, plus efficaces, plus rapides ou pouvant résoudre des problèmes plus complexes. Par exemple, dans beaucoup de problème, il n'est pas pratique d'avoir une solution optimale où certaines des variables sont des fractions. On ne pourrait pas produire trois quarts de chaise, par exemple, ou cinq tables et demie. La programmation linéaire en nombres entiers et plus généralement la programmation linéaire mixte entière permettent d'ajouter ces contraintes particulières et de résoudre les problèmes associés. La complexité de ces problèmes rend leur résolution difficile. On parle parfois de problème <em>NP-complet</em>. Les algoritmes modernes se contentent souvent de déterminer une solution acceptable plutôt qu'optimal. L'un des problèmes d'optimisation les plus connus et étudiés est le problème du commis voyageur. La page <url href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce#:~:text=En%20informatique%2C%20le%20probl%C3%A8me%20du,une%20et%20une%20seule%20fois." text="custom">Wikipedia</url> offre une bonne introduction ainsi qu'une liste de références pour en apprendre davantage.</p>
+<p>D'importance historique, l'algorithme du simplexe a maintenant été surpassé par d'autres, plus efficaces, plus rapides ou pouvant résoudre des problèmes plus complexes. Par exemple, dans beaucoup de problème, il n'est pas pratique d'avoir une solution optimale où certaines des variables sont des fractions. On ne pourrait pas produire trois quarts de chaise, par exemple, ou cinq tables et demie. La programmation linéaire en nombres entiers et plus généralement la programmation linéaire mixte entière permettent d'ajouter ces contraintes particulières et de résoudre les problèmes associés. La complexité de ces problèmes rend leur résolution difficile. On parle parfois de problème <em>NP-complet</em>. Les algoritmes modernes se contentent souvent de déterminer une solution acceptable plutôt qu'optimal. L'un des problèmes d'optimisation les plus connus et étudiés est le problème du commis voyageur. La page <url href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce#:~:text=En%20informatique%2C%20le%20probl%C3%A8me%20du,une%20et%20une%20seule%20fois."/> offre une bonne introduction ainsi qu'une liste de références pour en apprendre davantage.</p>
 <p>Bien que les applications linéaires soient toujours importantes et étudiées, de nombreux problèmes comportent des fonctions à optimiser et des contraintes qui ne sont pas linéaires. Des méthodes existent pour résoudre ces problèmes, notamment l'optimisation par les multiplicateurs de Lagrange, la descente du gradient et bien d'autres. Il existe même des algorithmes inspirés de la biologie, appelés algorithmes génétiques, qui s'inspirent de la sélection naturelle pour résoudre un problème.</p>
 </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
@@ -1137,9 +1134,8 @@ show("La valeur de la fonction objectif:",D.objective_value())
     <li><p>Les concepts de solution de base admissible, de variable en base et de variable hors base, présentée à la définition <xref ref="def-solbaseadmissible"/>; </p></li>
     <li><p>La <xref ref="def-matinitsimplexe" text="custom">matrice initiale du simplexe</xref> et sa construction à partir des matrices <m>A</m> et <m>I</m>, ainsi que des vecteurs <m>\vec{b}</m> et <m>\vec{c}</m>; </p></li>
     <li><p>La <xref ref="algo-simplexe" text="custom">méthode du simplexe</xref> et la méthode du simplexe dual.</p></li>
-    </ul>
+    </ul></p>
     <p>De plus avec Sage, on a exploré le module <c>InteractiveLPProblem</c> qui permet de visualiser et résoudre des problèmes de programmation linéaire. On réfère à l'exemple <xref ref="sageex-simplexegeo"/> et à l'exemple <xref ref="sageex-simplexealg"/> pour les commandes précises et leur utilisation.</p>
-    </p>
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
    <xi:include href="Exercices_simplexe.ptx"/> 
