@@ -168,7 +168,7 @@ show(X3)
     <p>Le prochain exemple est un cas classique en probabilité. Souvent appelé <rq/>la ruine du parieur<lq/>. La mention la plus vieille retracée remonte à Blaise Pascal, en 1656, dans une lettre à Pierre de Fermat. Pascal est considéré comme l'un des pionniers de la théorie des probabilités.</p>
     <example xml:id="ex-ruine">
     <title>La ruine du parieur</title>
-    <statement><p>On considère un parieur qui possède <m>2$</m>. Il joue au jeu suivant. Il lance un pièce de monnaie. Dans le cas où la pièce tombe sur <rq/> pile<lq/>, il gagne un dollar et dans le cas où la pièce tombe sur <rq/>face<lq/>, il perd plutôt un dollar. Afin de considérer une chaine de Markov finie, on suppose que le jeu s'arrête lorsqu'il n'a plus d'argent ou bien qu'il réussit à atteindre <m>5$</m>.
+    <statement><p>On considère un parieur qui possède <m>2</m>$. Il joue au jeu suivant. Il lance un pièce de monnaie. Dans le cas où la pièce tombe sur <rq/> pile<lq/>, il gagne un dollar et dans le cas où la pièce tombe sur <rq/>face<lq/>, il perd plutôt un dollar. Afin de considérer une chaine de Markov finie, on suppose que le jeu s'arrête lorsqu'il n'a plus d'argent ou bien qu'il réussit à atteindre <m>5</m>$.
     La figure suivante illustre le parcours de dix joueurs ayant participé à ce jeu.
     </p>
     <figure xml:id="fig-ruine">
@@ -211,7 +211,7 @@ P
 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1}{2} &amp; 1
     \end{pmatrix}
     </me>.
-    On pose <m>X_0=(0,0,1,0,0,0)</m> puisque le joueur commence avec <m>2$</m>. La réponse à la question se trouve dans <m>X_5</m>. Il faut faire la somme de toutes les entrées de ce vecteurs qui ne sont pas les extrémitiés. On aura alors la probabilité, qu'après cinq lancers, le joueur ait en sa possession <m>1,2,3</m> ou <m>4</m> dollars. La cellule suivante définie une fonction Sage qui permettra de créer rapidement la matrice. Il faut l'exécuter, mais rien ne sera affiché. Cette fonction sera étudiée et modifiée à l'exercice <xref ref="exo-ruineparieurgen"/>.
+    On pose <m>X_0=(0,0,1,0,0,0)</m> puisque le joueur commence avec <m>2</m>$. La réponse à la question se trouve dans <m>X_5</m>. Il faut faire la somme de toutes les entrées de ce vecteurs qui ne sont pas les extrémitiés. On aura alors la probabilité, qu'après cinq lancers, le joueur ait en sa possession <m>1,2,3</m> ou <m>4</m> dollars. La cellule suivante définie une fonction Sage qui permettra de créer rapidement la matrice. Il faut l'exécuter, mais rien ne sera affiché. Cette fonction sera étudiée et modifiée à l'exercice <xref ref="exo-ruineparieurgen"/>.
     </p>
     <sage><input>
 def ruinetransitionproba(i,j,n):
@@ -476,11 +476,11 @@ T=matrix(6,6, lambda i,j: ruinetransitionproba(i,j,6))
 [  0   0   0   0 1/2   1]
     </output>
     </sage>
-    <p>Avec le vecteur <m>X_0=(0,0,1,0,0,0)</m>, on obtient, en calculant une grande puissance de la chaine, que l'état stable est environ <m>X=(0.6,0,0,0,0,0.4)</m>. Ceci signifie que le joueur de l'exemple <xref ref="ex-ruine"/> a environ <m>60\%</m> de chance de perdre tout son argent, contre <m>40\\%</m> de chance d'atteindre son objectif. Certains auront peut-être réalisé que l'état stable doit forcément dépendre de l'état initial, contrairement aux autres exemples. Si l'on considère un joueur dont le montant initial n'est que d'un dollar, dans <m>50\%</m> des cas le joueur se retrouve déjà ruiné et dans les autres cas, il se retrouve avec deux dollars. On sait alors qu'il possède, à partir de deux dollars, <m>60\%</m> des chances de se ruiner. Les règles de proabiblités établissent donc les chances de se ruiner à partir d'un montant initial égal à un dollar à
+    <p>Avec le vecteur <m>X_0=(0,0,1,0,0,0)</m>, on obtient, en calculant une grande puissance de la chaine, que l'état stable est environ <m>X=(0.6,0,0,0,0,0.4)</m>. Ceci signifie que le joueur de l'exemple <xref ref="ex-ruine"/> a environ <m>60\%</m> de chance de perdre tout son argent, contre <m>40\%</m> de chance d'atteindre son objectif. Certains auront peut-être réalisé que l'état stable doit forcément dépendre de l'état initial, contrairement aux autres exemples. Si l'on considère un joueur dont le montant initial n'est que d'un dollar, dans <m>50\%</m> des cas le joueur se retrouve déjà ruiné et dans les autres cas, il se retrouve avec deux dollars. On sait alors qu'il possède, à partir de deux dollars, <m>60\%</m> des chances de se ruiner. Les règles de probabilités établissent donc les chances de se ruiner à partir d'un montant initial égal à un dollar à
     <me>
     \frac{1}{2}+\frac{1}{2}\frac{60}{100}=\frac{80}{100}
     </me>.
-    Ce calcul est un exemple de ce qu'on appelle <em>les probabilités conditionnelles</em> en théorie des probabilités. On vérifie le tout numériquement. La cellule ci-dessous donne l'état stable pour les chaines de Markov commençant à deux dollars et à un dollar.
+    Ce calcul est un exemple de ce que l'on appelle <em>les probabilités conditionnelles</em> en théorie des probabilités. On vérifie le tout numériquement. La cellule ci-dessous donne l'état stable pour les chaines de Markov commençant à deux dollars et à un dollar.
     </p>
     <sage>
     <input>
