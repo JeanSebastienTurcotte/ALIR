@@ -589,9 +589,33 @@ avec <m>x\geq 0,y\geq 0</m>.</p>
 </introduction>
 <task><statement><p>Déterminer une fonction objectif pour laquelle le sommet <m>(2,2)</m> est la seule solution maximale.</p></statement>
 <hint><p>S'inspirer de la droite dans la figure <xref ref="fig-simplexe1"/>.</p></hint>
+<answer><p>Une réponse possible est <m>f(x,y)=-2x+y</m>.</p></answer>
 <solution><p>Une fonction objectif <m>f(x,y)</m> sera optimale au point <m>(2,2)</m> si, pour une valeur <m>k\in\mathbb{R}</m>, la courbe de niveau <m>f(x,y)=k</m> a pour seul intersection avec la région admissible le point <m>C</m>. Ce fait ne garantit pas que l'intersection sera un maximum, mais en prenant <m>g(x,y)=-f(x,y)</m> au besoin, on aura une fonction qui satisfait au problème.</p>
-<p>Si le vecteur des coefficients de la fonction objectif était parallèle au vecteur de l'un des contraintes qui sert à déterminer le point <m>D</m>, alors la totalité du segment composé de l'intersection de la droite formant la contrainte et de la région admissible offrirait une solution optimale au problème. Pour trouver une fonction où le point <m>(2,2)</m> est la seule solution optimale, on change le vecteur des coefficients</p>
+<p>Si le vecteur des coefficients de la fonction objectif était parallèle au vecteur de l'une des contraintes qui sert à déterminer le point <m>(2,2)</m>, alors la totalité du segment composé de l'intersection de la droite formant la contrainte et de la région admissible offrirait une solution optimale au problème. Pour trouver une fonction où le point <m>(2,2)</m> est la seule solution optimale, on change les coefficients de la fonction objectif pour que la droite passant par <m>(2,2)</m> ayant ces coeffcients comme vecteur normal n'ait comme intersection avec la région admissible que le point <m>(2,2)</m> . La figure suivante permet de trouver un tel choix. Par exemple, la fonction <m>f(x,y)=-2x+y</m> atteint son maximum au point <m>(2,2)</m> et celui-ci vaut <m>-2</m>.</p>
+<figure xml:id="fig-simplexe2">
+        <caption>Fonction objectif optimale aux différents point de la région <m>C</m>.</caption>
+        <interactive aspect="1:1" platform="geogebra" width="100%"
+        xml:id="geog-simplexe2">
+          <slate aspect="1:1.35" source="code/geogebra/simplexe2.ggb"
+          surface="geogebra" xml:id="slate-simplexe2">
+enableShiftDragZoom(false);
+enableRightClick(false);
+          </slate>
+          <instructions>
+            <p>Changer les curseurs <m>a</m> et <m>b</m> pour obtenir une droite différente, qui passe toujours par le point sélectionné par le troisième curseur. Le curseur <m>k</m> translate cette droite de manière à couvrir toute la région admissible. Bouger le point <m>P</m> afin d'y évaluer la fonction <m>f</m> et d'assurer que c'est bien un maximum qui est atteint au point souhaité.</p>
+          </instructions>
+        </interactive>
+      </figure>
 </solution>
+</task>
+<task><statement><p>Déterminer une fonction objectif pour laquelle le sommet <m>(4,4)</m> est la seule solution maximale.</p></statement>
+<answer><p>En suivant la démarche de la partie précédente et en utilisant la figure <xref ref="fig-simplexe2"/>, on trouve, par exemple, <m>f_2(x,y)=-x+2y</m>, qui atteint sa valeur maximale <m>4</m> au point <m>(4,4)</m>.</p></answer>
+</task>
+<task><statement><p>Déterminer une fonction objectif pour laquelle le sommet <m>(10,6)</m> est la seule solution maximale.</p></statement>
+<answer><p>En suivant la démarche de la partie précédente et en utilisant la figure <xref ref="fig-simplexe2"/>, on trouve, par exemple, <m>f_2(x,y)=x+2y</m>, qui atteint sa valeur maximale <m>22</m> au point <m>(10,6)</m>.</p></answer>
+</task>
+<task><statement><p>Déterminer une fonction objectif pour laquelle le sommet <m>(12,4)</m> est la seule solution maximale.</p></statement>
+<answer><p>En suivant la démarche de la partie précédente et en utilisant la figure <xref ref="fig-simplexe2"/>, on trouve, par exemple, <m>f_2(x,y)=3x+2y</m>, qui atteint sa valeur maximale <m>44</m> au point <m>(12,4)</m>.</p></answer>
 </task>
 </task>
 </exercise>
