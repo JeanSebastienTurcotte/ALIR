@@ -21,7 +21,7 @@
 6 &amp; 11
     \end{pmatrix}
     </men>.
-    On peut observer l'effet géométrique de cette transformation sur le carré unité à la figure <xref ref="fig-vecpropre1"/>. À priori, il n'est pas évident de voir comment décrire la transformation dans des termes géométriques. Est-ce une rotation, une réflexion, un étirement, un cisaillement ou même une combinaison de tout cela? Par contre si on regarde son effet sur le parallélogramme engendré par les vecteurs <m>\vec{u}=(1,2),\vec{v}=(2,-3)</m>, son effet devient clair. La figure <xref ref="fig-vecpropre2"/> permet de voir cet effet.
+    On peut observer l'effet géométrique de cette transformation sur le carré unité à la figure <xref ref="fig-vecpropre1"/>. À priori, il n'est pas évident de voir comment décrire la transformation dans des termes géométriques. Est-ce une rotation, une réflexion, un étirement, un cisaillement ou même une combinaison de tout cela? Par contre, si l'on regarde son effet sur le parallélogramme engendré par les vecteurs <m>\vec{u}=(1,2),\vec{v}=(2,-3)</m>, son effet devient clair. La figure <xref ref="fig-vecpropre2"/> permet de voir cet effet.
     </p>
     <sidebyside>
     <figure xml:id="fig-vecpropre1">
@@ -67,7 +67,7 @@ graph2
     </image>
     </figure>
     </sidebyside>
-    <p>Il semble que la matrice <m>A</m> représente un étirement d'un certain facteur dans la direction <m>(1,2)</m> et un étirement d'un autre facteur dans la direction <m>(2,-3)</m>. Techniquement, on dévie légèrement de la définition donnée à l'exercice <xref ref="exo-etirquelcr2"/>, mais cela ne cause pas de problème en pratique.</p>
+    <p>Il semble que la matrice <m>A</m> représente un étirement d'un certain facteur dans la direction <m>(1,2)</m> et un étirement d'un autre facteur dans la direction <m>(2,-3)</m>. En principe, on dévie légèrement de la définition donnée à l'exercice <xref ref="exo-etirquelcr2"/>, mais cela ne cause pas de problème en pratique.</p>
     <p>Dans cette section, on verra comment trouver les bonnes directions pour comprendre la géométrie d'une transformation linéaire. Ces directions sont appelées les vecteurs propres et possèdent des nombres associés appelés valeurs propres. On définit la notion de multiplicité algébrique et multiplicité géométrique.</p>
     </introduction>
     <subsection>
@@ -107,23 +107,23 @@ graph2
     <p>La matrice <m>A</m> représente alors un étirement de facteur <m>14</m> dans la direction du vecteur <m>(1,2)</m> et un étirement de facteur <m>7</m> dans la direction <m>(2,-3)</m>.</p>
     </solution>
     </example>
-    <p>Parce que les matrices peuvent aussi représenter des transformations linéaires d'espaces vectoriels quelconque, on définit les directions invariantes (et leur facteur associé) par un terme qui s'éloigne un peu de la géométrie.</p>
+    <p>Parce que les matrices peuvent aussi représenter des transformations linéaires d'espaces vectoriels quelconques, on définit les directions invariantes (et leur facteur associé) par un terme qui s'éloigne un peu de la géométrie.</p>
     <definition xml:id="def-propres">
     <title>Vecteurs et valeurs propres</title>
     <statement><p>
-    Soit <m>A</m> une matrice carrée représentant une transformation linéaire d'un espace <m>V</m> vers ce même espace. On dit que <m>\vec{v}\in V</m> est un vecteur propre si <m>\vec{v}\neq \vec{0}</m> et s'il existe un scalaire <m>\lambda</m> pour lesquels
+    Soit <m>A</m>, une matrice carrée représentant une transformation linéaire d'un espace <m>V</m> vers ce même espace. On dit que <m>\vec{v}\in V</m> est un vecteur propre si <m>\vec{v}\neq \vec{0}</m> et s'il existe un scalaire <m>\lambda</m> pour lequel
     <men xml:id="eq-propres">
     A\vec{v}=\lambda \vec{v}
     </men>.
     Le scalaire <m>\lambda</m> est alors appelé la valeur propre associée à <m>\vec{v}</m>.
     </p></statement>
     </definition>
-    <p>Si on regarde l'équation <xref ref="eq-propres"/> du point de vue d'un système d'équations, on se retrouve avec <m>n</m> inconnues pour le vecteur <m>\vec{v}</m> et une supplémentaire provenant de la valeur propre <m>\lambda</m>. Le fait que cette valeur propre multiplie les composantes du vecteurs fait en sorte que ce système d'équations n'est même pas linéaire. Heureusement, les notions du <xref ref="chap-det" text="type-global"/> et du <xref ref="chap-espvec" text="type-global"/> vont permettre d'avoir une méthode efficace pour trouver les vecteurs et les valeurs propres. Dans un premier temps par contre, on considère certaines questions et on tente d'y répondre en s'appuyant sur des arguments géométriques.</p>
-    <p>Une première remarque est qu'un vecteur propre ne peut pas être nul, par définition. Puisque le vecteur nul n'a pas de direction et que les vecteurs propres correspondent géométriquement aux directions invariantes de la transformation linéaire, ce choix prend son sens. D'un autre point de vue, puisque n'importe quelle valeur de <m>\lambda</m> rendrait l'équation <xref ref="eq-propres"/> si <m>\vec{v}=\vec{0}</m>, on n'aurait plus unicité de la valeur propre. Par contre rien n'empêche <m>\lambda</m> d'être nul. Géométriquement, cela signifie qu'une direction est envoyée sur le vecteur nul. Si on pense à une projection orthogonale dans <m>\mathbb{R}^2</m> sur un vecteur <m>\vec{v}</m>, on sait que <m>P(\vec{v})=\vec{v}</m> et <m>P(\vec{v}_{\perp})=\vec{0}</m>. Cela donne donc directement deux vecteurs propres, <m>\vec{v},\vec{v}_{\perp}</m> et leur valeur propre associée, <m>1,0</m>.</p>
-    <p>Est-ce qu'une transformation linéaire a toujours des directions invariantes? En regardant l'effet d'une rotation et le fait que le vecteur nul ne peut pas être un vecteur propre, on comprend qu'il est possible qu'il n'y ait pas de vecteurs propres pour une transformation donnée. (Si on se permet de sortir du cadre des nombres réels, alors cela sera possible. On explore cette particularité dans l'annexe <xref provisional="nombrescomplexes"/>.) Y a-t-il un nombre maximum de directions invariantes? Si on pense à la matrice identité, toutes les directions sont invariantes. En termes de vecteurs propres, dès qu'il y en a un, il y a une infinité de vecteurs propres.</p>
+    <p>Si l'on regarde l'équation <xref ref="eq-propres"/> du point de vue d'un système d'équations, on se retrouve avec <m>n</m> inconnues pour le vecteur <m>\vec{v}</m> et une supplémentaire provenant de la valeur propre <m>\lambda</m>. Le fait que cette valeur propre multiplie les composantes du vecteur fait en sorte que ce système d'équations n'est même pas linéaire. Heureusement, les notions du <xref ref="chap-det" text="type-global"/> et du <xref ref="chap-espvec" text="type-global"/> fournissent une méthode efficace pour trouver les vecteurs et les valeurs propres. Dans un premier temps par contre, on considère certaines questions et l'on tente d'y répondre en s'appuyant sur des arguments géométriques.</p>
+    <p>Une première remarque est qu'un vecteur propre ne peut pas être nul, par définition. Puisque le vecteur nul n'a pas de direction et que les vecteurs propres correspondent géométriquement aux directions invariantes de la transformation linéaire, ce choix prend son sens. D'un autre point de vue, puisque n'importe quelle valeur de <m>\lambda</m> rendrait l'équation <xref ref="eq-propres"/> si <m>\vec{v}=\vec{0}</m>, on n'aurait plus l'unicité de la valeur propre. Par contre, rien n'empêche <m>\lambda</m> d'être nul. Géométriquement, cela signifie qu'une direction est envoyée sur le vecteur nul. Si l'on pense à une projection orthogonale dans <m>\mathbb{R}^2</m> sur un vecteur <m>\vec{v}</m>, on sait que <m>P(\vec{v})=\vec{v}</m> et <m>P(\vec{v}_{\perp})=\vec{0}</m>. Cela donne donc directement deux vecteurs propres, <m>\vec{v},\vec{v}_{\perp}</m> et leur valeur propre associée, <m>1,0</m>.</p>
+    <p>Est-ce qu'une transformation linéaire a toujours des directions invariantes? En regardant l'effet d'une rotation et le fait que le vecteur nul ne peut pas être un vecteur propre, on comprend qu'il est possible qu'il n'y ait pas de vecteurs propres pour une transformation donnée. (Si l'on se permet de sortir du cadre des nombres réels, cela sera alors possible. On explore cette particularité dans l'annexe <xref provisional="nombrescomplexes"/>.) Y a-t-il un nombre maximum de directions invariantes? Si l'on pense à la matrice identité, toutes les directions sont invariantes. Au niveau des vecteurs propres, dès qu'il y en a un, il y a une infinité de vecteurs propres.</p>
     <proposition>
     <title>Vecteurs propres et direction invariante</title>
-    <statement><p>Soit <m>\vec{v}</m> un vecteur propre d'une matrice <m>A</m>. Alors pour tout <m>k\neq 0</m> réel, le vecteur <m>k\vec{v}</m> est aussi un vecteur propre.</p>
+    <statement><p>Soit <m>\vec{v}</m>, un vecteur propre d'une matrice <m>A</m>. Alors pour tout <m>k\neq 0</m> réel, le vecteur <m>k\vec{v}</m> est aussi un vecteur propre.</p>
     <p>Pour une direction invariante, il y a donc une infinité de vecteurs propres.</p>
     </statement>
     <proof>
@@ -140,15 +140,15 @@ graph2
             setCoordSystem(-10,10,-10,10);
           </slate>
         <instructions>
-          <p>Cliquer sur l'une des quatre transformations à étudier. Déterminer ensuite les valeurs et vecteurs propres en bougeant le vecteur <m>\vec{u}</m> et en observant sa transformation. Écrire les réponses dans les cases appropriées, en prenant soin de mettre la plus petite des valeurs propres et un vecteur propre associé dans la ligne du haut. Cliquer ensuite sur valider les réponses afin de vérifier. Un clic sur un autre type de transformation va générer un nouveau problème.
+          <p>Cliquer sur l'une des quatre transformations à étudier. Déterminer ensuite les valeurs et vecteurs propres en bougeant le vecteur <m>\vec{u}</m> et en observant sa transformation. Écrire les réponses dans les cases appropriées, en prenant soin de mettre la plus petite des valeurs propres et un vecteur propre associé dans la ligne du haut. Cliquer ensuite sur <em>valider les réponses</em> afin de vérifier. Un clic sur un autre type de transformation va générer un nouveau problème.
           </p>
         </instructions>
         </interactive>
     </figure>
-    <p>On termine en avec des commandes Sage en lien avec la sous-section.</p>
+    <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation>
     <title>Vecteurs et valeurs propres sur Sage</title>
-    <p>En anglais, les mots pour vecteur propre et valeur propre sont respectivement <sq>eigenvector</sq> et <sq>eigenvalue</sq>, qui sont eux-mêmes dérivés du mot allemand <sq>eigen</sq>, qui signifie propre, caractéristique ou encore particulier. Sans surprise donc, la commande sur Sage pour trouver  valeurs propres est <c>A.eigenvalues()</c>. Pour les vecteurs propres, Sage doit aussi savoir si on veut un vecteur propre à droite (ce que l'on veut) ou à gauche (car il pourrait aussi exister un vecteur <m>\vec{v}</m> et un scalaire <m>\lambda</m> tels que <m>\vec{v}A=\lambda\vec{v}</m>). La commande est donc <c>A.eigenvectors_right()</c>. Sage retourne alors un triplet composé dans l'ordre de la valeur propre, d'un vecteur propre associée à celle-ci et d'un troisième nombre, appelé la multiplicité, qui sera considéré dans la sous-section suivante. Voici les valeurs et vecteurs propres de la matrice <m>A</m> de l'introduction.</p>
+    <p>En anglais, les mots pour vecteur propre et valeur propre sont respectivement <q>eigenvector</q> et <q>eigenvalue</q>, qui sont eux-mêmes dérivés du mot allemand <q>eigen</q>, qui signifie <em>propre</em>, <em>caractéristique</em> ou encore <em>particulier</em>. Sans surprise donc, la commande sur Sage pour trouver les valeurs propres est <c>A.eigenvalues()</c>. Pour les vecteurs propres, Sage doit aussi savoir si l'on veut un vecteur propre à droite (ce que l'on veut) ou à gauche (car il pourrait aussi exister un vecteur <m>\vec{v}</m> et un scalaire <m>\lambda</m> tels que <m>\vec{v}A=\lambda\vec{v}</m>). La commande est donc <c>A.eigenvectors_right()</c>. Sage retourne alors un triplet composé, dans l'ordre, de la valeur propre, d'un vecteur propre associé à celle-ci et d'un troisième nombre, appelé la multiplicité, qui sera considéré dans la sous-section suivante. Voici les valeurs et vecteurs propres de la matrice <m>A</m> de l'introduction.</p>
     <sage>
     <input>
 A=column_matrix([[10,6],[2,11]])
@@ -156,7 +156,7 @@ show(A.eigenvalues())
 show(A.eigenvectors_right())
     </input>
     </sage>
-    <p>On vérifie que pour une matrice de réflexion quelconque, on a toujours <m>1</m> et <m>-1</m> comme valeurs propres et que les vecteurs propres associés sont la direction de l'axe de réflexion et son perpendiculaire.</p>
+    <p>On vérifie que, pour une matrice de réflexion quelconque, on a toujours <m>1</m> et <m>-1</m> comme valeurs propres et que les vecteurs propres associés sont la direction de l'axe de réflexion et son perpendiculaire.</p>
     <sage>
     <input>
 var("theta")
@@ -174,7 +174,7 @@ show("Vecteur propre #2:", S.eigenvectors_right()[1][1][0].simplify_full())
     </input>
     </sage>
     <p>En multipliant le second vecteur par <m>\cos(\theta)</m> et le premier par <m>-\sin(\theta)</m>, on retrouve les directions voulues.</p>
-    <p>Une particularité que l'on peut remarquer est que dans la commande du vecteur propre, le vecteur propre est donné dans une liste qui ne contient que ce vecteur. En fait, pour une valeur spécifique de <m>\lambda</m>, il est possible d'avoir plus d'une direction invariante associée à cette valeur. Il s'avère que l'espace engendré par les vecteurs propres associés à un scalaire <m>\lambda</m> est un sous-espace vectoriel et on peut donc parler d'espace invariant ou espace propre. Ce concept sera exploré dans la sous-section suivante. En attendant, voici les vecteurs et valeurs propres d'une réflexion dans <m>\mathbb{R}^3</m>.</p>
+    <p>Une particularité que l'on peut remarquer tient au fait que, dans la commande du vecteur propre, celui-ci est donné dans une liste qui ne contient que ce vecteur. En fait, pour une valeur explicite de <m>\lambda</m>, il est possible d'avoir plus d'une direction invariante associée à cette valeur. Il s'avère que l'espace engendré par les vecteurs propres associés à un scalaire <m>\lambda</m> est un sous-espace vectoriel. On peut donc parler d'espace invariant ou espace propre. Ce concept sera exploré dans la sous-section suivante. En attendant, voici les vecteurs et valeurs propres d'une réflexion dans <m>\mathbb{R}^3</m>.</p>
     <sage>
     <input>
 S=column_matrix([[-1,0,0],[0,1,0],[0,0,1]])
@@ -182,32 +182,31 @@ show(S.eigenvalues())
 show(S.eigenvectors_right())    
     </input>
     </sage>
-    <p>On remarque que la valeur propre <m>1</m> apparait deux fois dans l'exécution de la commande <c>eigenvalues</c> et que le  vecteur propre qui lui est associé est en fait deux vecteurs. On remarque aussi que le troisième élément de la liste est <m>2</m>, qu'il y a deux vecteurs et que la valeur propre apparassait deux fois. Coincidence?</p>
+    <p>On remarque que la valeur propre <m>1</m> apparait deux fois dans l'exécution de la commande <c>eigenvalues</c> et que le  vecteur propre qui lui est associé est en fait deux vecteurs. On remarque aussi que le troisième élément de la liste est <m>2</m>, qu'il y a deux vecteurs et que la valeur propre apparaissait deux fois. Coïncidence?</p>
     </computation>
     </subsection>
-    <!-- Sous-sections à écrire, à même ce fichier -->
     <subsection>
     <title>Polynôme caractéristique et espace propre</title>
-    <p>L'objectif principal de cette sous-section est de déterminer une manière d'obtenir les valeurs et les vecteurs propres. On a expliqué plus haut que le système d'équations découlant le l'équation matricielle <xref ref="eq-propres"/> n'est pas linéaire par rapport à la variable <m>\lambda</m>, ce qui peut poser problème, spécifiquement en pensant aux méthodes du <xref ref="chap-SEL" text="type-global"/>. On regarde donc à nouveau cette équation. On peut réécrire
+    <p>L'objectif principal de cette sous-section est de déterminer une manière d'obtenir les valeurs et les vecteurs propres. On a expliqué plus haut que le système d'équations découlant de l'équation matricielle <xref ref="eq-propres"/> n'est pas linéaire par rapport à la variable <m>\lambda</m>, ce qui peut poser problème, spécifiquement en pensant aux méthodes du <xref ref="chap-SEL" text="type-global"/>. On regarde donc à nouveau cette équation. On peut réécrire
     <md>
     <mrow>A\vec{v}&amp;=\lambda \vec{v}</mrow>
     <mrow>A\vec{v}-\lambda \vec{v}&amp;=\vec{0}</mrow>
     <mrow>(A-\lambda I)\vec{v}&amp;=\vec{0}</mrow>
     </md>. De cette nouvelle équation, on peut conclure qu'un vecteur propre doit être dans l'espace nul de la matrice <m>A-\lambda I</m>. De plus, puisque la définition d'un vecteur propre exige que le vecteur soit non nul, il faut que l'espace nul de cette matrice soit de dimension plus grande ou égale à <m>1</m>. Les valeurs propres possibles pour une matrice <m>A</m> sont donc les valeurs de <m>\lambda</m> qui font en sorte que l'espace nul de la matrice <m>A-\lambda I</m> n'est pas réduit à <m>\{\vec{0}\}</m>. Selon le <xref ref="thm-delamatriceinversev5" text="title"/>, ceci se produit lorsque la matrice <m>A-\lambda I</m> n'est pas inversible.</p>
-    <p>La manière classique pour déterminer les valeurs propres d'une matrice <m>A</m> est de considérer les valeurs de <m>\lambda</m> qui font que le déterminant de la matrice <m>A-\lambda I</m> est nul. Le déterminant de cette matrice est un polynôme en <m>\lambda</m>, dont les zéros sont précisément les valeurs propres.</p>
+    <p>La manière classique de déterminer les valeurs propres d'une matrice <m>A</m> est de considérer les valeurs de <m>\lambda</m> qui font que le déterminant de la matrice <m>A-\lambda I</m> est nul. Le déterminant de cette matrice est un polynôme en <m>\lambda</m>, dont les zéros sont précisément les valeurs propres.</p>
     <definition xml:id="def-polynomecaracteristique">
     <title>Polynôme caractéristique d'une matrice</title>
     <statement>
-    <p>Soit <m>A</m> une matrice carrée. On appelle le polynôme caractéristique de la matrice <m>A</m> le polynôme résultant du calcul de <m>\text{det}(A-\lambda I)</m>.</p>
+    <p>Soit <m>A</m>, une matrice carrée. On appelle le polynôme caractéristique de la matrice <m>A</m> le polynôme résultant du calcul de <m>\text{det}(A-\lambda I)</m>.</p>
     </statement>
     </definition>
-    <p>En reformulant les informations ci-dessus ensemble, on obtient alors la proposition suivante.</p>
+    <p>En réunissant les informations ci-dessus, on obtient la proposition suivante.</p>
     <proposition xml:id="prop-valproprepoly">
     <title>Polynôme caractéristique et valeurs propres</title>
-    <statement><p>Soit <m>A</m> une matrice carrée. Les valeurs propres de <m>A</m> correspondent aux zéros de son polynôme caractéristique.</p></statement>
+    <statement><p>Soit <m>A</m>, une matrice carrée. Les valeurs propres de <m>A</m> correspondent aux zéros de son polynôme caractéristique.</p></statement>
     <proof>
-    <p>Pour que <m>\lambda</m> soit une valeur propre de la matrice <m>A</m>, il faut qu'il existe un vecteur non nul <m>\vec{v}</m> tel que <m>A\vec{v}=\lambda \vec{v}</m>. Soit <m>\lambda</m> un zéro du polynôme caractéristique. Puisque 
-    <m>\text{det}(A-\lambda I)=0</m>, l'espace nul de cette matrice est de dimension supérieure ou égale à <m>1</m>. Soit <m>\vec{v}\in \mathcal{N}(A-\lambda I)</m> un vecteur non nul de cet espace nul. On a alors
+    <p>Pour que <m>\lambda</m> soit une valeur propre de la matrice <m>A</m>, il faut qu'il existe un vecteur non nul <m>\vec{v}</m> tel que <m>A\vec{v}=\lambda \vec{v}</m>. Soit <m>\lambda</m>, un zéro du polynôme caractéristique. Puisque 
+    <m>\text{det}(A-\lambda I)=0</m>, l'espace nul de cette matrice est de dimension supérieure ou égale à <m>1</m>. Soit <m>\vec{v}\in \mathcal{N}(A-\lambda I)</m>, un vecteur non nul de cet espace nul. On a alors
     <md>
     <mrow>(A-\lambda I)\vec{v}&amp;=\vec{0} &amp;&amp;\text{par définition de l'espace nul}</mrow>
     <mrow>A\vec{v}-\lambda \vec{v}&amp;=\vec{0} &amp;&amp;\text{par distributivité}</mrow>
@@ -248,14 +247,14 @@ show(S.eigenvectors_right())
     <p>Ce polynôme se factorise en <m>(\lambda-7)(\lambda-14)</m>, ce qui donne les valeurs propres connues <m>\lambda_1=7</m> et <m>\lambda_2=14</m>.</p>
     </solution>
     </example>
-    <p>On se tourne vers les transformations linéaires géométriques de l'exemple <xref ref="ex-transfor2"/>. On peut probablement déduire les valeurs propres de plusieurs de ces transformations en s'appuyant seulement sur le contexte géométrique, mais le calcul du polynôme caractéristique permettra de voir si on en oublie.</p>
+    <p>On se tourne vers les transformations linéaires géométriques de l'exemple <xref ref="ex-transfor2"/>. On peut déduire les valeurs propres de plusieurs de ces transformations en s'appuyant seulement sur le contexte géométrique, mais le calcul du polynôme caractéristique permettra de voir si l'on en oublie.</p>
     <example xml:id="ex-transfor2valpropres">
     <title>Valeurs propres des transformations géométriques de <m>\mathbb{R}^2</m>.</title>
     <statement><p>
-    Pour chacune des transformations de la liste <xref ref="liste-transfor2"/>, déterminer les valeurs propres réelles. (Rappel que les matrices de ces tranformations linéaires ont été trouvées à l'exemple <xref ref="ex-mattransfor2"/>.)
+    Pour chacune des transformations de la liste <xref ref="liste-transfor2"/>, déterminer les valeurs propres réelles. (Rappel: les matrices de ces transformations linéaires ont été trouvées à l'exemple <xref ref="ex-mattransfor2"/>.)
     </p></statement>
     <solution>
-    <p>La transformation identité garde tous les vecteurs en place. On a donc <m>I\vec{v}=\vec{v}</m> pour tous vecteurs de <m>\mathbb{R}^2</m>. Il s'en suit donc que <m>\lambda=1</m> est une valeur propre. Le polynôme caractéristique de la matrice est 
+    <p>La transformation identité garde tous les vecteurs en place. On a donc <m>I\vec{v}=\vec{v}</m> pour tous vecteurs de <m>\mathbb{R}^2</m>. Il s'ensuit que <m>\lambda=1</m> est une valeur propre. Le polynôme caractéristique de la matrice est 
     <me>
     \begin{vmatrix}1-\lambda &amp; 0\\ 0&amp; 1-\lambda \end{vmatrix}=(1-\lambda)^2
     </me>. 
@@ -284,7 +283,7 @@ show(S.eigenvectors_right())
     </me>,
     qui s'annule seulement lorsque <m>\lambda=r</m>.
     </p></solution>
-    <solution><p>Il n'est peut-être pas évident de voir quels seront les valeurs propres en pensant seulement à la permutation des composantes. On peut toutefois remarquer que la permutaiton dans <m>\mathbb{R}^2</m> est aussi une réflexion de direction <m>\pi/4</m>. On peut probablement conclure que les valeurs propres seront <m>1</m> et <m>-1</m>, comme pour les valeurs propres d'une réflexion selon l'axe des abscisses. En effet,
+    <solution><p>Il est peut-être difficile de voir quelles seront les valeurs propres en pensant seulement à la permutation des composantes. On peut toutefois remarquer que la permutation dans <m>\mathbb{R}^2</m> est aussi une réflexion de direction <m>\pi/4</m>. On peut probablement conclure que les valeurs propres seront <m>1</m> et <m>-1</m>, comme pour les valeurs propres d'une réflexion selon l'axe des abscisses. En effet,
     <me>
     \begin{vmatrix}-\lambda &amp; 1\\ 1&amp; 0-\lambda \end{vmatrix}=\lambda^2-1
     </me>
@@ -300,7 +299,7 @@ show(S.eigenvectors_right())
     On voit que peu importe les composantes du vecteur <m>(w_1,w_2)</m>, les valeurs propres seront toujours <m>\lambda_1=0</m> et <m>\lambda_2=1</m>.
     </p></solution>
     </example>
-    <p>Pour ensuite trouver les vecteurs propres d'une matrice <m>A</m>, on peut regarder l'espace nul de <m>A-\lambda I</m> pour chaque valeur de <m>\lambda</m> faisant en sorte que le polynôme caractéristique s'annule. Bien qu'ils soient relativement facile de les déterminer géométriquement, et on l'a en quelque sorte fait à l'exemple <xref ref="ex-transfor2valpropres"/>, l'exercice <xref ref="exo-transfor2vecpropres"/> déterminera en regardant l'espace propre approprié les vecteurs propres des transformations linéaires de la liste <xref ref="liste-transfor2"/>. Pour le moment, on va regarder les vecteurs propres de la matrice d'introduction.</p>
+    <p>Pour ensuite trouver les vecteurs propres d'une matrice <m>A</m>, on peut regarder l'espace nul de <m>A-\lambda I</m> pour chaque valeur de <m>\lambda</m> faisant en sorte que le polynôme caractéristique s'annule. Bien qu'ils soient relativement facile de les déterminer géométriquement, et on l'a, en quelque sorte, fait à l'exemple <xref ref="ex-transfor2valpropres"/>, l'exercice <xref ref="exo-transfor2vecpropres"/> déterminera les vecteurs propres des transformations linéaires de la liste <xref ref="liste-transfor2"/>, en regardant l'espace propre approprié. Pour le moment, on va regarder les vecteurs propres de la matrice d'introduction.</p>
     <example>
     <title>Calcul des vecteurs propres de la matrice d'introduction</title>
     <statement>
@@ -313,7 +312,7 @@ show(S.eigenvectors_right())
     </me>. On sait que ces vecteurs propres devraient être <m>\vec{u}=(1,2),\vec{v}=(2,-3)</m>, selon la figure <xref ref="fig-vecpropre1"/> .</p>
     </statement>
     <solution>
-    <p>À l'exemple <xref ref="ex-valpropre1"/>, on a réussit à trouver que les valeurs propres de la matrice sont <m>\lambda_1=7</m> et <m>\lambda_2=14</m>. En caractérisant l'espace propre des matrices <m>A-7I</m> et <m>A-14I</m>, on pourra trouver des vecteurs propres associés à chacune des valeurs propres.</p>
+    <p>À l'exemple <xref ref="ex-valpropre1"/>, on a réussi à trouver que les valeurs propres de la matrice sont <m>\lambda_1=7</m> et <m>\lambda_2=14</m>. En caractérisant l'espace propre des matrices <m>A-7I</m> et <m>A-14I</m>, on pourra trouver des vecteurs propres associés à chacune des valeurs propres.</p>
     <p>Dans un premier temps, on a
     <md>
     <mrow>
@@ -354,8 +353,8 @@ show(S.eigenvectors_right())
     </p>
     </solution>
     </example>
-    <p>On constate que pour trouver un vecteur propre, il faut regarder l'espace nul de la matrice <m>A-\lambda I</m> et que n'importe quel vecteur de ce sous-espace pourra jouer le rôle de vecteur propre. En particulier, une base de cet espace peut entièrement décrire l'espace des vecteurs propres associés à une valeur propre spécifique d'une matrice <m>A</m>. On appelle <m>\mathcal{N}(A-\lambda I)</m> <em>l'espace propre</em> de la matrice <m>A</m> associé à <m>\lambda</m>.</p>
-    <p>On regarde d'autres exemples de calculs de valeurs et vecteurs propres. De ceux-ci on fera quelques observations qui guideront la suite.</p>
+    <p>On constate que, pour trouver un vecteur propre, il faut regarder l'espace nul de la matrice <m>A-\lambda I</m> et que n'importe quel vecteur de ce sous-espace pourra jouer le rôle de vecteur propre. En particulier, une base de cet espace peut entièrement décrire l'espace des vecteurs propres associés à une valeur propre spécifique d'une matrice <m>A</m>. On appelle <m>\mathcal{N}(A-\lambda I)</m> <em>l'espace propre</em> de la matrice <m>A</m> associé à <m>\lambda</m>.</p>
+    <p>On regarde d'autres exemples de calculs de valeurs et vecteurs propres. À partir de ceux-ci, on fera quelques observations qui guideront la suite.</p>
     <example xml:id="ex-vecvalpropres">
     <title>Des calculs de vecteurs et valeurs propres</title>
     <statement><p>
@@ -389,13 +388,13 @@ show(S.eigenvectors_right())
     <mrow>A-2I&amp;=\begin{pmatrix} 1&amp;1\\ -2&amp;1 \end{pmatrix}</mrow>
     <mrow>&amp;\stackrel{L2+2L_1\to L_1}{\sim}\begin{pmatrix}1&amp;1\\ 0&amp;0\end{pmatrix}</mrow>
     </md>.
-    Une base de cet espace, et donc un vecteur propre, est le vecteur <m>\vec{v}_2=(-1,1)</m>. Encore une fois, un calcul rapide permet d'observer que
+    Une base de cet espace, donc un vecteur propre, est le vecteur <m>\vec{v}_2=(-1,1)</m>. Encore une fois, un calcul rapide permet d'observer que
     <me>
     \begin{pmatrix} 3&amp;1\\ -2&amp;0 \end{pmatrix}\begin{pmatrix}-1\\ 1\end{pmatrix}=-\begin{pmatrix}3\\-2 \end{pmatrix}+\begin{pmatrix}1\\0 \end{pmatrix}=\begin{pmatrix}-2\\2\end{pmatrix}=2\begin{pmatrix}-1\\ 1\end{pmatrix}
     </me>.
     </p>
     </solution>
-    <solution><p>On procède de manière similaire. On a
+    <solution><p>On procède de la même manière. On a
     <md>
     <mrow>\lvert B-\lambda I\rvert&amp;=\lvert\begin{pmatrix} 1&amp;-3\\ 3&amp;-5 \end{pmatrix}-\begin{pmatrix} \lambda&amp;0\\ 0&amp;0 \end{pmatrix} \rvert</mrow>
     <mrow>&amp;=\begin{vmatrix} 1-\lambda&amp;-3\\ 3&amp;-5-\lambda \end{vmatrix}</mrow>
@@ -424,7 +423,7 @@ show(S.eigenvectors_right())
     <mrow>&amp;\stackrel{L_2+L_1/2\to L_2}{\sim}\begin{pmatrix} -4 &amp; 2 &amp; 0 \\  0 &amp; 0 &amp; -2 \\ 0 &amp; 0 &amp; 0 \\ \end{pmatrix}</mrow>
     <mrow>&amp;\stackrel{\stackrel{L_1/(-4)\to L_1}{L_2/(-2)\to L_2}}{\sim}\begin{pmatrix} 1 &amp; -1/2 &amp; 0 \\  0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 \\ \end{pmatrix}</mrow>
     </md>.
-    Il n'y a qu'une seule variable libre, la deuxième. Une base de l'espace nul est donc <m>\vec{u}_1=(1/2,1,0)</m>, qui constitue donc un vecteur propre. Plus simplement, on peut le multiplier par <m>2</m> pour avoir <m>\vec{v}_1=(1,2,0)</m>.  Un calcul simple montre qu'on a bel et bien <m>C\vec{v}_1=2\vec{v}_1</m>.
+    Il n'y a qu'une seule variable libre, la deuxième. Une base de l'espace nul est donc <m>\vec{u}_1=(1/2,1,0)</m>, qui constitue un vecteur propre. Plus simplement, on peut le multiplier par <m>2</m> pour avoir <m>\vec{v}_1=(1,2,0)</m>.  Un calcul simple montre que l'on a bel et bien <m>C\vec{v}_1=2\vec{v}_1</m>.
     </p>
     <p>Pour le deuxième vecteur propre associé à la valeur propre <m>\lambda_2=-2</m>, on procède de la même manière. On a
     <md>
@@ -433,7 +432,7 @@ show(S.eigenvectors_right())
     <mrow>&amp;\stackrel{\stackrel{L_1/2\to L_1}{L_3/2\to L_3}}{\sim}\begin{pmatrix} 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 1 &amp; 0 &amp; 1 \end{pmatrix}</mrow>
     <mrow>&amp;\stackrel{L_3\leftrightarrow L_1}{\sim}\begin{pmatrix} 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}</mrow>
 </md>.
-Encore une fois ici, on ne retrouve qu'une variable libre, cette fois en <m>z</m>, qui amène comme vecteur propre le vecteur <m>\vec{v}_2=(-1,0,1)</m>. On vérifie encore qu'on a bien <m>C\vec{v}_2=-2\vec{v}_2</m> par un calcul de produit matrice vecteur.
+Encore une fois, on ne retrouve qu'une variable libre, cette fois en <m>z</m>, qui amène comme vecteur propre le vecteur <m>\vec{v}_2=(-1,0,1)</m>. On vérifie à nouveau que l'on a bien <m>C\vec{v}_2=-2\vec{v}_2</m> par un calcul de produit matrice vecteur.
 </p>
 <p>Finalement, avec la dernière valeur propre <m>\lambda_3=0</m>, on a
 <md>
@@ -471,7 +470,7 @@ Le dernier vecteur propre est <m>\vec{v}_3=(0,0,1)</m>.
     <p>On remarque dans ce cas-ci que chaque valeur propre n'a qu'une direction propre associée.</p>
     </solution>
     <solution><p> On répète la démarche précédente avec la matrice <m>F</m> et Sage.  </p>
-    <p>D'abord pour les valeurs propres, on calcule le déterminant de la matrice <m>F-\lambda I</m> et on demande à Sage de factoriser le tout pour pouvoir y lire facilement les zéros. À noter qu'on utilise <m>x</m> plutôt que <m>\lambda</m>, car le mot <c>lambda</c> est protégé en python.</p>
+    <p>D'abord, pour les valeurs propres, on calcule le déterminant de la matrice <m>F-\lambda I</m> et l'on demande à Sage de factoriser le tout pour pouvoir y lire facilement les zéros. À noter qu'on utilise <m>x</m> plutôt que <m>\lambda</m>, car le mot <c>lambda</c> est protégé en python.</p>
     <sage>
     <input>
     F=matrix(QQ,[[-1,1,0],[0,1,0],[0,0,1]]) #Le QQ sera nécessaire pour utiliser les commandes reliées à l'espace nul dans le calcul des vecteurs propres
@@ -491,17 +490,17 @@ Le dernier vecteur propre est <m>\vec{v}_3=(0,0,1)</m>.
     show((F-I).right_kernel(basis="pivot").basis())
     </input>
     </sage>
-    <p>On constate qu'il y a ici deux vecteurs propres associés à la valeur propre <m>\lambda_2=1</m>. Le vecteur <m>\vec{v}_2=(1,2,0)</m> (après multiplication par <m>2</m>)  et le vecteur <m>\vec{v}_3=(0,0,1)</m> ont la propriété que
+    <p>On constate qu'il y a ici deux vecteurs propres associés à la valeur propre <m>\lambda_2=1</m>. Le vecteur <m>\vec{v}_2=(1,2,0)</m> (après multiplication par <m>2</m>)  et le vecteur <m>\vec{v}_3=(0,0,1)</m> ont la propriété suivante
     <md>
     <mrow>F\vec{v}_2&amp;=\vec{v}_2 &amp; F\vec{v}_3=\vec{v}_3</mrow>
     </md>.</p>
     </solution>
     </example>
-    <p>L'exemple précédent montre que plusieurs situations peuvent survenir lors du calcul des valeurs et vecteurs propres. Est-ce que le déterminant d'une matrice <m>A-\lambda I</m>, où <m>A</m> est une matrice <m>n\times n</m>, est toujours un polynôme de degré <m>n</m>? Cela semble évident, mais il faudrait le démontrer. (Voir l'exercice <xref provisional="exo-detvalpropredegre"/>). Parfois, pour une valeur propre, il peut y avoir plus d'un vecteur (direction en fait) propre. En fait, la véritable question est quelle peut être la dimension de l'espace propre associée à une valeur propre? La matrice <m>D</m> de l'exemple précédent avait deux valeurs propres, l'une dont l'espace propre était de dimension <m>1</m> et l'autre de dimension <m>2</m>. La matrice <m>E</m> quant à elle avait aussi deux valeurs propres, mais avec chacun leur espace propre respectif de dimension <m>1</m>. Ceci mène à la définition suivante.</p>
+    <p>L'exemple précédent montre que plusieurs situations peuvent survenir lors du calcul des valeurs et vecteurs propres. Est-ce que le déterminant d'une matrice <m>A-\lambda I</m>, où <m>A</m> est une matrice <m>n\times n</m>, est toujours un polynôme de degré <m>n</m>? Cela semble évident, mais il faudrait le démontrer. (Voir l'exercice <xref provisional="exo-detvalpropredegre"/>). Parfois, pour une valeur propre, il peut y avoir plus d'une direction invariante et donc, plus d'un vecteur propre indépendant. En fait, la véritable question est de savoir quelle peut être la dimension de l'espace propre associée à une valeur propre? La matrice <m>D</m> de l'exemple précédent avait deux valeurs propres, l'une dont l'espace propre était de dimension <m>1</m> et l'autre de dimension <m>2</m>. La matrice <m>E</m>, quant à elle, avait aussi deux valeurs propres, mais avec chacun leur espace propre respectif de dimension <m>1</m>. Ceci conduit à la définition suivante.</p>
     <definition xml:id="def-multalggeo">
     <title>Multiplicité algébrique et géométrique</title>
-    <statement><p>Soit <m>A</m> une matrice, <m>\lambda_0</m> une valeur propre de cette matrice et <m>k\in \mathbb{N}</m> la plus grande valeur telle que le facteur <m>(\lambda-\lambda_0)^k</m> divise le polynôme caractéristique. On dit que <m>k</m> est la multiplicité algébrique de la valeur propre.</p>
-    <p>Soit <m>r=\text{dim}(\mathcal{N}(A-\lambda_0 I))</m> la dimension de l'espace nul de la matrice <m>A-\lambda_0 I</m>. On dit que <m>r</m> est la multiplicité géométrique de la valeur propre.</p>
+    <statement><p>Soit <m>A</m>, une matrice, <m>\lambda_0</m>, une valeur propre de cette matrice et <m>k\in \mathbb{N}</m>, la plus grande valeur telle que le facteur <m>(\lambda-\lambda_0)^k</m> divise le polynôme caractéristique. On dit que <m>k</m> est la multiplicité algébrique de la valeur propre.</p>
+    <p>Soit <m>r=\text{dim}(\mathcal{N}(A-\lambda_0 I))</m>, la dimension de l'espace nul de la matrice <m>A-\lambda_0 I</m>. On dit que <m>r</m> est la multiplicité géométrique de la valeur propre.</p>
     </statement>
     </definition>
     <p>La valeur propre <m>\lambda_2=1</m> pour la matrice <m>D</m> de l'exemple <xref ref="ex-vecvalpropres"/> a une multiplicité algébrique de <m>2</m> puisque le déterminant de <m>D-\lambda I</m> est <m>(\lambda+1)(\lambda-1)^2</m>. Puisque l'espace propre associé à cette valeur propre était donné par <m>\vspan((1,2,0),(0,0,1))</m>. Ces vecteurs étant indépendants, la dimension du sous-espace est <m>2</m>, qui est donc la dimension géométrique de <m>\lambda_2=1</m>. Par contre, avec la matrice <m>E</m>, toujours avec la valeur propre valant <m>1</m>, on avait encore une dimension algébrique égale à <m>2</m>, mais comme l'espace nul de <m>E-\lambda I</m> est engendré par <m>(1,0,0)</m>, la dimension géométrique est de <m>1</m>. Sur Sage, lorsqu'on utilise la commande <c>eigenvectors_right</c>, le troisième argument d'un triplet de réponse représente la multiplicité algébrique de la valeur propre. La multiplicité géométrique doit être déduite du nombre de vecteurs propres retournés.</p>
@@ -509,7 +508,7 @@ Le dernier vecteur propre est <m>\vec{v}_3=(0,0,1)</m>.
     <computation>
     <title>Polynôme caractéristique et Sage</title>
     <p>
-    Bien que Sage soit capable directement de calculer les vecteurs et les valeurs propres, il peut aussi simplement donner le polynôme caractéristique d'une matrice <m>A</m>. Il suffit d'utiliser la commande <c>characteristic_polynomial()</c> ou son équivalent plus courte <c>charpoly()</c>. À noter que Sage utilise une version légèrement différente du polynôme caractéristique. Il considère plutôt le déterminant de <m>\lambda I-A</m>. Le polynôme retourné par Sage sera le même que celui de la définition <xref ref="def-polynomecaracteristique"/> lorsque <m>A</m> est une matrice de taille <m>n\times n</m> où <m>n</m> est paire et différera d'un facteur <m>-1</m> lorsque <m>n</m> est impair.
+    Bien que Sage soit capable de calculer directement les vecteurs et les valeurs propres, il peut aussi simplement donner le polynôme caractéristique d'une matrice <m>A</m>. Il suffit d'utiliser la commande <c>characteristic_polynomial()</c> ou son équivalent plus court <c>charpoly()</c>. À noter que Sage utilise une version légèrement différente du polynôme caractéristique. Il considère plutôt le déterminant de <m>\lambda I-A</m>. Le polynôme retourné par Sage sera le même que celui de la définition <xref ref="def-polynomecaracteristique"/> lorsque <m>A</m> est une matrice de taille <m>n\times n</m> où <m>n</m> est pair et diffèrera d'un facteur <m>-1</m> lorsque <m>n</m> est impair.
     </p>
     <sage>
     <input>
@@ -521,7 +520,7 @@ Le dernier vecteur propre est <m>\vec{v}_3=(0,0,1)</m>.
     show((B-x*identity_matrix(3)).determinant().expand())
     </input>
     </sage>
-    <p>On peut ensuite demander à Sage de factoriser ce polynôme caractéristique, mais pour qu'il puisse accomplir le travail au complet, il faudra peut-être préciser l'espace sous-jacent aux entrées de la matrice. (Par défaut, Sage considère qu'une matrice dont toutes les entrées sont des entiers comme une matrice dans un espace d'entiers, et va factoriser en conséquence.)</p>
+    <p>On peut ensuite demander à Sage de factoriser ce polynôme caractéristique, mais pour qu'il puisse accomplir le travail, il faudra peut-être préciser l'espace sous-jacent aux entrées de la matrice. (Par défaut, Sage considère qu'une matrice dont toutes les entrées sont des entiers comme une matrice dans un espace d'entiers, et va factoriser en conséquence.)</p>
     <sage>
     <input>
      show(A.characteristic_polynomial().factor()) #Ne produit rien
@@ -542,40 +541,40 @@ show(E.eigenvectors_right())
     </subsection>
     <subsection>
     <title>Quelques résultats</title>
-    <p>On obtient dans cette section quelques résultats théoriques en lien avec les valeurs et vecteurs propres. En particulier, on obtiendra la sixième version du théorème de la matrice inverse, en ajoutant une équivalence sur les valeurs propres. Que peut-on dire d'une matrice inversible et ses valeurs propres? Puisque les valeurs et vecteurs propres satisfont l'équation <m>A\vec{v}=\lambda \vec{v}</m> et qu'un vecteur propre ne peut pas être le vecteur nul, il y a quelque chose de particulier qui se passe si la valeur propre est nulle. Cela entraine qu'il y a des vecteurs non nul dans l'espace nul de la matrice. Une telle matrice ne peut donc pas être inversible.</p>
+    <p>Dans cette section, on obtient quelques résultats théoriques en lien avec les valeurs et vecteurs propres. Plus particulièrement, on obtiendra la sixième version du théorème de la matrice inverse en ajoutant une équivalence sur les valeurs propres. Que peut-on dire d'une matrice inversible et de ses valeurs propres? Puisque les valeurs et vecteurs propres satisfont l'équation <m>A\vec{v}=\lambda \vec{v}</m> et qu'un vecteur propre ne peut pas être le vecteur nul, quelque chose de particulierse produit si la valeur propre est nulle. Cela entraine qu'il y a des vecteurs non nuls dans l'espace nul de la matrice. Une telle matrice ne peut donc pas être inversible.</p>
     <theorem xml:id="thm-delamatriceinversev6">
     <title>Théorème de la matrice inverse, sixième version</title>
     <statement>
-<p>Soit <m>A</m> une matrice carrée d'ordre <m>n</m>. Les énoncés suivants sont équivalents:
+<p>Soit <m>A</m>, une matrice carrée d'ordre <m>n</m>. Les énoncés suivants sont équivalents:
     <ol>
-    <li><p>La matrice <m>A</m> est inversible</p></li>
-    <li><p>Pour chaque vecteur <m>\vec{v}\in \R^n</m>, il existe un seul vecteur <m>\vec{u}\in \R^n</m> tel que <m>A\vec{u}=\vec{v}</m>.</p></li>
-    <li><p>Le rang de la matrice est égal à <m>n</m>.</p></li>
+    <li><p>La matrice <m>A</m> est inversible;</p></li>
+    <li><p>Pour chaque vecteur <m>\vec{v}\in \R^n</m>, il existe un seul vecteur <m>\vec{u}\in \R^n</m> tel que <m>A\vec{u}=\vec{v}</m>;</p></li>
+    <li><p>Le rang de la matrice est égal à <m>n</m>;</p></li>
     <li><p>La matrice <m>A</m> possède <m>n</m> pivots.</p></li>
-    <li><p>La forme échelonnée réduite de <m>A</m> est la matrice identité.</p></li>
-    <li><p>Aucune ligne n'est une combinaison linéaire des autres lignes.</p></li>
-    <li><p>Aucune colonne n'est une combinaison linéaire des autres colonnes.</p></li>
-    <li><p>Le déterminant de la matrice <m>A</m> est non nul.</p></li>
-    <li><p>L'espace colonne est de dimension <m>n</m>.</p></li>
-    <li><p>L'espace ligne est de dimension <m>n</m>.</p></li>
-    <li><p>L'espace nul est de dimension <m>0</m>.</p></li>
-    <li><p>L'espace nul-gauche est de dimension <m>0</m>.</p></li>
+    <li><p>La forme échelonnée réduite de <m>A</m> est la matrice identité;</p></li>
+    <li><p>Aucune ligne n'est une combinaison linéaire des autres lignes;</p></li>
+    <li><p>Aucune colonne n'est une combinaison linéaire des autres colonnes;</p></li>
+    <li><p>Le déterminant de la matrice <m>A</m> est non nul;</p></li>
+    <li><p>L'espace colonne est de dimension <m>n</m>;</p></li>
+    <li><p>L'espace ligne est de dimension <m>n</m>;</p></li>
+    <li><p>L'espace nul est de dimension <m>0</m>;</p></li>
+    <li><p>L'espace nul gauche est de dimension <m>0</m>;</p></li>
     <li><p>Toutes les valeurs propres de <m>A</m> sont non nulles.</p></li>
     </ol>    
     </p></statement>
-    <proof><p>Il faut seulement démontrer l'équivalence entre le dernier énoncé et l'un des autres. Dans un premier temps, si <m>A</m> est inversible, alors son espace nul est de dimension <m>0</m>. Il n'existe donc pas d'autres vecteurs que <m>\vec{0}</m> tels que <m>A\vec{v}=\vec{0}</m>. Il découle de cela que <m>\lambda=0</m> ne peut être une valeur propre.</p>
+    <proof><p>Il faut seulement démontrer l'équivalence entre le dernier énoncé et l'un des autres. Dans un premier temps, si <m>A</m> est inversible, alors son espace nul est de dimension <m>0</m>. Il n'existe donc pas d'autres vecteurs que <m>\vec{0}</m> tels que <m>A\vec{v}=\vec{0}</m>. Il en découle que <m>\lambda=0</m> ne peut être une valeur propre.</p>
     <p>À l'inverse, si <m>A</m> est une matrice dont toutes les valeurs propres sont différentes de zéro, cela implique qu'aucun vecteur non nul ne possède la propriété que <m>A\vec{v}=0\vec{v}=\vec{0}</m>. Donc, le seul élément dans l'espace nul de <m>A</m> est le vecteur nul, ce qui signifie que l'espace nul est de dimension <m>0</m>. Ainsi, une matrice est inversible si et seulement si aucune de ses valeurs propres n'est nulle.</p>
     </proof>
     </theorem>
-    <p>Le prochain résultat sera utile dans la prochaine section. Il s'intéresse aux vecteurs propres et à leur indépendance.</p>
+    <p>Le prochain résultat sera utile dans la section suivante. Il porte sur les vecteurs propres et leur indépendance.</p>
     <proposition xml:id="prop-propresindep">
     <title>Vecteurs propres et indépendance</title>
     <statement>
-    <p>Soit <m>\lambda_1,\lambda_2,\ldots ,\lambda_k</m> des valeurs propres disctinctes d'une matrice <m>A</m> et <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> un vecteur propre associé à chacune de ces valeurs propres.
-    Alors l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\}</m> est linéairement indépendant.</p>
+    <p>Soit <m>\lambda_1,\lambda_2,\ldots ,\lambda_k</m>, des valeurs propres distinctes d'une matrice <m>A</m> et <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m>, des vecteurs propre associés à chacune de ces valeurs propres.
+    Alors, l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\}</m> est linéairement indépendant.</p>
     </statement>
     <proof>
-    <p>Si <m>k=1</m>, il n'y a qu'un seul vecteur propre. Celui-ci étant non nul, il est par défaut indépendant. S'il y a plus de deux vecteurs, on procède par contradiction. On suppose que l'ensemble de ces vecteurs propres est dépendant. On peut alors affirmer qu'il existe un entier <m>p</m> tel que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est un ensemble indépendant, mais que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. Bien entendu, <m>p\neq k</m> puisqu'on suppose que l'ensemble de tous ces vecteurs est dépendant. On cherche donc le premier vecteur qui, combiné aux précédents vecteurs indépendants, rend l'ensemble dépendant. Si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}</m> est dépendant, il existe alors une combinaison linéaire des <m>p</m> premiers vecteurs qui donne le vecteur <m>\vec{v}_{p+1}</m> :
+    <p>Si <m>k=1</m>, il n'y a qu'un seul vecteur propre. Celui-ci étant non nul, il est par défaut indépendant. S'il y a plus de deux vecteurs, on procède par contradiction. On suppose que l'ensemble de ces vecteurs propres est dépendant. On peut alors affirmer qu'il existe un entier <m>p</m> tel que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est un ensemble indépendant, mais que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. Bien entendu, <m>p\neq k</m> puisqu'on suppose que l'ensemble de tous ces vecteurs est dépendant. On cherche donc le premier vecteur qui, combiné aux précédents vecteurs indépendants, rend l'ensemble dépendant. Si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}</m> est dépendant, il existe une combinaison linéaire des <m>p</m> premiers vecteurs qui donne le vecteur <m>\vec{v}_{p+1}</m> :
     <mdn><mrow xml:id="eq-vecpropreindep" tag="star">
     a_1\vec{v}_1+a_2\vec{v}_2+\ldots + a_p\vec{v}_p=\vec{v}_{p+1}
     </mrow></mdn>.
@@ -590,7 +589,7 @@ show(E.eigenvectors_right())
     <me>
         a_1\lambda_{p+1}\vec{v}_1+a_2\lambda_{p+1}\vec{v}_2+\ldots + a_p\lambda_{p+1}\vec{v}_p=\lambda_{p+1}\vec{v}_{p+1}
     </me>.
-    On a alors
+    On obtient
     <me>
     a_1\lambda_{p+1}\vec{v}_1+a_2\lambda_{p+1}\vec{v}_2+\ldots + a_p\lambda_{p+1}\vec{v}_p=a_1\lambda_1\vec{v}_1+a_2\lambda_2\vec{v}_2+\ldots + a_p\lambda_p\vec{v}_p
     </me>
@@ -598,14 +597,14 @@ show(E.eigenvectors_right())
     <me>
     a_1(\lambda_1-\lambda_{p+1})\vec{v}_1+a_2(\lambda_2-\lambda_{p+1})\vec{v}_2+\ldots + a_p(\lambda_p-\lambda_{p+1})\vec{v}_p=\vec{0}
     </me>.
-    Comme les vecteurs <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> sont linéairement indépedants, il faut que les coefficients de cette combinaison linéaire soient nuls, mais on a également que les valeurs propres sont disctinctes. Cela entraine que <m>a_1=a_2=\cdots =a_p=0</m>. Par contre, si cela était vrai, l'équation <xref ref="eq-vecpropreindep"/> signifierait alors que <m>\vec{v}_{p+1}=\vec{0}</m>, ce qui est impossible. Il n'est donc pas possible de trouver une valeur de <m>p</m> telle que l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est indépendant, mais l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. On conclut donc que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\}</m> est forcément indépendant, ce qui conclut la preuve.
+    Comme les vecteurs <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> sont linéairement indépendants, il faut que les coefficients de cette combinaison linéaire soient nuls, mais on a également que les valeurs propres sont distinctes. Cela entraine que <m>a_1=a_2=\cdots =a_p=0</m>. Par contre, si cela était vrai, l'équation <xref ref="eq-vecpropreindep"/> impliquerait que <m>\vec{v}_{p+1}=\vec{0}</m>, ce qui est impossible. On ne peut en conséquence trouver une valeur de <m>p</m> telle que l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est indépendant, mais l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. On conclut que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\}</m> est forcément indépendant, ce qui termine la preuve.
     </p>
     </proof>
     </proposition>
-    <p>Le prochain résultat est en lien avec les valeurs propres d'une matrice <m>A</m> et celles de matrices obtenues à partir d'opérations algébriques et matricielles comme la multiplication par un scalaire ou l'inverse de <m>A</m>. </p>
+    <p>Le prochain résultat est en lien avec les valeurs propres d'une matrice <m>A</m> et les valeurs propres de matrices obtenues à partir d'opérations algébriques et matricielles comme la multiplication par un scalaire ou l'inverse de <m>A</m>. </p>
     <proposition xml:id="prop-effetvalpropre">
     <title>L'effet de certaines opérations sur les valeurs propres</title>
-    <statement><p>Soit <m>A</m> une matrice carrée et <m>\lambda</m> une valeur propre. Alors
+    <statement><p>Soit <m>A</m>, une matrice carrée et <m>\lambda</m>, une valeur propre. Alors
     <ol>
     <li><p>le scalaire <m>r\lambda</m> est une valeur propre de la matrice <m>rA</m>;</p></li>
     <li><p>le scalaire <m>\lambda^k</m> est une valeur propre de la matrice <m>A^k</m>;</p></li>
@@ -613,14 +612,14 @@ show(E.eigenvectors_right())
     <li><p>la valeur propre <m>\lambda</m> est aussi une valeur propre de transposée <m>A^T</m>.</p></li>
     </ol>
     </p></statement>
-    <proof><p>Soit <m>\vec{v}</m> un vecteur propre associé à <m>\lambda</m> pour la matrice <m>A</m>. On a
+    <proof><p>Soit <m>\vec{v}</m>, un vecteur propre associé à <m>\lambda</m> pour la matrice <m>A</m>. On a
     <md>
     <mrow>(rA)\vec{v}&amp;=r(A\vec{v}) &amp;&amp; \text{associativité du produit scalaire matrice }</mrow>
     <mrow>&amp;=r\lambda \vec{v}</mrow>
     </md>.
     Ainsi, puisque <m>(rA)\vec{v}=(r\lambda)\vec{v}</m>, une valeur propre de <m>rA</m> est <m>r\lambda</m>. De plus, le vecteur <m>\vec{v}</m> demeure un vecteur propre.</p></proof>
     <proof><p>Voir l'exercice <xref ref="exo-effetvalpropre"/></p></proof>
-    <proof><p>Si <m>A</m> est une matrice inversible, alors selon le <xref ref="thm-delamatriceinversev6" text="title"/>, la valeur propre n'est pas nulle. Soit <m>\vec{v}</m> un vecteur propre associé à <m>\lambda</m>. On peut alors écrire
+    <proof><p>Si <m>A</m> est une matrice inversible, alors selon le <xref ref="thm-delamatriceinversev6" text="title"/>, la valeur propre n'est pas nulle. Soit <m>\vec{v}</m>, un vecteur propre associé à <m>\lambda</m>. On peut alors écrire
     <md>
     <mrow>A^{-1}\vec{v}&amp;= A^{-1}\frac{\lambda \vec{v}}{\lambda}</mrow>
     <mrow>&amp;=A^{-1}\frac{A\vec{v}}{\lambda} &amp;&amp; \text{ car } A\vec{v}=\lambda\vec{v}</mrow>
@@ -635,20 +634,20 @@ show(E.eigenvectors_right())
     <me>
     AB\vec{v}=A\beta \vec{v}=\beta A\vec{v}=\beta \alpha \vec{v}
     </me>,
-    mais il y a un problème avec ce raisonnement. Rien ne garantit que <m>A</m> et <m>B</m> ont les mêmes vecteurs propres. Si c'est toutefois le cas, c'est-à-dire si <m>\vec{v}</m> est un vecteur propre de <m>A</m> associé à la valeur propre <m>\alpha</m> et un vecteur propre de <m>B</m> associé à la valeur propre <m>\beta</m>, alors <m>\vec{v}</m> est un vecteur propre de <m>AB</m> associé à la valeur propre <m> \alpha \beta</m>. En fait on a même davantage, puisque <m>\vec{v}</m> est aussi un vecteur propre de la matrice <m>BA</m>, aussi associé à la valeur propre <m>\alpha \beta</m>. La question du partage des vecteurs propres entre deux matrices sera étudié plus spécifiquement à la prochaine section.</p>
+    mais il y a un problème avec ce raisonnement. Rien ne garantit que <m>A</m> et <m>B</m> ont les mêmes vecteurs propres. Si c'est toutefois le cas, c'est-à-dire si <m>\vec{v}</m> est un vecteur propre de <m>A</m> associé à la valeur propre <m>\alpha</m> et un vecteur propre de <m>B</m> associé à la valeur propre <m>\beta</m>, alors <m>\vec{v}</m> est un vecteur propre de <m>AB</m> associé à la valeur propre <m> \alpha \beta</m>. En fait, on a même davantage, puisque <m>\vec{v}</m> est aussi un vecteur propre de la matrice <m>BA</m>, aussi associé à la valeur propre <m>\alpha \beta</m>. La question du partage des vecteurs propres entre deux matrices sera étudiée plus spécifiquement à la prochaine section.</p>
     
     <p>Un type de matrice pour lequel il est facile de trouver les valeurs propres est lorsque la matrice est <xref ref="def-mattriang" text="custom">triangulaire</xref>. Dans ce cas, les valeurs propres se trouvent toujours sur la diagonale.</p>
     <proposition xml:id="prop-valpropretriangulaire">
     <title>Les valeurs propres de matrices triangulaires</title>
-    <statement><p>Soit <m>L</m> une matrice triangulaire inférieure et <m>U</m> une matrice triangulaire supérieure. Alors les valeurs propres de <m>L,U</m> sont sur leur diagonale respective.</p></statement>
+    <statement><p>Soit <m>L</m>, une matrice triangulaire inférieure et <m>U</m>, une matrice triangulaire supérieure. Alors, les valeurs propres de <m>L,U</m> sont sur leur diagonale respective.</p></statement>
     <proof>
-    <p>C'est une conséquence directe du fait que les matrices <m>L-\lambda I</m> et <m>U-\lambda I</m> sont encore triangulaire et de la proposition <xref ref="prop-detmattriang"/> qui stipule que le déterminant d'une matrice triangulaire est le produits des entrées sur la diagonale principale. Le polynôme caractéristique est alors déjà factorisé et s'annule précisemment aux entrées de la diagonale de <m>L</m> ou <m>U</m>.</p>
+    <p>C'est une conséquence directe du fait que les matrices <m>L-\lambda I</m> et <m>U-\lambda I</m> sont triangulaires et de la proposition <xref ref="prop-detmattriang"/> qui stipule que le déterminant d'une matrice triangulaire est le produit des entrées sur la diagonale principale. On voit que le polynôme caractéristique est déjà factorisé et s'annule précisément aux entrées de la diagonale de <m>L</m> ou <m>U</m>.</p>
     </proof>
     </proposition>
     <!--  FAUX Tel Quel, il faut une hypothèse additionnelle pour la direction <=, soit que A et B soit diagonalisable simultanément
     <proposition>
     <title>Deux matrices aux mêmes vecteurs propres</title>
-    <statement><p>Soit <m>A,B</m> deux matrices carrées de format <m>n\times n</m>. Alors <m>A</m> et <m>B</m> ont  <m>n</m> vecteurs propres indépendants identiques si et seulement si <m>AB=BA</m>.</p></statement>
+    <statement><p>Soit <m>A,B</m>, deux matrices carrées de format <m>n\times n</m>. Alors <m>A</m> et <m>B</m> ont  <m>n</m> vecteurs propres indépendants identiques si et seulement si <m>AB=BA</m>.</p></statement>
     <proof><p>
     On montre dans un premier temps que si <m>A,B</m> se partagent <m>n</m> vecteurs propres indépendants <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n</m>, alors <m>AB=BA</m>. Puisqu'on a <m>n</m> vecteurs propres indépendants de <m>\mahtbb{R}^n</m>, ceux-ci forment une base de l'espace. Pour tout vecteur <m>\vec{u}\in \mathbb{R}^n</m>, il existe donc des coefficients tels que
     <me>
@@ -672,7 +671,7 @@ show(E.eigenvectors_right())
     </md>.
     Comme pour tout <m>\vec{u}</m> on a <m>AB\vec{u}=BA\vec{u}</m>, on conclut que les deux produits sont égaux et que les matrices commutent.
     </p>
-    <p>À l'inverse, si on a deux matrices <m>A,B</m> telles que <m>AB=BA</m></p>
+    <p>À l'inverse, si l'on a deux matrices <m>A,B</m> telles que <m>AB=BA</m></p>
     </proof>
     </proposition>
     -->
@@ -681,10 +680,10 @@ show(E.eigenvectors_right())
     <p>Les points importants de cette section sont:
     <ul>
     <li><p>La définition des <xref ref="def-propres" text="custom">vecteurs et valeurs propres</xref>;</p></li>
-    <li><p>La définition du <xref ref="def-polynomecaracteristique" text="custom">polynôme caractéristique</xref>.</p></li>
+    <li><p>La définition du <xref ref="def-polynomecaracteristique" text="custom">polynôme caractéristique</xref>;</p></li>
     <li><p>Le fait que les <xref ref="prop-valproprepoly" text="custom">zéros du polynôme caractéristique </xref> sont les valeurs propres;</p></li>
-    <li><p>Les deux <xref ref="def-multalggeo" text="custom">multiplicité</xref> associées à une valeur propre;</p></li>
-    <li><p>Le fait qu'une matrice est inversible si et seulement si aucune de ses valeurs propres est zéro, s'ajoutant au <xref ref="thm-delamatriceinversev6" text="custom">théorème de la matrice inverse</xref>;</p></li>
+    <li><p>Les deux <xref ref="def-multalggeo" text="custom">multiplicités</xref> associées à une valeur propre;</p></li>
+    <li><p>Le fait qu'une matrice est inversible si et seulement si aucune de ses valeurs propres est zéro, ce qui s'ajoute au <xref ref="thm-delamatriceinversev6" text="custom">théorème de la matrice inverse</xref>;</p></li>
     <li><p>Les <xref ref="prop-effetvalpropre" text="custom">propriétés</xref> des valeurs propres en lien avec différentes opérations algébriques.</p></li>
     </ul></p>
     <p>De plus, avec Sage, on a vu les commandes <c>eigenvalues</c>, <c>eigenvectors_right</c> et <c>characteristic_polynomial</c> (ou <c>charpoly</c>) permettant respectivement de déterminer les valeurs propres, vecteurs propres et le polynôme caractéristique d'une matrice. </p>
