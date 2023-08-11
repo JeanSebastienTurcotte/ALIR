@@ -18,7 +18,8 @@
     <project>
     <title>L'algorithme PageRank</title>
     <introduction>
-    <p>En 1998, Sergey Brin et Larry Page ont révolutionné le monde de la recherche sur le web en développant un algorithme appelé PageRank, qui mena à la création de la compagnie Google. Le fonctionnement est simple, l'algorithme retourne la probabilité qu'un utilisateur qui se promène au hasard sur le web clique sur une certaine page. On considère un modèle simplifié d'internet. La figure <xref ref="fig-PageRank1"/> illustre un graphe, dont les sommets peuvent être vus comme étant des pages web, et les arêtes comme des liens d'une page vers un autre. Ce web simplifié contient donc trois pages, nommées respectivement <m>0,1</m> et <m>2</m>. À partir de la page <m>0</m>, on peut aller en cliquant sur un lien vers la page <m>1</m> ou la page <m>2</m>, à partir de la page <m>1</m>, on peut aller vers la page <m>0</m> ou la page <m>2</m>, mais à partir de la page <m>2</m>, on ne peut qu'aller vers la page <m>1</m>. </p>
+    <p>En 1998, Sergey Brin et Larry Page ont révolutionné le monde de la recherche sur le web en développant un algorithme appelé PageRank, qui mena à la création de la compagnie Google. Le fonctionnement est simple, l'algorithme retourne la probabilité qu'un utilisateur qui se promène au hasard sur le web clique sur une certaine page.</p>
+    <p> On considère un modèle simplifié d'internet. La figure <xref ref="fig-PageRank1"/> illustre un graphe dont les sommets peuvent être vus comme étant des pages web et les arêtes comme des liens d'une page vers un autre. Ce web simplifié contient donc trois pages, nommées respectivement <m>0,1</m> et <m>2</m>. À partir de la page <m>0</m>, on peut aller vers la page <m>1</m> ou la page <m>2</m>, à partir de la page <m>1</m>, on peut aller vers la page <m>0</m> ou la page <m>2</m>, mais à partir de la page <m>2</m>, on ne peut qu'aller vers la page <m>1</m>. </p>
     <figure xml:id="fig-PageRank1">
     <caption>Une version simplifiée du web</caption>
     <image xml:id="img-PageRank1">
@@ -34,7 +35,7 @@ plot(G,layout="circular")
     <me>
     x_0=\frac{1}{2}x_1
     </me>
-    puisque le seul lien pointant vers <m>0</m> provient de <m>1</m> et que cette dernière possède deux liens sortant. La valeurs de <m>x_1</m> est
+    puisque le seul lien pointant vers <m>0</m> provient de <m>1</m> et que cette dernière possède deux liens sortants. La valeur de <m>x_1</m> est
     <me>
     x_1=\frac{1}{2}x_0+x_2
     </me>
@@ -47,8 +48,8 @@ plot(G,layout="circular")
     </introduction>
     <task>
     <introduction><p>On regarde maintenant comment les valeurs sont calculées. On reconnait à partir des trois équations pour <m>x_0,x_1,x_2</m> qu'on peut former un système d'équations linéaires.</p></introduction>
-    <task><statement><p>Trouver une matrice <m>G</m> telle que <m>G\vec{v}=\vec{v}</m>. On apelle cette matrice la matrice Google.</p></statement></task>
-    <task><statement><p>Par construction, cette matrice a pour valeur propre <m>\lambda=1</m>. La direction invariante associée à cette valeur propre est importante. C'est le vecteur des valeurs recherchées. Puisqu'on veut que ce vecteur soit une proportion, on ajoute la condition additionnelle que <m>x_0+x_1+x_2=1</m>. Trouver le vecteur des valeurs pour le web décrit par la figure <xref ref="fig-PageRank1"/>. </p>
+    <task><statement><p>Trouver une matrice <m>G</m> telle que <m>G\vec{v}=\vec{v}</m>. On appelle cette matrice la matrice Google.</p></statement></task>
+    <task><statement><p>Par construction, cette matrice a pour valeur propre <m>\lambda=1</m>. La direction invariante associée à cette valeur propre est importante. C'est le vecteur des valeurs recherchées. Puisqu'on veut que ce vecteur soit une proportion, on ajoute la condition additionnelle que <m>x_0+x_1+x_2=1</m>. Trouver le vecteur des valeurs pour le web hypothétique décrit par la figure <xref ref="fig-PageRank1"/>. </p>
     <sage>
     <input>
     
@@ -57,7 +58,7 @@ plot(G,layout="circular")
     </statement></task>
     <task><statement><p>Quelle page parmi les trois a la plus grande valeur? C'est cette page qui sortirait en premier lors d'une recherche Google sur ce petit web.</p></statement></task>
     </task>
-    <task><statement><p>Trouver la page ayant la plus grande valeur dans le web décrit par la figure <xref ref="fig-PageRank2"/>.</p>
+    <task><statement><p>Trouver la page ayant la plus grande valeur dans le web hypothétique décrit par la figure <xref ref="fig-PageRank2"/>.</p>
     <figure xml:id="fig-PageRank2">
     <caption>Un graphe à six sommets</caption>
     <image xml:id="img-PageRank2">
@@ -75,8 +76,8 @@ plot(G,layout="circular")
     </input>
     </sage>
     </statement></task>
-    <task><introduction><p>Dans la réalité, il serait très coûteux de calculer le vecteur propre de la matrice de Google, puisque le véritable web contient près de deux milliards de sites web <fn>En date de 2022</fn>, qui contiennent chacun plusieurs pages. Échelonner une telle matrice est impensable. </p></introduction>
-    <task><statement><p>On s'intéresse à la position d'un utilisateur après <m>n</m> clics qui cliquerait sur les liens de manières aléatoires. Par exemple, dans le web de la figure <xref ref="fig-PageRank1"/>, avec la page de départ <m>0</m>, si on pose <m>\vec{v}_0=(1,0,0)</m>, alors les chances de se retrouver sur les pages <m>0,1,2</m> après un clic sont données par les entrées du vecteurs
+    <task><introduction><p>Dans la réalité, il serait très couteux de calculer le vecteur propre de la matrice de Google, puisque le véritable web contient près de deux-milliards de sites web <fn>En date de 2022</fn>, qui contiennent chacun plusieurs pages. Échelonner une telle matrice est impensable. </p></introduction>
+    <task><statement><p>On s'intéresse à la position d'un utilisateur après <m>n</m> clics qui cliquerait sur les liens de manières aléatoires. Par exemple, dans le web hypothétique de la figure <xref ref="fig-PageRank1"/>, avec la page de départ <m>0</m>, si l'on pose <m>\vec{v}_0=(1,0,0)</m>, alors les chances de se retrouver sur les pages <m>0,1,2</m> après un clic sont données par les entrées du vecteur
     <me>
     \vec{x}_1=A\vec{x}_0
     </me>. En général, les chances après <m>n</m> clics sont données par
@@ -95,21 +96,21 @@ plot(G,layout="circular")
     </sage>
     </statement>
     </task>
-    <task><statement><p>Calculer les probabilités de se retrouver sur les pages <m>0,1,2,3,4,5</m> après <m>n=5,10,20</m> clics pour le web de la figure <xref ref="fig-PageRank2"/>.</p>
+    <task><statement><p>Calculer les probabilités de se retrouver sur les pages <m>0,1,2,3,4,5</m> après <m>n=5,10,20</m> clics pour le web hypothétique de la figure <xref ref="fig-PageRank2"/>.</p>
     <sage>
     <input>
     
     </input>
     </sage></statement></task>
-    <task xml:id="proj-PageRank1"><statement><p>Calculer <m>G^{20}</m> pour les deux matrices de Google des webs simplifiés. Que peut-on remarquer?</p>
+    <task xml:id="proj-PageRank1"><statement><p>Calculer <m>G^{20}</m> pour les deux matrices de Google des webs hypothétiques. Que peut-on remarquer?</p>
     <sage>
     <input>
     
     </input>
     </sage></statement></task>
-    <conclusion><p>En général, Google va calculer un grande puissance de sa matrice <m>G</m> pour retourner les pages avec le plus de valeurs, car cela est moins couteux que de trouver le vecteur propre. On peut montrer que sous certaines conditions sur <m>G</m>, les colonnes de <m>G^n</m> convergent toujours vers le vecteur propre recherché lorsque <m>n</m> tend vers l'infini.</p></conclusion>
+    <conclusion><p>En général, Google va calculer une grande puissance de sa matrice <m>G</m> pour retourner les pages avec le plus de valeurs, car cela est moins couteux que de trouver le vecteur propre. On peut montrer que sous certaines conditions sur <m>G</m>, les colonnes de <m>G^n</m> convergent toujours vers le vecteur propre recherché lorsque <m>n</m> tend vers l'infini.</p></conclusion>
     </task>
-    <task><statement><p>Considérer maintenant le web illustré par la figure <xref ref="fig-PageRank3"/>. Quelle prédiction peut-être faite pour les pages <m>0,1</m> et <m>2</m>?</p>
+    <task><statement><p>Considérer maintenant le web hypothétique illustré par la figure <xref ref="fig-PageRank3"/>. Quelle prédiction peut être faite pour les pages <m>0,1</m> et <m>2</m>?</p>
     <figure xml:id="fig-PageRank3">
     <caption>Un autre graphe à six sommets</caption>
     <image xml:id="img-PageRank3">
@@ -124,19 +125,19 @@ plot(G,layout="circular")
     </statement></task>
     <task><statement><p>Vérifier l'hypothèse en calculant le vecteur propre de la matrice de Google et en le normalisant pour que les entrées somment à <m>1</m>.</p></statement></task>
     <task><statement><p>Calculer <m>G^{20}</m> et vérifier à nouveau ce qui a été observé à la partie <xref ref="proj-PageRank1"/>.</p></statement></task>
-    <task><introduction><p>Une matrice comme celle du web de la figure <xref ref="fig-PageRank3"/> est problématique car, à partir d'une certaine puissance, des entrées de la matrice <m>G^n</m> sont toujours nulles et il est impossible de retourner à ces pages. En regardant plus attentivement le graphe, on constate que lorsqu'on rentre dans l'une des pages <m>3,4,5</m>, il est impossible d'en ressortir.</p>
+    <task><introduction><p>Une matrice comme celle du web hypothétique de la figure <xref ref="fig-PageRank3"/> est problématique car, à partir d'une certaine puissance, des entrées de la matrice <m>G^n</m> sont toujours nulles et il est impossible de retourner à ces pages. En regardant plus attentivement le graphe, on constate que lorsqu'on entre dans l'une des pages <m>3,4,5</m>, il est impossible d'en ressortir.</p>
     <p>Google contourne ce problème en modifiant légèrement sa matrice <m>G</m>. En fait, il utilise une matrice <m>G^{'}</m> définie à partir de la matrice <m>G</m> et d'une matrice <m>H</m> qui, pour un web à <m>n</m> pages serait égale à
     <me>H=\begin{pmatrix}
     \frac{1}{n}&amp;\frac{1}{n}&amp;\cdots &amp; \frac{1}{n}\\
     \frac{1}{n}&amp;\frac{1}{n}&amp;\cdots &amp; \frac{1}{n}\\
     \vdots&amp;\vdots&amp;\ddots &amp; \vdots\\
     \frac{1}{n}&amp;\frac{1}{n}&amp;\cdots &amp; \frac{1}{n}
-    \end{pmatrix}</me>. Dans cette matrice, toutes les pages ont la même chance d'être visitée, à partir de n'importe quelle autre page, incluant la page sur laquelle on se trouve déjà. </p><p>
+    \end{pmatrix}</me>. Dans cette matrice, toutes les pages ont la même chance d'être visitées, à partir de n'importe quelle autre page, incluant la page sur laquelle on se trouve déjà. </p><p>
     L'équation pour la matrice <m>G^{'}</m> est 
     <me>
     G^{'}=pG+(1-p)H
     </me>
-    où <m>p\in [0,1]</m>. La valeur de <m>p</m> utilisée par Google n'est pas connu. Pour la suite, on utilisera <m>p=0.85</m>.</p>
+    où <m>p\in [0,1]</m>. La valeur de <m>p</m> utilisée par Google n'est pas connue. Pour la suite, on utilisera <m>p=0.85</m>.</p>
     </introduction>
     <task><statement><p>En prenant à nouveau la situation de la figure <xref ref="fig-PageRank1"/>, déterminer le vecteur propre de la matrice <m>G^{'}</m>. Est-il différent de celui de la matrice <m>G</m>?</p>
     <sage>
@@ -144,13 +145,13 @@ plot(G,layout="circular")
     
     </input>
     </sage></statement></task>
-    <task><statement><p>Répéter avec le web de la figure <xref ref="fig-PageRank2"/>, déterminer le vecteur propre de la matrice <m>G^{'}</m>. Est-il différent de celui de la matrice <m>G</m>?</p>
+    <task><statement><p>Répéter avec le web hypothétique de la figure <xref ref="fig-PageRank2"/>, déterminer le vecteur propre de la matrice <m>G^{'}</m>. Est-il différent de celui de la matrice <m>G</m>?</p>
     <sage>
     <input>
     
     </input>
     </sage></statement></task>
-    <task><statement><p>Répéter avec le web de la figure <xref ref="fig-PageRank3"/>, déterminer le vecteur propre de la matrice <m>G^{'}</m>. Est-il différent de celui de la matrice <m>G</m>?</p>
+    <task><statement><p>Répéter avec le web hypothétique de la figure <xref ref="fig-PageRank3"/>, déterminer le vecteur propre de la matrice <m>G^{'}</m>. Est-il différent de celui de la matrice <m>G</m>?</p>
     <sage>
     <input>
     
@@ -158,9 +159,9 @@ plot(G,layout="circular")
     </sage></statement></task>
     </task>
     <task><introduction><p>On peut généraliser le concept où, à partir de certaines pages, il est plus probable d'aller vers une page qu'une autre. Graphiquement, ceci est représenté en donnant un poids aux arêtes reliant les sommets du graphe. On s'assure que la somme des poids sortant d'un sommet donne <m>1</m>. En quelque sorte, le poids pourrait représenter la proportion des liens sortant du sommet <m>a</m> et allant vers le sommet <m>b</m>. </p></introduction>
-    <task><statement><p>Analyser le graphe de la figure <xref ref="fig-PageRank4"/>, représentant une modification du web de la figure <xref ref="fig-PageRank1"/>.</p>
+    <task><statement><p>Analyser le graphe de la figure <xref ref="fig-PageRank4"/>, représentant une modification du web hypothétique de la figure <xref ref="fig-PageRank1"/>.</p>
     <figure xml:id="fig-PageRank4">
-    <caption>Une version pondérée d'un web à trois sommets</caption>
+    <caption>Une version pondérée d'un web hypothétique à trois sommets</caption>
     <image xml:id="img-PageRank4">
     <description>
     Un graphe à trois sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids un sur cinq et vers le sommet deux avec poids quatre sur cinq. Le sommet un pointe vers le sommet zéro avec poids un sur trois et vers le sommet deux avec poids deux sur trois. Le sommet deux ne pointe que vers le sommet un, avec poids un.
@@ -178,9 +179,9 @@ plot(G,edge_labels=True,layout="circular")
     </input>
     </sage>
     </statement></task>
-    <task><statement><p>Répéter avec la modifification du web de la figure <xref ref="fig-PageRank2"/>, illustrée à la figure suivante.</p>
+    <task><statement><p>Répéter avec la modifification du web hypothétique de la figure <xref ref="fig-PageRank2"/>, illustrée à la figure suivante.</p>
     <figure xml:id="fig-PageRank5">
-    <caption>Une version pondérée d'un web à six sommets</caption>
+    <caption>Une version pondérée d'un web hypothétique à six sommets</caption>
     <image xml:id="img-PageRank5">
 <description>
 Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids un sur trois et vers le sommet deux avec poids deux sur trois. Le sommet un pointe vers le sommet zéro avec poids un sur quatre, vers le sommet trois avec poids un sur deux et  vers le sommet cinq avec poids un sur quatre. Le sommet deux pointe vers le sommet trois avec poids trois sur quatre  et  vers le sommet cinq avec poids 1/4. Le sommet trois pointe vers le sommet zéro avec poids trois sur cinq et vers le sommet deux avec poids deux sur cinq. Le sommet quatre pointe vers le sommet zéro  avec poids un sur trois et vers le sommet trois avec poids deux sur trois. Le sommet cinq  pointe vers le sommet zéro et quatre, chacun avec poids un sur deux.
@@ -199,9 +200,9 @@ plot(G,edge_labels=True,layout="circular")
     </input>
     </sage>
     </statement></task>
-    <task><statement><p>Répéter avec la modification du web de la figue <xref ref="fig-PageRank3"/>, illustrée à la figure suivante.</p>
+    <task><statement><p>Répéter avec la modification du web hypothétique de la figure <xref ref="fig-PageRank3"/>, illustrée à la figure suivante.</p>
     <figure xml:id="fig-PageRank6">
-    <caption>Une modification d'un autre web à six sommets </caption>
+    <caption>Une modification d'un autre web hypothétique à six sommets </caption>
     <image xml:id="img-PageRank6">
 <description>Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids une demi, vers le sommet deux avec poids un tiers et vers le sommet trois avec poids un sur six. Le sommet un pointe vers le sommet deux avec poids trois sur sept et vers le sommet trois avec poirds quatre sur sept. Le sommet deux pointe vers le sommet zéro avec poids deux sur cinq, vers le sommet un avec poids un sur quatre, vers le sommet trois avec poids un sur trois et vers le sommet quatre avec poids un sur soixante. Le sommet trois pointe vers le sommet quatre avec poids 1, le sommet quatre pointe vers le sommet trois avec poids un sur six et vers le sommet cinq avec poids cinq sur six. Finalement, le sommet  cinq  pointe vers le sommet trois  avec poids sept sur neuf et vers le sommet quatre avec poids deux sur neuf.</description>
     <sageplot>

@@ -619,4 +619,222 @@ enableRightClick(false);
 </task>
 </task>
 </exercise>
+<exercisegroup>
+<title>Exercices Sage</title>
+<introduction><p>Les exercices qui suivent sont conçus pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p></introduction>
+<exercise><statement><p>Résoudre les problème de l'exercice <xref ref="exo-proglin1"/> à l'aide de la commande <c>run_simplex_method</c> et vérifier que la réponse obtenue est la même que celle à l'exercice <xref ref="exo-proglin2"/> ou <xref ref="exo-proglin4"/>.</p>
+<sage><input>#Inscrire le code ici</input></sage>
+<sage><input>#Inscrire le code ici</input></sage>
+<sage><input>#Inscrire le code ici</input></sage>
+<sage><input>#Inscrire le code ici</input></sage></statement>
+<solution><listing><caption>Code pour le premier problème</caption>
+<program language="Sage">
+<input>
+A=matrix([[-1,1],[1,5],[1,-7]])
+b=vector([0,24,-12])
+c=vector([3,2])
+P=InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
+P=P.standard_form()
+P.run_simplex_method()
+</input>
+</program>
+</listing>
+<listing><caption>Code pour le deuxième problème</caption>
+<program language="Sage">
+<input>
+A=matrix([[-2,1],[-1,1],[2,1],[1,-3]])
+b=vector([-5,-1,14,0])
+c=vector([1,2])
+P=InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
+P=P.standard_form()
+P.run_simplex_method()
+</input>
+</program>
+</listing>
+<listing><caption>Code pour le troisième problème</caption>
+<program language="Sage">
+<input>
+A=matrix([[-1,2],[3,1],[1,2],[1,-2],[1,2],[3,1]])
+b=vector([3,26,12,8,21,38])
+c=vector([-2,3])
+#Noter l'ajout de l'option "constraint_type" ci-dessous étant donnée la présence de contrainte ">=" dans le problème
+P=InteractiveLPProblem(A, b, c, ["x", "y"],constraint_type=["&lt;=",">=",">=","&lt;=","&lt;=","&lt;="], variable_type=">=")
+P=P.standard_form()
+P.run_simplex_method()
+</input>
+</program>
+</listing>
+<listing><caption>Code pour le dernier problème</caption>
+<program language="Sage">
+<input>
+A=matrix([[-2,5],[3,2],[5,-3]])
+b=vector([1,27,7])
+c=vector([1,1])
+#Noter l'ajout de l'option "constraint_type" ci-dessous étant donnée la présence de contrainte ">=" dans le problème et l'ajout de "problem_type="min""
+P=InteractiveLPProblem(A, b, c, ["x", "y"],constraint_type=[">=","&lt;=",">="], variable_type=">=",problem_type="min")
+P=P.standard_form()
+P.run_simplex_method()
+</input>
+</program>
+</listing>
+</solution>
+</exercise>
+<exercise xml:id="exosage-minpivoty"><statement><p>À la sous-section <xref ref="sssec-proglinmin"/>, on a étudié le problème de maximisation
+<me>
+f(x,y)=-2x-3y
+</me>,
+qui est sujette aux contraintes
+<md>
+<mrow>-x-y&amp;\leq -9</mrow>
+<mrow>x-y&amp;\leq 1</mrow>
+</md>
+ dont la matrice initiale du simplexe est
+<me>
+S=\left(\begin{array}{rrrr|r|r}
+-1&amp;-1&amp;1&amp;0&amp;0&amp;-9\\
+1&amp;-1&amp;0&amp;1&amp;0&amp;1\\
+2&amp;3&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)
+</me>. Dans le texte, la première étape a été de pivoter selon l'entrée de la première ligne et de la première colonne.</p>
+<p>À l'aide de multiplications par des matrices élémentaires, résoudre le problème à nouveau en pivotant, cette fois-ci, selon l'entrée de la première ligne et de la deuxième colonne.</p>
+<sage><input>#Inscrire le code ici</input></sage>
+<sage><input>#Inscrire le code ici</input></sage>
+<sage><input>#Inscrire le code ici</input></sage>
+<sage><input>#Inscrire le code ici</input></sage>
+<sage><input>#Inscrire le code ici</input></sage>
+</statement>
+<solution>
+<p>On définit la matrice initiale du simplexe et on multiplie la première ligne par <m>-1</m> afin de rendre le pivot égal à <m>1</m>.</p>
+<sage><input>
+S=matrix([[-1,-1,1,0,0,-9],[1,-1,0,1,0,1],[2,3,0,0,1,0]])
+S=elementary_matrix(3,row1=0,scale=-1)*S
+show(S)
+</input></sage>
+<p>Pour éliminer les entrées de la deuxième colonne, sous le pivot, on multiplie par deux matrices élémentaires.</p>
+<sage><input>
+S=matrix([[-1,-1,1,0,0,-9],[1,-1,0,1,0,1],[2,3,0,0,1,0]])
+S=elementary_matrix(3,row1=0,scale=-1)*S
+show(S)
+S=elementary_matrix(3,row1=1,row2=0,scale=1)*elementary_matrix(3,row1=2,row2=0,scale=-3)*S
+show(S)
+</input></sage>
+<p>On remarque que les entrées de la dernière colonne à droite du bloc principal sont maintenant positives et que l'algorithme du simplexe peut commencer. L'unique entrée négative sous le bloc principal est à la première colonne. Selon l'algorithme, la deuxième ligne est choisie pour pivoter. On la divise par <m>2</m> pour rendre le pivot égal à <m>1</m> et l'on multiplie par les matrices élémentaires permettant d'éliminer les autres entrées de la colonne.</p>
+<sage><input>
+S=elementary_matrix(3,row1=2,row2=1,scale=1)*elementary_matrix(3,row1=0,row2=1,scale=-1)*elementary_matrix(3,row1=1,scale=1/2)*S
+show(S)
+</input></sage>
+<p>L'algorithe se termine, la solution optimale est <m>-22</m>, atteinte lorsque <m>x=5</m> et <m>y=4</m>.</p>
+</solution>
+</exercise>
+<exercise><introduction><p>Une compagnie forestière effectuant de la coupe responsable possède deux sites de coupe et trois usines de transformations. La figure suivante représente la capacité de production de chaque site et la capacité de transformation de chaque usine, en millions de PMP par année (le PMP est une unité de mesure utilisée dans l'industrie. Un PMP correspond à un pied mesure de planche équivalant à 12 pouces par 12 pouces par un 1 pouce.), ainsi que les coûts associés aux transports des sites aux usines, en millions de dollars par année. </p></introduction>
+<task><statement><p>La compagnie souhaite minimiser ses coûts reliés au transport des marchandises. Dans cette situation, on veut que tout le bois coupé soit envoyé aux différentes usines. On aura donc deux contraintes d'égalité pour représenter le bois quittant chacun des sites de coupe. </p>
+<p>Traduire ce système sous forme canonique et l'écrire sur Sage.</p>
+<sage>
+<input>
+#Inscrire le code ici
+</input>
+</sage>
+</statement>
+<solution><p>
+Le code suivant permet d'écrire le problème sous forme canonique. La variable <m>U_{ij}</m> représente la quantité de bois provenant du site de coupe <m>i</m> et allant vers l'usine <m>j</m>.
+</p>
+<listing><caption>La forme canonique du problème</caption>
+<program language="Sage">
+<input>
+A = matrix([[1, 1, 1, 0, 0, 0],[-1, -1, -1, 0, 0, 0],[ 0, 0, 0, 1, 1, 1],[ 0, 0, 0, -1, -1, -1],[ 1, 0, 0, 1, 0, 0],[ 0, 1, 0, 0, 1, 0],[ 0, 0, 1, 0, 0, 1]])
+b = vector([150,-150, 275,-275, 160, 140, 170,])
+c = vector([2,2,3,1,3,1])
+P=InteractiveLPProblem(A, b, c, ["U11", "U12","U13","U21","U22","U23"], variable_type=">=",problem_type="min")
+P=P.standard_form()
+%display typeset
+P
+</input>
+</program>
+</listing>
+</solution>
+</task>
+<task><statement><p>De quelle manière la compagnie devrait-elle effectuer le transport entre les sites de coupe et les usines de transformation? Quel est le coût associé à cette répartition des ressources?</p>
+<sage>
+<input>
+#Inscrire le code ici
+</input>
+</sage>
+</statement>
+<solution><p>
+Le code suivant permet de trouver la solution optimale.
+</p>
+<listing><caption>La forme canonique du problème</caption>
+<program language="Sage">
+<input>
+A = matrix([[1, 1, 1, 0, 0, 0],[-1, -1, -1, 0, 0, 0],[ 0, 0, 0, 1, 1, 1],[ 0, 0, 0, -1, -1, -1],[ 1, 0, 0, 1, 0, 0],[ 0, 1, 0, 0, 1, 0],[ 0, 0, 1, 0, 0, 1]])
+b = vector([150,-150, 275,-275, 160, 140, 170,])
+c = vector([2,2,3,1,3,1])
+P=InteractiveLPProblem(A, b, c, ["U11", "U12","U13","U21","U22","U23"], variable_type=">=",problem_type="min")
+P=P.standard_form()
+%display typeset
+show(P.optimal_solution())
+show(c*P.optimal_solution())
+</input>
+</program>
+</listing>
+<p>On constate que, pour <m>575</m> millions de dollar, la compagnie minimise ses coûts de tranports quand elle envoie du premier site de coupe <m>55</m> millions de PMP vers l'usine <m>1</m> et <m>95</m> millions de PMP vers l'usine <m>B</m> ainsi que <m>105</m> millions de PMP à l'usine <m>1</m> et <m>170</m> vers l'usine <m>3</m> provenant du deuxième site de coupe.</p>
+</solution>
+</task>
+</exercise>
+<exercise><statement><p>Une compagnie fabrique trois types de produit, de qualité inférieure, moyenne et supérieure. Un produit de qualité inférieure rapporte <m>25</m> dollars à la compagnie, contre <m>45</m> dollars pour une produit de qualité moyenne et <m>50</m> dollars pour une produit de qualité supérieure. La durée de vie moyenne de ces produits est, respectivement, de <m>2,4</m> et <m>9</m> ans. Une nouvelle loi vient de proclamer que l'ensemble des produits de ce type doivent avoir une durée de vie moyenne  égale à <m>4</m> ans. Pour produire le produit de qualité inférieure, les travailleurs ont besoin de <m>1</m> minute, ils ont besoin de <m>3</m> minutes pour un produit de qualité moyenne et, finalement, <m>5</m> minutes sont nécessaires pour un produit de qualité supérieure. Quel est le profit maximum que la compagnie peut espérer recevoir par journée typique de travail de <m>480</m> minutes?</p>
+<sage>
+<input>
+#Inscrire le code ici
+</input>
+</sage>
+</statement>
+<solution><p>Soit <m>x,y,z</m>, le nombre de produits de qualité inférieure,moyenne et supérieure, respectivement. La durée de vie moyenne de ces produits est
+<m>
+\frac{2x+4y+9z}{x+y+z}
+</m>. Si cette moyenne doit être plus grand ou égale à <m>4</m>, on peut réécrire la moyenne sous la forme
+<me>
+2x+4y+9z\geq 4x+4y+4z
+</me>, qui devient <m>-2x+0y+5z\geq 0</m>. Avec la contrainte de temps, le problème peut être écrit sur Sage de la manière suivante.</p>
+<sage>
+<input>
+A = matrix([[-2,0,5],[1,3,5]])
+b = vector([0,480])
+c = vector([25,45,50])
+P=InteractiveLPProblem(A, b, c, ["x","y","z"], variable_type=">=",constraint_type=[">=","&lt;="],problem_type="max")
+%display typeset
+P
+</input>
+</sage>
+<p>La solution optimale est obtenue lorsque le nombre de produits de qualité inférieure est égale à <m>160</m> et le nombre de produits de qualité supérieure est de <m>64</m>. Aucun produit de qualité moyenne n'est produit. Dans ce cas, on obtient un revenu optimal de <m>7200</m> dollars.</p>
+</solution>
+</exercise>
+<exercise><statement><p>Un promoteur possède un immense terrain de <m>2</m> kilomètres carrés sur lequel il veut exploiter trois types de service. Un petit commerce rapporte <m>3500</m> dollars par mois, une grande surface rapporte <m>8000</m> dollar par mois et un logement rapporte <m>1500</m> dollars par mois. Il peut y avoir <m>2000</m> petits commerces par kilomètre carré, <m>90</m> grandes surfaces par kilomètre carré ou <m>10000</m> logements par kilomètre carré. Afin de pouvoir assurer la circulation, le stationnement et autres infrastructure, la superficie totale des trois types de services offert ne peut excéder <m>35</m>% de la superficie totale du terrain. De plus, le réglement de zonage demande à ce qu'au moins <m>1500</m> logements soient construits. Finalement, des coûts d'entretien sont associés pour chaque type de services. Un petit commerce entraine un coût de <m>200</m> dollars par mois, une grande surface coûte <m>300</m> dollars par mois et un logement a des coûts mensuels de <m>100</m> dollars. Le budget du promoteur est de <m>350000</m> dollars par mois.</p>
+<p>Comment le promoteur devrait-il répartir les types de service de manière à optimiser ses revenus?</p>
+</statement>
+<solution><p>
+Ce problème comporte trois contraintes. On note <m>P,G,L</m>, le nombre de chacun des trois types de service, avec <m>P</m> pour le nombre de petits commerces, <m>G</m> pour le nombre de grande surface et <m>L</m> pour le nombre de logements.
+</p>
+<p>La contrainte sur la superficie peut s'écrire sous la forme
+<me>
+\frac{1}{2000}P+\frac{1}{90}G+\frac{1}{10000}L\leq 0.7
+</me>,,
+la contrainte sur le nombre de logement est <m>L\geq 3000</m> et la contrainte de budget pour l'entretien est
+<me>
+200P+300G+100L\leq 350000
+</me>.
+On inscrit dans Sage ces paramètres, sous la forme de la matrice et des vecteurs nécessaires à la création d'un problème de programmation linéaire.
+</p>
+<sage>
+<input>
+A=matrix([[1/2000,1/90,1/10000],[0,0,1],[200,300,100]])
+b=vector([0.7,3000,350000])
+c=vector([3500,8000,1500])
+P=InteractiveLPProblem(A, b, c, ["P","G","L"], variable_type=">=",constraint_type=["&lt;=",">=","&lt;="],problem_type="max")
+P.optimal_solution()
+</input>
+</sage>
+Comme on ne peut construire une portion de commerce, on choisit de construire <m>210</m> petits commerces, <m>26</m> grandes surfaces ainsi que les <m>3000</m> logements demandés par la règlementation. En réalité, il serait possible d'augmenter davantage certains type de commerces tout en satisfaisant l'ensemble des contraintes. C'est un des défaut de l'algorithme du simplexe, lorsque la solution retournée n'est pas applicable. 
+</solution>
+</exercise>
+</exercisegroup>
 </exercises>

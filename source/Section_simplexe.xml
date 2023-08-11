@@ -14,6 +14,7 @@
     <title> La programmation linéaire </title>
     <introduction xml:id= "intro-simplexe">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Aller aux <xref ref="exo-simplexe">exercices</xref> de la section.</p>
+    <p>Le chapitre <xref ref="chap-SEL"/> devrait suffire pour comprendre ce chapitre.</p>
     <p>Au chapitre <xref ref="chap-vec"/>, on a vu comment représenter des droites dans le plan et dans l'espace, et comment déterminer l'intersection de droites. Au chapitre <xref ref="chap-SEL"/>, il a été question de la méthode de Gauss-Jordan, pour résoudre un système d'équations linéaires en échelonnant la matrice représentant ce système. L'analyse de cette forme échelonnée réduite a permis de décomposer les solutions en fonction de ce qu'on a appelé les solutions de base et la solution particulière, formant à eux deux la solution générale. Les notions de ces deux chapitres sont suffisantes pour comprendre cette section.</p>
     <p>Dans cette section, on s'intéresse à la solution à des problèmes d'optimisation posés sous la forme d'un programme linéaire, c'est-à-dire comme un ensemble d'égalités et d'inégalités. L'objectif est de maximiser ou de minimiser une fonction tout en satisfaisant à plusieurs contraintes.</p>
     <p>Historiquement, on retrouve les premières tentatives de résolution des problèmes que l'on étudiera dans cette section par le mathématicien russe Leonid Kantorovich et par l'économiste Wassily Leontief. Le premier était intéressé à résoudre des problèmes de fabrication d'horaires, alors que le second se penchait sur des problèmes économiques divers. La nécessité de résoudre ces problèmes efficacement et rapidement fut ensuite accentuée par la deuxième guerre mondiale. La méthode du simplexe, que l'on étudiera, a été établie en 1947 par George Dantzig et perfectionnée au fil des ans. La méthode s'applique aux problèmes qui demande d'optimiser une fonction de <m>\mathbb{R}^n</m> vers <m>\mathbb{R}</m> sujette à des contraintes d'inégalité.</p>
@@ -416,7 +417,7 @@ c = vector([4, 5])
 P = InteractiveLPProblem(A, b, c, ["p", "q"],  variable_type=">=")
 </input>
 </sage>
-<p>On remédie à cette situation en ajoutant un argument <c>problem_type="max"</c> et un argument <c>constraint_type</c>. Ces arguments permettent à Sage de comprendre que l'on cherche le minimum de la fonction et que les trois premières contraintes sont de type <m>\geq</m>.</p>
+<p>On remédie à cette situation en ajoutant un argument <c>problem_type="min"</c> et un argument <c>constraint_type</c>. Ces arguments permettent à Sage de comprendre que l'on cherche le minimum de la fonction et que les trois premières contraintes sont de type <m>\geq</m>.</p>
 <sage>
 <input>
 P = InteractiveLPProblem(A, b, c, ["p", "q"], problem_type="min", constraint_type=[">=",">=",">=", "&lt;="], variable_type=">=")
@@ -868,9 +869,9 @@ Toutes les entrées de la dernière ligne étant positives, l'algorithme se term
 <p>Aussi, autant à l'étape <xref ref="li-simplexepivotcolonne"/> qu'à l'étape <xref ref="li-simplexepivotligne"/>, il pourrait y avoir égalité entre les valeurs considérées et un choix à faire. Dans de rares cas, cela peut amener l'algorithme à revenir sur lui-même (il devient cyclique) et rendre la recherche d'optimum impossible. Toutefois, ces cas ne surviennent presque jamais. Dans les autres cas où, en cas d'égalité, un choix est à faire, tous les choix devraient s'équivaloir, à peu de choses près.</p>
 <p>La dernière chose à considérer est le cas des problèmes de minimisation. En théorie, la forme canonique transforme le problème en un problème de maximisation, mais la dernière colonne pourrait alors contenir des nombres négatifs. Cette situation ne survient normalement pas dans le cadre d'un vrai problème de maximisation, de par le fonctionnement de l'algorithme qui s'assure en choississant le pivot que toutes les entrées de la dernière colonne demeurent positives. Donc si aucune des entrées étaient négatives au départ, elles resteront positives tout le long du processus. La prochaine sous-section explique comment traiter,avec l'algorithme du simplexe, les problèmes de minimisation et le cas où un membre de droite négatif est présent dès le départ. </p>
 </subsection>
-<subsection>
+<subsection xml:id="sssec-proglinmin">
 <title>Problèmes de minimisation</title>
-<p>Pour que l'algorithme du simplexe fonctionne, toutes les entrées de la dernière colonne doivent être positives afin que les variables d'écart puissent fournir une solution admissible, ces variables devant être positives. L'idée est de faire le pivotage sur une entrée négative d'une ligne dont l'élément de la dernière colonne est aussi négatif. Si une telle entrée n'existe pas et que la seule entrée négative de la ligne se trouve dans la dernière colonne, alors le problème ne possède pas de solution (cela signifierait, par exemple, que la somme de variables positives doit être plus petite qu'un nombre négatif).</p>
+<p>Pour que l'algorithme du simplexe fonctionne, toutes les entrées de la dernière colonne doivent être positives afin que les variables d'écart puissent fournir une solution admissible, ces variables devant être positives. En présence de valeurs négatives dans la dernière colonne, on effectue le pivotage sur l'une des entrées négatives d'une ligne dont l'élément de la dernière colonne est aussi négatif. Si une telle entrée n'existe pas et que la seule entrée négative de la ligne se trouve dans la dernière colonne, alors le problème ne possède pas de solution (cela signifierait, par exemple, que la somme de variables positives doit être plus petite qu'un nombre négatif).</p>
 <p>À titre d'exemple, on considère le problème de maximisation sous forme canonique suivant. La fonction à maximiser est
 <me>
 f(x,y)=-2x-3y
@@ -889,7 +890,7 @@ S=\left(\begin{array}{rrrr|r|r}
 \end{array}\right)
 </me>.
 </p>
-<p>Dans un premier temps, on remarque qu'aucune entrée de la dernière ligne est négative. Par contre, la matrice possède un élément négatif dans sa dernière colonne, ce qui fait qu'elle n'est en principe pas une matrice initiale du simplexe. La solution initiale de cette matrice, donnée par <m>x=y=0, e_1=-9,e_2=1</m> et <m>f=0</m> n'est même pas admissible, puisque <m>e_1&lt; 0</m>. Afin de pouvoir utiliser l'algorithme du simplexe, on débute par un pivotage sur la première ligne, qui contient l'entrée négative égale à <m>-9</m>. Dans ce cas-ci, on peut pivoter par rapport à n'importe quelle variable, puisque <m>x</m> et <m>y</m> sont tous deux négatifs dans la première ligne. Si l'on choisit de pivoter pour <m>x</m>, la matrice devient
+<p>Dans un premier temps, on remarque qu'aucune entrée de la dernière ligne est négative. Par contre, la matrice possède un élément négatif dans sa dernière colonne, ce qui fait qu'elle n'est pas, en principe, une matrice initiale du simplexe. La solution initiale de cette matrice, donnée par <m>x=y=0, e_1=-9,e_2=1</m> et <m>f=0</m>, n'est même pas admissible, puisque <m>e_1&lt; 0</m>. Afin de pouvoir utiliser l'algorithme du simplexe, on commence par un pivotage sur la première ligne, qui contient l'entrée négative égale à <m>-9</m>. Dans ce cas-ci, on peut pivoter par rapport à n'importe quelle variable, puisque <m>x</m> et <m>y</m> sont tous deux négatifs dans la première ligne. Si l'on choisit de pivoter pour <m>x</m>, la matrice devient
 <md>
 <mrow>\left(\begin{array}{rrrr|r|r}
 -1&amp;-1&amp;1&amp;0&amp;0&amp;-9\\
@@ -906,7 +907,7 @@ S=\left(\begin{array}{rrrr|r|r}
 0&amp;1&amp;2&amp;0&amp;1&amp;-18
 \end{array}\right)</mrow>
 </md>.
-Encore une fois, il y a une entrée négative dans la colonne des <m>b_i</m>, ce qui fait que l'on doit pivoter dans la ligne correspondante avant de poursuivre. L'exercice <xref provisional="faire pivoter sur y l'exemple de minimum"/> va montrer que l'on aurait pu éviter une étape en choissisant <m>y</m> comme premier pivot. La seule entrée négative du bloc principal de la ligne deux étant dans la colonne <m>y</m>, on pivote sur cette valeur. On obtient
+Encore une fois, il y a une entrée négative dans la colonne des <m>b_i</m>, ce qui fait que l'on doit pivoter dans la ligne correspondante avant de poursuivre. L'exercice <xref ref="exosage-minpivoty"/> va montrer que l'on aurait pu éviter une étape en choissisant <m>y</m> comme premier pivot. La seule entrée négative du bloc principal de la ligne deux étant dans la colonne <m>y</m>, on pivote sur cette valeur. On obtient
 <md>
 <mrow>
 \left(\begin{array}{rrrr|r|r}
@@ -1140,5 +1141,4 @@ show("La valeur de la fonction objectif:",D.objective_value())
    <!--Inclure les exercices de la section ci-dessous--> 
    <xi:include href="Exercices_simplexe.ptx"/> 
 </section>
-<!-- exercice pivotage du y dans l'exemple du min -->
 <!-- relire pour réécrire avec bloc principal -->

@@ -18,7 +18,7 @@
     <project>
     <title>De l'art géométrique</title>
     <introduction>
-    <p>On a vu à l'exemple <xref ref="sageex-deftransfo"/> qu'on pouvait appliquer une transformation  à une liste de points. Dans ce projet, on souhaite créer une oeuvre artistique à l'aide des transformations linéaires.
+    <p>On a vu à l'exemple <xref ref="sageex-deftransfo"/> qu'on pouvait appliquer une transformation  à une liste de points. Dans ce projet, on souhaite créer une &#x153;uvre artistique à l'aide des transformations linéaires.
     Afin de bien comprendre, on divise le projet en deux étapes.</p>
     </introduction>
     <task>
@@ -118,5 +118,164 @@ etoile
     </sage>
     </statement>
     </task>
+    </project>
+    <project>
+    <title>Anaglyphe</title>
+    <introduction>
+    <p>Ce laboratoire est une adaptation sur Sage du projet <q>Anaglyphe et visualisation 3D</q>, disponible sur <url href="http://projetsmathematiquests.com/projets.php" visual="projetsmathematiquests.com"/>, sous licence creative commons.</p>
+    <p>Le cerveau humain est capable de grandes choses. À partir d'images sur une feuille ou un écran, il est capable de percevoir de la profondeur et du relief. La stéréoscopie est l'ensemble des techniques mises en &#x153;uvre pour reproduire une perception de ce relief à partir d'images planes. Un anaglyphe est une paire d'images, chacune étant de la couleur complémentaire à l'autre, qui est regardée au travers d'un filtre. Chaque image représente la même figure, mais légèrement décalée. Le plus répandu des anaglyphes est celui où l'&#x153;il gauche est affecté d'un filtre rouge et l'&#x153;il droit d'un filtre cyan. Dans ce laboratoire, on construit, dans un premier temps, l'anaglyphe d'un objet commun, que l'on animera. Dans un deuxième temps, après s'être familiarisé avec la création, on construit une maquette, pouvant être composée de plusieurs objets.</p>
+    </introduction>
+    <task><statement><p>Pour commencer, on choisit de construire un objet simple afin de bien comprendre le fonctionnement d'un anaglyphe et sa construction sur Sage. La commande <c>line</c> permet de relier une série de points, formant ainsi un objet connecté. On trace ensuite une ligne entre chaque point et le suivant dans la liste, jusqu'à l'avant-dernier point. Compléter la commande ci-dessous afin de construire une pyramide à base carrée dont les côtés mesurent <m>2</m> unités, centrée à l'origine et de hauteur $6$ unités. Il faudra répéter des points afin de produire un dessin complet.</p>
+    <sage>
+    <input>
+Listepoints=[[2,2,0],[2,-2,0],[-2,-2,0],[-2,2,0],[0,0,6]#Compléter cette liste avec des points pour former l'objet
+]
+line(Listepoints,frame=False,color="black",projection="orthographic",viewpoint=[[-1,-1,-1],120])    
+    </input>
+    </sage>
+    <p>Il est possible de déplacer le point de vue en manipulant la figure créée. Les options <c>projection="orthographic",viewpoint=[[-1,-1,-1],120]</c> ont été choisies afin qu'il n'y ait pas d'effet de perspective et pour que l'angle de vue par défaut soit celui correspondant au plan <m>y</m>-<m>z</m>, qui est l'écran de l'utilisateur dans le repère utilisé.</p>
+    </statement></task>
+    <task><statement><p>La projection sur l'écran de l'objet proposé n'est pas très intéressante à regarder, puisqu'il d'un triangle qui ne rend pas l'impression des trois dimensions. On s'imagine un repère dont l'origine est au centre de l'écran d'ordinateur. L'axe des <m>x</m> pointe vers l'utilisateur, entre ses deux yeux. L'axe des <m>y</m> et l'axe des <m>z</m> forment le plan représentant l'écran. On peut choisir de déplacer le point de vue, par rapport à ce repère, ou encore de transformer l'objet en utilisant des transformations linéaires ou des translations. La première option peut être effectuée en manipulant la figure ou en modifiant l'option <c>viewpoint</c> dans la command <c>line</c>. Dans le but d'explorer les transformations linéaires, on choisit la deuxième option.
+
+On va transformer l'objet en utilisant deux transformations linéaires ainsi qu'une translation. D'abord, on lui applique une rotation par rapport à l'axe des <m>z</m>. Par défaut, on choisit un angle de <m>\frac{\pi}{4}</m>, mais il sera possible de modifier cet angle plus tard. Ensuite, on applique une rotation par rapport à l'axe des <m>y</m>, d'un angle de <m>\frac{\pi}{6}</m> cette fois. Enfin, on termine avec une translation de <m>(5,0,0)</m>, ce qui a pour effet d'amener l'objet « devant » l'écran.
+
+Compléter le code ci-dessous afin de transformer l'objet. Pour appliquer une ou plusieurs matrices à une liste d'objets, on peut utiliser la commande <c>Pointstransformes=[T*P+t for P in Listepoints]</c> où <m>T</m> est la combinaison des transformations linéaires et <m>t</m> est la translation.</p>
+<sage><input>
+thetaz=# À compléter
+thetay=# À compléter
+Rotz=# À compléter
+Roty=# À compléter
+translation=# À compléter
+Pointstransformes=# À compléter
+line(Pointstransformes,frame=False,color="black",projection="orthographic",viewpoint=[[-1,-1,-1],120])
+</input></sage>
+</statement></task>
+<task><statement><p>Maintenant que l'objet est en place, dans une orientation intéressante, on le projette sur le plan à deux dimensions formé des axes <m>y</m> et <m>z</m>. Afin de créer les maquettes qui composent l'anaglyphe, on a le choix de le faire dans l'espace à trois dimensions ou de voir le plan <m>y,z</m> sur lequel les maquettes se trouvent comme une copie de <m>\mathbb{R}^2</m>. On choisit la deuxième option.
+
+Pour arriver à effectuer la projection, on doit établir la position de chacun des yeux de l'observateur. On rappelle que dans le repère, l'axe des <m>x</m> pointe en plein milieu des deux yeux de l'utilisateur. La composante <m>x</m> des deux yeux est donc la distance entre l'utilisateur et l'écran. Pour les composantes <m>y</m>, elles sont, respectivement pour l'&#x153;il gauche et l'&#x153;il droit, la moitié de la distance entre le centre des yeux de l'utilisateur. Finalement, la composante <m>z</m> des yeux est zéro.
+
+Compléter le code ci-dessous avec les mesures correspondantes.</p>
+<sage><input>
+ecran=#À compléter
+yeux=#À compléter
+gauche=vector([ecran,-yeux/2,0])
+droit=vector([ecran,yeux/2,0])
+</input></sage>
+</statement></task>
+<task><statement><p>Pour la première projection, on regarde l'&#x153;il gauche. Le côté gauche de la lunette est normalement monté d'un filtre rouge. Parmi les deux projections, l'&#x153;il gauche ne verra donc que l'objet cyan.  On va créer la projection de l'objet sur l'écran telle que vue par l'&#x153;il gauche pour ensuite le colorer en cyan. Pour cela, on imagine une droite passant par l'&#x153;il gauche, situé au point <m>G</m>, et chacun des points <m>P</m> de l'objet. Cette droite intersecte le plan <m>x</m>-<m>y</m> en un point.
+<ol>
+<li> <p>Créer une fonction qui prend comme argument un paramètre $k$ et un point $P$ et qui retourne l'équation vectorielle de la droite passant par $G$ et $P$;</p></li>
+<li> <p>Créer une liste qui, pour chaque point $P$, contient la valeur de $k$ nécessaire pour que le point sur la droite soit également sur le plan $y$-$z$;</p></li>
+<li> <p>Créer la liste <c>pointscyans</c> contenant la liste des points projetés sur le plan $x$-$y$;</p></li>
+<li> <p>Créer la maquette cyan</p></li></ol></p>
+<sage>
+<input>
+#Équation de la droite
+var("k")
+def Dgauche(k,P):
+    P=vector(P)
+    return #À compléter
+</input>
+</sage>
+<p>Pour chaque point <m>P</m>, on veut déterminer la valeur du paramètre <m>k</m> qui correspond au point sur le plan. On utilise la commande <c>solve</c> pour déterminer la valeur de <m>k</m>. Cette commande retourne une liste d'équations. Puisqu'on sait qu'il n'y aura qu'une solution à l'équation que l'on veut résoudre, on utilise <c>[0]</c> pour faire ressortir la première et seule équation et la commande <c>.rhs()</c> afin d'obtenir le côté droit de l'égalité, qui correspond à la valeur de <m>k</m>.</p>
+<sage>
+<input>
+#Liste des valeurs de k
+paramkcyans=[solve(#Àcompléter ,k)[0].rhs() for P in Pointstransformes]
+</input>
+</sage>
+<p>La commande <c>zip</c> permet de combiner deux listes en une seule en joignant les éléments correspondants. Par exemple, <c>list(zip([1,2,3],[4,5,6]))</c> produit la liste <c>[(1,4),(2,5),(3,6)]</c>.</p>
+<sage>
+<input>
+#Ceci n'est qu'un exemple illustrant zip.
+list(zip([1,2,3],[4,5,6])) 
+</input>
+</sage>
+<p>On utilise cette commande pour grouper les listes <c>Pointstransformes</c> et <c>paramk</c>.</p>
+<sage>
+<input>
+L=zip(paramkcyans,Pointstransformes)
+</input>
+</sage>
+<p>La liste <c>pointscyans</c> est créée en allant chercher les bonnes composantes dans l'équation de la droite <c>Dgauche(k,P)</c> pour la valeur de <m>k</m> associée au point <m>P</m>. On cherche à obtenir une liste de listes. Chacune des listes intérieures représente les composantes de la projection d'un point $P$ sur le plan $y$-$z$ vue comme si elle était dans un espace à deux dimensions.  Compléter la cellule ci-dessous.</p>
+<sage>
+<input>
+#La valeurs des points cyans. On note l'utilisation de la liste L créée par la commande zip.
+pointscyans=[[#À compléter] for k,P in L]
+</input>
+</sage>
+<p>Finalement, on crée la maquette cyan.</p>
+<sage><input>
+graphiquecyan=line(pointscyans,color="cyan",axes=False)
+graphiquecyan
+</input></sage>
+</statement></task>
+<task><statement><p>Pour la deuxième projection, on regarde l'&#x153;il droit. Le côté droit de la lunette est normalement monté d'un filtre cyan. Parmi les deux projections, l'&#x153;il droit ne verra donc que l'objet rouge.  On va créer la projection de l'objet sur l'écran telle que vu par l'&#x153;il droit et le colorer en rouge. Pour cela, on imagine une droite passant par l'&#x153;il droit, situé au point <m>D</m>, et chacun des points <m>P</m> de l'objet. Cette droite intersecte le plan <m>x</m>-<m>y</m> en un point.
+<ol>
+<li><p>Créer une fonction qui prend comme argument un paramètre <m>k</m> et un point <m>P</m> et qui retourne l'équation vectorielle de la droite passant par <m>D</m> et <m>P</m>.</p></li>
+<li><p>Créer une liste qui, pour chaque point <m>P</m>, contient la valeur de <m>k</m> nécessaire pour que le point sur la droite soit également sur le plan <m>x</m>-<m>y</m>.</p></li>
+<li><p>Créer la liste <c>pointsrouges</c> contenant la liste des points projetés sur le plan <m>x</m>-<m>y</m>.</p></li>
+<li><p>Créer la maquette rouge</p></li>
+</ol></p></statement>
+<sage>
+<input>
+#Équation de la droite
+def Ddroite(k,P):
+    P=vector(P)
+    return #À compléter
+</input>
+</sage>
+<sage><input>
+paramkrouges=[solve(#À compléter,k)[0].rhs() for P in Listetransformee]
+</input></sage>
+<sage><input>
+L=zip(paramkrouges,Pointstransformes)
+</input></sage>
+<sage><input>
+pointsrouges=[[#À compléter] for k,P in L]
+</input></sage>
+<sage>
+<input>
+graphiquerouge=line(pointsrouges,color="red",axes=False)
+graphiquerouge
+</input>
+</sage>
+</task>
+<task><statement><p>Enfin, on veut afficher les deux morceaux de l'anaglyphe en un seul graphique.</p>
+<sage>
+<input>
+#Afficher les deux graphiques 
+#À compléter
+</input>
+</sage>
+</statement></task>
+<task><p>Pour explorer davantage, on utilise Sage pour animer l'anaglyphe à l'aide de curseurs. Les curseurs permettent de modifier les angles des rotations, la translation choisie ainsi que les paramètres de distance avec l'écran et de distance entre les yeux. Pour cela, on utilise un <c>interact</c>, objet Sage permettant, entre autres, de créer des curseurs et de produire du contenu dynamique. Le squelette est fourni avec une partie à compléter. Le code commence par <c>@interact</c>, ce qui active le mode interactif de Sage. Ensuite, on définit la fonction `anaglyphe` dont les arguments sont un ensemble de curseurs (<c>slider</c>) et une boite d'entrée (<c>input_box</c>). Des valeurs par défauts sont fournies. Sous la ligne initialisant la fonction, on applique une commande Sage qui convertit la liste des points en objet Sage et l'on crée un graphique vide  dans lequel on ajoutera l'anaglyphe. Compléter le code afin de créer l'application interactive.</p>
+<sage><input>
+@interact
+def anaglyphe(P=input_box(default='{"objet1":[[0, 0, 0],[1, 0, 0],[1, 1, 0],[0, 1, 0],[0, 0, 0],[0, 0, 1],[1, 0, 1],[1, 1, 1],[0, 1, 1],[0, 0, 1],[0, 1, 1],[1, 1, 1],[1, 1, 0],[1, 0, 0],[1, 0, 1],[0, 0, 1],[1, 0, 1],[1, 1, 1],[1, 1, 0],[0, 1, 0],[0, 1, 1]]}', type = str, label = 'Points = '),ecran=slider(20,60,0.5,default=30),yeux=slider(2,8,0.5,default=6),thetaz=slider(0, 2*pi, 0.01, default=0,label='Rotation z'),
+                thetay=slider(0, pi, 0.01, default=0,label='Rotation y'),
+                translation=slider(0, 20, 0.1, default=0,label="Translation")):
+    P=sage_eval(P)
+    graph=plot([])
+    #Écrire les matrices et le vecteur de transformation
+    #À compléter
+    #Position des yeux
+    #À compléter
+    for objet in P.values():
+        Points=objet
+        #Transformer les points
+        #À compléter
+        #Maquettes
+        #À compléter
+        # Display the results
+        graph+=#À compléter
+    show(graph)
+</input></sage>
+</task>
+<task><statement><p>La commande <c>line</c> relie tous les points d'une liste. Il peut être utile de privilégier des objets distincts afin de créer une maquette plus intéressante. La manière dont la fonction <c>anaglyphe</c> ci-dessus a été créée permet d'avoir plusieurs objets et de construire leur anaglyphe respectif. La fonction <c>anaglype</c> prend comme entrée un dictionnaire composé d'objets et leurs points. Dans la boite d'entrée, écrire <c>{"cube":[[0, 0, 0],[1, 0, 0],[1, 1, 0],[0, 1, 0],[0, 0, 0],[0, 0, 1],[1, 0, 1],[1, 1, 1],[0, 1, 1],[0, 0, 1],[0, 1, 1],[1, 1, 1],[1, 1, 0],[1, 0, 0],[1, 0, 1],[0, 0, 1],[1, 0, 1],[1, 1, 1],[1, 1, 0],[0, 1, 0],[0, 1, 1]],"tetraedre":[[-1,-1,-1],[1,-1,-1],[0,1,-1],[-1,-1,-1],[0,0,2],[1,-1,-1],[0,0,2],[0,1,-1],[1,-1,-1],[0,1,-1],[0,0,2],[-1,-1,-1]]}</c> afin de voir un cube et un tétraèdre en anaglyphe.</p>
+    <p>Créer un objet artistique. Les restrictions sont peu nombreuses, mais on demande au minimum une maquette composée d'au moins deux objets distincts, chacun formé d'au moins dix points.
+    </p>
+    </statement></task>
+   <!-- <conclusion><p>Voici quelques créations pouvant servir d'inspiration pour la dernière partie.</p></conclusion>-->
     </project>
 </section>
