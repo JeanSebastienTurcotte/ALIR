@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.1.4.25.a.ii.1</span><span class="period">.</span>
+</h6>
+<div class="para">Voici une manière de résoudre le problème</div> <figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">var("a,b,k")
+A=column_matrix([[3*a/5+2*b/5,-3*a/5+3*b/5],[-2*a/5+2*b/5,2*a/5+3*b/5]])
+Id=identity_matrix(2)
+show(det(A-k*Id))
+show(solve(det(A-k*Id),k))
+######Pour k=-1 #####
+k=a
+show((A-k*Id).rref())
+######Pour k=1 ######
+k=b
+show((A-k*Id).rref())
+#####Pour v1 #####
+v1=vector([2/3,1])
+show("Av_1=",A*v1)
+#####Pour v2 #####
+v2=vector([-1,1])
+show("Av_2=",A*v2)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">4.1.39<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure> <div class="para">On remarque, encore une fois, que les valeurs de <span class="process-math">\(k \)</span> qui satisfont l’équation <span class="process-math">\(\det(A-kI)=0\)</span> sont <span class="process-math">\(a\)</span> et <span class="process-math">\(b\text{.}\)</span> Quant aux vecteurs <span class="process-math">\(v_1,v_2\text{,}\)</span> on retrouve les mêmes vecteurs qu’avec <span class="process-math">\(a=1,b=-1\text{.}\)</span> Toutefois, on se rend compte que les produits matrice vecteur sont respectivement multipliés par <span class="process-math">\(a,b\text{.}\)</span> Les valeurs <span class="process-math">\(a,b\)</span> s’appellent les valeurs propres de la matrice <span class="process-math">\(A\)</span> et les vecteurs <span class="process-math">\(\vec{v}_1,\vec{v}_2\)</span> sont des vecteurs propres. Ces valeurs et vecteurs propres seront étudiés au chapitre <a href="chap-propres.html" class="internal" title="Chapitre 6: Vecteurs et valeurs propres">6</a>.</div>
+</div>
+<span class="incontext"><a href="sec-det2x2.html#solution-575" class="internal">Contexte</a></span>
+</body>
+</html>

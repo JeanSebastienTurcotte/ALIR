@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.3.4.11.1</span><span class="period">.</span>
+</h5>
+<div class="para">Voici une fonction permettant de créer les matrices <span class="process-math">\(B_n\text{.}\)</span> Elle utilise la méthode de construction par une fonction intermédiaire <code class="code-inline tex2jax_ignore">lambda</code>. Voir <code class="code-inline tex2jax_ignore">[provisional cross-reference: Exemples sur les fonctions lambdas]</code>.</div> <figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def diagsecond(i,j):
+    if abs(i-j)==1:
+        return 1
+    else:
+        return 0    
+B=matrix(ZZ,4,lambda i,j: diagsecond(i,j))
+for i in range(10):
+    show("det(B_%d)=" %(i+1), matrix(ZZ,i+1,lambda i,j: diagsecond(i,j)).determinant())
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">4.3.16<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure> <div class="para logical">
+<div class="para">On remarque facilement que les premiers déterminants satisfont la relation et l’on tente maintenant de la démontrer. On développe le déterminant de <span class="process-math">\(B_n\)</span> selon la première ligne. On aura</div>
+<div class="displaymath process-math">
+\begin{align*}
+\det(B_n)&amp;=\begin{vmatrix}
+0&amp;1&amp;0&amp;\cdots &amp;0&amp;0\\
+1&amp;0&amp;1&amp;\cdots &amp;0&amp;0\\
+\vdots&amp;\vdots &amp;\vdots &amp; \ddots &amp;\vdots&amp; \vdots\\
+0&amp;0&amp;0&amp;\cdots &amp; 1&amp;0
+\end{vmatrix}\\
+&amp;=C_{1,2}\\
+&amp;=(-1)^(1+2)\det(B_{1,2})\\
+&amp;=-\begin{vmatrix}
+1&amp;1&amp;0&amp;\cdots &amp;0&amp;0\\
+0&amp;0&amp;1&amp;\cdots &amp;0&amp;0\\
+\vdots&amp;\vdots &amp;\vdots &amp; \ddots &amp;\vdots&amp; \vdots\\
+0&amp;0&amp;0&amp;\cdots &amp; 1&amp;0
+\end{vmatrix}\\
+\end{align*}
+<p class="intertext">Ce déterminant a <span class="process-math">\(n-1\)</span> lignes et colonnes. On développe ensuite ce déterminant selon la première colonne.</p>
+\begin{align*}
+&amp;=-\begin{vmatrix}
+0&amp;1&amp;0&amp;\cdots &amp;0&amp;0\\
+1&amp;0&amp;1&amp;\cdots &amp; 0&amp;0\\
+\vdots &amp;\vdots &amp;\vdots&amp; \ddots &amp;\vdots&amp; \vdots\\
+0&amp;0&amp;0&amp;\cdots &amp; 1&amp;0
+\end{vmatrix}\\
+\end{align*}
+<p class="intertext">Ce déterminant a maintenant <span class="process-math">\(n-2\)</span> lignes et colonnes et correspond exactement à <span class="process-math">\(\det(B_{n-2})\text{.}\)</span></p>
+\begin{align*}
+&amp;=-\det(B_{n-2})\text{.}
+\end{align*}
+</div>
+</div>
+</div>
+<span class="incontext"><a href="sec-cofacteurs.html#solution-646" class="internal">Contexte</a></span>
+</body>
+</html>

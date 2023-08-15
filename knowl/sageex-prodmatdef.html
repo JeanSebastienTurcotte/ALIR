@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">2.2.11</span><span class="period">.</span><span class="space"> </span><span class="title">Le produit matriciel sur Sage.</span>
+</h4> <div class="para">Si l’on a deux matrices <span class="process-math">\(A,B\)</span> sur Sage, on peut facilement les multiplier en utilisant l’opération <code class="code-inline tex2jax_ignore">*</code>. Il faut bien entendu que les dimensions soient compatibles. La deuxième cellule produit volontairement une erreur.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-78"><script type="text/x-sage">A=column_matrix([[1,-3],[4,5]])
+B=column_matrix([[0,-3],[2,1],[-1,3]])
+show("AB=", A*B)
+</script></pre> <pre class="ptx-sagecell sagecell-sage" id="sage-79"><script type="text/x-sage">A=column_matrix([[1,-3],[4,5]])
+B=column_matrix([[0,-3],[2,1],[-1,3]])
+show(B*A)
+</script></pre> <div class="para">On applique maintenant une transformation à un ensemble de points,  en construisant à partir des exemples <a href="" class="xref" data-knowl="./knowl/sageex-utvec.html" title="Calcul 1.1.40: Utilisation de Sage dans la résolution de problèmes de géométrie vectorielle">1.1.40</a> et <a href="" class="xref" data-knowl="./knowl/sageex-deftransfo.html" title="Calcul 2.1.21: Les transformations sur Sage">2.1.21</a>. Pour cela, un peu de conversion est nécessaire, il faudra convertir une liste en matrice, puis une matrice en liste. La première conversion se fait bien avec la commande <code class="code-inline tex2jax_ignore">column_matrix</code>. Celle-ci prend la liste <code class="code-inline tex2jax_ignore">L</code> et la transforme en matrice colonne. Après la multiplication de cette nouvelle matrice par la transformation linéaire, il faut convertir la matrice <code class="code-inline tex2jax_ignore">AL</code> en liste de points. Pour cela, on utilise la commande <code class="code-inline tex2jax_ignore">list</code> sur les colonnes de <code class="code-inline tex2jax_ignore">AL</code>. Le nombre de colonnes d’une matrice <code class="code-inline tex2jax_ignore">M</code> est donné par la commande <code class="code-inline tex2jax_ignore">M.ncols()</code>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-80"><script type="text/x-sage">#Définition des points du quadrilatère ABCD
+A=vector([0,0])
+B=vector([3,0])
+C=vector([5,4])
+D=vector([2,2])    
+#On forme une liste contenant tous les points (vecteurs)
+L=list([A,B,C,D])
+#On doit convertir cette liste en matrice
+MatL=column_matrix(L)
+#Définition de la matrice de transformation linéaire
+u=vector([sqrt(2)/2,sqrt(2)/2])
+v=vector([-sqrt(2)/2,sqrt(2)/2])
+A=column_matrix([u,v])
+AL=A*MatL
+#On convertit la matrice en liste pour pouvoir la tracer.
+ALpoints=list(AL.column(i) for i in range(AL.ncols()))
+polygon(L,color="blue")+polygon(ALpoints,color="red")
+</script></pre> <div class="para">La matrice <a href="" class="xref" data-knowl="./knowl/def-matid.html" title="Définition 2.2.7: La matrice identité">identité 2.2.7</a> est connue de sage, on peut l’obtenir à l’aide de la commande <code class="code-inline tex2jax_ignore">identity_matrix(n)</code> où <span class="process-math">\(n\)</span> est la taille de la matrice carrée.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-81"><script type="text/x-sage">I3=identity_matrix(3)
+show(I3)
+I8=identity_matrix(8)
+show(I8)
+</script></pre></article><span class="incontext"><a href="sec-prodmat.html#sageex-prodmatdef" class="internal">Contexte</a></span>
+</body>
+</html>

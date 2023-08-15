@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Évaluer (Sage)'});
+</script>
+</head>
+<body class="ignore-math"><article class="example example-like"><div class="para logical">
+<div class="para">On considère la matrice échelonnée réduite</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R=\left(\begin{array}{rrrrrr}
+1 &amp; 2 &amp; 0 &amp; -2 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; 4 &amp; 0 &amp; -1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 2 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">Les colonnes <span class="process-math">\(1,3\)</span> et <span class="process-math">\(5\)</span> sont pivots et les colonnes <span class="process-math">\(2,4\)</span> et <span class="process-math">\(6\)</span> sont libres. En éliminant les lignes nulles et les colonnes libres, on peut observer une matrice identité:</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/code/LaTeX/fig-sousmatI.svg" role="img" class="contained" alt="La matrice R est écrite avec les trois dernières lignes rayées, ainsi que les colonnes 2,4 et 6. On voit ensuite une flèche vers la matrice identité de taille 3, correspondant aux valeurs non rayées dans R."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.11<span class="period">.</span></span><span class="space"> </span>La matrice identité dans la matrice échelonnée</figcaption></figure> <div class="para">En éliminant à nouveau les lignes nulles, mais en éliminant cette fois-ci les colonnes pivots plutôt que les libres, on obtient une autre sous-matrice <span class="process-math">\(L\text{:}\)</span>
+</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/code/LaTeX/fig-sousmatL.svg" role="img" class="contained" alt="La matrice R est écrite avec les trois dernières lignes rayées, ainsi que les colonnes 1,3 et 5. On voit ensuite une flèche vers une matrice de taille 3, correspondant aux valeurs non rayées dans R."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.12<span class="period">.</span></span><span class="space"> </span>La matrice <span class="process-math">\(L\)</span> dans la matrice échelonnée</figcaption></figure> <div class="para logical">
+<div class="para">On montre maintenant comment on peut se servir de la matrice <span class="process-math">\(L\)</span> pour obtenir les solutions de base. La matrice possède trois variables libres, <span class="process-math">\(x_2,x_4,x_6\text{.}\)</span> Il y aura donc trois solutions de base. On écrit dans trois vecteurs <span class="process-math">\(\vec{s_1},\vec{s_2},\vec{s_3}\)</span> la « matrice identité » de taille <span class="process-math">\(\min(m,n)-r\)</span><a href="" class="fn-knowl original" data-knowl="./knowl/fn-24-hidden.html" title="Note de bas de page 3.3.2"><sup> 2 </sup></a>, où <span class="process-math">\(r\)</span> est le rang de la matrice (le nombre de variables pivots), aux positions libres (<span class="process-math">\(2,4,6\)</span>). Dans ce cas-ci, <span class="process-math">\(\min(m,n)-r=6-3=3\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\matIII &amp;\rightarrow &amp; \vec{s_1}&amp;=\begin{pmatrix} *\\ 1\\ *\\ 0\\ *\\ 0 \end{pmatrix} &amp; \vec{s_2}&amp;=\begin{pmatrix} *\\ 0\\ *\\ 1\\ *\\ 0 \end{pmatrix} &amp; \vec{s_3}&amp;=\begin{pmatrix} *\\ 0\\ *\\ 0\\ *\\ 1 \end{pmatrix}\text{.}
+\end{align*}
+</div>
+<div class="para">La taille des vecteurs <span class="process-math">\(\vec{s_i}\)</span> est <span class="process-math">\(n\)</span> si la matrice <span class="process-math">\(R\)</span> est <span class="process-math">\(m\times n\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Pour compléter les vecteurs <span class="process-math">\(s_i\text{,}\)</span> on utilise l'opposé des colonnes de la matrice <span class="process-math">\(L\text{,}\)</span> la colonne <span class="process-math">\(1\)</span> pour le vecteur <span class="process-math">\(s_1\)</span> et ainsi de suite:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix}2&amp;-2&amp;3\\ 0&amp;4&amp;-1 \\ 0&amp;0&amp;2 \end{pmatrix} &amp;\rightarrow &amp; \vec{s_1}&amp;=\begin{pmatrix} -2\\ 1\\ 0\\ 0\\ 0\\ 0 \end{pmatrix} &amp; \vec{s_2}&amp;=\begin{pmatrix} 2\\ 0\\ -4\\ 1\\ 0\\ 0 \end{pmatrix} &amp; \vec{s_3}&amp;=\begin{pmatrix} -3\\ 0\\ 1\\ 0\\ -2\\ 1 \end{pmatrix}\text{.}
+\end{align*}
+</div>
+</div> <div class="para">On vérifie à l'aide de Sage que les vecteurs ainsi trouvés sont en effet des solutions à l'équation <span class="process-math">\(R\vec{x}=\vec{0}\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-176"><script type="text/x-sage">R=matrix([[1,2,0,-2,0,3],[0,0,1,4,0,-1],[0,0,0,0,1,2],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]])
+s1=vector([-2,1,0,0,0,0])
+s2=vector([2,0,-4,1,0,0])
+s3=vector([-3,0,1,0,-2,1])
+show("Rs1=",R*s1)
+show("Rs2=",R*s2)
+show("Rs3=",R*s3)
+</script></pre></article></body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">1.3.22</span><span class="period">.</span><span class="space"> </span><span class="title">La distance entre un point et une droite.</span>
+</h4> <div class="para">On considère l’équation <span class="process-math">\(\mathcal{D}: (x,y)=c(3,-2)+(-1,5)\)</span> et le point <span class="process-math">\(P(5,10)\text{.}\)</span> On cherche la distance entre <span class="process-math">\(P\)</span> et <span class="process-math">\(\mathcal{D}\text{.}\)</span>
+</div> <div class="para">On commence par illustrer la droite et le point pour avoir une image de la situation</div> <pre class="ptx-sagecell sagecell-sage" id="sage-36"><script type="text/x-sage">var("c")
+vdir=vector([3,-2])
+A=vector([-1,5])
+droite=c*vdir+A
+pointP=point((5,10),color="red",size=20)
+fig=parametric_plot(droite,(c,-5,5),color="blue")+pointP
+show(fig)
+</script></pre> <div class="para">Pour calculer la distance, on doit connaitre un point <span class="process-math">\(A\)</span> de la droite et faire la projection du vecteur <span class="process-math">\(\vecl{AP}\)</span> sur le vecteur directeur de la droite. On peut bonifier l’image précédente avec les vecteurs.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-37"><script type="text/x-sage">pointA=point((-1,5),color="red",size=20)
+P=vector([5,10])
+AP=P-A
+fig=fig+plot(vdir,start=A,color="black")+plot(AP,start=A,color="black")+pointA
+show(fig)
+</script></pre> <div class="para">On calcule maintenant la projection et le vecteur <span class="process-math">\(\vecl{AP}_{\vec{v}}-\vecl{AP}\)</span> et on ajoute ce dernier à la figure.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-38"><script type="text/x-sage">proj=AP*vdir/(vdir*vdir)*vdir
+projmoinsAP=proj-AP
+fig=fig+plot(proj,start=A,color="green")+plot(projmoinsAP,start=P,color="black")
+show(fig)
+</script></pre> <div class="para">Enfin, on obtient la distance en calculant la longueur du vecteur <span class="process-math">\(\vecl{AP}_{\vec{v}}-\vecl{AP}\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-39"><script type="text/x-sage">show(norm(projmoinsAP))
+</script></pre></article><span class="incontext"><a href="sec-droitesplans.html#sageex-distpd" class="internal">Contexte</a></span>
+</body>
+</html>

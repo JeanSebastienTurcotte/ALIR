@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">2.2.16</span><span class="period">.</span><span class="space"> </span><span class="title">La composition de certaines transformations.</span>
+</h4> <div class="para">On considère une rotation d’angle <span class="process-math">\(\theta_1\)</span> et une rotation d’angle <span class="process-math">\(\theta_2\text{.}\)</span> Intuitivement, la composition de ces deux rotations devrait être une rotation d’angle <span class="process-math">\(\theta_1+\theta_2\text{.}\)</span> On peut le vérifier algébriquement à l’aide de Sage.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-82"><script type="text/x-sage">var("theta1,theta2")
+Rtheta1=column_matrix([[cos(theta1),sin(theta1)],[-sin(theta1),cos(theta1)]])
+Rtheta2=column_matrix([[cos(theta2),sin(theta2)],[-sin(theta2),cos(theta2)]])
+produit=Rtheta1*Rtheta2
+show(produit.simplify_trig())
+show(produit.apply_map(lambda x: x.trig_reduce()))
+</script></pre> <div class="para">La dernière ligne du code permet d’obtenir la simplification voulue. La méthode <code class="code-inline tex2jax_ignore">apply_map</code> permet d’appliquer <code class="code-inline tex2jax_ignore">trig_reduce()</code> à chaque entrée de la matrice par le biais d’une fonction intermédiaire <code class="code-inline tex2jax_ignore">lambda</code>. Ceci n’est pas très intuitif, mais, pour l’instant, ça suffira. L’exercice <code class="code-inline tex2jax_ignore">[provisional cross-reference: simplifiermatrice]</code> permettra de créer une fonction plus simple qui pourra simplifier une matrice.</div> <div class="para">On voit toutefois qu’après simplification, la transformation est bel et bien une rotation d’angle <span class="process-math">\(\theta_1+\theta_2\text{.}\)</span>
+</div> <div class="para">On s’intéresse maintenant à la composition de deux réflexions d’angle respectif <span class="process-math">\(\phi_1,\phi_2\text{.}\)</span> Est-ce que le résultat de ce type de composition sera aussi une réflexion? Si oui, pourquoi, si non, donner un exemple avant d’exécuter le code ci-dessous.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-83"><script type="text/x-sage">var("phi1,phi2")
+Sphi1=column_matrix([[cos(2*phi1),sin(2*phi1)],[sin(2*phi1),-cos(2*phi1)]])
+Sphi2=column_matrix([[cos(2*phi2),sin(2*phi2)],[sin(2*phi2),-cos(2*phi2)]])
+produit=Sphi1*Sphi2
+show(produit.simplify_trig())
+show(produit.apply_map(lambda x: x.trig_reduce()))
+</script></pre> <div class="para">Le résultat, peut-être surprenant, est une rotation. La simplification effectuée par Sage ne montre pas directement la forme d’une matrice de rotation, mais on peut montrer qu’elle est équivalente à une rotation d’angle <span class="process-math">\(2(\phi_1-\phi_2)\text{.}\)</span> Ceci suggère également que les réflexions ne sont pas commutatives, à savoir qu’en général, <span class="process-math">\(S_{\phi_1}S_{\phi_2}\neq S_{\phi_2}S_{\phi_1}\text{.}\)</span>
+</div> <div class="para">Maintenant, on s’intéresse à la composition d’une rotation et d’une réflexion. Comme on sait que la multiplication n’est pas commutative, on regarde s’il y a une différence entre faire la réflexion en premier suivie de la rotation et la rotation suivie de la réflexion (peut-on faire une prédiction?).</div> <div class="para">D’abord, <span class="process-math">\(R_{\theta}S_{\phi}\text{:}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-84"><script type="text/x-sage">var("theta,phi")
+Rtheta=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]])
+Sphi=column_matrix([[cos(2*phi),sin(2*phi)],[sin(2*phi),-cos(2*phi)]])
+produit=Rtheta*Sphi
+show(produit.simplify_trig())
+show(produit.apply_map(lambda x: x.trig_reduce()))
+</script></pre> <div class="para">Le résultat semble donc être une réflexion d’angle <span class="process-math">\(\frac{\theta+2\phi}{2}\text{.}\)</span>
+</div> <div class="para">On compare maintenant avec <span class="process-math">\(S_{\phi}R_{\theta}\text{:}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-85"><script type="text/x-sage">var("theta,phi")
+Rtheta=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]])
+Sphi=column_matrix([[cos(2*phi),sin(2*phi)],[sin(2*phi),-cos(2*phi)]])
+produit=Sphi*Rtheta1
+show(produit.simplify_trig())
+show(produit.apply_map(lambda x: x.trig_reduce()))
+</script></pre> <div class="para">Le résultat est encore une fois une réflexion, mais cette fois-ci d’angle <span class="process-math">\(\frac{-\theta+2\phi}{2}\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">Finalement, on s’intéresse à la composition de trois transformations, en utilisant les calculs précédents et l’associativité pour déterminer le résultat final.</div>
+<ol class="decimal">
+<li><div class="para logical">
+<div class="para">La composition de trois rotations devrait être, elle aussi, une rotation dont l’angle correspond à la somme des angles de chacune des rotations. En utilisant l’associativité, on montre facilement que</div>
+<div class="displaymath process-math">
+\begin{align*}
+R_{\theta_1}(R_{\theta_2}R_{\theta_3})&amp;=R_{\theta_1}R_{\theta_2+\theta_3} &amp;&amp; \text{puisque  la composition de deux rotations est une rotation dont l'angle est la somme des angles}\\
+&amp;=R_{\theta_1+\theta_2+\theta_3} &amp;&amp; \text{puisque  la composition de deux rotations est une rotation dont l'angle est la somme des angles}\\
+&amp;=R_{\theta_1+\theta_2}R_{\theta_3} &amp;&amp; \text{selon l'associativité de l'addition de nombres réels et la composition de rotations}\\
+&amp;(R_{\theta_1}R_{\theta_2})R_{\theta_3} &amp;&amp;\text{puisque la composition de deux rotations est une rotation dont l'angle est la somme des angles}\text{.}
+\end{align*}
+</div>
+<div class="para">L’associativité est ainsi vérifiée et cohérente avec la composition de rotations.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">La composition de trois réflexions semble plus difficile à analyser. Deux réflexions composées ensemble donnent une rotation. Une rotation composée avec une réflexion donne une réflexion, mais on sait que l’ordre de la composition est important. Est-ce alors évident que l’associativité sera respectée? On a d’une part</div>
+<div class="displaymath process-math">
+\begin{align*}
+S_{\phi_1}(S_{\phi_2}S_{\phi_3})&amp;=S_{\phi_1}R_{2(\phi_2-\phi_3)} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}\\
+&amp;=S_{\frac{-(2(\phi_2-\phi_3))+2\phi_1}{2}} &amp;&amp; \text{puisque  la composition d'une rotation suivie d'une réflexion est une réflexion dont l'angle est la moitié de la différence entre le double de l'angle de la réflexion et l'angle de la rotation}\\
+&amp;=S_{\phi_1-\phi_2+\phi_3} &amp;&amp; \text{après simplification}\text{.}
+\end{align*}
+</div>
+<div class="para">D’autre part, on a</div>
+<div class="displaymath process-math">
+\begin{align*}
+(S_{\phi_1}S_{\phi_2})S_{\phi_3}&amp;=R_{2(\phi_1-\phi_2)}S_{\phi_3} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}\\
+&amp;=S_{\frac{2(\phi_1-\phi_2)+2\phi_3}{2}} &amp;&amp; \text{puisque  la composition d'une réflexion suivie d'une rotation est une réflexion dont l'angle est la moitié de la somme entre le double de l'angle de la réflexion et l'angle de la rotation}\\
+&amp;=S_{\phi_1-\phi_2+\phi_3} &amp;&amp; \text{après simplification}\text{.}
+\end{align*}
+</div>
+<div class="para">On a donc bel et bien égalité.</div>
+</div></li>
+</ol>
+<div class="para">D’autres cas seront explorés à l’exercice  <a href="" class="xref" data-knowl="./knowl/exo-associativiterotref.html" title="Exercice 2.2.3.9">2.2.3.9</a>.</div>
+</div></article><span class="incontext"><a href="sec-prodmat.html#sageex-propprodmat" class="internal">Contexte</a></span>
+</body>
+</html>

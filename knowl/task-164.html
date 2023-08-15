@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Tâche</span><span class="space"> </span><span class="codenumber">2.5.2.d</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Pour la première projection, on regarde l’œil gauche. Le côté gauche de la lunette est normalement monté d’un filtre rouge. Parmi les deux projections, l’œil gauche ne verra donc que l’objet cyan.  On va créer la projection de l’objet sur l’écran telle que vue par l’œil gauche pour ensuite le colorer en cyan. Pour cela, on imagine une droite passant par l’œil gauche, situé au point <span class="process-math">\(G\text{,}\)</span> et chacun des points <span class="process-math">\(P\)</span> de l’objet. Cette droite intersecte le plan <span class="process-math">\(x\)</span>-<span class="process-math">\(y\)</span> en un point.</div>
+<ol class="decimal">
+<li><div class="para">Créer une fonction qui prend comme argument un paramètre $k$ et un point $P$ et qui retourne l’équation vectorielle de la droite passant par $G$ et $P$;</div></li>
+<li><div class="para">Créer une liste qui, pour chaque point $P$, contient la valeur de $k$ nécessaire pour que le point sur la droite soit également sur le plan $y$-$z$;</div></li>
+<li><div class="para">Créer la liste <code class="code-inline tex2jax_ignore">pointscyans</code> contenant la liste des points projetés sur le plan $x$-$y$;</div></li>
+<li><div class="para">Créer la maquette cyan</div></li>
+</ol>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-132"><script type="text/x-sage">#Équation de la droite
+var("k")
+def Dgauche(k,P):
+    P=vector(P)
+    return #À compléter
+</script></pre> <div class="para">Pour chaque point <span class="process-math">\(P\text{,}\)</span> on veut déterminer la valeur du paramètre <span class="process-math">\(k\)</span> qui correspond au point sur le plan. On utilise la commande <code class="code-inline tex2jax_ignore">solve</code> pour déterminer la valeur de <span class="process-math">\(k\text{.}\)</span> Cette commande retourne une liste d’équations. Puisqu’on sait qu’il n’y aura qu’une solution à l’équation que l’on veut résoudre, on utilise <code class="code-inline tex2jax_ignore">[0]</code> pour faire ressortir la première et seule équation et la commande <code class="code-inline tex2jax_ignore">.rhs()</code> afin d’obtenir le côté droit de l’égalité, qui correspond à la valeur de <span class="process-math">\(k\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-133"><script type="text/x-sage">#Liste des valeurs de k
+paramkcyans=[solve(#Àcompléter ,k)[0].rhs() for P in Pointstransformes]
+</script></pre> <div class="para">La commande <code class="code-inline tex2jax_ignore">zip</code> permet de combiner deux listes en une seule en joignant les éléments correspondants. Par exemple, <code class="code-inline tex2jax_ignore">list(zip([1,2,3],[4,5,6]))</code> produit la liste <code class="code-inline tex2jax_ignore">[(1,4),(2,5),(3,6)]</code>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-134"><script type="text/x-sage">#Ceci n'est qu'un exemple illustrant zip.
+list(zip([1,2,3],[4,5,6]))
+</script></pre> <div class="para">On utilise cette commande pour grouper les listes <code class="code-inline tex2jax_ignore">Pointstransformes</code> et <code class="code-inline tex2jax_ignore">paramk</code>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-135"><script type="text/x-sage">L=zip(paramkcyans,Pointstransformes)
+</script></pre> <div class="para">La liste <code class="code-inline tex2jax_ignore">pointscyans</code> est créée en allant chercher les bonnes composantes dans l’équation de la droite <code class="code-inline tex2jax_ignore">Dgauche(k,P)</code> pour la valeur de <span class="process-math">\(k\)</span> associée au point <span class="process-math">\(P\text{.}\)</span> On cherche à obtenir une liste de listes. Chacune des listes intérieures représente les composantes de la projection d’un point $P$ sur le plan $y$-$z$ vue comme si elle était dans un espace à deux dimensions.  Compléter la cellule ci-dessous.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-136"><script type="text/x-sage">#La valeurs des points cyans. On note l'utilisation de la liste L créée par la commande zip.
+pointscyans=[[#À compléter] for k,P in L]
+</script></pre> <div class="para">Finalement, on crée la maquette cyan.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-137"><script type="text/x-sage">graphiquecyan=line(pointscyans,color="cyan",axes=False)
+graphiquecyan
+</script></pre></article><span class="incontext"><a href="sec-transfolabos.html#task-164" class="internal">Contexte</a></span>
+</body>
+</html>

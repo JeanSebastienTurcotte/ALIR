@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">6.1.4.21.b.1</span><span class="period">.</span>
+</h6>
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">l1=(1-sqrt(5))/2
+l2=(1+sqrt(5))/2
+T=column_matrix([[l1,1],[l2,1]])
+x0=vector([2,-1])
+rep=T.solve_right(x0)
+show(rep)
+#### Ce que c'est n'est pas tout à fait clair, mais on peut forcer Sage à simplifier###
+maxima_calculus('algebraic: true;')
+rep[0].simplify_rational()
+rep[1].simplify_rational()
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">6.1.26<span class="period">.</span></span><span class="space"> </span>Le code solution</figcaption></figure>
+</div>
+<span class="incontext"><a href="sec-propre.html#solution-972" class="internal">Contexte</a></span>
+</body>
+</html>

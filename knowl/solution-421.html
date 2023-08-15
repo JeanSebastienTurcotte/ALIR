@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">3.3.31.1</span><span class="period">.</span>
+</h4>
+<div class="para">On fait la matrice <span class="process-math">\(A\)</span> et la matrice <span class="process-math">\(B\)</span> ensemble. On échelonne ces systèmes afin de voir comment lire la solution particulière.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-191"><script type="text/x-sage">A=matrix([[2,-3,1],[6,0,4],[6,9,5],[-6,9,-3]])
+B=matrix([[1,6,-3],[4/3,8,-4],[1/3,2,-1],[-3,-18,9]])
+b1=vector([5,3,-9,-15])
+b2=vector([3,4,1,-9])
+Aaug=A.augment(b1)
+Baug=B.augment(b2)
+show("(A|b1)=",Aaug.rref())
+show("(B|b2)=",Baug.rref())
+</script></pre> <div class="para">La solution particulière pour la matrice <span class="process-math">\(A\)</span> était <span class="process-math">\(\vecddd{\frac{1}{2}}{-\frac{4}{3}}{0}\text{.}\)</span> Ce vecteur est celui obtenu lorsque la variable libre est nulle. On remarque qu’il se trouve dans la dernière colonne de la matrice augmentée échelonnée réduite. Les entrées importantes se trouvent sur chaque ligne où il y a un pivot. L’entrée de la partie augmentée ira dans la composante de la solution particulière correspondant à la colonne qui est le pivot de la ligne.  Les autres entrées du vecteur <span class="process-math">\(\vec{x}_p\)</span> sont nulles.</div> <div class="para">Ainsi, pour la matrice <span class="process-math">\(B\text{,}\)</span> on obtient <span class="process-math">\(\vec{x}_p=\vecddd{3}{0}{0}\text{,}\)</span> puisque la seule variable non libre est la première et les deux suivantes sont libres.</div>
+</div>
+<span class="incontext"><a href="sec-SELgeo.html#solution-421" class="internal">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h6 class="heading"><span class="type">Paragraphe</span></h6>
+<div class="para logical">
+<div class="para">On commence par montrer que la transformation est linéaire, on calcule ensuite sa matrice. On remarque que, si l’on obtient sa matrice de transformation et qu’elle correspond effectivement à la transformation en termes de l’effet sur <span class="process-math">\((x,y,z)\text{,}\)</span> alors on n’a pas besoin de démontrer que la transformation est linéaire en vertu de la proposition <a href="" class="xref" data-knowl="./knowl/prop-matsonttransfos.html" title="Proposition 2.1.26: Les matrices sont des transformations linéaires">2.1.26</a>. On le fait quand même pour le lecteur ou la lectrice qui n’y aurait pas pensé. On doit montrer que <span class="process-math">\(T_{\vec{v}}\)</span> est linéaire en montrant que pour des vecteurs <span class="process-math">\(\vec{u}=\vecddd{x}{y}{z}, \vec{u}'=\vecddd{x'}{y'}{z'}\)</span> et un scalaire <span class="process-math">\(c\in\R\)</span> quelconques, on a les deux propriétés de la définition <a href="" class="xref" data-knowl="./knowl/def-transfolin.html" title="Définition 2.1.7: Transformation linéaire">2.1.7</a>. Noter qu’on a décidé d’utiliser <span class="process-math">\(\vec{u}'\)</span> au lieu de <span class="process-math">\(\vec{v}\)</span> puisque ce dernier vecteur est déjà utilisé dans la transformation.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-matsonttransfos.html ./knowl/def-transfolin.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detadd2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detr2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html">
+\begin{align*}
+T_{\vec{v}}(\vec{u}+\vec{u}')&amp;=(\vec{u}+\vec{u}')\times \vec{v}\\
+&amp;=\left(\vecddd{x}{y}{z}+\vecddd{x'}{y'}{z'}\right)\times \vecddd{1}{2}{3}\\
+&amp;=\left(\begin{vmatrix} y+y' &amp; 2 \\ z+z' &amp; 3\end{vmatrix},
+-\begin{vmatrix} x+x' &amp; 1 \\ z+z' &amp; 3\end{vmatrix},
+\begin{vmatrix} x+x' &amp; 1 \\ y+y' &amp; 2\end{vmatrix}\right)&amp; \text{ par } \knowl{./knowl/eq-prodvecdet2x2.html}{\text{(4.1.2)}}\\
+&amp;=\left(\begin{vmatrix} y &amp; 2 \\ z &amp; 3\end{vmatrix}+\begin{vmatrix} y' &amp; 2 \\ z' &amp; 3\end{vmatrix},
+-\begin{vmatrix} x &amp; 1 \\ z &amp; 3\end{vmatrix}-\begin{vmatrix} x' &amp; 1 \\ z' &amp; 3\end{vmatrix},
+\begin{vmatrix} x &amp; 1 \\ y &amp; 2\end{vmatrix}+\begin{vmatrix} x' &amp; 1 \\ y' &amp; 2\end{vmatrix}\right)
+&amp; \text{ par } \knowl{./knowl/li-detadd2x2resum.html}{\text{4.1.25:7}}\\
+&amp;=\left(\begin{vmatrix} y &amp; 2 \\ z &amp; 3\end{vmatrix},
+-\begin{vmatrix} x &amp; 1 \\ z &amp; 3\end{vmatrix},
+\begin{vmatrix} x &amp; 1 \\ y &amp; 2\end{vmatrix}\right)+\left(\begin{vmatrix} y' &amp; 2 \\ z' &amp; 3\end{vmatrix},
+-\begin{vmatrix} x' &amp; 1 \\ z' &amp; 3\end{vmatrix},
+\begin{vmatrix} x' &amp; 1 \\ y' &amp; 2\end{vmatrix}\right)\\
+&amp;\vecddd{x}{y}{z}\times \vecddd{1}{2}{3}+\vecddd{x'}{y'}{z'}\times \vecddd{1}{2}{3}\\
+&amp;=\vec{u}\times\vec{v} + \vec{u}'\times\vec{v}\\
+&amp;=T_{\vec{v}}(\vec{u})+T_{\vec{v}}(\vec{u}')
+\end{align*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-matsonttransfos.html ./knowl/def-transfolin.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detadd2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detr2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html">
+\begin{align*}
+T_{\vec{v}}(c\vec{u})&amp;=(c\vec{u})\times \vec{v}\\
+&amp;=\left(c\vecddd{x}{y}{z}\right)\times \vecddd{1}{2}{3}\\
+&amp;=\vecddd{cx}{cy}{cz}\times \vecddd{1}{2}{3}\\
+&amp;=\left(\begin{vmatrix} cy &amp; 2 \\ cz &amp; 3\end{vmatrix},
+-\begin{vmatrix} cx &amp; 1 \\ cz &amp; 3\end{vmatrix},
+\begin{vmatrix} cx &amp; 1 \\ cy &amp; 2\end{vmatrix}\right)&amp; \text{ par } \knowl{./knowl/eq-prodvecdet2x2.html}{\text{(4.1.2)}}\\
+&amp;=\left(c\begin{vmatrix} y &amp; 2 \\ z &amp; 3\end{vmatrix},
+-c\begin{vmatrix} x &amp; 1 \\ z &amp; 3\end{vmatrix},
+c\begin{vmatrix} x &amp; 1 \\ y &amp; 2\end{vmatrix}\right)&amp; \text{ par } \knowl{./knowl/li-detr2x2resum.html}{\text{4.1.25:2}}\\
+&amp;=c\left(\begin{vmatrix} y &amp; 2 \\ z &amp; 3\end{vmatrix},
+-\begin{vmatrix} x &amp; 1 \\ z &amp; 3\end{vmatrix},
+\begin{vmatrix} x &amp; 1 \\ y &amp; 2\end{vmatrix}\right)\\
+&amp;=c\left(\vecddd{x}{y}{z}\times \vecddd{1}{2}{3}\right)\\
+&amp;=c(\vec{u}\times\vec{v})\\
+&amp;=cT_{\vec{v}}(\vec{u})
+\end{align*}
+</div>
+<div class="para">On a démontré que la transformation est linéaire. Pour trouver sa matrice, il suffit de trouver l’effet de <span class="process-math">\(T_{\vec{v}}\)</span> sur les vecteurs de base.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-matsonttransfos.html ./knowl/def-transfolin.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detadd2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detr2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html">
+\begin{align*}
+T_{\vec{v}}\vecddd{1}{0}{0}&amp;=\vecddd{1}{0}{0} \times \vecddd{1}{2}{3}\\
+&amp;=\left(\begin{vmatrix} 0 &amp; 2 \\ 0 &amp; 3\end{vmatrix},
+-\begin{vmatrix} 1 &amp; 1 \\ 0 &amp; 3\end{vmatrix},
+\begin{vmatrix} 1 &amp; 1 \\ 0 &amp; 2\end{vmatrix}\right)&amp; \text{ par } \knowl{./knowl/eq-prodvecdet2x2.html}{\text{(4.1.2)}}\\
+&amp;=(0,-3,2)=\vecddd{0}{-3}{2}
+\end{align*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-matsonttransfos.html ./knowl/def-transfolin.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detadd2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detr2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html">
+\begin{align*}
+T_{\vec{v}}\vecddd{0}{1}{0}&amp;=\vecddd{0}{1}{0} \times \vecddd{1}{2}{3}\\
+&amp;=\left(\begin{vmatrix} 1 &amp; 2 \\ 0 &amp; 3\end{vmatrix},
+-\begin{vmatrix} 0 &amp; 1 \\ 0 &amp; 3\end{vmatrix},
+\begin{vmatrix} 0 &amp; 1 \\ 1 &amp; 2\end{vmatrix}\right)&amp; \text{ par } \knowl{./knowl/eq-prodvecdet2x2.html}{\text{(4.1.2)}}\\
+&amp;=(3,0,-1)=\vecddd{3}{0}{-1}
+\end{align*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-matsonttransfos.html ./knowl/def-transfolin.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detadd2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detr2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html">
+\begin{align*}
+T_{\vec{v}}\vecddd{0}{0}{1}&amp;=\vecddd{0}{0}{1} \times \vecddd{1}{2}{3}\\
+&amp;=\left(\begin{vmatrix} 0 &amp; 2 \\ 1 &amp; 3\end{vmatrix},
+-\begin{vmatrix} 0 &amp; 1 \\ 1 &amp; 3\end{vmatrix},
+\begin{vmatrix} 0 &amp; 1 \\ 0 &amp; 2\end{vmatrix}\right)&amp; \text{ par } \knowl{./knowl/eq-prodvecdet2x2.html}{\text{(4.1.2)}}\\
+&amp;=(-2,1,0)=\vecddd{-2}{1}{0}
+\end{align*}
+</div>
+<div class="para">On les met dans les colonnes de la matrice et l’on obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-matsonttransfos.html ./knowl/def-transfolin.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detadd2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/li-detr2x2resum.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html ./knowl/eq-prodvecdet2x2.html">
+\begin{equation*}
+T_{\vec{v}}=\begin{pmatrix}
+0 &amp; 3 &amp; -2 \\
+-3 &amp; 0 &amp; 1 \\
+2 &amp; -1 &amp; 0
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="sec-det2x2.html#p-3404" class="internal">Contexte</a></span>
+</body>
+</html>

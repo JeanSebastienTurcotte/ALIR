@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">3.1.4.23.a.1</span><span class="period">.</span>
+</h6>
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">P=vector([-1,22])
+Q=vector([2,19])
+R=vector([3,34])
+A=matrix([[P[0]^2,P[0],1],[Q[0]^2,Q[0],1],[R[0]^2,R[0],1]])
+v=vector([P[1],Q[1],R[1]])
+sol=A.solve_right(v)
+print("L'équation de la parabole est ",sol[0]*x^2+sol[1]*x+sol[2])
+para=plot(sol[0]*x^2+sol[1]*x+sol[2],(x,-2,4))
+#On trace les points et on les identifie de belle façon
+ptP=plot(point(P))+text('  P(%s,%s)'%(P[0],P[1]),P,horizontal_alignment='left')
+ptQ=plot(point(Q))+text('  Q(%s,%s)'%(Q[0],Q[1]),Q,horizontal_alignment='left')
+ptR=plot(point(R))+text('  R(%s,%s)'%(R[0],R[1]),R,horizontal_alignment='left')
+show(para+ptP+ptQ+ptR)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.1.39<span class="period">.</span></span><span class="space"> </span>Le code solution permettant de trouver l’équation et de tracer la parabole et les trois points</figcaption></figure>
+</div>
+<span class="incontext"><a href="sec-GJ.html#solution-328" class="internal">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">5.2.29</span><span class="period">.</span><span class="space"> </span><span class="title">Les bases et Sage.</span>
+</h4> <div class="para">Avec Sage, on peut aussi automatiquement obtenir la dimension d’un sous-espace vectoriel.</div> <div class="para">Pour tester, on reprend encore les vecteurs de l’exemple <a href="" class="xref" data-knowl="./knowl/sageex-indlin.html" title="Calcul 5.2.11: Sage et l’indépendance linéaire">5.2.11</a> et l’on calcule la dimension à l’aide de la commande <code class="code-inline tex2jax_ignore">dimension</code>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-259"><script type="text/x-sage">#On crée l'espace vectoriel
+V=QQ^3
+#On crée les vecteurs
+v1=vector([1,1,-3])
+v2=vector([3,-5,2])
+L=[v1,v2]
+v3=v1+2*v2
+v4=vector([1,-3,2])
+Lv3=[v1,v2,v3]
+Lv4=[v1,v2,v4]
+#On créé les span
+spanL=V.span(L)
+spanLv3=V.span(Lv3)
+spanLv4=V.span(Lv4)
+#On cherche les dimensions
+show("la dimension de span(v1,v2) est :",spanL.dimension())
+show("la dimension de span(v1,v2,v3) est :",spanLv3.dimension())
+show("la dimension de span(v1,v2,v4) est :",spanLv4.dimension())
+</script></pre></article><span class="incontext"><a href="sec-bases.html#sageex-dimension" class="internal">Contexte</a></span>
+</body>
+</html>

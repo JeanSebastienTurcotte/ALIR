@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">1.2.17</span><span class="period">.</span><span class="space"> </span><span class="title">La projection orthogonale sur Sage.</span>
+</h4> <div class="para">Avec les commandes apprises jusqu’à maintenant, on peut calculer la projection orthogonale d’un vecteur sur un autre grâce à la formule <a href="" class="xref" data-knowl="./knowl/eq-projortho.html" title="Équation 1.2.5">(1.2.5)</a>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-23"><script type="text/x-sage">u=vector([3,3])
+v=vector([2,1])
+vu=(u*v/(u*u))*u
+show(vu)
+</script></pre> <div class="para">On illustre les vecteurs afin de visualiser le résultat.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-24"><script type="text/x-sage">show((plot(u,color="red")+plot(v,color="blue")+plot(vu,color="green")+plot(v-vu,start=vu,color="black")),aspect_ratio=1) #aspect_ratio permet de bien voir que la projection est orthogonale
+</script></pre></article><span class="incontext"><a href="sec-prodscal.html#sageex-projortho" class="internal">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">A=matrix([[-2,5],[3,2],[5,-3]])
+b=vector([1,27,7])
+c=vector([1,1])
+#Noter l'ajout de l'option "constraint_type" ci-dessous étant donnée la présence de contrainte "&gt;=" dans le problème et l'ajout de "problem_type="min""
+P=InteractiveLPProblem(A, b, c, ["x", "y"],constraint_type=["&gt;=","&lt;=","&gt;="], variable_type="&gt;=",problem_type="min")
+P=P.standard_form()
+P.run_simplex_method()
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">7.2.34<span class="period">.</span></span><span class="space"> </span>Code pour le dernier problème</figcaption></figure><span class="incontext"><a href="sec-simplexe.html#listing-118" class="internal">Contexte</a></span>
+</body>
+</html>

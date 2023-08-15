@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">7.1.4.6.b.1</span><span class="period">.</span>
+</h5>
+<div class="para">Tout comme à l’exemple <a href="" class="xref" data-knowl="./knowl/ex-ruinestable.html" title="Exemple 7.1.16: État stable pour la ruine de joueur">7.1.16</a>, il faut approximer <span class="process-math">\(X\)</span> par <span class="process-math">\(X_n\)</span> pour une grande valeur de <span class="process-math">\(n\text{,}\)</span> puisque l’état stable dépend de l’état initial. Avec Sage, on trouve que le joueur a maintenant moins de <span class="process-math">\(19\%\)</span> de chance d’atteindre les cinq dollars avant de se ruiner, comparativement à <span class="process-math">\(40\%\)</span> dans la situation équiprobable. Un changement dans la probabilité de gagner à chaque tour de <span class="process-math">\(10\%\)</span> entraine un changement dans la probabilité de succès net de plus du double.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-373"><script type="text/x-sage">def ruinetransitionproba(i,j,p,n):
+    if i==0 and j==0:
+        return 1
+    if i==n-1 and j==n-1:
+        return 1
+    elif j==0:
+        return 0
+    elif j==n-1:
+        return 0
+    elif i-j==1:
+        return p
+    elif j-i==1:
+        return 1-p
+    else:
+        return 0
+</script></pre> <pre class="ptx-sagecell sagecell-sage" id="sage-374"><script type="text/x-sage">T=matrix(6,6, lambda i,j: ruinetransitionproba(i,j,p,6))
+show(T^100*vector([0,0,1,0,0,0]).n())
+</script></pre>
+</div>
+<span class="incontext"><a href="sec-Markov.html#solution-1044" class="internal">Contexte</a></span>
+</body>
+</html>

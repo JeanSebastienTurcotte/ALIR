@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Évaluer (Sage)'});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Déplacer une entrée dans une matrice.</span>
+</h4>
+<div class="para">Soit <span class="process-math">\(A=\matcolt{a_{1,1}}{0}{a_{1,3}}{a_{2,1}}{0}{a_{2,3}}{0}{1}{0}\)</span> une matrice quelconque avec la deuxième ligne et la troisième colonne ne contenant que des zéros sauf la valeur <span class="process-math">\(1\)</span> à l'intersection. On veut, à l'aide d'opérations élémentaires sur les lignes et/ou sur les colonnes (voir l'exercice <code class="code-inline tex2jax_ignore">[provisional cross-reference: Exercice sur les opelem colonne]</code>), déplacer le <span class="process-math">\(1\)</span> en position <span class="process-math">\(1,1\)</span> sans changer l'ordre relatif des lignes et des colonnes pour les autres entrées</div>
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<div class="para">On utilise Sage pour faire les calculs. La multiplication à gauche d'une matrice <span class="process-math">\(M\)</span> par une matrice de type <span class="process-math">\(E_{L_i\leftrightarrow L_j}\)</span> a pour effet d'échanger les lignes <span class="process-math">\(i,j\)</span> de <span class="process-math">\(M\)</span> alors que la multiplication à droite par cette même matrice échangera les colonnes <span class="process-math">\(i,j\text{.}\)</span> On utilise Sage pour faire le calcul.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-218"><script type="text/x-sage">A=matrix([[a_11,0,a_13],[a_21,0,a_23],[0,1,0]])
+show(A)
+#On commence par placer le 1 à la première ligne, sans égard à l'ordre relatif
+A1=elementary_matrix(3,row1=0,row2=2)*A
+show(A1)
+# On place ensuite le 1 à la première colonne, toujours sans égard à l'ordre relatif
+A2=A1*elementary_matrix(3,row1=0,row2=1)
+show(A2)
+</script></pre> <div class="para">Si on regarde attentivement les entrées de la matrice <span class="process-math">\(A2\text{,}\)</span> on constate que l'ordre relatif des lignes <span class="process-math">\(1,2\)</span> n'est pas respecté, mais que celui des colonnes <span class="process-math">\(1,3\)</span> l'est. Il faut donc faire une autre permutation des lignes pour avoir le résultat voulu.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-219"><script type="text/x-sage">A3=elementary_matrix(3,row1=1,row2=2)*A2
+show(A3)
+</script></pre> <div class="para">Au total, on a eu besoin de trois matrices élémentaires pour faire le travail.</div>
+</div></article><span class="incontext"><a href="sec-cofacteurs.html#example-87" class="internal">Contexte</a></span>
+</body>
+</html>

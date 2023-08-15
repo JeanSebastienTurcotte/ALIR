@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like"><figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def matinverse(A):
+    m=len(A.rows())
+    n=len(A.columns())
+    r=A.rank()
+    if r!=min(m,n):
+        print("La matrice ne possède pas d'inverse")
+    elif m==n:
+        print("La matrice est inversible")
+        return A.inverse()
+    elif m&lt;n:
+        print("C'est un inverse à droite")
+        AT=A.transpose()
+        AATinv=(A*AT).inverse()
+        return AT*AATinv
+    elif n&lt;m:
+        print("C'est un inverse à gauche")
+        AT=A.transpose()
+        ATAinv=(AT*A).inverse()
+        return ATAinv*AT
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">5.3.22<span class="period">.</span></span><span class="space"> </span>Le code solution de l’exercice</figcaption></figure></div></body>
+</html>

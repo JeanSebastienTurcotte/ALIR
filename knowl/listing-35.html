@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def matquelc(m,n,lettre):
+    a=str(lettre)   #On s'assure que lettre est un caractère de la forme "a"
+    liste=[] #Création d'une liste vide
+    for i in range(m):
+        for j in range(n):     #On itère sur les lignes (i de 0 à m-1) et les colonnes (j de 0 à n-1)
+            liste.append('%s_%d%d'%(a,i+1,j+1))   #On ajoute à la fin de la liste (append) la chaine a_i+1j+1 , les +1 paliant au fait que range(k) va de 0 à k-1
+    M=matrix(SR,m,n,liste)  #On crée une matrice mxn à partir de liste (Le SR dit à sage que la matrice est symbolique. Il n'est pas nécessaire de comprendre son rôle)
+    return M  #La fonction retourne la matrice M
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.3.31<span class="period">.</span></span><span class="space"> </span>Le code où l’on définit la fonction <em class="emphasis">matquelc</em></figcaption></figure><span class="incontext"><a href="sec-matinverse.html#listing-35" class="internal">Contexte</a></span>
+</body>
+</html>

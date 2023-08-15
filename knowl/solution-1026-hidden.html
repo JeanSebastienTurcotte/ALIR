@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like"><figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">l1=(1-sqrt(5))/2
+l2=(1+sqrt(5))/2
+v1=vector([l1,1])
+v2=vector([l2,1])
+x0=vector([0,1])
+P=column_matrix(RDF,[v1,v2])
+Pinv=P.inverse()
+D=matrix(RDF,[[l1,0],[0,l2]])
+show(D^100)
+show(P*D^100*Pinv)
+show(P*D^100*Pinv*x0)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">6.2.23<span class="period">.</span></span><span class="space"> </span>Le code de la solution</figcaption></figure></div></body>
+</html>

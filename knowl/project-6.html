@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="project project-like"><h3 class="heading">
+<span class="type">Projet</span><span class="space"> </span><span class="codenumber">6.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">L’algorithme PageRank.</span>
+</h3>
+<div class="introduction">
+<div class="para">En 1998, Sergey Brin et Larry Page ont révolutionné le monde de la recherche sur le web en développant un algorithme appelé PageRank, qui mena à la création de la compagnie Google. Le fonctionnement est simple, l’algorithme retourne la probabilité qu’un utilisateur qui se promène au hasard sur le web clique sur une certaine page.</div> <div class="para">On considère un modèle simplifié d’internet. La figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank1.html" title="Figure 6.3.1">6.3.1</a> illustre un graphe dont les sommets peuvent être vus comme étant des pages web et les arêtes comme des liens d’une page vers un autre. Ce web simplifié contient donc trois pages, nommées respectivement <span class="process-math">\(0,1\)</span> et <span class="process-math">\(2\text{.}\)</span> À partir de la page <span class="process-math">\(0\text{,}\)</span> on peut aller vers la page <span class="process-math">\(1\)</span> ou la page <span class="process-math">\(2\text{,}\)</span> à partir de la page <span class="process-math">\(1\text{,}\)</span> on peut aller vers la page <span class="process-math">\(0\)</span> ou la page <span class="process-math">\(2\text{,}\)</span> mais à partir de la page <span class="process-math">\(2\text{,}\)</span> on ne peut qu’aller vers la page <span class="process-math">\(1\text{.}\)</span>
+</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-PageRank1.svg" role="img" class="contained" alt="Un graphe à trois sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers les sommets un et deux, le sommet un pointe vers les sommets zéro et deux et le sommet deux ne pointe que vers le sommet un."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.1<span class="period">.</span></span><span class="space"> </span>Une version simplifiée du web</figcaption></figure> <div class="para logical">
+<div class="para">Pour chaque page, on associe la valeur de la page en considérant la proportion de liens pointant vers cette page en provenance de chaque sommet. Par exemple, pour la page <span class="process-math">\(0\text{,}\)</span> la valeur associée est</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_0=\frac{1}{2}x_1
+\end{equation*}
+</div>
+<div class="para">puisque le seul lien pointant vers <span class="process-math">\(0\)</span> provient de <span class="process-math">\(1\)</span> et que cette dernière possède deux liens sortants. La valeur de <span class="process-math">\(x_1\)</span> est</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_1=\frac{1}{2}x_0+x_2
+\end{equation*}
+</div>
+<div class="para">et celle de <span class="process-math">\(x_2\)</span> est</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_2=\frac{1}{2}x_0+\frac{1}{2}x_1\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">Le vecteur PageRank est le vecteur <span class="process-math">\(\vec{v}=(x_0,x_1,x_2)\text{.}\)</span>
+</div>
+</div>
+<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="introduction"><div class="para">On regarde maintenant comment les valeurs sont calculées. On reconnait à partir des trois équations pour <span class="process-math">\(x_0,x_1,x_2\)</span> qu’on peut former un système d’équations linéaires.</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<div class="para">Trouver une matrice <span class="process-math">\(G\)</span> telle que <span class="process-math">\(G\vec{v}=\vec{v}\text{.}\)</span> On appelle cette matrice la matrice Google.</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<div class="para">Par construction, cette matrice a pour valeur propre <span class="process-math">\(\lambda=1\text{.}\)</span> La direction invariante associée à cette valeur propre est importante. C’est le vecteur des valeurs recherchées. Puisqu’on veut que ce vecteur soit une proportion, on ajoute la condition additionnelle que <span class="process-math">\(x_0+x_1+x_2=1\text{.}\)</span> Trouver le vecteur des valeurs pour le web hypothétique décrit par la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank1.html" title="Figure 6.3.1">6.3.1</a>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-347"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<div class="para">Quelle page parmi les trois a la plus grande valeur? C’est cette page qui sortirait en premier lors d’une recherche Google sur ce petit web.</div></article></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para">Trouver la page ayant la plus grande valeur dans le web hypothétique décrit par la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank2.html" title="Figure 6.3.2">6.3.2</a>.</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-PageRank2.svg" role="img" class="contained" alt="Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers les sommets un et deux, le sommet un pointe vers les sommets zéro, trois et cinq, le sommet deux pointe vers les sommets trois et cinq, le sommet trois pointe vers les sommets zéro et deux, le sommet quatre pointe vers les sommets zéro et trois et le sommet cinq  pointe vers le sommet zéro et quatre."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.2<span class="period">.</span></span><span class="space"> </span>Un graphe à six sommets</figcaption></figure> <pre class="ptx-sagecell sagecell-sage" id="sage-348"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="introduction"><div class="para">Dans la réalité, il serait très couteux de calculer le vecteur propre de la matrice de Google, puisque le véritable web contient près de deux-milliards de sites web <a href="" class="fn-knowl original" data-knowl="./knowl/fn-32-hidden.html" title="Note de bas de page 6.3.1"><sup> 1 </sup></a>, qui contiennent chacun plusieurs pages. Échelonner une telle matrice est impensable.</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<div class="para logical">
+<div class="para">On s’intéresse à la position d’un utilisateur après <span class="process-math">\(n\)</span> clics qui cliquerait sur les liens de manières aléatoires. Par exemple, dans le web hypothétique de la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank1.html" title="Figure 6.3.1">6.3.1</a>, avec la page de départ <span class="process-math">\(0\text{,}\)</span> si l’on pose <span class="process-math">\(\vec{v}_0=(1,0,0)\text{,}\)</span> alors les chances de se retrouver sur les pages <span class="process-math">\(0,1,2\)</span> après un clic sont données par les entrées du vecteur</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-PageRank1.html">
+\begin{equation*}
+\vec{x}_1=A\vec{x}_0\text{.}
+\end{equation*}
+</div>
+<div class="para">En général, les chances après <span class="process-math">\(n\)</span> clics sont données par</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-PageRank1.html">
+\begin{align*}
+A\vec{x}_n&amp;=A\vec{x}_{n-1}\\
+&amp;=A(A\vec{x}_{n-2})\\
+&amp;=A^2\vec{x}_{n-2}\\
+&amp;=\vdots\\
+&amp;=A^n\vec{x}_0\text{.}
+\end{align*}
+</div>
+</div> <div class="para">Calculer les probabilités de se retrouver sur les pages <span class="process-math">\(0,1,2\)</span> après <span class="process-math">\(n=5,10,20\)</span> clics.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-349"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<div class="para">Calculer les probabilités de se retrouver sur les pages <span class="process-math">\(0,1,2,3,4,5\)</span> après <span class="process-math">\(n=5,10,20\)</span> clics pour le web hypothétique de la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank2.html" title="Figure 6.3.2">6.3.2</a>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-350"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<div class="para">Calculer <span class="process-math">\(G^{20}\)</span> pour les deux matrices de Google des webs hypothétiques. Que peut-on remarquer?</div> <pre class="ptx-sagecell sagecell-sage" id="sage-351"><script type="text/x-sage">
+</script></pre></article><div class="conclusion"><div class="para">En général, Google va calculer une grande puissance de sa matrice <span class="process-math">\(G\)</span> pour retourner les pages avec le plus de valeurs, car cela est moins couteux que de trouver le vecteur propre. On peut montrer que sous certaines conditions sur <span class="process-math">\(G\text{,}\)</span> les colonnes de <span class="process-math">\(G^n\)</span> convergent toujours vers le vecteur propre recherché lorsque <span class="process-math">\(n\)</span> tend vers l’infini.</div></div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para">Considérer maintenant le web hypothétique illustré par la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank3.html" title="Figure 6.3.3">6.3.3</a>. Quelle prédiction peut être faite pour les pages <span class="process-math">\(0,1\)</span> et <span class="process-math">\(2\text{?}\)</span>
+</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-PageRank3.svg" role="img" class="contained" alt="Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers les sommets un, deux et trois, le sommet un pointe vers les sommets deux et trois, le sommet deux pointe vers les sommets zéro, un, trois et quatre, le sommet trois pointe vers le sommet quatre, le sommet quatre pointe vers les sommets trois et cinq et le sommet cinq  pointe vers le sommet trois et quatre."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.3<span class="period">.</span></span><span class="space"> </span>Un autre graphe à six sommets</figcaption></figure></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para">Vérifier l’hypothèse en calculant le vecteur propre de la matrice de Google et en le normalisant pour que les entrées somment à <span class="process-math">\(1\text{.}\)</span>
+</div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(f)</span></h4>
+<div class="para">Calculer <span class="process-math">\(G^{20}\)</span> et vérifier à nouveau ce qui a été observé à la partie <a href="" class="xref" data-knowl="./knowl/proj-PageRank1.html" title="Tâche 6.3.1.c.iii">6.3.1.c.iii</a>.</div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(g)</span></h4>
+<div class="introduction">
+<div class="para">Une matrice comme celle du web hypothétique de la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank3.html" title="Figure 6.3.3">6.3.3</a> est problématique car, à partir d’une certaine puissance, des entrées de la matrice <span class="process-math">\(G^n\)</span> sont toujours nulles et il est impossible de retourner à ces pages. En regardant plus attentivement le graphe, on constate que lorsqu’on entre dans l’une des pages <span class="process-math">\(3,4,5\text{,}\)</span> il est impossible d’en ressortir.</div> <div class="para logical">
+<div class="para">Google contourne ce problème en modifiant légèrement sa matrice <span class="process-math">\(G\text{.}\)</span> En fait, il utilise une matrice <span class="process-math">\(G^{'}\)</span> définie à partir de la matrice <span class="process-math">\(G\)</span> et d’une matrice <span class="process-math">\(H\)</span> qui, pour un web à <span class="process-math">\(n\)</span> pages serait égale à</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H=\begin{pmatrix}
+\frac{1}{n}&amp;\frac{1}{n}&amp;\cdots &amp; \frac{1}{n}\\
+\frac{1}{n}&amp;\frac{1}{n}&amp;\cdots &amp; \frac{1}{n}\\
+\vdots&amp;\vdots&amp;\ddots &amp; \vdots\\
+\frac{1}{n}&amp;\frac{1}{n}&amp;\cdots &amp; \frac{1}{n}
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Dans cette matrice, toutes les pages ont la même chance d’être visitées, à partir de n’importe quelle autre page, incluant la page sur laquelle on se trouve déjà.</div>
+</div>
+<div class="para logical">
+<div class="para">L’équation pour la matrice <span class="process-math">\(G^{'}\)</span> est</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G^{'}=pG+(1-p)H
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(p\in [0,1]\text{.}\)</span> La valeur de <span class="process-math">\(p\)</span> utilisée par Google n’est pas connue. Pour la suite, on utilisera <span class="process-math">\(p=0.85\text{.}\)</span>
+</div>
+</div>
+</div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<div class="para">En prenant à nouveau la situation de la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank1.html" title="Figure 6.3.1">6.3.1</a>, déterminer le vecteur propre de la matrice <span class="process-math">\(G^{'}\text{.}\)</span> Est-il différent de celui de la matrice <span class="process-math">\(G\text{?}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-352"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<div class="para">Répéter avec le web hypothétique de la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank2.html" title="Figure 6.3.2">6.3.2</a>, déterminer le vecteur propre de la matrice <span class="process-math">\(G^{'}\text{.}\)</span> Est-il différent de celui de la matrice <span class="process-math">\(G\text{?}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-353"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<div class="para">Répéter avec le web hypothétique de la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank3.html" title="Figure 6.3.3">6.3.3</a>, déterminer le vecteur propre de la matrice <span class="process-math">\(G^{'}\text{.}\)</span> Est-il différent de celui de la matrice <span class="process-math">\(G\text{?}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-354"><script type="text/x-sage">
+</script></pre></article></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(h)</span></h4>
+<div class="introduction"><div class="para">On peut généraliser le concept où, à partir de certaines pages, il est plus probable d’aller vers une page qu’une autre. Graphiquement, ceci est représenté en donnant un poids aux arêtes reliant les sommets du graphe. On s’assure que la somme des poids sortant d’un sommet donne <span class="process-math">\(1\text{.}\)</span> En quelque sorte, le poids pourrait représenter la proportion des liens sortant du sommet <span class="process-math">\(a\)</span> et allant vers le sommet <span class="process-math">\(b\text{.}\)</span>
+</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<div class="para">Analyser le graphe de la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank4.html" title="Figure 6.3.4">6.3.4</a>, représentant une modification du web hypothétique de la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank1.html" title="Figure 6.3.1">6.3.1</a>.</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-PageRank4.svg" role="img" class="contained" alt="Un graphe à trois sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids un sur cinq et vers le sommet deux avec poids quatre sur cinq. Le sommet un pointe vers le sommet zéro avec poids un sur trois et vers le sommet deux avec poids deux sur trois. Le sommet deux ne pointe que vers le sommet un, avec poids un."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.4<span class="period">.</span></span><span class="space"> </span>Une version pondérée d’un web hypothétique à trois sommets</figcaption></figure> <pre class="ptx-sagecell sagecell-sage" id="sage-355"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<div class="para">Répéter avec la modifification du web hypothétique de la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank2.html" title="Figure 6.3.2">6.3.2</a>, illustrée à la figure suivante.</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-PageRank5.svg" role="img" class="contained" alt="Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids un sur trois et vers le sommet deux avec poids deux sur trois. Le sommet un pointe vers le sommet zéro avec poids un sur quatre, vers le sommet trois avec poids un sur deux et  vers le sommet cinq avec poids un sur quatre. Le sommet deux pointe vers le sommet trois avec poids trois sur quatre  et  vers le sommet cinq avec poids 1/4. Le sommet trois pointe vers le sommet zéro avec poids trois sur cinq et vers le sommet deux avec poids deux sur cinq. Le sommet quatre pointe vers le sommet zéro  avec poids un sur trois et vers le sommet trois avec poids deux sur trois. Le sommet cinq  pointe vers le sommet zéro et quatre, chacun avec poids un sur deux."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.5<span class="period">.</span></span><span class="space"> </span>Une version pondérée d’un web hypothétique à six sommets</figcaption></figure> <pre class="ptx-sagecell sagecell-sage" id="sage-356"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<div class="para">Répéter avec la modification du web hypothétique de la figure <a href="" class="xref" data-knowl="./knowl/fig-PageRank3.html" title="Figure 6.3.3">6.3.3</a>, illustrée à la figure suivante.</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-PageRank6.svg" role="img" class="contained" alt="Un graphe à six sommets est illustré. Les sommets sont reliés par des flèches. Le sommet zéro pointe vers le sommet un avec poids une demi, vers le sommet deux avec poids un tiers et vers le sommet trois avec poids un sur six. Le sommet un pointe vers le sommet deux avec poids trois sur sept et vers le sommet trois avec poirds quatre sur sept. Le sommet deux pointe vers le sommet zéro avec poids deux sur cinq, vers le sommet un avec poids un sur quatre, vers le sommet trois avec poids un sur trois et vers le sommet quatre avec poids un sur soixante. Le sommet trois pointe vers le sommet quatre avec poids 1, le sommet quatre pointe vers le sommet trois avec poids un sur six et vers le sommet cinq avec poids cinq sur six. Finalement, le sommet  cinq  pointe vers le sommet trois  avec poids sept sur neuf et vers le sommet quatre avec poids deux sur neuf."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.6<span class="period">.</span></span><span class="space"> </span>Une modification d’un autre web hypothétique à six sommets</figcaption></figure></article></article></article><span class="incontext"><a href="sec-propreslabos.html#project-6" class="internal">Contexte</a></span>
+</body>
+</html>

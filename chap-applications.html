@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ALIR Applications</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://alir-jsturcotte.profweb.ca/external/images/frontcover160x200.png">
+<meta property="book:title" content="Algèbre linéaire">
+<meta property="book:author" content="Jean-Sébastien Turcotte">
+<meta property="book:author" content="Philémon Turcotte">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Sauter au contenu</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://alir-jsturcotte.profweb.ca/frontmatter.html" target="_blank"><img src="external/images/frontcover160x200.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="alir.html"><span class="title">Algèbre linéaire:</span> <span class="subtitle">Intuition et rigueur</span></a></h1>
+<p class="byline">Jean-Sébastien Turcotte, Philémon Turcotte</p>
+</div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Résultats de la recherche: <span id="searchterms" class="searchterms"></span>
+</h2>
+<div id="searchempty" class="searchempty"><span>Aucun résultat.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Table des matières</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-propreslabos.html" title="Précédent"><span class="icon">&lt;</span><span class="name">Précédent</span></a><a class="up-button button" href="alir.html" title="Haut"><span class="icon">^</span><span class="name">Haut</span></a><a class="next-button button" href="sec-Markov.html" title="Suivant"><span class="name">Suivant</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}  
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}    
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}   
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Pages Liminaires</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="dedication-1.html" class="internal"><span class="title">Dédicace</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement-1.html" class="internal"><span class="title">Remerciements</span></a></div></li>
+<li><div class="toc-item"><a href="preface.html" class="internal"><span class="title">Préface</span></a></div></li>
+<li><div class="toc-item"><a href="messageeleve.html" class="internal"><span class="title">Un message pour l’élève</span></a></div></li>
+<li><div class="toc-item"><a href="utilisation.html" class="internal"><span class="title">Comment utiliser les fonctionnalités de ce manuel</span></a></div></li>
+<li><div class="toc-item"><a href="versions.html" class="internal"><span class="title">Versions et source</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-vec.html" class="internal"><span class="codenumber">1</span> <span class="title">Les vecteurs</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-vec.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Vecteurs géométriques et algébriques</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-vec.html#sssec-defvec" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Vecteurs à deux et à trois dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vec.html#sssec-opvec" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Opérations sur les vecteurs</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vec.html#sssec-utvec" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Utilisation de méthodes vectorielles en géométrie</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vec.html#exo-vec" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-prodscal.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Produit scalaire et calcul d’angles</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-prodscal.html#sssec-angle2vec" class="internal"><span class="codenumber">1.2.1</span> <span class="title">L’angle entre deux vecteurs de dimensions deux</span></a></div></li>
+<li><div class="toc-item"><a href="sec-prodscal.html#sssec-prodscal" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Le produit scalaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-prodscal.html#ssec-projortho" class="internal"><span class="codenumber">1.2.3</span> <span class="title">La projection orthogonale</span></a></div></li>
+<li><div class="toc-item"><a href="sec-prodscal.html#exo-prodscal" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-droitesplans.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Droites et plans</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-droitesplans.html#sssec-droites" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Les droites</span></a></div></li>
+<li><div class="toc-item"><a href="sec-droitesplans.html#sssec-plans" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Les plans</span></a></div></li>
+<li><div class="toc-item"><a href="sec-droitesplans.html#sssec-distances" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec-droitesplans.html#exo-droitesplans" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vecndim.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vecteurs dans <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-vecndim.html#sssec-defopvecn" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Définition et opérations sur les vecteurs</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vecndim.html#sssec-prodscalndim" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Le produit scalaire et le calcul d’angle en dimension supérieure</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vecndim.html#sssec-droitesplanrn" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Espace engendré</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vecndim.html#exo-vecndim" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-veclabos.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-transfo.html" class="internal"><span class="codenumber">2</span> <span class="title">Les transformations linéaires: première partie</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-transfodef.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Les transformations linéaires</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-transfodef.html#sssec-deftransfo" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Définition et premiers exemples de transformations linéaires</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transfodef.html#sssec-transfomatrice" class="internal"><span class="codenumber">2.1.2</span> <span class="title">La forme matricielle d’une transformation linéaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transfodef.html#sssec-opmat" class="internal"><span class="codenumber">2.1.3</span> <span class="title">L’addition matricielle et la multiplication par un scalaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transfodef.html#exo-transfodef" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-prodmat.html" class="internal"><span class="codenumber">2.2</span> <span class="title">La composition et le produit matriciel</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-prodmat.html#prodmatdef" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Le produit matriciel</span></a></div></li>
+<li><div class="toc-item"><a href="sec-prodmat.html#sssec-prodmatprop" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Les propriétés du produit matriciel</span></a></div></li>
+<li><div class="toc-item"><a href="sec-prodmat.html#exo-prodmat" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matinverse.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Transformations inverses</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matinverse.html#sssec-invgeo" class="internal"><span class="codenumber">2.3.1</span> <span class="title">L’inverse de transformations géométriques</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matinverse.html#sssec-inv2x2" class="internal"><span class="codenumber">2.3.2</span> <span class="title">L’inverse d’une transformation linéaire du plan</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matinverse.html#sssec-matinv" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Définition formelle de l’inverse d’une matrice carrée</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matinverse.html#sssec-propinv" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Propriétés de la matrice inverse</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matinverse.html#sssec-algmat" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Algèbre matricielle</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matinverse.html#exo-matinverse" class="internal"><span class="codenumber">2.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-transfodimsup.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Transformations linéaires de dimension supérieure</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-transfodimsup.html#sssec-transfor3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Transformations linéaires dans l’espace à trois dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transfodimsup.html#ssec-transfogen" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Transformations de dimension quelconque</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transfodimsup.html#exo-transfodimsup" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-transfolabos.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-SEL.html" class="internal"><span class="codenumber">3</span> <span class="title">Les systèmes d’équations linéaires</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-GJ.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Les systèmes d’équations linéaires et la méthode de Gauss-Jordan</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-GJ.html#sssec-SELdef" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Définition et exemples simples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-GJ.html#sssec-opelem" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Opérations et matrices élémentaires</span></a></div></li>
+<li><div class="toc-item"><a href="sec-GJ.html#sssec-GJ" class="internal"><span class="codenumber">3.1.3</span> <span class="title">La méthode de Gauss-Jordan</span></a></div></li>
+<li><div class="toc-item"><a href="sec-GJ.html#exo-GJ" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-SELtheo.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Les systèmes qui n’ont aucune ou  ayant une infinité de solutions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-SELtheo.html#sssec-nbsol" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Le nombre de solutions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-SELtheo.html#ssec-rang" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Le rang d’une matrice</span></a></div></li>
+<li><div class="toc-item"><a href="sec-SELtheo.html#exo-SELtheo" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-SELgeo.html" class="internal"><span class="codenumber">3.3</span> <span class="title">La géométrie des systèmes d’équations linéaires</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-SELgeo.html#sssec-transfozero" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Les zéros d’une transformation linéaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-SELgeo.html#subsection-31" class="internal"><span class="codenumber">3.3.2</span> <span class="title">L’image d’une transformation linéaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-SELgeo.html#sssec-solgen" class="internal"><span class="codenumber">3.3.3</span> <span class="title">La solution générale à <span class="process-math">\(A\vec{x}=\vec{b}\text{.}\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-SELgeo.html#exo-SELgeo" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-transposee.html" class="internal"><span class="codenumber">3.4</span> <span class="title">La transposée d’une matrice</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-transposee.html#ssec-transpose" class="internal"><span class="codenumber">3.4.1</span> <span class="title">La transposée d’une matrice</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transposee.html#sssec-4esp" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Quatre ensembles particuliers de vecteurs</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transposee.html#exo-transposee" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-SELlabos.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-det.html" class="internal"><span class="codenumber">4</span> <span class="title">Le déterminant d’une matrice</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-det2x2.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Le déterminant <span class="process-math">\(2\times 2\)</span></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-det2x2.html#sssec-factchgaire" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Le facteur de changement d’aire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-det2x2.html#subsection-36" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Définition du déterminant</span></a></div></li>
+<li><div class="toc-item"><a href="sec-det2x2.html#subsection-37" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Propriétés du déterminant</span></a></div></li>
+<li><div class="toc-item"><a href="sec-det2x2.html#exo-det2x2" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-detgen.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Le déterminant d’une matrice <span class="process-math">\(n\times n\)</span></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-detgen.html#sssec-detR3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">L’espace à trois dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-detgen.html#subsection-39" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Le déterminant</span></a></div></li>
+<li><div class="toc-item"><a href="sec-detgen.html#exo-detgen" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-cofacteurs.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Les mineurs et les cofacteurs</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-cofacteurs.html#ssec-det3x3formule" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Une formule pour le cas <span class="process-math">\(3\times 3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-cofacteurs.html#sssec-mincof" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Les mineurs et les cofacteurs</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cofacteurs.html#sssec-adjointe" class="internal"><span class="codenumber">4.3.3</span> <span class="title">La matrice adjointe</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cofacteurs.html#exo-cofacteurs" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-espvec.html" class="internal"><span class="codenumber">5</span> <span class="title">Espaces vectoriels</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-ssesp.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Sous-espaces vectoriels</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-ssesp.html#sssec-ssesp" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Sous-espace</span></a></div></li>
+<li><div class="toc-item"><a href="sec-ssesp.html#sssec-quatressesp" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Les quatre sous-espaces vectoriels</span></a></div></li>
+<li><div class="toc-item"><a href="sec-ssesp.html#exo-ssesp" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-bases.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Base d’un sous-espace vectoriel</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-bases.html#sssec-indlin" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Indépendance linéaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-bases.html#sssec-bases" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Base d’un sous-espace vectoriel</span></a></div></li>
+<li><div class="toc-item"><a href="sec-bases.html#sssec-dim" class="internal"><span class="codenumber">5.2.3</span> <span class="title">La dimension d’un sous-espace vectoriel</span></a></div></li>
+<li><div class="toc-item"><a href="sec-bases.html#exo-bases" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-4esp.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Retour sur les quatre sous-espaces fondamentaux</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-4esp.html#subsection-48" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Une base pour les sous-espaces fondamentaux</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4esp.html#subsection-49" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Quelques résultats supplémentaires</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4esp.html#subsection-50" class="internal"><span class="codenumber">5.3.3</span> <span class="title">La géométrie de la transposée et un retour sur l’inverse à gauche et à droite</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4esp.html#exo-4esp" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-espaces.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Espaces vectoriels</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-espaces.html#subsection-51" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Espace vectoriel</span></a></div></li>
+<li><div class="toc-item"><a href="sec-espaces.html#subsection-52" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Quelques espaces importants</span></a></div></li>
+<li><div class="toc-item"><a href="sec-espaces.html#exo-espaces" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-espaceslabos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-propres.html" class="internal"><span class="codenumber">6</span> <span class="title">Vecteurs et valeurs propres</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-propre.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Vecteurs et valeurs propres</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-propre.html#subsection-53" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Vecteurs et valeurs propres</span></a></div></li>
+<li><div class="toc-item"><a href="sec-propre.html#subsection-54" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Polynôme caractéristique et espace propre</span></a></div></li>
+<li><div class="toc-item"><a href="sec-propre.html#subsection-55" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Quelques résultats</span></a></div></li>
+<li><div class="toc-item"><a href="sec-propre.html#exo-propres" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-diagonalisation.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Diagonalisation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-diagonalisation.html#subsection-56" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Diagonalisation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diagonalisation.html#subsection-57" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Changement de base</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diagonalisation.html#subsection-58" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Quelques résultats</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diagonalisation.html#exo-diagonalisation" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-propreslabos.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="chap-applications.html" class="internal"><span class="codenumber">7</span> <span class="title">Applications</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-Markov.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Chaines de Markov</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-Markov.html#subsection-59" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Définition et exemples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-Markov.html#subsection-60" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Le comportement limite</span></a></div></li>
+<li><div class="toc-item"><a href="sec-Markov.html#subsection-61" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Un peu plus loin</span></a></div></li>
+<li><div class="toc-item"><a href="sec-Markov.html#exo-Markov" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-simplexe.html" class="internal"><span class="codenumber">7.2</span> <span class="title">La programmation linéaire</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-simplexe.html#subsection-62" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Approche graphique à un problème d’optimisation linéaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-simplexe.html#subsection-63" class="internal"><span class="codenumber">7.2.2</span> <span class="title">L’algorithme du simplexe</span></a></div></li>
+<li><div class="toc-item"><a href="sec-simplexe.html#sssec-proglinmin" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Problèmes de minimisation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-simplexe.html#subsection-65" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Un peu plus loin</span></a></div></li>
+<li><div class="toc-item"><a href="sec-simplexe.html#exo-simplexe" class="internal"><span class="codenumber">7.2.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="chap-applications"><h2 class="heading">
+<span class="type">Chapitre</span> <span class="codenumber">7</span> <span class="title">Applications</span>
+</h2>
+<section class="introduction" id="intro-applications"> <div class="para" id="p-5837">Ce chapitre présente quelques une des nombreuses applications de l’algèbre linéaire. Il se retrouve à la fin du manuel, mais peut être utilisé à divers moments, selon les sections. Dans chaque sous-section, la matière nécessaire ou utile à la compréhension est mentionnée.</div> <div class="para" id="p-5838">L’algèbre linéaire est de plus en plus présente des les applications quotidiennes des mathématiques, peut-être encore plus que le calcul différentiel et intégral. Avec les données massives qui innondent désormais le web, les traiter sans utiliser des notions proche de l’algèbre linéaire relève de la folie. Bien sûr, tout n’est pas linéaire, mais la première étape pour bien comprendre un problème est souvent de le linéariser afin d’en faire ressortir des propriétés ou structures particulières.</div></section><nav class="summary-links"><ul>
+<li><a href="sec-Markov.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Chaines de Markov</span></a></li>
+<li><a href="sec-simplexe.html" class="internal"><span class="codenumber">7.2</span> <span class="title">La programmation linéaire</span></a></li>
+</ul></nav></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-propreslabos.html" title="Précédent"><span class="icon">&lt;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-Markov.html" title="Suivant"><span class="name">Suivant</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">Les vecteurs <span class="process-math">\(\vec{u},\vec{v}\)</span> n’ont pas la forme de solutions de base. Le fait qu’il faut deux vecteurs pour générer l’espace nul signifie qu’il doit y avoir deux variables libres.  Si l’on suppose que <span class="process-math">\(y,z\)</span> sont les variables libres, il faudrait que les vecteurs soit de la forme <span class="process-math">\(\vec{u}^{'}=(u_1,1,0),\vec{v}^{'}=(v_1,0,1)\)</span> pour respecter la forme des solutions de base. On cherche donc comment, à partir de <span class="process-math">\(\vec{u},\vec{v}\text{,}\)</span> on peut obtenir ces vecteurs. On veut</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vecddd{u_1}{1}{0}=a\vecddd{-1}{2}{1}+b\vecddd{2}{1}{2}\text{.}
+\end{equation*}
+</div>
+<div class="para">Comme on ne se soucie pas de la première composante, on a que <span class="process-math">\(1=2a+b\)</span> et <span class="process-math">\(0=a+2b\text{.}\)</span> Pour le vecteur <span class="process-math">\(\vec{v}^{'}\text{,}\)</span> on obtient de manière similaire les équations <span class="process-math">\(0=2a+b\)</span> et <span class="process-math">\(1=a+2b\text{.}\)</span> On peut résoudre simultanément ces systèmes en échelonnant la matrice augmentée</div>
+<div class="displaymath process-math">
+\begin{align*}
+\left(\begin{array}{rr|rr}
+2&amp; 1&amp; 1 &amp;0\\
+1&amp;2&amp;0 &amp;1
+\end{array}\right)&amp;\matsimile{1}{2}\left(\begin{array}{rr|rr}
+1&amp; 2&amp; 0&amp;1\\
+2&amp;1&amp;1&amp;0
+\end{array}\right)\\
+&amp;\matsimilc{1}{-2}{2}\left(\begin{array}{rr|rr}
+1&amp; 2&amp; 0&amp;1\\
+0&amp;-3&amp;1&amp;-2
+\end{array}\right)\\
+&amp;\matsimils{2}{-\frac{1}{3}}\left(\begin{array}{rr|rr}
+1&amp; 2&amp; 0&amp;1\\
+0&amp;1&amp;-\frac{1}{3}&amp;\frac{2}{3}
+\end{array}\right)\\
+&amp;\matsimilc{2}{-2}{1}\left(\begin{array}{rr|rr}
+1&amp; 0&amp; \frac{2}{3}&amp;-\frac{1}{3}\\
+0&amp;1&amp;-\frac{1}{3}&amp;\frac{2}{3}
+\end{array}\right)\text{.}
+\end{align*}
+</div>
+<div class="para">Le premier vecteur est <span class="process-math">\(\vec{u}^{'}=\frac{2}{3}\vecddd{-1}{2}{1}-\frac{1}{3}\vecddd{2}{1}{2}=\vecddd{-\frac{4}{3}}{1}{0}\)</span> et le deuxième vecteur est <span class="process-math">\(\vec{v}^{'}=-\frac{1}{3}\vecddd{-1}{2}{1}+\frac{2}{3}\vecddd{2}{1}{2}=\vecddd{\frac{5}{3}}{0}{1}\)</span> .</div>
+</div> <div class="para logical">
+<div class="para">Une matrice échelonnée réduite ayant ces deux vecteurs comme solutions de base serait <span class="process-math">\(\begin{pmatrix}
+1&amp; \frac{4}{3}&amp; -\frac{5}{3}\\
+0&amp; 0&amp; 0 \\
+0&amp;0&amp;0
+\end{pmatrix}\text{.}\)</span> Pour satisfaire les conditions d’entrées non nulles et d’absence de fractions, on peut multiplier la première ligne par trois et recopier cette ligne dans les deux autres. On a donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+3&amp; 4&amp; -5\\
+3&amp; 4&amp; -5 \\
+3&amp;4&amp;-5
+\end{pmatrix}
+\end{equation*}
+</div>
+</div>
+</div></body>
+</html>

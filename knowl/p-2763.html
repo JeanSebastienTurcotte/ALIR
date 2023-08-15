@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraphe</span></h5>
+<div class="para logical">
+<div class="para">On souhaite créer une fonction Sage qui retourne les solutions de base d’une matrice en reproduisant l’algorithme <code class="code-inline tex2jax_ignore">[provisional cross-reference: algo-solbase]</code>. Pour cela, on crée d’abord une fonction <code class="code-inline tex2jax_ignore">matL</code> qui va retourner la matrice <span class="process-math">\(L\)</span> associée à la forme échelonnée réduite d’une matrice <span class="process-math">\(A\)</span> quelconque. Voici quelques nouvelles fonctions Sage qui seront utiles et une manière d’ajouter des composantes à un vecteur:</div>
+<ul class="disc">
+<li>
+<div class="para">Les fonctions <code class="code-inline tex2jax_ignore">matrix_from_rows</code> et <code class="code-inline tex2jax_ignore">matrix_from_columns</code> permettent de créer une matrice à partir des lignes ou des colonnes d’une autre matrice.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-179"><script type="text/x-sage">A=random_matrix(QQ,8,6) #Une matrice aléatoire 8x6. L'argument QQ fait en sorte que les entrées seront rationnelles
+show("La matrice A:",A)
+show("La matrice formée à partir des lignes 1,2,3 de la matrice A:",A.matrix_from_rows([0,1,2]))
+show("La matrice formée à partir des lignes 4,6,7,8 de la matrice A:",A.matrix_from_rows([3,5,6,7]))
+show("La matrice formée à partir des lignes 6,4,1, de la matrice A, dans cet ordre:",A.matrix_from_rows([5,3,0])) # L'ordre est important
+show("La matrice formée à partir des lignes 2,2,3 de la matrice A",A.matrix_from_rows([1,1,2]))  #On peut répéter des lignes
+#Similaire avec les colonnes
+show("La matrice formée à partir des colonnes 1,2,3,4 de la matrice A",A.matrix_from_columns([0,1,2,3]))
+show("La matrice formée à partir des colonnes 4,6,2 de la matrice A",A.matrix_from_columns([3,5,1]))
+show("La matrice formée à partir des colonnes 5,5,3,5 de la matrice A",A.matrix_from_columns([4,4,2,4]))
+#En fait, il existe même une version hybride
+show("La matrice formée à partir de l'intersection des lignes 2,3 et des colonnes 4,5 de la matrice A",A.matrix_from_rows_and_columns([1,2],[3,4]))
+</script></pre>
+</li>
+<li>
+<div class="para">Parfois, on ne sait pas quelles seront les entrées d’un vecteur, ou bien l’on veut construire un vecteur en étape, une entrée à la fois. Pour effectuer cette opération, on utilisera plutôt une liste Sage que l’on convertira en vecteur par la suite. Par exemple, si l’on dispose d’une liste <code class="code-inline tex2jax_ignore">l1=[1,3,4]</code> et d’une autre liste <code class="code-inline tex2jax_ignore">l2=[2,4,6]</code> et qu’on veut créer les vecteurs qui prennent ces valeurs en alternant d’une liste à l’autre, on fera</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-180"><script type="text/x-sage">l1=[1,3,4]
+l2=[0,2,4]
+v1=[] #Ceci crée une liste vide
+v2=[]
+k,l=0,0 # pour itérer sur les listes l1 et l2
+for i in range(len(l1)+len(l2)): #on itère sur la longueur des deux listes. Celles-ci (pour cet exemple) doivent être de même longueur
+    if i%2==0: #Une manière de savoir si l'on a un nombre pair 
+        v1.append(l1[k])
+        v2.append(l2[k])
+        k+=1
+    else:
+        v1.append(l2[l])
+        v2.append(l1[l])
+        l+=1
+#En ce moment v1 et v2 sont des listes
+show("La liste v1=",v1)
+show("La liste v2=",v2)
+show("v1+v2=",v1+v2)
+#On les transforme en vecteur
+v1=vector(v1)
+v2=vector(v2)
+show("Le vecteur v1=",v1)
+show("Le vecteur v2=",v2)
+show("v1+v2=",v1+v2)
+</script></pre>
+</li>
+</ul>
+</div>
+<span class="incontext"><a href="sec-SELgeo.html#p-2763" class="internal">Contexte</a></span>
+</body>
+</html>

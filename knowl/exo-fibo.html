@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">19<span class="period">.</span></span><span class="space"> </span><span class="title">Fibonacci.</span>
+</h4>
+<div class="introduction">
+<div class="para">La suite de Fibonacci est bien connue en mathématiques. C’est une suite définie par <span class="process-math">\(f_0=0,f_1=1\)</span> et <span class="process-math">\(f_n=f_{n-1}+f_{n-2}\text{.}\)</span> Les <span class="process-math">\(n+1\)</span> premiers nombres peuvent être obtenus par Sage à l’aide de la fonction suivante.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-319"><script type="text/x-sage">def fibo(n):
+    L=[0,1]
+    for i in range(2,n+1):
+        L.append(L[i-1]+L[i-2])
+    return L
+fibo(10)
+</script></pre> <div class="para">L’objectif de cet exercice est d’apporter une perspective d’algèbre linéaire à cette suite et de déterminer une formule pour  <span class="process-math">\(f_n\)</span> sans avoir à calculer les nombres précédents.</div>
+</div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para logical">
+<div class="para">On pose <span class="process-math">\(\vec{x}_n=\begin{pmatrix} f_{n}\\ f_{n-1}\end{pmatrix}\)</span> pour <span class="process-math">\(n\geq 1\)</span> et <span class="process-math">\(\vec{x}_0=(0,1)\text{.}\)</span> Déterminer une matrice <span class="process-math">\(A\in \mathcal{M}_{2\times 2}\)</span> qui permet d’avoir</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{x}_{n+1}=A\vec{x}_n\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">On aurait pu commencer par le vecteur <span class="process-math">\(\vec{x}_1=(1,0)=(f_1,f_0)\text{,}\)</span> qui aurait contenu les deux premiers termes de la suite. On peut toutefois argumenter que <span class="process-math">\(f_{-1}=1\)</span> en travaillant avec l’équation à l’envers. C’est un choix arbitraire qui fera l’affaire pour la suite.</div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-494-hidden.html" title="Réponse 6.1.4.19.a.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-960-hidden.html" title="Solution 6.1.4.19.a.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para">Calculer <span class="process-math">\(\vec{x}_1=A\vec{x}_0\text{,}\)</span><span class="process-math">\(\vec{x}_2=A\vec{x}_1=A^2\vec{x}_0\)</span> et <span class="process-math">\(\vec{x}_3\text{.}\)</span> Donner une formule en fonction de <span class="process-math">\(A\)</span> et <span class="process-math">\(x_0\)</span> pour <span class="process-math">\(f_n\text{.}\)</span>
+</div>
+<div class="solutions"><a href="" class="answer-knowl original" data-knowl="./knowl/answer-495-hidden.html" title="Réponse 6.1.4.19.b.1"><span class="type">Réponse</span><span class="period">.</span></a></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para">Trouver <span class="process-math">\(f_{100}\)</span> à l’aide de cette matrice et de Sage. Vérifier la réponse à l’aide de la fonction <code class="code-inline tex2jax_ignore">fibo</code> définie dans l’introduction.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-320"><script type="text/x-sage">
+</script></pre>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-496-hidden.html" title="Réponse 6.1.4.19.c.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-961-hidden.html" title="Solution 6.1.4.19.c.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para logical">
+<div class="para">Pour la suite, il pourra être pratique d’utiliser le fait que si <span class="process-math">\(x=\frac{1+\sqrt{5}}{2},y=\frac{1-\sqrt{5}}{2}\text{,}\)</span> alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{x}=-y
+\end{equation*}
+</div>
+<div class="para">et donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{y}=-x\text{.}
+\end{equation*}
+</div>
+<div class="para">Démontrer ce fait</div>
+</div>
+<div class="solutions"><a href="" class="solution-knowl original" data-knowl="./knowl/solution-962-hidden.html" title="Solution 6.1.4.19.d.1"><span class="type">Solution</span><span class="period">.</span></a></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para">Trouver les valeurs propres de la matrice <span class="process-math">\(A\)</span> et le vecteur propre de chacune.</div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-497-hidden.html" title="Réponse 6.1.4.19.e.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-963-hidden.html" title="Solution 6.1.4.19.e.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="para">Écrire le vecteur <span class="process-math">\(\vec{x}_0\)</span> comme une combinaison linéaire des vecteurs propres de <span class="process-math">\(A\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-498-hidden.html" title="Réponse 6.1.4.19.f.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-964-hidden.html" title="Solution 6.1.4.19.f.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(g)</span></h5>
+<div class="para">Décrire comment obtenir <span class="process-math">\(f_n\)</span> sans calculer les précédents et sans calculer de produit matrice vecteur.</div>
+<div class="solutions"><a href="" class="solution-knowl original" data-knowl="./knowl/solution-965-hidden.html" title="Solution 6.1.4.19.g.1"><span class="type">Solution</span><span class="period">.</span></a></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(h)</span></h5>
+<div class="para logical">
+<div class="para">Utiliser Sage pour calculer</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{n\to\infty}\frac{f_{n+1}}{f_n}\text{.}
+\end{equation*}
+</div>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-322"><script type="text/x-sage">
+</script></pre>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-499-hidden.html" title="Réponse 6.1.4.19.h.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-966-hidden.html" title="Solution 6.1.4.19.h.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><div class="conclusion"><div class="para">Le nombre <span class="process-math">\(\lambda_1=\frac{1+\sqrt{5}}{2}\)</span> est appelé le nombre d’or. On le note souvent par <span class="process-math">\(\phi\)</span> et il apparait à de nombreux endroits.</div></div></article><span class="incontext"><a href="sec-propre.html#exo-fibo" class="internal">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">On utilise la méthode plus prudente avec la matrice échelonnée réduite du système augmenté. Sinon, on risque d’obtenir une solution unique même s’il y a une infinité de solutions.</div> <figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">A=matrix([[5,-3,2,7],[3,0,3,-1],[6,2,1,-2],[2,-1,-6,8],[8,-1,0,6]])
+b=vector([-3,2,0,-9,-5])
+show((A.augment(b,subdivide=True))) #Pour vérifier qu'on a le bon système
+show((A.augment(b,subdivide=True)).rref())
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.2.17<span class="period">.</span></span><span class="space"> </span>Le code solution</figcaption></figure> <div class="para logical">
+<div class="para">On interprète cette solution ainsi:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{cases}x_1+\frac{31}{63}x_4=-\frac{32}{63}\\ x_2-\frac{130}{63}x_4=\frac{59}{63}\\ x_3-\frac{52}{63}x_4=\frac{74}{63}\\ x_4=t \in \R \text{ (libre)} \end{cases}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4 \end{pmatrix}=\begin{pmatrix}-\frac{31}{63}t-\frac{32}{63}\\ \frac{130}{63}t+\frac{59}{63}\\ \frac{52}{63}t+\frac{74}{63}\\ t \end{pmatrix}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4 \end{pmatrix}=t\begin{pmatrix}-\frac{31}{63}\\ \frac{130}{63}\\ \frac{52}{63}\\ 1 \end{pmatrix}+\begin{pmatrix}-\frac{32}{63}\\ \frac{59}{63}\\ \frac{74}{63}\\ 0 \end{pmatrix}
+\end{equation*}
+</div>
+</div>
+</div></body>
+</html>

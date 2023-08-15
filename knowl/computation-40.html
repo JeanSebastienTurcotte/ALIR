@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">7.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Chaine de Markov et Sage.</span>
+</h4> <div class="para">On va créer une fonction Sage qui prend comme argument une matrice de transition <span class="process-math">\(T\text{,}\)</span> un vecteur de probabilité <span class="process-math">\(X_0\)</span> et un entier facultatif <span class="process-math">\(n\)</span> qui retournera <span class="process-math">\(X_n\text{.}\)</span> Si l’entier <span class="process-math">\(n\)</span> n’est pas fourni, on retournera par défaut <span class="process-math">\(X_1\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-361"><script type="text/x-sage">def chaine_Markov(T,X0,n=1):
+    X=X0
+    for i in range(n):
+        X=T*X
+    return X
+</script></pre> <div class="para">On peut vérifier les exemples de la sous-section en utilisant la fonction. Par exemple, pour la chaine de Markov de l’exemple <a href="" class="xref" data-knowl="./knowl/ex-BVMarkov.html" title="Exemple 7.1.2: Une première chaine de Markov">7.1.2</a>, la cellule suivante montre l’évolution des parts de marché pour les dix premières transitions.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-362"><script type="text/x-sage">T=column_matrix([[0.8,0.2],[0.1,0.9]])
+X0=vector([0.55,0.45])
+for n in range(1,11):
+    show(chaine_Markov(T,X0,n))
+</script></pre></article><span class="incontext"><a href="sec-Markov.html#computation-40" class="internal">Contexte</a></span>
+</body>
+</html>

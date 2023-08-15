@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">6.1.13.4</span><span class="period">.</span>
+</h4>
+<div class="para">On se permet de faire les calculs sur Sage pour les deux prochaines matrices. On n’utilisera pas les fonctions <code class="code-inline tex2jax_ignore">eigenvalues</code> et <code class="code-inline tex2jax_ignore">eigenvectors_right</code>, car on veut pour l’instant être en mesure de comprendre comment obtenir les valeurs et vecteurs propres à partir des définitions et résultats, mais on laisse Sage faire les calculs de ces déterminants et l’échelonnage des matrices. Pour les valeurs propres:</div> <pre class="ptx-sagecell sagecell-sage" id="sage-304"><script type="text/x-sage">E=matrix(QQ,[[1,1,0],[0,1,0],[0,0,2]])
+I=matrix.identity(3)
+show((E-x*I).determinant())
+</script></pre> <div class="para">Cette fois, les valeurs propres sont <span class="process-math">\(\lambda_1=1\)</span> et <span class="process-math">\(\lambda_2=2\text{.}\)</span> On remarque qu’il n’y a encore une fois que deux valeurs propres.</div> <div class="para">Un premier vecteur propre est obtenu en regardant l’espace propre associé à <span class="process-math">\(\lambda_1\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-305"><script type="text/x-sage">show((E-I).right_kernel(basis="pivot").basis())
+</script></pre> <div class="para">Le vecteur propre est <span class="process-math">\(\vec{v}_1=(1,0,0)\text{.}\)</span> Pour la seconde valeur propre :</div> <pre class="ptx-sagecell sagecell-sage" id="sage-306"><script type="text/x-sage">show((E-2*I).right_kernel(basis="pivot").basis())
+</script></pre> <div class="para">Le second vecteur propre est <span class="process-math">\(\vec{v}_2=(0,0,1)\text{.}\)</span>
+</div> <div class="para">On remarque dans ce cas-ci que chaque valeur propre n’a qu’une direction propre associée.</div>
+</div>
+<span class="incontext"><a href="sec-propre.html#solution-920" class="internal">Contexte</a></span>
+</body>
+</html>

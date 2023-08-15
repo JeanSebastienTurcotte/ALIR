@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">7.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Floutage par noyau simple.</span>
+</h4> <div class="para">On propose de flouter la couverture du manuel à l’aide d’un noyau simple d’ordre 3. Dans un premier temps, on doit charger l’image. La cellule suivante est identique à celle se trouvant dans le texte ci-haut.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-443"><script type="text/x-sage">   from sage.plot.matrix_plot import MatrixPlot
+#Les deux prochaines commandes sont nécessaires pour faire une requête permettant le téléchargement de l'image
+from PIL import Image
+import requests
+#On télécharge l'image de la source
+im = Image.open(requests.get('https://github.com/JeanSebastienTurcotte/ALIR/raw/master/assets/images/frontcover160x200.png', stream=True).raw)
+#On la convertit en tons de gris
+im=im.convert("L")
+#On convertit l'image en matrice Sage
+grey=numpy.array(im)
+G=matrix(grey)
+#On affiche l'image
+matrix_plot(G,cmap='gray')
+</script></pre> <div class="para">Pour le moment, <span class="process-math">\(G\)</span> est une matrice de taille <span class="process-math">\(200\times 155\text{.}\)</span> Afin de pouvoir appliquer le floutage sur l’ensemble de ces valeurs, il est utile d’ajouter un contour de zéros à cette matrice afin de pouvoir appliquer le noyau sans se soucier des bords. On appelle ce procédé le bourrage. Pour cela, la commande <code class="code-inline tex2jax_ignore">block__diagonal_matrix</code> peut être utile. Celle-ci permet de créer une matrice en définissant les blocs se retrouvant le long de la diagonale principale. Sage complètera la matrice afin qu’elle soit de la bonne taille en ajoutant des zéros. En anglais, cet ajout de zéros se nomme “padding”. Voici un exemple simple avant de l’appliquer sur la matrice <span class="process-math">\(G\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-444"><script type="text/x-sage">A=matrix([[1,2],[3,4]])
+D1=matrix([[-1,-2,-3]])
+D2=matrix([[-4]])
+B=block_diagonal_matrix(D1,A,D2)
+B
+</script></pre> <div class="para">Dans le cas de la couverture du manuel, on veut simplement encadrer la matrice <span class="process-math">\(G\)</span> de zéros. On peut procéder comme suit.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-445"><script type="text/x-sage">Gpad=block_diagonal_matrix(matrix([[0]]),G,matrix([[0]]))
+Gpad[0:3,0:3] #Le coin supérieur gauche de la matrice Gpad.
+</script></pre> <div class="para">Pour appliquer le floutage, on doit calculer la moyenne de chaque pixel de la matrice <span class="process-math">\(G\)</span> et de ses voisins immédiats. Dans la cellule précédente, on voit le coin supérieur gauche de la matrice modifiée. Dans ce cas, la moyenne du premier pixel et de ses vosins est de <span class="process-math">\(103.55556\text{.}\)</span> On doit convertir les entrées de la matrices en liste afin de calculer la moyenne.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-446"><script type="text/x-sage">sum(Gpad[0:3,0:3].list())/9
+</script></pre> <div class="para">On crée une fonction qui prend comme argument une paire de nombres et retourne la moyenne de ce nombre et de ses voisins immédiats. On s’assure également que l’argument ne peut pas être au bord de la matrice.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-447"><script type="text/x-sage">def noyausimple(i,j,Gpad):
+    if i==0 or j==0 or i>=Gpad.nrows() or j>=Gpad.ncols():
+        return None
+    else:
+        noyau=Gpad[i-1:i+2,j-1:j+2]
+        m=sum(noyau.list())/9
+        return m
+show(noyausimple(1,1,Gpad))
+show(noyausimple(123,45,Gpad))
+show(noyausimple(0,1,Gpad)) #Sur la ligne de 0 au début.
+show(noyausimple(3,0,Gpad)) # Sur la colonne de 0 au début.
+show(noyausimple(202,7,Gpad)) #Sur la ligne de 0 à la fin.
+show(noyausimple(20,157,Gpad)) #Sur la colonne de 0 à la fin.
+</script></pre> <div class="para">Enfin, on crée la nouvelle matrice formée de ces moyennes. À noter le décalage nécessaire puisque le pixel correspondant dans la matrice <code class="code-inline tex2jax_ignore">Gpad</code> se trouve une ligne et une colonne plus loin.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-448"><script type="text/x-sage">Gfloutee=matrix(200,155, lambda i,j: noyausimple(i+1,j+1,Gpad))
+show(matrix_plot(G,cmap='gray'))
+show(matrix_plot(Gfloutee,cmap='gray'))
+</script></pre> <div class="para">On peut assez bien distinguer l’image originale de celle qui a subi le floutage, bien que l’effet soit subtil. Pour obtenir un meilleur effet, on pourrait appliquer à nouveau le floutage. L’exercice <code class="code-inline tex2jax_ignore">[provisional cross-reference: exo-fctplusieurspassage]</code> permet d’explorer cette possibilité.</div> <div class="para">Une autre option consiste à augmenter la taille du noyau de floutage. Il faut également penser à augmenter la taille du bourrage effectué. On commence par créer une fonction qui prend une matrice et un entier <span class="process-math">\(n\)</span> comme arguments et effectue un bourrage d’ordre <span class="process-math">\(n\text{.}\)</span> On rappelle que selon la définition <a href="" class="xref" data-knowl="./knowl/def-noyauflousimple.html" title="Définition 7.3.1: Noyau de floutage simple">7.3.1</a>, <span class="process-math">\(n\)</span> doit être un nombre impair. Si <span class="process-math">\(n=2k+1\text{,}\)</span> alors il faut ajouter à la matrice <span class="process-math">\(k\)</span> lignes et colonnes de chaque côté.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-449"><script type="text/x-sage">def bourreur(A,n):
+    if n%2!=1: #On vérifie que n est impair
+        return None
+    else:
+        k=(n-1)/2 #On écrit n=2k+1 et on isole k. Ceci donne le nombre de lignes et colonnes à ajouter de chaque côté
+        Padmatrix=zero_matrix(QQ,k,k) #On crée une matrice carrée nulle kxk qui sera ajouté aux coins
+        Apad=block_diagonal_matrix(Padmatrix,A,Padmatrix) #Matrice diagonale en blocs formée de la matrice image et de deux copies de la matrice nulle créée ci-dessus.
+        return Apad
+</script></pre> <div class="para">La prochaine étape consiste à modifier la fonction <code class="code-inline tex2jax_ignore">noyausimple</code> afin qu’elle soit modulable selon la valeur <span class="process-math">\(n\)</span> du noyau. La nouvelle version prend comme arguments la matrice de l’image originale <span class="process-math">\(G\)</span> ainsi que l’ordre du noyau <span class="process-math">\(n\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-450"><script type="text/x-sage">def noyausimple(i,j,n,Gpad):
+    if i<0 or j<0 or i>=Gpad.nrows()-(n-1)/2-1 or j>=Gpad.ncols()-(n-1)/2-1:
+        return None
+    else:
+        noyau=Gpad[i:i+n,j:j+n] #Le noyau est centré à l'entrée (i,j) de la matrice Gpad
+        m=sum(noyau.list())/n^2
+        return m
+</script></pre> <div class="para">Finalement, on crée la fonction qui permet de flouter une image <span class="process-math">\(G\)</span> selon un noyau d’ordre <span class="process-math">\(n\)</span> impair.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-451"><script type="text/x-sage">def flouteur(G,n):
+    Gpad=bourreur(G,n)
+    Gfloutee=matrix(G.nrows(),G.ncols(), lambda i,j: noyausimple(i+1,j+1,n,Gpad))
+    return Gfloutee
+</script></pre></article><span class="incontext"><a href="sec-.html#computation-43" class="internal">Contexte</a></span>
+</body>
+</html>

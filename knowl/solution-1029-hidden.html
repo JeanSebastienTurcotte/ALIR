@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">À partir du graphe de la figure <a href="" class="xref" data-knowl="./knowl/fig-sourisMarkov.html" title="Figure 7.1.5">7.1.5</a>, on peut créer la matrice de transition associée à la chaine de Markov. On constate, par exemple, qu’à partir de la première pièce, il est possible d’aller dans la deuxième ou dans la quatrième, de façon équiprobable. En raisonnant ainsi pour les trois autres pièces, on arrive à la matrice</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-sourisMarkov.html">
+\begin{equation*}
+T=\begin{pmatrix}
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\
+\frac{1}{2} &amp; 0 &amp; 1 &amp; \frac{1}{2} \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
+\frac{1}{2} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">On pose ensuite <span class="process-math">\(X_0=\begin{pmatrix}0.25 \\ 0.25\\ 0.25 \\ 0.25\end{pmatrix}\text{.}\)</span> Pour calculer la pièce qui a le moins de chance d’être occupée par la souris après trois déplacements, on utilise Sage.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-357"><script type="text/x-sage">T=column_matrix([[0,1/2,0,1/2],[1/2,0,1/2,0],[0,1,0,0],[1/2,1/2,0,0]])
+X0=vector([0.25,0.25,0.25,0.25])
+X1=T*X0
+X2=T*X1
+X3=T*X2
+show(X3)
+</script></pre> <div class="para">Deux pièces ont en fait le moins de chance d’être occupées, les pièces <span class="process-math">\(3\)</span> et <span class="process-math">\(4\)</span> avec <span class="process-math">\(15.625\%\)</span> chacune.</div>
+</div></body>
+</html>

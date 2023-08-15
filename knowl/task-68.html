@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Tâche</span><span class="space"> </span><span class="codenumber">1.5.1.a</span><span class="period">.</span>
+</h4>
+<div class="para">Dans la fonction triangle ci-dessous, il faut compléter la ligne <code class="code-inline tex2jax_ignore">####### À COMPLÉTER #######</code> afin de calculer le point <span class="process-math">\(Q\text{.}\)</span> Une fois cette opération effectuée,  exécuter la commande <code class="code-inline tex2jax_ignore">triangle(10)</code> afin de générer dix tours de ce jeu. Le résultat devrait ressembler à la figure <a href="" class="xref" data-knowl="./knowl/fig-chaos10.html" title="Figure 1.5.1">1.5.1</a>, sans nécessairement lui être identique, puisqu’il s’agit de hasard.</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/chaos10.svg" role="img" class="contained" alt="Un triangle équilatéral est tracé en noir ainsi que les dix premiers tours de jeu décrit ci-haut"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.1<span class="period">.</span></span><span class="space"> </span>Dix tours du petit jeu</figcaption></figure> <pre class="ptx-sagecell sagecell-sage" id="sage-45"><script type="text/x-sage">def triangle(n):
+    A=vector([0,1])
+    B=vector([-sqrt(3)/2,-1/2])
+    C=vector([sqrt(3)/2,-1/2]) #Trois points d'un triangle équilatéral centré à l'origine
+    graph=point(A,size=30,color="black")+point(B,size=30,color="black")+point(C,size=30,color="black")+line([A,B],color="black")+line([A,C],color="black")+line([B,C],color="black")
+    Pliste=[] #Une liste vide 
+    P=choice([A,B,C])
+    Pliste.append(P) #Le point initial
+    for i in range(n):
+        S=choice([A,B,C])  #Le sommet de l'étape
+        ####### À COMPLÉTER #######   #Le point Q
+        Pliste.append(Q) #Le nouveau point devient le point de départ du prochain tour
+    graph+=point(Pliste,color="black")
+    return graph
+triangle(10)
+</script></pre>
+<div class="solutions"><a href="" class="hint-knowl original" data-knowl="./knowl/hint-21-hidden.html" title="Indice 1.5.1.a.1"><span class="type">Indice</span><span class="period">.</span></a></div></article><span class="incontext"><a href="sec-veclabos.html#task-68" class="internal">Contexte</a></span>
+</body>
+</html>

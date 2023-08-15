@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">5.4.12.1</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">On commence avec une combinaison linéaire des polynômes <span class="process-math">\(p_1,p_2,p_3\)</span> donnant le vecteur nul:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_1x+c_2(x^2-1)+c_3(x^2+1)=0\text{.}
+\end{equation*}
+</div>
+<div class="para">Deux stratégies sont possibles ici. L’équation précédente peut être développée et réécrite en regroupant les puissances de <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(c_3-c_2)x^0+c_1x+(c_2+c_3)x^2=0x^0+0x+0x^2\text{.}
+\end{equation*}
+</div>
+<div class="para">Ceci donne un système à trois équations et trois inconnues que l’on peut résoudre avec les techniques usuelles.</div>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-290"><script type="text/x-sage">C=matrix([[0,-1,1],[1,0,0],[0,1,1]])
+m=vector([0,0,0])
+Caug=C.augment(m,subdivide=True)
+show(Caug.rref())
+</script></pre> <div class="para">On voit donc qu’il faut que chaque coefficient soit nul pour satisfaire l’équation. Les polynômes sont donc indépendants.</div> <div class="para logical">
+<div class="para">Une autre stratégie consiste à réaliser que l’équation <span class="process-math">\(c_1x+c_2(x^2-1)+c_3(x^2+1)=0\)</span> doit être satisfaite pour toutes les valeurs de <span class="process-math">\(x\text{.}\)</span> En prenant des valeurs spécifiques de <span class="process-math">\(x\text{,}\)</span> on peut se créer un autre système d’équations à résoudre. Par exemple, en prenant respectivement <span class="process-math">\(x=0,x=1,x=-1\text{,}\)</span> on obtient les équations</div>
+<div class="displaymath process-math">
+\begin{align*}
+&amp;-c_2&amp;+c_3&amp;=0\\
+c_1&amp;&amp;+2c_3&amp;=0\\
+-c_1&amp;&amp;+2c_3&amp;=0\text{.}
+\end{align*}
+</div>
+<div class="para">Les deux dernières équations demandent à avoir <span class="process-math">\(c_1=-2c_3\)</span> et <span class="process-math">\(c_1=2c_3\text{,}\)</span> ce qui n’est possible que lorsque <span class="process-math">\(c_1=c_3=0\text{.}\)</span> La première équation complète finalement la preuve avec <span class="process-math">\(c_2=c_3=0\text{.}\)</span>
+</div>
+</div> <div class="para">Selon le contexte, ces deux méthodes peuvent s’avérer efficaces, parfois l’une plus que l’autre.</div>
+</div>
+<span class="incontext"><a href="sec-espaces.html#solution-859" class="internal">Contexte</a></span>
+</body>
+</html>

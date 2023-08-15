@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.2.3.18.1</span><span class="period">.</span>
+</h5>
+<div class="para">Voici une fonction permettant de créer les matrices <span class="process-math">\(B_n\text{.}\)</span> Elle utilise la méthode de construction par une fonction intermédiaire <code class="code-inline tex2jax_ignore">lambda</code>. Voir <code class="code-inline tex2jax_ignore">[provisional cross-reference: Exemples sur les fonctions lambda]</code>.</div> <figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def diag0autres1(i,j):
+    if i==j:
+        return 0
+    else:
+        return 1   
+A=matrix(ZZ,5,lambda i,j: diag0autres1(i,j))
+for i in range(10):
+    show("det(A_%d)=" %(i+1), matrix(ZZ,i+1,lambda i,j: diag0autres1(i,j)).determinant())
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">4.2.29<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure> </div>
+<span class="incontext"><a href="sec-detgen.html#solution-618" class="internal">Contexte</a></span>
+</body>
+</html>

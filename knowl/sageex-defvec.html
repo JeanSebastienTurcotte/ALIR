@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">1.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Définition de vecteurs sur Sage.</span>
+</h4> <div class="para">Avec Sage, il est possible de définir des vecteurs, pour ensuite les utiliser pour effectuer des calculs. On commence par nommer un vecteur en le définissant avec la commande <code class="code-inline tex2jax_ignore">vector</code>. À noter que, pour faire la distinction entre les arguments de la commande et le vecteur, on utilise les crochets <code class="code-inline tex2jax_ignore">[ ]</code>pour les vecteurs dans Sage. En cliquant sur "évaluer", on peut voir s’afficher le résultat de la cellule.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-2"><script type="text/x-sage">u=vector([1,4]) 
+u
+</script></pre> <div class="para">On rappelle ici, tel que mentionné à <code class="code-inline tex2jax_ignore">[provisional cross-reference: Annexesage]</code>, qu’il est possible de faire un affichage plus courant avec la commande <code class="code-inline tex2jax_ignore">show</code>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-3"><script type="text/x-sage">show(u)
+</script></pre> <div class="para">Il est possible d’accéder aux composantes d’un vecteur à l’aide des indices. Il est important de se rappeler que dans Sage, la première composante a pour indice 0.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-4"><script type="text/x-sage">show(u[0])
+show(u[1])
+</script></pre> <div class="para">On peut illustrer graphiquement des vecteurs à l’aide d’une commande <code class="code-inline tex2jax_ignore">plot</code>. Ici, on remarque l’utilisation des virgules pour une définition simultanée de deux vecteurs. On utilise aussi le fait que, pour Sage, les graphiques peuvent s’additionner afin d’afficher plusieurs graphiques en une seule sortie.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-5"><script type="text/x-sage">u,v=vector([1,1]),vector([-2,3])
+plot(u,color="red")+plot(v,color="blue")
+</script></pre> <div class="para">On remarque que les vecteurs sont par défaut tracés à l’origine, ce qui est cohérent avec la remarque <a href="" class="xref" data-knowl="./knowl/rem-vecloca.html" title="Remarque 1.1.3">1.1.3</a>. Si l’on veut faire commencer le vecteur à un autre endroit, disons <span class="process-math">\(\vec{v}\)</span> qui commencerait à la fin de <span class="process-math">\(\vec{u}\text{,}\)</span> il est possible de le faire avec l’option <code class="code-inline tex2jax_ignore">start</code>. Cette option sera particulièrement pratique lors de l’addition de vecteur de la sous-section <a href="sec-vec.html#sssec-opvec" class="internal" title="Sous-section 1.1.2: Opérations sur les vecteurs">Opérations sur les vecteurs</a>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-6"><script type="text/x-sage">u,v=vector([1,1]),vector([-2,3])
+plot(u,color="red")+plot(v,color="blue",start=u)
+</script></pre> <div class="para">Il est possible de calculer la norme d’un vecteur en utilisant la commande <code class="code-inline tex2jax_ignore">norm</code> et l’angle à l’aide des fonctions trigonométriques usuelles.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-7"><script type="text/x-sage">show(norm(u))
+show(arctan(u[1]/u[0]))
+</script></pre></article><span class="incontext"><a href="sec-vec.html#sageex-defvec" class="internal">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">Ce problème comporte trois contraintes. On note <span class="process-math">\(P,G,L\text{,}\)</span> le nombre représentant la quantité de chacun des trois types de service, avec <span class="process-math">\(P\)</span> pour le nombre de petits commerces, <span class="process-math">\(G\)</span> pour le nombre de grandes surfaces et <span class="process-math">\(L\)</span> pour le nombre de logements.</div> <div class="para logical">
+<div class="para">La contrainte sur la superficie peut s’écrire sous la forme</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{2000}P+\frac{1}{90}G+\frac{1}{10000}L\leq 0.7\text{,,}
+\end{equation*}
+</div>
+<div class="para">la contrainte sur le nombre de logements est <span class="process-math">\(L\geq 3000\)</span> et la contrainte de budget pour l’entretien est</div>
+<div class="displaymath process-math">
+\begin{equation*}
+200P+300G+100L\leq 350000\text{.}
+\end{equation*}
+</div>
+<div class="para">On inscrit dans Sage ces paramètres, sous la forme de la matrice et des vecteurs nécessaires à la création d’un problème de programmation linéaire.</div>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-439"><script type="text/x-sage">A=matrix([[1/2000,1/90,1/10000],[0,0,1],[200,300,100]])
+b=vector([0.7,3000,350000])
+c=vector([3500,8000,1500])
+P=InteractiveLPProblem(A, b, c, ["P","G","L"], variable_type=">=",constraint_type=["<=",">=","<="],problem_type="max")
+P.optimal_solution()
+</script></pre> Comme on ne peut construire une portion de commerce, on choisit de construire <span class="process-math">\(210\)</span> petits commerces, <span class="process-math">\(26\)</span> grandes surfaces ainsi que les <span class="process-math">\(3000\)</span> logements demandés par la règlementation. En réalité, il serait possible d’augmenter certains types de commerces tout en satisfaisant l’ensemble des contraintes. C’est un des défauts de l’algorithme du simplexe, lorsque la solution retournée n’est pas applicable.</div></body>
+</html>

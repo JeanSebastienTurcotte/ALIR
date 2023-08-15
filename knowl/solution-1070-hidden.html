@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">On choisit la ligne deux, puisque <span class="process-math">\(\frac{72}{3}\leq\frac{45}{3/2}\leq \frac{150}{3}\text{.}\)</span> Afin de voir l’effet des trois choix de ligne et pour confirmer que la ligne deux est bien celle à privilégier, on utilise Sage pour voir l’effet du pivotage pour chaque entrée de la première colonne.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-410"><script type="text/x-sage">#La matrice A
+A=matrix([[3,10,1,0,0,150],[3,2,0,1,0,72],[3/2,5/2,0,0,1,45]])
+show(A)
+</script></pre> <pre class="ptx-sagecell sagecell-sage" id="sage-411"><script type="text/x-sage">#Pivotage selon la première ligne
+#On divise par 3
+A=elementary_matrix(3,row1=0,scale=1/3)*A
+show("Après division",A)
+#On élimine la ligne 2
+A=elementary_matrix(3,row1=1,row2=0,scale=-3)*A
+show("Après élimination de la ligne 2",A)
+#On élimine la ligne 3
+A=elementary_matrix(3,row1=2,row2=0,scale=-3/2)*A
+show("Après élimination de la ligne 3",A)
+</script></pre> <pre class="ptx-sagecell sagecell-sage" id="sage-412"><script type="text/x-sage">#Pivotage selon la deuxième ligne
+#On divise par 3
+A=elementary_matrix(3,row1=1,scale=1/3)*A
+show("Après division",A)
+#On élimine la ligne 1
+A=elementary_matrix(3,row1=0,row2=1,scale=-3)*A
+show("Après élimination de la ligne 1",A)
+#On élimine la ligne 3
+A=elementary_matrix(3,row1=2,row2=1,scale=-3/2)*A
+show("Après élimination de la ligne 3",A)
+</script></pre> <pre class="ptx-sagecell sagecell-sage" id="sage-413"><script type="text/x-sage">#Pivotage selon la troisième ligne
+#On divise par 3
+A=elementary_matrix(3,row1=2,scale=2/3)*A
+show("Après division",A)
+#On élimine la ligne 1
+A=elementary_matrix(3,row1=0,row2=2,scale=-3)*A
+show("Après élimination de la ligne 1",A)
+#On élimine la ligne 2
+A=elementary_matrix(3,row1=1,row2=2,scale=-3)*A
+show("Après élimination de la ligne 2",A)
+</script></pre> <div class="para">On voit en effet que seule la ligne deux conserve des valeurs positives dans la partie augmentée.</div>
+</div></body>
+</html>

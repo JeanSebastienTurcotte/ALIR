@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def perm_matrix(n):
+    Id=identity_matrix(n)
+    col=Id.columns()
+    p=Permutations(n).list()
+    L=list()
+    for perm in p:
+        colperm=list()
+        for j in range(len(perm)):
+            colperm.append(col[perm[j]-1])
+        P=column_matrix(colperm)
+        L.append(P)
+    return L
+P4=perm_matrix(4)
+P4propreinverse=list() #Nouvelle liste vide 
+for M in P4:
+    if M*M==identity_matrix(4): #Si la matrice de permutation au carrée donne l'identité, alors ...
+        P4propreinverse.append(M) #... on l'ajoute à la liste.
+P4propreinverse
+P4autreinverse=P4.copy() #Voir la remarque en bas sur la création de copies
+for M in P4propreinverse: #Si la matrice se trouve dans la liste des matrices qui sont leur propre inverse, alors...
+    P4autreinverse.remove(M) #... on la retire de la liste complète copiée.
+show("Le nombre de matrices de permutation 4x4 est de ", len(P4))
+show("Voici ces matrices de permutation 4x4 :",P4)
+show("Le nombre de matrices de permutation 4x4 qui sont leur propre inverse est de ", len(P4propreinverse))
+show("Voici ces matrices qui sont leur propre inverse :", P4propreinverse)
+show("Le nombre de matrices de permutation 4x4 qui ne sont pas leur propre inverse est de ", len(P4autreinverse))
+show("Celles-ci ne sont pas leur propre inverse :",P4autreinverse)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.3.29<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure><span class="incontext"><a href="sec-matinverse.html#listing-33" class="internal">Contexte</a></span>
+</body>
+</html>

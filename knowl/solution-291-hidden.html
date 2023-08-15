@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">On peut travailler de manière efficace. Il n’est pas nécessaire d’échelonner la matrice pour chaque système. En effet, peu importe la chaine d’opérations élémentaires effectuées pour échelonner le SEL dans le cas du premier système, cette chaine fonctionnera aussi pour le deuxième SEL. On peut donc augmenter la matrice des deux vecteurs <span class="process-math">\(\vecddd{0}{1}{0},\vecddd{0}{0}{1}\)</span> et effectuer les opérations sur cette matrice augmentée. De plus, les opérations élémentaires ayant servies à trouver la solution dans l’exemple <a href="" class="xref" data-knowl="./knowl/ex-opelem.html" title="Exemple 3.1.11: Les opérations élémentaires">3.1.11</a> peuvent être réutilisées ici, puisqu’elles constituent l’étape un de l’algorithme de Gauss-Jordan <a href="" class="xref" data-knowl="./knowl/algo-GJ.html" title="Algorithme 3.1.25: La méthode de Gauss-Jordan">3.1.25</a>, hormis le fait que les pivots ne sont pas égaux à <span class="process-math">\(1\text{.}\)</span> Il faut, par contre, refaire les calculs sur la partie augmentée.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-opelem.html ./knowl/algo-GJ.html">
+\begin{align}
+\begin{pmatrix}
+1&amp; 3&amp;1&amp;|&amp; 0&amp; 0\\
+2&amp; 2&amp;-4&amp;|&amp; 1&amp; 0\\
+-1&amp; 0&amp;2&amp;|&amp; 0&amp; 1
+\end{pmatrix}&amp;\matsimilc{1}{-2}{2}\begin{pmatrix} 1&amp; 3&amp;1&amp;|&amp; 0&amp; 0\\
+0&amp; -4&amp;-6&amp;|&amp; 1&amp; 0\\
+-1&amp; 0&amp;2&amp;|&amp; 0&amp; 1
+\end{pmatrix}\notag\\
+&amp;\matsimilc{1}{}{3}\begin{pmatrix} 1&amp; 3&amp;1&amp;|&amp; 0&amp; 0\\
+0&amp; -4&amp;-6&amp;|&amp; 1&amp; 0\\
+0&amp; 3&amp;3&amp;|&amp; 0&amp; 1
+\end{pmatrix}\notag\\
+&amp;\matsimils{2}{-\frac{1}{4}}\begin{pmatrix} 1&amp; 3&amp;1&amp;|&amp; 0&amp; 0\\
+0&amp; 1&amp;\frac{3}{2}&amp;|&amp; -\frac{1}{4}&amp; 0\\
+0&amp; 3&amp;3&amp;|&amp; 0&amp; 1
+\end{pmatrix}\notag\\
+&amp;\matsimilc{2}{-3}{3}\begin{pmatrix} 1&amp; 3&amp;1&amp;|&amp; 0&amp; 0\\
+0&amp; 1&amp;\frac{3}{2}&amp;|&amp; -\frac{1}{4}&amp; 0\\
+0&amp; 0&amp;-\frac{3}{2}&amp;|&amp; \frac{3}{4}&amp; 1
+\end{pmatrix}\notag\\
+&amp;\matsimils{3}{-\frac{2}{3}}\begin{pmatrix} 1&amp; 3&amp;1&amp;|&amp; 0&amp; 0\\
+0&amp; 1&amp;\frac{3}{2}&amp;|&amp; -\frac{1}{4}&amp; 0\\
+0&amp; 0&amp;1&amp;|&amp; -\frac{1}{2}&amp; -\frac{2}{3}
+\end{pmatrix}\notag\\
+\end{align}
+<p class="intertext">Dans la prochaine étape, on se permet de faire deux étapes en une, ce qui réduit l’écriture.</p>
+\begin{align}
+&amp;\overset{-\frac{3}{2}L_3+L_2\rightarrow L_2}{\overset{-L_3+L_1\rightarrow L_1}{\sim}}\begin{pmatrix} 1&amp; 3&amp;0&amp;|&amp; \frac{1}{2}&amp; \frac{2}{3}\\
+0&amp; 1&amp;0&amp;|&amp; \frac{1}{2}&amp; 1\\
+0&amp; 0&amp;1&amp;|&amp; -\frac{1}{2}&amp; -\frac{2}{3}
+\end{pmatrix}\tag{✶}\\
+&amp;\matsimilc{2}{-3}{1}\begin{pmatrix} 1&amp; 0&amp;0&amp;|&amp; -1&amp; -\frac{7}{3}\\
+0&amp; 1&amp;0&amp;|&amp; \frac{1}{2}&amp; 1\\
+0&amp; 0&amp;1&amp;|&amp; -\frac{1}{2}&amp; -\frac{2}{3}
+\end{pmatrix}\text{.}\notag
+\end{align}
+</div>
+</div> <div class="para logical">
+<div class="para">La solution au premier système est donc <span class="process-math">\(\vecddd{x}{y}{z}=\vecddd{-1}{\frac{1}{2}}{-\frac{1}{2}}\)</span> et celle du second est <span class="process-math">\(\vecddd{x}{y}{z}=\vecddd{-\frac{7}{3}}{1}{-\frac{2}{3}}\text{.}\)</span> De plus, en reprenant la réponse de l’exemple <a href="" class="xref" data-knowl="./knowl/ex-opelem.html" title="Exemple 3.1.11: Les opérations élémentaires">3.1.11</a>, on obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-opelem.html">
+\begin{equation*}
+\begin{pmatrix}
+1&amp; 3&amp;1\\
+2&amp; 2&amp;-4\\
+-1&amp; 0&amp;2
+\end{pmatrix}^{-1}=\matcolt{\frac{2}{3}}{0}{\frac{1}{3}}{-1}{\frac{1}{2}}{-\frac{1}{2}}{-\frac{7}{3}}{1}{-\frac{2}{3}}
+\end{equation*}
+</div>
+</div>
+</div></body>
+</html>

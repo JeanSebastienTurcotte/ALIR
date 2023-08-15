@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like"><figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">A=matrix([[0,1,4,-1,2,7],[-1,3,3,1,12,3],[11,0,2,5,0,-4],[9,5,-1,11,-7,4],[1,2,3,-4,5,7],[-3,2,5,7,8,-13]])
+b1=vector([1,2,3,4,5,6])
+b2=vector([6,5,4,3,2,1])
+b3=vector([1,-2,3,-4,5,-6])
+b4=vector([-6,5,-4,3,-2,1])
+#Pour augmenter une matrice de plusieurs vecteurs, on peut procéder comme suit:
+Aug=((((A.augment(b1)).augment(b2)).augment(b3)).augment(b4))
+show(Aug)
+#Ou encore en définissant une matrice au préalable
+B=column_matrix([b1,b2,b3,b4])
+Augm=A.augment(B,subdivide=True)
+show(Augm)
+sol=(Augm.rref())
+show(sol)
+vecsol1=sol.column(-4)
+vecsol2=sol.column(-3)
+vecsol3=sol.column(-2)
+vecsol4=sol.column(-1)
+pretty_print("La solution de Ax=b1 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol1)
+pretty_print("La solution de Ax=b2 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol2)
+pretty_print("La solution de Ax=b3 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol3)
+pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.1.34<span class="period">.</span></span><span class="space"> </span>Le code solution</figcaption></figure></div></body>
+</html>

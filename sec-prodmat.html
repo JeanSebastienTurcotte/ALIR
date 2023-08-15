@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ALIR La composition et le produit matriciel</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://alir-jsturcotte.profweb.ca/external/images/frontcover160x200.png">
+<meta property="book:title" content="Algèbre linéaire">
+<meta property="book:author" content="Jean-Sébastien Turcotte">
+<meta property="book:author" content="Philémon Turcotte">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Sauter au contenu</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://alir-jsturcotte.profweb.ca/frontmatter.html" target="_blank"><img src="external/images/frontcover160x200.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="alir.html"><span class="title">Algèbre linéaire:</span> <span class="subtitle">Intuition et rigueur</span></a></h1>
+<p class="byline">Jean-Sébastien Turcotte, Philémon Turcotte</p>
+</div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Résultats de la recherche: <span id="searchterms" class="searchterms"></span>
+</h2>
+<div id="searchempty" class="searchempty"><span>Aucun résultat.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Table des matières</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-transfodef.html" title="Précédent"><span class="icon">&lt;</span><span class="name">Précédent</span></a><a class="up-button button" href="chap-transfo.html" title="Haut"><span class="icon">^</span><span class="name">Haut</span></a><a class="next-button button" href="sec-matinverse.html" title="Suivant"><span class="name">Suivant</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}  
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}    
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}   
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Pages Liminaires</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="dedication-1.html" class="internal"><span class="title">Dédicace</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement-1.html" class="internal"><span class="title">Remerciements</span></a></div></li>
+<li><div class="toc-item"><a href="preface.html" class="internal"><span class="title">Préface</span></a></div></li>
+<li><div class="toc-item"><a href="messageeleve.html" class="internal"><span class="title">Un message pour l’élève</span></a></div></li>
+<li><div class="toc-item"><a href="utilisation.html" class="internal"><span class="title">Comment utiliser les fonctionnalités de ce manuel</span></a></div></li>
+<li><div class="toc-item"><a href="versions.html" class="internal"><span class="title">Versions et source</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-vec.html" class="internal"><span class="codenumber">1</span> <span class="title">Les vecteurs</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-vec.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Vecteurs géométriques et algébriques</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-vec.html#sssec-defvec" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Vecteurs à deux et à trois dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vec.html#sssec-opvec" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Opérations sur les vecteurs</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vec.html#sssec-utvec" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Utilisation de méthodes vectorielles en géométrie</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vec.html#exo-vec" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-prodscal.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Produit scalaire et calcul d’angles</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-prodscal.html#sssec-angle2vec" class="internal"><span class="codenumber">1.2.1</span> <span class="title">L’angle entre deux vecteurs de dimensions deux</span></a></div></li>
+<li><div class="toc-item"><a href="sec-prodscal.html#sssec-prodscal" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Le produit scalaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-prodscal.html#ssec-projortho" class="internal"><span class="codenumber">1.2.3</span> <span class="title">La projection orthogonale</span></a></div></li>
+<li><div class="toc-item"><a href="sec-prodscal.html#exo-prodscal" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-droitesplans.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Droites et plans</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-droitesplans.html#sssec-droites" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Les droites</span></a></div></li>
+<li><div class="toc-item"><a href="sec-droitesplans.html#sssec-plans" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Les plans</span></a></div></li>
+<li><div class="toc-item"><a href="sec-droitesplans.html#sssec-distances" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec-droitesplans.html#exo-droitesplans" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vecndim.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vecteurs dans <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-vecndim.html#sssec-defopvecn" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Définition et opérations sur les vecteurs</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vecndim.html#sssec-prodscalndim" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Le produit scalaire et le calcul d’angle en dimension supérieure</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vecndim.html#sssec-droitesplanrn" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Espace engendré</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vecndim.html#exo-vecndim" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-veclabos.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-transfo.html" class="internal"><span class="codenumber">2</span> <span class="title">Les transformations linéaires: première partie</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-transfodef.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Les transformations linéaires</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-transfodef.html#sssec-deftransfo" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Définition et premiers exemples de transformations linéaires</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transfodef.html#sssec-transfomatrice" class="internal"><span class="codenumber">2.1.2</span> <span class="title">La forme matricielle d’une transformation linéaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transfodef.html#sssec-opmat" class="internal"><span class="codenumber">2.1.3</span> <span class="title">L’addition matricielle et la multiplication par un scalaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transfodef.html#exo-transfodef" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec-prodmat.html" class="internal"><span class="codenumber">2.2</span> <span class="title">La composition et le produit matriciel</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-prodmat.html#prodmatdef" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Le produit matriciel</span></a></div></li>
+<li><div class="toc-item"><a href="sec-prodmat.html#sssec-prodmatprop" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Les propriétés du produit matriciel</span></a></div></li>
+<li><div class="toc-item"><a href="sec-prodmat.html#exo-prodmat" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matinverse.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Transformations inverses</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matinverse.html#sssec-invgeo" class="internal"><span class="codenumber">2.3.1</span> <span class="title">L’inverse de transformations géométriques</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matinverse.html#sssec-inv2x2" class="internal"><span class="codenumber">2.3.2</span> <span class="title">L’inverse d’une transformation linéaire du plan</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matinverse.html#sssec-matinv" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Définition formelle de l’inverse d’une matrice carrée</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matinverse.html#sssec-propinv" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Propriétés de la matrice inverse</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matinverse.html#sssec-algmat" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Algèbre matricielle</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matinverse.html#exo-matinverse" class="internal"><span class="codenumber">2.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-transfodimsup.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Transformations linéaires de dimension supérieure</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-transfodimsup.html#sssec-transfor3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Transformations linéaires dans l’espace à trois dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transfodimsup.html#ssec-transfogen" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Transformations de dimension quelconque</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transfodimsup.html#exo-transfodimsup" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-transfolabos.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-SEL.html" class="internal"><span class="codenumber">3</span> <span class="title">Les systèmes d’équations linéaires</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-GJ.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Les systèmes d’équations linéaires et la méthode de Gauss-Jordan</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-GJ.html#sssec-SELdef" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Définition et exemples simples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-GJ.html#sssec-opelem" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Opérations et matrices élémentaires</span></a></div></li>
+<li><div class="toc-item"><a href="sec-GJ.html#sssec-GJ" class="internal"><span class="codenumber">3.1.3</span> <span class="title">La méthode de Gauss-Jordan</span></a></div></li>
+<li><div class="toc-item"><a href="sec-GJ.html#exo-GJ" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-SELtheo.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Les systèmes qui n’ont aucune ou  ayant une infinité de solutions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-SELtheo.html#sssec-nbsol" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Le nombre de solutions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-SELtheo.html#ssec-rang" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Le rang d’une matrice</span></a></div></li>
+<li><div class="toc-item"><a href="sec-SELtheo.html#exo-SELtheo" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-SELgeo.html" class="internal"><span class="codenumber">3.3</span> <span class="title">La géométrie des systèmes d’équations linéaires</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-SELgeo.html#sssec-transfozero" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Les zéros d’une transformation linéaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-SELgeo.html#subsection-31" class="internal"><span class="codenumber">3.3.2</span> <span class="title">L’image d’une transformation linéaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-SELgeo.html#sssec-solgen" class="internal"><span class="codenumber">3.3.3</span> <span class="title">La solution générale à <span class="process-math">\(A\vec{x}=\vec{b}\text{.}\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-SELgeo.html#exo-SELgeo" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-transposee.html" class="internal"><span class="codenumber">3.4</span> <span class="title">La transposée d’une matrice</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-transposee.html#ssec-transpose" class="internal"><span class="codenumber">3.4.1</span> <span class="title">La transposée d’une matrice</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transposee.html#sssec-4esp" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Quatre ensembles particuliers de vecteurs</span></a></div></li>
+<li><div class="toc-item"><a href="sec-transposee.html#exo-transposee" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-SELlabos.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-det.html" class="internal"><span class="codenumber">4</span> <span class="title">Le déterminant d’une matrice</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-det2x2.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Le déterminant <span class="process-math">\(2\times 2\)</span></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-det2x2.html#sssec-factchgaire" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Le facteur de changement d’aire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-det2x2.html#subsection-36" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Définition du déterminant</span></a></div></li>
+<li><div class="toc-item"><a href="sec-det2x2.html#subsection-37" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Propriétés du déterminant</span></a></div></li>
+<li><div class="toc-item"><a href="sec-det2x2.html#exo-det2x2" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-detgen.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Le déterminant d’une matrice <span class="process-math">\(n\times n\)</span></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-detgen.html#sssec-detR3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">L’espace à trois dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-detgen.html#subsection-39" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Le déterminant</span></a></div></li>
+<li><div class="toc-item"><a href="sec-detgen.html#exo-detgen" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-cofacteurs.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Les mineurs et les cofacteurs</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-cofacteurs.html#ssec-det3x3formule" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Une formule pour le cas <span class="process-math">\(3\times 3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-cofacteurs.html#sssec-mincof" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Les mineurs et les cofacteurs</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cofacteurs.html#sssec-adjointe" class="internal"><span class="codenumber">4.3.3</span> <span class="title">La matrice adjointe</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cofacteurs.html#exo-cofacteurs" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-espvec.html" class="internal"><span class="codenumber">5</span> <span class="title">Espaces vectoriels</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-ssesp.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Sous-espaces vectoriels</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-ssesp.html#sssec-ssesp" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Sous-espace</span></a></div></li>
+<li><div class="toc-item"><a href="sec-ssesp.html#sssec-quatressesp" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Les quatre sous-espaces vectoriels</span></a></div></li>
+<li><div class="toc-item"><a href="sec-ssesp.html#exo-ssesp" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-bases.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Base d’un sous-espace vectoriel</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-bases.html#sssec-indlin" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Indépendance linéaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-bases.html#sssec-bases" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Base d’un sous-espace vectoriel</span></a></div></li>
+<li><div class="toc-item"><a href="sec-bases.html#sssec-dim" class="internal"><span class="codenumber">5.2.3</span> <span class="title">La dimension d’un sous-espace vectoriel</span></a></div></li>
+<li><div class="toc-item"><a href="sec-bases.html#exo-bases" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-4esp.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Retour sur les quatre sous-espaces fondamentaux</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-4esp.html#subsection-48" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Une base pour les sous-espaces fondamentaux</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4esp.html#subsection-49" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Quelques résultats supplémentaires</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4esp.html#subsection-50" class="internal"><span class="codenumber">5.3.3</span> <span class="title">La géométrie de la transposée et un retour sur l’inverse à gauche et à droite</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4esp.html#exo-4esp" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-espaces.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Espaces vectoriels</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-espaces.html#subsection-51" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Espace vectoriel</span></a></div></li>
+<li><div class="toc-item"><a href="sec-espaces.html#subsection-52" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Quelques espaces importants</span></a></div></li>
+<li><div class="toc-item"><a href="sec-espaces.html#exo-espaces" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-espaceslabos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-propres.html" class="internal"><span class="codenumber">6</span> <span class="title">Vecteurs et valeurs propres</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-propre.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Vecteurs et valeurs propres</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-propre.html#subsection-53" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Vecteurs et valeurs propres</span></a></div></li>
+<li><div class="toc-item"><a href="sec-propre.html#subsection-54" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Polynôme caractéristique et espace propre</span></a></div></li>
+<li><div class="toc-item"><a href="sec-propre.html#subsection-55" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Quelques résultats</span></a></div></li>
+<li><div class="toc-item"><a href="sec-propre.html#exo-propres" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-diagonalisation.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Diagonalisation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-diagonalisation.html#subsection-56" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Diagonalisation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diagonalisation.html#subsection-57" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Changement de base</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diagonalisation.html#subsection-58" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Quelques résultats</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diagonalisation.html#exo-diagonalisation" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-propreslabos.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap-applications.html" class="internal"><span class="codenumber">7</span> <span class="title">Applications</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-Markov.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Chaines de Markov</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-Markov.html#subsection-59" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Définition et exemples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-Markov.html#subsection-60" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Le comportement limite</span></a></div></li>
+<li><div class="toc-item"><a href="sec-Markov.html#subsection-61" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Un peu plus loin</span></a></div></li>
+<li><div class="toc-item"><a href="sec-Markov.html#exo-Markov" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-simplexe.html" class="internal"><span class="codenumber">7.2</span> <span class="title">La programmation linéaire</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-simplexe.html#subsection-62" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Approche graphique à un problème d’optimisation linéaire</span></a></div></li>
+<li><div class="toc-item"><a href="sec-simplexe.html#subsection-63" class="internal"><span class="codenumber">7.2.2</span> <span class="title">L’algorithme du simplexe</span></a></div></li>
+<li><div class="toc-item"><a href="sec-simplexe.html#sssec-proglinmin" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Problèmes de minimisation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-simplexe.html#subsection-65" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Un peu plus loin</span></a></div></li>
+<li><div class="toc-item"><a href="sec-simplexe.html#exo-simplexe" class="internal"><span class="codenumber">7.2.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-prodmat"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">La composition et le produit matriciel</span>
+</h2>
+<section class="introduction" id="intro-prodmat"> <div class="para" id="p-1266">Aller aux <a href="sec-prodmat.html#exo-prodmat" class="internal" title="Exercices 2.2.3: Exercices">exercices 2.2.3</a> de la section.</div> <div class="para" id="p-1267">La composition de transformations linéaires est un procédé important et le produit matriciel qu’elle implique l’est encore plus. Dans cette section, on étudie la composition et le produit matriciel, les propriétés de ces opérations et quelques applications.</div></section><section class="subsection" id="prodmatdef"><h3 class="heading hide-type">
+<span class="type">Sous-section</span> <span class="codenumber">2.2.1</span> <span class="title">Le produit matriciel</span>
+</h3>
+<div class="para" id="p-1268">Soit <span class="process-math">\(A,B\text{,}\)</span> deux matrices  dont le format n’est pas spécifié pour le moment. Si <span class="process-math">\(T_A,T_B\)</span> sont les transformations linéaires associées aux matrices, on s’intéresse à la transformation <span class="process-math">\((T_A\circ T_B)(\vec{u})=T_A(T_B(\vec{u}))\text{,}\)</span> et aux conditions qui font que cette transformation est bien définie.</div>
+<div class="para" id="p-1269">Selon le théorème <a href="" class="xref" data-knowl="./knowl/thm-transfocompo.html" title="Théorème 2.1.19: La composition de transformations linéaires">2.1.19</a>, la composition est elle-même une transformation linéaire, pourvu que l’image de <span class="process-math">\(T_B\)</span> soit dans le domaine de <span class="process-math">\(T_A\text{.}\)</span> Selon la sous-section <a href="sec-transfodef.html#sssec-transfomatrice" class="internal" title="Sous-section 2.1.2: La forme matricielle d’une transformation linéaire">2.1.2</a>, cette transformation devrait elle aussi avoir une matrice la représentant.</div>
+<div class="para" id="p-1270">On suppose que la matrice <span class="process-math">\(B\)</span> contient <span class="process-math">\(p\)</span> lignes et <span class="process-math">\(n\)</span> colonnes. Puisque <span class="process-math">\((T_A\circ T_B)(\vec{u})=T_A(T_B(\vec{u}))=T_A(B\vec{u})=A(B\vec{u})\text{,}\)</span> on doit, dans un premier temps, avoir que <span class="process-math">\(\vec{u}\in \R^n\text{,}\)</span> et le résultat de <span class="process-math">\(B\vec{u}\)</span> sera un vecteur de <span class="process-math">\(\vec{v}\in\R^p\text{.}\)</span> Pour que la multiplication <span class="process-math">\(A\vec{v}\)</span> soit compatible, il faut que la matrice <span class="process-math">\(A\)</span> possède <span class="process-math">\(p\)</span> colonnes. Le nombre de lignes de <span class="process-math">\(A\)</span> ne semble pas jouer un rôle autre que de donner la dimension du vecteur <span class="process-math">\(A\vec{v}\text{,}\)</span> on suppose ainsi que <span class="process-math">\(A\in\mathcal{M}_{m\times p}\text{.}\)</span>
+</div>
+<div class="para" id="p-1271">La composition de deux transformations linéaires <span class="process-math">\((T_A\circ T_B)\vec{u}=T_A(T_B(\vec{u}))\)</span> n’est donc définie que si le nombre de lignes de <span class="process-math">\(B\)</span> correspond au nombre de colonnes de <span class="process-math">\(A\text{.}\)</span> Si <span class="process-math">\(A\)</span> possède <span class="process-math">\(m\)</span> lignes et <span class="process-math">\(B\)</span> possède <span class="process-math">\(n \)</span> colonnes, la transformation <span class="process-math">\((T_A\circ T_B)(\vec{u})\)</span> est une transformation linéaire de <span class="process-math">\(\R^n\)</span> vers <span class="process-math">\(\R^m\)</span> et il devrait donc exister une matrice dans <span class="process-math">\(\mathcal{M}_{m\times n}\)</span> la représentant.</div>
+<div class="para logical" id="p-1272">
+<div class="para">Comment déterminer la matrice de la composition? Il suffit de regarder où vont les vecteurs <span class="process-math">\(\vec{e}_1=(1,0,\ldots,0),\ldots, \vec{e}_n=(0,\ldots,0,1)\text{!}\)</span> On pose <span class="process-math">\(\vec{b}_1,\vec{b}_2,\ldots ,\vec{b}_n\)</span> les colonnes de <span class="process-math">\(B\text{.}\)</span> Alors on a</div>
+<div class="displaymath process-math" id="md-233">
+\begin{align*}
+(T_A\circ T_B)(\vec{e}_1) \amp =T_A(T_B(\vec{e}_1))\\
+\amp =A(B\vec{e}_1)\\
+\amp =A(\vec{b}_1)
+\end{align*}
+</div>
+<div class="para">et ainsi de suite jusqu’à</div>
+<div class="displaymath process-math" id="md-234">
+\begin{align*}
+(T_A\circ T_B)(\vec{e}_n) &amp;=T_A(T_B(\vec{e}_n))\\
+&amp;=A(B\vec{e}_n)\\
+&amp;=A(\vec{b}_n)\text{.}
+\end{align*}
+</div>
+</div>
+<div class="para" id="p-1273">On obtient alors la définition suivante.</div>
+<article class="definition definition-like" id="def-matmatprod"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Le produit matriciel.</span>
+</h4> <div class="para logical" id="p-1274">
+<div class="para">Soit <span class="process-math">\(A\in \mathcal{M}_{m\times p}\)</span> et <span class="process-math">\(B\in\mathcal{M}_{p\times n}\text{,}\)</span> deux matrices. La matrice de la composition <span class="process-math">\((T_A\circ T_B)\vec{u}=T_A(T_B(\vec{u}))\text{,}\)</span> notée <span class="process-math">\(AB\text{,}\)</span> est la matrice dont la colonne <span class="process-math">\(j\)</span> correspond au vecteur <span class="process-math">\(A\vec{b}_j\text{,}\)</span> pour <span class="process-math">\(j=1,2,\ldots, n\text{.}\)</span> On peut donc écrire</div>
+<div class="displaymath process-math" id="eq-matmatproddef">
+\begin{equation}
+AB=\begin{pmatrix}
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\vec{b}_n \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+\end{pmatrix}\text{.}\tag{2.2.1}
+\end{equation}
+</div>
+</div></article><article class="example example-like" id="ex-matmatprod1"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Un produit de deux matrices.</span>
+</h4>
+<div class="para" id="p-1275">On poursuit l’exemple <a href="" class="xref" data-knowl="./knowl/ex-transfocomp.html" title="Exemple 2.1.20: La composition de deux transformations linéaires">2.1.20</a> et l’exercice <a href="" class="xref" data-knowl="./knowl/exo-transfocomp-RP.html" title="Exercice 2.1.4.10">2.1.4.10</a> pour calculer les matrices des transformations <span class="process-math">\(P\circ R_{\frac{\pi}{2}} \)</span>et <span class="process-math">\(R_{\frac{\pi}{2}}\circ P\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-186" id="solution-186"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-186"><div class="solution solution-like"><div class="para logical" id="p-1276">
+<div class="para">Puisque</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-mattransfor2.html">
+\begin{equation*}
+R_{\frac{\pi}{2}}=\begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">et</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-mattransfor2.html">
+\begin{equation*}
+P=\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">(voir l’exemple <a href="" class="xref" data-knowl="./knowl/ex-mattransfor2.html" title="Exemple 2.1.23: Les matrices de certaines transformations linéaires du plan">2.1.23</a>), on a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-mattransfor2.html" id="md-235">
+\begin{align*}
+PR_{\frac{\pi}{2}}&amp;=\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}\begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+\vert &amp; \vert \\
+\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}\vecd{0}{1} &amp; \begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}\vecd{-1}{0} \\
+\vert &amp; \vert
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+1&amp;0\\
+0&amp;-1
+\end{pmatrix}\text{.}
+\end{align*}
+</div>
+</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-187" id="solution-187"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-187"><div class="solution solution-like"><div class="para logical" id="p-1277">
+<div class="para">Puisque</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-mattransfor2.html">
+\begin{equation*}
+R_{\frac{\pi}{2}}=\begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">et</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-mattransfor2.html">
+\begin{equation*}
+P=\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}\text{,}
+\end{equation*}
+</div>
+<div class="para">(voir l’exemple <a href="" class="xref" data-knowl="./knowl/ex-mattransfor2.html" title="Exemple 2.1.23: Les matrices de certaines transformations linéaires du plan">2.1.23</a>) on a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-mattransfor2.html" id="md-236">
+\begin{align*}
+R_{\frac{\pi}{2}}P&amp;=\begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+\vert &amp; \vert \\
+\begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}\vecd{0}{1} &amp; \begin{pmatrix}
+0&amp;-1\\
+1&amp;0
+\end{pmatrix}\vecd{1}{0} \\
+\vert &amp; \vert
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+-1&amp;0\\
+0&amp;1
+\end{pmatrix}\text{.}
+\end{align*}
+</div>
+</div></div></div>
+</div></article><div class="para" id="p-1278">Cet exemple montre en particulier que la multiplication de matrices, contrairement à la multiplication de nombres réels, n’est pas commutative. On pouvait s’y attendre, étant donnée la définition de la multiplication, il y a souvent même des cas où <span class="process-math">\(AB\)</span> est bien défini, mais pas <span class="process-math">\(BA\text{.}\)</span> On étudie les propriétés de la multiplication et de la composition dans la sous-section <a href="sec-prodmat.html#sssec-prodmatprop" class="internal" title="Sous-section 2.2.2: Les propriétés du produit matriciel">2.2.2</a>.</div>
+<div class="para" id="p-1279">On regarde maintenant un exemple dynamique, de nature géométrique.</div>
+<article class="example example-like" id="ex-prodmatgeo"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Le produit matriciel: dynamique.</span>
+</h4>
+<div class="para" id="p-1280">On considère deux transformations linéaires <span class="process-math">\(T_1(x,y),T_2(x,y)\)</span> et la composition <span class="process-math">\(T_1(T_2(x,y))\text{.}\)</span> Dans la figure ci-dessous, on illustre un vecteur <span class="process-math">\(\vec{u}\text{,}\)</span> sa transformation par <span class="process-math">\(T_2\)</span> et par la composition <span class="process-math">\(T_1\circ T_2\text{.}\)</span> Sans faire de calculs algébriques, quelle est la matrice <span class="process-math">\(T_1\text{,}\)</span> sachant que toutes les entrées des matrices sont des entiers?</div> <figure class="figure figure-like" id="fig-prodmatgeo"><iframe id="geog-prodmatgeo" width="600" height="600" src="geog-prodmatgeo-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-41" id="instructions-41"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-41"><div class="solution-like"><div class="para logical" id="p-1281">
+<div class="para">Déplacer le point <span class="process-math">\(B\)</span> afin de voir l’effet de <span class="process-math">\(T_2\)</span> et de <span class="process-math">\(T_1(T_2(x,y))\)</span> sur le vecteur <span class="process-math">\(\vec{u}\text{.}\)</span> Dans les champs de texte <span class="process-math">\(a,b,c,d\text{,}\)</span> entrer les valeurs pour</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T_1=\begin{pmatrix} a&amp;c\\ b&amp;d \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">et appuyer sur "Vérifier la réponse" pour valider. Si désiré, un nouveau problème peut être généré en cliquant sur "Nouveau problème".</div>
+</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.4<span class="period">.</span></span><span class="space"> </span>La transformation extérieure d’une composition, du point de vue géométrique</figcaption></figure></article><div class="para logical" id="p-1282">
+<div class="para">Le produit de deux matrices a été défini comme la composition de deux transformations linéaires, mais une autre approche offre une perspective intéressante. Soit <span class="process-math">\(\vec{u}_1,\vec{u}_2,\ldots ,\vec{u}_n\)</span> des vecteurs de <span class="process-math">\(\R^p\)</span> et soit <span class="process-math">\(A\)</span> une transformation linéaire de <span class="process-math">\(\R^p\)</span> vers <span class="process-math">\(\R^m\)</span> (combien de lignes et combien de colonnes <span class="process-math">\(A\)</span> possède-t-elle?). Pour calculer l’image des vecteurs par <span class="process-math">\(A\text{,}\)</span> on peut construire une matrice <span class="process-math">\(U\)</span> dont les colonnes sont les vecteurs <span class="process-math">\(\vec{u}_1,\vec{u}_2,\ldots, \vec{u}_n\text{.}\)</span> Puisque le produit</div>
+<div class="displaymath process-math">
+\begin{equation*}
+AU=\begin{pmatrix}
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+A\vec{u}_1 &amp; A\vec{u}_2 &amp;\cdots &amp; A\vec{u}_n \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+\end{pmatrix}\text{,}
+\end{equation*}
+</div>
+<div class="para">chaque colonne du produit représente l’image d’un vecteur par la matrice <span class="process-math">\(A\text{.}\)</span> On obtient donc une manière rapide de calculer l’effet d’une transformation linéaire sur plusieurs points.</div>
+</div>
+<div class="para" id="p-1283">Si la matrice <span class="process-math">\(C\)</span> est le produit des matrices <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{,}\)</span> que vaut <span class="process-math">\(c_{i,j}\text{,}\)</span> l’entrée de la ligne <span class="process-math">\(i\)</span> et de la colonne <span class="process-math">\(j\)</span> de la matrice <span class="process-math">\(C\text{?}\)</span> La proposition suivante donne la réponse, offrant par le fait même une autre manière de calculer le produit de deux matrices.</div>
+<article class="proposition theorem-like" id="prop-matmatprod"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Le produit matriciel, entrée par entrée.</span>
+</h4>
+<div class="para logical" id="p-1284">
+<div class="para">Soit <span class="process-math">\(A\in\mathcal{M}_{m\times p}, B\in\mathcal{M}_{p\times n}\)</span> et  <span class="process-math">\(C=AB\)</span> le produit des deux matrices. Alors l’entrée de la ligne <span class="process-math">\(i\)</span> et de la colonne <span class="process-math">\(j\)</span> de la matrice <span class="process-math">\(C\)</span> est donnée par</div>
+<div class="displaymath process-math" id="eq-matmatprodentree">
+\begin{equation}
+c_{i,j}=\vec{a}_i\cdot\vec{b}_j\tag{2.2.2}
+\end{equation}
+</div>
+<div class="para">où <span class="process-math">\(\vec{a}_i\)</span> est la <em class="emphasis">ligne</em>  <span class="process-math">\(i\)</span> de la matrice <span class="process-math">\(A\)</span> et <span class="process-math">\(\vec{b}_j\)</span> est la <em class="emphasis">colonne</em> <span class="process-math">\(j\)</span> de la matrice <span class="process-math">\(B\text{.}\)</span> En plus visuel, on a</div>
+</div> <figure class="figure figure-like" id="fig-matmatprodentree"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/code/LaTeX/fig-matmatprodentree.svg" role="img" class="contained" alt="Le produit de deux matrices, avec la ligne i de la première matrice mise en évidence, tout comme la colonne j. Ensemble, le produit scalaire de ces vecteurs donne l’entrée i,j de la matrice produit."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.6<span class="period">.</span></span><span class="space"> </span>Le produit matriciel, entrée par entrée</figcaption></figure></article><article class="hiddenproof" id="proof-10"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-10"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-10"><article class="hiddenproof"><div class="para logical" id="p-1285">
+<div class="para">Soit <span class="process-math">\(c_{i,j}\text{,}\)</span> une entrée de la matrice <span class="process-math">\(AB\text{.}\)</span> Alors on a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-matmatprod.html ./knowl/eq-matvecprodgen.html" id="md-237">
+\begin{align*}
+c_{i,j}&amp;= \left(A\vec{b}_j\right)_i &amp; &amp;\text{ selon la définition } \knowl{./knowl/def-matmatprod.html}{\text{2.2.1}}\\
+&amp;=\vec{a}_i\cdot \vec{b}_j &amp; &amp;\text{ selon l'équation } \knowl{./knowl/eq-matvecprodgen.html}{\text{(2.1.7)}}
+\end{align*}
+</div>
+</div></article></div>
+<div class="para logical" id="p-1286">
+<div class="para">Dans l’exemple <a href="" class="xref" data-knowl="./knowl/ex-transfor2.html" title="Exemple 2.1.13: Des transformations linéaires du plan : dynamique">2.1.13</a>, on a défini la transformation identité dont la matrice <span class="process-math">\(I\)</span> (pour le cas <span class="process-math">\(\R^2\to \R^2\)</span>) est donnée par l’équation <a href="" class="xref" data-knowl="./knowl/eq-id2x2.html" title="Équation 2.1.8">(2.1.8)</a>. Le nom identité est choisi puisque toute matrice <span class="process-math">\(A\)</span> multipliée par <span class="process-math">\(I\)</span> donne <span class="process-math">\(A\text{,}\)</span> que la multiplication soit faite à gauche ou à droite. Par exemple, pour la multiplication à droite, on a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-transfor2.html ./knowl/eq-id2x2.html ./knowl/eq-matmatprodentree.html" id="md-238">
+\begin{align*}
+IA&amp;=\begin{pmatrix}1&amp;0\\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix}a &amp;c \\ b&amp; d \end{pmatrix}\\
+&amp;\begin{pmatrix} 1*a+0*b &amp; 1*c+0*d \\ 0*a+1*b &amp; 0*c+1*d \end{pmatrix} &amp; &amp; \text{ en utilisant  } \knowl{./knowl/eq-matmatprodentree.html}{\text{(2.2.2)}}\\
+&amp;=\begin{pmatrix}a &amp;c \\ b&amp; d \end{pmatrix}
+\end{align*}
+</div>
+<div class="para">Évidemment, si l’on réfléchit géométriquement, ceci devient évident. On applique d’abord <span class="process-math">\(A\)</span> pour ensuite faire l’identité, qui ne change rien. On définit maintenant la matrice identité pour les transformations <span class="process-math">\(\R^n\to \R^n\text{.}\)</span>
+</div>
+</div>
+<article class="definition definition-like" id="def-matid"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">La matrice identité.</span>
+</h4> <div class="para" id="p-1287">Soit la matrice dont les entrées valent <span class="process-math">\(1\)</span> si le numéro de la ligne correspond à celui de la colonne et <span class="process-math">\(0\)</span> dans les autres cas. Ceci correspond à une transformation qui envoie les vecteurs <span class="process-math">\((1,0,\ldots , 0),(0,1,0,\ldots , 0),\ldots (0,\ldots ,0,1)\)</span> sur eux-mêmes et donc, cela correspond à la transformation qui ne fait rien. On appelle cette matrice <em class="emphasis">l’identité</em> et on la note <span class="process-math">\(I_n\text{,}\)</span> ou tout simplement <span class="process-math">\(I\)</span> lorsque la dimension est évidente par le contexte ou sans importance.</div></article><div class="para" id="p-1288">Lorsqu’on multiplie une matrice <span class="process-math">\(A\)</span> par elle-même, on obtient alors le carré de cette matrice, noté <span class="process-math">\(A^2\text{.}\)</span> En matière de transformations linéaires, cela revient à composer la fonction avec elle-même ou à l’appliquer deux fois. En généralisant, on obtient les puissances d’une matrice.</div>
+<article class="definition definition-like" id="def-matpui"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">2.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Les puissances d’une matrice.</span>
+</h4> <div class="para logical" id="p-1289">
+<div class="para">Soit <span class="process-math">\(A\text{,}\)</span> une matrice carrée. On définit la <span class="process-math">\(k\)</span> ième puissance de <span class="process-math">\(A\)</span> comme étant le produit de <span class="process-math">\(A\)</span> avec elle-même, <span class="process-math">\(k\)</span> fois:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^k=\underbrace{AA\cdots A}_{k \text{ fois }}\text{.}
+\end{equation*}
+</div>
+</div></article><div class="para" id="p-1290">Les puissances de matrices sont utiles dans divers contextes, comme le montre l’exemple suivant. Le chapitre <code class="code-inline tex2jax_ignore">[provisional cross-reference: Applications]</code> contient d’autres exemples concrets d’applications.</div>
+<article class="example example-like" id="ex-prodmatchemins"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Une application du produit matriciel.</span>
+</h4> <div class="para" id="p-1291">On considère trois villes reliées par des routes à sens unique. Les différents chemins possibles sont illustrés dans la figure ci-dessous. On peut créer une matrice qui contient l’information de ce graphe où l’entrée <span class="process-math">\(i,j\)</span> de la matrice représente le nombre de chemins possibles pour se rendre de la ville <span class="process-math">\(i \)</span> à la ville <span class="process-math">\(j\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig-graphvilles"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/sageplot/sageplot-graphvilles.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.10<span class="period">.</span></span><span class="space"> </span>Trois villes et leurs chemins</figcaption></figure> <div class="para logical" id="p-1292"><div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix}
+0&amp;2&amp;1\\
+0&amp;0&amp;1\\
+2&amp;1&amp;0
+\end{pmatrix}
+\end{equation*}
+</div></div> <div class="para" id="p-1293">Les puissances <span class="process-math">\(k\)</span> de la matrice <span class="process-math">\(A\)</span> représente le nombre de chemins de "longueur" <span class="process-math">\(k\)</span> pour se rendre de la ville <span class="process-math">\(i\)</span> à la ville <span class="process-math">\(j\)</span> en empruntant <span class="process-math">\(k\)</span> chemins. Par exemple, on peut calculer avec Sage les puissances de la matrice <span class="process-math">\(A\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-77"><script type="text/x-sage">A=matrix([[0,2,1],[0,0,1],[2,1,0]])
+show("A=",A)
+show("A^2=",A^2)
+show("A^3=",A^3)
+show("A^5=",A^5)
+show("En particulier, il y a   ", (A^5)[0][0], " chemins de longueur 5 se rendant de la ville 1 et retournant à la ville 1")
+</script></pre></article><div class="para" id="p-1294">On termine avec des commandes Sage en lien avec la sous-section.</div>
+<article class="computation computation-like" id="sageex-prodmatdef"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">2.2.11</span><span class="period">.</span><span class="space"> </span><span class="title">Le produit matriciel sur Sage.</span>
+</h4> <div class="para" id="p-1295">Si l’on a deux matrices <span class="process-math">\(A,B\)</span> sur Sage, on peut facilement les multiplier en utilisant l’opération <code class="code-inline tex2jax_ignore">*</code>. Il faut bien entendu que les dimensions soient compatibles. La deuxième cellule produit volontairement une erreur.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-78"><script type="text/x-sage">A=column_matrix([[1,-3],[4,5]])
+B=column_matrix([[0,-3],[2,1],[-1,3]])
+show("AB=", A*B)
+</script></pre> <pre class="ptx-sagecell sagecell-sage" id="sage-79"><script type="text/x-sage">A=column_matrix([[1,-3],[4,5]])
+B=column_matrix([[0,-3],[2,1],[-1,3]])
+show(B*A)
+</script></pre> <div class="para" id="p-1296">On applique maintenant une transformation à un ensemble de points,  en construisant à partir des exemples <a href="" class="xref" data-knowl="./knowl/sageex-utvec.html" title="Calcul 1.1.40: Utilisation de Sage dans la résolution de problèmes de géométrie vectorielle">1.1.40</a> et <a href="" class="xref" data-knowl="./knowl/sageex-deftransfo.html" title="Calcul 2.1.21: Les transformations sur Sage">2.1.21</a>. Pour cela, un peu de conversion est nécessaire, il faudra convertir une liste en matrice, puis une matrice en liste. La première conversion se fait bien avec la commande <code class="code-inline tex2jax_ignore">column_matrix</code>. Celle-ci prend la liste <code class="code-inline tex2jax_ignore">L</code> et la transforme en matrice colonne. Après la multiplication de cette nouvelle matrice par la transformation linéaire, il faut convertir la matrice <code class="code-inline tex2jax_ignore">AL</code> en liste de points. Pour cela, on utilise la commande <code class="code-inline tex2jax_ignore">list</code> sur les colonnes de <code class="code-inline tex2jax_ignore">AL</code>. Le nombre de colonnes d’une matrice <code class="code-inline tex2jax_ignore">M</code> est donné par la commande <code class="code-inline tex2jax_ignore">M.ncols()</code>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-80"><script type="text/x-sage">#Définition des points du quadrilatère ABCD
+A=vector([0,0])
+B=vector([3,0])
+C=vector([5,4])
+D=vector([2,2])    
+#On forme une liste contenant tous les points (vecteurs)
+L=list([A,B,C,D])
+#On doit convertir cette liste en matrice
+MatL=column_matrix(L)
+#Définition de la matrice de transformation linéaire
+u=vector([sqrt(2)/2,sqrt(2)/2])
+v=vector([-sqrt(2)/2,sqrt(2)/2])
+A=column_matrix([u,v])
+AL=A*MatL
+#On convertit la matrice en liste pour pouvoir la tracer.
+ALpoints=list(AL.column(i) for i in range(AL.ncols()))
+polygon(L,color="blue")+polygon(ALpoints,color="red")
+</script></pre> <div class="para" id="p-1297">La matrice <a href="" class="xref" data-knowl="./knowl/def-matid.html" title="Définition 2.2.7: La matrice identité">identité 2.2.7</a> est connue de sage, on peut l’obtenir à l’aide de la commande <code class="code-inline tex2jax_ignore">identity_matrix(n)</code> où <span class="process-math">\(n\)</span> est la taille de la matrice carrée.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-81"><script type="text/x-sage">I3=identity_matrix(3)
+show(I3)
+I8=identity_matrix(8)
+show(I8)
+</script></pre></article></section><section class="subsection" id="sssec-prodmatprop"><h3 class="heading hide-type">
+<span class="type">Sous-section</span> <span class="codenumber">2.2.2</span> <span class="title">Les propriétés du produit matriciel</span>
+</h3>
+<div class="para" id="p-1298">Contrairement à l’addition de matrices, le produit ne possède pas exactement les mêmes propriétés que la multiplication de nombres réels. On a déjà observé, à l’exemple <a href="" class="xref" data-knowl="./knowl/ex-matmatprod1.html" title="Exemple 2.2.2: Un produit de deux matrices">2.2.2</a>, que la multiplication n’est pas commutative. Les propriétés suivantes sont toujours satisfaites pour le produit matriciel.</div>
+<article class="proposition theorem-like" id="prop-prodmatprop"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.2.12</span><span class="period">.</span><span class="space"> </span><span class="title">Les propriétés du produit matriciel.</span>
+</h4>
+<div class="para" id="p-1299">Soit <span class="process-math">\(A\in\mathcal{M}_{m\times n}\text{,}\)</span> <span class="process-math">\(B\)</span> et <span class="process-math">\(C\text{,}\)</span> des matrices de format approprié et <span class="process-math">\(r\in \R\text{.}\)</span> On a</div> <figure class="list table-like" id="li-prodmatprop"><figcaption><span class="type">Liste</span><span class="space"> </span><span class="codenumber">2.2.13<span class="period">.</span></span><span class="space"> </span>Propriétés du produit matriciel</figcaption><div class="named-list-content"><ol class="decimal">
+<li id="li-291"><div class="para" id="p-1300"><span class="process-math">\(\displaystyle AI_n=I_mA=A\)</span></div></li>
+<li id="li-distprodmat"><div class="para" id="p-1301">
+<span class="process-math">\((A+B)C=AC+BC\)</span> et <span class="process-math">\(A(B+C)=AB+AC\)</span>
+</div></li>
+<li id="li-assoscalprodmat"><div class="para" id="p-1302"><span class="process-math">\(\displaystyle (rA)B=r(AB)=A(rB)\)</span></div></li>
+<li id="li-assoprodmat"><div class="para" id="p-1303"><span class="process-math">\((AB)C=A(BC)\text{.}\)</span></div></li>
+</ol></div></figure> <div class="para" id="p-1304">La dernière propriété signifie que la multiplication est associative. Comme elle n’est pas commutative, il est primordial de porter attention à l’ordre des multiplications dans la propriété <a href="" class="xref" data-knowl="./knowl/li-distprodmat.html" title="Point 2.2.13:2">2.2.13:2</a>.</div></article><article class="hiddenproof" id="proof-11"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-11"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-11"><article class="hiddenproof"><div class="para logical" id="p-1305">
+<div class="para">On pose <span class="process-math">\(\vec{e}_k\text{,}\)</span> les colonnes de la matrice identité <span class="process-math">\(I_n\)</span> et <span class="process-math">\(\vec{a}_k\)</span> les colonnes de <span class="process-math">\(A\text{.}\)</span> Comme la <span class="process-math">\(k\)</span> ième colonne du produit <span class="process-math">\(AI_n\)</span> est donnée par <span class="process-math">\(A\vec{e}_k\)</span> et que ce produit matrice vecteur correspond à <span class="process-math">\(a_k\text{,}\)</span> on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+AI_n=A\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-1306">
+<div class="para">De plus, la <span class="process-math">\(k\)</span> ième colonne de <span class="process-math">\(I_mA\)</span> est donnée par <span class="process-math">\(I_m\vec{a}_k\)</span> et ce produit matrice vecteur vaut <span class="process-math">\(a_k\text{.}\)</span> On a donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+I_mA=A\text{.}
+\end{equation*}
+</div>
+</div></article></div>
+<article class="hiddenproof" id="proof-12"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-12"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-12"><article class="hiddenproof"><div class="para logical" id="p-1307">
+<div class="para">On pose <span class="process-math">\(\vec{c}_k\text{,}\)</span> la <span class="process-math">\(k\)</span> ième colonne de la matrice <span class="process-math">\(C\text{.}\)</span> Selon l’addition matricielle, on a pour la <span class="process-math">\(k\)</span> ième colonne de <span class="process-math">\((A+B)C\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(A+B)\vec{c}_k=A\vec{c}_k+B\vec{c}_k
+\end{equation*}
+</div>
+<div class="para">et donc, <span class="process-math">\((A+B)C=AC+BC\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-1308">
+<div class="para">De même, si <span class="process-math">\(\vec{b}_k\)</span> représente la <span class="process-math">\(k\)</span> ième colonne de <span class="process-math">\(B\text{,}\)</span> on peut déterminer la <span class="process-math">\(k\)</span> ième colonne de <span class="process-math">\(A(B+C)\)</span> en utilisant le fait que la <span class="process-math">\(k\)</span> ième colonne de <span class="process-math">\(B+C\)</span> est <span class="process-math">\(\vec{b}_k+\vec{c}_k\)</span> pour avoir</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A(\vec{b}_k+\vec{c}_k)=A\vec{b}_k+A\vec{c}_k\text{.}
+\end{equation*}
+</div>
+<div class="para">Ainsi, <span class="process-math">\(A(B+C)=AB+AC\text{.}\)</span>
+</div>
+</div></article></div>
+<article class="hiddenproof" id="proof-13"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof"><div class="para logical" id="p-1309">
+<div class="para">Pour la multiplication par un scalaire, on a d’une part</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-matprodscal.html" id="md-239">
+\begin{align*}
+(rA)B&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+(rA)\vec{b}_1 &amp; (rA)\vec{b}_2 &amp;\cdots &amp; (rA)\vec{b}_n \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;\\
+&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+r(A\vec{b}_1) &amp; r(A\vec{b}_2) &amp;\cdots &amp; r(A\vec{b}_n) \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp; \text{selon l'associativité du produit matrice vecteur (À faire?)}\\
+&amp;= r\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\vec{b}_n \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp; \text{Selon }\knowl{./knowl/def-matprodscal.html}{\text{2.1.34}}\\
+&amp;=r(AB)
+\end{align*}
+</div>
+<div class="para">et d’un autre part</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-matprodscal.html" id="md-240">
+\begin{align*}
+(rA)B&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+(rA)\vec{b}_1 &amp; (rA)\vec{b}_2 &amp;\cdots &amp; (rA)\vec{b}_n \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;\\
+&amp;=\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+A(r\vec{b}_1) &amp; A(r\vec{b}_2) &amp;\cdots &amp; A(r\vec{b}_n) \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp;&amp; \text{selon l'associativité du produit matrice vecteur (À faire?)}\\
+&amp;=A(rB)\text{.}
+\end{align*}
+</div>
+</div></article></div>
+<article class="hiddenproof" id="proof-14"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-14"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-14"><article class="hiddenproof"><div class="para logical" id="p-1310">
+<div class="para">Pour l’associativité, on suppose que <span class="process-math">\(B\in\mathcal{M}_{n,p}\)</span> et <span class="process-math">\(C\in\mathcal{M}_{p,q}\text{.}\)</span> On a alors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-matmatprod.html" id="md-241">
+\begin{align*}
+(AB)C&amp;=\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+(AB)\vec{c}_1 &amp; (AB)\vec{c}_2 &amp;\cdots &amp; (AB)\vec{c}_q \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;\\
+&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+A(B\vec{c}_1) &amp; A(B\vec{c}_2) &amp;\cdots &amp; A(B\vec{c}_q) \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;\text{ selon la définition } \knowl{./knowl/def-matmatprod.html}{\text{2.2.1}}\\
+&amp;= A\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+B\vec{c}_1 &amp; B\vec{c}_2 &amp;\cdots &amp; B\vec{c}_q \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;\\
+&amp;=A(BC)\text{.}
+\end{align*}
+</div>
+</div></article></div>
+<div class="para" id="p-1311">La multiplication matricielle permet d’obtenir la matrice de certaines transformations linéaires en se ramenant à un cas connu.</div>
+<article class="insight remark-like" id="con-casconnu"><h4 class="heading">
+<span class="type">Conseil</span><span class="space"> </span><span class="codenumber">2.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">Se ramener à un cas connu.</span>
+</h4> <div class="para" id="p-1312">En mathématiques, il est fréquent de prendre un problème et de le transformer en plusieurs problèmes plus simples et déjà connus. Par exemple, on peut calculer l’aire d’un polygone en le décomposant en triangles, formes plus simples et d’aire connue. </div></article><article class="example example-like" id="ex-refR2"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.2.15</span><span class="period">.</span><span class="space"> </span><span class="title">La réflexion par rapport à une droite passant par l’origine.</span>
+</h4>
+<div class="para logical" id="p-1313">
+<div class="para">On considère <span class="process-math">\(\mathcal{D}\)</span> une droite de <span class="process-math">\(\R^2\)</span> passant par l’origine, qui fait un angle de <span class="process-math">\(\theta\)</span> avec l’axe des abscisses (mesuré dans le sens antihoraire). On cherche à faire une réflexion par rapport à cette droite. On peut déterminer la matrice de cette réflexion de la manière suivante:</div>
+<ol class="decimal">
+<li id="li-295"><div class="para" id="p-1314">On commence par faire une rotation de <span class="process-math">\(\theta\)</span> dans le sens horaire afin de ramener la droite sur l’axe des abscisses.</div></li>
+<li id="li-296"><div class="para" id="p-1315">On effectue ensuite la réflexion par rapport à l’axe des abscisses, que l’on sait faire (voir l’exemple <a href="" class="xref" data-knowl="./knowl/ex-transfor2.html" title="Exemple 2.1.13: Des transformations linéaires du plan : dynamique">2.1.13</a>).</div></li>
+<li id="li-297"><div class="para" id="p-1316">Par la suite, on ramène le tout à la position initiale en effectuant une rotation de <span class="process-math">\(\theta\)</span> dans le sens antihoraire.</div></li>
+</ol>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-188" id="solution-188"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-188"><div class="solution solution-like">
+<div class="para logical" id="p-1317">
+<div class="para">Selon l’énoncé du problème, cette réflexion est en fait une composition de deux rotations et de la réflexion <span class="process-math">\(S_x\text{.}\)</span> Si l’on pose <span class="process-math">\(S_{\theta}\)</span> la réflexion cherchée, on a alors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-rotr2.html ./knowl/eq-refx.html" id="md-242">
+\begin{align}
+S_{\theta}&amp;=R_{\theta}S_xR_{-\theta}\notag\\
+&amp;=\begin{pmatrix}
+\cos(\theta) &amp; -\sin(\theta)\\
+\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+1&amp;0\\
+0&amp;-1
+\end{pmatrix}
+\begin{pmatrix}
+\cos(-\theta) &amp; -\sin(-\theta)\\
+\sin(-\theta) &amp; \cos(-\theta)
+\end{pmatrix} &amp;&amp; \text{selon les équations } \knowl{./knowl/eq-rotr2.html}{\text{(2.1.13)}} \text{ et } \knowl{./knowl/eq-refx.html}{\text{(2.1.9)}}\notag\\
+&amp;=\left[\begin{pmatrix}
+\cos(\theta) &amp; -\sin(\theta)\\
+\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+1&amp;0\\
+0&amp;-1
+\end{pmatrix} \right]
+\begin{pmatrix}
+\cos(\theta) &amp; \sin(\theta)\\
+-\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix} &amp;&amp; \text{selon l'associativité de la multiplication matricielle et les identités } \sin(-\theta)=-\sin(\theta) \text{ et } \cos(-\theta)=\cos(\theta)\notag\\
+&amp;=\begin{pmatrix}
+\cos(\theta)&amp;\sin(\theta)\\
+\sin(\theta)&amp;-\cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+\cos(\theta) &amp; \sin(\theta)\\
+-\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix}\notag\\
+&amp;=
+\begin{pmatrix}
+\cos^2(\theta)-\sin^2(\theta) &amp; 2\sin(\theta)\cos(\theta)\\
+2\sin(\theta)\cos(\theta) &amp; \sin^2(\theta)-\cos^2(\theta)
+\end{pmatrix}\tag{2.2.3}\\
+&amp;=
+\begin{pmatrix}
+\cos(2\theta)&amp; \sin(2\theta)\\
+\sin(2\theta) &amp; -\cos(2\theta)
+\end{pmatrix} &amp;&amp; \text{en vertu des identités } \cos^2(\theta)-\sin^2(\theta)=\cos(2\theta) \text{ et } 2\sin(\theta)\cos(\theta)=\sin(2\theta)\text{.}\tag{2.2.4}
+\end{align}
+</div>
+</div> <div class="para" id="p-1318">L’une ou l’autre des formes matricielles peut être utilisée.</div>
+</div></div>
+</div></article><div class="para" id="p-1319">On termine avec un exemple de compositions de transformations linéaires, en utilisant Sage pour faire les calculs.</div>
+<article class="computation computation-like" id="sageex-propprodmat"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">2.2.16</span><span class="period">.</span><span class="space"> </span><span class="title">La composition de certaines transformations.</span>
+</h4> <div class="para" id="p-1320">On considère une rotation d’angle <span class="process-math">\(\theta_1\)</span> et une rotation d’angle <span class="process-math">\(\theta_2\text{.}\)</span> Intuitivement, la composition de ces deux rotations devrait être une rotation d’angle <span class="process-math">\(\theta_1+\theta_2\text{.}\)</span> On peut le vérifier algébriquement à l’aide de Sage.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-82"><script type="text/x-sage">var("theta1,theta2")
+Rtheta1=column_matrix([[cos(theta1),sin(theta1)],[-sin(theta1),cos(theta1)]])
+Rtheta2=column_matrix([[cos(theta2),sin(theta2)],[-sin(theta2),cos(theta2)]])
+produit=Rtheta1*Rtheta2
+show(produit.simplify_trig())
+show(produit.apply_map(lambda x: x.trig_reduce()))
+</script></pre> <div class="para" id="p-1321">La dernière ligne du code permet d’obtenir la simplification voulue. La méthode <code class="code-inline tex2jax_ignore">apply_map</code> permet d’appliquer <code class="code-inline tex2jax_ignore">trig_reduce()</code> à chaque entrée de la matrice par le biais d’une fonction intermédiaire <code class="code-inline tex2jax_ignore">lambda</code>. Ceci n’est pas très intuitif, mais, pour l’instant, ça suffira. L’exercice <code class="code-inline tex2jax_ignore">[provisional cross-reference: simplifiermatrice]</code> permettra de créer une fonction plus simple qui pourra simplifier une matrice.</div> <div class="para" id="p-1322">On voit toutefois qu’après simplification, la transformation est bel et bien une rotation d’angle <span class="process-math">\(\theta_1+\theta_2\text{.}\)</span>
+</div> <div class="para" id="p-1323">On s’intéresse maintenant à la composition de deux réflexions d’angle respectif <span class="process-math">\(\phi_1,\phi_2\text{.}\)</span> Est-ce que le résultat de ce type de composition sera aussi une réflexion? Si oui, pourquoi, si non, donner un exemple avant d’exécuter le code ci-dessous.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-83"><script type="text/x-sage">var("phi1,phi2")
+Sphi1=column_matrix([[cos(2*phi1),sin(2*phi1)],[sin(2*phi1),-cos(2*phi1)]])
+Sphi2=column_matrix([[cos(2*phi2),sin(2*phi2)],[sin(2*phi2),-cos(2*phi2)]])
+produit=Sphi1*Sphi2
+show(produit.simplify_trig())
+show(produit.apply_map(lambda x: x.trig_reduce()))
+</script></pre> <div class="para" id="p-1324">Le résultat, peut-être surprenant, est une rotation. La simplification effectuée par Sage ne montre pas directement la forme d’une matrice de rotation, mais on peut montrer qu’elle est équivalente à une rotation d’angle <span class="process-math">\(2(\phi_1-\phi_2)\text{.}\)</span> Ceci suggère également que les réflexions ne sont pas commutatives, à savoir qu’en général, <span class="process-math">\(S_{\phi_1}S_{\phi_2}\neq S_{\phi_2}S_{\phi_1}\text{.}\)</span>
+</div> <div class="para" id="p-1325">Maintenant, on s’intéresse à la composition d’une rotation et d’une réflexion. Comme on sait que la multiplication n’est pas commutative, on regarde s’il y a une différence entre faire la réflexion en premier suivie de la rotation et la rotation suivie de la réflexion (peut-on faire une prédiction?).</div> <div class="para" id="p-1326">D’abord, <span class="process-math">\(R_{\theta}S_{\phi}\text{:}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-84"><script type="text/x-sage">var("theta,phi")
+Rtheta=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]])
+Sphi=column_matrix([[cos(2*phi),sin(2*phi)],[sin(2*phi),-cos(2*phi)]])
+produit=Rtheta*Sphi
+show(produit.simplify_trig())
+show(produit.apply_map(lambda x: x.trig_reduce()))
+</script></pre> <div class="para" id="p-1327">Le résultat semble donc être une réflexion d’angle <span class="process-math">\(\frac{\theta+2\phi}{2}\text{.}\)</span>
+</div> <div class="para" id="p-1328">On compare maintenant avec <span class="process-math">\(S_{\phi}R_{\theta}\text{:}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-85"><script type="text/x-sage">var("theta,phi")
+Rtheta=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]])
+Sphi=column_matrix([[cos(2*phi),sin(2*phi)],[sin(2*phi),-cos(2*phi)]])
+produit=Sphi*Rtheta1
+show(produit.simplify_trig())
+show(produit.apply_map(lambda x: x.trig_reduce()))
+</script></pre> <div class="para" id="p-1329">Le résultat est encore une fois une réflexion, mais cette fois-ci d’angle <span class="process-math">\(\frac{-\theta+2\phi}{2}\text{.}\)</span>
+</div> <div class="para logical" id="p-1330">
+<div class="para">Finalement, on s’intéresse à la composition de trois transformations, en utilisant les calculs précédents et l’associativité pour déterminer le résultat final.</div>
+<ol class="decimal">
+<li id="li-298"><div class="para logical" id="p-1331">
+<div class="para">La composition de trois rotations devrait être, elle aussi, une rotation dont l’angle correspond à la somme des angles de chacune des rotations. En utilisant l’associativité, on montre facilement que</div>
+<div class="displaymath process-math" id="md-243">
+\begin{align*}
+R_{\theta_1}(R_{\theta_2}R_{\theta_3})&amp;=R_{\theta_1}R_{\theta_2+\theta_3} &amp;&amp; \text{puisque  la composition de deux rotations est une rotation dont l'angle est la somme des angles}\\
+&amp;=R_{\theta_1+\theta_2+\theta_3} &amp;&amp; \text{puisque  la composition de deux rotations est une rotation dont l'angle est la somme des angles}\\
+&amp;=R_{\theta_1+\theta_2}R_{\theta_3} &amp;&amp; \text{selon l'associativité de l'addition de nombres réels et la composition de rotations}\\
+&amp;(R_{\theta_1}R_{\theta_2})R_{\theta_3} &amp;&amp;\text{puisque la composition de deux rotations est une rotation dont l'angle est la somme des angles}\text{.}
+\end{align*}
+</div>
+<div class="para">L’associativité est ainsi vérifiée et cohérente avec la composition de rotations.</div>
+</div></li>
+<li id="li-299"><div class="para logical" id="p-1332">
+<div class="para">La composition de trois réflexions semble plus difficile à analyser. Deux réflexions composées ensemble donnent une rotation. Une rotation composée avec une réflexion donne une réflexion, mais on sait que l’ordre de la composition est important. Est-ce alors évident que l’associativité sera respectée? On a d’une part</div>
+<div class="displaymath process-math" id="md-244">
+\begin{align*}
+S_{\phi_1}(S_{\phi_2}S_{\phi_3})&amp;=S_{\phi_1}R_{2(\phi_2-\phi_3)} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}\\
+&amp;=S_{\frac{-(2(\phi_2-\phi_3))+2\phi_1}{2}} &amp;&amp; \text{puisque  la composition d'une rotation suivie d'une réflexion est une réflexion dont l'angle est la moitié de la différence entre le double de l'angle de la réflexion et l'angle de la rotation}\\
+&amp;=S_{\phi_1-\phi_2+\phi_3} &amp;&amp; \text{après simplification}\text{.}
+\end{align*}
+</div>
+<div class="para">D’autre part, on a</div>
+<div class="displaymath process-math" id="md-245">
+\begin{align*}
+(S_{\phi_1}S_{\phi_2})S_{\phi_3}&amp;=R_{2(\phi_1-\phi_2)}S_{\phi_3} &amp;&amp; \text{puisque  la composition de deux réflexions est une rotation dont l'angle est le double de la différence entre la deuxième et la première réflexion}\\
+&amp;=S_{\frac{2(\phi_1-\phi_2)+2\phi_3}{2}} &amp;&amp; \text{puisque  la composition d'une réflexion suivie d'une rotation est une réflexion dont l'angle est la moitié de la somme entre le double de l'angle de la réflexion et l'angle de la rotation}\\
+&amp;=S_{\phi_1-\phi_2+\phi_3} &amp;&amp; \text{après simplification}\text{.}
+\end{align*}
+</div>
+<div class="para">On a donc bel et bien égalité.</div>
+</div></li>
+</ol>
+<div class="para">D’autres cas seront explorés à l’exercice  <a href="" class="xref" data-knowl="./knowl/exo-associativiterotref.html" title="Exercice 2.2.3.9">2.2.3.9</a>.</div>
+</div></article></section><section class="conclusion" id="concl-prodmat"> <div class="para logical" id="p-1333">
+<div class="para">Les points importants de cette section sont</div>
+<ul class="disc">
+<li id="li-300"><div class="para" id="p-1334">La multiplication matricielle, selon la <a href="" class="xref" data-knowl="./knowl/def-matmatprod.html" title="Définition 2.2.1: Le produit matriciel">définition par les colonnes 2.2.1</a> ou selon un calcul <code class="code-inline tex2jax_ignore">[provisional cross-reference: prop-matmatprod]</code>;</div></li>
+<li id="li-301"><div class="para" id="p-1335">La définition de la matrice <a href="" class="xref" data-knowl="./knowl/def-matid.html" title="Définition 2.2.7: La matrice identité">identité 2.2.7</a>;</div></li>
+<li id="li-302"><div class="para" id="p-1336">Le fait que la multiplication n’est pas commutative;</div></li>
+<li id="li-303"><div class="para" id="p-1337">Le concept de puissances d’une matrice;</div></li>
+<li id="li-304"><div class="para" id="p-1338">Les <a href="" class="xref" data-knowl="./knowl/li-prodmatprop.html" title="Liste 2.2.13: Propriétés du produit matriciel">propriétés 2.2.13</a> de la multiplication matricielle;</div></li>
+<li id="li-305"><div class="para" id="p-1339">La forme matricielle d’une réflexion, donnée par l’équation <a href="" class="xref" data-knowl="./knowl/eq-refr2-2.html" title="Équation 2.2.4">(2.2.4)</a>.</div></li>
+</ul>
+<div class="para">De plus, avec Sage, on peut multiplier des matrices en utilisant l’opération <code class="code-inline tex2jax_ignore">*</code>. On peut aussi appliquer une transformation linéaire à un ensemble de points en transformant ces points en matrice pour ensuite effectuer la multiplication. Le nombre de colonnes d’une matrice <span class="process-math">\(A\)</span> est obtenu à l’aide de la commande <code class="code-inline tex2jax_ignore">A.ncols()</code> et le nombre de lignes serait obtenu avec <code class="code-inline tex2jax_ignore">A.nrows()</code>. La commande <code class="code-inline tex2jax_ignore">trig_reduce</code> permet de simplifier des équations trigonométriques. On peut obtenir la matrice identité à l’aide de la commande <code class="code-inline tex2jax_ignore">identity_matrix(n)</code>.</div>
+</div></section><section class="exercises" id="exo-prodmat"><h3 class="heading hide-type">
+<span class="type">Exercices</span> <span class="codenumber">2.2.3</span> <span class="title">Exercices</span>
+</h3>
+<article class="exercise exercise-like" id="exo-AIegaleA"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="p-1340">Démontrer que, peu importe la matrice <span class="process-math">\(A\in\mathcal{M}_2\text{,}\)</span> on a <span class="process-math">\(AI=A\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-35" id="hint-35"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-35"><div class="hint solution-like"><div class="para" id="p-1341">Il faut simplement créer une matrice quelconque et faire le calcul.</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-189" id="solution-189"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-189"><div class="solution solution-like"><div class="para logical" id="p-1342">
+<div class="para">Soit <span class="process-math">\(A=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\in\mathcal{M}_2\text{.}\)</span> Alors,</div>
+<div class="displaymath process-math" id="md-246">
+\begin{align*}
+AI&amp;=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}\\
+&amp;=\begin{pmatrix}a*1+b*0&amp;a*0+b*1\\c*1+d*0&amp;c*0+d*1\end{pmatrix}\\
+&amp;=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\\
+&amp;=A
+\end{align*}
+</div>
+</div></div></div>
+</div></article><article class="exercise exercise-like" id="exo-prodmatpascommutatif"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para logical" id="p-1343">
+<div class="para">Soit deux matrices carrées <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{.}\)</span> Considérer l’équation suivante:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(A+B)^2=A^2+2AB+B^2\text{.}
+\end{equation*}
+</div>
+<div class="para">Démontrer cette équation si elle est valide. Sinon, donner un contrexemple.</div>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-36" id="hint-36"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-36"><div class="hint solution-like"><div class="para" id="p-1344">Considérer la commutativité du produit matriciel.</div></div></div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-90" id="answer-90"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-90"><div class="answer solution-like"><div class="para" id="p-1345">L’équation n’est pas valide. Un contrexemple possible est <span class="process-math">\(A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\)</span> et <span class="process-math">\(B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\text{.}\)</span>
+</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-190" id="solution-190"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-190"><div class="solution solution-like"><div class="para logical" id="p-1346">
+<div class="para">Avec le contrexemple <span class="process-math">\(A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\)</span> et <span class="process-math">\(B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\text{,}\)</span> on calcule <span class="process-math">\((A+B)^2\)</span> et <span class="process-math">\(A^2+2AB+B^2\)</span> et l’on constate que ce n’est pas égal. En effet,</div>
+<div class="displaymath process-math" id="md-247">
+\begin{align*}
+(A+B)^2&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)^2\\
+&amp;=\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}\\
+&amp;=\begin{pmatrix}12&amp;0\\0&amp;12\end{pmatrix}
+\end{align*}
+</div>
+<div class="para">et</div>
+<div class="displaymath process-math" id="md-248">
+\begin{align*}
+A^2+2AB+B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2+2\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+2\begin{pmatrix}3&amp;0\\0&amp;2\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\\
+&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}+\begin{pmatrix}6&amp;0\\0&amp;4\end{pmatrix}+\begin{pmatrix}6&amp;0\\0&amp;6\end{pmatrix}\\
+&amp;=\begin{pmatrix}13&amp;0\\0&amp;11\end{pmatrix}
+\end{align*}
+</div>
+<div class="para">Algébriquement, c’est faux puisque le produit matriciel n’est pas commutatif. On a donc que <span class="process-math">\(AB\neq BA\text{.}\)</span> Ainsi,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(A+B)^2=(A+B)(A+B)=AA+BA+AB+BB\neq A^2+2AB+B^2\text{.}
+\end{equation*}
+</div>
+</div></div></div>
+</div></article><article class="exercise exercise-like" id="exercise-77"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="p-1347">Est-ce que l’équation <span class="process-math">\((A-B)(A+B)=A^2-B^2\)</span> est valide pour les matrices carrées? Si oui, il faut le démontrer et si non, trouver un contrexemple.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-91" id="answer-91"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-91"><div class="answer solution-like"><div class="para" id="p-1348">L’équation n’est pas valide. L’exercice précédent fournit un contrexemple, soit <span class="process-math">\(A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\)</span> et <span class="process-math">\(B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\text{.}\)</span>
+</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-191" id="solution-191"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-191"><div class="solution solution-like"><div class="para logical" id="p-1349">
+<div class="para">Avec le contrexemple <span class="process-math">\(A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\)</span> et <span class="process-math">\(B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\text{,}\)</span> on calcule <span class="process-math">\((A-B)(A+B)\)</span> et <span class="process-math">\(A^2-B^2\)</span> et l’on constate que ce n’est pas égal. En effet,</div>
+<div class="displaymath process-math" id="md-249">
+\begin{align*}
+(A-B)(A+B)&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)\\
+&amp;=\begin{pmatrix}0&amp;-1\\-2&amp;0\end{pmatrix}\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}\\
+&amp;=\begin{pmatrix}-4&amp;0\\0&amp;-6\end{pmatrix}
+\end{align*}
+</div>
+<div class="para">et</div>
+<div class="displaymath process-math" id="md-250">
+\begin{align*}
+A^2-B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2-\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\\
+&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}-\begin{pmatrix}6&amp;0\\0&amp;6\end{pmatrix}\\
+&amp;=\begin{pmatrix}-5&amp;0\\0&amp;-5\end{pmatrix}
+\end{align*}
+</div>
+<div class="para">Algébriquement, c’est faux puisque le produit matriciel n’est pas commutatif. On a donc que <span class="process-math">\(AB\neq BA\text{.}\)</span> Ainsi,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(A-B)(A+B)=AA+AB-BA-BB=A^2+AB-BA-B^2\neq A^2-B^2\text{.}
+\end{equation*}
+</div>
+</div></div></div>
+</div></article><article class="exercise exercise-like" id="exo-prodmatzero"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para" id="p-1350">Avec les nombres réels, si <span class="process-math">\(xy=0\text{,}\)</span> alors <span class="process-math">\(x=0\)</span> ou <span class="process-math">\(y=0\)</span> (possiblement les deux). Est-ce aussi vrai pour les matrices? C’est-à-dire, si <span class="process-math">\(AB=O\)</span> pour deux matrices compatibles pour la multiplication, est-ce que <span class="process-math">\(A=O\)</span> ou <span class="process-math">\(B=O\text{?}\)</span> Si oui, il faut le démontrer et si non, trouver un contrexemple. On rappelle que <span class="process-math">\(O\)</span> dénote la matrice nulle de taille appropriée.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-37" id="hint-37"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-37"><div class="hint solution-like"><div class="para" id="p-1351">Penser à deux projections orthogonales successives dans <span class="process-math">\(\R^2\)</span> telles que leur composition annihilera tout vecteur.</div></div></div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-92" id="answer-92"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-92"><div class="answer solution-like"><div class="para" id="p-1352">Les matrices <span class="process-math">\(A=\begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}\)</span> et <span class="process-math">\(B=\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}\)</span> fonctionnent. Il existe d’autres réponses possibles.</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-192" id="solution-192"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-192"><div class="solution solution-like"><div class="para logical" id="p-1353">
+<div class="para">Comme le dit l’indice du problème, on peut réfléchir à une composition de transformations qui ramènerait tout vecteur au vecteur nul. La transformation dont la matrice est <span class="process-math">\(O\)</span> peut donc être obtenue en composant, par exemple, une projection orthogonale sur l’axe des <span class="process-math">\(x\)</span> (<span class="process-math">\(A\)</span>) et une projection orthogonale sur l’axe des <span class="process-math">\(y\)</span> (<span class="process-math">\(B\)</span>) . Les matrices permettant cela ont déjà été introduites, mais on peut les retrouver  en réfléchissant à l’image des vecteurs de la base canonique. On aura <span class="process-math">\(A=\begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}\)</span> et <span class="process-math">\(B=\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}\text{.}\)</span> En les multipliant, on obtient:</div>
+<div class="displaymath process-math" id="md-251">
+\begin{align*}
+AB&amp;=\begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}\\
+&amp;=\begin{pmatrix}0&amp;0\\0&amp;0\end{pmatrix}\\
+&amp;=O
+\end{align*}
+</div>
+</div></div></div>
+</div></article><article class="exercise exercise-like" id="exo-matpermudef"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-42"><div class="para logical" id="p-1354">
+<div class="para">Une matrice de permutation est une matrice <span class="process-math">\(P\)</span> telle que chaque colonne et chaque ligne ne contient qu’une entrée non nulle égale à <span class="process-math">\(1\text{.}\)</span> Par exemple, la matrice</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P=\begin{pmatrix}
+1 &amp; 0&amp; 0 &amp; 0 \\
+0&amp; 0 &amp; 1&amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 &amp; 0
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">est une matrice de permutation.</div>
+</div></div>
+<article class="task exercise-like" id="task-110"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="p-1355">Faire la liste de toutes les matrices de permutations <span class="process-math">\(2\times 2\text{.}\)</span> Quel est l’effet d’une matrice de permutation <span class="process-math">\(2\times 2\)</span> sur un vecteur?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-193" id="solution-193"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-193"><div class="solution solution-like"><div class="para" id="p-1356">Voici la liste: <span class="process-math">\(\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}\)</span> et <span class="process-math">\(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\text{.}\)</span> La première matrice est l’identité, qui ne modifie donc pas les vecteurs, et la seconde est une matrice de réflexion selon l’axe <span class="process-math">\(y=x\text{.}\)</span> Algébriquement, cette seconde matrice fait simplement <em class="emphasis">permuter</em> ses composantes en <span class="process-math">\(x\)</span> et <span class="process-math">\(y\text{.}\)</span>
+</div></div></div>
+</div></article><article class="task exercise-like" id="task-111"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="p-1357">Faire la liste de toutes les matrices de permutations <span class="process-math">\(3\times 3\text{.}\)</span> Quel est l’effet d’une matrice de permutation <span class="process-math">\(3\times 3\)</span> sur un vecteur?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-194" id="solution-194"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-194"><div class="solution solution-like"><div class="para" id="p-1358">Voici la liste: <span class="process-math">\(\begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1\end{pmatrix}\text{,}\)</span> <span class="process-math">\(\begin{pmatrix}0&amp;1&amp;0\\1&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}\text{,}\)</span> <span class="process-math">\(\begin{pmatrix}0&amp;0&amp;1\\0&amp;1&amp;0\\1&amp;0&amp;0\end{pmatrix}\text{,}\)</span> <span class="process-math">\(\begin{pmatrix}1&amp;0&amp;0\\0&amp;0&amp;1\\0&amp;1&amp;0\end{pmatrix}\text{,}\)</span> <span class="process-math">\(\begin{pmatrix}0&amp;1&amp;0\\0&amp;0&amp;1\\1&amp;0&amp;0\end{pmatrix}\)</span> et <span class="process-math">\(\begin{pmatrix}0&amp;0&amp;1\\1&amp;0&amp;0\\0&amp;1&amp;0\end{pmatrix}\text{.}\)</span> La première matrice est l’identité, qui ne modifie pas les vecteurs. Les trois suivantes sont des matrices de réflexion selon différents plans, puisqu’un des trois vecteurs colonnes demeure inchangé. Par exemple, la deuxième est une réflexion selon le plan <span class="process-math">\(y=x\)</span> et <span class="process-math">\((0,0,1)\)</span> reste inchangé. Finalement, les deux dernières sont des matrices de rotation, soit dans le sens horaire soit antihoraire autour de l’axe parallèle au vecteur <span class="process-math">\((1,1,1)\text{.}\)</span> Algébriquement, toutes les matrices de permutation font <em class="emphasis">permuter</em> les composantes d’un vecteur soit deux à deux (réflexions), ou toutes les trois (rotations).</div></div></div>
+</div></article><article class="task exercise-like" id="task-112"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="p-1359">Si <span class="process-math">\(P_a\)</span> et <span class="process-math">\(P_b\)</span> sont deux matrices de permutation, est-ce que leur produit est une matrice de permutation?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-93" id="answer-93"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-93"><div class="answer solution-like"><div class="para" id="p-1360">Oui.</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-195" id="solution-195"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-195"><div class="solution solution-like"><div class="para" id="p-1361">Oui, il s’agit encore d’une matrice de permutation. Logiquement, si l’on fait des permutations de composantes, et qu’on fait ensuite d’autres permutations, la composition de ces deux opérations se fera en une seule opération de permutation.</div></div></div>
+</div></article><article class="task exercise-like" id="task-113"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="p-1362">Si <span class="process-math">\(P_a\)</span> et <span class="process-math">\(P_b\)</span> sont deux matrices de permutation, est-ce que <span class="process-math">\(P_aP_b=P_bP_a\text{?}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-94" id="answer-94"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-94"><div class="answer solution-like"><div class="para" id="p-1363">Non.</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-196" id="solution-196"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-196"><div class="solution solution-like"><div class="para logical" id="p-1364">
+<div class="para">En général, les matrices sont rarement commutatives et les permutations ne font pas exceptions à cette règle. Ici, il est possible de trouver un contrexemple où <span class="process-math">\(P_aP_b \neq P_bP_a\text{.}\)</span> On choisit <span class="process-math">\(P_a=\begin{pmatrix}0&amp;1&amp;0\\1&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span> et <span class="process-math">\(P_b=\begin{pmatrix}1&amp;0&amp;0\\0&amp;0&amp;1\\0&amp;1&amp;0\end{pmatrix}\text{.}\)</span> Alors,</div>
+<div class="displaymath process-math" id="md-252">
+\begin{align*}
+P_aP_b&amp;=\begin{pmatrix}0&amp;1&amp;0\\1&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}\begin{pmatrix}1&amp;0&amp;0\\0&amp;0&amp;1\\0&amp;1&amp;0\end{pmatrix}\\
+&amp;=\begin{pmatrix}0&amp;0&amp;1\\1&amp;0&amp;0\\0&amp;1&amp;0\end{pmatrix}\\
+&amp;\neq \begin{pmatrix}0&amp;1&amp;0\\0&amp;0&amp;1\\1&amp;0&amp;0\end{pmatrix}\\
+&amp;=\begin{pmatrix}1&amp;0&amp;0\\0&amp;0&amp;1\\0&amp;1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1&amp;0\\1&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}\\
+&amp;=P_bP_a
+\end{align*}
+</div>
+</div></div></div>
+</div></article></article><article class="exercise exercise-like" id="exo-eqmatgeo"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-43"><div class="para" id="p-1365">Soit <span class="process-math">\(A=\begin{pmatrix} a&amp; c \\ b &amp; d \end{pmatrix}\)</span> une matrice à coefficients réels. En réfléchissant de façon géométrique, puis en démontrant algébriquement que c’est bien le cas, trouver le plus grand nombre de  matrices différentes <span class="process-math">\(A\)</span> telles que</div></div>
+<article class="task exercise-like" id="task-114"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="p-1366"><span class="process-math">\(A^2=I\text{.}\)</span></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-95" id="answer-95"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-95"><div class="answer solution-like"><div class="para logical" id="p-1367">
+<div class="displaymath process-math">
+\begin{equation*}
+A=I\text{, } A=R_{180^\circ}\text{ ou } A=S_{\theta}\text{ pour tout angle } \theta\in[0,2\pi[
+\end{equation*}
+</div>
+<div class="para">Autrement écrit,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}\text{, } A=\begin{pmatrix}-1 &amp; 0\\0 &amp; -1\end{pmatrix}
+\text{ ou } A=\begin{pmatrix}
+\cos(2\theta)&amp; \sin(2\theta)\\
+\sin(2\theta) &amp; -\cos(2\theta)
+\end{pmatrix}\text{ pour tout angle } \theta\in[0,2\pi[
+\end{equation*}
+</div>
+</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-197" id="solution-197"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-197"><div class="solution solution-like"><div class="para logical" id="p-1368">
+<div class="para">Géométriquement, on cherche à trouver une transformation linéaire qui, si l’on effectue cette transformation deux fois, a comme résultat de ne rien changer au vecteur initial. Bref, le déplacement initial doit être en quelque sorte <em class="emphasis">annulé</em> en refaisant la même transformation. On pense assez rapidement aux réflexions. En effet, une réflexion par rapport à n’importe quel axe répété deux fois ramènera tout vecteur à son emplacement initial. Par l’équation <a href="" class="xref" data-knowl="./knowl/eq-refr2-2.html" title="Équation 2.2.4">(2.2.4)</a>, on sait que toutes les matrices de réflexion sont de la même forme. On démontre que <span class="process-math">\(S_{\theta}^2=I\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-refr2-2.html ./knowl/eq-rotr2.html" id="md-253">
+\begin{align*}
+S_{\theta}^2&amp;=\begin{pmatrix}
+\cos(2\theta)&amp; \sin(2\theta)\\
+\sin(2\theta) &amp; -\cos(2\theta)
+\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}
+\cos(2\theta)&amp; \sin(2\theta)\\
+\sin(2\theta) &amp; -\cos(2\theta)
+\end{pmatrix}\begin{pmatrix}
+\cos(2\theta)&amp; \sin(2\theta)\\
+\sin(2\theta) &amp; -\cos(2\theta)
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+\cos^2(2\theta)+\sin^2(2\theta)&amp; \cos(2\theta)\sin(2\theta)-\sin(2\theta)\cos(2\theta)\\
+\sin(2\theta)\cos(2\theta)-\cos(2\theta)\sin(2\theta) &amp; \sin^2(2\theta)+\cos^2(2\theta)
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}\\
+&amp;=I
+\end{align*}
+</div>
+<div class="para">Une autre transformation est une rotation de <span class="process-math">\(180^\circ\text{.}\)</span> En effet, lorsque l’on répète cette rotation, on revient au point de départ. Par l’équation <a href="" class="xref" data-knowl="./knowl/eq-rotr2.html" title="Équation 2.1.13">(2.1.13)</a>, on obtient rapidement la matrice de rotation et l’on vérifie que <span class="process-math">\(R_{180^\circ}^2=I\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-refr2-2.html ./knowl/eq-rotr2.html" id="md-254">
+\begin{align*}
+R_{180^\circ}^2&amp;=\begin{pmatrix}
+\cos(180^\circ) &amp; -\sin(180^\circ)\\
+\sin(180^\circ) &amp; \cos(180^\circ)
+\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}
+-1 &amp; 0\\
+0 &amp; -1
+\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}
+-1 &amp; 0\\
+0 &amp; -1
+\end{pmatrix}
+\begin{pmatrix}
+-1 &amp; 0\\
+0 &amp; -1
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+1 &amp; 0\\
+0 &amp; 1
+\end{pmatrix}\\
+&amp;=I
+\end{align*}
+</div>
+<div class="para">Finalement, il ne faut pas oublier que la matrice identité est une transformation linéaire. Répéter cette transformation qui ne change rien ne transformera pas les vecteurs et donc <span class="process-math">\(I^2=I\text{.}\)</span> La vérification algébrique est simple.</div>
+</div></div></div>
+</div></article><article class="task exercise-like" id="task-115"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="p-1369"><span class="process-math">\(A^2=-I\text{.}\)</span></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-96" id="answer-96"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-96"><div class="answer solution-like"><div class="para logical" id="p-1370"><div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix} \text{ ou }
+A=\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}
+\end{equation*}
+</div></div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-198" id="solution-198"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-198"><div class="solution solution-like"><div class="para logical" id="p-1371">
+<div class="para">Puisque la transformation composée doit globalement amener le vecteur <span class="process-math">\((1,0)\)</span> à <span class="process-math">\((-1,0)\)</span> et <span class="process-math">\((0,1)\)</span> à <span class="process-math">\((0,-1)\text{,}\)</span> on a une solution assez simple avec la rotation. Si l’on fait une rotation de <span class="process-math">\(90^\circ\)</span> et qu’on la répète, on arrivera à cette position. On le vérifie algébriquement. Par l’équation <a href="" class="xref" data-knowl="./knowl/eq-rotr2.html" title="Équation 2.1.13">(2.1.13)</a>,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-rotr2.html" id="md-255">
+\begin{align*}
+R_{90^\circ}^2&amp;=\begin{pmatrix}
+\cos(90^\circ) &amp; -\sin(90^\circ)\\
+\sin(90^\circ) &amp; \cos(90^\circ)
+\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+-1 &amp; 0\\
+0 &amp; -1
+\end{pmatrix}\\
+&amp;=-I
+\end{align*}
+</div>
+<div class="para">En réalité, une infinité de matrices de rotation peuvent faire l’affaire. En effet, il suffit d’avoir une rotation qui permet, lorsque répétée deux fois, d’aboutir à un angle qui soit un multiple de <span class="process-math">\(2\pi\text{,}\)</span> partant de <span class="process-math">\(\pi\text{.}\)</span> Autrement dit, si <span class="process-math">\(2\theta=\pi+2\pi k, k\in\mathbb{Z}\text{,}\)</span> la matrice fonctionne. On le montre.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-rotr2.html" id="md-256">
+\begin{align*}
+R_{\frac{\pi}{2}+\pi k}^2&amp;=\begin{pmatrix}
+\cos\left(\frac{\pi}{2}+\pi k\right) &amp; -\sin\left(\frac{\pi}{2}+\pi k\right)\\
+\sin\left(\frac{\pi}{2}+\pi k\right) &amp; \cos\left(\frac{\pi}{2}+\pi k\right)
+\end{pmatrix}^2\\
+&amp;=\begin{cases}\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix}^2 &amp;\text{ si } k \text{ pair} \\
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}^2 &amp;\text{ si } k \text{ impair}
+\end{cases}\\
+&amp;=\begin{cases}\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix}\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix} &amp;\text{ si } k \text{ pair} \\
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix} &amp;\text{ si } k \text{ impair}
+\end{cases}\\
+&amp;=\begin{pmatrix}
+-1 &amp; 0\\
+0 &amp; -1
+\end{pmatrix}\\
+&amp;=-I
+\end{align*}
+</div>
+<div class="para">On réalise cependant que toutes les matrices où <span class="process-math">\(k\)</span> est de même parité sont identiques. En effet, une rotation de <span class="process-math">\(90^\circ\)</span> est identique à une rotation de <span class="process-math">\(450^\circ\text{.}\)</span> Bref, les deux matrices de rotation possibles sont de <span class="process-math">\(90^\circ\)</span> et de <span class="process-math">\(270^\circ\)</span> avec les matrices respectives:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-rotr2.html">
+\begin{equation*}
+R_{90^\circ}=\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix} \text{ et }
+R_{270^\circ}=\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}
+\end{equation*}
+</div>
+</div></div></div>
+</div></article><article class="task exercise-like" id="task-116"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="p-1372"><span class="process-math">\(A^2=O\text{.}\)</span></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-97" id="answer-97"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-97"><div class="answer solution-like"><div class="para logical" id="p-1373"><div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix}
+0 &amp; 0\\
+0 &amp; 0
+\end{pmatrix}\text{ ,  }
+A=\begin{pmatrix}
+0 &amp; 0\\
+b &amp; 0
+\end{pmatrix}\text{  ou  }
+A=\begin{pmatrix}
+0 &amp; c\\
+0 &amp; 0
+\end{pmatrix} \text{ , }b,c\in\R
+\end{equation*}
+</div></div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-199" id="solution-199"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-199"><div class="solution solution-like">
+<div class="para" id="p-1374">Pour obtenir la matrice nulle en transformant deux fois de suite, il existe quelques options. La plus facile est de définir <span class="process-math">\(A=O\text{,}\)</span> la transformation qui ramène tous les vecteurs à l’origine. Il est évident que <span class="process-math">\(O^2=O\text{,}\)</span> on n’a pas à le démontrer algébriquement.</div> <div class="para logical" id="p-1375">
+<div class="para">De la même manière, les matrices</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+0 &amp; 0\\
+b &amp; 0
+\end{pmatrix}\text{  et  }
+\begin{pmatrix}
+0 &amp; c\\
+0 &amp; 0
+\end{pmatrix} \text{ , }b,c\in\R
+\end{equation*}
+</div>
+<div class="para">satisfont l’équation <span class="process-math">\(A^2=O\)</span> en raison des nombreux zéros. Elles représentent des transformations que l’on ne connait pas encore. On peut avoir une intuition géométrique en voyant où les vecteurs de base se retrouvent. La première matrice envoie <span class="process-math">\((1,0)\)</span> sur <span class="process-math">\((0,b)\)</span> et <span class="process-math">\((0,1)\)</span> sur <span class="process-math">\((0,0)\text{.}\)</span>
+</div>
+</div>
+</div></div>
+</div></article><article class="task exercise-like" id="task-117"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="p-1376"><span class="process-math">\(A^2=A\text{.}\)</span></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-98" id="answer-98"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-98"><div class="answer solution-like"><div class="para logical" id="p-1377"><div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix}
+0 &amp; 0\\
+0 &amp; 0
+\end{pmatrix}\text{ ,  }
+A=\begin{pmatrix}
+1 &amp; 0\\
+0 &amp; 1
+\end{pmatrix}
+\text{ ,  }
+A=\begin{pmatrix}
+1 &amp; k\\
+0 &amp; 0
+\end{pmatrix}
+\text{ ,  }
+A=\begin{pmatrix}
+1 &amp; 0\\
+k &amp; 0
+\end{pmatrix}
+\text{ ,  }
+A=\begin{pmatrix}
+0 &amp; k\\
+0 &amp; 1
+\end{pmatrix}\text{  ou  }
+A=\begin{pmatrix}
+0 &amp; 0\\
+k &amp; 1
+\end{pmatrix} \text{ , }k\in\R
+\end{equation*}
+</div></div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-200" id="solution-200"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-200"><div class="solution solution-like">
+<div class="para logical" id="p-1378">
+<div class="para">Intuitivement, il faut trouver une matrice de transformation qui donne le même résultat qu’elle soit composée avec elle-même ou prise seule. Toutes les transformations du type projections orthogonales ou pas sont telles qu’on ne change rien en répétant la transformation. On peut penser rapidement aux transformations orthogonales sur <span class="process-math">\((1,0)\)</span> et sur <span class="process-math">\((0,1)\)</span> données respectivement par les matrices</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 &amp; 0\\
+0 &amp; 0
+\end{pmatrix} \text{ et }\begin{pmatrix}
+0 &amp; 0\\
+0 &amp; 1
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Cela dit, de nombreuses autres matrices de projection fonctionneront. En effet, dès que soit une ligne, soit une colonne est nulle, on aura une projection oblique qui fonctionne. Par exemple, si <span class="process-math">\(A=\begin{pmatrix}
+1 &amp; k\\
+0 &amp; 0
+\end{pmatrix}, k\in\R\text{,}\)</span> alors</div>
+<div class="displaymath process-math" id="md-257">
+\begin{align*}
+A^2&amp;=\begin{pmatrix}
+1 &amp; k\\
+0 &amp; 0
+\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}
+1 &amp; k\\
+0 &amp; 0
+\end{pmatrix}\begin{pmatrix}
+1 &amp; k\\
+0 &amp; 0
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+1 &amp; k\\
+0 &amp; 0
+\end{pmatrix}\\
+&amp;=A
+\end{align*}
+</div>
+<div class="para">Il en sera de même pour les matrices <span class="process-math">\(\begin{pmatrix}
+1 &amp; 0\\
+k &amp; 0
+\end{pmatrix}, k\in\R\text{,}\)</span> <span class="process-math">\(\begin{pmatrix}
+0 &amp; k\\
+0 &amp; 1
+\end{pmatrix}, k\in\R\)</span> et <span class="process-math">\(\begin{pmatrix}
+0 &amp; 0\\
+k &amp; 1
+\end{pmatrix}, k\in\R\)</span>
+</div>
+</div> <div class="para" id="p-1379">Finalement, la matrice identité et la matrice nulle fonctionnent également. Il est facile de le vérifier.</div>
+</div></div>
+</div></article></article><article class="exercise exercise-like" id="exo-etirementR2"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="para" id="p-1380">En utilisant une méthode analogue à celle de l’exemple <a href="" class="xref" data-knowl="./knowl/ex-refR2.html" title="Exemple 2.2.15: La réflexion par rapport à une droite passant par l’origine">2.2.15</a>, déterminer la matrice de transformation linéaire permettant de faire un étirement de facteur <span class="process-math">\(k\)</span> dans la direction d’un vecteur <span class="process-math">\(\vec{u}=(\cos(\theta), \sin(\theta))\text{.}\)</span> Utiliser les matrices <span class="process-math">\(R_\theta\)</span> et <span class="process-math">\(R_{-\theta}\)</span> de l’exercice ainsi que la matrice d’étirement horizontal de facteur <span class="process-math">\(k\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-38" id="hint-38"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-38"><div class="hint solution-like"><div class="para" id="p-1381">La démarche consiste en réalité à effectuer d’abord une rotation d’angle <span class="process-math">\(-\theta\text{,}\)</span> ensuite à étirer horizontalement, puis à effectuer la rotation d’angle <span class="process-math">\(\theta\text{.}\)</span> On le fait en multipliant les trois matrices ensemble. On peut trouver les matrices nécessaires dans l’exemple <a href="" class="xref" data-knowl="./knowl/ex-mattransfor2.html" title="Exemple 2.1.23: Les matrices de certaines transformations linéaires du plan">2.1.23</a>.</div></div></div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-99" id="answer-99"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-99"><div class="answer solution-like"><div class="para logical" id="p-1382"><div class="displaymath process-math">
+\begin{equation*}
+E\theta_k=\begin{pmatrix}
+k\cos^2(\theta)+\sin^2(\theta) &amp; (k-1)\sin(\theta)\cos(\theta)\\
+(k-1)\sin(\theta)\cos(\theta) &amp; k\sin^2(\theta)+\cos^2(\theta)
+\end{pmatrix}
+\end{equation*}
+</div></div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-201" id="solution-201"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-201"><div class="solution solution-like"><div class="para logical" id="p-1383">
+<div class="para">Selon l’énoncé du problème, cet étirement est en fait une composition de deux rotations et de l’étirement horizontal de facteur <span class="process-math">\(k\)</span> <span class="process-math">\(Eh_k\text{.}\)</span> Si l’on pose <span class="process-math">\(E\theta_k\)</span> l’étirement cherché, on a alors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-rotr2.html ./knowl/eq-etirementhr2.html" id="md-258">
+\begin{align*}
+E\theta_k&amp;=R_{\theta}Eh_kR_{-\theta}\\
+&amp;=\begin{pmatrix}
+\cos(\theta) &amp; -\sin(\theta)\\
+\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+k&amp;0\\
+0&amp;1
+\end{pmatrix}
+\begin{pmatrix}
+\cos(-\theta) &amp; -\sin(-\theta)\\
+\sin(-\theta) &amp; \cos(-\theta)
+\end{pmatrix} &amp;&amp; \text{selon les équations } \knowl{./knowl/eq-rotr2.html}{\text{(2.1.13)}} \text{ et } \knowl{./knowl/eq-etirementhr2.html}{\text{(2.1.10)}}\\
+&amp;=\begin{pmatrix}
+\cos(\theta) &amp; -\sin(\theta)\\
+\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+k&amp;0\\
+0&amp;1
+\end{pmatrix}
+\begin{pmatrix}
+\cos(\theta) &amp; \sin(\theta)\\
+-\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix} &amp;&amp; \text{selon les identités } \sin(-\theta)=-\sin(\theta) \text{ et } \cos(-\theta)=\cos(\theta)\\
+&amp;=\left[\begin{pmatrix}
+\cos(\theta) &amp; -\sin(\theta)\\
+\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+k&amp;0\\
+0&amp;1
+\end{pmatrix} \right]
+\begin{pmatrix}
+\cos(\theta) &amp; \sin(\theta)\\
+-\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix} &amp;&amp; \text{selon l'associativité de la multiplication matricielle}\\
+&amp;=\begin{pmatrix}
+k\cos(\theta)&amp;-\sin(\theta)\\
+k\sin(\theta)&amp;\cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+\cos(\theta) &amp; \sin(\theta)\\
+-\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix}\\
+&amp;=
+\begin{pmatrix}
+k\cos^2(\theta)+\sin^2(\theta) &amp; (k-1)\sin(\theta)\cos(\theta)\\
+(k-1)\sin(\theta)\cos(\theta) &amp; k\sin^2(\theta)+\cos^2(\theta)
+\end{pmatrix}\text{.}
+\end{align*}
+</div>
+</div></div></div>
+</div></article><article class="exercise exercise-like" id="exo-dirinvariantesR2"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="para" id="p-1384">À partir de la matrice développée à l’exercice <a href="" class="xref" data-knowl="./knowl/exo-etirementR2.html" title="Exercice 2.2.3.7">2.2.3.7</a> considérer un étirement <span class="process-math">\(T\)</span> dans la direction d’angle <span class="process-math">\(\theta=30^\circ\)</span> et de facteur <span class="process-math">\(k=2\text{.}\)</span> Vérifier que pour le vecteur <span class="process-math">\(\vec{u}=\begin{pmatrix}\cos(\theta)\\ \sin(\theta)\end{pmatrix}=\begin{pmatrix}\sqrt{3}/2\\1/2\end{pmatrix}\text{,}\)</span> on a <span class="process-math">\(T(\vec{u})=2\vec{u}\)</span> et que <span class="process-math">\(T(\vec{u}_\perp)=\vec{u}_\perp\text{.}\)</span>
+</div> <div class="para" id="p-1385">On appelle ces deux directions les <em class="emphasis">directions invariantes</em> d’une transformation linéaire. On les appelle également des <em class="emphasis">vecteurs propres</em> et le facteur d’étirement une <em class="emphasis">valeur propre</em>. On étudiera ces notions à la section <code class="code-inline tex2jax_ignore">[provisional cross-reference: section sur les valeurs propres]</code>.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-202" id="solution-202"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-202"><div class="solution solution-like"><div class="para logical" id="p-1386">
+<div class="para">On calcule la matrice d’étirement de facteur <span class="process-math">\(2\)</span>dans la direction <span class="process-math">\(\theta=30^\circ\)</span> simplement en remplaçant cet angle et cette valeur dans la matrice trouvée précédemment. On obtient:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/pro-vecperp.html" id="md-259">
+\begin{align*}
+E30^\circ_2&amp;=\begin{pmatrix}
+k\cos^2(\theta)+\sin^2(\theta) &amp; (k-1)\sin(\theta)\cos(\theta)\\
+(k-1)\sin(\theta)\cos(\theta) &amp; k\sin^2(\theta)+\cos^2(\theta)
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+2\cos^2(30^\circ)+\sin^2(30^\circ) &amp; (2-1)\sin(30^\circ)\cos(30^\circ)\\
+(2-1)\sin(30^\circ)\cos(30^\circ) &amp; 2\sin^2(30^\circ)+\cos^2(30^\circ)
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+\frac{7}{4} &amp; \frac{\sqrt{3}}{4}\\
+\frac{\sqrt{3}}{4} &amp; \frac{5}{4}
+\end{pmatrix}
+\end{align*}
+</div>
+<div class="para">On vérifie ensuite le résultat de la transformation des deux vecteurs donnés.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/pro-vecperp.html" id="md-260">
+\begin{align*}
+T(\vec{u})&amp;=\begin{pmatrix}
+\frac{7}{4} &amp; \frac{\sqrt{3}}{4}\\
+\frac{\sqrt{3}}{4} &amp; \frac{5}{4}
+\end{pmatrix}\begin{pmatrix}\frac{\sqrt{3}}{2}\\\frac{1}{2}\end{pmatrix}\\
+&amp;=\begin{pmatrix}\frac{7}{4}*\frac{\sqrt{3}}{2}+\frac{\sqrt{3}}{4}*\frac{1}{2}\\\frac{\sqrt{3}}{4}*\frac{\sqrt{3}}{2}+\frac{5}{4}*\frac{1}{2}\end{pmatrix}\\
+&amp;=\begin{pmatrix}\sqrt{3}\\1\end{pmatrix}\\
+&amp;=2\begin{pmatrix}\frac{\sqrt{3}}{2}\\\frac{1}{2}\end{pmatrix}\\
+&amp;=2\vec{u}
+\end{align*}
+</div>
+<div class="para">et</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/pro-vecperp.html" id="md-261">
+\begin{align*}
+T(\vec{u}_\perp)&amp;=T\left(\begin{pmatrix}\frac{\sqrt{3}}{2}\\\frac{1}{2}\end{pmatrix}_\perp\right)\\
+&amp;=T\begin{pmatrix}-\frac{1}{2}\\\frac{\sqrt{3}}{2}\end{pmatrix}&amp;\text{ par } \knowl{./knowl/pro-vecperp.html}{\text{1.3.8}}\\
+&amp;=\begin{pmatrix}
+\frac{7}{4} &amp; \frac{\sqrt{3}}{4}\\
+\frac{\sqrt{3}}{4} &amp; \frac{5}{4}
+\end{pmatrix}\begin{pmatrix}-\frac{1}{2}\\\frac{\sqrt{3}}{2}\end{pmatrix}\\
+&amp;=\begin{pmatrix}\frac{7}{4}*\left(-\frac{1}{2}\right)+\frac{\sqrt{3}}{4}*\frac{\sqrt{3}}{2}\\\frac{\sqrt{3}}{4}*\left(-\frac{1}{2}\right)+\frac{5}{4}*\frac{\sqrt{3}}{2}\end{pmatrix}\\
+&amp;=\begin{pmatrix}-\frac{1}{2}\\\frac{\sqrt{3}}{2}\end{pmatrix}\\
+&amp;=\vec{u}_\perp
+\end{align*}
+</div>
+</div></div></div>
+</div></article><article class="exercise exercise-like" id="exo-associativiterotref"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-44"><div class="para" id="p-1387">Soit <span class="process-math">\(R_{\theta_1},R_{\theta_2},S_{\phi_1}\)</span> et <span class="process-math">\(S_{\phi_2}\text{,}\)</span> des matrices de rotation d’angle <span class="process-math">\(\theta_1\)</span> et <span class="process-math">\(\theta_2\)</span> et de réflexion d’angle <span class="process-math">\(\phi_1\)</span> et <span class="process-math">\(\phi_2\text{.}\)</span> En utilisant les résultats de l’exemple <a href="" class="xref" data-knowl="./knowl/sageex-propprodmat.html" title="Calcul 2.2.16: La composition de certaines transformations">2.2.16</a>, décrire les compositions suivantes en utilisant à la fois <span class="process-math">\((AB)C\)</span> et <span class="process-math">\(A(BC)\)</span> afin de vérifier l’associativité.</div></div>
+<article class="task exercise-like" id="task-118"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="p-1388"><span class="process-math">\(R_{\theta_1}R_{\theta_2}S_{\phi_1}\)</span></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-39" id="hint-39"><span class="type">Indice</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-39"><div class="hint solution-like">
+<div class="para" id="p-1389">On procède de façon semblable à l’exemple, en utilisant les résultats pour la composition des rotations et des réflexions. Entre autres, on a <span class="process-math">\(R_{\theta_1}S_{\theta_2}=S_{\frac{\theta_1+2\theta_2}{2}}\)</span> et <span class="process-math">\(S_{\theta_2}R_{\theta_1}=S_{\frac{-\theta_1+2\theta_2}{2}}\text{.}\)</span>
+</div> <div class="para" id="p-1390">On remarque également que les démonstrations d’associativité se construisent souvent du début et de la fin, vers le milieu. Autrement dit, on peut développer <span class="process-math">\(A(BC)\)</span> et <span class="process-math">\((AB)C\)</span> et simplifier pour constater qu’on arrive à la même transformation (au milieu des démarches). On a choisi de les écrire du début à la fin puisque c’est plus soignée, mais on a bel et bien construit la démonstration du début jusqu’au milieu et de la fin jusqu’au milieu.</div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-203" id="solution-203"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-203"><div class="solution solution-like"><div class="para logical" id="p-1391">
+<div class="displaymath process-math" id="md-262">
+\begin{align*}
+R_{\theta_1}(R_{\theta_2}S_{\phi_1})&amp;=R_{\theta_1}S_{\frac{\theta_2+2\phi_1}{2}}\\
+&amp;=S_{\frac{\theta_1+2\frac{\theta_2+2\phi_1}{2}}{2}}\\
+&amp;=S_{\frac{\theta_1+\theta_2+2\phi_1}{2}}\\
+&amp;=S_{\frac{(\theta_1+\theta_2)+2\phi_1}{2}}\\
+&amp;=R_{\theta_1+\theta_2}S_{\phi_1}\\
+&amp;=(R_{\theta_1}R_{\theta_2})S_{\phi_1}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une réflexion d’angle <span class="process-math">\(\frac{\theta_1+\theta_2+2\phi_1}{2}\text{.}\)</span>
+</div>
+</div></div></div>
+</div></article><article class="task exercise-like" id="task-119"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="p-1392"><span class="process-math">\(R_{\theta_1}S_{\phi_1}R_{\theta_2}\)</span></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-204" id="solution-204"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-204"><div class="solution solution-like"><div class="para logical" id="p-1393">
+<div class="displaymath process-math" id="md-263">
+\begin{align*}
+R_{\theta_1}(S_{\phi_1}R_{\theta_2})&amp;=R_{\theta_1}S_{\frac{-\theta_2+2\phi_1}{2}}\\
+&amp;=S_{\frac{\theta_1+2\frac{-\theta_2+2\phi_1}{2}}{2}}\\
+&amp;=S_{\frac{\theta_1-\theta_2+2\phi_1}{2}}\\
+&amp;=S_{\frac{-\theta_2+\theta_1+2\phi_1}{2}}\\
+&amp;=S_{\frac{-\theta_2+2\frac{\theta_1+2\phi_1}{2}}{2}}\\
+&amp;=S_{\frac{\theta_1+2\phi_1}{2}}R_{\theta_2}\\
+&amp;=(R_{\theta_1}S_{\phi_1})R_{\theta_2}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une réflexion d’angle <span class="process-math">\(\frac{\theta_1-\theta_2+2\phi_1}{2}\text{.}\)</span>
+</div>
+</div></div></div>
+</div></article><article class="task exercise-like" id="task-120"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="p-1394"><span class="process-math">\(S_{\phi_1}R_{\theta_1}R_{\theta_2}\)</span></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-205" id="solution-205"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-205"><div class="solution solution-like"><div class="para logical" id="p-1395">
+<div class="displaymath process-math" id="md-264">
+\begin{align*}
+S_{\phi_1}(R_{\theta_1}R_{\theta_2})&amp;=S_{\phi_1}R_{\theta_1+\theta_2}\\
+&amp;=S_{\frac{-(\theta_1+\theta_2)+2\phi_1}{2}}\\
+&amp;=S_{\frac{-\theta_1-\theta_2+2\phi_1}{2}}\\
+&amp;=S_{\frac{-\theta_2-\theta_1+2\phi_1}{2}}\\
+&amp;=S_{\frac{-\theta_2+2\frac{-\theta_1+2\phi_1}{2}}{2}}\\
+&amp;=S_{\frac{-\theta_1+2\phi_1}{2}}R_{\theta_2}\\
+&amp;=(S_{\phi_1}R_{\theta_1})R_{\theta_2}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une réflexion d’angle <span class="process-math">\(\frac{-\theta_1-\theta_2+2\phi_1}{2}\text{.}\)</span>
+</div>
+</div></div></div>
+</div></article><article class="task exercise-like" id="task-121"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="p-1396"><span class="process-math">\(R_{\theta_1}S_{\phi_1}S_{\phi_2}\)</span></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-206" id="solution-206"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-206"><div class="solution solution-like"><div class="para logical" id="p-1397">
+<div class="displaymath process-math" id="md-265">
+\begin{align*}
+R_{\theta_1}(S_{\phi_1}S_{\phi_2})&amp;=R_{\theta_1}R_{2(\phi_1-\phi_2)}\\
+&amp;=R_{\theta_1+2(\phi_1-\phi_2)}\\
+&amp;=R_{\theta_1+2\phi_1-2\phi_2}\\
+&amp;=R_{2(\frac{\theta_1+2\phi_1}{2}-\phi_2)}\\
+&amp;=S_{\frac{\theta_1+2\phi_1}{2}}S_{\phi_2}\\
+&amp;=(R_{\theta_1}S_{\phi_1})S_{\phi_2}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une rotation d’angle <span class="process-math">\(\theta_1+2\phi_1-2\phi_2\text{.}\)</span>
+</div>
+</div></div></div>
+</div></article><article class="task exercise-like" id="task-122"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para" id="p-1398"><span class="process-math">\(S_{\phi_1}R_{\theta_1}S_{\phi_2}\)</span></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-207" id="solution-207"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-207"><div class="solution solution-like"><div class="para logical" id="p-1399">
+<div class="displaymath process-math" id="md-266">
+\begin{align*}
+S_{\phi_1}(R_{\theta_1}S_{\phi_2})&amp;=S_{\phi_1}S_{\frac{\theta_1+2\phi_2}{2}}\\
+&amp;=R_{2(\phi_1-\frac{\theta_1+2\phi_2}{2})}\\
+&amp;=R_{2\phi_1-\theta_1-2\phi_2}\\
+&amp;R_{-\theta_1+2\phi_1-2\phi_2}\\
+&amp;R_{2(\frac{-\theta_1+2\phi_1}{2}-\phi_2)}\\
+&amp;=S_{\frac{-\theta_1+2\phi_1}{2}}S_{\phi_2}\\
+&amp;=(S_{\phi_1}R_{\theta_1})S_{\phi_2}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une rotation d’angle <span class="process-math">\(2\phi_1-\theta_1-2\phi_2\text{.}\)</span>
+</div>
+</div></div></div>
+</div></article><article class="task exercise-like" id="task-123"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="para" id="p-1400"><span class="process-math">\(S_{\phi_1}S_{\phi_2}R_{\theta_1}\)</span></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-208" id="solution-208"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-208"><div class="solution solution-like"><div class="para logical" id="p-1401">
+<div class="displaymath process-math" id="md-267">
+\begin{align*}
+S_{\phi_1}(S_{\phi_2}R_{\theta_1})&amp;=S_{\phi_1}S_{\frac{-\theta_1+2\phi_2}{2}}\\
+&amp;=R_{2(\phi_1-\frac{-\theta_1+2\phi_2}{2})}\\
+&amp;=R_{2\phi_1+\theta_1-2\phi_2}\\
+&amp;=R_{2\phi_1-2\phi_2+\theta_1}\\
+&amp;=R_{2(\phi_1-\phi_2)+\theta_1}\\
+&amp;=R_{2(\phi_1-\phi_2)}R_{\theta_1}\\
+&amp;=(S_{\phi_1}S_{\phi_2})R_{\theta_1}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une rotation d’angle <span class="process-math">\(2\phi_1+\theta_1-2\phi_2\text{.}\)</span>
+</div>
+</div></div></div>
+</div></article></article><div class="exercisegroup" id="exosage-prodmat">
+<h4 class="heading"><span class="title">Exercices Sage.</span></h4>
+<div class="introduction" id="introduction-45"><div class="para" id="p-1402">Les exercices qui suivent sont conçus pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d’arriver aux réponses.</div></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="exercise-84"><h5 class="heading"><span class="codenumber">10<span class="period">.</span></span></h5>
+<div class="para" id="p-1403">Lors d’une certaine journée au Canada, voici les offres pour des vols directs entre les principaux aéroports canadiens:</div> <figure class="table table-like" id="table-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.2.17<span class="period">.</span></span><span class="space"> </span>Vols intérieurs au Canada</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines">
+<span class="process-math">\(\uparrow\)</span> De / Vers <span class="process-math">\(\rightarrow\)</span>
+</td>
+<td class="l m b0 r0 l0 t3 lines">YUL</td>
+<td class="l m b0 r0 l0 t3 lines">YYZ</td>
+<td class="l m b0 r0 l0 t3 lines">YVR</td>
+<td class="l m b0 r0 l0 t3 lines">YYC</td>
+<td class="l m b0 r0 l0 t3 lines">YEG</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">YUL</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">20</td>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">YYZ</td>
+<td class="l m b0 r0 l0 t0 lines">15</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">10</td>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">YVR</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">YYC</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">YEG</td>
+<td class="l m b3 r0 l0 t0 lines">2</td>
+<td class="l m b3 r0 l0 t0 lines">6</td>
+<td class="l m b3 r0 l0 t0 lines">8</td>
+<td class="l m b3 r0 l0 t0 lines">6</td>
+<td class="l m b3 r0 l0 t0 lines">0</td>
+</tr>
+</table></div></figure> <div class="para logical" id="p-1404"><ol class="lower-alpha">
+<li id="li-306"><div class="para" id="p-1405">Quelle serait une matrice <span class="process-math">\(T\)</span> qui permettrait de décrire le nombre  de vols directs entre les différentes villes canadiennes?</div></li>
+<li id="li-307"><div class="para" id="p-1406">Donner une interprétation du produit <span class="process-math">\(T^2\text{?}\)</span>
+</div></li>
+<li id="li-308">
+<div class="para" id="p-1407">Utiliser Sage pour déterminer combien de vols différents entre Montréal et Vancouver impliquent une escale.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-86"><script type="text/x-sage">
+</script></pre>
+</li>
+</ol></div></article><article class="exercise exercise-like" id="exercise-85"><h5 class="heading"><span class="codenumber">11<span class="period">.</span></span></h5>
+<div class="para logical" id="p-1408">
+<div class="para">Soit</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix} 1\amp -2\amp 2\amp 1 \amp 0 \amp 4\\
+-5 \amp 2 \amp 0 \amp 3 \amp 1 \amp 8 \\
+2 \amp 4 \amp -3 \amp 1 \amp 7 \amp -1 \\
+1 \amp 6 \amp 1 \amp 2 \amp -2 \amp 2\end{pmatrix} \qquad B=\begin{pmatrix} 2\amp -3 \amp 5 \amp 1 \\
+-1 \amp 1 \amp 0 \amp 0 \\ 
+2 \amp 3 \amp -4 \amp 3 \\
+-5 \amp -5 \amp 2 \amp 1\\
+0 \amp 1 \amp 3\amp 2 \\
+2 \amp 1 \amp 3 \amp 4\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Utiliser Sage pour calculer le produit <span class="process-math">\(AB\text{.}\)</span>
+</div>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-87"><script type="text/x-sage">
+</script></pre></article><article class="exercise exercise-like" id="exosage-permmatrices"><h5 class="heading">
+<span class="codenumber">12<span class="period">.</span></span><span class="space"> </span><span class="title">Construction des matrices de permutation d’ordre <span class="process-math">\(n\)</span>.</span>
+</h5>
+<div class="para" id="p-1409">Dans cet exercice, on veut donner une manière de faire la liste des matrices de permutation <span class="process-math">\(n\times n\text{,}\)</span> définies à l’exercice <a href="" class="xref" data-knowl="./knowl/exo-matpermudef.html" title="Exercice 2.2.3.5">2.2.3.5</a>.Pour cela, on va utiliser la commande <code class="code-inline tex2jax_ignore">Permutations(n).list()</code>, qui renvoie la liste des permutations à <span class="process-math">\(n\)</span> éléments. Par exemple</div> <pre class="ptx-sagecell sagecell-sage" id="sage-88"><script type="text/x-sage">Permutations(3).list()
+</script></pre> <div class="para logical" id="p-1410">
+<div class="para">renvoie une liste de <span class="process-math">\(6\)</span> éléments correspondant à toutes les manières d’ordonner les nombres <span class="process-math">\(1,2,3\text{.}\)</span> Une matrice de permutation est une matrice obtenue en permutant les colonnes de la matrice identité. Dans cet exercice, on  crée une fonction <code class="code-inline tex2jax_ignore">perm_matrix(n)</code> qui  donnera une liste des matrices de permutation d’ordre <span class="process-math">\(n\text{.}\)</span> Pour cela, il faudra</div>
+<ul class="disc">
+<li id="li-309"><div class="para" id="p-1411">Créer la liste des permutations d’ordre <span class="process-math">\(n\)</span> à l’aide de la commande <code class="code-inline tex2jax_ignore">Permutations(n).list()</code>.</div></li>
+<li id="li-310"><div class="para" id="p-1412">Créer la liste des vecteurs <span class="process-math">\(\vec{e}_1,\vec{e}_2 , \ldots ,\vec{e}_n\)</span> à partir de la matrice identité. (Utiliser la commande <code class="code-inline tex2jax_ignore">A.columns()</code>.</div></li>
+<li id="li-311"><div class="para" id="p-1413">Créer chaque matrice de permutation à partir de la liste des permutations. La liste des permutations permet de savoir à quelle colonne de la matrice identité correspond chacune des colonnes de la matrice <span class="process-math">\(P\text{.}\)</span>
+</div></li>
+</ul>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-40" id="hint-40"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-40"><div class="hint solution-like"><div class="para" id="p-1414">Commencer par créer une fonction qui fournira les matrices de permutation <span class="process-math">\(2\times 2\)</span> et une autre fonction qui va donner les matrices de permutation <span class="process-math">\(3\times 3\text{.}\)</span> Des réponses possibles se trouvent dans l’indice suivant.</div></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-41" id="hint-41"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-41"><div class="hint solution-like">
+<figure class="listing figure-like" id="listing-26"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def perm_matrix2x2():
+    Id=identity_matrix(2)
+    col=Id.columns()
+    p=Permutations(2).list() #La liste des permutations
+    L=list() #une liste vide
+    for perm in p: #Pour chaque permutation dans la liste p, on va ajouter la matrice de permutation correspondante à la liste L
+        P=column_matrix([col[perm[0]-1],col[perm[1]-1]]) #On construit une matrice de permutation selon une permutation spécifique
+        L.append(P) #On l'ajoute à la liste existante
+    return L
+    
+def perm_matrix3x3():
+    Id=identity_matrix(3)
+    col=Id.columns()
+    p=Permutations(3).list() #La liste des permutations
+    L=list() #une liste vide
+    for perm in p: #Pour chaque permutation dans la liste p, on va ajouter la matrice de permutation correspondante à la liste L
+        P=column_matrix([col[perm[0]-1],col[perm[1]-1],col[perm[2]-1]]) #On construit une matrice de permutation selon une permutation spécifique
+        L.append(P) #On l'ajoute à la liste existante
+    return L
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.2.18<span class="period">.</span></span><span class="space"> </span>Un indice pour l’exercice</figcaption></figure> <div class="para" id="p-1415">Pour le cas <span class="process-math">\(n\times n\text{,}\)</span> il faudra faire quelques modifications. D’abord, on change les <span class="process-math">\(2,3\)</span> dans les premières lignes par des <span class="process-math">\(n\text{,}\)</span> afin d’avoir une idée du comportement plus général de l’exercice. Ensuite parce, qu’on ne connait pas d’avance la dimension des matrices cherchées, il faut trouver un moyen de changer la ligne <code class="code-inline tex2jax_ignore">P=column_matrix(...)</code>.</div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-209" id="solution-209"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-209"><div class="solution solution-like"><figure class="listing figure-like" id="listing-27"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def perm_matrix(n):
+    Id=identity_matrix(n)
+    col=Id.columns()
+    p=Permutations(n).list()
+    L=list()
+    for perm in p:
+        colperm=list()
+        for j in range(len(perm)):
+            colperm.append(col[perm[j]-1])
+        P=column_matrix(colperm)
+        L.append(P)
+    return L
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.2.19<span class="period">.</span></span><span class="space"> </span>La solution pour l’exercice</figcaption></figure></div></div>
+</div></article><article class="exercise exercise-like" id="exercise-87"><h5 class="heading"><span class="codenumber">13<span class="period">.</span></span></h5>
+<div class="para logical" id="p-1416">
+<div class="para">Utiliser le produit de matrices de rotation et Sage pour démontrer les identités trigonométriques</div>
+<div class="displaymath process-math" id="mdn-8">
+\begin{gather}
+\cos(\alpha +\beta)=\cos(\alpha)\cos(\beta)-\sin(\alpha)\sin(\beta)\tag{2.2.5}\\
+\sin(\alpha +\beta)=\sin(\alpha)\cos(\beta)+\cos(\alpha)\sin(\beta)\text{.}\tag{2.2.6}
+\end{gather}
+</div>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-89"><script type="text/x-sage">
+</script></pre>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-100" id="answer-100"><span class="type">Réponse</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-100"><div class="answer solution-like"><div class="para" id="p-1417">Si l’on compose les rotations <span class="process-math">\(R_{\alpha}\)</span> et <span class="process-math">\(R_{\beta}\text{,}\)</span> on sait que l’image du vecteur <span class="process-math">\((1,0)\)</span> correspondra à <span class="process-math">\((\cos(\alpha+\beta),\sin(\alpha+\beta)\text{,}\)</span> puisque la composition de rotations donne une rotation dont l’angle est la somme des arguments respectifs des rotations initiales. </div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-210" id="solution-210"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-210"><div class="solution solution-like"><figure class="listing figure-like" id="listing-28"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">var("alpha,beta")
+Rotalpha=column_matrix([[cos(alpha),sin(alpha)],[-sin(alpha),cos(alpha)]])
+Rotbeta=column_matrix([[cos(beta),sin(beta)],[-sin(beta),cos(beta)]])
+show(LatexExpr(r"\cos(\alpha+\beta)="),(Rotalpha*Rotbeta)[0][0]) #La commande LatexExpr et les "\" permettent un rendu plus joli, mais ne sont pas obligatoire
+show(LatexExpr(r"\sin(\alpha+\beta)="),(Rotalpha*Rotbeta)[1][0])
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.2.20<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure></div></div>
+</div></article><article class="exercise exercise-like" id="exercise-88"><h5 class="heading">
+<span class="codenumber">14<span class="period">.</span></span><span class="space"> </span><span class="title">Les matrices nilpotentes: une fonction.</span>
+</h5>
+<div class="para" id="p-1418">Une matrice carrée <span class="process-math">\(A\in\mathcal{M}_n\)</span> est dite nilpotente d’ordre <span class="process-math">\(k\)</span> si <span class="process-math">\(A^k=O_n\)</span> et <span class="process-math">\(A^j\neq O_n\)</span> si <span class="process-math">\(j&lt;k\text{,}\)</span> c’est-à-dire si la matrice multipliée par elle-même <span class="process-math">\(k\)</span> fois donne la matrice nulle et si <span class="process-math">\(k\)</span> est le premier entier pour lequel ceci se produit. On dit que <span class="process-math">\(k\)</span> est l’indice de nilpotence de la matrice <span class="process-math">\(A\text{.}\)</span>
+</div> <div class="para" id="p-1419">Le but de cet exercice est de créer une fonction qui prend une matrice carrée comme argument et qui dit si la matrice est nilpotente ou non. Si c’est le cas, on voudra aussi avoir l’indice de nilpotence. On appellera la fonction <code class="code-inline tex2jax_ignore">estnilpotente</code>.</div> <div class="para logical" id="p-1420">
+<div class="para">Il y a quelques points à considérer. Les matrices ne sont pas toutes nilpotentes. Le seul critère (pour l’instant) est d’essayer de multiplier la matrice par elle-même jusqu’à l’obtention de la matrice nulle. Il faut cependant un critère d’arrêt pour ne pas essayer sans fin. Il est possible de montrer que l’indice de nilpotence <span class="process-math">\(k\)</span> d’une matrice <span class="process-math">\(n\times n\)</span> satisfait toujours l’inégalité <span class="process-math">\(k\leq n\text{.}\)</span> Comme les commandes <code class="code-inline tex2jax_ignore">.ncols()</code> ou <code class="code-inline tex2jax_ignore">.nrows()</code> permettent de  donner la dimension d’une matrice quelconque facilement, on se sert de ce critère pour arrêter notre fonction.</div>
+<ol class="lower-alpha">
+<li id="li-312"><div class="para" id="p-1421">Écrire la fonction qui permet de vérifier la nilpotence d’une matrice.</div></li>
+<li id="li-313"><div class="para logical" id="p-1422">
+<div class="para">À l’aide de la fonction créée, vérifier la nilpotence des matrices suivantes:</div>
+<ol class="lower-roman">
+<li id="li-314"><div class="para" id="p-derived-li-314"><span class="process-math">\(\displaystyle A=\begin{pmatrix}
+0 \amp 2 \amp 5 \amp -2 \\ 
+0 \amp 0 \amp 4 \amp 0 \\ 
+0 \amp 0 \amp 0 \amp 4 \\ 
+0 \amp 0 \amp 0 \amp 0
+\end{pmatrix}\)</span></div></li>
+<li id="li-315"><div class="para" id="p-derived-li-315"><span class="process-math">\(\displaystyle B=\begin{pmatrix}
+1 \amp 2 \amp \\ 
+0 \amp 4 \amp
+\end{pmatrix}\)</span></div></li>
+<li id="li-316"><div class="para" id="p-derived-li-316"><span class="process-math">\(\displaystyle C=\begin{pmatrix}
+1 \amp 1 \amp 1 \\ 
+1 \amp 1 \amp 1 \\ 
+-2 \amp -2 \amp -2
+\end{pmatrix}\)</span></div></li>
+</ol>
+</div></li>
+</ol>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-90"><script type="text/x-sage">
+</script></pre>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-211" id="solution-211"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-211"><div class="solution solution-like"><figure class="listing figure-like" id="listing-29"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">A=column_matrix([[0,0,0,0],[2,0,0,0],[5,4,0,0],[-2,0,4,0]])
+B=column_matrix([[1,0],[2,4]])
+C=column_matrix([[1,1,-2],[1,1,-2],[1,1,-2]])
+def estnilpotente(A):
+    n=A.ncols() #La dimension de la matrice
+    k=1  #L'indice de nilpotence, si
+    while k &lt;= n:  #Le critère d'arrêt
+        if A^k==0: #Sage comprend que 0 sera la matrice nulle. On aurait aussi pu la définir afin de comparer
+            return print("La matrice est nilpotente d'ordre ",k)
+        else:
+            k+=1 #On augmente le potentiel indice de 1
+    return print("La matrice n'est pas nilpotente")
+estnilpotente(A)
+estnilpotente(B)
+estnilpotente(C)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.2.21<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure></div></div>
+</div></article>
+</div>
+</div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-transfodef.html" title="Précédent"><span class="icon">&lt;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-matinverse.html" title="Suivant"><span class="name">Suivant</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

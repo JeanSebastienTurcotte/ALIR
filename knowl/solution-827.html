@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">5.3.4.12.d.1</span><span class="period">.</span>
+</h5>
+<div class="para logical">
+<div class="para">Pour que le produit soit <span class="process-math">\(O\text{,}\)</span> il faut que l’espace colonne de <span class="process-math">\(B\)</span> soit inclus dans l’espace nul de la matrice <span class="process-math">\(A\text{.}\)</span> On commence avec une matrice <span class="process-math">\(A\)</span> de rang <span class="process-math">\(1\)</span> arbitraire. Pour cela, il suffit que les lignes soient parallèles. On pose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix}
+1&amp; 1&amp;1\\
+1&amp; 1&amp;1\\
+1&amp; 1&amp;1\\
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Géométriquement, l’espace ligne de cette matrice est une droite de vecteur directeur <span class="process-math">\((1,1,1)\text{.}\)</span> L’espace nul est donc un plan de vecteur normal <span class="process-math">\((1,1,1)\text{.}\)</span> Pour que l’espace colonne de la matrice <span class="process-math">\(B\)</span> soit inclus dans cet espace nul, il suffit de prendre comme colonne un vecteur du plan <span class="process-math">\(x+y+z=0\text{.}\)</span> Le vecteur <span class="process-math">\((1,-1,0)\)</span> fera l’affaire. On pose alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1&amp;1&amp;1\\
+-1&amp;-1&amp;-1&amp;\\
+0&amp;0&amp;0
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">On vérifie avec Sage que le produit de ces matrices donne bien la matrice nulle et qu’elles sont de rang 1.</div>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-284"><script type="text/x-sage">A=matrix([[1,1,1],[1,1,1],[1,1,1]])
+B=column_matrix([[1,-1,0],[1,-1,0],[1,-1,0]])
+show("rg(A)=",A.rank())
+show("rg(B)=",B.rank())
+show("AB=",A*B)
+</script></pre>
+</div>
+<span class="incontext"><a href="sec-4esp.html#solution-827" class="internal">Contexte</a></span>
+</body>
+</html>

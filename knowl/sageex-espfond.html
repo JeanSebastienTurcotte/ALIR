@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">3.4.12</span><span class="period">.</span><span class="space"> </span><span class="title">Les quatre espaces avec Sage.</span>
+</h4> <div class="para">Il est possible avec Sage de déterminer les espaces fondamentaux d’une matrice. Dans la section <a href="sec-SELgeo.html" class="internal" title="Section 3.3: La géométrie des systèmes d’équations linéaires">3.3</a>, on a créé une fonction <code class="code-inline tex2jax_ignore">solbase</code> qui fait essentiellement ce travail pour l’espace nul. On peut maintenant utiliser la commande <code class="code-inline tex2jax_ignore">A.right_kernel(basis="pivot")</code> pour effectuer cette opération. On utilise <code class="code-inline tex2jax_ignore">right_kernel</code> pour le noyau de droite, car Sage a une préférence pour les lignes et son noyau est par défaut le noyau de gauche (l’espace nul gauche). L’argument <code class="code-inline tex2jax_ignore">basis="pivot"</code> permet d’obtenir ce qu’on a appelé les solutions de base.</div>
+<div class="para">On reprend les trois matrices de l’exemple <a href="" class="xref" data-knowl="./knowl/ex-4esp1.html" title="Exemple 3.4.10: Les quatre espaces de certaines matrices">3.4.10</a>. On note que, pour des raisons techniques, il faut ajouter <code class="code-inline tex2jax_ignore">QQ</code> dans la définition de la matrice.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-207"><script type="text/x-sage">A=matrix(QQ,[[1,1],[-1,0],[0,1]])
+B=matrix(QQ,[[1,3,2],[-1,-5,-2],[3,-1,6]])
+C=matrix(QQ,[[1,1,1,1],[2,-2,-1,1]])
+show(A.right_kernel(basis="pivot"))
+show(B.right_kernel(basis="pivot"))
+show(C.right_kernel(basis="pivot"))
+</script></pre> <div class="para">Ce qu’on obtient de Sage est un peu étrange. D’abord, le terme <code class="code-inline tex2jax_ignore">Rowspan_Q</code> signifie l’espace engendré par les lignes de la matrice qui vient après. On comprend que les solutions de base sont retournées dans une matrice. Si l’on préfère obtenir uniquement les solutions de base, on ajoute l’option <code class="code-inline tex2jax_ignore">.basis()</code>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-208"><script type="text/x-sage">show(A.right_kernel(basis="pivot").basis())
+show(B.right_kernel(basis="pivot").basis())
+show(C.right_kernel(basis="pivot").basis())
+</script></pre> <div class="para">Lorsque la base est vide, comme pour la matrice <span class="process-math">\(A\text{,}\)</span> il faut comprendre qu’il n’y a pas de solution de base. Il  ne faut toutefois pas oublier que le vecteur nul fait toujours partie de l’espace nul.</div> <div class="para">On procède de manière similaire pour l’espace colonne. On remarquera toutefois que les vecteurs obtenus ne sont pas nécessairement les mêmes que ceux de l’exemple <a href="" class="xref" data-knowl="./knowl/ex-4esp1.html" title="Exemple 3.4.10: Les quatre espaces de certaines matrices">3.4.10</a>. Dans la section <a href="sec-4esp.html" class="internal" title="Section 5.3: Retour sur les quatre sous-espaces fondamentaux">5.3</a>, on verra une procédure systématique pour choisir les vecteurs qui génèrent l’espace colonne. En attendant, on fait confiance à Sage.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-209"><script type="text/x-sage">show(A.column_space().basis())
+show(B.column_space().basis())
+show(C.column_space().basis())
+</script></pre> <div class="para">Une commande similaire pour l’espace ligne, avec la même remarque que précédemment sur la différence entre les vecteurs obtenus lors de l’exemple <a href="" class="xref" data-knowl="./knowl/ex-4esp1.html" title="Exemple 3.4.10: Les quatre espaces de certaines matrices">3.4.10</a> et ceux obtenus par Sage.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-210"><script type="text/x-sage">show(A.row_space().basis())
+show(B.row_space().basis())
+show(C.row_space().basis())
+</script></pre> <div class="para">Finalement, l’espace nul gauche.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-211"><script type="text/x-sage">show(A.left_kernel(basis="pivot").basis())
+show(B.left_kernel(basis="pivot").basis())
+show(C.left_kernel(basis="pivot").basis())
+</script></pre></article><span class="incontext"><a href="sec-transposee.html#sageex-espfond" class="internal">Contexte</a></span>
+</body>
+</html>

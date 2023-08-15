@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical">
+<div class="para">Puisque la transformation composée doit globalement amener le vecteur <span class="process-math">\((1,0)\)</span> à <span class="process-math">\((-1,0)\)</span> et <span class="process-math">\((0,1)\)</span> à <span class="process-math">\((0,-1)\text{,}\)</span> on a une solution assez simple avec la rotation. Si l’on fait une rotation de <span class="process-math">\(90^\circ\)</span> et qu’on la répète, on arrivera à cette position. On le vérifie algébriquement. Par l’équation <a href="" class="xref" data-knowl="./knowl/eq-rotr2.html" title="Équation 2.1.13">(2.1.13)</a>,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-rotr2.html">
+\begin{align*}
+R_{90^\circ}^2&amp;=\begin{pmatrix}
+\cos(90^\circ) &amp; -\sin(90^\circ)\\
+\sin(90^\circ) &amp; \cos(90^\circ)
+\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix}^2\\
+&amp;=\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+-1 &amp; 0\\
+0 &amp; -1
+\end{pmatrix}\\
+&amp;=-I
+\end{align*}
+</div>
+<div class="para">En réalité, une infinité de matrices de rotation peuvent faire l’affaire. En effet, il suffit d’avoir une rotation qui permet, lorsque répétée deux fois, d’aboutir à un angle qui soit un multiple de <span class="process-math">\(2\pi\text{,}\)</span> partant de <span class="process-math">\(\pi\text{.}\)</span> Autrement dit, si <span class="process-math">\(2\theta=\pi+2\pi k, k\in\mathbb{Z}\text{,}\)</span> la matrice fonctionne. On le montre.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-rotr2.html">
+\begin{align*}
+R_{\frac{\pi}{2}+\pi k}^2&amp;=\begin{pmatrix}
+\cos\left(\frac{\pi}{2}+\pi k\right) &amp; -\sin\left(\frac{\pi}{2}+\pi k\right)\\
+\sin\left(\frac{\pi}{2}+\pi k\right) &amp; \cos\left(\frac{\pi}{2}+\pi k\right)
+\end{pmatrix}^2\\
+&amp;=\begin{cases}\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix}^2 &amp;\text{ si } k \text{ pair} \\
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}^2 &amp;\text{ si } k \text{ impair}
+\end{cases}\\
+&amp;=\begin{cases}\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix}\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix} &amp;\text{ si } k \text{ pair} \\
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix} &amp;\text{ si } k \text{ impair}
+\end{cases}\\
+&amp;=\begin{pmatrix}
+-1 &amp; 0\\
+0 &amp; -1
+\end{pmatrix}\\
+&amp;=-I
+\end{align*}
+</div>
+<div class="para">On réalise cependant que toutes les matrices où <span class="process-math">\(k\)</span> est de même parité sont identiques. En effet, une rotation de <span class="process-math">\(90^\circ\)</span> est identique à une rotation de <span class="process-math">\(450^\circ\text{.}\)</span> Bref, les deux matrices de rotation possibles sont de <span class="process-math">\(90^\circ\)</span> et de <span class="process-math">\(270^\circ\)</span> avec les matrices respectives:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-rotr2.html">
+\begin{equation*}
+R_{90^\circ}=\begin{pmatrix}
+0 &amp; -1\\
+1 &amp; 0
+\end{pmatrix} \text{ et }
+R_{270^\circ}=\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}
+\end{equation*}
+</div>
+</div></div></body>
+</html>

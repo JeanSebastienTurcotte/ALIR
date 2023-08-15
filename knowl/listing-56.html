@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def eqparapoints(P1,P2,P3):
+    v1=P2-P1
+    v2=P3-P1
+    if P1==P2 or P1==P3 or P2==P3:
+        print("Il faut fournir trois points différents pour définir une parabole.")
+    else:
+        #On veut résoudre ax^2+bx+c=y avec x,y=P1,P2,P3. On résoute le système A(a,b,c)=v où v=(y1,y2,y3)
+        A=matrix([[P1[0]^2,P1[0],1],[P2[0]^2,P2[0],1],[P3[0]^2,P3[0],1]])
+        v=vector([P1[1],P2[1],P3[1]])
+        sol=A.solve_right(v)
+        print("L'équation de la parabole est ",sol[0]*x^2+sol[1]*x+sol[2])
+P1=vector([-1,22])
+P2=vector([2,19])
+P3=vector([3,34])
+P4=(P1+P2)/2
+eqparapoints(P1,P2,P3)
+eqparapoints(P1,P1,P3) #On teste avec deux points pareils
+eqparapoints(P1,P2,P4) #On teste avec trois points sur une droite
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.1.40<span class="period">.</span></span><span class="space"> </span>La fonction qui donne l’équation de la parabole passant par trois points donnés</figcaption></figure><span class="incontext"><a href="sec-GJ.html#listing-56" class="internal">Contexte</a></span>
+</body>
+</html>

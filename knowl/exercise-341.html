@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Évaluer (Sage)'});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">21<span class="period">.</span></span>
+</h5>
+<div class="introduction">
+<div class="para">Cet exercice est un exemple similaire à l'exercice <a href="" class="xref" data-knowl="./knowl/exo-fibo.html" title="Exercice 6.1.4.19: Fibonacci">6.1.4.19</a> qui introduit une autre suite fameuse en mathématiques. Les nombres de Lucas sont définis par la suite <span class="process-math">\(L_0=2,L_1=1\)</span> et <span class="process-math">\(L_n=L_{n-1}+L_{n-2}\text{.}\)</span> C'est donc la même suite que Fibonacci, mais avec des termes initiaux différents. Voici les dix premiers termes de cette suite.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-311"><script type="text/x-sage">def lucas(n):
+    L=[2,1]
+    for i in range(2,n+1):
+        L.append(L[i-1]+L[i-2])
+    return L
+lucas(10)
+</script></pre>
+</div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para">La matrice qui sera utilisé pour ce problème est la même que celle de l'exercice <a href="" class="xref" data-knowl="./knowl/exo-fibo.html" title="Exercice 6.1.4.19: Fibonacci">6.1.4.19</a>. Utiliser la matrice inverse pour déterminer le vecteur initial à partir du vecteur <span class="process-math">\(\vec{x}_1=(1,2)\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-504-hidden.html" title="Réponse 6.1.4.21.a.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-970-hidden.html" title="Solution 6.1.4.21.a.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para">Déterminer  une combinaison linéaire des vecteurs propres <span class="process-math">\(\vec{v}_1=(\lambda_1,1)\)</span> et <span class="process-math">\(\vec{v}_2=(\lambda_2,1)\)</span> exprimant <span class="process-math">\(\vec{x}_0\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-505-hidden.html" title="Réponse 6.1.4.21.b.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-971-hidden.html" title="Solution 6.1.4.21.b.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para logical">
+<div class="para">Montrer que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L_n=\lambda_1^n+\lambda_2^n\text{.}
+\end{equation*}
+</div>
+</div></article></article><span class="incontext"><a href="sec-propre.html#exercise-341" class="internal">Contexte</a></span>
+</body>
+</html>

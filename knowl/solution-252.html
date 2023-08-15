@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">2.3.6.16.1</span><span class="period">.</span>
+</h5>
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">u1,u2,k =var('u1,u2,k')
+def etirR2(u,k):
+    uperp=vector([-u[1],u[0]]) #Le vecteur u perpendiculaire
+    U=column_matrix([u,uperp]) #La matrice U
+    V=column_matrix([k*u,uperp]) #La matrice V
+    T=V*(U.inverse()) #La transformation
+    return T
+show(etirR2(vector([u1,u2]),k).simplify_full())
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.3.28<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure> <div class="para">Remarquer qu’on a utilisé la commande <code class="code-inline tex2jax_ignore">simplify_full()</code> afin d’avoir une forme plus compacte.</div>
+</div>
+<span class="incontext"><a href="sec-matinverse.html#solution-252" class="internal">Contexte</a></span>
+</body>
+</html>

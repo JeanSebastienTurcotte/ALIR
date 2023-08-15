@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Évaluer (Sage)'});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">8<span class="period">.</span></span>
+</h4>
+<div class="introduction"><div class="para">Au tennis, le système de points est tel qu'un joueur doit faire quatre points pour gagner un jeu. Toutefois, il doit y avoir un écart de deux points. Une situation particulière se produit lorsque le pointage est <span class="process-math">\(40\)</span>–<span class="process-math">\(40\)</span> (ce qui correspond à trois points pour chacun des joueurs). On entre alors dans un état appelé “égalité” (aussi appelé “deuce” en anglais). Le prochain joueur à faire un point est alors considéré en “avantage”. S'il gagne le prochain point, il remporte le jeu et s'il le perd, on retourne à égalité. On peut modéliser la partie “égalité” d'un jeu de tennis par une chaine de Markov à cinq état. On note <span class="process-math">\(E\)</span> pour égalité, <span class="process-math">\(A_s\)</span> pour avantage serveur, <span class="process-math">\(A_r\)</span> pour avantage retourneur, <span class="process-math">\(S\)</span> pour la victoire du serveur et <span class="process-math">\(R\)</span> pour la victoire du retourneur. Chez les professionnels, le serveur est presque toujours considéré comme favori pour remporter le point. On suppose que pour chaque point, le serveur a probabilité <span class="process-math">\(p\)</span> de remporter l'échange.</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para">Écrire la matrice de transition modélisant un jeu à partir de l'égalité.</div>
+<div class="solutions"><a href="" class="answer-knowl original" data-knowl="./knowl/answer-540-hidden.html" title="Réponse 7.1.4.8.a.1"><span class="type">Réponse</span><span class="period">.</span></a></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para">Si un serveur a une probabilité de succès de <span class="process-math">\(p=0.55\text{,}\)</span> quelle est la probabilité, qu'à partir de l'égalité, le jeu ne soit pas terminé après <span class="process-math">\(5\)</span> échanges?</div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-541-hidden.html" title="Réponse 7.1.4.8.b.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-1047-hidden.html" title="Solution 7.1.4.8.b.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para">Quelle est la probabilité que le serveur remporte le jeu?</div>
+<div class="para">Il faut trouver l'état stable à partir de l'état égalité. Comme la matrice possède toujours des entrées nulles, il faut procéder par le calcul d'une grande valeur de la chaine de Markov. On peut voir que le serveur a environ <span class="process-math">\(60\%\)</span> de chance de remporter le jeu.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-362"><script type="text/x-sage">p=0.55
+T=column_matrix([[0,p,1-p,0,0],[1-p,0,0,p,0],[p,0,0,0,1-p],[0,0,0,1,0],[0,0,0,0,1]])
+X0=vector([1,0,0,0,0])
+(T^1000*X0)[3]
+</script></pre>
+<div class="solutions"><a href="" class="answer-knowl original" data-knowl="./knowl/answer-542-hidden.html" title="Réponse 7.1.4.8.c.1"><span class="type">Réponse</span><span class="period">.</span></a></div></article></article><span class="incontext"><a href="sec-Markov.html#exercise-363" class="internal">Contexte</a></span>
+</body>
+</html>

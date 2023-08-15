@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Tâche</span><span class="space"> </span><span class="codenumber">5.5.1.c</span><span class="period">.</span>
+</h4>
+<div class="introduction"><div class="para logical">
+<div class="para">On s’intéresse maintenant à obtenir une solution pour une configuration de départ spécifique <span class="process-math">\(L\text{.}\)</span> On cherche une suite de matrice <span class="process-math">\(C_k\in\{C_{1\,1},C_{2\,2},\ldots , C_{3\,3}\} \)</span> telles que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L+C_1+C_2+\cdots C_n=O\text{.}
+\end{equation*}
+</div>
+<div class="para">Puisque chaque matrice est son propre inverse, on peut réécrire l’équation sous la forme</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C_1+C_2+\cdots C_n=L\text{.}
+\end{equation*}
+</div>
+</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<div class="para">Expliquer pourquoi, dans une solution optimale (nombre minimal de clic), chaque matrice apparait au plus une fois.</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<div class="para logical">
+<div class="para">En vertu de l’exercice précédent, on peut alors dire que pour avoir une solution, il faut que la matrice <span class="process-math">\(L\)</span> soit dans le <span class="process-math">\(\vspan\)</span> des matrices <span class="process-math">\(\{C_{1\,1},C_{2\,2},\ldots , C_{3\,3}\}\text{,}\)</span> c’est-à-dire</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-espacesetdimension.html ./knowl/eq-lightsout3x3.html ./knowl/eq-lightsoutmatL1.html">
+\begin{equation}
+x_1C_{1\,1}+x_2C_{2\,2}+\ldots + x_9C_{3\,3}=L\text{,}\tag{5.5.3}
+\end{equation}
+</div>
+<div class="para">avec les <span class="process-math">\(x_k\in\{0,1\}\text{.}\)</span> Comme l’espace des matrices de taille <span class="process-math">\(3\times 3\)</span> est de dimension <span class="process-math">\(9\)</span> et qu’une base de cet espace est donnée par les neuf matrices qui ne contiennent qu’une entrée non nulle égale à <span class="process-math">\(1\)</span> (voir l’exemple <a href="" class="xref" data-knowl="./knowl/ex-espacesetdimension.html" title="Exemple 5.4.14: Quelques espaces et leur dimension">5.4.14</a>), on peut écrire l’équation <a href="" class="xref" data-knowl="./knowl/eq-lightsout3x3.html" title="Équation 5.5.3">(5.5.3)</a> sous la forme matricielle</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-espacesetdimension.html ./knowl/eq-lightsout3x3.html ./knowl/eq-lightsoutmatL1.html">
+\begin{equation*}
+\begin{pmatrix}
+1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1
+\end{pmatrix}\begin{pmatrix} x_1\\ x_2\\ x_3\\ x_4\\ x_5\\ x_6 \\ x_7\\ x_8\\ x_9\\ \end{pmatrix}=L_{\text{vec}}
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(L_{\text{vec}}\)</span> correspond à l’écriture vectorielle de la matrice <span class="process-math">\(L\)</span> dans la base des matrices ne contenant qu’un seul <span class="process-math">\(1\text{.}\)</span> La représentation vectorielle de la matrice <span class="process-math">\(L_1\)</span> l’équation <a href="" class="xref" data-knowl="./knowl/eq-lightsoutmatL1.html" title="Équation 5.5.1">(5.5.1)</a> est donnée par <span class="process-math">\(L_{1\,\text{vec}}=(1,0,1,0,1,0,0,1,0)\text{.}\)</span> On considère donc que la base ordonnée de cet espace est</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-espacesetdimension.html ./knowl/eq-lightsout3x3.html ./knowl/eq-lightsoutmatL1.html">
+\begin{equation*}
+\left\langle \begin{pmatrix}1&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;1&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;1\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}\begin{pmatrix}0&amp;0&amp;0\\ 1&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 1&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 1 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 1&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 1&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}\right \rangle_{\mathcal{B}}\text{.}
+\end{equation*}
+</div>
+<div class="para">La première colonne de cette matrice vient donc du fait que</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-espacesetdimension.html ./knowl/eq-lightsout3x3.html ./knowl/eq-lightsoutmatL1.html">
+\begin{align*}
+x_1C_{1\, 1}&amp;=x_1\left(\begin{pmatrix}1&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}+\begin{pmatrix}0&amp;0&amp;1\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}+\begin{pmatrix}0&amp;0&amp;0\\ 1&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}\right)\\
+&amp;=(1,1,0,1,0,0,0,0,0)_{\mathcal{B}}\text{.}
+\end{align*}
+</div>
+</div> <div class="para">Montrer que la solution pour la matrice <span class="process-math">\(L_1\)</span> est bel et bien celle qui est donnée à l’équation <a href="" class="xref" data-knowl="./knowl/eq-lightsoutsol3x3-1.html" title="Équation 5.5.2">(5.5.2)</a> en résolvant ce système d’équations.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-297"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<div class="introduction"><div class="para">Les questions suivantes s’intéressent au nombre de solutions et à l’existence de solutions pour la grille <span class="process-math">\(3\times 3\text{.}\)</span>
+</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(A)</span></h6>
+<div class="para">Montrer que la solution est unique.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-298"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(B)</span></h6>
+<div class="para">Est-ce que toute configuration initiale possède une solution?</div></article></article></article><span class="incontext"><a href="sec-espaceslabos.html#task-702" class="internal">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">On considère les trois vecteurs suivants: le vecteur normal <span class="process-math">\(\vec{n}=(1,2,-3)\)</span> et deux vecteurs directeurs quelconques <span class="process-math">\(\vec{v}_1=(3,0,1)\)</span> et <span class="process-math">\(\vec{v}_2=(2,-1,0)\text{.}\)</span> Remarquer que les vecteurs directeurs ont été <em class="emphasis">devinés</em> simplement en cherchant des valeurs de <span class="process-math">\((x,y,z)\)</span> qui fonctionnent dans l’équation normale. On connait l’effet de cette réflexion sur ces trois vecteurs. En effet, le vecteur normal sera transformé en son vecteur opposé et les vecteurs directeurs ne bougeront pas puisqu’ils sont dans le plan de réflexion. Ainsi,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-matinverse3.html ./knowl/chap-SEL.html">
+\begin{equation*}
+T(\vec{n})=T\vecddd{1}{2}{-3}=\vecddd{-1}{-2}{3}\text{, }T(\vec{v}_1)=T\vecddd{3}{0}{1}=\vecddd{3}{0}{1}\text{, }T(\vec{v}_2)=T\vecddd{2}{-1}{0}=\vecddd{2}{-1}{0}
+\end{equation*}
+</div>
+<div class="para">On résume tout cela sous forme matricielle où <span class="process-math">\(U\)</span> est la matrice des vecteurs initiaux et <span class="process-math">\(V\)</span> celle des vecteurs transformés et l’on isole la matrice de <span class="process-math">\(T\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-matinverse3.html ./knowl/chap-SEL.html">
+\begin{align*}
+TU&amp;=V\\
+T\begin{pmatrix}1&amp;3&amp;2\\2&amp;0&amp;-1\\-3&amp;1&amp;0\end{pmatrix}&amp;=\begin{pmatrix}-1&amp;3&amp;2\\-2&amp;0&amp;-1\\3&amp;1&amp;0\end{pmatrix}\\
+T&amp;=\begin{pmatrix}-1&amp;3&amp;2\\-2&amp;0&amp;-1\\3&amp;1&amp;0\end{pmatrix}\begin{pmatrix}1&amp;3&amp;2\\2&amp;0&amp;-1\\-3&amp;1&amp;0\end{pmatrix}^{-1}
+\end{align*}
+</div>
+<div class="para">Le calcul de l’inverse d’une matrice <span class="process-math">\(3\times 3\)</span> n’a pas été fait explicitement dans les exemples. On pourrait procéder comme dans l’exemple <a href="" class="xref" data-knowl="./knowl/ex-matinverse3.html" title="Exemple 2.3.14: Calcul d’une matrice inverse">2.3.14</a>, mais cela mènerait à résoudre trois systèmes d’équations linéaires à 3 équations et 3 inconnues chacun. On verra, dans le chapitre <a href="chap-SEL.html" class="internal" title="Chapitre 3: Les systèmes d’équations linéaires">3</a>, comment y arriver de façon efficace. Pour l’instant, on a fait les calculs avec Sage.</div>
+</div> <figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">U=matrix([[1,3,2],[2,0,-1],[-3,1,0]])
+V=matrix([[-1,3,2],[-2,0,-1],[3,1,0]])
+Uinv=U.inverse()
+show("U=",U)
+show("V=",V)
+show("U^(-1)=",Uinv)
+show("T=",V*Uinv)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.4.14<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure> <div class="para logical">
+<div class="para">La matrice de <span class="process-math">\(T\)</span> est donc:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T=\begin{pmatrix}\frac{6}{7}&amp;-\frac{2}{7}&amp;\frac{3}{7}\\-\frac{2}{7}&amp;\frac{3}{7}&amp;\frac{6}{7}\\ \frac{3}{7}&amp;\frac{6}{7}&amp;-\frac{2}{7}\end{pmatrix}
+\end{equation*}
+</div>
+</div>
+</div></body>
+</html>

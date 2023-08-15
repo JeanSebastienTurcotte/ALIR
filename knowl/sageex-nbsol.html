@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">3.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Aucune et une infinité de solutions avec Sage.</span>
+</h4> <div class="para">On a vu à l’exemple <a href="" class="xref" data-knowl="./knowl/sageex-GJ.html" title="Calcul 3.1.31: La forme échelonnée réduite sur Sage">3.1.31</a> qu’on peut résoudre les systèmes d’équations avec Sage, avec l’une des commandes <code class="code-inline tex2jax_ignore">rref()</code> ou <code class="code-inline tex2jax_ignore">solve_right()</code>. Toutefois, dans les exemples de la section <a href="sec-GJ.html" class="internal" title="Section 3.1: Les systèmes d’équations linéaires et la méthode de Gauss-Jordan">3.1</a>, il y avait toujours une solution unique. On regarde maintenant comment se comporte Sage lorsqu’un système n’a aucune ou a une infinité de solutions.</div> <div class="para">Le premier exemple que l’on considère est un exemple qui ne possède aucune solution. Pour cela, on prend deux plans parallèles distincts et l’on essaie de trouver leur intersection. Les plans sont <span class="process-math">\(\mathcal{P}_1 : x+y-z=1\)</span> et <span class="process-math">\(\mathcal{P}_2 : x+y-z=-1\text{.}\)</span> La cellule suivante devrait donner une erreur.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-161"><script type="text/x-sage">A=matrix([[1,1,-1],[1,1,-1]])
+b=vector([1,-1])
+A.solve_right(b)
+</script></pre> <div class="para">Lorsque le système n’a pas de solution, la commande <code class="code-inline tex2jax_ignore">solve_right()</code> produit une erreur. La commande <code class="code-inline tex2jax_ignore">rref()</code> fonctionne, mais il faut réaliser soi-même qu’il n’y a pas de solution en observant le pivot dans la colonne augmentée.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-162"><script type="text/x-sage">show((A.augment(b,subdivide=True)).rref())
+</script></pre> <div class="para">On regarde maintenant ce qu’on obtient lorsque le système possède une infinité de solutions. Pour cela, on prend deux plans non parallèles dans <span class="process-math">\(\R^3\text{.}\)</span> Ceux-ci vont se croiser en une droite. On peut anticiper la solution en utilisant la géométrie. Une droite est un objet à une dimension, avec une variable libre. On s’attend donc à une matrice augmentée contenant deux variables pivots et une variable libre. La forme paramétrique de la solution devrait être quelque chose du genre <span class="process-math">\(t\vec{v}+\vecl{OA}\text{,}\)</span> où le vecteur <span class="process-math">\(\vec{v}\)</span> est le vecteur directeur de la droite et <span class="process-math">\(A\)</span> est un point de celle-ci. On commence par regarder la forme échelonnée de la matrice augmentée, avec <span class="process-math">\(\mathcal{P}_1\)</span> et <span class="process-math">\(\mathcal{P}_3 : x-y-z=-1\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-163"><script type="text/x-sage">B=matrix([[1,1,-1],[1,-1,-1]])
+b=vector([1,-1])
+show((B.augment(b,subdivide=True)).rref())
+</script></pre> <div class="para logical">
+<div class="para">Comme attendu, la matrice a la bonne forme. Les variables <span class="process-math">\(x,y\)</span> sont liées et la variable <span class="process-math">\(z\)</span> est libre. On remarque, par contre, que la commande <code class="code-inline tex2jax_ignore">rref()</code> ne donne pas explicitement la solution (c’était le cas aussi pour une solution unique), il faut la déduire de la forme échelonnée. Dans ce cas-ci, on obtient la droite</div>
+<div class="displaymath process-math">
+\begin{gather}
+\vecddd{x}{y}{z}=z\vecddd{1}{0}{1}+\vecddd{0}{1}{0}\text{.}\tag{✶}
+\end{gather}
+</div>
+</div> <div class="para">On essaie maintenant la commande <code class="code-inline tex2jax_ignore">solve_right()</code> pour le même système.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-164"><script type="text/x-sage">show(B.solve_right(b))
+</script></pre> <div class="para">La réponse obtenue est peut-être surprenante. On sait à partir des connaissances en géométrie qu’il devrait y avoir une infinité de solutions, mais Sage n’en retourne qu’une. En fait, en observant l’équation <a href="" class="xref" data-knowl="./knowl/eq-nbsoldroite.html" title="Équation">(✶)</a> ci-dessus, on peut remarquer que la solution donnée par Sage correspond à celle où les variables libres valent <span class="process-math">\(0\text{.}\)</span>
+</div> <div class="para">Comment obtenir toutes les solutions dans ce cas? Pour l’instant, on se rabat sur la commande <code class="code-inline tex2jax_ignore">rref()</code>. La section <a href="sec-4esp.html" class="internal" title="Section 5.3: Retour sur les quatre sous-espaces fondamentaux">5.3</a> donnera une réponse plus satisfaisante.</div></article><span class="incontext"><a href="sec-SELtheo.html#sageex-nbsol" class="internal">Contexte</a></span>
+</body>
+</html>

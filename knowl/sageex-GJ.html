@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">3.1.31</span><span class="period">.</span><span class="space"> </span><span class="title">La forme échelonnée réduite sur Sage.</span>
+</h4> <div class="para">Pour une matrice <span class="process-math">\(A\)</span> quelconque, on peut obtenir sa forme échelonnée réduite avec Sage à l’aide de la commande <code class="code-inline tex2jax_ignore">A.rref()</code>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-148"><script type="text/x-sage">A=matrix([[4,3,1],[6,5,1]])
+show("A=",A)
+show("rref(A)=",A.rref())
+</script></pre> <div class="para">Pour résoudre un système d’équations linéaires <span class="process-math">\(A\vec{x}=\vec{b}\text{,}\)</span> il existe plusieurs possibilités. En plus de la solution au système, les informations supplémentaires que l’on peut obtenir guideront le choix parmi les possibilités. Dans un premier temps, on peut augmenter la matrice <span class="process-math">\(A\)</span> avec le vecteur <span class="process-math">\(\vec{b}\)</span> et obtenir la forme échelonnée réduite de la matrice augmentée. La dernière colonne contient alors la solution.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-149"><script type="text/x-sage">A=matrix([[4,3,1],[6,5,1],[-1,0,3]])
+b=vector([1,2,-1])
+show("(A|b)=",A.augment(b))
+show("rref(A|b)=",(A.augment(b)).rref())
+</script></pre> <div class="para">Une autre option consiste à utiliser la commande <code class="code-inline tex2jax_ignore">A.solve_right(b)</code> (le <code class="code-inline tex2jax_ignore">_right</code> fait référence à l’équation <span class="process-math">\(A\vec{x}=\vec{b}\text{,}\)</span> où le vecteur <span class="process-math">\(\vec{x}\)</span> est à droite, plutôt qu’à l’équation <span class="process-math">\(x\vec{A}=\vec{b}\)</span>). Cette commande ne donne que la solution au système, pas la matrice échelonnée. Donc, s’il est pratique de l’avoir, on utilisera l’échelonnage.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-150"><script type="text/x-sage">show("(x,y,z)=",A.solve_right(b))
+</script></pre> <div class="para">La commande <code class="code-inline tex2jax_ignore">A.pivots()</code> retourne la position des colonnes pivots. Attention, on rappelle que Sage commence sa numérotation à <span class="process-math">\(0\text{,}\)</span> la deuxième colonne sera donc indicée par <span class="process-math">\(1\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-151"><script type="text/x-sage">A=matrix([[4,3,1],[24,18,4],[16,12,2]])
+show(A.rref())
+show("Les pivots sont en position ", A.pivots())
+</script></pre></article><span class="incontext"><a href="sec-GJ.html#sageex-GJ" class="internal">Contexte</a></span>
+</body>
+</html>

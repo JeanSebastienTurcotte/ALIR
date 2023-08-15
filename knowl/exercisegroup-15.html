@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<div class="exercisegroup">
+<h4 class="heading">
+<span class="type">Bloc d’exercices</span><span class="space"> </span><span class="codenumber">5.3.4.18–20</span><span class="period">.</span><span class="space"> </span><span class="title">Exercices Sage.</span>
+</h4>
+<div class="introduction"><div class="para">Les exercices qui suivent sont conçus pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d’arriver aux réponses.</div></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like"><h5 class="heading"><span class="codenumber">18<span class="period">.</span></span></h5>
+<div class="para">Pour déterminer une base de l’espace colonne, la proposition <a href="" class="xref" data-knowl="./knowl/prop-baseespcolnulg.html" title="Proposition 5.3.4: Une base pour l’espace colonne et l’espace nul gauche">5.3.4</a> dit qu’on doit prendre les colonnes de la matrice initiale qui correspondent aux positions pivots de sa forme échelonnée réduite. À l’exemple <a href="" class="xref" data-knowl="./knowl/sageex-espfond.html" title="Calcul 3.4.12: Les quatre espaces avec Sage">3.4.12</a>, on a utilisé la commande <code class="code-inline tex2jax_ignore">A.column_space().basis()</code> pour obtenir une base de l’espace colonne de la matrice <span class="process-math">\(A\text{,}\)</span> mais ce n’est pas la base donnée par la proposition <a href="" class="xref" data-knowl="./knowl/prop-baseespcolnulg.html" title="Proposition 5.3.4: Une base pour l’espace colonne et l’espace nul gauche">5.3.4</a>. On peut construire une fonction qui retourne cette base grâce à la fonction <code class="code-inline tex2jax_ignore">A.pivots()</code> qui retourne la position des colonnes pivots (si l’on avait voulu les lignes pivots, on aurait utilisé la commande <code class="code-inline tex2jax_ignore">A.pivots_rows()</code>).</div> <div class="para">Construire une fonction <code class="code-inline tex2jax_ignore">colbase</code> qui prend comme entrée une matrice et retourne la base de son espace colonne telle que donnée par la proposition <a href="" class="xref" data-knowl="./knowl/prop-baseespcolnulg.html" title="Proposition 5.3.4: Une base pour l’espace colonne et l’espace nul gauche">5.3.4</a>. Tester avec les matrices de l’exercice <a href="" class="xref" data-knowl="./knowl/exo-base4esp.html" title="Exercice 5.3.4.1">5.3.4.1</a>.</div>
+<div class="solutions"><a href="" class="solution-knowl original" data-knowl="./knowl/solution-844-hidden.html" title="Solution 5.3.4.18.1"><span class="type">Solution</span><span class="period">.</span></a></div></article><article class="exercise exercise-like"><h5 class="heading"><span class="codenumber">19<span class="period">.</span></span></h5>
+<div class="introduction"><div class="para">En utilisant les formules de l’exercice <a href="" class="xref" data-knowl="./knowl/exo-formulesinversegauchedroite.html" title="Exercice 5.3.4.17">5.3.4.17</a>, déterminer un inverse à gauche ou un inverse à droite des matrices suivantes. Dans le cas d’une matrice carrée, calculer les deux inverses et vérifier qu’ils correspondent à l’inverse traditionnel. Toutes les matrices sont de rang maximal.</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para"><span class="process-math">\(A=\begin{pmatrix}
+5 &amp; 2 &amp; -2 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 0 &amp; 2 &amp; 0 \\
+-1 &amp; -1 &amp; 0 &amp; -11 &amp; -1
+\end{pmatrix}\)</span></div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-459-hidden.html" title="Réponse 5.3.4.19.a.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-845-hidden.html" title="Solution 5.3.4.19.a.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para"><span class="process-math">\(B=\begin{pmatrix}
+5 &amp; -1 &amp; 2 \\
+8 &amp; -1 &amp; 0 \\
+-1 &amp; 13 &amp; 3 \\
+0 &amp; -1 &amp; -1 \\
+-5 &amp; 1 &amp; 1 \\
+-16 &amp; -5 &amp; 1
+\end{pmatrix}\)</span></div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-460-hidden.html" title="Réponse 5.3.4.19.b.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-846-hidden.html" title="Solution 5.3.4.19.b.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para"><span class="process-math">\(C=\begin{pmatrix}
+5 &amp; 4 \\
+-1 &amp; 1
+\end{pmatrix}\)</span></div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-461-hidden.html" title="Réponse 5.3.4.19.c.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-847-hidden.html" title="Solution 5.3.4.19.c.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para"><span class="process-math">\(D=\begin{pmatrix}
+0 &amp; 0 &amp; -41 &amp; -11 &amp; -32 &amp; -3 \\
+0 &amp; 0 &amp; -1 &amp; -3 &amp; -1 &amp; -1 \\
+-2 &amp; 1 &amp; 1 &amp; 0 &amp; 2 &amp; 27
+\end{pmatrix}\)</span></div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-462-hidden.html" title="Réponse 5.3.4.19.d.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-848-hidden.html" title="Solution 5.3.4.19.d.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="para"><span class="process-math">\(E=\begin{pmatrix}
+3 &amp; 1 &amp; -1 \\
+-1 &amp; 2 &amp; -1 \\
+2 &amp; -1 &amp; 20 \\
+8 &amp; -2 &amp; -2 \\
+-8 &amp; -1 &amp; 3 \\
+0 &amp; -3 &amp; -1
+\end{pmatrix}\)</span></div>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-463-hidden.html" title="Réponse 5.3.4.19.e.1"><span class="type">Réponse</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-849-hidden.html" title="Solution 5.3.4.19.e.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article></article><article class="exercise exercise-like"><h5 class="heading"><span class="codenumber">20<span class="period">.</span></span></h5>
+<div class="para logical">
+<div class="para">Créer une fonction qui prend comme argument une matrice. La fonction retourne</div>
+<ol class="lower-alpha">
+<li><div class="para">Son inverse à gauche telle que donnée par la formule de l’exercice <a href="" class="xref" data-knowl="./knowl/exo-formulesinversegauchedroite.html" title="Exercice 5.3.4.17">5.3.4.17</a> s’il existe, ainsi que la mention “c’est un inverse à gauche”;</div></li>
+<li><div class="para">Son inverse à droite telle que donnée par la formule de l’exercice <a href="" class="xref" data-knowl="./knowl/exo-formulesinversegauchedroite.html" title="Exercice 5.3.4.17">5.3.4.17</a> s’il existe, ainsi que la mention “c’est un inverse à droite”;</div></li>
+<li><div class="para">Son inverse si la matrice est carrée et inversible;</div></li>
+<li><div class="para">La chaine de caractère <code class="code-inline tex2jax_ignore">La matrice ne possède pas d'inverse</code> dans les autres cas.</div></li>
+</ol>
+</div>
+<div class="solutions"><a href="" class="solution-knowl original" data-knowl="./knowl/solution-850-hidden.html" title="Solution 5.3.4.20.1"><span class="type">Solution</span><span class="period">.</span></a></div></article>
+</div>
+</div>
+<span class="incontext"><a href="sec-4esp.html#exercisegroup-15" class="internal">Contexte</a></span>
+</body>
+</html>

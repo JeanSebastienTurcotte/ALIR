@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">La matrice de transition est donnée par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T=\begin{pmatrix}
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\
+\frac{1}{2} &amp; 0 &amp; 1 &amp; \frac{1}{2} \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
+\frac{1}{2} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Un calcul montre que <span class="process-math">\(T^2\)</span> n’a pas d’entrée égale à zéro, il est donc possible de calculer une grande puissance de <span class="process-math">\(T\)</span> pour trouver l’état stable. Avec Sage, on trouve <span class="process-math">\(X=(0.266666666791633, 0.399999999875033, 0.200000000077234, 0.133333333256100)\text{.}\)</span>
+</div>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-369"><script type="text/x-sage">T=column_matrix([[0,0.5,0,0.5],[0.5,0,0.5,0],[0,1,0,0],[0.5,0.5,0,0]])
+show((T^100).column(0))
+</script></pre>
+</div></body>
+</html>

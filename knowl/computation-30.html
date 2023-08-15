@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">4.3.11</span><span class="period">.</span><span class="space"> </span><span class="title">Les cofacteurs et Sage.</span>
+</h4> <div class="para">Sage ne possède pas de fonction pour calculer les cofacteurs d’une matrice. On peut toutefois les calculer manuellement à l’aide de quelques commandes simples. En particulier, on peut accéder à une sous-matrice de <span class="process-math">\(A\)</span> à l’aide de la commande <code class="code-inline tex2jax_ignore">A[L1,L2]</code>, où <code class="code-inline tex2jax_ignore">L1,L2</code> sont des listes des lignes (<code class="code-inline tex2jax_ignore">L1</code>) et des colonnes (<code class="code-inline tex2jax_ignore">L2</code>) que l’on veut garder. Par exemple, pour afficher la sous-matrice <span class="process-math">\(A_{2,3}\)</span> d’une matrice <span class="process-math">\(3\times 3\text{,}\)</span> on procède comme suit.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-239"><script type="text/x-sage">A=random_matrix(QQ,3,3)
+show("A=",A)
+A23=A[[0,2],[0,1]] #Encore une fois, on rappelle que Sage commence ses indices à zéro et donc, pour éliminer la deuxième ligne , on garde les lignes sage 0 et 2 et pour  éliminer la troisème colonne, on garde les colonne 0 et 1
+show("A_{2,3}=",A23)
+</script></pre> <div class="para">On peut ensuite calculer le cofacteur de cet élément en réécrivant la formule.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-240"><script type="text/x-sage">cof23=(-1)^(2+3)*A23.determinant()  #l'exposant du (-1) n'a pas à étre modifié lui
+show(cof23)
+</script></pre> <div class="para">On peut ensuite calculer le déterminant en utilisant le développement selon une ligne ou une colonne déterminée.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-241"><script type="text/x-sage">#Puisqu'on a déjà A23, on choisit de procéder avec la ligne 2
+A21=A[[0,2],[1,2]]
+cof21=(-1)^(2+1)*A21.determinant()
+A22=A[[0,2],[0,2]]
+cof22=(-1)^(2+2)*A22.determinant()
+det=A[1,0]*cof21+A[1,1]*cof22+A[1,2]*cof23
+show("det=",det)
+show("Le déterminant directement avec Sage: ", A.determinant())
+</script></pre></article><span class="incontext"><a href="sec-cofacteurs.html#computation-30" class="internal">Contexte</a></span>
+</body>
+</html>

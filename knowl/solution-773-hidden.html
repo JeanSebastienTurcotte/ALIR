@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">On convertit le système d’équations linéaires</div>
+<div class="displaymath process-math">
+\begin{alignat*}{6}
+x_1&amp;{}-{}&amp;x_2&amp;{}+{}&amp;x_3&amp;&amp;&amp;&amp;&amp;{}={}&amp;0&amp;\\
+&amp;&amp;&amp;&amp;&amp;&amp;x_4&amp;{}+{}&amp;3x_5&amp;{}={}&amp;0&amp;\\
+x_1&amp;&amp;&amp;&amp;&amp;{}-{}&amp;2x_4&amp;{}+{}&amp;x_5&amp;{}={}&amp;0&amp;
+\end{alignat*}
+</div>
+<div class="para">sous la forme matricielle. Le sous-espace vectoriel correspondant aux solutions de l’équation <span class="process-math">\(B\vec{x}=\vec{0}\)</span> est le sous-espace de l’énoncé. On utilise Sage pour réduire la matrice.</div>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-261"><script type="text/x-sage">B=matrix([[1,1,1,0,0],[0,0,0,1,3],[1,0,0,-2,1]])
+show("rref(B)=",B.rref())
+</script></pre> <div class="para">Cette fois, il y a deux solutions de base. Comme ici on cherche la dimension des solutions à l’équation <span class="process-math">\(A\vec{x}=\vec{0}\text{,}\)</span> on obtient <span class="process-math">\(2\text{.}\)</span>
+</div>
+</div></body>
+</html>

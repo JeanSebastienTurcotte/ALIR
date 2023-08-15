@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">Comme défini dans l’exercice, une matrice de permutation est une matrice <span class="process-math">\(P\)</span> telle que chaque colonne et chaque ligne ne contient qu’une entrée non nulle égale à <span class="process-math">\(1\text{.}\)</span> On constate assez facilement qu’une telle matrice sera toujours obtenue à partir de la matrice identité en permutant des lignes. En effet, pour que la matrice <span class="process-math">\(P\)</span> ait exactement un <span class="process-math">\(1\)</span> et que des <span class="process-math">\(0\)</span> dans chaque ligne et colonne, on doit avoir le <span class="process-math">\(1\)</span> dans une colonne différente pour chaque ligne. Ce sont donc les lignes de l’identité, mais positionnées à différentes lignes.</div> <div class="para logical">
+<div class="para">Différents cas de figure sont possibles. D’abord, on considère le cas où la matrice <span class="process-math">\(P\)</span> est l’identité et seulement deux lignes ont été permutées, par exemple les lignes <span class="process-math">\(i\)</span> et <span class="process-math">\(j\text{.}\)</span> On constate que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P=E_{L_i\leftrightarrow L_j}\text{.}
+\end{equation*}
+</div>
+<div class="para">Ensuite, on considère le cas où la matrice <span class="process-math">\(P\)</span> est l’identité et exactement trois lignes ont été permutées, par exemple les lignes <span class="process-math">\(i\text{,}\)</span> <span class="process-math">\(j\)</span> et <span class="process-math">\(k\text{.}\)</span> Seulement deux options sont alors possibles:</div>
+<ol class="lower-alpha">
+<li><div class="para"><span class="process-math">\(\displaystyle L_i\rightarrow L_j\rightarrow L_k \rightarrow L_i\)</span></div></li>
+<li><div class="para"><span class="process-math">\(L_i\rightarrow L_k\rightarrow L_j \rightarrow L_i\text{.}\)</span></div></li>
+</ol>
+<div class="para">On peut effectuer ces permutations triples en deux étapes. Par exemple, pour <span class="process-math">\(P_1\)</span> effectuant <span class="process-math">\(L_i\rightarrow L_j\rightarrow L_k \rightarrow L_i\text{,}\)</span> on peut effectuer <span class="process-math">\(L_i\leftrightarrow L_j\)</span> puis <span class="process-math">\(L_i\leftrightarrow L_k\text{.}\)</span> Remarquer que la seconde permutation permute en réalité les lignes <span class="process-math">\(j\)</span> et <span class="process-math">\(k\)</span> de la matrice initiale, mais que <span class="process-math">\(L_j\)</span> est positionnée à <span class="process-math">\(L_i\text{.}\)</span> Ainsi,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P_1=E_{L_i\leftrightarrow L_k}E_{L_i\leftrightarrow L_j}\text{ et }P_2=E_{L_i\leftrightarrow L_k}E_{L_i\leftrightarrow L_j}\text{.}
+\end{equation*}
+</div>
+<div class="para">Le principe qui semble se dégager est qu’on utilise une matrice de permutation pour positionner la première ligne <span class="process-math">\(L_i\text{,}\)</span> puis une seconde pour positionner la seconde ligne <span class="process-math">\(L_j\text{.}\)</span> La dernière ligne est nécessairement permutée par une de ces deux permutations puisque sinon, ce ne serait pas une permutation triple.</div>
+</div> <div class="para logical">
+<div class="para">On établit maintenant le principe pour permuter <span class="process-math">\(n\)</span> lignes, soient les lignes <span class="process-math">\(i_1, i_2, \dots , i_n\text{.}\)</span> La matrice <span class="process-math">\(P\)</span> sera formée de la multiplication d’au maximum <span class="process-math">\(n-1\)</span> matrices élémentaires. La première (en partant de la droite) permettra de positionner la ligne <span class="process-math">\(i_1\text{.}\)</span> La seconde permettra de positionner la ligne (initialement positionnée à) <span class="process-math">\(i_2\text{.}\)</span> Ainsi de suite, jusqu’à la <span class="process-math">\((n-1)^e\text{,}\)</span> qui permettra de positionner la ligne (initialement positionnée à) <span class="process-math">\(i_{n-1}\text{.}\)</span> Alors, on écrit, avec une notation discutable puisqu’on ne sait pas toujours si la ligne <span class="process-math">\(i_k\)</span> a été modifiée ou pas:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P=E_{L_{i_{n-1}}\leftrightarrow L_{j_{n-1}}}\cdots E_{L_{i_2}\leftrightarrow L_{j_2}}E_{L_{i_1}\leftrightarrow L_{j_1}}\text{.}
+\end{equation*}
+</div>
+</div>
+</div></body>
+</html>

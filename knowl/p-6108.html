@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraphe</span></h4>
+<div class="para logical">
+<div class="para">Dans un premier temps, on remarque qu’aucune entrée de la dernière ligne n’est négative. Par contre, la matrice possède un élément négatif dans sa dernière colonne, ce qui fait qu’elle n’est pas, en principe, une matrice initiale du simplexe. La solution initiale de cette matrice, donnée par <span class="process-math">\(x=y=0, e_1=-9,e_2=1\)</span> et <span class="process-math">\(f=0\text{,}\)</span> n’est même pas admissible, puisque <span class="process-math">\(e_1&lt; 0\text{.}\)</span> Afin de pouvoir utiliser l’algorithme du simplexe, on commence par un pivotage sur la première ligne, qui contient l’entrée négative égale à <span class="process-math">\(-9\text{.}\)</span> Dans ce cas-ci, on peut pivoter par rapport à n’importe quelle variable, puisque <span class="process-math">\(x\)</span> et <span class="process-math">\(y\)</span> sont tous deux négatifs dans la première ligne. Si l’on choisit de pivoter pour <span class="process-math">\(x\text{,}\)</span> la matrice devient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exosage-minpivoty.html">
+\begin{align*}
+\left(\begin{array}{rrrr|r|r}
+-1&amp;-1&amp;1&amp;0&amp;0&amp;-9\\
+1&amp;-1&amp;0&amp;1&amp;0&amp;1\\
+2&amp;3&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)&amp;\begin{array}{l} -L_1\to L_1 \\ \sim\end{array}\left(\begin{array}{rrrr|r|r}
+1&amp;1&amp;-1&amp;0&amp;0&amp;9\\
+1&amp;-1&amp;0&amp;1&amp;0&amp;1\\
+2&amp;3&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)\\
+&amp;\begin{array}{l} L_2-L_1\to L_1 \\ L_3-2L_1\to L_3\\ \sim \end{array}\left(\begin{array}{rrrr|r|r}
+1&amp;1&amp;-1&amp;0&amp;0&amp;9\\
+0&amp;-2&amp;1&amp;1&amp;0&amp;-8\\
+0&amp;1&amp;2&amp;0&amp;1&amp;-18
+\end{array}\right)\text{.}
+\end{align*}
+</div>
+<div class="para">Encore une fois, il y a une entrée négative dans la colonne des <span class="process-math">\(b_i\text{,}\)</span> ce qui fait que l’on doit pivoter dans la ligne correspondante avant de poursuivre. L’exercice <a href="" class="xref" data-knowl="./knowl/exosage-minpivoty.html" title="Exercice 7.2.5.7">7.2.5.7</a> montre que l’on aurait pu éviter une étape en choisissant <span class="process-math">\(y\)</span> comme premier pivot. La seule entrée négative du bloc principal de la ligne deux étant dans la colonne <span class="process-math">\(y\text{,}\)</span> on pivote sur cette valeur. On obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exosage-minpivoty.html">
+\begin{align*}
+\left(\begin{array}{rrrr|r|r}
+1&amp;1&amp;-1&amp;0&amp;0&amp;9\\
+0&amp;-2&amp;1&amp;1&amp;0&amp;-8\\
+0&amp;1&amp;2&amp;0&amp;1&amp;-18
+\end{array}\right)&amp;\begin{array}{l}-\frac{1}{2}L_2\to L_2\\ \sim \end{array}\left(\begin{array}{rrrr|r|r}
+1&amp;1&amp;-1&amp;0&amp;0&amp;9\\
+0&amp;1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;4\\
+0&amp;1&amp;2&amp;0&amp;1&amp;-18
+\end{array}\right)\\
+&amp;\begin{array}{l}L_1-L_2\to L_2\\ L_3-L_2\to L_3\\ \sim\end{array}\left(\begin{array}{rrrr|r|r}
+1&amp;0&amp;-\frac{1}{2}&amp;\frac{1}{2}&amp;0&amp;5\\
+0&amp;1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;4\\
+0&amp;0&amp;\frac{5}{2}&amp;\frac{1}{2}&amp;1&amp;-22
+\end{array}\right)\text{.}
+\end{align*}
+</div>
+<div class="para">Cette fois, les valeurs des <span class="process-math">\(b_i\)</span> sont toutes positives. Mais comme les coefficients sur la dernière ligne sont tous positifs (sauf pour la valeur de <span class="process-math">\(f\)</span>), l’algorithme se termine. Le maximum de la fonction est donc <span class="process-math">\(-22\text{.}\)</span> Dans un scénario concret, ce problème aurait sans doute été un problème de minimisation, le minimum recherché aurait donc été de <span class="process-math">\(22\text{.}\)</span>
+</div>
+</div>
+<span class="incontext"><a href="sec-simplexe.html#p-6108" class="internal">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">On utilise Sage pour calculer chacun des cofacteurs de la matrice. Investiguer pourquoi on ne fait pas <code class="code-inline tex2jax_ignore">Lignes=liste</code>, mais plutôt <code class="code-inline tex2jax_ignore">.copy()</code>.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-242"><script type="text/x-sage">A=matrix([[5,0,5],[2,-2,3],[1,0,4]])
+listcof=[]# La liste de cofacteurs
+liste=list(range(3)) #Une liste contenant [0,1,2]
+for i in range(3):
+    Lignes=liste.copy()
+    Lignes.remove(i)
+    for j in range(3):
+        Colonnes=liste.copy()
+        Colonnes.remove(j)
+        listcof.append((-1)^{i+j}*A[Lignes,Colonnes].determinant())
+C=matrix(3,3,listcof)
+show("adj(A)=",C.transpose())
+</script></pre>
+</div></body>
+</html>

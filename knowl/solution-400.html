@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">3.2.3.21.c.1</span><span class="period">.</span>
+</h6>
+<div class="para">On utilise la méthode plus prudente avec la matrice échelonnée réduite du système augmenté. Sinon, on risque d’obtenir une solution unique même s’il y a une infinité de solutions.</div> <figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">A=matrix([[3,-5,0,3,-1],[-2,3,-1,4,0],[-3,0,5,1,2]])
+b=vector([7,-1,-3])
+show((A.augment(b,subdivide=True)))
+show((A.augment(b,subdivide=True)).rref())
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.2.19<span class="period">.</span></span><span class="space"> </span>Le code solution</figcaption></figure> <div class="para logical">
+<div class="para">On interprète cette solution ainsi:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{cases}x_1-\frac{15}{2}x_4+\frac{1}{4}x_5=-\frac{13}{4}\\ x_2-\frac{51}{10}x_4+\frac{7}{20}x_5=-\frac{67}{20}\\ x_3-\frac{43}{10}x_4+\frac{11}{20}x_5=-\frac{51}{20}\\ x_4=s \in \R \text{ (libre)} \\ x_5=t \in \R \text{ (libre)}\end{cases}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4 \\ x_5\end{pmatrix}=\begin{pmatrix}\frac{15}{2}s-\frac{1}{4}t-\frac{13}{4}\\ \frac{51}{10}s-\frac{7}{20}t-\frac{67}{20}\\ \frac{43}{10}s-\frac{11}{20}t-\frac{51}{20}\\ s\\ t \end{pmatrix}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4 \\ x_5\end{pmatrix}=
+s\begin{pmatrix}\frac{15}{2}\\ \frac{51}{10}\\ \frac{43}{10}\\ 1\\ 0 \end{pmatrix}
++t\begin{pmatrix}-\frac{1}{4}\\ -\frac{7}{20}\\ -\frac{11}{20}\\ 0\\ 1 \end{pmatrix}
++\begin{pmatrix}-\frac{13}{4}\\-\frac{67}{20}\\ -\frac{51}{20}\\ 0\\ 0 \end{pmatrix}
+\end{equation*}
+</div>
+</div>
+</div>
+<span class="incontext"><a href="sec-SELtheo.html#solution-400" class="internal">Contexte</a></span>
+</body>
+</html>

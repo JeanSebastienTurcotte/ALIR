@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="project project-like"><h3 class="heading">
+<span class="type">Projet</span><span class="space"> </span><span class="codenumber">5.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Le jeu “Lights out”.</span>
+</h3>
+<div class="introduction">
+<div class="para">“Lights Out” est un jeu électronique mis en marché en 1995. Il consiste en une grille de taille <span class="process-math">\(5\times 5\)</span> dans laquelle on retrouve de petites lumières qui peuvent être allumées ou éteintes. Lorsqu’on touche un élément de la grille, celui-ci, ainsi que ses quatre voisins, changent d’état, passant d’allumé à éteint ou d’éteint à allumé. Le but du jeu est, étant donnée une configuration initiale, d’éteindre toutes les lumières. Voici une image tirée de Wikipedia<a href="" class="fn-knowl original" data-knowl="./knowl/fn-31-hidden.html" title="Note de bas de page 5.5.1"><sup> 1 </sup></a> qui montre le fonctionnement du jeu.</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/LightsOutIllustration.svg" role="img" class="contained" alt="Cinq grille de taille cinq de taille cinq par cinq sont illustrées. Les grilles sont de couleur vert foncé avec certains carrés plus brillant, simulant une lumière ouverte. Dans celle à l’extrémité gauche, il n’y a que le carré au coin supérieur gauche qui est en position ouvert. Une flèche amenant à la seconde grille dans laquelle on voit une main appuyé sur le carré inférieur droit. Dans la troisième grille, les trois carrés formant un L inversé dans le coin inférieur droit sont maintenant allumés. La quatrième grille voit une main appuyer sur le carré dans la quatrième ligne et quatrième colonne. Celui-ci passe de éteint à allumé dans la cinquième grille tout comme celui à sa gauche et au-dessus. Les carrés à sa droite et en dessous eux passent d’allumés à éteints."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.5.1<span class="period">.</span></span><span class="space"> </span>Le jeu “Lights Out”.</figcaption></figure> <div class="para logical">
+<div class="para">On considère, dans un premier temps, une version simplifiée du jeu où la grille est de taille <span class="process-math">\(3\times 3\text{.}\)</span> On peut représenter une grille de jeu par une matrice où les entrées sont <span class="process-math">\(1\)</span> si la lumière est allumée et <span class="process-math">\(0\)</span> si la lumière est éteinte. La figure <a href="" class="xref" data-knowl="./knowl/fig-lightsout3x3-1.html" title="Figure 5.5.2">5.5.2</a> illustre un exemple associé à la matrice</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-lightsout3x3-1.html">
+\begin{equation}
+L_1=\begin{pmatrix}
+1&amp;0&amp;1\\
+0&amp;1&amp;0\\
+0&amp;1&amp;0
+\end{pmatrix}\text{.}\tag{5.5.1}
+\end{equation}
+</div>
+</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/lightsout3x3-1.svg" role="img" class="contained" alt="Une grille de taille trois par trois est illustrée avec les carrés colorées en vert. Les carrés en position un,un; un,trois; deux,deux et trois,deux sont d’un vert plus brillant, signifiant qu’ils sont allumés. Les autres carrés sont d’un vert plus terne, signifiant qu’ils sont éteints."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.5.2<span class="period">.</span></span><span class="space"> </span>Un exemple <span class="process-math">\(3\times 3\)</span></figcaption></figure> <div class="para">Pour le cas <span class="process-math">\(3\times 3\text{,}\)</span> il s’avère qu’il existe une solution peu importe la configuration initiale. L’image interactive ci-dessous permet de jouer avec une configuration aléatoire et montre aussi la solution optimale dans chaque cas.</div> <figure class="figure figure-like"><iframe id="geog-lightsout3x3interactive" width="600" height="600" src="geog-lightsout3x3interactive-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-75" id="instructions-75"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-75"><div class="solution-like"><div class="para" id="p-5231">Cliquer sur <em class="emphasis">Nouvelle Version</em> pour obtenir une grille à résoudre. Cliquer ensuite sur les différents carrés afin de changer l’état de ceux-ci et de leurs voisins. Pour afficher la solution, cliquer sur le bouton du même nom. On peut ensuite revenir à une grille résolue en cliquant sur <em class="emphasis">Réinitialiser</em>.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.5.3<span class="period">.</span></span><span class="space"> </span>“Lights Out” en version interactive <span class="process-math">\(3\times 3\)</span></figcaption></figure>
+</div>
+<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para logical">
+<div class="para">L’espace dans lequel on travaillera pour résoudre ce problème est l’espace des matrices dont les entrées ne sont que des <span class="process-math">\(0\)</span> ou des <span class="process-math">\(1\text{.}\)</span> On définit sur les nombres <span class="process-math">\(\{0,1\}\)</span> les opérations suivantes:</div>
+<div class="displaymath process-math">
+\begin{align*}
+0\oplus 0&amp;=0\\
+1\oplus 0&amp;=1\\
+0\oplus 1&amp;=1\\
+1\oplus 1&amp;=0
+\end{align*}
+</div>
+<div class="para">et pour <span class="process-math">\(r\neq 1\text{,}\)</span> on définit <span class="process-math">\(r\otimes 1=0\)</span> et <span class="process-math">\(r\otimes 0=0\)</span> alors que pour <span class="process-math">\(r=1\text{,}\)</span> on définit <span class="process-math">\(r\otimes 1=1\)</span> et toujours <span class="process-math">\(r\otimes 0=0\text{.}\)</span>
+</div>
+</div> <div class="para">Montrer que l’ensemble des nombres <span class="process-math">\(\{0,1\}\)</span> muni de ces opérations est un espace vectoriel.</div> <div class="para">Ceci entraine que l’espace des matrices muni de l’addition entrée par entrée avec ces opérations est aussi un espace vectoriel.</div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="introduction">
+<div class="para">Sur Sage, il est possible de travailler avec l’addition définie plus haut. Cela correspond à travailler en modulo <span class="process-math">\(2\text{.}\)</span> Pour cela, on ajoute un argument <code class="code-inline tex2jax_ignore">GF(2)</code> dans la définition des matrices et des vecteurs, indiquant à Sage qu’on ne travaille qu’avec les nombres <span class="process-math">\(0\)</span> et <span class="process-math">\(1\text{.}\)</span> Sage connait déjà les règles arithmétiques de cet espace.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-293"><script type="text/x-sage">L1=matrix(GF(2),[[1,0,1],[0,1,0],[0,1,0]]) #La matrice de l'exemple
+</script></pre>
+</div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<div class="para logical">
+<div class="para">On peut associer à chaque case une matrice donnant son effet lorsqu’on clique sur la case. L’effet d’un clic revient donc à additionner à une matrice représentant une grille de “Lights Out” la matrice du clic, selon les règles de l’addition définies plus haut. Par exemple, un clic sur la case en position <span class="process-math">\((2,2)\)</span> correspond à la matrice</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-lightsout3x3-1.html">
+\begin{equation*}
+C_{2\,1}=\begin{pmatrix}
+1&amp;0&amp;0\\
+1&amp;1&amp;0\\
+1&amp;0&amp;0
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Son effet sur la grille de la figure <a href="" class="xref" data-knowl="./knowl/fig-lightsout3x3-1.html" title="Figure 5.5.2">5.5.2</a> peut donc être obtenu en ajoutant à la matrice <span class="process-math">\(L_1\)</span> la matrice <span class="process-math">\(C_{2\,2}\)</span> (suivant les règles d’additions définies plus haut):</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-lightsout3x3-1.html">
+\begin{equation*}
+\begin{pmatrix}
+1&amp;0&amp;1\\
+0&amp;1&amp;0\\
+0&amp;1&amp;0
+\end{pmatrix}+\begin{pmatrix}
+1&amp;0&amp;0\\
+1&amp;1&amp;0\\
+1&amp;0&amp;0
+\end{pmatrix}=\begin{pmatrix}
+0&amp;0&amp;1\\
+1&amp;0&amp;0\\
+1&amp;1&amp;0
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Le résultat est illustré ci-dessous.</div>
+</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/lightsout3x3-2.svg" role="img" class="contained" alt="Une grille de taille trois par trois est illustrée avec les carrés colorées en vert. Les carrés en position un,trois; deux,un; trois,un et trois,deux sont d’un vert plus brillant, signifiant qu’ils sont allumés. Les autres carrés sont d’un vert plus terne, signifiant qu’ils sont éteints."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.5.4<span class="period">.</span></span><span class="space"> </span>L’exemple <span class="process-math">\(3\times 3\)</span> après un clic</figcaption></figure> <div class="para">Sur Sage:</div> <pre class="ptx-sagecell sagecell-sage" id="sage-294"><script type="text/x-sage">C21=matrix(GF(2),[[1,0,0],[1,1,0],[1,0,0]])
+show(L1+C21)
+</script></pre> <div class="para">Définir les neuf matrices de clic.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-295"><script type="text/x-sage">C11=
+C12=
+C13=
+C21=matrix(GF(2),[[1,0,0],[1,1,0],[1,0,0]])
+C22=
+C23=
+C31=
+C32=
+C33=
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<div class="para logical">
+<div class="para">Vérifier que</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-lightsout3x3-2.html">
+\begin{equation}
+L_1+C_{1\,1}+C_{1\,3}+C_{3\,1}+C_{3\,2}+C_{3\,3}=O\tag{5.5.2}
+\end{equation}
+</div>
+<div class="para">et est donc une solution à la grille de la figure <a href="" class="xref" data-knowl="./knowl/fig-lightsout3x3-2.html" title="Figure 5.5.4">5.5.4</a>.</div>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-296"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<div class="para">Justifier le fait que, pour une solution, l’ordre dans lequel on clique sur les carrés n’est pas important.</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
+<div class="para">Montrer que chaque matrice est son propre inverse dans cet espace.</div></article></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="introduction"><div class="para logical">
+<div class="para">On s’intéresse maintenant à obtenir une solution pour une configuration de départ spécifique <span class="process-math">\(L\text{.}\)</span> On cherche une suite de matrice <span class="process-math">\(C_k\in\{C_{1\,1},C_{2\,2},\ldots , C_{3\,3}\} \)</span> telles que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L+C_1+C_2+\cdots C_n=O\text{.}
+\end{equation*}
+</div>
+<div class="para">Puisque chaque matrice est son propre inverse, on peut réécrire l’équation sous la forme</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C_1+C_2+\cdots C_n=L\text{.}
+\end{equation*}
+</div>
+</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<div class="para">Expliquer pourquoi, dans une solution optimale (nombre minimal de clic), chaque matrice apparait au plus une fois.</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<div class="para logical">
+<div class="para">En vertu de l’exercice précédent, on peut alors dire que pour avoir une solution, il faut que la matrice <span class="process-math">\(L\)</span> soit dans le <span class="process-math">\(\vspan\)</span> des matrices <span class="process-math">\(\{C_{1\,1},C_{2\,2},\ldots , C_{3\,3}\}\text{,}\)</span> c’est-à-dire</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-espacesetdimension.html ./knowl/eq-lightsout3x3.html ./knowl/eq-lightsoutmatL1.html">
+\begin{equation}
+x_1C_{1\,1}+x_2C_{2\,2}+\ldots + x_9C_{3\,3}=L\text{,}\tag{5.5.3}
+\end{equation}
+</div>
+<div class="para">avec les <span class="process-math">\(x_k\in\{0,1\}\text{.}\)</span> Comme l’espace des matrices de taille <span class="process-math">\(3\times 3\)</span> est de dimension <span class="process-math">\(9\)</span> et qu’une base de cet espace est donnée par les neuf matrices qui ne contiennent qu’une entrée non nulle égale à <span class="process-math">\(1\)</span> (voir l’exemple <a href="" class="xref" data-knowl="./knowl/ex-espacesetdimension.html" title="Exemple 5.4.14: Quelques espaces et leur dimension">5.4.14</a>), on peut écrire l’équation <a href="" class="xref" data-knowl="./knowl/eq-lightsout3x3.html" title="Équation 5.5.3">(5.5.3)</a> sous la forme matricielle</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-espacesetdimension.html ./knowl/eq-lightsout3x3.html ./knowl/eq-lightsoutmatL1.html">
+\begin{equation*}
+\begin{pmatrix}
+1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1
+\end{pmatrix}\begin{pmatrix} x_1\\ x_2\\ x_3\\ x_4\\ x_5\\ x_6 \\ x_7\\ x_8\\ x_9\\ \end{pmatrix}=L_{\text{vec}}
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(L_{\text{vec}}\)</span> correspond à l’écriture vectorielle de la matrice <span class="process-math">\(L\)</span> dans la base des matrices ne contenant qu’un seul <span class="process-math">\(1\text{.}\)</span> La représentation vectorielle de la matrice <span class="process-math">\(L_1\)</span> l’équation <a href="" class="xref" data-knowl="./knowl/eq-lightsoutmatL1.html" title="Équation 5.5.1">(5.5.1)</a> est donnée par <span class="process-math">\(L_{1\,\text{vec}}=(1,0,1,0,1,0,0,1,0)\text{.}\)</span> On considère donc que la base ordonnée de cet espace est</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-espacesetdimension.html ./knowl/eq-lightsout3x3.html ./knowl/eq-lightsoutmatL1.html">
+\begin{equation*}
+\left\langle \begin{pmatrix}1&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;1&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;1\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}\begin{pmatrix}0&amp;0&amp;0\\ 1&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 1&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 1 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 1&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 1&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}\right \rangle_{\mathcal{B}}\text{.}
+\end{equation*}
+</div>
+<div class="para">La première colonne de cette matrice vient donc du fait que</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-espacesetdimension.html ./knowl/eq-lightsout3x3.html ./knowl/eq-lightsoutmatL1.html">
+\begin{align*}
+x_1C_{1\, 1}&amp;=x_1\left(\begin{pmatrix}1&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}+\begin{pmatrix}0&amp;0&amp;1\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}+\begin{pmatrix}0&amp;0&amp;0\\ 1&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}\right)\\
+&amp;=(1,1,0,1,0,0,0,0,0)_{\mathcal{B}}\text{.}
+\end{align*}
+</div>
+</div> <div class="para">Montrer que la solution pour la matrice <span class="process-math">\(L_1\)</span> est bel et bien celle qui est donnée à l’équation <a href="" class="xref" data-knowl="./knowl/eq-lightsoutsol3x3-1.html" title="Équation 5.5.2">(5.5.2)</a> en résolvant ce système d’équations.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-297"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<div class="introduction"><div class="para">Les questions suivantes s’intéressent au nombre de solutions et à l’existence de solutions pour la grille <span class="process-math">\(3\times 3\text{.}\)</span>
+</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(A)</span></h6>
+<div class="para">Montrer que la solution est unique.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-298"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(B)</span></h6>
+<div class="para">Est-ce que toute configuration initiale possède une solution?</div></article></article></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="introduction"><div class="para">On explore maintenant quelques variantes.</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<div class="introduction"><div class="para">La première variante considère tout simplement la grille carrée de taille <span class="process-math">\(5\times 5\text{.}\)</span>
+</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(A)</span></h6>
+<div class="para">Montrer que la configuration de départ où seulement la case au coin supérieur gauche est allumée ne possède pas de solutions.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-299"><script type="text/x-sage">
+</script></pre></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(B)</span></h6>
+<div class="para">Montrer que la grille où toutes les cases sont initialement allumées possède plusieurs solutions et donner l’une de celles-ci.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-300"><script type="text/x-sage">
+</script></pre></article></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<div class="introduction"><div class="para">Rien n’empêche la grille d’être carrée, on pourrait tout aussi bien avoir une grille rectangulaire.</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(A)</span></h6>
+<div class="para">Il existe <span class="process-math">\(64\)</span> configurations initiales pour une grille de taille <span class="process-math">\(3\times 2\text{.}\)</span> Combien possèdent une solution?</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(B)</span></h6>
+<div class="para">Déterminer si possible une solution pour la grille suivante:</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/Lightsout4x3.svg" role="img" class="contained" alt="Une grille de taille quatre par trois est illustrée. Les carrés sur la premières lignes sont allumés, ceux sur la deuxième ligne de même que celui sur en position trois;deux sont éteints et les autres sont également allumés."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.5.5<span class="period">.</span></span><span class="space"> </span>Une grille de “Lights Out” de taille <span class="process-math">\(4\times 3\)</span></figcaption></figure></article></article></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para logical">
+<div class="para">Explorer une autre variante, existante ou inventée. Répondre aux questions suivantes:</div>
+<ul class="disc">
+<li><div class="para">Est-ce qu’il y a toujours une solution peu importe la configuration initiale?</div></li>
+<li><div class="para">S’il y en a une, donner une solution pour une grille complètement allumée et sinon, montrer qu’il n’y en a pas.</div></li>
+</ul>
+</div> <div class="para logical">
+<div class="para">Voici quelques inspirations:</div>
+<ol class="decimal">
+<li><div class="para">Un jeu où il y a trois états pour une case, par exemple rouge, vert et éteint. Un clic change la case et ses voisins selon l’ordre rouge à vert, vert à éteint et éteint à rouge. Considérer une grille <span class="process-math">\(5\times 5\)</span> et partir de l’état où tout est rouge.</div></li>
+<li><div class="para">Un jeu où les bords sont reliés, chaque clic affecte cinq cellules. Donc la cellule dans le coin supérieur gauche change aussi l’état de la cellule dans le coin supérieur droit et dans le coin inférieur gauche. Considérer une grille <span class="process-math">\(5\times 5\text{.}\)</span>
+</div></li>
+<li><div class="para">Un jeu où chaque clic affecte la ligne entière et la colonne entière. Considérer une grille <span class="process-math">\(5\times 5\text{.}\)</span>
+</div></li>
+</ol>
+</div> <div class="para">Dans le cas d’une variante inventée, bien clarifier les règles du jeu.</div></article></article><span class="incontext"><a href="sec-espaceslabos.html#project-5" class="internal">Contexte</a></span>
+</body>
+</html>

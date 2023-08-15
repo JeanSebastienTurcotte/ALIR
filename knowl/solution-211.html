@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">2.2.3.14.1</span><span class="period">.</span>
+</h5>
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">A=column_matrix([[0,0,0,0],[2,0,0,0],[5,4,0,0],[-2,0,4,0]])
+B=column_matrix([[1,0],[2,4]])
+C=column_matrix([[1,1,-2],[1,1,-2],[1,1,-2]])
+def estnilpotente(A):
+    n=A.ncols() #La dimension de la matrice
+    k=1  #L'indice de nilpotence, si
+    while k &lt;= n:  #Le critère d'arrêt
+        if A^k==0: #Sage comprend que 0 sera la matrice nulle. On aurait aussi pu la définir afin de comparer
+            return print("La matrice est nilpotente d'ordre ",k)
+        else:
+            k+=1 #On augmente le potentiel indice de 1
+    return print("La matrice n'est pas nilpotente")
+estnilpotente(A)
+estnilpotente(B)
+estnilpotente(C)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.2.21<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure>
+</div>
+<span class="incontext"><a href="sec-prodmat.html#solution-211" class="internal">Contexte</a></span>
+</body>
+</html>

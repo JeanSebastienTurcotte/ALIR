@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">On commence par former la matrice dont les colonnes sont les vecteurs directeurs du plan:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-fondalg.html">
+\begin{equation*}
+A=\begin{pmatrix}
+-1&amp;-5\\
+2&amp;4\\
+1&amp;-3
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Puisque le point <span class="process-math">\(Q\)</span> sur le plan le plus proche du point <span class="process-math">\(P\)</span>  est un point pour lequel le vecteur <span class="process-math">\(\vecl{QP}\)</span> est perpendiculaire au plan, on peut déduire du théorème <a href="" class="xref" data-knowl="./knowl/thm-fondalg.html" title="Théorème 5.3.7: Théorème fondamental de l’algèbre linéaire">5.3.7</a> que ce vecteur est dans l’espace nul gauche de la matrice <span class="process-math">\(A\text{,}\)</span> pour laquelle le plan représente l’espace colonne. Il faut donc que <span class="process-math">\(\vecl{QP}=\vecl{OP}-\vecl{OQ}\)</span> soit dans l’espace nul gauche ou, de façon équivalente, il faut que</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-fondalg.html">
+\begin{equation*}
+A^T(\vecl{OP}-\vecl{OQ})=\vec{0}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Pour progresser, on remarque que, comme le point <span class="process-math">\(Q\)</span> est sur le plan, il doit nécessairement exister un vecteur <span class="process-math">\(\vec{x}\)</span> tel que <span class="process-math">\(A\vec{x}=\vecl{OQ}\text{.}\)</span> Ainsi,</div>
+<div class="displaymath process-math">
+\begin{align*}
+A^T(\vecl{OP}-\vecl{OQ})&amp;=\vec{0}\\
+A^T(\vecl{OP}-A\vec{x})&amp;=\vec{0}\\
+A^T\vecl{OP}-A^TA\vec{x}&amp;=\vec{0}\\
+A^T\vecl{OP}&amp;=A^TA\vec{x}\text{.}
+\end{align*}
+</div>
+</div> <div class="para">Concrètement, on peut calculer toutes ces matrices et obtenir un système simple à résoudre. On utilise Sage pour faire ces calculs.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-265"><script type="text/x-sage">A=column_matrix([[-1,2,1],[-5,4,-3]])
+P=vector([-3,-7,0])
+AT=A.transpose()
+show("A^T*OP=",AT*P)
+show("A^T*A=",AT*A)
+</script></pre> <div class="para logical">
+<div class="para">Le point <span class="process-math">\(Q\)</span> est donc obtenu en trouvant la valeur du vecteur <span class="process-math">\(\vec{x}\)</span> pour lequel</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+6&amp;10\\ 10&amp;50
+\end{pmatrix}\vec{x}=\vecd{-11}{-13}\text{.}
+\end{equation*}
+</div>
+<div class="para">Ce système se résout facilement à l’aide de n’importe quelle méthode des chapitres précédents. Avec Sage:</div>
+</div> <pre class="ptx-sagecell sagecell-sage" id="sage-266"><script type="text/x-sage">A=column_matrix([[-1,2,1],[-5,4,-3]])
+P=vector([-3,-7,0])
+AT=A.transpose()
+ATP=AT*P
+ATA=AT*A
+show(ATA.solve_right(ATP))
+</script></pre> <div class="para logical">
+<div class="para">Le point <span class="process-math">\(Q\)</span> est finalement obtenu en utilisant ce vecteur <span class="process-math">\(\vec{x}=\left(-\frac{21}{10},\frac{4}{25}\right)\)</span> et la matrice <span class="process-math">\(A\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\vecl{OQ}&amp;=A\vec{x}\\
+&amp;=\begin{pmatrix}
+-1&amp;-5\\
+2&amp;4\\
+1&amp;-3
+\end{pmatrix}\vecd{-\frac{21}{10}}{\frac{4}{25}}\\
+&amp;=\vecddd{\frac{13}{10}}{-\frac{89}{25}}{-\frac{129}{50}}\text{.}
+\end{align*}
+</div>
+</div>
+</div></body>
+</html>
