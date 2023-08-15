@@ -105,7 +105,7 @@ P = InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
 P.feasible_set().plot()
 </sageplot>
 </image></figure></answer>
-<solution><p>Avec six contraintes qui peuvent potentiellement toutes avoir une intersection prises deux à deux, il y a quinze intersection à déterminer. On se contente de donner les paires dont l'intersection fait partie de la région admissible. La première et la deuxième contrainte s'intersectent lorsque <m>x=7</m> et <m>y=5</m>. La première et la cinquième contrainte s'intersectent quand <m>x=9</m> et <m>y=6</m>. La deuxième et la troisième contrainte s'intersectent lorsque <m>x=8,y=2</m>. La troisième et la quatrième contrainte s'intersectent quand <m>x=10,y=1</m>. La quatrième et la sixième s'intersectent lorsque <m>x=12,y=2</m>. Finalement, la cinquième et la sixième s'intersectent quand <m>x=11,y=5</m>. La région admissible est illustrée à la figure <xref ref="fig-exo-regionadmissible3"/>.</p></solution>
+<solution><p>Avec six contraintes qui peuvent toutes avoir une intersection lorsque prises deux à deux, il y a quinze intersections à déterminer. On se contente de donner les paires dont l'intersection fait partie de la région admissible. La première et la deuxième contrainte s'intersectent lorsque <m>x=7</m> et <m>y=5</m>. La première et la cinquième contrainte s'intersectent quand <m>x=9</m> et <m>y=6</m>. La deuxième et la troisième contrainte s'intersectent lorsque <m>x=8,y=2</m>. La troisième et la quatrième contrainte s'intersectent quand <m>x=10,y=1</m>. La quatrième et la sixième s'intersectent lorsque <m>x=12,y=2</m>. Finalement, la cinquième et la sixième s'intersectent quand <m>x=11,y=5</m>. La région admissible est illustrée à la figure <xref ref="fig-exo-regionadmissible3"/>.</p></solution>
 </task>
 <task><statement><p>Minimiser <m>f_4(x,y)=x+y</m> sous les contraintes
 <md>
@@ -129,24 +129,24 @@ P.feasible_set().plot()
 </image></figure>
 </answer>
 <solution>
-<p>La première et la deuxième contrainte s'intersectent en <m>(x,y)=(7,3)</m>, la première et la troisième s'intersectent en <m>(x,y)=(2,1)</m> et la deuxième et la troisième s'intersectent en <m>(x,y)=(5,6)</m>. Ces trois intersections forment un triangle, qui représente la région admissible. Elle est illustrée à la figure <xref ref="fig-exo-regionadmissible4"/>.</p>
+<p>La première et la deuxième contrainte s'intersectent en <m>(x,y)=(7,3)</m>, la première et la troisième s'intersectent en <m>(x,y)=(2,1)</m> et la deuxième et la troisième s'intersectent en <m>(x,y)=(5,6)</m>. Ces trois intersections forment un triangle qui représente la région admissible. Elle est illustrée à la figure <xref ref="fig-exo-regionadmissible4"/>.</p>
 </solution>
 </task>
 </exercise>
 <exercise xml:id="exo-proglin2">
-<statement><p>Résoudre chacun des problème de l'exercice <xref ref="exo-proglin1"/> à l'aide de la méthode graphique.</p></statement>
+<statement><p>Résoudre chacun des problèmes de l'exercice <xref ref="exo-proglin1"/> à l'aide de la méthode graphique.</p></statement>
 <answer><p>La solution optimale se trouve en <m>(9,3)</m> et vaut <m>f_1(9,3)=33</m></p></answer>
 <answer><p>La solution optimale se trouve en <m>(5,4)</m> et vaut <m>f_2(5,4)=13</m></p></answer>
 <answer><p>La solution optimale se trouve en <m>(7,5)</m> et vaut <m>f_3(7,5)=1</m></p></answer>
 <answer><p>La solution optimale se trouve en <m>(2,1)</m> et vaut <m>f_4(2,1)=3</m></p></answer>
-<solution><p>Il faut évaluer la fonction objective en chacun des sommets de la région admissible. Puisque
+<solution><p>Il faut évaluer la fonction objective pour chacun des sommets de la région admissible. Puisque
 <md>
 <mrow>f_1(4,4)&amp;=20</mrow>
 <mrow>f_1\left(2,2\right)&amp;=10</mrow>
 <mrow>f_1(9,3)&amp;=33</mrow>
 </md>,
  la solution optimale est <m>f_1(9,3)=33</m>.</p></solution>
- <solution><p>Il faut évaluer la fonction objective en chacun des sommets de la région admissible. Puisque
+ <solution><p>Il faut évaluer la fonction objective pour chacun des sommets de la région admissible. Puisque
 <md>
 <mrow>f_2(4,3)&amp;=10</mrow>
 <mrow>f_2\left(6,2)\right)&amp;=10</mrow>
@@ -154,7 +154,7 @@ P.feasible_set().plot()
 <mrow>f_2\left(3,1\right)&amp;=5</mrow>
 </md>,
  la solution optimale est <m>f_2(5,4)=13</m>.</p></solution>
- <solution><p>Il faut évaluer la fonction objective en chacun des sommets de la région admissible. Puisque
+ <solution><p>Il faut évaluer la fonction objective pour chacun des sommets de la région admissible. Puisque
 <md>
 <mrow>f_3(7,5)&amp;=1</mrow>
 <mrow>f_3(9,6)&amp;=0</mrow>
@@ -164,7 +164,7 @@ P.feasible_set().plot()
 <mrow>f_3(11,5)&amp;=-7</mrow>
 </md>,
  la solution optimale est <m>f_(7,5)=1</m>.</p></solution>
- <solution><p>Il faut évaluer la fonction objective en chacun des sommets de la région admissible. Puisque
+ <solution><p>Il faut évaluer la fonction objective pour chacun des sommets de la région admissible. Puisque
 <md>
 <mrow>f_4(7,3)&amp;=10</mrow>
 <mrow>f_4(2,1)&amp;=3</mrow>
@@ -188,7 +188,7 @@ P.feasible_set().plot()
 et <m>x,y\geq 0</m>.</p></answer>
 <solution><p>Comme ce problème est déjà sous la forme canonique, il n'y a rien à faire.</p></solution>
 <solution><p>Comme ce problème est déjà sous la forme canonique, il n'y a rien à faire.</p></solution>
-<solution><p>Pour qu'un problème soit sous la forme canonique, il faut que ce soit un problème de maximisation et que toutes les contraintes soit des contraintes de la forme <q><m>\leq</m></q>. On a donc: maximiser <m>f_3(x,y)=-2x+3y</m> sous les contraintes
+<solution><p>Pour qu'un problème soit sous la forme canonique, il faut que ce soit un problème de maximisation et que toutes les contraintes soient des contraintes de la forme <q><m>\leq</m></q>. On a donc: maximiser <m>f_3(x,y)=-2x+3y</m> sous les contraintes
 <md>
 <mrow>-x+2y&amp;\leq 3</mrow>
 <mrow>-3x-y&amp;\leq -26</mrow>
@@ -198,7 +198,7 @@ et <m>x,y\geq 0</m>.</p></answer>
 <mrow>3x+y&amp;\leq 38</mrow>
 </md>
 et <m>x,y\geq 0</m>.</p></solution>
-<solution><p>Pour qu'un problème soit sous la forme canonique, il faut que ce soit un problème de maximisation et que toutes les contraintes soit des contraintes de la forme <q><m>\leq</m></q>. On a donc: maximiser <m>g_4(x,y)=-x-y</m> sous les contraintes
+<solution><p>Pour qu'un problème soit sous la forme canonique, il faut que ce soit un problème de maximisation et que toutes les contraintes soient des contraintes de la forme <q><m>\leq</m></q>. On a donc: maximiser <m>g_4(x,y)=-x-y</m> sous les contraintes
 <md>
 <mrow>2x-5y&amp;\leq -1</mrow>
 <mrow>3x+2y&amp;\leq 27</mrow>
@@ -206,7 +206,7 @@ et <m>x,y\geq 0</m>.</p></solution>
 </md>
 et <m>x,y\geq 0</m>.</p></solution>
 </exercise>
-<exercise xml:id="exo-proglin4"><statement><p>Résoudre chacun des problème de l'exercice <xref ref="exo-proglin1"/> à l'aide de l'algorithme du simplexe.</p></statement>
+<exercise xml:id="exo-proglin4"><statement><p>Résoudre chacun des problèmes de l'exercice <xref ref="exo-proglin1"/> à l'aide de l'algorithme du simplexe.</p></statement>
 <solution>
 <p>On commence par créer la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
 <me>
@@ -258,7 +258,7 @@ La première entrée de la dernière colonne est, à son tour, négative. On piv
 \end{array}\right)</mrow>
 </md>.
 </p>
-<p>À présent, l'algorithme du simplexe, au sens usuel, peut commencer. La plus petite entrée de la dernière ligne se trouve dans la colonne trois. Le pivotage s'effetue donc par rapport à la première variable d'écart. La seule entrée positive dans cette colonne est à la ligne deux. C'est par rapport à cette ligne que s'effectuera le pivotage. On obtient
+<p>À présent, l'algorithme du simplexe, au sens usuel, peut commencer. La plus petite entrée de la dernière ligne se trouve dans la colonne trois. Le pivotage s'effectue donc par rapport à la première variable d'écart. La seule entrée positive dans cette colonne est à la ligne deux. C'est par rapport à cette ligne que s'effectuera le pivotage. On obtient
 <md>
 <mrow>\left(\begin{array}{rrrrr|r|r}
 1&amp;0&amp;-\frac{7}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
@@ -278,7 +278,7 @@ La première entrée de la dernière colonne est, à son tour, négative. On piv
 0&amp;0&amp;0&amp;\frac{23}{12}&amp;\frac{13}{12}&amp;1&amp;33
 \end{array}\right)</mrow>
 </md>.
-À ce stade, toutes les entrées de la dernière lignes sont positives. L'algorithme se termine, offrant comme solution optimale la valeur <m>33</m>, atteinte lorsque <m>x=9</m> et <m>y=3</m>, ce qui correspond à la solution obtenue à l'exercice <xref ref="exo-proglin2"/>.
+À ce stade, toutes les entrées de la dernière ligne sont positives. L'algorithme se termine, offrant comme solution optimale la valeur <m>33</m>, atteinte lorsque <m>x=9</m> et <m>y=3</m>, ce qui correspond à la solution obtenue à l'exercice <xref ref="exo-proglin2"/>.
 </p>
 </solution>
 <solution><p>On commence par créer la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
@@ -335,7 +335,7 @@ S=\left(\begin{array}{rrrrrr|r|r}
 0&amp;0&amp;-1&amp;0&amp;0&amp;-1&amp;1&amp;5
 \end{array}\right)</mrow>
 </md>.
-À présent, l'algorithme du simplexe peut commencer. Il y a deux valeurs négatives dans la dernières lignes et celles-ci valent la même chose. On choisit la valeur dans la troisième colonne. Il n'y a qu'une entrée positive dans cette colonne, le pivotage s'effectue selon l'entrée en position  <m>3,3</m>. On obtient
+À présent, l'algorithme du simplexe peut commencer. Il y a deux valeurs négatives dans la dernière ligne et celles-ci ont la même valeur. On choisit la valeur dans la troisième colonne. Il n'y a qu'une entrée positive dans cette colonne, le pivotage s'effectue selon l'entrée en position  <m>3,3</m>. On obtient
 <md>
 <mrow>\left(\begin{array}{rrrrrr|r|r}
 1&amp;0&amp;-\frac{3}{5}&amp;0&amp;0&amp;-\frac{1}{5}&amp;0&amp;3\\
@@ -380,7 +380,7 @@ S=\left(\begin{array}{rrrrrr|r|r}
 0&amp;0&amp;0&amp;1&amp;1&amp;0&amp;1&amp;13
 \end{array}\right)</mrow>
 </md>.
-L'algoritme se termine, offrant comme solution maximale la valeur <m>13</m>, atteinte lorsque <m>x=5</m> et <m>y=4</m>, comme trouvé à l'exercice <xref ref="exo-proglin2"/>.
+L'algorithme se termine, offrant comme solution maximale la valeur <m>13</m>, atteinte lorsque <m>x=5</m> et <m>y=4</m>, comme trouvé à l'exercice <xref ref="exo-proglin2"/>.
 </p></solution>
 <solution><p>On commence par créer la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
 <me>
@@ -394,7 +394,7 @@ S=\left(\begin{array}{rrrrrrrr|r|r}
 2&amp;-3&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
 \end{array}\right)
 </me>.
-L'entrée de la deuxième ligne et de la dernière colonne contient est négative. On pivote sur l'entrée en position <m>2,1</m> afin de la rendre positive. On a
+L'entrée de la deuxième ligne et de la dernière colonne est négative. On pivote sur l'entrée en position <m>2,1</m> afin de la rendre positive. On a
 <md>
 <mrow> \left(\begin{array}{rrrrrrrrrr}
 -1 &amp; 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
@@ -473,7 +473,7 @@ Toutes les entrées de la section du vecteur <m>\vec{b}</m> sont positives. L'al
 0 &amp; 0 &amp; \frac{11}{7} &amp; \frac{1}{7} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1
 \end{array}\right) </mrow>
 </md>,
-qui ne contient que des entrées positives dans la dernière ligne. L'algoritme est terminé et offre comme solution la valeur maximale <m>1</m>, atteinte lorsque <m>(x,y)=(7,5)</m>.
+qui ne contient que des entrées positives dans la dernière ligne. L'algorithme est terminé et offre comme solution la valeur maximale <m>1</m>, atteinte lorsque <m>(x,y)=(7,5)</m>.
 </p></solution>
 <solution><p>On commence par écrire la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
 <me>
@@ -517,13 +517,13 @@ On applique l'algorithme du simplexe dual. D'abord, on pivote sur l'entrée en p
 0 &amp; 0 &amp; \frac{8}{19} &amp; 0 &amp; \frac{7}{19} &amp; 1 &amp; -3
 \end{array}\right) </mrow>
 </md>.
-La dernière ligne ne contenant que des entrées positives sous le bloc principale, l'algorithme se termine. Le problème dual de maximisation a pour solution optimale <m>-3</m>, atteinte lorsque <m>x=2</m> et <m>y=1</m>. La solution au problème primal est ainsi <m>f_4(2,1)=3</m>. 
+La dernière ligne ne contenant que des entrées positives sous le bloc principal, l'algorithme se termine. Le problème dual de maximisation a pour solution optimale <m>-3</m>, atteinte lorsque <m>x=2</m> et <m>y=1</m>. La solution au problème primal est ainsi <m>f_4(2,1)=3</m>. 
 </p></solution>
 </exercise>
 <exercise><introduction>
 <p>La figure <xref ref="fig-regionsadmissibleatrouver"/> représente différentes droites dans le premier quadrant, ainsi que quatre régions identifiées par <m>A,B,C</m> et <m>D</m>.</p>
 <figure xml:id="fig-regionsadmissibleatrouver">
-<caption>Quatre région du premier quadrant</caption>
+<caption>Quatre régions du premier quadrant</caption>
 <image xml:id="img-regionsadmissibleatrouver">
 <description>
 Les droites moins x plus trois y égal huit, x plus y égal seize, moins x plus y égal zéro et moins x plus cinq y égal huit sont illustrées dans le premier quadrant. On y voit également quatre régions appelées A,B,C et D.
@@ -547,7 +547,7 @@ g
 </md>
 avec <m>x\geq 0,y\geq 0</m>.</p>
 </answer>
-<solution><p>Il y a trois droites délimitant la région <m>A</m>, soit <m>-x+5y= 8,-x+y= 0</m> et <m>-x+3y= 8</m>. Pour les convertir en inégalité, on peut prendre un point dans la région, par exemple <m>(0,2)</m> et déterminer quel sens l'inégalité doit avoir. Puisque <m>-0+5*2=10\geq 8</m>, la première contrainte est <m>-x+5y\geq 8</m>. La deuxième, puisque <m>-0+2=2\geq 0</m>, est <m>-x+y\geq 0</m> et la dernière est <m>-x+3y\leq 8</m>, car <m>-0+3*2=6\leq 8</m>.  </p></solution>
+<solution><p>Il y a trois droites délimitant la région <m>A</m>, soit <m>-x+5y= 8,-x+y= 0</m> et <m>-x+3y= 8</m>. Pour les convertir en inégalité, on peut prendre un point dans la région, par exemple <m>(0,2)</m>, et déterminer quel sens l'inégalité doit avoir. Puisque <m>-0+5*2=10\geq 8</m>, la première contrainte est <m>-x+5y\geq 8</m>. La deuxième, puisque <m>-0+2=2\geq 0</m>, est <m>-x+y\geq 0</m> et la dernière est <m>-x+3y\leq 8</m>, car <m>-0+3*2=6\leq 8</m>.  </p></solution>
 </task>
 <task><statement><p>Écrire les contraintes d'un programme linéaire dont la région admissible correspond à la région <m>B</m> de la figure <xref ref="fig-regionsadmissibleatrouver"/>.</p></statement>
 <answer>
@@ -590,10 +590,10 @@ avec <m>x\geq 0,y\geq 0</m>.</p>
 <task><statement><p>Déterminer une fonction objectif pour laquelle le sommet <m>(2,2)</m> est la seule solution maximale.</p></statement>
 <hint><p>S'inspirer de la droite dans la figure <xref ref="fig-simplexe1"/>.</p></hint>
 <answer><p>Une réponse possible est <m>f(x,y)=-2x+y</m>.</p></answer>
-<solution><p>Une fonction objectif <m>f(x,y)</m> sera optimale au point <m>(2,2)</m> si, pour une valeur <m>k\in\mathbb{R}</m>, la courbe de niveau <m>f(x,y)=k</m> a pour seul intersection avec la région admissible le point <m>C</m>. Ce fait ne garantit pas que l'intersection sera un maximum, mais en prenant <m>g(x,y)=-f(x,y)</m> au besoin, on aura une fonction qui satisfait au problème.</p>
-<p>Si le vecteur des coefficients de la fonction objectif était parallèle au vecteur de l'une des contraintes qui sert à déterminer le point <m>(2,2)</m>, alors la totalité du segment composé de l'intersection de la droite formant la contrainte et de la région admissible offrirait une solution optimale au problème. Pour trouver une fonction où le point <m>(2,2)</m> est la seule solution optimale, on change les coefficients de la fonction objectif pour que la droite passant par <m>(2,2)</m> ayant ces coeffcients comme vecteur normal n'ait comme intersection avec la région admissible que le point <m>(2,2)</m> . La figure suivante permet de trouver un tel choix. Par exemple, la fonction <m>f(x,y)=-2x+y</m> atteint son maximum au point <m>(2,2)</m> et celui-ci vaut <m>-2</m>.</p>
+<solution><p>Une fonction objectif <m>f(x,y)</m> sera optimale au point <m>(2,2)</m> si, pour une valeur <m>k\in\mathbb{R}</m>, la courbe de niveau <m>f(x,y)=k</m> a pour seule intersection avec la région admissible le point <m>C</m>. Ce fait ne garantit pas que l'intersection sera un maximum, mais en prenant <m>g(x,y)=-f(x,y)</m> au besoin, on aura une fonction qui satisfait au problème.</p>
+<p>Si le vecteur des coefficients de la fonction objectif était parallèle au vecteur de l'une des contraintes qui sert à déterminer le point <m>(2,2)</m>, alors la totalité du segment composé de l'intersection de la droite formant la contrainte et de la région admissible offrirait une solution optimale au problème. Pour trouver une fonction où le point <m>(2,2)</m> est la seule solution optimale, on change les coefficients de la fonction objectif pour que la droite passant par <m>(2,2)</m> et ayant ces coefficients comme vecteur normal, n'ait comme intersection avec la région admissible que le point <m>(2,2)</m> . La figure suivante permet de trouver un tel choix. Par exemple, la fonction <m>f(x,y)=-2x+y</m> atteint son maximum au point <m>(2,2)</m> et celui-ci vaut <m>-2</m>.</p>
 <figure xml:id="fig-simplexe2">
-        <caption>Fonction objectif optimale aux différents point de la région <m>C</m>.</caption>
+        <caption>Fonction objectif optimale aux différents points de la région <m>C</m>.</caption>
         <interactive aspect="1:1" platform="geogebra" width="100%"
         xml:id="geog-simplexe2">
           <slate aspect="1:1.35" source="code/geogebra/simplexe2.ggb"
@@ -602,7 +602,7 @@ enableShiftDragZoom(false);
 enableRightClick(false);
           </slate>
           <instructions>
-            <p>Changer les curseurs <m>a</m> et <m>b</m> pour obtenir une droite différente, qui passe toujours par le point sélectionné par le troisième curseur. Le curseur <m>k</m> translate cette droite de manière à couvrir toute la région admissible. Bouger le point <m>P</m> afin d'y évaluer la fonction <m>f</m> et d'assurer que c'est bien un maximum qui est atteint au point souhaité.</p>
+            <p>Changer les curseurs <m>a</m> et <m>b</m> pour obtenir une droite différente qui passe toujours par le point sélectionné par le troisième curseur. Le curseur <m>k</m> translate cette droite de manière à couvrir toute la région admissible. Bouger le point <m>P</m> afin d'y évaluer la fonction <m>f</m> et de s'assurer que c'est bien un maximum qui est atteint au point souhaité.</p>
           </instructions>
         </interactive>
       </figure>
@@ -622,7 +622,7 @@ enableRightClick(false);
 <exercisegroup>
 <title>Exercices Sage</title>
 <introduction><p>Les exercices qui suivent sont conçus pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d'arriver aux réponses.</p></introduction>
-<exercise><statement><p>Résoudre les problème de l'exercice <xref ref="exo-proglin1"/> à l'aide de la commande <c>run_simplex_method</c> et vérifier que la réponse obtenue est la même que celle à l'exercice <xref ref="exo-proglin2"/> ou <xref ref="exo-proglin4"/>.</p>
+<exercise><statement><p>Résoudre les problèmes de l'exercice <xref ref="exo-proglin1"/> à l'aide de la commande <c>run_simplex_method</c> et vérifier que la réponse obtenue est la même que celle que l'on a obtenue à l'exercice <xref ref="exo-proglin2"/> ou <xref ref="exo-proglin4"/>.</p>
 <sage><input>#Inscrire le code ici</input></sage>
 <sage><input>#Inscrire le code ici</input></sage>
 <sage><input>#Inscrire le code ici</input></sage>
@@ -657,7 +657,7 @@ P.run_simplex_method()
 A=matrix([[-1,2],[3,1],[1,2],[1,-2],[1,2],[3,1]])
 b=vector([3,26,12,8,21,38])
 c=vector([-2,3])
-#Noter l'ajout de l'option "constraint_type" ci-dessous étant donnée la présence de contrainte ">=" dans le problème
+#Noter l'ajout de l'option "constraint_type" ci-dessous, étant donnée la présence de contrainte ">=" dans le problème
 P=InteractiveLPProblem(A, b, c, ["x", "y"],constraint_type=["&lt;=",">=",">=","&lt;=","&lt;=","&lt;="], variable_type=">=")
 P=P.standard_form()
 P.run_simplex_method()
@@ -726,8 +726,8 @@ show(S)
 <p>L'algorithe se termine, la solution optimale est <m>-22</m>, atteinte lorsque <m>x=5</m> et <m>y=4</m>.</p>
 </solution>
 </exercise>
-<exercise><introduction><p>Une compagnie forestière effectuant de la coupe responsable possède deux sites de coupe et trois usines de transformations. La figure suivante représente la capacité de production de chaque site et la capacité de transformation de chaque usine, en millions de PMP par année (le PMP est une unité de mesure utilisée dans l'industrie. Un PMP correspond à un pied mesure de planche équivalant à 12 pouces par 12 pouces par un 1 pouce.), ainsi que les coûts associés aux transports des sites aux usines, en millions de dollars par année. </p></introduction>
-<task><statement><p>La compagnie souhaite minimiser ses coûts reliés au transport des marchandises. Dans cette situation, on veut que tout le bois coupé soit envoyé aux différentes usines. On aura donc deux contraintes d'égalité pour représenter le bois quittant chacun des sites de coupe. </p>
+<exercise><introduction><p>Une compagnie forestière effectuant de la coupe responsable possède deux sites de coupe et trois usines de transformation. La figure suivante représente la capacité de production de chaque site et la capacité de transformation de chaque usine, en millions de PMP par année (le PMP est une unité de mesure utilisée dans l'industrie. Un PMP correspond à un pied mesure de planche équivalant à 12 pouces par 12 pouces par un 1 pouce.), ainsi que les couts associés au transport des sites aux usines, en millions de dollars par année. </p></introduction>
+<task><statement><p>La compagnie souhaite minimiser ses couts reliés au transport des marchandises. Dans cette situation, on veut que tout le bois coupé soit envoyé aux différentes usines. On aura donc deux contraintes d'égalité pour représenter le bois sortant de chacun des sites de coupe. </p>
 <p>Traduire ce système sous forme canonique et l'écrire sur Sage.</p>
 <sage>
 <input>
@@ -753,7 +753,7 @@ P
 </listing>
 </solution>
 </task>
-<task><statement><p>De quelle manière la compagnie devrait-elle effectuer le transport entre les sites de coupe et les usines de transformation? Quel est le coût associé à cette répartition des ressources?</p>
+<task><statement><p>De quelle manière la compagnie devrait-elle effectuer le transport entre les sites de coupe et les usines de transformation? Quel est le cout associé à cette répartition des ressources?</p>
 <sage>
 <input>
 #Inscrire le code ici
@@ -777,21 +777,21 @@ show(c*P.optimal_solution())
 </input>
 </program>
 </listing>
-<p>On constate que, pour <m>575</m> millions de dollar, la compagnie minimise ses coûts de tranports quand elle envoie du premier site de coupe <m>55</m> millions de PMP vers l'usine <m>1</m> et <m>95</m> millions de PMP vers l'usine <m>B</m> ainsi que <m>105</m> millions de PMP à l'usine <m>1</m> et <m>170</m> vers l'usine <m>3</m> provenant du deuxième site de coupe.</p>
+<p>On constate que, pour <m>575</m> millions de dollars, la compagnie minimise ses couts de transport quand elle envoie du premier site de coupe <m>55</m> millions de PMP vers l'usine <m>1</m> et <m>95</m> millions de PMP vers l'usine <m>B</m> ainsi que <m>105</m> millions de PMP à l'usine <m>1</m> et <m>170</m> vers l'usine <m>3</m> provenant du deuxième site de coupe.</p>
 </solution>
 </task>
 </exercise>
-<exercise><statement><p>Une compagnie fabrique trois types de produit, de qualité inférieure, moyenne et supérieure. Un produit de qualité inférieure rapporte <m>25</m> dollars à la compagnie, contre <m>45</m> dollars pour une produit de qualité moyenne et <m>50</m> dollars pour une produit de qualité supérieure. La durée de vie moyenne de ces produits est, respectivement, de <m>2,4</m> et <m>9</m> ans. Une nouvelle loi vient de proclamer que l'ensemble des produits de ce type doivent avoir une durée de vie moyenne  égale à <m>4</m> ans. Pour produire le produit de qualité inférieure, les travailleurs ont besoin de <m>1</m> minute, ils ont besoin de <m>3</m> minutes pour un produit de qualité moyenne et, finalement, <m>5</m> minutes sont nécessaires pour un produit de qualité supérieure. Quel est le profit maximum que la compagnie peut espérer recevoir par journée typique de travail de <m>480</m> minutes?</p>
+<exercise><statement><p>Une compagnie fabrique trois types de produits, de qualité inférieure, moyenne et supérieure. Un produit de qualité inférieure rapporte <m>25</m> dollars à la compagnie, contre <m>45</m> dollars pour un produit de qualité moyenne et <m>50</m> dollars pour un produit de qualité supérieure. La durée de vie moyenne de ces produits est, respectivement, de <m>2,4</m> et <m>9</m> ans. Une nouvelle loi vient de proclamer que l'ensemble des produits de ce type doivent avoir une durée de vie moyenne  égale à <m>4</m> ans. Pour fabriquer le produit de qualité inférieure, les travailleurs ont besoin de <m>1</m> minute, ils ont besoin de <m>3</m> minutes pour un produit de qualité moyenne et, finalement, <m>5</m> minutes sont nécessaires pour un produit de qualité supérieure. Quel est le profit maximum que la compagnie peut espérer recevoir par journée typique de travail de <m>480</m> minutes?</p>
 <sage>
 <input>
 #Inscrire le code ici
 </input>
 </sage>
 </statement>
-<solution><p>Soit <m>x,y,z</m>, le nombre de produits de qualité inférieure,moyenne et supérieure, respectivement. La durée de vie moyenne de ces produits est
+<solution><p>Soit <m>x,y,z</m>, le nombre de produits de qualité inférieure, moyenne et supérieure, respectivement. La durée de vie moyenne de ces produits est
 <m>
 \frac{2x+4y+9z}{x+y+z}
-</m>. Si cette moyenne doit être plus grand ou égale à <m>4</m>, on peut réécrire la moyenne sous la forme
+</m>. Si cette moyenne doit être plus grande ou égale à <m>4</m>, on peut réécrire la moyenne sous la forme
 <me>
 2x+4y+9z\geq 4x+4y+4z
 </me>, qui devient <m>-2x+0y+5z\geq 0</m>. Avec la contrainte de temps, le problème peut être écrit sur Sage de la manière suivante.</p>
@@ -805,20 +805,20 @@ P=InteractiveLPProblem(A, b, c, ["x","y","z"], variable_type=">=",constraint_typ
 P
 </input>
 </sage>
-<p>La solution optimale est obtenue lorsque le nombre de produits de qualité inférieure est égale à <m>160</m> et le nombre de produits de qualité supérieure est de <m>64</m>. Aucun produit de qualité moyenne n'est produit. Dans ce cas, on obtient un revenu optimal de <m>7200</m> dollars.</p>
+<p>La solution optimale est obtenue lorsque le nombre de produits de qualité inférieure est égal à <m>160</m> et le nombre de produits de qualité supérieure est <m>64</m>. Aucun produit de qualité moyenne n'est produit. Dans ce cas, on obtient un revenu optimal de <m>7200</m> dollars.</p>
 </solution>
 </exercise>
-<exercise><statement><p>Un promoteur possède un immense terrain de <m>2</m> kilomètres carrés sur lequel il veut exploiter trois types de service. Un petit commerce rapporte <m>3500</m> dollars par mois, une grande surface rapporte <m>8000</m> dollar par mois et un logement rapporte <m>1500</m> dollars par mois. Il peut y avoir <m>2000</m> petits commerces par kilomètre carré, <m>90</m> grandes surfaces par kilomètre carré ou <m>10000</m> logements par kilomètre carré. Afin de pouvoir assurer la circulation, le stationnement et autres infrastructure, la superficie totale des trois types de services offert ne peut excéder <m>35</m>% de la superficie totale du terrain. De plus, le réglement de zonage demande à ce qu'au moins <m>1500</m> logements soient construits. Finalement, des coûts d'entretien sont associés pour chaque type de services. Un petit commerce entraine un coût de <m>200</m> dollars par mois, une grande surface coûte <m>300</m> dollars par mois et un logement a des coûts mensuels de <m>100</m> dollars. Le budget du promoteur est de <m>350000</m> dollars par mois.</p>
+<exercise><statement><p>Un promoteur possède un immense terrain de <m>2</m> kilomètres carrés sur lequel il veut offrir trois types de service. Un petit commerce rapporte <m>3500</m> dollars par mois, une grande surface rapporte <m>8000</m> dollars par mois et un logement rapporte <m>1500</m> dollars par mois. Il peut y avoir <m>2000</m> petits commerces par kilomètre carré, <m>90</m> grandes surfaces par kilomètre carré ou <m>10000</m> logements par kilomètre carré. Afin de pouvoir assurer la circulation, le stationnement et les autres infrastructure, la superficie totale des trois types de services offerts ne peut excéder <m>35</m>% de la superficie totale du terrain. De plus, le règlement de zonage demande à ce qu'au moins <m>1500</m> logements soient construits. Finalement, des couts d'entretien sont associés à chaque type de services. Un petit commerce entraine un cout de <m>200</m> dollars par mois, une grande surface coute <m>300</m> dollars par mois et un logement a des couts mensuels de <m>100</m> dollars. Le budget du promoteur est de <m>350000</m> dollars par mois.</p>
 <p>Comment le promoteur devrait-il répartir les types de service de manière à optimiser ses revenus?</p>
 </statement>
 <solution><p>
-Ce problème comporte trois contraintes. On note <m>P,G,L</m>, le nombre de chacun des trois types de service, avec <m>P</m> pour le nombre de petits commerces, <m>G</m> pour le nombre de grande surface et <m>L</m> pour le nombre de logements.
+Ce problème comporte trois contraintes. On note <m>P,G,L</m>, le nombre représentant la quantité de chacun des trois types de service, avec <m>P</m> pour le nombre de petits commerces, <m>G</m> pour le nombre de grandes surfaces et <m>L</m> pour le nombre de logements.
 </p>
 <p>La contrainte sur la superficie peut s'écrire sous la forme
 <me>
 \frac{1}{2000}P+\frac{1}{90}G+\frac{1}{10000}L\leq 0.7
 </me>,,
-la contrainte sur le nombre de logement est <m>L\geq 3000</m> et la contrainte de budget pour l'entretien est
+la contrainte sur le nombre de logements est <m>L\geq 3000</m> et la contrainte de budget pour l'entretien est
 <me>
 200P+300G+100L\leq 350000
 </me>.
@@ -833,7 +833,7 @@ P=InteractiveLPProblem(A, b, c, ["P","G","L"], variable_type=">=",constraint_typ
 P.optimal_solution()
 </input>
 </sage>
-Comme on ne peut construire une portion de commerce, on choisit de construire <m>210</m> petits commerces, <m>26</m> grandes surfaces ainsi que les <m>3000</m> logements demandés par la règlementation. En réalité, il serait possible d'augmenter davantage certains type de commerces tout en satisfaisant l'ensemble des contraintes. C'est un des défaut de l'algorithme du simplexe, lorsque la solution retournée n'est pas applicable. 
+Comme on ne peut construire une portion de commerce, on choisit de construire <m>210</m> petits commerces, <m>26</m> grandes surfaces ainsi que les <m>3000</m> logements demandés par la règlementation. En réalité, il serait possible d'augmenter certains types de commerces tout en satisfaisant l'ensemble des contraintes. C'est un des défauts de l'algorithme du simplexe, lorsque la solution retournée n'est pas applicable. 
 </solution>
 </exercise>
 </exercisegroup>
