@@ -152,7 +152,7 @@
     </statement>
     <solution>
     <p>On cherche une matrice <m>A^{-1}</m> telle que 
-    <me>A^{-1}\begin{pmatrix} 1&amp; 1\\ 4&amp; 5 \end{pmatrix}\begin{pmatrix} 1&amp; 0\\ 0&amp; 1 \end{pmatrix}</me>.
+    <me>A^{-1}\begin{pmatrix} 1&amp; 1\\ 4&amp; 5 \end{pmatrix}=\begin{pmatrix} 1&amp; 0\\ 0&amp; 1 \end{pmatrix}</me>.
     En appliquant la définition de la multiplication, on trouve deux équations vectorielles <m>A^{-1}\vecd{1}{4}=\vecd{1}{0}</m> et <m>A^{-1}\vecd{1}{5}=\vecd{0}{1}</m>. Si l'on pose <m>A^{-1}=\begin{pmatrix} x&amp;z\\ y&amp;w \end{pmatrix}</m>, on obtient une 
     paire de systèmes à deux équations deux inconnues. D'une part,
     <md>
@@ -242,7 +242,7 @@
     <p>Dans l'exercice <xref ref="exo-SEL2x2matinverse"/>, il est montré que <m>y=\frac{-b}{ad-bc}</m> et <m>w=\frac{a}{ad-bc}</m>.</p>
     <p>En sortant le facteur <m>ad-bc</m> commun à chacun des termes, on obtient finalement la matrice inverse 
     <men xml:id="eq-matinverse2x2">
-    \frac{1}{ad-bc}\begin{pmatrix} d \amp -c \\ -b \amp a \end{pmatrix}
+    \begin{pmatrix}a\amp c \\ b\amp d  \end{pmatrix}^{-1}=\frac{1}{ad-bc}\begin{pmatrix} d \amp -c \\ -b \amp a \end{pmatrix}
     </men>.</p>
     <example xml:id="ex-matinverse2">
     <title>Calcul de l'inverse avec la formule</title>
@@ -536,7 +536,7 @@ show("Tu2=",T*u2)
     aux exemples <xref ref="ex-matinverse1"/> et <xref ref="ex-matinverse2"/>.</p>
     </solution>
     </example>
-    <p>On obtient ici la première version du théorème <xref provisional="thm-delamatriceinverse"/>. Ce théorème sera construit au fur et à mesure que des résultats sur la matrice
+    <p>On obtient ici la première version du <xref ref="thm-delamatriceinversev1">théorème de la matrice inverse</xref>. Ce théorème sera construit au fur et à mesure que des résultats sur la matrice
     inverse vont apparaitre et donnera une panoplie d'affirmations équivalentes visant à déterminer si une matrice carrée est inversible ou non. </p>
     <theorem xml:id="thm-delamatriceinversev1">
     <title>Théorème de la matrice inverse, première version</title>
@@ -544,7 +544,7 @@ show("Tu2=",T*u2)
     <p>Soit <m>A</m>, une matrice carrée d'ordre <m>n</m>. Les énoncés suivants sont équivalents:
     <ol>
     <li><p>La matrice <m>A</m> est inversible</p></li>
-    <li><p>Pour chaque vecteur <m>v\in \R^n</m>, il existe un seul vecteur <m>\vec{u}\in \R^n</m> tel que <m>A\vec{u}=\vec{v}</m>.</p></li>
+    <li><p>Pour chaque vecteur <m>\vec{v}\in \R^n</m>, il existe un seul vecteur <m>\vec{u}\in \R^n</m> tel que <m>A\vec{u}=\vec{v}</m>.</p></li>
     </ol>
     </p>
     </statement>

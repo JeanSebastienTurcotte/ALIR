@@ -51,26 +51,27 @@
                 <p>Considérer la commutativité du produit matriciel.</p>
             </hint>
             <answer>
-                <p>L'équation n'est pas valide. Un contrexemple possible est <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</m>.</p>
+                <p>L'équation n'est pas valide. Un contrexemple possible est <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</m>.</p>
             </answer>
             <solution>
-                <p>Avec le contrexemple <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</m>, 
+                <p>
+                Algébriquement, c'est faux puisque le produit matriciel n'est en général pas commutatif. On a donc que <m>AB\neq BA</m>. Ainsi,
+                <me>(A+B)^2=(A+B)(A+B)=AA+BA+AB+BB\neq A^2+2AB+B^2</me> en général.</p>
+                <p> Pour trouver une exemple concret, on peut penser à deux réflexions. En prenant une réflexion par rapport à la droite <m>y=x</m> et une autre par rapport à l'axe des <m>y</m>, on obtient les matrices  <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</m>, 
                 on calcule <m>(A+B)^2</m> et <m>A^2+2AB+B^2</m> et l'on constate que ce n'est pas égal. En effet,
                 <md>
                 <mrow>(A+B)^2&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)^2</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}^2</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}12&amp;0\\0&amp;12\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}</mrow>
                 </md>
                 et
                 <md>
-                <mrow>A^2+2AB+B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2+2\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}^2</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+2\begin{pmatrix}3&amp;0\\0&amp;2\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}+\begin{pmatrix}6&amp;0\\0&amp;4\end{pmatrix}+\begin{pmatrix}6&amp;0\\0&amp;6\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}13&amp;0\\0&amp;11\end{pmatrix}</mrow>
+                <mrow>A^2+2AB+B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2+2\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}+\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+2\begin{pmatrix}-1&amp;1\\0&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}+\begin{pmatrix}-2&amp;2\\0&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}-1&amp;2\\-1&amp;2\end{pmatrix}</mrow>
                 </md>
-                Algébriquement, c'est faux puisque le produit matriciel n'est pas commutatif. On a donc que <m>AB\neq BA</m>. Ainsi,
-                <me>(A+B)^2=(A+B)(A+B)=AA+BA+AB+BB\neq A^2+2AB+B^2</me>.
                 </p>
             </solution>
     </exercise>
@@ -79,26 +80,26 @@
                 <p>Est-ce que l'équation <m>(A-B)(A+B)=A^2-B^2</m> est valide pour les matrices carrées? Si oui, il faut le démontrer et si non, trouver un contrexemple.</p>
             </statement>
             <answer>
-                <p>L'équation n'est pas valide. 
-                L'exercice précédent fournit un contrexemple, soit <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</m>.</p>
+                <p>L'équation n'est pas valide. Un contrexemple possible est <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</m>.</p>
             </answer>
             <solution>
-                <p>Avec le contrexemple <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</m>, 
+                    <p>  Algébriquement, c'est faux puisque le produit matriciel n'est en général pas commutatif. On a donc que <m>AB\neq BA</m>. Ainsi,
+                <me>(A-B)(A+B)=AA+AB-BA-BB=A^2+AB-BA-B^2\neq A^2-B^2</me>.</p> 
+                <p>Avec le contrexemple <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</m>, 
                 on calcule <m>(A-B)(A+B)</m> et <m>A^2-B^2</m> et l'on constate que ce n'est pas égal. En effet,
                 <md>
-                <mrow>(A-B)(A+B)&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;-1\\-2&amp;0\end{pmatrix}\begin{pmatrix}0&amp;3\\4&amp;0\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}-4&amp;0\\0&amp;-6\end{pmatrix}</mrow>
+                <mrow>(A-B)(A+B)&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}\right)\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}\right)</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\2&amp;-1\end{pmatrix}\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}</mrow>
                 </md>
                 et
                 <md>
-                <mrow>A^2-B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2-\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}^2</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}-\begin{pmatrix}6&amp;0\\0&amp;6\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}-5&amp;0\\0&amp;-5\end{pmatrix}</mrow>
+                <mrow>A^2-B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2-\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}-\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}1&amp;0\\1&amp;0\end{pmatrix}</mrow>
                 </md>
-                Algébriquement, c'est faux puisque le produit matriciel n'est pas commutatif. On a donc que <m>AB\neq BA</m>. Ainsi,
-                <me>(A-B)(A+B)=AA+AB-BA-BB=A^2+AB-BA-B^2\neq A^2-B^2</me>.</p>
+</p>
             </solution>
     </exercise>
     <exercise xml:id="exo-prodmatzero"> <!-- revenir sur cet exercice avec les déterminants -->
@@ -210,7 +211,7 @@
     <exercise xml:id="exo-eqmatgeo">
             <introduction>
                 <p>Soit <m>A=\begin{pmatrix} a&amp; c \\ b &amp; d \end{pmatrix}</m> une matrice à coefficients réels. 
-                En réfléchissant de façon géométrique, puis en démontrant algébriquement que c'est bien le cas, trouver le plus grand nombre 
+                En réfléchissant de façon géométrique, puis en vérifiant algébriquement que chaque matrice satisfait l'équation, trouver le plus grand nombre 
                 de  matrices différentes <m>A</m> telles que</p>
             </introduction>
             <task>
@@ -884,7 +885,7 @@ k\sin(\theta)&amp;\cos(\theta)
 </table>
 <p><ol><li><p>Quelle serait une matrice <m>T</m> qui permettrait de décrire le nombre  de vols directs entre les différentes villes canadiennes?</p></li>
 <li><p>Donner une interprétation du produit <m>T^2</m>?</p></li>
-<li><p>Utiliser Sage pour déterminer combien de vols différents entre Montréal et Vancouver impliquent une escale.</p>
+<li><p>Utiliser Sage pour déterminer combien de vols différents entre Montréal (YUL) et Vancouver (YVR) impliquent une escale.</p>
 <sage>
 <input>
 
@@ -893,6 +894,26 @@ k\sin(\theta)&amp;\cos(\theta)
 </li>
 </ol></p>
     </statement>
+    <answer><p><me>T=\left(\begin{array}{rrrrr}
+0 &amp; 20 &amp; 5 &amp; 3 &amp; 2 \\
+15 &amp; 0 &amp; 10 &amp; 7 &amp; 6 \\
+3 &amp; 8 &amp; 0 &amp; 12 &amp; 8 \\
+3 &amp; 6 &amp; 12 &amp; 0 &amp; 8 \\
+2 &amp; 6 &amp; 8 &amp; 6 &amp; 0
+\end{array}\right)</me></p>
+
+<p>Le produit <m>T^2</m> représente le nombre de manières d'aller d'une ville <m>A</m> vers une ville <m>B</m> en utilisant deux vols. Il y a <m>252</m> vols de YUL vers YVR qui comportent une escale.</p></answer>
+    <solution>
+<listing>
+                   <caption>La solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+T=matrix([[0,20,5,3,2],[15,0,10,7,6],[3,8,0,12,8],[3,6,12,0,8],[2,6,8,6,0]])
+(T^2)[0,2]
+</input>
+                   </program>
+                   </listing> 
+    </solution>
     </exercise>
     <exercise>
     <statement>
@@ -913,6 +934,18 @@ Utiliser Sage pour calculer le produit <m>AB</m>.
 </input>
 </sage>
     </statement>
+    <solution>
+    <listing>
+                   <caption>La solution pour l'exercice</caption>
+               <program language="sage">
+               <input>
+A=matrix([[1,-2,2,1,0,4],[-5,2,0,3,1,8],[2,4,-3,1,7,-1],[1,6,1,2,-2,2]])
+B=matrix([[2,-3,5,1],[-1,1,0,0],[2,3,-4,3],[-5,-5,2,1],[0,1,3,2],[2,1,3,4]])
+A*B
+</input>
+                   </program>
+                   </listing> 
+    </solution>
     </exercise>
     <exercise xml:id="exosage-permmatrices">
     <title>Construction des matrices de permutation d'ordre <m>n</m></title>
@@ -1012,8 +1045,8 @@ def perm_matrix(n):
 var("alpha,beta")
 Rotalpha=column_matrix([[cos(alpha),sin(alpha)],[-sin(alpha),cos(alpha)]])
 Rotbeta=column_matrix([[cos(beta),sin(beta)],[-sin(beta),cos(beta)]])
-show(LatexExpr(r"\cos(\alpha+\beta)="),(Rotalpha*Rotbeta)[0][0]) #La commande LatexExpr et les "\" permettent un rendu plus joli, mais ne sont pas obligatoire
-show(LatexExpr(r"\sin(\alpha+\beta)="),(Rotalpha*Rotbeta)[1][0])
+show(LatexExpr(r"\cos(\alpha+\beta)="),(Rotalpha*Rotbeta)[0,0]) #La commande LatexExpr et les "\" permettent un rendu plus joli, mais ne sont pas obligatoire
+show(LatexExpr(r"\sin(\alpha+\beta)="),(Rotalpha*Rotbeta)[1,0])
 </input>
                    </program>
                    </listing>

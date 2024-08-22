@@ -125,7 +125,7 @@
      <proof>
      <p><ol>
      <li><p>On peut utiliser la propriété <xref ref="li-transfosomme"/> ou la propriété <xref ref="li-transfoscal"/>. On se propose ici d'utiliser la propriété <xref ref="li-transfosomme"/>
-     et on laisse l'utilisation de l'autre propriété à explorer dans l'exercice <xref provisional="exercice vecteur 0 par la mult scal"/>.</p>
+     et on laisse l'utilisation de l'autre propriété à explorer dans l'exercice <xref ref="exo-zeromultscal"/>.</p>
      <p> Soit <m>\vec{w}=T(\vec{0})</m> l'image du vecteur nul et <m>\vec{u}</m> un vecteur quelconque. Par la propriété <xref ref="li-transfosomme"/>, on a
      <md>
      <mrow>T(\vec{u})&amp;=T(\vec{u}+\vec{0})&amp;&amp; \text{ car } \vec{u}+\vec{0}=\vec{u} </mrow>
@@ -254,7 +254,7 @@
     <li xml:id="li-transfor2-refx"><p>La réflexion par rapport à l'axe des abscisses, donnée par la transformation <m>S_x(x,y)=(x,-y)</m>.</p></li>
     <li xml:id="li-transfor2-rot90"><p>La rotation de <m>90^\circ</m> ou <m>\frac{\pi}{2}</m> dans le sens antihoraire, donnée par la transformation <m>R_{\frac{\pi}{2}}(x,y)=(-y,x)</m>.</p></li>
     <li xml:id="li-transfor2-Ehr"><p>Un étirement horizontal de facteur <m>r\in\R</m> est une transformation linéaire donnée par <m>Eh_r(x,y)=(rx,y)</m>.</p> <p>De même, un étirement vertical est donné par <m>Ev_r(x,y)=(x,ry)</m>.</p></li>
-    <li xml:id="li-transfor2-Evr"><p>Une homothétie est une transformation qui multiplie chaque composante d'un vecteur par un facteur <m>r\in\R</m>. Elle est donnée par la transformation <m>H_r(x,y)=(rx,ry)</m>.</p></li>
+    <li xml:id="li-transfor2-homothetie"><p>Une homothétie est une transformation qui multiplie chaque composante d'un vecteur par un facteur <m>r\in\R</m>. Elle est donnée par la transformation <m>H_r(x,y)=(rx,ry)</m>.</p></li>
     <li xml:id="li-transfor2-P"><p>Une matrice de permutation est une matrice qui change l'ordre des composantes du vecteur. Dans <m>\R^2</m>, la seule transformation qui accomplit une telle permutation est <m>P(x,y)=(y,x)</m>, bien que l'identité est aussi vue comme une matrice de permutation.  </p></li>
     <li xml:id="li-transfor2-proj"><p>Soit <m>\vec{w}</m> un vecteur non nul. La projection orthogonale sur <m>\vec{w}</m> est une transformation linéaire.</p></li>
     </ol>
@@ -366,7 +366,7 @@
     </p>
     </solution>
      <solution>
-    <p>La démonstration est faite à l'exercice <xref provisional="homotéthie est linéaire"/></p>
+    <p>La démonstration est faite à l'exercice <xref ref="exo-homothetielineaire"/>.</p>
     </solution>
     <solution>
     <p>La figure interactive ci-dessous permet devoir la linéarité de la permutation de composantes de manière intuitive.</p>
@@ -420,28 +420,28 @@
     <title>La composition de transformations linéaires</title>
     <statement><p>Soit <m>T_1</m> et <m>T_2</m>, des transformations linéaires telles que l'image de <m>T_2</m> est comprise dans le domaine de <m>T_1</m>. Alors la transformation
     <me>
-    T_1\circ T_2(\vec{u})=T_1(T_2(\vec{u}))
+    (T_1\circ T_2)(\vec{u})=T_1(T_2(\vec{u}))
     </me>
     est une transformation linéaire.
     </p></statement>
     <proof>
     <p>Soit <m>\vec{u},\vec{v}</m>, des vecteurs tels que <m>\vec{r}=T_2(\vec{u})</m> et <m>\vec{s}=T_2(\vec{v})</m> et <m>c</m> un scalaire. Alors
     <md>
-    <mrow>T_1\circ T_2(\vec{u}+\vec{v})&amp;=T_1(T_2(\vec{u}+\vec{v})) </mrow>
+    <mrow>(T_1\circ T_2)(\vec{u}+\vec{v})&amp;=T_1(T_2(\vec{u}+\vec{v})) </mrow>
     <mrow>&amp;=T_1(T_2(\vec{u})+T_2(\vec{v})) &amp;&amp; \text{ car } T_2 \text{ est linéaire }</mrow>
     <mrow> &amp;=T_1(\vec{r}+\vec{s})</mrow>
     <mrow>&amp;=T_1(\vec{r})+T_1(\vec{s}) &amp;&amp; \text{ car } T_1 \text{ est linéaire} </mrow>
     <mrow>&amp;=T_1(T_2(\vec{u}))+T_1(T_2(\vec{v}))</mrow>
-    <mrow>&amp;=T_1\circ T_2(\vec{u})+T_1\circ T_2(\vec{v})</mrow>
+    <mrow>&amp;=(T_1\circ T_2)(\vec{u})+(T_1\circ T_2)(\vec{v})</mrow>
     </md>.
     De même, on a 
     <md>
-    <mrow>T_1\circ T_2(c\vec{u})&amp;=T_1(T_2(c\vec{u})) </mrow>
+    <mrow>(T_1\circ T_2)(c\vec{u})&amp;=T_1(T_2(c\vec{u})) </mrow>
     <mrow>&amp;=T_1(cT_2(\vec{u})) &amp;&amp; \text{ car } T_2 \text{ est linéaire }</mrow>
     <mrow> &amp;=T_1(c\vec{r})</mrow>
     <mrow>&amp;=cT_1(\vec{r}) &amp;&amp; \text{ car } T_1 \text{ est linéaire} </mrow>
     <mrow>&amp;=cT_1(T_2(\vec{u}))</mrow>
-    <mrow>&amp;=cT_1\circ T_2(\vec{u})</mrow>
+    <mrow>&amp;=c(T_1\circ T_2)(\vec{u})</mrow>
     </md>.
     </p>
     <p>Ainsi, la composition de deux transformations linéaires est linéaire.</p>
@@ -463,7 +463,7 @@
     <solution>
     <p>Soit <m>(x,y)</m> un vecteur de <m>\R^2</m>. On a
     <md>
-    <mrow>T(x,y)&amp;=P\circ R_{\frac{\pi}{2}}(x,y)</mrow>
+    <mrow>T(x,y)&amp;=(P\circ R_{\frac{\pi}{2}})(x,y)</mrow>
     <mrow>&amp;=P(R_{\frac{\pi}{2}}(x,y))</mrow>
     <mrow>&amp;=P(-y,x)  &amp;&amp; \text{selon la définition de } R_{\frac{\pi}{2}} \text{ au point } <xref ref="li-transfor2-rot90"/> </mrow>
     <mrow>&amp;=(x,-y)  &amp;&amp; \text{selon la définition de } P\text{ au point } <xref ref="li-transfor2-P"/></mrow>
@@ -634,7 +634,7 @@ A\vec{u}=\begin{pmatrix}
 \end{pmatrix}\begin{pmatrix}u_1\\ u_2\\ \vdots\\ u_n \end{pmatrix}=u_1\vec{c}_1+u_2\vec{c}_2+\cdots +u_n\vec{c}_n
 </men>.
 L'équation <xref ref="eq-matvecprodgen"/> est par le fait même une définition du produit d'une matrice de <m>n</m> colonnes par un vecteur de <m>\R^n</m> d'un point de vue purement algébrique. L'ordre de ces facteurs est important,
-on verra dans la sous-section <xref provisional="sous-sec produit de matrice ou autre sur les lignes, à voir"/> que l'équation <m>\vec{u}A</m> ne signifie pas nécessairement la même chose, et ne serait définie ici que si <m>m=n</m>.
+on verra  que l'équation <m>\vec{u}A</m> ne signifie pas nécessairement la même chose, et ne serait définie ici que si <m>m=n</m>.
 </p>
 <p>À titre d'exemple, on détermine la matrice pour chacune des transformations linéaires de la liste <xref ref="liste-transfor2"/>.</p>
 <example xml:id="ex-mattransfor2">
@@ -789,7 +789,7 @@ T=\begin{pmatrix}
 <p>Toute transformation linéaire <m>T</m> possède une forme matricielle la représentant. Peut-on affirmer que, pour toute matrice, on a également une transformation linéaire? En partant de la définition du produit d'une matrice par un vecteur,
 à l'équation <xref ref="eq-matvecprodgen"/>, on peut montrer que c'est le cas.</p>
 <proposition xml:id="prop-matsonttransfos">
-<title>Les matrices sont des transformations linéaires</title>
+<title>Toute matrice correspond à une transformation linéaire</title>
 <statement>
 <p>Soit <m>A</m> une matrice possédant <m>m</m> lignes et <m>n</m> colonnes. Si l'on considère la transformation <m>T(\vec{u})=A\vec{u}</m>, alors <m>T</m> est une transformation linéaire de <m>\R^n</m> vers <m>\R^m</m>. </p>
 </statement>
@@ -964,13 +964,13 @@ show('B=',B)
 </input>
 </sage>
 <p>
-On peut accéder aux différentes entrées d'une matrice à l'aide de la commande <c>A[i][j]</c>, qui retourne l'entrée sur la ligne <m>i+1</m> et la colonne <m>j+1</m>. (Il convient de rappeler ici <xref provisional="Les entrées commencent à 0"/>.)</p>
+On peut accéder aux différentes entrées d'une matrice à l'aide de la commande <c>A[i,j]</c>, qui retourne l'entrée sur la ligne <m>i+1</m> et la colonne <m>j+1</m>. (Il convient de rappeler ici qu'avec Sagem les entrées d'une liste commencent à 0.)</p>
 <sage>
 <input>
-show('A[0][0]=',A[0][0])
-show('A[1][0]=',A[1][0])
-show('A[0][1]=',A[0][1])
-show('A[1][1]=',A[1][1])
+show('A[0,0]=',A[0,0])
+show('A[1,0]=',A[1,0])
+show('A[0,1]=',A[0,1])
+show('A[1,1]=',A[1,1])
 </input>
 </sage>
 <p>Si l'on omet une paire de crochets, par exemple <m>A[i]</m>, alors Sage retourne un vecteur contenant ligne <m>i+1</m>. Il est également possible d'obtenir cette ligne avec 

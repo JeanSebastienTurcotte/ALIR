@@ -197,7 +197,7 @@ T_2(\vec{u})+T_2(\vec{v})=T_2(1,1)+T_2(-1,1)=(1,-1)+(1,-1)=(2,-2)
                 </md>
                 et
                 <md>
-                    <mrow>T_3(c\vec{u})&amp;=T_3\begin{pmatrix}c(x_1\\ y_1)\end{pmatrix}</mrow>
+                    <mrow>T_3(c\vec{u})&amp;=T_3\left(c\begin{pmatrix}x_1\\ y_1\end{pmatrix}\right)</mrow>
                     <mrow>&amp;=T_3\begin{pmatrix}cx_1\\ cy_1\end{pmatrix}</mrow>
                     <mrow>&amp;=\begin{pmatrix}2(cx_1)-cy_1\\ cx_1\end{pmatrix}</mrow>
                     <mrow>&amp;=c\begin{pmatrix}2(x_1)-y_1\\ x_1\end{pmatrix}</mrow>
@@ -272,6 +272,39 @@ T_2(\vec{u})+T_2(\vec{v})=T_2(1,1)+T_2(-1,1)=(1,-1)+(1,-1)=(2,-2)
                 </md></p>
             </solution>
             </task>
+    </exercise>
+    <exercise xml:id="exo-zeromultscal">
+    <statement>
+    <p>La proposition <xref ref="prop-transfolinprop"/> a montré que l'image du vecteur nul est toujours le vecteur nul en n'utilisant que le fait que <m>T(\vec{u}+\vec{v})=T(\vec{u})+T(\vec{v})</m>. Démontrer à nouveau cette affirmation en n'utilisant que le fait que <m>T(c\vec{u})=cT(\vec{u})</m>. </p>
+    </statement>
+    <solution>
+    <p>
+    Soit <m>c\in \mathbb{R}</m>. D'une part, on a <m>T(c\vec{0})=T(\vec{0})</m> puisque <m>c\vec{0}=\vec{0}</m>. D'un autre côté, on a <m>T(c\vec{0})=cT(\vec{0})</m>. Il faut ainsi que
+    <me>
+    T(\vec{0})=cT(\vec{0})
+    </me>
+    pour toute valeur de <m>c</m> réelle. Il découle de cela que l'on doit avoir <m>T(\vec{0})=\vec{0}</m>.
+    </p>
+    </solution>
+    </exercise>
+    <exercise xml:id="exo-homothetielineaire">
+    <statement><p>Démontrer la propriété <xref ref="li-transfor2-homothetie"/>, c'est-à-dire qu'une homothétie est une transformation linéaire.</p></statement>
+    <solution>
+<p>Algébriquement, on a
+    <md>
+    <mrow>H_r(x_1+x_2,y_1+y_2)&amp;=(r(x_1+x_2),r(y_1+y_2))</mrow>
+    <mrow>&amp;=((rx_1+rx_2),r(y_1+y_2))</mrow>
+    <mrow>&amp;=(rx_1,ry_1)+(rx_2,ry_2)</mrow>
+    <mrow>&amp;=H_r(x_1,y_1)+H_r(x_2,y_2)</mrow>
+    </md>
+    et 
+    <md>
+   <mrow> H_r(cx_1,cy_1)&amp;=(rcx_1,rcy_1)</mrow>
+   <mrow> &amp;=c(rx_1,ry_1)</mrow>
+   <mrow>&amp;=cH_r(x_1,y_1)</mrow>
+    </md>.
+    </p>
+    </solution>
     </exercise>
     <exercise xml:id="exo-trouvermattransfomots">
             <introduction>

@@ -281,7 +281,7 @@ plot(D,layout='circular',vertex_color="blue")
     show("A^2=",A^2)
     show("A^3=",A^3)
     show("A^5=",A^5)
-    show("En particulier, il y a   ", (A^5)[0][0], " chemins de longueur 5 se rendant de la ville 1 et retournant à la ville 1")
+    show("En particulier, il y a   ", (A^5)[0,0], " chemins de longueur 5 se rendant de la ville 1 et retournant à la ville 1")
     </input>
     </sage>
     </example>
@@ -504,7 +504,21 @@ plot(D,layout='circular',vertex_color="blue")
       <p>L'une ou l'autre des formes matricielles peut être utilisée.</p>
       </solution>
       </example>
-      <p>On termine avec un exemple de compositions de transformations linéaires, en utilisant Sage pour faire les calculs.</p>
+      <p>On regarde l'effet de la composition de deux rotations ou réflexions. La figure interactive <xref ref="fig-comporefrot"/> permet dans un premier temps de visualiser l'effet de ces compositions. On découvre que la combinaisons d'une réflexion et d'une rotation est toujours une autre réflexion ou rotation. L'exemple <xref ref="sageex-propprodmat"/> utilise Sage pour calculer algébriquement le résultat des quatre combinaisons possibles.</p>
+      <figure xml:id='fig-comporefrot'>
+    <caption>Compositions de réflexions et rotations</caption>
+    <interactive aspect="1:1" platform="geogebra" width="100%"
+      xml:id="geog-comporefrot">
+        <slate aspect="1:1" source="code/geogebra/Compositionrefrot.ggb"
+        surface="geogebra" xml:id="slate-comporefrot">
+            setCoordSystem(-8, 20,-8,8);
+            showResetIcon(true);
+          </slate>
+        <instructions>
+          <p>Appuyer sur l'un des deux boutons pour faire apparaitre des options additionnelles. Après avoir cliqué sur la deuxième transformation, il est possible d'essayer de deviner si le résultat est une rotation ou une rélfexion et de trouver l'angle de la transformation composée.</p>
+        </instructions>
+        </interactive>
+    </figure>      
       <computation xml:id="sageex-propprodmat">
       <title>La composition de certaines transformations</title>
       <p>On considère une rotation d'angle <m>\theta_1</m> et une rotation d'angle <m>\theta_2</m>. Intuitivement, la composition de ces deux rotations devrait être une 
@@ -562,7 +576,7 @@ show(produit.simplify_trig())
 show(produit.apply_map(lambda x: x.trig_reduce()))       
        </input>
        </sage>
-       <p>Le résultat est encore une fois une réflexion, mais cette fois-ci d'angle <m>\frac{-\theta+2\phi}{2}</m>.</p>
+       <p>Le résultat est encore une fois une réflexion, mais cette fois-ci d'angle <m>\frac{-\theta+2\phi}{2}</m>. Il est intéressant de vérifier chacun de ces résultats avec la figure interactive <xref ref="fig-comporefrot"/>.</p>
        <p>Finalement, on s'intéresse à la composition de trois transformations, en utilisant les calculs précédents et l'associativité pour déterminer le résultat final.
        <ol>
        <li><p> La composition de trois rotations devrait être, elle aussi, une rotation dont l'angle correspond à la somme des angles de chacune des rotations. En utilisant l'associativité, on montre facilement que

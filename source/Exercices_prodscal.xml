@@ -302,16 +302,17 @@
             </statement>
             <hint>
                 <p>Comme pour beaucoup de preuves d'énoncés sous forme d'égalités, il faut commencer par réécrire le membre de l'égalité qui nous semble le plus compliqué.
-               On suggère de commencer par celui de droite, bien que celui de gauche serait tout aussi simple dans ce cas.  </p>
+               On suggère de commencer par celui de gauche, bien que celui de droite serait tout aussi simple dans ce cas.  </p>
             </hint>
             <solution>
-                <p>Tel que mentionné dans l'indication, on choisit de partir du membre de droite pour se rendre au membre de gauche de l'égalité.
+                <p>Tel que mentionné dans l'indication, on choisit de partir du membre de gauche pour se rendre au membre de gauche de l'égalité.
                 <md>
-                    <mrow>\norm{\vec{u}}^2+2\vec{u}\cdot\vec{v}+\norm{\vec{v}}^2 &amp;=\vec{u}\cdot\vec{u}+2\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{v} &amp;\text{   (par 4.)}</mrow>
-                    <mrow>&amp;=\vec{u}\cdot\vec{u}+\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{u}+\vec{v}\cdot\vec{v} &amp;\text{   (par 1.)}</mrow>
-                    <mrow>&amp;=(\vec{u}+\vec{v})\cdot(\vec{u}+\vec{v})&amp;\text{   (par 3.)}</mrow>
-                    <mrow>&amp;=\norm{\vec{u}+\vec{v}}^2 &amp;\text{   (par 4.)}</mrow>
-                </md></p>
+                    <mrow>\norm{\vec{u}+\vec{v}}^2 &amp;=(\vec{u}+\vec{v})\cdot(\vec{u}+\vec{v})&amp;\text{   (par 4.)}</mrow>
+                    <mrow>&amp;=\vec{u}\cdot\vec{u}+\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{u}+\vec{v}\cdot\vec{v} &amp;\text{   (par 3.)}</mrow>
+                    <mrow>&amp;=\vec{u}\cdot\vec{u}+2\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{v} &amp;\text{   (par 1.)}</mrow>
+                    <mrow>&amp;= \norm{\vec{u}}^2+2\vec{u}\cdot\vec{v}+\norm{\vec{v}}^2&amp;\text{   (par 4.)}</mrow>
+                </md>
+</p>
             </solution>
     </exercise>   
     <exercise xml:id="exo-normeaddvec">
@@ -498,13 +499,13 @@
             </task>
             <task>
             <statement>
-                <p>Montrer qu'un vecteur non nul de <m>\R^3</m> peut aussi être entièrement déterminé  à l'aide de deux angles, <m>\theta </m>  et <m>\phi</m> et sa longueur. (Remarquer le
-                 parallèle avec <m>\R^2</m> où seul <m>\theta</m> était nécessaire dans la forme polaire.)</p>
+                <p>Montrer qu'un vecteur non nul <m>\vec{u}</m> de <m>\R^3</m> peut s'écrire sous la forme <m>\vec{u}=\norm{\vec{u}}(\cos(\theta)\sin(\phi),\sin(\theta)\sin(\phi),\cos(\phi))</m>  où <m>\theta,\phi</m> sont deux angles (remarquer le
+                 parallèle avec <m>\R^2</m> où seul <m>\theta</m> était nécessaire dans la forme polaire).</p>
             </statement>
             <solution>
                 <p>Il s'agit des coordonnées sphériques illustrées dans la figure interactive. 
-                Suivant le raisonnement de la dernière remarque du <m>(c)</m>, il est clair qu'on peut écrire un vecteur de <m>\R^2</m> ainsi: 
-                <me>\vec{u}=\norm{u}(\cos(\theta),\sin(\theta))</me>.
+                Suivant le raisonnement de la dernière remarque du <m>(c)</m>, on peut écrire un vecteur de <m>\R^2</m> ainsi: 
+                <me>\vec{u}=\norm{\vec{u}}(\cos(\theta),\sin(\theta))</me>.
                 On voit également, en comparant les figures des cosinus directeurs et des coordonnées sphériques, que la coordonnée en <m>z</m> ne changera pas et 
                 dépendra uniquement de l'angle <m>\phi</m> entre le vecteur et l'axe des <m>z</m>.</p>
                 <p>La démonstration se fera en considérant la projection du vecteur sur le plan <m>XOY</m>. Ce côté correspond à l'autre cathète du triangle formé par l'angle 
@@ -512,11 +513,11 @@
                 En regardant maintenant le triangle orange, cette longueur est l'hypoténuse. Il s'ensuit donc que les deux cathètes sont données en multipliant par le cosinus
                 ou le sinus de l'angle <m>\theta</m>. Ainsi,
                 <md>
-                    <mrow>u_1&amp;=\norm{u}\cos(\theta)\sin(\phi)</mrow>
-                    <mrow>u_2&amp;=\norm{u}\sin(\theta)\sin(\phi)</mrow>
-                    <mrow>u_3&amp;=\norm{u}\cos(\phi)</mrow>
+                    <mrow>u_1&amp;=\norm{\vec{u}}\cos(\theta)\sin(\phi)</mrow>
+                    <mrow>u_2&amp;=\norm{\vec{u}}\sin(\theta)\sin(\phi)</mrow>
+                    <mrow>u_3&amp;=\norm{\vec{u}}\cos(\phi)</mrow>
                 </md>
-                Et donc, <me>\vec{u}=(u_1,u_2,u_3)=\norm{u}(\cos(\theta)\sin(\phi),\sin(\theta)\sin(\phi),\cos(\phi))</me>
+                Et donc, <me>\vec{u}=(u_1,u_2,u_3)=\norm{\vec{u}}(\cos(\theta)\sin(\phi),\sin(\theta)\sin(\phi),\cos(\phi))</me>
                 On a donc écrit le vecteur seulement en termes de sa longueur et de deux angles, en coordonnées sphériques.
                 </p>
             </solution>
