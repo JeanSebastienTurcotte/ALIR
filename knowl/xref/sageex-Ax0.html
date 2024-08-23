@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">3.3.18</span><span class="period">.</span><span class="space"> </span><span class="title">La matrice L et les solutions de base.</span>
+</h4> <div class="para logical">
+<div class="para">On souhaite créer une fonction Sage qui retourne les solutions de base d’une matrice en reproduisant l’algorithme <code class="code-inline tex2jax_ignore">[provisional cross-reference: algo-solbase]</code>. Pour cela, on crée d’abord une fonction <code class="code-inline tex2jax_ignore">matL</code> qui va retourner la matrice <span class="process-math">\(L\)</span> associée à la forme échelonnée réduite d’une matrice <span class="process-math">\(A\)</span> quelconque. Voici quelques nouvelles fonctions Sage qui seront utiles et une manière d’ajouter des composantes à un vecteur:</div>
+<ul class="disc" id="sageex-Ax0-2-5">
+<li>
+<div class="para">Les fonctions <code class="code-inline tex2jax_ignore">matrix_from_rows</code> et <code class="code-inline tex2jax_ignore">matrix_from_columns</code> permettent de créer une matrice à partir des lignes ou des colonnes d’une autre matrice.</div>
+<pre id="sageex-Ax0-2-5-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A=random_matrix(QQ,8,6) #Une matrice aléatoire 8x6. L'argument QQ fait en sorte que les entrées seront rationnelles
+show("La matrice A:",A)
+show("La matrice formée à partir des lignes 1,2,3 de la matrice A:",A.matrix_from_rows([0,1,2]))
+show("La matrice formée à partir des lignes 4,6,7,8 de la matrice A:",A.matrix_from_rows([3,5,6,7]))
+show("La matrice formée à partir des lignes 6,4,1, de la matrice A, dans cet ordre:",A.matrix_from_rows([5,3,0])) # L'ordre est important
+show("La matrice formée à partir des lignes 2,2,3 de la matrice A",A.matrix_from_rows([1,1,2]))  #On peut répéter des lignes
+#Similaire avec les colonnes
+show("La matrice formée à partir des colonnes 1,2,3,4 de la matrice A",A.matrix_from_columns([0,1,2,3]))
+show("La matrice formée à partir des colonnes 4,6,2 de la matrice A",A.matrix_from_columns([3,5,1]))
+show("La matrice formée à partir des colonnes 5,5,3,5 de la matrice A",A.matrix_from_columns([4,4,2,4]))
+#En fait, il existe même une version hybride
+show("La matrice formée à partir de l'intersection des lignes 2,3 et des colonnes 4,5 de la matrice A",A.matrix_from_rows_and_columns([1,2],[3,4]))
+</script></pre>
+</li>
+<li>
+<div class="para">Parfois, on ne sait pas quelles seront les entrées d’un vecteur, ou bien l’on veut construire un vecteur en étape, une entrée à la fois. Pour effectuer cette opération, on utilisera plutôt une liste Sage que l’on convertira en vecteur par la suite. Par exemple, si l’on dispose d’une liste <code class="code-inline tex2jax_ignore">l1=[1,3,4]</code> et d’une autre liste <code class="code-inline tex2jax_ignore">l2=[2,4,6]</code> et qu’on veut créer les vecteurs qui prennent ces valeurs en alternant d’une liste à l’autre, on fera</div>
+<pre id="sageex-Ax0-2-5-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">l1=[1,3,4]
+l2=[0,2,4]
+v1=[] #Ceci crée une liste vide
+v2=[]
+k,l=0,0 # pour itérer sur les listes l1 et l2
+for i in range(len(l1)+len(l2)): #on itère sur la longueur des deux listes. Celles-ci (pour cet exemple) doivent être de même longueur
+    if i%2==0: #Une manière de savoir si l'on a un nombre pair 
+        v1.append(l1[k])
+        v2.append(l2[k])
+        k+=1
+    else:
+        v1.append(l2[l])
+        v2.append(l1[l])
+        l+=1
+#En ce moment v1 et v2 sont des listes
+show("La liste v1=",v1)
+show("La liste v2=",v2)
+show("v1+v2=",v1+v2)
+#On les transforme en vecteur
+v1=vector(v1)
+v2=vector(v2)
+show("Le vecteur v1=",v1)
+show("Le vecteur v2=",v2)
+show("v1+v2=",v1+v2)
+</script></pre>
+</li>
+</ul>
+</div> <div class="para">On débute avec la création de la fonction qui retourne la matrice <span class="process-math">\(L\text{.}\)</span> On se pose dans un premier temps la question suivante: est-ce que la matrice <span class="process-math">\(L\)</span> existe toujours? Dans l’algorithme, on élimine les lignes de zéros et l’on ne garde que les colonnes libres. Que faire si toutes les lignes sont nulles ou si toutes les colonnes sont pivots? Dans ces cas, il n’y a pas de matrice <span class="process-math">\(L\text{,}\)</span> mais l’interprétation est différente pour ce qui est des solutions de base. Lorsque toutes les lignes sont nulles, toutes les variables sont libres et l’ensemble solution est donc constitué de tous les vecteurs de l’espace <span class="process-math">\(\R^n\text{.}\)</span> Si, au contraire, toutes les variables sont pivots, alors il n’y a pas de solution de base. La seule solution à <span class="process-math">\(A\vec{x}=\vec{0}\)</span> est le vecteur nul. C’est dans ce deuxième cas qu’il faudra dire à notre fonction qu’il n’y a pas de solution de base.</div> <div class="para">Pour le cas où la matrice est nulle, selon l’algorithme <code class="code-inline tex2jax_ignore">[provisional cross-reference: algo-solbase]</code>, les solutions spéciales devraient sortir correctement et correspondre aux vecteurs <span class="process-math">\(\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_n\)</span> de l’espace <span class="process-math">\(\R^n\text{.}\)</span>
+</div> <div class="para">Pour la matrice <span class="process-math">\(L\text{,}\)</span> on a</div> <pre id="sageex-Ax0-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def matL(A):
+    R=A.rref()  #Si la matrice n'est pas ERL, on l'échelonne
+    r=A.rank()  #On détermine le rang. Ceci permet de savoir combien de lignes nulles il y a.
+    Rnonnulles=R.matrix_from_rows(list(range(r)))   #On ne conserve de R que les lignes non nulles. list(range(r))=[0,1,...,r]
+    L=Rnonnulles.matrix_from_columns(R.nonpivots()) #De la matrice Rnonnulles, on extrait les colonnes non pivots pour former L
+    return(L)  #On renvoie la matrice L comme réponse
+</script></pre> <div class="para">On teste la fonction avec la matrice de l’exemple <code class="code-inline tex2jax_ignore">[provisional cross-reference: ex-sousmatriceIL]</code>:</div> <pre id="sageex-Ax0-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R=matrix([[1,2,0,-2,0,3],[0,0,1,4,0,-1],[0,0,0,0,1,2],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]])
+show("R=",R)
+show("L=",matL(R))
+</script></pre> <div class="para">On va maintenant créer la fonction <code class="code-inline tex2jax_ignore">solbase(A)</code>, qui, à partir d’une matrice <span class="process-math">\(A\text{,}\)</span> va retourner les solutions de base de l’équation <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span> À l’intérieur de celle-ci, on va utiliser la fonction <code class="code-inline tex2jax_ignore">matL</code> créée ci-dessus.</div> <pre id="sageex-Ax0-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def solbase(A):
+    if A.rank()==A.ncols(): #Si toutes les variables sont pivots
+        return "Il n'y a pas de solution de base. La seule solution à Ax=0 est le vecteur nul"
+    else:
+        R=A.rref() #On réduit la matrice A
+        r=R.rank() #Le rang de la matrice R
+        piv=R.pivots() #La position des pivots de R
+        libres=R.nonpivots() #la position des variables libres
+        L=matL(A) #On va chercher la matrice L
+        Ilibre=identity_matrix(len(libres)) #La matrice identité de la taille du nombre de variables libres
+        S=[] #Une liste vide qui contiendra les vecteurs s_i
+        for i in range(len(libres)): #On va créer successivement les len(libres) vecteurs de base
+            vL=L.column(i) #On extrait la colonne i de la matrice L
+            vI=Ilibre.column(i) #On extrait la colonne i de la matrice Ilibre
+            #On veut maintenant placer les valeurs de vL et vI dans un vecteur s_i. Il est plus simple d'utiliser les listes Sage et de convertir en vecteur par la suite. La taille 
+            #d'un vecteur s_i est n
+            s=[] #une liste vide qui sera le vecteur s_i au terme de la boucle suivante
+            k,l=0,0 #Pour itérer sur les la colonne vL et vI
+            for j in range(A.ncols()): #la longueur du vecteur s_i est la même que le nombre de colonnes de A
+                if j in piv: #Si l'on est dans une entrée pivot
+                    s.append(-vL[k])# On ajoute l'entrée, en pensant de prendre le négatif
+                    k+=1 #on itère pour passer à l'entrée suivante
+                else: #Si j est une entrée libre
+                    s.append(vI[l])# On ajoute l'entrée
+                    l+=1 #on itère pour passer à l'entrée suivante
+            s=vector(s) #on transforme la liste s en vecteur
+            S.append(s) # et on l'ajoute à la liste des solutions de base
+        return(S)
+</script></pre> <div class="para">On teste la fonction avec la matrice de l’exemple <code class="code-inline tex2jax_ignore">[provisional cross-reference: ex-sousmatriceIL]</code>:</div> <pre id="sageex-Ax0-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">solbase(R)
+</script></pre></article><span class="incontext"><a class="internal" href="sec-SELgeo.html#sageex-Ax0">Contexte</a></span>
+</body>
+</html>

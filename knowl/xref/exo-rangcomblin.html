@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">13<span class="period">.</span></span>
+</h4>
+<div class="introduction"><div class="para">Soit <span class="process-math">\(A\text{,}\)</span> une matrice carrée d’ordre <span class="process-math">\(n\text{.}\)</span>
+</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="introduction"><div class="para">On s’intéresse aux lignes de la matrice <span class="process-math">\(A\)</span>
+</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para">Si <span class="process-math">\(A\)</span> possède deux lignes identiques, montrer que le rang de <span class="process-math">\(A\)</span> n’est pas maximal.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On se contente d’une preuve en mots puisque l’on ne gagnera rien en clarté si l’on écrit des matrices <span class="process-math">\(n\times n\)</span> arbitraires au long. On rappelle quand même la définition du rang <a href="sec-SELtheo.html#def-rang" class="xref" data-knowl="./knowl/xref/def-rang.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 3.2.9: Le rang d’une matrice">3.2.9</a>, la remarque <a href="sec-SELtheo.html#rem-ranglignenulle" class="xref" data-knowl="./knowl/xref/rem-ranglignenulle.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Remarque 3.2.10: Le rang et les lignes d’une matrice">3.2.10</a> par rapport aux lignes ainsi que la proposition <a href="sec-SELtheo.html#prop-rangmaximal" class="xref" data-knowl="./knowl/xref/prop-rangmaximal.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.2.12: Le rang maximal">3.2.12</a> sur le rang maximal.</div> <div class="para">Si la matrice <span class="process-math">\(A\)</span> possède deux lignes identiques (disons <span class="process-math">\(L_i\)</span> et <span class="process-math">\(L_j\)</span>), alors, par la seule opération élémentaire visant à éliminer le premier élément (<span class="process-math">\(-L_j+L_i\rightarrow L_i\)</span>), on éliminera toute la ligne. Une matrice ayant une ligne de zéros ne peut avoir de pivots sur cette ligne. Elle ne peut donc pas avoir <span class="process-math">\(n\)</span> pivots puisqu’on n’a jamais plus qu’un pivot par ligne.</div>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para">Si <span class="process-math">\(A\)</span> possède deux lignes parallèles, montrer que le rang de <span class="process-math">\(A\)</span> n’est pas maximal.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">Si l’on a deux lignes parallèles, alors la preuve est exactement la même que précédemment, mais on utilise l’opération <span class="process-math">\(-kL_j+L_i\rightarrow L_i\)</span> où <span class="process-math">\(k\)</span> est le facteur de parallélisme. La ligne entière deviendra nulle et la preuve se fait de façon identique.</div></div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(iii)</span></h6>
+<div class="para">Si <span class="process-math">\(A\)</span> possède une ligne qui soit une combinaison linéaire des autres lignes, montrer que le rang de <span class="process-math">\(A\)</span> n’est pas maximal.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Si <span class="process-math">\(A\)</span> possède une ligne (disons <span class="process-math">\(L_i\)</span>) qui est une combinaison linéaire des autres lignes (disons <span class="process-math">\(L_{j_1}, L_{j_2},\dots, L_{j_{n-1}}\)</span>), alors, on peut écrire:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L_i=k_1L_{j_1}+k_2L_{j_2}+\dots+k_{n-1}L_{j_{n-1}}
+\end{equation*}
+</div>
+<div class="para">On utilise ensuite les opérations élémentaires successives suivantes:</div>
+<div class="displaymath process-math">
+\begin{align*}
+-k_1L_{j_1}+L_i\rightarrow &amp; L_i\\
+-k_2L_{j_2}+L_i\rightarrow &amp; L_i\\
+&amp;\vdots\\
+-k_{n-1}L_{j_{n-1}}+L_i\rightarrow &amp; L_i
+\end{align*}
+</div>
+<div class="para">Au bout de ce processus, on aura inévitablement une ligne de zéros là où était <span class="process-math">\(L_i\text{.}\)</span> Le reste de la preuve est identique.</div>
+</div></div></details></div></article></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="introduction"><div class="para">Refaire les questions précédentes en remplaçant <em class="emphasis">ligne</em> par <em class="emphasis">colonne</em> dans chaque énoncé.</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para">Si <span class="process-math">\(A\)</span> possède deux <em class="emphasis">colonnes</em> identiques, montrer que le rang de <span class="process-math">\(A\)</span> n’est pas maximal.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On se contente d’une preuve en mots puisque l’on ne gagnera rien clarté si l’on écrit des matrices <span class="process-math">\(n\times n\)</span> arbitraires au long. On rappelle quand même la définition du rang <a href="sec-SELtheo.html#def-rang" class="xref" data-knowl="./knowl/xref/def-rang.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 3.2.9: Le rang d’une matrice">3.2.9</a>, la remarque <a href="sec-SELtheo.html#rem-ranglignenulle" class="xref" data-knowl="./knowl/xref/rem-ranglignenulle.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Remarque 3.2.10: Le rang et les lignes d’une matrice">3.2.10</a> par rapport aux lignes ainsi que la proposition <a href="sec-SELtheo.html#prop-rangmaximal" class="xref" data-knowl="./knowl/xref/prop-rangmaximal.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.2.12: Le rang maximal">3.2.12</a> sur le rang maximal.</div> <div class="para">Si la matrice <span class="process-math">\(A\)</span> possède deux colonnes identiques, alors, lorsqu’on fera des opérations élémentaires visant à obtenir un pivot dans la première des deux colonnes et des zéros en haut et en bas, l’effet de ces opérations sera le même sur les éléments de la deuxième colonne. On se retrouvera donc avec deux colonnes identiques avec un pivot dans la première, mais pas de pivot dans la seconde. Dans ce cas, on ne peut avoir le rang maximal puisqu’on va manquer de colonnes.</div>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para">Si <span class="process-math">\(A\)</span> possède deux <em class="emphasis">colonnes</em> parallèles, montrer que le rang de <span class="process-math">\(A\)</span> n’est pas maximal.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">Les opérations que l’on fait pour obtenir un pivot dans la première colonne et des zéros en haut et en bas du pivot amèneront également une seule valeur non nulle dans la deuxième colonne. Il est donc impossible d’avoir un pivot sur cette seconde colonne.</div></div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(iii)</span></h6>
+<div class="para">Si <span class="process-math">\(A\)</span> possède une <em class="emphasis">colonne</em> qui est une combinaison linéaire des autres <em class="emphasis">colonnes</em>, montrer que le rang de <span class="process-math">\(A\)</span> n’est pas maximal.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">La solution suivra.</div></div></details></div></article></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para">Déduire des énoncés précédents la troisième version du théorème de la matrice inverse.</div> <div class="para"><em class="emphasis">Théorème de la matrice inverse, troisième version</em></div> <div class="para logical">
+<div class="para">Soit <span class="process-math">\(A\text{,}\)</span> une matrice carrée d’ordre <span class="process-math">\(n\text{.}\)</span> Les énoncés suivants sont équivalents:</div>
+<ol class="lower-alpha" id="thm-delamatriceinversev3-1-3-3">
+<li><div class="para">La matrice <span class="process-math">\(A\)</span> est inversible</div></li>
+<li><div class="para">Pour chaque vecteur <span class="process-math">\(\vec{v}\in \R^n\text{,}\)</span> il existe un seul vecteur <span class="process-math">\(\vec{u}\in \R^n\)</span> tel que <span class="process-math">\(A\vec{u}=\vec{v}\text{.}\)</span>
+</div></li>
+<li><div class="para">Le rang de la matrice est égal à <span class="process-math">\(n\text{.}\)</span>
+</div></li>
+<li><div class="para">La matrice <span class="process-math">\(A\)</span> possède <span class="process-math">\(n\)</span> pivots.</div></li>
+<li><div class="para">La forme échelonnée réduite de <span class="process-math">\(A\)</span> est la matrice identité.</div></li>
+<li><div class="para">Aucune ligne n’est une combinaison linéaire des autres lignes.</div></li>
+<li><div class="para">Aucune colonne n’est une combinaison linéaire des autres colonnes.</div></li>
+</ol>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">Il n’y a rien à ajouter. On a démontré les deux points additionnels dans cette version du théorème.</div></div></details></div></article></article><span class="incontext"><a class="internal" href="sec-SELtheo.html#exo-rangcomblin">Contexte</a></span>
+</body>
+</html>

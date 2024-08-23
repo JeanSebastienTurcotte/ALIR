@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">10<span class="period">.</span></span>
+</h4>
+<div class="para">Soit <span class="process-math">\(A\text{,}\)</span> une matrice. On sait que <span class="process-math">\(A\vec{e}_j\)</span> donne la colonne <span class="process-math">\(j\)</span> de la matrice. Comment obtenir l’entrée en position <span class="process-math">\(i,j\text{?}\)</span>
+</div>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para">Considérer le produit scalaire de <span class="process-math">\(A\vec{e}_j\)</span> avec un vecteur bien choisi.</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On doit extraire de la colonne <span class="process-math">\(j\)</span> l’entrée en position <span class="process-math">\(i\text{.}\)</span> Si l’on effectue le produit scalaire avec un vecteur <span class="process-math">\(\vec{e}_i\)</span> de bonne dimension, on aura le résultat souhaité.</div> <div class="para">On remarque aussi que la matrice n’a pas besoin d’être carrée. La cellule Sage ci-dessous permet de tester avec une matrice rectangulaire.</div> <pre id="exo-matentreeij-3-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A=random_matrix(QQ,3,5)
+show(A)
+#On veut l'entrée 2,4 par exemple
+e4=vector([0,0,0,1,0])
+f2=vector([0,1,0]) #On utilise f car la dimension est différente, et si on voulait l'entrée 2,2 on ne pourrait pas prendre le même e2
+show("a_{2,4}=",A*e4*f2)
+#On peut aussi effectuer un test logique
+show("a_{2,4}=",A*e4*f2==A[1][3])  #On rappelle que l'entrée 2,4 est notée A[1][3] sur Sage
+</script></pre>
+</div></details>
+</div></article><span class="incontext"><a class="internal" href="sec-transfodef.html#exo-matentreeij">Contexte</a></span>
+</body>
+</html>

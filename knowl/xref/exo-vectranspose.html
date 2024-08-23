@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">16<span class="period">.</span></span>
+</h4>
+<div class="introduction"><div class="para">Dans cet exercice, on considère un vecteur <span class="process-math">\(\vec{u}\)</span> comme une matrice <span class="process-math">\(u\)</span> ayant une seule colonne. Une matrice ayant une seule ligne est, quant à elle, notée <span class="process-math">\(v^T\)</span><details class="ptx-footnote" aria-live="polite" id="exo-vectranspose-1-1-4"><summary class="ptx-footnote__number" title="Note de bas de page 3.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="exo-vectranspose-1-1-4">Le <span class="process-math">\(T\)</span> en exposant est lié avec la notion de transposée, qui sera définie plus loin.</div></details>, où <span class="process-math">\(\vec{v}\)</span> est le vecteur représentant la ligne.</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="introduction"><div class="para">Considérer la matrice <span class="process-math">\(u=\begin{pmatrix} 2 \\ 1\end{pmatrix}\)</span> et la matrice <span class="process-math">\(v^T=(3 \, 4)\text{.}\)</span>
+</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para">Quel est le rang des matrices <span class="process-math">\(u\)</span> et <span class="process-math">\(v^T\text{?}\)</span>
+</div>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(rg(u)=1\)</span> et <span class="process-math">\(rg(v^T)=1\)</span>
+</div></div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para">Comparer les produits <span class="process-math">\(uv^T\)</span> et <span class="process-math">\(v^Tu\text{.}\)</span> Quelle autre opération le produit <span class="process-math">\(v^Tu\)</span> représente-t-il?</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">On calcule les produits:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+uv^T=\begin{pmatrix} 2 \\ 1\end{pmatrix}(3 \, 4)=\begin{pmatrix} 2*3&amp; 2*4 \\ 1*3&amp; 1*4\end{pmatrix}=\begin{pmatrix} 6&amp; 8 \\ 3&amp; 4\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+v^Tu=(3 \, 4)\begin{pmatrix} 2 \\ 1\end{pmatrix}=(3*2+4*1)=(10)\text{.}
+\end{equation*}
+</div>
+<div class="para">Le premier résultat est donc une matrice <span class="process-math">\(2 \times 2\)</span> et le deuxième une “matrice” <span class="process-math">\(1 \times 1\text{.}\)</span> On comprend que le deuxième résultat a beau être entre parenthèses, une matrice qui ne possède qu’une ligne et une colonne est en réalité un nombre, souvent appelé un scalaire. Cette opération correspond donc au produit scalaire.</div>
+</div></div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(iii)</span></h6>
+<div class="para">Quel est le rang des matrices <span class="process-math">\(v^Tu\)</span> et <span class="process-math">\(uv^T\text{?}\)</span>
+</div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(rg(v^Tu)=1\)</span> et <span class="process-math">\(rg(uv^T)=1\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">Le rang de <span class="process-math">\(v^Tu\)</span> est de <span class="process-math">\(1\text{,}\)</span> puisque c’est un nombre non nul qui est, par le fait même, un pivot. Le rang de <span class="process-math">\(uv^T\)</span> s’obtiendra de diverses façons (échelonner ou bien utiliser le théorème de la matrice inverse <a href="sec-SELtheo.html#thm-delamatriceinversev3" class="xref" data-knowl="./knowl/xref/thm-delamatriceinversev3.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 3.2.3.13.c">3.2.3.13.c</a>). On voit immédiatement que la matrice <span class="process-math">\(uv^T=\begin{pmatrix} 6&amp; 8 \\ 3&amp; 4\end{pmatrix}\)</span> a deux lignes (ou colonnes) parallèles. Par le théorème, elle n’est donc pas de rang maximal. Elle est de rang <span class="process-math">\(1\text{.}\)</span>
+</div></div></details>
+</div></article></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para">Utiliser Sage pour vérifier le rang de <span class="process-math">\(uv^T\)</span> pour différents vecteurs de <span class="process-math">\(\R^2\text{.}\)</span>
+</div> <pre id="exo-vectranspose-3-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></pre>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">u=matrix([[2],[1]])
+vT=matrix([[3,4]])
+uvT=u*vT
+show(uvT)
+show(rank(uvT))
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.2.16<span class="period">.</span></span><span class="space"> </span>Le code solution pour les vecteurs initiaux</figcaption></figure> <div class="para">On remarque qu’il suffit de remplacer les vecteurs initiaux par d’autres vecteurs pour tester. On laisse les observations à l’élève.</div>
+</div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para">Si <span class="process-math">\(\vec{u},\vec{v}\)</span> sont n’importe quel vecteur non nul de <span class="process-math">\(\R^2\text{,}\)</span> quel est le rang du produit <span class="process-math">\(uv^T\text{?}\)</span>
+</div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">Le rang est toujours de <span class="process-math">\(1\text{.}\)</span>
+</div></div></details><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">On considère le produit des matrices <span class="process-math">\(u\)</span> et <span class="process-math">\(v^T\)</span> au sens de la définition <a href="sec-prodmat.html#def-matmatprod" class="xref" data-knowl="./knowl/xref/def-matmatprod.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 2.2.1: Le produit matriciel">2.2.1</a>, c’est-à-dire que les colonnes du produit sont le résultat de la multiplication de la matrice <span class="process-math">\(u\)</span> par les colonnes de <span class="process-math">\(v^T\text{.}\)</span> Or comme les colonnes de <span class="process-math">\(v^T\)</span> ne sont que des scalaires, on obtient comme résultat pour les colonnes de <span class="process-math">\(uv^T\)</span> des multiples de <span class="process-math">\(u\text{.}\)</span> Puisque <span class="process-math">\(u\)</span> est non nul, le théorème <a href="sec-SELtheo.html#thm-delamatriceinversev3" class="xref" data-knowl="./knowl/xref/thm-delamatriceinversev3.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 3.2.3.13.c">3.2.3.13.c</a> permet de conclure que le rang est <span class="process-math">\(1\text{.}\)</span>
+</div></div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para">Si <span class="process-math">\(\vec{u},\vec{v}\)</span> sont n’importe quel vecteur non nul de <span class="process-math">\(\R^n\text{,}\)</span> quel est le rang du produit <span class="process-math">\(uv^T\text{?}\)</span>
+</div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">Le rang est toujours de <span class="process-math">\(1\text{.}\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">Un argument similaire à la partie précédente permet de conclure que les colonnes sont toutes des multiples du vecteur <span class="process-math">\(\vec{u}\)</span> Par contre, le théorème de la matrice inverse ne permet que de conclure que le rang n’est pas <span class="process-math">\(n\text{.}\)</span> Cependant, l’exercice <a href="sec-SELtheo.html#exo-rangABminB" class="xref" data-knowl="./knowl/xref/exo-rangABminB.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 3.2.3.15.d">3.2.3.15.d</a> permet de conclure que le rang de <span class="process-math">\(uv^T\)</span> est inférieur ou égal au rang de <span class="process-math">\(v^T\text{,}\)</span> qui est  égal à <span class="process-math">\(1\text{.}\)</span> De plus, comme <span class="process-math">\(\vec{u}\)</span> est non nul, on sait que la matrice <span class="process-math">\(uv^T\)</span> n’est pas la matrice nulle et sont rang est supérieur à <span class="process-math">\(0\text{.}\)</span> Il doit donc être égal à <span class="process-math">\(1\text{.}\)</span>
+</div></div></details>
+</div></article></article><span class="incontext"><a class="internal" href="sec-SELtheo.html#exo-vectranspose">Contexte</a></span>
+</body>
+</html>

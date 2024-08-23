@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">7.2.24</span><span class="period">.</span><span class="space"> </span><span class="title">La méthode du simplexe sur Sage.</span>
+</h4> <div class="para">Sage est capable de produire le résultat de la méthode du simplexe. Il peut aussi effectuer l’algoritme, étape par étape. On sait déjà, grâce à l’exemple <a href="sec-simplexe.html#sageex-simplexegeo" class="xref" data-knowl="./knowl/xref/sageex-simplexegeo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Calcul 7.2.12: Géométrie de la programmation linéaire avec Sage">7.2.12</a>, que Sage est en mesure de donner la solution à l’aide de la commande <code class="code-inline tex2jax_ignore">optimal_solution</code>. On peut aussi lui demander d’effectuer la méthode du simplexe, il retournera le résultat produit par l’algorithme. Il faut toujours convertir le problème à sa forme canonique, même s’il est déjà sous cette forme.</div> <pre id="sageex-simplexealg-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A = matrix([[1, 0], [0, 1],[1,1]])
+b = vector([8, 5,10])
+c = vector([2, 1])
+P = InteractiveLPProblem(A, b, c, ["x_1", "x_2"], variable_type=">=")
+P=P.standard_form()
+P.run_simplex_method()
+</script></pre> <div class="para">Le rendu de Sage est différent de celui proposée dans la section. Sage présente un tableau du simplexe dans lequel les variables en base, soit celles qui correspondent aux colonnes de la matrice identité dans la méthode présentée dans la section, sont isolées à gauche du tableau. Les lignes correspondantes à ces entrées sont écrites sous la forme d’une équation. Le membre de droite, composé des entrées du vecteur <span class="process-math">\(\vec{b}\text{,}\)</span> se trouve plutôt à gauche et Sage inscrit l’information à l’aide des équations plutôt qu’à l’aide de la matrice. De plus, la dernière ligne, associée à la fonction objectif, a ses coefficients positifs plutôt que négatifs. Sage va toujours nommer les variables d’écart par <span class="process-math">\(x_k,x_{k+1},\ldots, x_{k+m-1}\text{,}\)</span> où <span class="process-math">\(k\)</span> est égal au nombre de variables du problème.</div> <div class="para">L’écriture comme Sage la propose a pour avantage d’être plus concise, elle permet de voir encore plus rapidement la solution. Par contre, elle a  le désavantage qu’il est difficile de passer d’un tableau à l’autre sans faire d’erreurs, puisque la position des variables change souvent. La méthode présentée fait le compromis entre la facilité de lecture et l’organisation mieux structurée. Pour un ordinateur bien programmé, on peut s’épargner beaucoup de calculs en ne considérant que les éléments importants.</div> <div class="para">Afin de voir la différence entre la méthode présentée dans la section et celle qui est offerte par Sage, on regarde l’application de l’algorithme du simplexe sur le problème de l’exemple <a href="sec-simplexe.html#ex-simplexe3-2" class="xref" data-knowl="./knowl/xref/ex-simplexe3-2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.22: Optimisation de la production de chaises et de tables avec la méthode du simplexe">7.2.22</a> pour comparer le rendu des deux démarches.</div> <pre id="sageex-simplexealg-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A = matrix([[3, 10], [3, 2],[3/2,5/2]])
+b = vector([150, 72,45])
+c = vector([50, 100])
+P = InteractiveLPProblem(A, b, c, ["c", "t"], variable_type=">=")
+P=P.standard_form()
+P.run_simplex_method()
+</script></pre> <div class="para">La première étape que l’on avaite fait à l’exemple <a href="sec-simplexe.html#ex-simplexe3-2" class="xref" data-knowl="./knowl/xref/ex-simplexe3-2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.22: Optimisation de la production de chaises et de tables avec la méthode du simplexe">7.2.22</a> était de pivoter selon l’entrée de la première ligne et deuxième colonne. Exprimé dans le langage des variables en base et hors base, cela signifie que l’on fait entrer <span class="process-math">\(t\)</span> en base, ce qui fait sortir la première variable d’écart. On peut d’ores et déjà constater que Sage diverge de l’algorithme, car il fait plutôt entrer la variable <span class="process-math">\(c\)</span> en base, ce qui fait sortir la deuxième variable d’écart. En d’autres mots, il semble que Sage ne suive pas l’algorithme du simplexe pour sélectionner la bonne colonne. Il y a probablement une raison à cela, mais l’auteur ne la connait pas.</div> <div class="para">Comme la première étape ne concorde pas, il est difficile de comparer les démarches. Par contre, il est possible de demander à Sage d’effectuer une opération de pivotage choisie. Ainsi, on pourra comparer le cheminement des deux approches. Dans sage, la matrice initiale du simplexe est appelée <code class="code-inline tex2jax_ignore">initial_dictionary</code>. On attribue à <code class="code-inline tex2jax_ignore">D</code> ce tableau initial. L’option <code class="code-inline tex2jax_ignore">%display typeset</code> permet de visualiser le rendu. Le tableau correspond à celui que Sage présente dans l’application de son algorithme, sans les couleurs.</div> <pre id="sageex-simplexealg-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">D=P.initial_dictionary()
+%display typeset
+D
+</script></pre> <div class="para">Sage peut vérifier si le tableau en cours est admissible ou optimal.</div> <pre id="sageex-simplexealg-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show("Solution admissible:",D.is_feasible())
+show("Solution optimale:", D.is_optimal())
+</script></pre> <div class="para">On peut vérifier quelles sont les variables en base, la solution de base et la valeur de la fonction objectif.</div> <pre id="sageex-simplexealg-14" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show("Les variables en base:",D.basic_variables())
+show("La solution de base:",D.basic_solution())
+show("La valeur de la fonction objectif:",D.objective_value())
+</script></pre> <div class="para">Pour effectuer une étape de pivotage, on doit préciser quelle variable entre en base et quelle variable sort. Ceci revient à préciser la colonne et la ligne. Pour reproduire la démarche de l’exemple <a href="sec-simplexe.html#ex-simplexe3-2" class="xref" data-knowl="./knowl/xref/ex-simplexe3-2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.22: Optimisation de la production de chaises et de tables avec la méthode du simplexe">7.2.22</a>, on fait entrer <span class="process-math">\(c\)</span> et sortir ce que Sage appelle <span class="process-math">\(x_3\text{.}\)</span> On peut faire afficher le tableau afin de voir le choix effectué et de valider s’il correspond à ce que l’on veut. Par la suite, on met le tableau à jour. On affiche à nouveau pour voir l’effet du pivotage.</div> <pre id="sageex-simplexealg-16" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">D.enter("t")
+D.leave("x3")
+show(D)
+D.update()
+show(D)
+</script></pre> <div class="para">On peut reconnaitre dans le tableau les éléments correspondants à la matrice du simplexe une fois le premier pivotage effectué. On valide encore les informations avec Sage.</div> <pre id="sageex-simplexealg-18" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show("Solution admissible:",D.is_feasible())
+show("Solution optimale:", D.is_optimal())
+show("Les variables en base:",D.basic_variables())
+show("La solution de base:",D.basic_solution())
+show("La valeur de la fonction objectif:",D.objective_value())
+</script></pre> <div class="para">La prochaine étape avait été de pivoter selon l’entrée en position <span class="process-math">\(3,1\text{,}\)</span> soit la troisième ligne et la première colonne. Ceci signifie que l’on fait entrer la variable <span class="process-math">\(c\)</span> en base et que l’on rend <span class="process-math">\(e_5\)</span> (<span class="process-math">\(x_5\)</span> pour Sage) hors base.</div> <pre id="sageex-simplexealg-20" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">D.enter("c")
+D.leave("x5")
+show(D)
+D.update()
+show(D)
+</script></pre> <div class="para">La solution optimale est atteinte, l’algorithme est terminé.</div> <pre id="sageex-simplexealg-22" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show("Solution admissible:",D.is_feasible())
+show("Solution optimale:", D.is_optimal())
+show("Les variables en base:",D.basic_variables())
+show("La solution de base:",D.basic_solution())
+show("La valeur de la fonction objectif:",D.objective_value())
+</script></pre></article><span class="incontext"><a class="internal" href="sec-simplexe.html#sageex-simplexealg">Contexte</a></span>
+</body>
+</html>

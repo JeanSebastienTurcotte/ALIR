@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">5<span class="period">.</span></span>
+</h4>
+<div class="para logical">
+<div class="para">En utilisant la définition du produit matriciel <a href="sec-prodmat.html#def-matmatprod" class="xref" data-knowl="./knowl/xref/def-matmatprod.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 2.2.1: Le produit matriciel">2.2.1</a>, déterminer l’inverse des matrices</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-matmatprod.html">
+\begin{align*}
+A_3=\begin{pmatrix}1&amp; 0&amp; 0\\ 1&amp; 1&amp; 0\\ 1&amp; 1&amp; 1 \end{pmatrix}\\
+A_4=\begin{pmatrix}1&amp; 0&amp; 0 &amp; 0\\ 1&amp; 1&amp; 0 &amp; 0\\ 1&amp; 1&amp; 1 &amp; 0\\ 1&amp; 1 &amp; 1 &amp; 1 \end{pmatrix}\text{.}
+\end{align*}
+</div>
+<div class="para">Quel serait un inverse pour</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-matmatprod.html">
+\begin{equation*}
+A_n=\begin{pmatrix} 1&amp; 0&amp; 0&amp; \cdots &amp; 0\\
+1&amp; 1&amp; 0 &amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1&amp; 1 &amp; 1 &amp; \cdots &amp; 1\end{pmatrix}\text{?}
+\end{equation*}
+</div>
+</div>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para">Considérer l’équation <span class="process-math">\(AA^{-1}=I\)</span> et déterminer colonne par colonne les entrées de <span class="process-math">\(A^{-1}\text{.}\)</span>
+</div></div></details><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical">
+<div class="displaymath process-math">
+\begin{equation*}
+A^{-1}_3=\begin{pmatrix}1&amp; 0&amp; 0\\ -1&amp; 1&amp; 0\\ 0&amp; -1&amp; 1 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^{-1}_4=\begin{pmatrix}1&amp; 0&amp; 0&amp;0\\ -1&amp; 1&amp; 0&amp;0\\ 0&amp; -1&amp; 1&amp;0 \\0&amp; 0&amp; -1&amp; 1\end{pmatrix}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^{-1}_n=\begin{pmatrix} 1&amp;0&amp; 0&amp; 0&amp; \cdots &amp; 0&amp; 0\\
+-1&amp; 1&amp; 0 &amp;0&amp; \cdots &amp; 0&amp; 0\\
+0&amp;-1&amp; 1&amp; 0&amp; \cdots &amp; 0&amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+0&amp; 0 &amp; 0 &amp;0 &amp; \cdots &amp; -1 &amp; 1\end{pmatrix}
+\end{equation*}
+</div>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">On procède comme il est conseillé dans l’indice. On commence par <span class="process-math">\(A_3\text{.}\)</span> Pour simplifier la notation, on utilise la notation donnée dans la définition <a href="sec-prodmat.html#def-matmatprod" class="xref" data-knowl="./knowl/xref/def-matmatprod.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 2.2.1: Le produit matriciel">2.2.1</a> à chaque matrice. Soit <span class="process-math">\(B_3\text{,}\)</span> la matrice inverse voulue. On sait que</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-matmatprod.html">
+\begin{equation*}
+A_3B_3=\begin{pmatrix}
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+A_3\vec{b}_1 &amp; A_3\vec{b}_2 &amp;\cdots &amp; A_3\vec{b}_n \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+\end{pmatrix}=I_3=\begin{pmatrix}
+1&amp;0&amp;0\\
+0&amp;1&amp;0\\
+0&amp;0&amp;1
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Alors, on calcule la première colonne:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-matmatprod.html">
+\begin{equation*}
+\begin{pmatrix}1&amp; 0&amp; 0\\ 1&amp; 1&amp; 0\\ 1&amp; 1&amp; 1 \end{pmatrix}\vecddd{a}{b}{c}=\vecddd{1}{0}{0}\text{.}
+\end{equation*}
+</div>
+<div class="para">On obtient les équations:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-matmatprod.html">
+\begin{equation*}
+\begin{cases}a&amp;=1\\a+b&amp;=0\\a+b+c&amp;=0\end{cases}\Rightarrow \begin{cases}a&amp;=1\\b&amp;=-1\\c&amp;=0\end{cases}\Rightarrow \vec{b}_1=\vecddd{1}{-1}{0}
+\end{equation*}
+</div>
+<div class="para">On calcule ensuite la deuxième colonne de façon semblable et l’on obtient:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-matmatprod.html">
+\begin{equation*}
+\vec{b}_2=\vecddd{0}{1}{-1}\text{.}
+\end{equation*}
+</div>
+<div class="para">Finalement,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-matmatprod.html">
+\begin{equation*}
+\vec{b}_3=\vecddd{0}{0}{1}\text{.}
+\end{equation*}
+</div>
+<div class="para">Ce qui donne</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-matmatprod.html">
+\begin{equation*}
+A^{-1}_3=B_3=\begin{pmatrix}
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+\vec{b}_1 &amp; \vec{b}_2 &amp;\cdots &amp; \vec{b}_n \\
+\lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
+\end{pmatrix}=\begin{pmatrix}1&amp; 0&amp; 0\\ -1&amp; 1&amp; 0\\ 0&amp; -1&amp; 1 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">On obtient <span class="process-math">\(A^{-1}_4\)</span> avec une démarche semblable:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-matmatprod.html">
+\begin{equation*}
+A^{-1}_4=\begin{pmatrix}1&amp; 0&amp; 0&amp;0\\ -1&amp; 1&amp; 0&amp;0\\ 0&amp; -1&amp; 1&amp;0 \\0&amp; 0&amp; -1&amp; 1\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">On remarque la tendance. On peut donc conclure avec confiance que:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-matmatprod.html">
+\begin{equation*}
+A^{-1}_n=\begin{pmatrix} 1&amp;0&amp; 0&amp; 0&amp; \cdots &amp; 0&amp; 0\\
+-1&amp; 1&amp; 0 &amp;0&amp; \cdots &amp; 0&amp; 0\\
+0&amp;-1&amp; 1&amp; 0&amp; \cdots &amp; 0&amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp;\vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+0&amp; 0 &amp; 0 &amp;0 &amp; \cdots &amp; -1 &amp; 1\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+</div></div></details>
+</div></article><span class="incontext"><a class="internal" href="sec-transfodimsup.html#exo-invspecial">Contexte</a></span>
+</body>
+</html>

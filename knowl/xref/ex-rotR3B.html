@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">6.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">Matrice de rotation dans <span class="process-math">\(\mathbb{R}^3\)</span>.</span>
+</h4>
+<div class="para">On revient sur l’exemple <a href="sec-transfodimsup.html#sageex-transfodimsup" class="xref" data-knowl="./knowl/xref/sageex-transfodimsup.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Calcul 2.4.6: Les rotations selon une droite passant par l’origine dans \R^3">2.4.6</a> dans lequel on a trouvé la matrice représentant une rotation autour de l’axe <span class="process-math">\((-1,1,2)\)</span> de <span class="process-math">\(60^\circ\text{.}\)</span> On veut utiliser une matrice de changement de base afin de retrouve l’expression de cette transformation (dans la base standard).</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On doit trouver une base <span class="process-math">\(\mathcal{B}\)</span> qui va satisfaire les conditions de la proposition <a href="sec-diagonalisation.html#prop-rotR3B" class="xref" data-knowl="./knowl/xref/prop-rotR3B.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 6.2.13: Matrice de rotation dans une base orthonormée">6.2.13</a>. On prend <span class="process-math">\(\vec{v}_3=(-1,1,2)\text{,}\)</span> l’axe de rotation. Pour avoir un vecteur perpendiculaire, il suffit de prendre un vecteur qui satisfait l’équation <span class="process-math">\(-x+y+2z=0\text{.}\)</span> On opte pour <span class="process-math">\(\vec{v}_1=(1,1,0)\text{.}\)</span> Pour le second vecteur, on doit s’assurer qu’il sera perpendiculaire à <span class="process-math">\(\vec{v}_1\)</span> et à <span class="process-math">\(\vec{v}_3\)</span> et que le repère sera orienté positivement. On sait que <span class="process-math">\(\langle \vec{v}_1,\vec{v}_3,\vec{v}_1\times \vec{v}_3 \rangle\)</span> serait orienté positivement selon l’exercice <code class="code-inline tex2jax_ignore">[provisional cross-reference: exo-produitvectorielorientation]</code>. On aurait donc que le repère <span class="process-math">\(\langle \vec{v}_1,\vec{v}_1\times \vec{v}_3,\vec{v}_3 \rangle\)</span> serait orienté négativement et finalement, que <span class="process-math">\(\langle \vec{v}_1,-\vec{v}_1\times \vec{v}_3,\vec{v}_3 \rangle\text{.}\)</span> On pose donc <span class="process-math">\(\vec{v}_2=-\vec{v}_1\times \vec{v}_3\text{.}\)</span>
+</div> <pre id="ex-rotR3B-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">v1=vector([1,1,0])
+v3=vector([-1,1,2])  
+v2=-v1.cross_product(v3)
+#Validation
+column_matrix([v1,v2,v3]).determinant()>0
+</script></pre> <div class="para">En fait, ces vecteurs ne sont pas de norme <span class="process-math">\(1\text{,}\)</span> alors on doit les normaliser avant de pouvoir utiliser la formule <a href="sec-diagonalisation.html#eq-rotR3B" class="xref" data-knowl="./knowl/xref/eq-rotR3B.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 6.2.1">(6.2.1)</a>. On utilise ensuite la matrice de passage formé des vecteurs unitaires pour déterminer la matrice <span class="process-math">\(A\)</span> dans la base usuelle.</div> <pre id="ex-rotR3B-3-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">v1=vector([1,1,0])
+v3=vector([-1,1,2])  
+v2=-v1.cross_product(v3)
+v1chap=v1/norm(v1)
+v2chap=v2/norm(v2)
+v3chap=v3/norm(v3)
+t=60/360*2*pi
+P=column_matrix([v1chap,v2chap,v3chap])
+RB=column_matrix([[cos(t),sin(t),0],[-sin(t),cos(t),0],[0,0,1]])
+R=P*RB*(P.inverse())
+show(R.apply_map(lambda x: x.trig_reduce()))  
+show(R.apply_map(lambda x: x.n()))
+</script></pre>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-diagonalisation.html#ex-rotR3B">Contexte</a></span>
+</body>
+</html>

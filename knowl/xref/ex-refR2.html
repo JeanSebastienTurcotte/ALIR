@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.2.15</span><span class="period">.</span><span class="space"> </span><span class="title">La réflexion par rapport à une droite passant par l’origine.</span>
+</h4>
+<div class="para logical">
+<div class="para">On considère <span class="process-math">\(\mathcal{D}\)</span> une droite de <span class="process-math">\(\R^2\)</span> passant par l’origine, qui fait un angle de <span class="process-math">\(\theta\)</span> avec l’axe des abscisses (mesuré dans le sens antihoraire). On cherche à faire une réflexion par rapport à cette droite. On peut déterminer la matrice de cette réflexion de la manière suivante:</div>
+<ol class="decimal" id="ex-refR2-2-1-4">
+<li><div class="para">On commence par faire une rotation de <span class="process-math">\(\theta\)</span> dans le sens horaire afin de ramener la droite sur l’axe des abscisses.</div></li>
+<li><div class="para">On effectue ensuite la réflexion par rapport à l’axe des abscisses, que l’on sait faire (voir l’exemple <a href="sec-transfodef.html#ex-transfor2" class="xref" data-knowl="./knowl/xref/ex-transfor2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 2.1.13: Des transformations linéaires du plan : dynamique">2.1.13</a>).</div></li>
+<li><div class="para">Par la suite, on ramène le tout à la position initiale en effectuant une rotation de <span class="process-math">\(\theta\)</span> dans le sens antihoraire.</div></li>
+</ol>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Selon l’énoncé du problème, cette réflexion est en fait une composition de deux rotations et de la réflexion <span class="process-math">\(S_x\text{.}\)</span> Si l’on pose <span class="process-math">\(S_{\theta}\)</span> la réflexion cherchée, on a alors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-rotr2.html ./knowl/xref/eq-refx.html">
+\begin{align}
+S_{\theta}&amp;=R_{\theta}S_xR_{-\theta}\notag\\
+&amp;=\begin{pmatrix}
+\cos(\theta) &amp; -\sin(\theta)\\
+\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+1&amp;0\\
+0&amp;-1
+\end{pmatrix}
+\begin{pmatrix}
+\cos(-\theta) &amp; -\sin(-\theta)\\
+\sin(-\theta) &amp; \cos(-\theta)
+\end{pmatrix} &amp;&amp; \text{selon les équations } \knowl{./knowl/xref/eq-rotr2.html}{\text{(2.1.13)}} \text{ et } \knowl{./knowl/xref/eq-refx.html}{\text{(2.1.9)}}\notag\\
+&amp;=\left[\begin{pmatrix}
+\cos(\theta) &amp; -\sin(\theta)\\
+\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+1&amp;0\\
+0&amp;-1
+\end{pmatrix} \right]
+\begin{pmatrix}
+\cos(\theta) &amp; \sin(\theta)\\
+-\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix} &amp;&amp; \text{selon l'associativité de la multiplication matricielle et les identités } \sin(-\theta)=-\sin(\theta) \text{ et } \cos(-\theta)=\cos(\theta)\notag\\
+&amp;=\begin{pmatrix}
+\cos(\theta)&amp;\sin(\theta)\\
+\sin(\theta)&amp;-\cos(\theta)
+\end{pmatrix}
+\begin{pmatrix}
+\cos(\theta) &amp; \sin(\theta)\\
+-\sin(\theta) &amp; \cos(\theta)
+\end{pmatrix}\notag\\
+&amp;=
+\begin{pmatrix}
+\cos^2(\theta)-\sin^2(\theta) &amp; 2\sin(\theta)\cos(\theta)\\
+2\sin(\theta)\cos(\theta) &amp; \sin^2(\theta)-\cos^2(\theta)
+\end{pmatrix}\tag{2.2.3}\\
+&amp;=
+\begin{pmatrix}
+\cos(2\theta)&amp; \sin(2\theta)\\
+\sin(2\theta) &amp; -\cos(2\theta)
+\end{pmatrix} &amp;&amp; \text{en vertu des identités } \cos^2(\theta)-\sin^2(\theta)=\cos(2\theta) \text{ et } 2\sin(\theta)\cos(\theta)=\sin(2\theta)\text{.}\tag{2.2.4}
+\end{align}
+</div>
+</div> <div class="para">L’une ou l’autre des formes matricielles peut être utilisée.</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-prodmat.html#ex-refR2">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">7<span class="period">.</span></span>
+</h5>
+<div class="para logical">
+<div class="para">À la sous-section <a href="sec-simplexe.html#sssec-proglinmin" class="internal" title="Sous-section 7.2.3: Problèmes de minimisation">7.2.3</a>, on a étudié le problème de maximisation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sssec-proglinmin.html">
+\begin{equation*}
+f(x,y)=-2x-3y\text{,}
+\end{equation*}
+</div>
+<div class="para">qui est sujette aux contraintes</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sssec-proglinmin.html">
+\begin{align*}
+-x-y&amp;\leq -9\\
+x-y&amp;\leq 1
+\end{align*}
+</div>
+<div class="para">dont la matrice initiale du simplexe est</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sssec-proglinmin.html">
+\begin{equation*}
+S=\left(\begin{array}{rrrr|r|r}
+-1&amp;-1&amp;1&amp;0&amp;0&amp;-9\\
+1&amp;-1&amp;0&amp;1&amp;0&amp;1\\
+2&amp;3&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)\text{.}
+\end{equation*}
+</div>
+<div class="para">Dans le texte, la première étape a été de pivoter selon l’entrée de la première ligne et de la première colonne.</div>
+</div> <div class="para">À l’aide de multiplications par des matrices élémentaires, résoudre le problème à nouveau en pivotant, cette fois-ci, selon l’entrée de la première ligne et de la deuxième colonne.</div> <pre id="exosage-minpivoty-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Inscrire le code ici
+</script></pre> <pre id="exosage-minpivoty-1-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Inscrire le code ici
+</script></pre> <pre id="exosage-minpivoty-1-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Inscrire le code ici
+</script></pre> <pre id="exosage-minpivoty-1-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Inscrire le code ici
+</script></pre> <pre id="exosage-minpivoty-1-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Inscrire le code ici
+</script></pre>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On définit la matrice initiale du simplexe et on multiplie la première ligne par <span class="process-math">\(-1\)</span> afin de rendre le pivot égal à <span class="process-math">\(1\text{.}\)</span>
+</div> <pre id="exosage-minpivoty-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">S=matrix([[-1,-1,1,0,0,-9],[1,-1,0,1,0,1],[2,3,0,0,1,0]])
+S=elementary_matrix(3,row1=0,scale=-1)*S
+show(S)
+</script></pre> <div class="para">Pour éliminer les entrées de la deuxième colonne, sous le pivot, on multiplie par deux matrices élémentaires.</div> <pre id="exosage-minpivoty-2-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">S=matrix([[-1,-1,1,0,0,-9],[1,-1,0,1,0,1],[2,3,0,0,1,0]])
+S=elementary_matrix(3,row1=0,scale=-1)*S
+show(S)
+S=elementary_matrix(3,row1=1,row2=0,scale=1)*elementary_matrix(3,row1=2,row2=0,scale=-3)*S
+show(S)
+</script></pre> <div class="para">On remarque que les entrées de la dernière colonne à droite du bloc principal sont maintenant positives et que l’algorithme du simplexe peut commencer. L’unique entrée négative sous le bloc principal est à la première colonne. Selon l’algorithme, la deuxième ligne est choisie pour pivoter. On la divise par <span class="process-math">\(2\)</span> pour rendre le pivot égal à <span class="process-math">\(1\)</span> et l’on multiplie par les matrices élémentaires permettant d’éliminer les autres entrées de la colonne.</div> <pre id="exosage-minpivoty-2-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">S=elementary_matrix(3,row1=2,row2=1,scale=1)*elementary_matrix(3,row1=0,row2=1,scale=-1)*elementary_matrix(3,row1=1,scale=1/2)*S
+show(S)
+</script></pre> <div class="para">L’algorithe se termine, la solution optimale est <span class="process-math">\(-22\text{,}\)</span> atteinte lorsque <span class="process-math">\(x=5\)</span> et <span class="process-math">\(y=4\text{.}\)</span>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-simplexe.html#exosage-minpivoty">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">2.4.6</span><span class="period">.</span><span class="space"> </span><span class="title">Les rotations selon une droite passant par l’origine dans <span class="process-math">\(\R^3\)</span>.</span>
+</h4> <div class="para">Il existe différentes manières de calculer ou d’obtenir la matrice d’une transformation linéaire. La méthode décrite à l’équation <a href="sec-matinverse.html#sssec-inv2x2-4-7" class="xref" data-knowl="./knowl/xref/eq-matparvecteursuv.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 2.3.3">(2.3.3)</a> fonctionne si l’on peut trouver l’image d’un nombre suffisant de vecteurs indépendants. L’exemple <a href="sec-prodmat.html#ex-refR2" class="xref" data-knowl="./knowl/xref/ex-refR2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 2.2.15: La réflexion par rapport à une droite passant par l’origine">2.2.15</a> montre une autre manière en se ramenant à un cas connu (voir aussi <a href="sec-prodmat.html#con-casconnu" class="xref" data-knowl="./knowl/xref/con-casconnu.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Conseil 2.2.14: Se ramener à un cas connu">2.2.14</a>)</div> <div class="para">On utilise la seconde méthode pour trouver la matrice d’une rotation dans <span class="process-math">\(\R^3\)</span> dont l’axe de rotation est une droite quelconque, passant par l’origine. L’idée est d’effectuer des rotations connues pour superposer l’axe de rotation sur l’axe des <span class="process-math">\(x\text{,}\)</span> faire une rotation selon l’axe des <span class="process-math">\(x\)</span> et défaire les rotations qui ont déplacé l’axe de rotation original. Le processus est illustré en étape dans la figure <a href="sec-transfodimsup.html#fig-rotR3gen" class="xref" data-knowl="./knowl/xref/fig-rotR3gen.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 2.4.7">2.4.7</a>.</div> <figure class="figure figure-like"><iframe id="geog-RotR3gen" width="600" height="600" src="geog-RotR3gen-if.html"></iframe><div class="instructions"><details id="geog-RotR3gen-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></summary><div class="solution-like knowl__content"><div class="para" id="geog-RotR3gen-2-1">Il est possible de déplacer l’axe de rotation et le vecteur qui fera une rotation autour de l’axe. L’angle de la rotation est fixé à <span class="process-math">\(135^\circ\text{.}\)</span> Comme il n’y a que la direction qui est importante, les vecteurs sont fixés pour être unitaires.</div></div></details></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.7<span class="period">.</span></span><span class="space"> </span>Les rotations dans <span class="process-math">\(\R^3\)</span></figcaption></figure> <div class="para logical">
+<div class="para">L’animation effectue les étapes suivantes au fil des clics:</div>
+<ol class="decimal" id="sageex-transfodimsup-5-1">
+<li>
+<div class="para">On commence par ramener l’axe de rotation dans le plan généré par les vecteurs <span class="process-math">\((1,0,0)\)</span> et <span class="process-math">\((0,0,1)\text{.}\)</span> On ramène ensuite l’axe sur l’axe des <span class="process-math">\(z\text{.}\)</span>
+</div>
+<div class="para">Pour cela, on calcule l’angle que fait la projection de l’axe de rotation sur le plan <span class="process-math">\(z=0\)</span> avec l’axe des <span class="process-math">\(x\text{.}\)</span> On note cet angle <span class="process-math">\(\theta_x\text{.}\)</span>
+</div>
+<div class="para">Une rotation par rapport à l’axe des <span class="process-math">\(z\)</span> d’angle <span class="process-math">\(-\theta_x\)</span> ramènera l’axe de rotation dans le plan  <span class="process-math">\(y=0\text{.}\)</span>
+</div>
+<div class="para">On fait subir cette même rotation au vecteur <span class="process-math">\(\vec{u}\text{.}\)</span>
+</div>
+</li>
+<li>
+<div class="para">On veut ensuite ramener le nouvel axe sur l’axe des <span class="process-math">\(z\text{.}\)</span> Pour cela, on calcule l’angle <span class="process-math">\(\theta_z\)</span> entre l’axe des <span class="process-math">\(z\)</span> et le vecteur dans le plan <span class="process-math">\(y=0\text{.}\)</span>
+</div>
+<div class="para">Une rotation par rapport à l’axe des <span class="process-math">\(y\)</span> d’angle <span class="process-math">\(-\theta_z\)</span> ramènera le vecteur sur l’axe des <span class="process-math">\(z\text{.}\)</span>
+</div>
+<div class="para">On fait aussi subir cette rotation au vecteur <span class="process-math">\(\vec{u}\)</span> précédemment transformé.</div>
+</li>
+<li><div class="para">Ensuite, on effectue la rotation du vecteur <span class="process-math">\(\vec{u}\)</span> ayant subi les deux rotations, par rapport à l’axe des <span class="process-math">\(z\text{.}\)</span> Ceci est équivalent à la rotation par rapport à l’axe original, mais le vecteur <span class="process-math">\(\vec{u}\)</span> transformé  n’est pas au bon endroit.</div></li>
+<li><div class="para">Finalement, on défait les rotations par rapport à l’axe des <span class="process-math">\(y\)</span> et à l’axe des <span class="process-math">\(z\)</span> d’angle <span class="process-math">\(\theta_z\)</span> et <span class="process-math">\(\theta_x\)</span> (dans cet ordre) pour remettre en place le vecteur <span class="process-math">\(\vec{u}\)</span> transformé et l’axe de rotation déplacé.</div></li>
+</ol>
+</div> <div class="para">On fait un exemple concret avec le vecteur <span class="process-math">\(\vec{u}=(1,2,-1)\)</span> autour de l’axe <span class="process-math">\((-1,1,2)\)</span> et un angle de <span class="process-math">\(60^\circ\text{.}\)</span> On effectue les calculs avec Sage.</div> <div class="para">Dans un premier temps, on veut déterminer l’angle <span class="process-math">\(\theta_x\)</span> que fait la projection de l’axe de rotation <span class="process-math">\((-1,1,2)\)</span> sur le plan <span class="process-math">\(z=0\)</span> avec l’axe des <span class="process-math">\(x\text{.}\)</span>
+</div> <div class="para">On utilise la fonction définie à l’exercice <a href="sec-prodscal.html#exo-sage-prodscal-2" class="xref" data-knowl="./knowl/xref/exo-sage-prodscal-2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 1.2.4.15: Automatisation du calcul de l’angle entre deux vecteurs">1.2.4.15</a> pour calculer l’angle entre deux vecteurs.</div> <pre id="sageex-transfodimsup-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def angle_entre_vec(u,v):
+    return arccos(u*v/(norm(u)*norm(v)))
+</script></pre> <pre id="sageex-transfodimsup-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">v=vector([-1,1,2])   #le vecteur v représentant l'axe de rotation
+vz0=vector([v[0],v[1],0])  #définition de la projection du vecteur v liée au vecteur u lui-même, cela permet de changer le vecteur v à un seul endroit en cas de besoin 
+i=vector([1,0,0])
+thetax=angle_entre_vec(vz0,i)  #L'angle entre vz0 et l'axe des x
+show('thetax =',thetax)
+</script></pre> <div class="para">On calcule ensuite la rotation de l’axe et du vecteur <span class="process-math">\(\vec{u}\)</span> autour de l’axe des <span class="process-math">\(z\)</span> d’un angle <span class="process-math">\(-\theta_x\text{.}\)</span> Cela amène l’axe de rotation dans le plan <span class="process-math">\(y=0\text{.}\)</span> On remarque l’application de la fonction <code class="code-inline tex2jax_ignore">.apply_map(lambda x: x.trig_reduce())</code> pour simplifier les expressions trigonométriques.</div> <pre id="sageex-transfodimsup-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">u=vector([1,2,-1])
+Rz=column_matrix([[cos(-thetax),sin(-thetax),0],[-sin(-thetax),cos(-thetax),0],[0,0,1]])
+vrotz=(Rz*v).apply_map(lambda x: x.trig_reduce())
+urotz=(Rz*u).apply_map(lambda x: x.trig_reduce())
+show('vrotz=',vrotz)
+show('urotz=',urotz)
+</script></pre> <div class="para">La prochaine étape implique de calculer l’angle que fait le vecteur <span class="process-math">\(\vecl{vrotz}\)</span> avec l’axe des <span class="process-math">\(z\)</span> afin de le ramener sur celui-ci par une rotation appropriée selon l’axe des <span class="process-math">\(y\)</span> . On applique aussi cette rotation au vecteur <span class="process-math">\(\vecl{urotz}\text{.}\)</span>
+</div> <pre id="sageex-transfodimsup-14" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">k=vector([0,0,1])
+thetaz=angle_entre_vec(vrotz,k)  #L'angle entre vrotz et l'axe des z
+Ry=column_matrix([[cos(-thetaz),0,-sin(-thetaz)],[0,1,0],[sin(-thetaz),0,cos(-thetaz)]]) #La matrice de rotation selon y de -thetaz
+vroty=Ry*vrotz
+show("vroty=",(vroty).apply_map(lambda x: x.trig_reduce()))
+#On sait que la première entrée devrait aussi être nulle. On s'en 'assure' avec une évaluation numérique.
+show("vroty=",vroty.n())
+uroty=Ry*urotz
+show("uroty=",uroty.apply_map(lambda x: x.trig_reduce()))
+</script></pre> <div class="para">On remarque que, pour la suite, il n’était pas nécessaire de calculer le vecteur <span class="process-math">\(\vecl{vroty}\text{,}\)</span> mais qu’il s’agit d’une bonne manière de valider les calculs.</div> <div class="para">Il reste maintenant à calculer l’image du vecteur <span class="process-math">\(\vecl{uroty}\)</span> par une rotation selon l’axe des <span class="process-math">\(z\)</span> d’un angle de <span class="process-math">\(60\)</span> degrés. Par la suite, on défait les rotations afin de replacer le vecteur au bon endroit.</div> <pre id="sageex-transfodimsup-17" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R=column_matrix([[cos(pi/3),sin(pi/3),0],[-sin(pi/3),cos(pi/3),0],[0,0,1]])  #La matrice de rotation selon z de 60 degrés = pi/3
+urot=R*uroty
+show("urot=", urot.apply_map(lambda x: x.trig_reduce()))
+</script></pre> <div class="para">Pour terminer, on replace le vecteur <span class="process-math">\(\vecl{urot}\)</span> au bon endroit en lui appliquant les rotations inverses <span class="process-math">\(R_y^{-1}\)</span> et <span class="process-math">\(R_z^{-1}\text{,}\)</span> dans cet ordre.</div> <pre id="sageex-transfodimsup-19" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">Ryinv=Ry.inverse()
+Rzinv=Rz.inverse()
+Tu=Rzinv*Ryinv*urot
+show("T(u)=",Tu.n())
+##On affiche aussi la matrice
+show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.trig_reduce()))
+show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
+</script></pre></article><span class="incontext"><a class="internal" href="sec-transfodimsup.html#sageex-transfodimsup">Contexte</a></span>
+</body>
+</html>

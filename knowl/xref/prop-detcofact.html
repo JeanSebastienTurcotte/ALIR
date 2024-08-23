@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Le développement de Laplace du déterminant <span class="process-math">\(n\times n\)</span>.</span>
+</h4>
+<div class="para logical">
+<div class="para">Soit <span class="process-math">\(A\text{,}\)</span> une matrice <span class="process-math">\(n\times n\)</span> et <span class="process-math">\(\det(A_{i,j})\)</span> et <span class="process-math">\(C_{i,j}\text{,}\)</span> respectivement le mineur et le cofacteur de la position <span class="process-math">\(i,j\text{.}\)</span> Alors pour tout <span class="process-math">\(1\leq i\leq n\text{,}\)</span> on a</div>
+<div class="displaymath process-math">
+\begin{equation}
+\det(A)=\sum_{j=1}^n a_{i,j}C_{i,j}=\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(A_{i,j})\text{.}\tag{4.3.5}
+\end{equation}
+</div>
+<div class="para">C’est le développement selon la ligne <span class="process-math">\(i\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On a aussi, pour tout <span class="process-math">\(1\leq j\leq n\text{,}\)</span> le développement selon la colonne j:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\det(A)=\sum_{i=1}^n a_{i,j}C_{i,j}=\sum_{i=1}^n a_{i,j}(-1)^{i+j}\det(A_{i,j})\text{.}
+\end{equation*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">On fait la preuve pour les lignes, la preuve pour les colonnes étant presque identique.</div> <div class="para">On montre que la fonction <span class="process-math">\(D(A)=\sum_{j=1}^n a_{i,j}C_{i,j}=\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(A_{i,j})\)</span> satisfait les propriétés <a href="sec-detgen.html#li-detI" class="xref" data-knowl="./knowl/xref/li-detI.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 4.2.11:1">4.2.11:1–4.2.11:4</a>.</div> <div class="para">Dans un premier temps, si <span class="process-math">\(A=I_{n+1}\)</span> est la matrice identité de taille <span class="process-math">\(n+1\text{,}\)</span> alors le seul terme qui reste dans la fonction <span class="process-math">\(D(A)\)</span> est <span class="process-math">\(a_{i,i}(-1)^{i+i}\det(A_{i,i})\text{.}\)</span> La sous-matrice <span class="process-math">\(A_{i,i}\)</span> est la matrice identité de taille <span class="process-math">\(n\times n\)</span> et son déterminant vaut <span class="process-math">\(1\text{.}\)</span> Comme <span class="process-math">\((-1)^{i+i}=(-1)^{2i}=1\)</span> et que <span class="process-math">\(a_{1,1}=1\text{,}\)</span> on a bien <span class="process-math">\(D(I)=1\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">Soit maintenant <span class="process-math">\(B\text{,}\)</span> une matrice de taille <span class="process-math">\((n+1)\times (n+1)\)</span> obtenue à partir de <span class="process-math">\(A\)</span> en multipliant la ligne <span class="process-math">\(k\)</span> par <span class="process-math">\(r\text{.}\)</span> On distingue deux cas. D’abord, si <span class="process-math">\(k=i\text{,}\)</span> la ligne choisie pour le développement, alors <span class="process-math">\(b_{i,j}=ra_{i,j}\)</span> et donc</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-detr.html ./knowl/xref/li-detr.html">
+\begin{align*}
+D(B)&amp;=\sum_{j=1}^n b_{i,j}(-1)^{i+j}\det(B_{i,j})\\
+&amp;=\sum_{j=1}^n ra_{i,j}(-1)^{i+j}\det(A_{i,j})&amp;&amp; \text{car les lignes de }A\text{ et }B\text{ sont égales sauf en position } i\\
+&amp;=r\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(A_{i,j})\\
+&amp;=rD(A)\text{.}
+\end{align*}
+</div>
+<div class="para">Enfin, si <span class="process-math">\(k\neq i\text{,}\)</span> alors chaque sous-matrice <span class="process-math">\(B_{i,j}\)</span> est égale à la sous-matrice <span class="process-math">\(A_{i,j}\text{,}\)</span> sauf pour une ligne qui a été multipliée par <span class="process-math">\(r\text{.}\)</span> Ainsi,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-detr.html ./knowl/xref/li-detr.html">
+\begin{align*}
+D(B)&amp;=\sum_{j=1}^n b_{i,j}(-1)^{i+j}\det(B_{i,j})\\
+&amp;=\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(B_{i,j})&amp;&amp; \text{ car les lignes } i \text{ des matrices sont égales}\\
+&amp;=\sum_{j=1}^n a_{i,j}(-1)^{i+j}r\det(A_{i,j})&amp;&amp;\text{ selon }\knowl{./knowl/xref/li-detr.html}{\text{4.2.11:2}}\\
+&amp;=r\sum_{j=1}^n a_{i,j}(-1)^{i+j}\det(A_{i,j})\\
+&amp;=rD(A)\text{.}
+\end{align*}
+</div>
+<div class="para">La propriété <a href="sec-detgen.html#li-detr" class="xref" data-knowl="./knowl/xref/li-detr.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 4.2.11:2">4.2.11:2</a> est ainsi respectée.</div>
+</div> <div class="para">On regarde maintenant ce qui se passe si <span class="process-math">\(B\)</span> est obtenue de <span class="process-math">\(A\)</span> en permutant deux lignes. On distingue aussi deux cas. Le premier se présente si les lignes permutées ne sont pas celles avec lesquelles on développe. On aura alors <span class="process-math">\(\det(B_{i,j})=-\det(A_{i,j})\text{,}\)</span> car les sous-matrices sont les mêmes à une inversion de lignes près.</div> <div class="para logical">
+<div class="para">Dans le second cas, si les lignes <span class="process-math">\(i\)</span> et <span class="process-math">\(k\)</span> ont été échangées, on procède comme suit. On suppose que <span class="process-math">\(1\leq i&lt; k\leq n\text{.}\)</span> Si c’est l’inverse, l’idée est similaire. Soit <span class="process-math">\(\vec{a}_i\text{,}\)</span> la ligne <span class="process-math">\(i\)</span> de la matrice <span class="process-math">\(A\text{,}\)</span> maintenant en position <span class="process-math">\(k\)</span> dans la matrice <span class="process-math">\(B\text{.}\)</span> On veut la remettre en ordre dans la sous-matrice <span class="process-math">\(B_{i,j}\text{.}\)</span> Cela prendra <span class="process-math">\(k-i-1\)</span> permutations. Par exemple, si <span class="process-math">\(i=3\)</span> et <span class="process-math">\(k=7\text{,}\)</span> les lignes de <span class="process-math">\(B\)</span> sont <span class="process-math">\((\vec{a}_1,\vec{a}_{2},\vec{a}_{7},\vec{a}_{4},\vec{a}_{5},\vec{a}_{6},\vec{a}_{3},\ldots , \vec{a}_n)\text{.}\)</span> Si l’on enlève la troisième ligne et que l’on veut réordonner les autres lignes, il faudra <span class="process-math">\(5\)</span> permutations:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-detp.html">
+\begin{align*}
+(\vec{a}_1,\vec{a}_{2},\cancel{\vec{a}_{7}},\vec{a}_{4},\vec{a}_{5},\vec{a}_{6},\vec{a}_{3},\ldots , \vec{a}_n)&amp; \rightarrow(\vec{a}_1,\vec{a}_{2},\cancel{\vec{a}_{7}},\vec{a}_{4},\vec{a}_{5},\vec{a}_{3},\vec{a}_{6})\\
+&amp;\rightarrow (\vec{a}_1,\vec{a}_{2},\cancel{\vec{a}_{7}},\vec{a}_{4},\vec{a}_{3},\vec{a}_{5},\vec{a}_{6},\ldots , \vec{a}_n)\\
+&amp;\rightarrow  (\vec{a}_1,\vec{a}_{2},\cancel{\vec{a}_{7}},\vec{a}_{3},\vec{a}_{4},\vec{a}_{5},\vec{a}_{6},\ldots , \vec{a}_n) \text{.}
+\end{align*}
+</div>
+<div class="para">On a donc <span class="process-math">\(\det(B_{i,j})=(-1)^{k-i-1}\det(A_{k,j})\)</span> et ainsi,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-detp.html">
+\begin{align*}
+D(B)&amp;=\sum_{j=1}^n b_{i,j}(-1)^{i+j}\det(B_{i,j})\\
+&amp;=\sum_{j=1}^n a_{k,j}(-1)^{i+j}(-1)^{k-i-1}\det(A_{k,j})\\
+&amp;=\sum_{j=1}^n a_{k,j}(-1)^{i+j+k-i-1}\det(A_{k,j})\\
+&amp;=\sum_{j=1}^n a_{k,j}(-1)^{k+j}(-1)\det(A_{k,j})\\
+&amp;=-\sum_{j=1}^n a_{k,j}(-1)^{k+j}\det(A_{k,j})\\
+&amp;=-D(A)\text{.}
+\end{align*}
+</div>
+<div class="para">La fonction <span class="process-math">\(D\)</span> respecte donc la propriété <a href="sec-detgen.html#li-detp" class="xref" data-knowl="./knowl/xref/li-detp.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 4.2.11:3">4.2.11:3</a>.</div>
+</div> <div class="para logical">
+<div class="para">La dernière partie consiste à montrer que la propriété <a href="sec-detgen.html#li-detk" class="xref" data-knowl="./knowl/xref/li-detk.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 4.2.11:4">4.2.11:4</a> est satisfaite. Si <span class="process-math">\(B\)</span> est obtenue de <span class="process-math">\(A\)</span> en ajoutant <span class="process-math">\(r\)</span> fois la ligne <span class="process-math">\(s\)</span> et <span class="process-math">\(C\)</span> est obtenue en remplaçant la ligne <span class="process-math">\(t\)</span> de <span class="process-math">\(A\)</span> par sa ligne <span class="process-math">\(s\text{,}\)</span> on remarque alors deux choses:</div>
+<ul class="disc" id="prop-detcofact-3-7-10">
+<li><div class="para">On a <span class="process-math">\(\det(C)=0\text{,}\)</span> car la matrice contient deux fois la ligne <span class="process-math">\(s\text{.}\)</span>
+</div></li>
+<li><div class="para">On a <span class="process-math">\(A_{t,j}=B_{t,j}=C_{t,j}\text{.}\)</span>
+</div></li>
+</ul>
+</div> <div class="para logical">
+<div class="para">On distingue une fois de plus deux cas. Si <span class="process-math">\(i\neq t\text{,}\)</span> alors <span class="process-math">\(B_{i,k}=A_{i,k}\)</span> et l’on a <span class="process-math">\(D(B)=D(A)\text{.}\)</span> Si toutefois <span class="process-math">\(i=t\text{,}\)</span> alors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-detk.html">
+\begin{align*}
+D(B)&amp;=\sum_{j=1}^n b_{t,j}(-1)^{t+j}\det(B_{t,j})\\
+&amp;=\sum_{j=1}^n (ra_{s,j}+a_{t,j})(-1)^{t+j}\det(B_{t,j})&amp;&amp;\text{par construction de } B\\
+&amp;=\sum_{j=1}^n ra_{s,j}(-1)^{t+j}\det(B_{t,j})+\sum_{j=1}^n a_{t,j})(-1)^{t+j}\det(B_{t,j})&amp;&amp;\text{en séparant la somme intérieure}\\
+&amp;=r\sum_{j=1}^n a_{s,j}(-1)^{t+j}\det(B_{t,j})+\sum_{j=1}^n a_{t,j})(-1)^{t+j}\det(B_{t,j})\\
+&amp;=r\sum_{j=1}^n a_{s,j}(-1)^{t+j}\det(C_{t,j})+\sum_{j=1}^n a_{t,j})(-1)^{t+j}\det(A_{t,j})&amp;&amp;\text{selon la remarque ci-dessus}\\
+&amp;=r\sum_{j=1}^n a_{s,j}(-1)^{t+j}\det(C_{t,j})+D(A)\\
+&amp;=r\sum_{j=1}^n c_{t,j}(-1)^{t+j}\det(C_{t,j})+D(A)&amp;&amp;\text{car la ligne } t \text{ de } C \text{ est la ligne } s \text{ de } A \\
+&amp;=r\det(C)+\det(A)\\
+&amp;=\det(A)&amp;&amp;\text{ car } \det(C)=0\text{.}
+\end{align*}
+</div>
+<div class="para">Ainsi <span class="process-math">\(D(A)\)</span> satisfait la propriété <a href="sec-detgen.html#li-detk" class="xref" data-knowl="./knowl/xref/li-detk.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 4.2.11:4">4.2.11:4</a>.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-cofacteurs.html#prop-detcofact">Contexte</a></span>
+</body>
+</html>

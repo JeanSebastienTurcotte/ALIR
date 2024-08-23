@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.1.16</span><span class="period">.</span><span class="space"> </span><span class="title">État stable pour la ruine de joueur.</span>
+</h4>
+<div class="para">On cherche à savoir si un état stable existe pour la matrice de l’exemple <a href="sec-Markov.html#ex-ruine" class="xref" data-knowl="./knowl/xref/ex-ruine.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.1.6: La ruine du parieur">7.1.6</a>. En fait, on peut déjà apercevoir qu’il y aura plus d’un état stable. Le vecteur <span class="process-math">\((1,0,0,0,0,0)\)</span> est stable , puisque celui-ci redonne la première colonne de la matrice qui est aussi ce vecteur. De même, le vecteur <span class="process-math">\((0,0,0,0,0,1)\)</span> fait la même chose avec la dernière colonne. En poursuivant la réflexion, on pourra déduire que tout vecteur de la forme <span class="process-math">\((x,0,0,0,0,0,1-x)\)</span> sera un état sable. Pour savoir si la chaine de Markov, pour un état initial donné, converge vers un état stable, on se tourne vers le calcul d’une grande puissance.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On recopie dans la cellule ci-dessous le code nécessaire pour fabriquer la matrice.</div> <pre id="ex-ruinestable-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def ruinetransitionproba(i,j,n):
+    if i==0 and j==0:
+        return 1
+    if i==n-1 and j==n-1:
+        return 1
+    elif j==0:
+        return 0
+    elif j==n-1:
+        return 0
+    elif abs(i-j)==1:
+        return 1/2
+    else:
+        return 0
+T=matrix(6,6, lambda i,j: ruinetransitionproba(i,j,6))
+</script></pre> <div class="para logical">
+<div class="para">Avec le vecteur <span class="process-math">\(X_0=(0,0,1,0,0,0)\text{,}\)</span> on obtient, en calculant une grande puissance de la chaine, que l’état stable est environ <span class="process-math">\(X=(0.6,0,0,0,0,0.4)\text{.}\)</span> Ceci signifie que le joueur de l’exemple <a href="sec-Markov.html#ex-ruine" class="xref" data-knowl="./knowl/xref/ex-ruine.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.1.6: La ruine du parieur">7.1.6</a> a environ <span class="process-math">\(60\%\)</span> de chance de perdre tout son argent, contre <span class="process-math">\(40\%\)</span> de chance d’atteindre son objectif. Certains et certaines auront peut-être réalisé que l’état stable dépend forcément de l’état initial, contrairement aux autres exemples. Si l’on considère un joueur dont la mise initiale n’est que d’un dollar, dans <span class="process-math">\(50\%\)</span> des cas, le joueur se retrouve déjà ruiné et dans les autres cas, il se retrouve avec deux dollars. On sait alors qu’il possède, à partir de deux dollars, <span class="process-math">\(60\%\)</span> des chances de se ruiner. Les règles de probabilités établissent donc les chances de se ruiner à partir d’un montant initial égal à un dollar à</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-ruine.html">
+\begin{equation*}
+\frac{1}{2}+\frac{1}{2}\frac{60}{100}=\frac{80}{100}\text{.}
+\end{equation*}
+</div>
+<div class="para">Ce calcul est un exemple de ce que l’on appelle <em class="emphasis">les probabilités conditionnelles</em> en théorie des probabilités. On vérifie le tout numériquement. La cellule ci-dessous donne l’état stable pour les chaines de Markov commençant à deux dollars et à un dollar.</div>
+</div> <pre id="ex-ruinestable-3-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show(T^100*vector([0,0,1,0,0,0]).n())
+show(T^100*vector([0,1,0,0,0,0]).n())
+</script></pre> <div class="para">On note que chacun de ces états stables est de la forme <span class="process-math">\((x,0,0,0,0,0,1-x)\text{.}\)</span>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-Markov.html#ex-ruinestable">Contexte</a></span>
+</body>
+</html>

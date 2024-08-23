@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">24<span class="period">.</span></span><span class="space"> </span><span class="title">La méthode de Cramer <span class="process-math">\(2\times 2\)</span>.</span>
+</h4>
+<div class="introduction"><div class="para logical">
+<div class="para">On considère un système d’équations linéaires</div>
+<div class="displaymath process-math">
+\begin{alignat*}{4}
+a&amp;x&amp;{}+{}&amp;c&amp;y&amp;{}={}&amp; m\\
+b&amp;x&amp;{}+{}&amp;d&amp;y&amp;{}={}&amp; n
+\end{alignat*}
+</div>
+<div class="para">où <span class="process-math">\(a,b,c,d,m,n\in \R\)</span> sont connus et tels que <span class="process-math">\(ad-bc\neq 0\text{.}\)</span> Le système possède donc une solution unique.</div>
+</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="introduction"><div class="para logical">
+<div class="para">Soit <span class="process-math">\(A=\matcold{a}{b}{c}{d}\text{.}\)</span> la matrice du système d’équations linéaires. On considère la matrice <span class="process-math">\(X\)</span> identité <span class="process-math">\(2\times 2\)</span> avec la première colonne remplacée par <span class="process-math">\(\vecd{x}{y}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X=\matcold{x}{y}{0}{1}\text{.}
+\end{equation*}
+</div>
+</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para">Calculer <span class="process-math">\(\det(X)\text{.}\)</span>
+</div>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical"><div class="displaymath process-math">
+\begin{equation*}
+\det(X)=\begin{vmatrix} x &amp; 0 \\ y &amp; 1\end{vmatrix}=x
+\end{equation*}
+</div></div></div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para logical">
+<div class="para">Soit <span class="process-math">\(B_1=AX\text{.}\)</span> Montrer que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x=\frac{\det(B_1)}{\det(A)}=\frac{\begin{vmatrix} m&amp;c\\n&amp;d \end{vmatrix}}{\begin{vmatrix} a&amp;c\\b&amp;d \end{vmatrix}}
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">D’abord, on montre que <span class="process-math">\(x=\frac{\det(B_1)}{\det(A)}\text{.}\)</span> En effet,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-detprod2x2resum.html">
+\begin{align*}
+B_1&amp;=AX\\
+\det(B_1)&amp;=\det(AX)\\
+\det(B_1)&amp;=\det(A)\det(X) &amp; \text{ par } \knowl{./knowl/xref/li-detprod2x2resum.html}{\text{4.1.25:8}}  \\
+\frac{\det(B_1)}{\det(A)}&amp;=\det(X) \\
+\frac{\det(B_1)}{\det(A)}&amp;=x \text{ par (a)} \text{.}
+\end{align*}
+</div>
+<div class="para">Ensuite, il faut montrer que <span class="process-math">\(B_1=\begin{pmatrix} m&amp;c\\n&amp;d \end{pmatrix}\text{.}\)</span> Il suffit de multiplier <span class="process-math">\(A\)</span> par <span class="process-math">\(X\)</span> et de remarquer qu’on obtient les membres de gauche des équations initiales.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-detprod2x2resum.html">
+\begin{align*}
+B_1&amp;=AX\\
+&amp;=\matcold{a}{b}{c}{d}\matcold{x}{y}{0}{1}\\
+&amp;=\matcold{ax+cy}{bx+dy}{c}{d}\\
+&amp;=\matcold{m}{n}{c}{d}
+\end{align*}
+</div>
+</div></div></details></div></article></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical">
+<div class="para">Répéter la partie précédente avec la matrice <span class="process-math">\(Y=\matcold{1}{0}{x}{y}\)</span> afin de montrer que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y=\frac{\det(B_2)}{\det(A)}=\frac{\begin{vmatrix} a&amp;m\\b&amp;n \end{vmatrix}}{\begin{vmatrix} a&amp;c\\b&amp;d \end{vmatrix}}
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">D’abord, on montre que <span class="process-math">\(y=\frac{\det(B_2)}{\det(A)}\text{.}\)</span> En effet,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-detprod2x2resum.html">
+\begin{align*}
+B_2&amp;=AY\\
+\det(B_2)&amp;=\det(AY)\\
+\det(B_2)&amp;=\det(A)\det(Y) &amp; \text{ par } \knowl{./knowl/xref/li-detprod2x2resum.html}{\text{4.1.25:8}}  \\
+\frac{\det(B_2)}{\det(A)}&amp;=\begin{vmatrix} 1&amp;x\\0&amp;y \end{vmatrix} \\
+\frac{\det(B_2)}{\det(A)}&amp;=y  \text{.}
+\end{align*}
+</div>
+<div class="para">Ensuite, il faut montrer que <span class="process-math">\(B_2=\begin{pmatrix} a&amp;m\\b&amp;n \end{pmatrix}\text{.}\)</span> Il suffit de multiplier <span class="process-math">\(A\)</span> par <span class="process-math">\(Y\)</span> et de remarquer qu’on obtient les membres de gauche des équations initiales.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-detprod2x2resum.html">
+\begin{align*}
+B_2&amp;=AY\\
+&amp;=\matcold{a}{b}{c}{d}\matcold{1}{0}{x}{y}\\
+&amp;=\matcold{a}{b}{ax+cy}{bx+dy}\\
+&amp;=\matcold{a}{b}{m}{n}
+\end{align*}
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para logical">
+<div class="para">Utiliser la méthode de Cramer pour trouver les solutions au système suivant:</div>
+<div class="displaymath process-math">
+\begin{alignat*}{4}
+3&amp;x&amp;{}+{}&amp;2&amp;y&amp;{}={}&amp; 4\\
+4&amp;x&amp;{}+{}&amp;2&amp;y&amp;{}={}&amp; 1\text{.}
+\end{alignat*}
+</div>
+</div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical"><div class="displaymath process-math">
+\begin{equation*}
+\vecd{x}{y}=\vecd{-3}{\frac{13}{2}}
+\end{equation*}
+</div></div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">On donne d’abord toutes les matrices associées au système:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A=\matcold{a}{b}{c}{d}=\begin{pmatrix} 3&amp;2\\4&amp;2 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vecd{m}{n}=\vecd{4}{1}
+\end{equation*}
+</div>
+<div class="para">Alors,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x=\frac{\begin{vmatrix} m&amp;c\\n&amp;d \end{vmatrix}}{\begin{vmatrix} a&amp;c\\b&amp;d \end{vmatrix}}
+=\frac{\begin{vmatrix} 4&amp;2\\1&amp;2 \end{vmatrix}}{\begin{vmatrix} 3&amp;2\\4&amp;2 \end{vmatrix}}
+=\frac{6}{-2}=-3
+\end{equation*}
+</div>
+<div class="para">et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y=\frac{\begin{vmatrix} a&amp;m\\b&amp;n \end{vmatrix}}{\begin{vmatrix} a&amp;c\\b&amp;d \end{vmatrix}}
+=\frac{\begin{vmatrix} 3&amp;4\\4&amp;1 \end{vmatrix}}{\begin{vmatrix} 3&amp;2\\4&amp;2 \end{vmatrix}}=\frac{-13}{-2}=\frac{13}{2}\text{.}
+\end{equation*}
+</div>
+</div></div></details>
+</div></article></article><span class="incontext"><a class="internal" href="sec-det2x2.html#exo-cramer2x2">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">4<span class="period">.</span></span>
+</h4>
+<div class="introduction">
+<div class="para logical">
+<div class="para">Une matrice carrée inversible est équivalente à la matrice identité. Cela signifie qu’il existe des matrices élémentaires <span class="process-math">\(E_1,E_2,\ldots , E_k\)</span> telles que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E_k\cdots E_2E_1A=I\text{.}
+\end{equation*}
+</div>
+<div class="para">On peut donc dire que <span class="process-math">\(A^{-1}=E_k\cdots E_2E_1\text{.}\)</span>
+</div>
+</div> <div class="para">En utilisant cette forme pour l’inverse, donner une preuve alternative aux résultats suivants.</div>
+</div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para">Montrer que si <span class="process-math">\(A^{-1}A=I\text{,}\)</span> alors <span class="process-math">\(AA^{-1}=I\text{,}\)</span> donnant ainsi une preuve alternative à la proposition <a href="sec-matinverse.html#thm-invgauchedroite" class="xref" data-knowl="./knowl/xref/thm-invgauchedroite.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Théorème 2.3.11: L’inverse d’une matrice carrée est bilatéral">2.3.11</a>.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Par l’hypothèse et l’énoncé de l’exercice, on sait que l’on peut écrire <span class="process-math">\(A^{-1}A=I\)</span> ainsi : <span class="process-math">\(E_k\cdots E_2E_1A=I\text{.}\)</span> Puisque les matrices élémentaires sont toutes inversibles, par la proposition <a href="sec-GJ.html#prop-mateleminverse" class="xref" data-knowl="./knowl/xref/prop-mateleminverse.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.1.16">3.1.16</a>, on peut donc faire les opérations suivantes:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-mateleminverse.html">
+\begin{align*}
+E_k\cdots E_2E_1A&amp;=I\\
+E_k^{-1}E_k\cdots E_2E_1A&amp;=E_k^{-1}I\\
+IE_{k-1}\cdots E_2E_1A&amp;=E_k^{-1}I\\
+E_{k-1}\cdots E_2E_1A&amp;=E_k^{-1}\\
+E_{k-1}^{-1}E_{k-1}\cdots E_2E_1A&amp;=E_{k-1}^{-1}E_k^{-1}\\
+&amp;\cdots\\
+E_1A&amp;=E_2^{-1}\cdots E_k^{-1}\\
+E_1^{-1}E_1A&amp;=E_1^{-1}E_2^{-1}\cdots E_k^{-1}\\
+IA&amp;=E_1^{-1}E_2^{-1}\cdots E_k^{-1}\\
+A&amp;=E_1^{-1}E_2^{-1}\cdots E_k^{-1}
+\end{align*}
+</div>
+<div class="para">Ainsi, on obtient une expression pour <span class="process-math">\(A\)</span> qui ne dépend que des inverses des matrices élémentaires. On peut donc démontrer le résultat voulu rapidement:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-mateleminverse.html">
+\begin{align*}
+AA^{-1}&amp;=E_1^{-1}E_2^{-1}\cdots E_k^{-1}E_k\cdots E_2E_1\\
+&amp;=E_1^{-1}E_2^{-1}\cdots E_{k-1}^{-1}IE_{k-1}\cdots E_2E_1\\
+&amp;=E_1^{-1}E_2^{-1}\cdots E_{k-1}^{-1}E_{k-1}\cdots E_2E_1\\
+&amp;\cdots\\
+&amp;=E_1^{-1}E_2^{-1}E_2E_1\\
+&amp;=E_1^{-1}IE_1\\
+&amp;=E_1^{-1}E_1\\
+&amp;=I
+\end{align*}
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para">Montrer que <span class="process-math">\((AB)^{-1}=B^{-1}A^{-1}\text{,}\)</span> donnant ainsi une preuve alternative à la proposition <a href="sec-matinverse.html#prop-inverseproduit" class="xref" data-knowl="./knowl/xref/prop-inverseproduit.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 2.3.18: L’inverse d’un produit">2.3.18</a>.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Pour obtenir cette propriété, on peut supposer que les matrices <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> sont toutes les deux inversibles. Bref, suivant l’énoncé de l’exercice et la réponse de la partie précédente, on peut écrire les matrices <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> <span class="process-math">\(A^{-1}\)</span> et <span class="process-math">\(B^{-1}\)</span> des façons suivantes:</div>
+<div class="displaymath process-math">
+\begin{align*}
+A&amp;=E_1^{-1}E_2^{-1}\cdots E_k^{-1}\\
+B&amp;=F_1^{-1}F_2^{-1}\cdots F_n^{-1}\\
+A^{-1}&amp;=E_k\cdots E_2E_1\\
+B^{-1}&amp;=F_n\cdots F_2F_1\text{,}
+\end{align*}
+</div>
+<div class="para">où les matrices <span class="process-math">\(F_1, F_2, \dots , F_n\)</span> sont <span class="process-math">\(n\)</span> matrices élémentaires telles que l’on peut écrire</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F_n\cdots F_2F_1B=I
+\end{equation*}
+</div>
+<div class="para">pour la matrice inversible <span class="process-math">\(B\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Ainsi, on peut démontrer l’équation proposée. On y arrive en multipliant <span class="process-math">\(B^{-1}A^{-1}\)</span> par <span class="process-math">\((AB)\)</span> et en montrant qu’on obtient bien la matrice identité.</div>
+<div class="displaymath process-math">
+\begin{align*}
+(B^{-1}A^{-1})(AB)&amp;=B^{-1}A^{-1}AB\\
+&amp;=F_n\cdots F_2F_1E_k\cdots E_2E_1E_1^{-1}E_2^{-1}\cdots E_k^{-1}F_1^{-1}F_2^{-1}\cdots F_n^{-1}\\
+&amp;=F_n\cdots F_2F_1E_k\cdots E_2IE_2^{-1}\cdots E_k^{-1}F_1^{-1}F_2^{-1}\cdots F_n^{-1}\\
+&amp;=F_n\cdots F_2F_1E_k\cdots E_2E_2^{-1}\cdots E_k^{-1}F_1^{-1}F_2^{-1}\cdots F_n^{-1}\\
+&amp;\dots\\
+&amp;=F_n\cdots F_2F_1E_kE_k^{-1}F_1^{-1}F_2^{-1}\cdots F_n^{-1}\\
+&amp;=F_n\cdots F_2F_1IF_1^{-1}F_2^{-1}\cdots F_n^{-1}\\
+&amp;=F_n\cdots F_2F_1F_1^{-1}F_2^{-1}\cdots F_n^{-1}\\
+&amp;=F_n\cdots F_2IF_2^{-1}\cdots F_n^{-1}\\
+&amp;=F_n\cdots F_2F_2^{-1}\cdots F_n^{-1}\\
+&amp;\dots\\
+&amp;=F_nF_n^{-1}\\
+&amp;=I\text{.}
+\end{align*}
+</div>
+</div>
+</div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para">Montrer que <span class="process-math">\((A^{-1})^{-1}=A\text{,}\)</span> donnant ainsi une preuve alternative à la proposition <a href="sec-matinverse.html#prop-invdeinv" class="xref" data-knowl="./knowl/xref/prop-invdeinv.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 2.3.19: L’inverse de l’inverse">2.3.19</a>.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">On veut démontrer que la matrice <span class="process-math">\(A\)</span> fait bien office d’inverse pour la matrice <span class="process-math">\(A^{-1}\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+A^{-1}A&amp;=E_k\cdots E_2E_1E_1^{-1}E_2^{-1}\cdots E_k^{-1}\\
+&amp;=E_k\cdots E_2IE_2^{-1}\cdots E_k^{-1}\\
+&amp;=E_k\cdots E_2E_2^{-1}\cdots E_k^{-1}\\
+&amp;=\dots\\
+&amp;=E_kE_k^{-1}\\
+&amp;=I
+\end{align*}
+</div>
+<div class="para">Ainsi, la matrice <span class="process-math">\(A\)</span> fait bien office d’inverse pour la matrice <span class="process-math">\(A^{-1}\text{.}\)</span> Ainsi, <span class="process-math">\((A^{-1})^{-1}=A\text{.}\)</span>
+</div>
+</div></div></details></div></article></article><span class="incontext"><a class="internal" href="sec-GJ.html#exo-matinversibleeqid">Contexte</a></span>
+</body>
+</html>

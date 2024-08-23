@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">L’habitat d’une souris domestique.</span>
+</h4>
+<div class="para">L’habitat d’une souris domestique est composé de quatre pièces, dont certaines sont reliées par des portes. Le graphe de la figure suivante illustre les parcours possibles pour cette souris.</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-sourisMarkov.svg" role="img" class="contained" alt="Un graphe à quatre sommet est illustré."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.5<span class="period">.</span></span><span class="space"> </span>Graphe représentant les transitions de la chaine de Markov associée au déplacement d’une souris domestique dans son habitat</figcaption></figure> <div class="para">Lorsqu’elle est dans son habitat, la souris se promène de pièce en pièce en choisissant au hasard, chaque fois, l’une des portes disponibles au hasard. On prend cette souris et on la place au hasard dans l’une des quatre pièces, sans préférence pour une pièce particulière. On se demande où la souris a le moins de chance de se trouver après trois transitions.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">À partir du graphe de la figure <a href="sec-Markov.html#fig-sourisMarkov" class="xref" data-knowl="./knowl/xref/fig-sourisMarkov.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 7.1.5">7.1.5</a>, on peut créer la matrice de transition associée à la chaine de Markov. On constate, par exemple, qu’à partir de la première pièce, il est possible d’aller dans la deuxième ou dans la quatrième, de façon équiprobable. En raisonnant ainsi pour les trois autres pièces, on arrive à la matrice</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-sourisMarkov.html">
+\begin{equation*}
+T=\begin{pmatrix}
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\
+\frac{1}{2} &amp; 0 &amp; 1 &amp; \frac{1}{2} \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
+\frac{1}{2} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">On pose ensuite <span class="process-math">\(X_0=\begin{pmatrix}0.25 \\ 0.25\\ 0.25 \\ 0.25\end{pmatrix}\text{.}\)</span> Pour calculer la pièce qui a le moins de chance d’être occupée par la souris après trois déplacements, on utilise Sage.</div> <pre id="ex-sourisMarkov-3-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">T=column_matrix([[0,1/2,0,1/2],[1/2,0,1/2,0],[0,1,0,0],[1/2,1/2,0,0]])
+X0=vector([0.25,0.25,0.25,0.25])
+X1=T*X0
+X2=T*X1
+X3=T*X2
+show(X3)
+</script></pre> <div class="para">Deux pièces ont en fait le moins de chance d’être occupées, les pièces <span class="process-math">\(3\)</span> et <span class="process-math">\(4\)</span> avec <span class="process-math">\(15.625\%\)</span> chacune.</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-Markov.html#ex-sourisMarkov">Contexte</a></span>
+</body>
+</html>

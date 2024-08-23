@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">19<span class="period">.</span></span><span class="space"> </span><span class="title">Fibonacci.</span>
+</h4>
+<div class="introduction">
+<div class="para">La suite de Fibonacci est bien connue en mathématiques. C’est une suite définie par <span class="process-math">\(f_0=0,f_1=1\)</span> et <span class="process-math">\(f_n=f_{n-1}+f_{n-2}\text{.}\)</span> Les <span class="process-math">\(n+1\)</span> premiers nombres peuvent être obtenus par Sage à l’aide de la fonction suivante.</div> <pre id="exo-fibo-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def fibo(n):
+    L=[0,1]
+    for i in range(2,n+1):
+        L.append(L[i-1]+L[i-2])
+    return L
+fibo(10)
+</script></pre> <div class="para">L’objectif de cet exercice est d’apporter une perspective d’algèbre linéaire à cette suite et de déterminer une formule pour  <span class="process-math">\(f_n\)</span> sans avoir à calculer les nombres précédents.</div>
+</div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para logical">
+<div class="para">On pose <span class="process-math">\(\vec{x}_n=\begin{pmatrix} f_{n}\\ f_{n-1}\end{pmatrix}\)</span> pour <span class="process-math">\(n\geq 1\)</span> et <span class="process-math">\(\vec{x}_0=(0,1)\text{.}\)</span> Déterminer une matrice <span class="process-math">\(A\in \mathcal{M}_{2\times 2}\)</span> qui permet d’avoir</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{x}_{n+1}=A\vec{x}_n\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">On aurait pu commencer par le vecteur <span class="process-math">\(\vec{x}_1=(1,0)=(f_1,f_0)\text{,}\)</span> qui aurait contenu les deux premiers termes de la suite. On peut toutefois argumenter que <span class="process-math">\(f_{-1}=1\)</span> en travaillant avec l’équation à l’envers. C’est un choix arbitraire qui fera l’affaire pour la suite.</div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para"><span class="process-math">\(A=\begin{pmatrix}
+1&amp;1 \\
+1&amp; 0
+\end{pmatrix}\)</span></div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Le vecteur <span class="process-math">\(\vec{x}_{n+1}\)</span> contient <span class="process-math">\(f_{n+1}\)</span> et <span class="process-math">\(f_{n}\text{.}\)</span> On peut poser</div>
+<div class="displaymath process-math">
+\begin{align*}
+f_{n+1}&amp;=f_{n-1}+f_{n}\\
+f_n&amp;=f_n
+\end{align*}
+</div>
+<div class="para">pour avoir un “système” à deux équations et deux inconnues. On peut réécrire sous la forme</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vecd{f_{n+1}}{f_n}=\begin{pmatrix}
+1&amp;1 \\
+1&amp; 0
+\end{pmatrix}\vecd{f_n}{f_{n-1}}\text{.}
+\end{equation*}
+</div>
+<div class="para">La matrice est donc <span class="process-math">\(A=\begin{pmatrix}
+1&amp;1 \\
+1&amp; 0
+\end{pmatrix}.\)</span>
+</div>
+</div></div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para">Calculer <span class="process-math">\(\vec{x}_1=A\vec{x}_0\text{,}\)</span><span class="process-math">\(\vec{x}_2=A\vec{x}_1=A^2\vec{x}_0\)</span> et <span class="process-math">\(\vec{x}_3\text{.}\)</span> Donner une formule en fonction de <span class="process-math">\(A\)</span> et <span class="process-math">\(x_0\)</span> pour <span class="process-math">\(f_n\text{.}\)</span>
+</div>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(\vec{x}_1=(1,0)\text{,}\)</span><span class="process-math">\(\vec{x}_2=(1,1)\text{,}\)</span><span class="process-math">\(\vec{x}_3=(2,1)\text{.}\)</span> En général, <span class="process-math">\(f_n\)</span> est la première composante de <span class="process-math">\(A^n\vec{x}_0\text{.}\)</span>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para">Trouver <span class="process-math">\(f_{100}\)</span> à l’aide de cette matrice et de Sage. Vérifier la réponse à l’aide de la fonction <code class="code-inline tex2jax_ignore">fibo</code> définie dans l’introduction.</div> <pre id="exo-fibo-5-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></pre>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para"><span class="process-math">\(f_{100}=354224848179261915075\)</span></div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">A=matrix([[1,1],[1,0]])
+x0=vector([0,1])
+show(A^100*x0[0])
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">6.1.20<span class="period">.</span></span><span class="space"> </span>Le code de la solution</figcaption></figure></div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para logical">
+<div class="para">Pour la suite, il pourra être pratique d’utiliser le fait que si <span class="process-math">\(x=\frac{1+\sqrt{5}}{2},y=\frac{1-\sqrt{5}}{2}\text{,}\)</span> alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{x}=-y
+\end{equation*}
+</div>
+<div class="para">et donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{y}=-x\text{.}
+\end{equation*}
+</div>
+<div class="para">Démontrer ce fait</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Il suffit de calculer <span class="process-math">\(1/x\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{1}{x}&amp;=\frac{2}{1+\sqrt{5}}\\
+&amp;=\frac{2}{1+\sqrt{5}}\frac{1-\sqrt{5}}{1-\sqrt{5}}\\
+&amp;=\frac{2(1-\sqrt{5})}{1-5}\\
+&amp;=\frac{2(1-\sqrt{5})}{-4}\\
+&amp;=-\frac{1-\sqrt{5}}{2}\\
+&amp;=-\frac{1}{y}\text{.}
+\end{align*}
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para">Trouver les valeurs propres de la matrice <span class="process-math">\(A\)</span> et le vecteur propre de chacune.</div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">La première valeur propre est <span class="process-math">\(\lambda_1=\frac{1-\sqrt{5}}{2}\)</span> avec son vecteur propre <span class="process-math">\(\vec{v}_1=(\lambda_1,1)\)</span> et la deuxième valeur propre est <span class="process-math">\(\lambda_2=\frac{1+\sqrt{5}}{2}\)</span> avec son vecteur propre <span class="process-math">\(\vec{v}_1=(\lambda_2,1)\text{.}\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">On a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-golden.html">
+\begin{align*}
+\text{det}(A-\lambda I)&amp;=\begin{vmatrix}1-\lambda&amp;1 \\ 1&amp; -\lambda\end{vmatrix}\\
+&amp;=(1-\lambda)(-\lambda)-1\\
+&amp;=\lambda^2-\lambda-1\text{.}
+\end{align*}
+</div>
+<div class="para">Ce polynôme s’annule lorsque <span class="process-math">\(\lambda_1=\frac{1-\sqrt{5}}{2}\)</span> et <span class="process-math">\(\lambda_2=\frac{1+\sqrt{5}}{2}\text{.}\)</span> On remarque que ces deux valeurs sont les nombres de la partie <a href="sec-propre.html#exo-golden" class="xref" data-knowl="./knowl/xref/exo-golden.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 6.1.4.19.d">6.1.4.19.d</a>. Pour les espaces propres, on a d’abord pour <span class="process-math">\(\lambda_1\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-golden.html">
+\begin{align*}
+\begin{pmatrix}1-\frac{1-\sqrt{5}}{2}&amp;1 \\ 1&amp; -\frac{1-\sqrt{5}}{2}\end{pmatrix}&amp;=\begin{pmatrix}\frac{1+\sqrt{5}}{2}&amp;1 \\ 1&amp; -\lambda_1\end{pmatrix}\\
+&amp;=\begin{pmatrix}\lambda_2&amp;1 \\ 1&amp; -\lambda_1\end{pmatrix}\\
+&amp;\begin{array}{l}L_2-\frac{1}{\lambda_2}L_1\to L_2\\ \sim\end{array}\begin{pmatrix}\lambda_2&amp;1 \\ 0&amp; -\lambda_1-\frac{1}{\lambda_2}\end{pmatrix}\\
+&amp;=\begin{pmatrix}\lambda_2&amp;1 \\ 0&amp; 0\end{pmatrix}&amp;&amp; \text{ car } -\lambda_1-\frac{1}{\lambda_2}=0\\
+&amp;\begin{array}{l}L_1/\lambda_2\to L_2\\ \sim\end{array}\begin{pmatrix}1&amp;1/\lambda_2 \\ 0&amp; 0\end{pmatrix}\\
+&amp;=\begin{pmatrix}1&amp;-\lambda_1 \\ 0&amp; 0\end{pmatrix}&amp;&amp; \text{ car } \frac{1}{\lambda_2}=-\lambda_1\text{.}
+\end{align*}
+</div>
+<div class="para">On trouve donc un vecteur propre <span class="process-math">\(\vec{v}_1=(\lambda_1,1)\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">De la même manière, on trouve</div>
+<div class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix}1-\frac{1+\sqrt{5}}{2}&amp;1 \\ 1&amp; -\frac{1+\sqrt{5}}{2}\end{pmatrix}&amp;=\begin{pmatrix}\frac{1-\sqrt{5}}{2}&amp;1 \\ 1&amp; -\lambda_2\end{pmatrix}\\
+&amp;=\begin{pmatrix}\lambda_1&amp;1 \\ 1&amp; -\lambda_2\end{pmatrix}\\
+&amp;\begin{array}{l}L_2-\frac{1}{\lambda_1}L_1\to L_2\\ \sim\end{array}\begin{pmatrix}\lambda_1&amp;1 \\ 0&amp; -\lambda_2-\frac{1}{\lambda_1}\end{pmatrix}\\
+&amp;=\begin{pmatrix}\lambda_1&amp;1 \\ 0&amp; 0\end{pmatrix}&amp;&amp; \text{ car } -\lambda_2-\frac{1}{\lambda_1}=0\\
+&amp;\begin{array}{l}L_1/\lambda_1\to L_2\\ \sim\end{array}\begin{pmatrix}1&amp;1/\lambda_1 \\ 0&amp; 0\end{pmatrix}\\
+&amp;=\begin{pmatrix}1&amp;-\lambda_2 \\ 0&amp; 0\end{pmatrix}&amp;&amp; \text{ car } \frac{1}{\lambda_1}=-\lambda_2\text{,}
+\end{align*}
+</div>
+<div class="para">donnant le vecteur <span class="process-math">\(\vec{v}_2=(\lambda_2,1)\)</span> associé à <span class="process-math">\(\lambda_2\text{.}\)</span>
+</div>
+</div>
+</div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="para">Écrire le vecteur <span class="process-math">\(\vec{x}_0\)</span> comme une combinaison linéaire des vecteurs propres de <span class="process-math">\(A\text{.}\)</span>
+</div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para"><span class="process-math">\(\vecd{0}{1}=\frac{\sqrt{5}(1+\sqrt{5})}{10}\vec{v}_1+\frac{\sqrt{5}(1-\sqrt{5})}{10}\vec{v}_2\)</span></div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Il faut trouver <span class="process-math">\(a,b\)</span> tels que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vecd{0}{1}=a\vecd{\lambda_1}{1}+b\vecd{\lambda_2}{1}\text{.}
+\end{equation*}
+</div>
+<div class="para">Sous forme matricielle, on cherche à résoudre la matrice augmentée</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left(\begin{array}{cc|c} \lambda_1 &amp; \lambda_2 &amp; 0\\
+1&amp;1&amp;1\end{array}\right)\text{.}
+\end{equation*}
+</div>
+<div class="para">On a</div>
+<div class="displaymath process-math">
+\begin{align*}
+\left(\begin{array}{cc|c} \lambda_1 &amp; \lambda_2 &amp; 0\\
+1&amp;1&amp;1\end{array}\right)&amp;\begin{array}{l}L_2-L_1/\lambda_1\to L_2\\ \sim \end{array} \left(\begin{array}{cc|c}\lambda_1 &amp; \lambda_2 &amp; 0\\ 0&amp; 1-\lambda_2/\lambda_1 &amp;1 \end{array}\right)\\
+&amp;=\left(\begin{array}{cc|c}\lambda_1 &amp; \lambda_2 &amp; 0\\ 0&amp; 1+\lambda_2^2 &amp;1 \end{array}\right) &amp;&amp; \text{ selon } \frac{1}{\lambda_1}=-\lambda_2\\
+&amp;\begin{array}{l}L2/(1+\lambda_2^2)\to L_2 \\ \sim\end{array}\left(\begin{array}{cc|c}\lambda_1 &amp; \lambda_2 &amp; 0\\ 0&amp; 1 &amp;\frac{1}{1+\lambda_2^2} \end{array}\right)\\
+&amp;\begin{array}{l}L1-\lambda_2L_2\to L_1 \\ \sim\end{array}\left(\begin{array}{cc|c}\lambda_1 &amp; \lambda_2 &amp; -\frac{\lambda_2}{1+\lambda_2^2}\\ 0&amp; 1 &amp;\frac{1}{1+\lambda_2^2} \end{array}\right)\\
+&amp;\begin{array}{l}L_1/\lambda_1\to L_1 \\ \sim \end{array}\left(\begin{array}{cc|c}1 &amp; \lambda_2/\lambda_1 &amp; -\frac{\lambda_2}{\lambda_1(1+\lambda_2^2)}\\ 0&amp; 1 &amp;\frac{1}{1+\lambda_2^2} \end{array}\right)\\
+&amp;=\left(\begin{array}{cc|c}1 &amp; -\lambda_2^2 &amp; \frac{\lambda_2^2}{1+\lambda_2^2}\\ 0&amp; 1 &amp;\frac{1}{1+\lambda_2^2} \end{array}\right)&amp;&amp; \text{ car } \frac{1}{\lambda_1}=-\lambda_2\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">Un peu de simplification est de mise. On peut montrer que <span class="process-math">\(\frac{1}{1+\lambda_2^2}=-\frac{\sqrt{5}(1-\sqrt{5})}{10}=-\frac{\sqrt{5}\lambda_1}{5}\)</span> et que <span class="process-math">\(\frac{\lambda_2^2}{1+\lambda_2^2}=\frac{\sqrt{5}(1+\sqrt{5})}{10}=\frac{\sqrt{5}\lambda_2}{5}\text{.}\)</span> On a donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vecd{0}{1}=\frac{\sqrt{5}\lambda_2}{5}\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}\vec{v}_2\text{.}
+\end{equation*}
+</div>
+</div>
+</div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(g)</span></h5>
+<div class="para">Décrire comment obtenir <span class="process-math">\(f_n\)</span> sans calculer les précédents et sans calculer de produit matrice vecteur.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">On sait que <span class="process-math">\(\vec{x}_n=A^n\vec{x}_0\text{.}\)</span> En utilisant la décomposition en fonction des vecteurs propres, on trouve</div>
+<div class="displaymath process-math">
+\begin{align*}
+\vec{x}_n&amp;=A^n\vec{x}_0\\
+&amp;=A^n\vecd{0}{1}\\
+&amp;=A^n\left(\frac{\sqrt{5}\lambda_2}{5}\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}\vec{v}_2\right)\\
+&amp;=\frac{\sqrt{5}\lambda_2}{5}A^n\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}A^n\vec{v}_2\\\
+&amp;=\frac{\sqrt{5}\lambda_2}{5}\lambda_1^n\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}\lambda_2^n\vec{v}_2\text{.}
+\end{align*}
+</div>
+<div class="para">Le nombre <span class="process-math">\(f_n\)</span> se retrouve dans la première composante de ce vecteur et donc</div>
+<div class="displaymath process-math">
+\begin{align*}
+f_n&amp;=\frac{\sqrt{5}\lambda_2}{5}\lambda_1^{n+1}-\frac{\sqrt{5}\lambda_1}{5}\lambda_2^{n+1}\\
+&amp;=\frac{\sqrt{5}}{5}\lambda_1\lambda_2(\lambda_1^n-\lambda_2^n)\\
+&amp;=-\frac{\sqrt{5}}{5}(\lambda_1^n-\lambda_2^n) &amp;&amp; \text{ car } \lambda_1\lambda_2=-1\\
+&amp;=\frac{\sqrt{5}}{5}(\lambda_2^n-\lambda_1^n)\text{.}
+\end{align*}
+</div>
+</div> <pre id="exo-fiboformule-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">l1=(1-sqrt(5))/2
+l2=(1+sqrt(5))/2
+f(n)=sqrt(5)/5*(l2^n-l1^n)
+for n in range(20):
+    print("f(%d)=%f" % (n, f(n).n()))
+print(".")
+print(".")
+print(".")
+print("f(100)=",f(100).n())
+</script></pre>
+</div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(h)</span></h5>
+<div class="para logical">
+<div class="para">Utiliser Sage pour calculer</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{n\to\infty}\frac{f_{n+1}}{f_n}\text{.}
+\end{equation*}
+</div>
+</div> <pre id="exo-fibo-10-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></pre>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para"><span class="process-math">\(\lim_{n\to\infty}\frac{f_{n+1}}{f_n}=\lambda_1\)</span></div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">En utilisant la formule trouvée, on trouve avec Sage que cette limite vaut <span class="process-math">\(\frac{1+\sqrt{5}}{2}=\lambda_1\text{.}\)</span>
+</div> <pre id="exo-fibo-10-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">l1=(1-sqrt(5))/2
+l2=(1+sqrt(5))/2
+f(n)=sqrt(5)/5*(l2^n-l1^n)
+limit(f(n+1)/f(n),n=infinity)
+</script></pre>
+</div></details>
+</div></article><div class="conclusion"><div class="para">Le nombre <span class="process-math">\(\lambda_1=\frac{1+\sqrt{5}}{2}\)</span> est appelé le nombre d’or. On le note souvent par <span class="process-math">\(\phi\)</span> et il apparait à de nombreux endroits.</div></div></article><span class="incontext"><a class="internal" href="sec-propre.html#exo-fibo">Contexte</a></span>
+</body>
+</html>

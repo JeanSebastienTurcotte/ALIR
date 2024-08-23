@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">6.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Diagonalisation de matrices.</span>
+</h4>
+<div class="para">On reprend les matrices de l’exemple <a href="sec-propre.html#ex-vecvalpropres" class="xref" data-knowl="./knowl/xref/ex-vecvalpropres.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 6.1.13: Des calculs de vecteurs et valeurs propres">6.1.13</a>. Parmi celles-ci, les matrices <span class="process-math">\(A,C,F\)</span> avaient un nombre suffisant de vecteurs propres pour former une base. On s’intéresse donc à diagonaliser ces matrices.</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">La matrice <span class="process-math">\(A=\begin{pmatrix} 3&amp;1\\ -2&amp;0 \end{pmatrix}\)</span> a pour valeurs propres <span class="process-math">\(\lambda_1=1\)</span> et <span class="process-math">\(\lambda_2=2\)</span> et comme vecteurs propres associés à ces valeurs propres <span class="process-math">\(\vec{v}_1=(-1,2)\)</span> et<span class="process-math">\(\vec{v}_2=(-1,1)\text{.}\)</span> On pose donc <span class="process-math">\(P=\begin{pmatrix} -1&amp;-1\\ 2&amp;1 \end{pmatrix}\)</span> et <span class="process-math">\(D=\begin{pmatrix} 1&amp;0\\ 0&amp;2 \end{pmatrix}\text{.}\)</span> De cela, on devrait obtenir</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A=PDP^{-1}\text{.}
+\end{equation*}
+</div>
+<div class="para">On vérifie avec Sage.</div>
+</div> <pre id="ex-vecvalpropresdiago-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">P=column_matrix([[-1,2],[-1,1]])
+Pinv=P.inverse()
+D=column_matrix([[1,0],[0,2]])
+A=P*D*Pinv
+show(A)
+</script></pre>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">La matrice <span class="process-math">\(C=\begin{vmatrix} -2 &amp; 2 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 2 &amp; -1 &amp; 0 \end{vmatrix}\)</span> a pour valeurs propres <span class="process-math">\(\lambda_1=2,\lambda_2=-2\)</span> et <span class="process-math">\(\lambda_3=0\)</span> et comme vecteurs propres associés à ces valeurs propres <span class="process-math">\(\vec{v}_1=(1,2,0)\text{,}\)</span><span class="process-math">\(\vec{v}_2=(-1,0,1))\)</span> et <span class="process-math">\(\vec{v}_3=(0,0,1)\text{.}\)</span> On pose donc <span class="process-math">\(P=\begin{pmatrix} 1&amp;-1&amp;0\\ 2&amp;0&amp;0\\ 0&amp;1&amp; 1 \end{pmatrix}\)</span> et <span class="process-math">\(D=\begin{pmatrix} 2&amp;0&amp; 0\\ 0&amp;-2&amp; 0\\ 0&amp; 0&amp; 0 \end{pmatrix}\text{.}\)</span> De cela, on devrait obtenir</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C=PDP^{-1}\text{.}
+\end{equation*}
+</div>
+<div class="para">On vérifie avec Sage.</div>
+</div> <pre id="ex-vecvalpropresdiago-4-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">P=column_matrix([[1,2,0],[-1,0,1],[0,0,1]])
+Pinv=P.inverse()
+D=column_matrix([[2,0,0],[0,-2,0],[0,0,0]])
+C=P*D*Pinv
+show(C)
+</script></pre>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">3</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">La matrice <span class="process-math">\(F=\begin{pmatrix} -1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span> a pour valeurs propres <span class="process-math">\(\lambda_1=-1\)</span> et <span class="process-math">\(\lambda_2=1\text{.}\)</span> Pour la valeur propre <span class="process-math">\(\lambda_1\text{,}\)</span> on a trouvé <span class="process-math">\(\vec{v}_1=(1,0,0)\text{,}\)</span> alors que pour la valeur propre <span class="process-math">\(\lambda_2\text{,}\)</span> on a trouvé deux vecteurs propres indépendants en <span class="process-math">\(\vec{v}_2=(1,2,0)\)</span> et <span class="process-math">\(\vec{v}_3=(0,0,1)\text{.}\)</span> On pose donc <span class="process-math">\(P=\begin{pmatrix} 1&amp;1&amp;0\\ 0&amp;2&amp;0\\ 0&amp;0&amp; 1 \end{pmatrix}\)</span> et <span class="process-math">\(D=\begin{pmatrix} -1&amp;0&amp; 0\\ 0&amp;1&amp; 0\\ 0&amp; 0&amp; 1 \end{pmatrix}\text{.}\)</span> De cela, on devrait obtenir</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F=PDP^{-1}\text{.}
+\end{equation*}
+</div>
+<div class="para">On vérifie avec Sage.</div>
+</div> <pre id="ex-vecvalpropresdiago-5-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">P=column_matrix([[1,0,0],[1,2,0],[0,0,1]])
+Pinv=P.inverse()
+D=column_matrix([[-1,0,0],[0,1,0],[0,0,1]])
+F=P*D*Pinv
+show(F)
+</script></pre>
+</div></details>
+</div></article><span class="incontext"><a class="internal" href="sec-diagonalisation.html#ex-vecvalpropresdiago">Contexte</a></span>
+</body>
+</html>

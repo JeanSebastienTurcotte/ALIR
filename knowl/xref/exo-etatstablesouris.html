@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">4<span class="period">.</span></span>
+</h4>
+<div class="para">Calculer l’état stable de la chaine de Markov représentant le déplacement de la souris dans l’exemple <a href="sec-Markov.html#ex-sourisMarkov" class="xref" data-knowl="./knowl/xref/ex-sourisMarkov.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.1.4: L’habitat d’une souris domestique">7.1.4</a>.</div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para"><span class="process-math">\(X=(0.266666666791633, 0.399999999875033, 0.200000000077234, 0.133333333256100)\)</span></div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">La matrice de transition est donnée par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T=\begin{pmatrix}
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\
+\frac{1}{2} &amp; 0 &amp; 1 &amp; \frac{1}{2} \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
+\frac{1}{2} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Un calcul montre que <span class="process-math">\(T^2\)</span> n’a pas d’entrée égale à zéro, il est donc possible de calculer une grande puissance de <span class="process-math">\(T\)</span> pour trouver l’état stable. Avec Sage, on trouve <span class="process-math">\(X=(0.266666666791633, 0.399999999875033, 0.200000000077234, 0.133333333256100)\text{.}\)</span>
+</div>
+</div> <pre id="exo-etatstablesouris-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">T=column_matrix([[0,0.5,0,0.5],[0.5,0,0.5,0],[0,1,0,0],[0.5,0.5,0,0]])
+show((T^100).column(0))
+</script></pre>
+</div></details>
+</div></article><span class="incontext"><a class="internal" href="sec-Markov.html#exo-etatstablesouris">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ALIR Colophon</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://jeansebastienturcotte.github.io/ALIR/frontmatter.html/external/images/frontcover160x200.png">
+<meta property="book:title" content="Algèbre linéaire">
+<meta property="book:author" content="Jean-Sébastien Turcotte">
+<meta property="book:author" content="Philémon Turcotte">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#ex-angler2-2-1 { counter-set: ex-angler2-2-1 0; }
+#ex-angler2-2-1 > li::marker { content: ""counter(ex-angler2-2-1,decimal)"."; }
+#ex-angler2-2-1 > li { counter-increment: ex-angler2-2-1; }
+#li-axiomesgeo-2 { counter-set: li-axiomesgeo-2 0; }
+#li-axiomesgeo-2 > li::marker { content: ""counter(li-axiomesgeo-2,decimal)"."; }
+#li-axiomesgeo-2 > li { counter-increment: li-axiomesgeo-2; }
+#exo-vecgeoab-1-2-1 { counter-set: exo-vecgeoab-1-2-1 0; }
+#exo-vecgeoab-1-2-1 > li::marker { content: "("counter(exo-vecgeoab-1-2-1,lower-alpha)")"; }
+#exo-vecgeoab-1-2-1 > li { counter-increment: exo-vecgeoab-1-2-1; }
+#exo-vecgeoab-2-1-1 { counter-set: exo-vecgeoab-2-1-1 0; }
+#exo-vecgeoab-2-1-1 > li::marker { content: "("counter(exo-vecgeoab-2-1-1,lower-alpha)")"; }
+#exo-vecgeoab-2-1-1 > li { counter-increment: exo-vecgeoab-2-1-1; }
+#exo-vecgeoab-3-1-1 { counter-set: exo-vecgeoab-3-1-1 0; }
+#exo-vecgeoab-3-1-1 > li::marker { content: "("counter(exo-vecgeoab-3-1-1,lower-alpha)")"; }
+#exo-vecgeoab-3-1-1 > li { counter-increment: exo-vecgeoab-3-1-1; }
+#exo-vecgeopoint-1-2-1 { counter-set: exo-vecgeopoint-1-2-1 0; }
+#exo-vecgeopoint-1-2-1 > li::marker { content: "("counter(exo-vecgeopoint-1-2-1,lower-alpha)")"; }
+#exo-vecgeopoint-1-2-1 > li { counter-increment: exo-vecgeopoint-1-2-1; }
+#exo-vecgeopoint-2-3-1 { counter-set: exo-vecgeopoint-2-3-1 0; }
+#exo-vecgeopoint-2-3-1 > li::marker { content: "("counter(exo-vecgeopoint-2-3-1,lower-alpha)")"; }
+#exo-vecgeopoint-2-3-1 > li { counter-increment: exo-vecgeopoint-2-3-1; }
+#exo-decrirelieux-1-2-1 { counter-set: exo-decrirelieux-1-2-1 0; }
+#exo-decrirelieux-1-2-1 > li::marker { content: "("counter(exo-decrirelieux-1-2-1,lower-alpha)")"; }
+#exo-decrirelieux-1-2-1 > li { counter-increment: exo-decrirelieux-1-2-1; }
+#exo-decrirelieux-2-1-1 { counter-set: exo-decrirelieux-2-1-1 0; }
+#exo-decrirelieux-2-1-1 > li::marker { content: "("counter(exo-decrirelieux-2-1-1,lower-alpha)")"; }
+#exo-decrirelieux-2-1-1 > li { counter-increment: exo-decrirelieux-2-1-1; }
+#exo-trouverpoints-1-2-1 { counter-set: exo-trouverpoints-1-2-1 0; }
+#exo-trouverpoints-1-2-1 > li::marker { content: "("counter(exo-trouverpoints-1-2-1,lower-alpha)")"; }
+#exo-trouverpoints-1-2-1 > li { counter-increment: exo-trouverpoints-1-2-1; }
+#exo-trouverpoints-3-1-1 { counter-set: exo-trouverpoints-3-1-1 0; }
+#exo-trouverpoints-3-1-1 > li::marker { content: "("counter(exo-trouverpoints-3-1-1,lower-alpha)")"; }
+#exo-trouverpoints-3-1-1 > li { counter-increment: exo-trouverpoints-3-1-1; }
+#exo-axiomesgeo-1-1-2 { counter-set: exo-axiomesgeo-1-1-2 0; }
+#exo-axiomesgeo-1-1-2 > li::marker { content: "("counter(exo-axiomesgeo-1-1-2,lower-alpha)")"; }
+#exo-axiomesgeo-1-1-2 > li { counter-increment: exo-axiomesgeo-1-1-2; }
+#exo-axiomesgeo-2-1-1 { counter-set: exo-axiomesgeo-2-1-1 0; }
+#exo-axiomesgeo-2-1-1 > li::marker { content: "("counter(exo-axiomesgeo-2-1-1,lower-alpha)")"; }
+#exo-axiomesgeo-2-1-1 > li { counter-increment: exo-axiomesgeo-2-1-1; }
+#exo-inegaltriangle-1-2-1 { counter-set: exo-inegaltriangle-1-2-1 0; }
+#exo-inegaltriangle-1-2-1 > li::marker { content: "("counter(exo-inegaltriangle-1-2-1,lower-alpha)")"; }
+#exo-inegaltriangle-1-2-1 > li { counter-increment: exo-inegaltriangle-1-2-1; }
+#exo-inegaltriangle-2-1-1 { counter-set: exo-inegaltriangle-2-1-1 0; }
+#exo-inegaltriangle-2-1-1 > li::marker { content: "("counter(exo-inegaltriangle-2-1-1,lower-alpha)")"; }
+#exo-inegaltriangle-2-1-1 > li { counter-increment: exo-inegaltriangle-2-1-1; }
+#exo-propvec2-1-3-1 { counter-set: exo-propvec2-1-3-1 0; }
+#exo-propvec2-1-3-1 > li::marker { content: "("counter(exo-propvec2-1-3-1,lower-alpha)")"; }
+#exo-propvec2-1-3-1 > li { counter-increment: exo-propvec2-1-3-1; }
+#exo-propvec2-2-1-1 { counter-set: exo-propvec2-2-1-1 0; }
+#exo-propvec2-2-1-1 > li::marker { content: "("counter(exo-propvec2-2-1-1,lower-alpha)")"; }
+#exo-propvec2-2-1-1 > li { counter-increment: exo-propvec2-2-1-1; }
+#exo-vecprisme-1-3-1 { counter-set: exo-vecprisme-1-3-1 0; }
+#exo-vecprisme-1-3-1 > li::marker { content: "("counter(exo-vecprisme-1-3-1,lower-alpha)")"; }
+#exo-vecprisme-1-3-1 > li { counter-increment: exo-vecprisme-1-3-1; }
+#exo-vecprisme-3-1-1 { counter-set: exo-vecprisme-3-1-1 0; }
+#exo-vecprisme-3-1-1 > li::marker { content: "("counter(exo-vecprisme-3-1-1,lower-alpha)")"; }
+#exo-vecprisme-3-1-1 > li { counter-increment: exo-vecprisme-3-1-1; }
+#exo-VFvecpara-1-3-1 { counter-set: exo-VFvecpara-1-3-1 0; }
+#exo-VFvecpara-1-3-1 > li::marker { content: "("counter(exo-VFvecpara-1-3-1,lower-alpha)")"; }
+#exo-VFvecpara-1-3-1 > li { counter-increment: exo-VFvecpara-1-3-1; }
+#exo-VFvecpara-2-1-1 { counter-set: exo-VFvecpara-2-1-1 0; }
+#exo-VFvecpara-2-1-1 > li::marker { content: "("counter(exo-VFvecpara-2-1-1,lower-alpha)")"; }
+#exo-VFvecpara-2-1-1 > li { counter-increment: exo-VFvecpara-2-1-1; }
+#exo-VFvecpara-3-2-1 { counter-set: exo-VFvecpara-3-2-1 0; }
+#exo-VFvecpara-3-2-1 > li::marker { content: "("counter(exo-VFvecpara-3-2-1,lower-alpha)")"; }
+#exo-VFvecpara-3-2-1 > li { counter-increment: exo-VFvecpara-3-2-1; }
+#exosage-vec-4-2-2-1 { counter-set: exosage-vec-4-2-2-1 0; }
+#exosage-vec-4-2-2-1 > li::marker { content: "("counter(exosage-vec-4-2-2-1,lower-alpha)")"; }
+#exosage-vec-4-2-2-1 > li { counter-increment: exosage-vec-4-2-2-1; }
+#exosage-vec-4-3-1-1 { counter-set: exosage-vec-4-3-1-1 0; }
+#exosage-vec-4-3-1-1 > li::marker { content: "("counter(exosage-vec-4-3-1-1,lower-alpha)")"; }
+#exosage-vec-4-3-1-1 > li { counter-increment: exosage-vec-4-3-1-1; }
+#li-propprodscal-2 { counter-set: li-propprodscal-2 0; }
+#li-propprodscal-2 > li::marker { content: ""counter(li-propprodscal-2,decimal)"."; }
+#li-propprodscal-2 > li { counter-increment: li-propprodscal-2; }
+#def-projortho-2-1-5 { counter-set: def-projortho-2-1-5 0; }
+#def-projortho-2-1-5 > li::marker { content: ""counter(def-projortho-2-1-5,decimal)"."; }
+#def-projortho-2-1-5 > li { counter-increment: def-projortho-2-1-5; }
+#exo-sage-prodscal-1-1-1-3 { counter-set: exo-sage-prodscal-1-1-1-3 0; }
+#exo-sage-prodscal-1-1-1-3 > li::marker { content: "("counter(exo-sage-prodscal-1-1-1-3,lower-alpha)")"; }
+#exo-sage-prodscal-1-1-1-3 > li { counter-increment: exo-sage-prodscal-1-1-1-3; }
+#exo-sage-prodscal-1-2-1-1 { counter-set: exo-sage-prodscal-1-2-1-1 0; }
+#exo-sage-prodscal-1-2-1-1 > li::marker { content: "("counter(exo-sage-prodscal-1-2-1-1,lower-alpha)")"; }
+#exo-sage-prodscal-1-2-1-1 > li { counter-increment: exo-sage-prodscal-1-2-1-1; }
+#ex-comblin-2-6 { counter-set: ex-comblin-2-6 0; }
+#ex-comblin-2-6 > li::marker { content: ""counter(ex-comblin-2-6,decimal)"."; }
+#ex-comblin-2-6 > li { counter-increment: ex-comblin-2-6; }
+#ex-comblinplan-2-7 { counter-set: ex-comblinplan-2-7 0; }
+#ex-comblinplan-2-7 > li::marker { content: ""counter(ex-comblinplan-2-7,decimal)"."; }
+#ex-comblinplan-2-7 > li { counter-increment: ex-comblinplan-2-7; }
+#exosage-droitesplans-2-1-2-1 { counter-set: exosage-droitesplans-2-1-2-1 0; }
+#exosage-droitesplans-2-1-2-1 > li::marker { content: "("counter(exosage-droitesplans-2-1-2-1,lower-alpha)")"; }
+#exosage-droitesplans-2-1-2-1 > li { counter-increment: exosage-droitesplans-2-1-2-1; }
+#exosage-droitesplans-2-2-1-1 { counter-set: exosage-droitesplans-2-2-1-1 0; }
+#exosage-droitesplans-2-2-1-1 > li::marker { content: "("counter(exosage-droitesplans-2-2-1-1,lower-alpha)")"; }
+#exosage-droitesplans-2-2-1-1 > li { counter-increment: exosage-droitesplans-2-2-1-1; }
+#exosage-droitesplans-2-3-1-1 { counter-set: exosage-droitesplans-2-3-1-1 0; }
+#exosage-droitesplans-2-3-1-1 > li::marker { content: "("counter(exosage-droitesplans-2-3-1-1,lower-alpha)")"; }
+#exosage-droitesplans-2-3-1-1 > li { counter-increment: exosage-droitesplans-2-3-1-1; }
+#ex-vecndimproj-2-1-3 { counter-set: ex-vecndimproj-2-1-3 0; }
+#ex-vecndimproj-2-1-3 > li::marker { content: ""counter(ex-vecndimproj-2-1-3,decimal)"."; }
+#ex-vecndimproj-2-1-3 > li { counter-increment: ex-vecndimproj-2-1-3; }
+#sec-veclabos-3-2-4-4 { counter-set: sec-veclabos-3-2-4-4 0; }
+#sec-veclabos-3-2-4-4 > li::marker { content: ""counter(sec-veclabos-3-2-4-4,decimal)"."; }
+#sec-veclabos-3-2-4-4 > li { counter-increment: sec-veclabos-3-2-4-4; }
+#liste-transfquelc-2 { counter-set: liste-transfquelc-2 0; }
+#liste-transfquelc-2 > li::marker { content: ""counter(liste-transfquelc-2,decimal)"."; }
+#liste-transfquelc-2 > li { counter-increment: liste-transfquelc-2; }
+#def-transfolin-2-1-4 { counter-set: def-transfolin-2-1-4 0; }
+#def-transfolin-2-1-4 > li::marker { content: ""counter(def-transfolin-2-1-4,decimal)"."; }
+#def-transfolin-2-1-4 > li { counter-increment: def-transfolin-2-1-4; }
+#prop-transfolinprop-2-1-2 { counter-set: prop-transfolinprop-2-1-2 0; }
+#prop-transfolinprop-2-1-2 > li::marker { content: ""counter(prop-transfolinprop-2-1-2,decimal)"."; }
+#prop-transfolinprop-2-1-2 > li { counter-increment: prop-transfolinprop-2-1-2; }
+#prop-transfolinprop-3-1-1 { counter-set: prop-transfolinprop-3-1-1 0; }
+#prop-transfolinprop-3-1-1 > li::marker { content: ""counter(prop-transfolinprop-3-1-1,decimal)"."; }
+#prop-transfolinprop-3-1-1 > li { counter-increment: prop-transfolinprop-3-1-1; }
+#liste-transfor2-2 { counter-set: liste-transfor2-2 0; }
+#liste-transfor2-2 > li::marker { content: ""counter(liste-transfor2-2,decimal)"."; }
+#liste-transfor2-2 > li { counter-increment: liste-transfor2-2; }
+#li-opmat-2 { counter-set: li-opmat-2 0; }
+#li-opmat-2 > li::marker { content: ""counter(li-opmat-2,decimal)"."; }
+#li-opmat-2 > li { counter-increment: li-opmat-2; }
+#exo-propopmat-2-1-9 { counter-set: exo-propopmat-2-1-9 0; }
+#exo-propopmat-2-1-9 > li::marker { content: "("counter(exo-propopmat-2-1-9,lower-alpha)")"; }
+#exo-propopmat-2-1-9 > li { counter-increment: exo-propopmat-2-1-9; }
+#exosage-transfodef-1-1-2-1 { counter-set: exosage-transfodef-1-1-2-1 0; }
+#exosage-transfodef-1-1-2-1 > li::marker { content: "("counter(exosage-transfodef-1-1-2-1,lower-alpha)")"; }
+#exosage-transfodef-1-1-2-1 > li { counter-increment: exosage-transfodef-1-1-2-1; }
+#exosage-transfodef-1-2-1-1 { counter-set: exosage-transfodef-1-2-1-1 0; }
+#exosage-transfodef-1-2-1-1 > li::marker { content: "("counter(exosage-transfodef-1-2-1-1,lower-alpha)")"; }
+#exosage-transfodef-1-2-1-1 > li { counter-increment: exosage-transfodef-1-2-1-1; }
+#exosage-transfodef-1-3-1-1 { counter-set: exosage-transfodef-1-3-1-1 0; }
+#exosage-transfodef-1-3-1-1 > li::marker { content: "("counter(exosage-transfodef-1-3-1-1,lower-alpha)")"; }
+#exosage-transfodef-1-3-1-1 > li { counter-increment: exosage-transfodef-1-3-1-1; }
+#exosage-transfodef-2-1-4 { counter-set: exosage-transfodef-2-1-4 0; }
+#exosage-transfodef-2-1-4 > li::marker { content: "("counter(exosage-transfodef-2-1-4,lower-alpha)")"; }
+#exosage-transfodef-2-1-4 > li { counter-increment: exosage-transfodef-2-1-4; }
+#exosage-transfodef-2-2-1-1 { counter-set: exosage-transfodef-2-2-1-1 0; }
+#exosage-transfodef-2-2-1-1 > li::marker { content: "("counter(exosage-transfodef-2-2-1-1,lower-alpha)")"; }
+#exosage-transfodef-2-2-1-1 > li { counter-increment: exosage-transfodef-2-2-1-1; }
+#li-prodmatprop-2 { counter-set: li-prodmatprop-2 0; }
+#li-prodmatprop-2 > li::marker { content: ""counter(li-prodmatprop-2,decimal)"."; }
+#li-prodmatprop-2 > li { counter-increment: li-prodmatprop-2; }
+#ex-refR2-2-1-4 { counter-set: ex-refR2-2-1-4 0; }
+#ex-refR2-2-1-4 > li::marker { content: ""counter(ex-refR2-2-1-4,decimal)"."; }
+#ex-refR2-2-1-4 > li { counter-increment: ex-refR2-2-1-4; }
+#sageex-propprodmat-16-1 { counter-set: sageex-propprodmat-16-1 0; }
+#sageex-propprodmat-16-1 > li::marker { content: ""counter(sageex-propprodmat-16-1,decimal)"."; }
+#sageex-propprodmat-16-1 > li { counter-increment: sageex-propprodmat-16-1; }
+#exosage-prodmat-3-1-3-1 { counter-set: exosage-prodmat-3-1-3-1 0; }
+#exosage-prodmat-3-1-3-1 > li::marker { content: "("counter(exosage-prodmat-3-1-3-1,lower-alpha)")"; }
+#exosage-prodmat-3-1-3-1 > li { counter-increment: exosage-prodmat-3-1-3-1; }
+#exosage-prodmat-7-2-3-6 { counter-set: exosage-prodmat-7-2-3-6 0; }
+#exosage-prodmat-7-2-3-6 > li::marker { content: "("counter(exosage-prodmat-7-2-3-6,lower-alpha)")"; }
+#exosage-prodmat-7-2-3-6 > li { counter-increment: exosage-prodmat-7-2-3-6; }
+#exosage-prodmat-7-2-3-6-2-1-1 { counter-set: exosage-prodmat-7-2-3-6-2-1-1 0; }
+#exosage-prodmat-7-2-3-6-2-1-1 > li::marker { content: ""counter(exosage-prodmat-7-2-3-6-2-1-1,lower-roman)"."; }
+#exosage-prodmat-7-2-3-6-2-1-1 > li { counter-increment: exosage-prodmat-7-2-3-6-2-1-1; }
+#thm-delamatriceinversev1-2-1-3 { counter-set: thm-delamatriceinversev1-2-1-3 0; }
+#thm-delamatriceinversev1-2-1-3 > li::marker { content: ""counter(thm-delamatriceinversev1-2-1-3,decimal)"."; }
+#thm-delamatriceinversev1-2-1-3 > li { counter-increment: thm-delamatriceinversev1-2-1-3; }
+#ex-algmat2-2-1-2 { counter-set: ex-algmat2-2-1-2 0; }
+#ex-algmat2-2-1-2 > li::marker { content: ""counter(ex-algmat2-2-1-2,decimal)"."; }
+#ex-algmat2-2-1-2 > li { counter-increment: ex-algmat2-2-1-2; }
+#exo-algmatpropex-2-1-1 { counter-set: exo-algmatpropex-2-1-1 0; }
+#exo-algmatpropex-2-1-1 > li::marker { content: "("counter(exo-algmatpropex-2-1-1,lower-alpha)")"; }
+#exo-algmatpropex-2-1-1 > li { counter-increment: exo-algmatpropex-2-1-1; }
+#exosage-matinverse-7-2-3-1 { counter-set: exosage-matinverse-7-2-3-1 0; }
+#exosage-matinverse-7-2-3-1 > li::marker { content: "("counter(exosage-matinverse-7-2-3-1,lower-alpha)")"; }
+#exosage-matinverse-7-2-3-1 > li { counter-increment: exosage-matinverse-7-2-3-1; }
+#sageex-transfodimsup-5-1 { counter-set: sageex-transfodimsup-5-1 0; }
+#sageex-transfodimsup-5-1 > li::marker { content: ""counter(sageex-transfodimsup-5-1,decimal)"."; }
+#sageex-transfodimsup-5-1 > li { counter-increment: sageex-transfodimsup-5-1; }
+#thm-invrect-2-1-3 { counter-set: thm-invrect-2-1-3 0; }
+#thm-invrect-2-1-3 > li::marker { content: ""counter(thm-invrect-2-1-3,decimal)"."; }
+#thm-invrect-2-1-3 > li { counter-increment: thm-invrect-2-1-3; }
+#exo-transfodimsup-9-1-2-2 { counter-set: exo-transfodimsup-9-1-2-2 0; }
+#exo-transfodimsup-9-1-2-2 > li::marker { content: "("counter(exo-transfodimsup-9-1-2-2,lower-alpha)")"; }
+#exo-transfodimsup-9-1-2-2 > li { counter-increment: exo-transfodimsup-9-1-2-2; }
+#projet-partieavantplan-1-1-1 { counter-set: projet-partieavantplan-1-1-1 0; }
+#projet-partieavantplan-1-1-1 > li::marker { content: ""counter(projet-partieavantplan-1-1-1,decimal)"."; }
+#projet-partieavantplan-1-1-1 > li { counter-increment: projet-partieavantplan-1-1-1; }
+#sec-transfolabos-4-6-1-1-5 { counter-set: sec-transfolabos-4-6-1-1-5 0; }
+#sec-transfolabos-4-6-1-1-5 > li::marker { content: ""counter(sec-transfolabos-4-6-1-1-5,decimal)"."; }
+#sec-transfolabos-4-6-1-1-5 > li { counter-increment: sec-transfolabos-4-6-1-1-5; }
+#sec-transfolabos-4-7-1-1-5 { counter-set: sec-transfolabos-4-7-1-1-5 0; }
+#sec-transfolabos-4-7-1-1-5 > li::marker { content: ""counter(sec-transfolabos-4-7-1-1-5,decimal)"."; }
+#sec-transfolabos-4-7-1-1-5 > li { counter-increment: sec-transfolabos-4-7-1-1-5; }
+#intro-SEL-3-2 { counter-set: intro-SEL-3-2 0; }
+#intro-SEL-3-2 > li::marker { content: ""counter(intro-SEL-3-2,decimal)"."; }
+#intro-SEL-3-2 > li { counter-increment: intro-SEL-3-2; }
+#def-opelem-2-1-3 { counter-set: def-opelem-2-1-3 0; }
+#def-opelem-2-1-3 > li::marker { content: ""counter(def-opelem-2-1-3,decimal)"."; }
+#def-opelem-2-1-3 > li { counter-increment: def-opelem-2-1-3; }
+#def-opelem-2-2-2 { counter-set: def-opelem-2-2-2 0; }
+#def-opelem-2-2-2 > li::marker { content: ""counter(def-opelem-2-2-2,decimal)"."; }
+#def-opelem-2-2-2 > li { counter-increment: def-opelem-2-2-2; }
+#ex-matelem-3-1-3 { counter-set: ex-matelem-3-1-3 0; }
+#ex-matelem-3-1-3 > li::marker { content: ""counter(ex-matelem-3-1-3,decimal)"."; }
+#ex-matelem-3-1-3 > li { counter-increment: ex-matelem-3-1-3; }
+#prop-mateleminverse-1-1-1 { counter-set: prop-mateleminverse-1-1-1 0; }
+#prop-mateleminverse-1-1-1 > li::marker { content: ""counter(prop-mateleminverse-1-1-1,decimal)"."; }
+#prop-mateleminverse-1-1-1 > li { counter-increment: prop-mateleminverse-1-1-1; }
+#li-rref-2 { counter-set: li-rref-2 0; }
+#li-rref-2 > li::marker { content: ""counter(li-rref-2,decimal)"."; }
+#li-rref-2 > li { counter-increment: li-rref-2; }
+#sssec-GJ-7-2-1-2 { counter-set: sssec-GJ-7-2-1-2 0; }
+#sssec-GJ-7-2-1-2 > li::marker { content: ""counter(sssec-GJ-7-2-1-2,decimal)"."; }
+#sssec-GJ-7-2-1-2 > li { counter-increment: sssec-GJ-7-2-1-2; }
+#prop-erlunique-3-1-3 { counter-set: prop-erlunique-3-1-3 0; }
+#prop-erlunique-3-1-3 > li::marker { content: ""counter(prop-erlunique-3-1-3,decimal)"."; }
+#prop-erlunique-3-1-3 > li { counter-increment: prop-erlunique-3-1-3; }
+#li-GJ-2 { counter-set: li-GJ-2 0; }
+#li-GJ-2 > li::marker { content: ""counter(li-GJ-2,decimal)"."; }
+#li-GJ-2 > li { counter-increment: li-GJ-2; }
+#li-GJpivdown-1-7 { counter-set: li-GJpivdown-1-7 0; }
+#li-GJpivdown-1-7 > li::marker { content: "("counter(li-GJpivdown-1-7,lower-alpha)")"; }
+#li-GJpivdown-1-7 > li { counter-increment: li-GJpivdown-1-7; }
+#ex-GJ-3-2-1 { counter-set: ex-GJ-3-2-1 0; }
+#ex-GJ-3-2-1 > li::marker { content: ""counter(ex-GJ-3-2-1,decimal)"."; }
+#ex-GJ-3-2-1 > li { counter-increment: ex-GJ-3-2-1; }
+#ex-GJ-3-2-1-1-1-3 { counter-set: ex-GJ-3-2-1-1-1-3 0; }
+#ex-GJ-3-2-1-1-1-3 > li::marker { content: "("counter(ex-GJ-3-2-1-1-1-3,lower-alpha)")"; }
+#ex-GJ-3-2-1-1-1-3 > li { counter-increment: ex-GJ-3-2-1-1-1-3; }
+#ex-GJ-3-2-1-2-2-1 { counter-set: ex-GJ-3-2-1-2-2-1 0; }
+#ex-GJ-3-2-1-2-2-1 > li::marker { content: "("counter(ex-GJ-3-2-1-2-2-1,lower-alpha)")"; }
+#ex-GJ-3-2-1-2-2-1 > li { counter-increment: ex-GJ-3-2-1-2-2-1; }
+#ex-GJ-3-2-1-3-2-1 { counter-set: ex-GJ-3-2-1-3-2-1 0; }
+#ex-GJ-3-2-1-3-2-1 > li::marker { content: "("counter(ex-GJ-3-2-1-3-2-1,lower-alpha)")"; }
+#ex-GJ-3-2-1-3-2-1 > li { counter-increment: ex-GJ-3-2-1-3-2-1; }
+#ex-GJ-3-2-1-5-1-2 { counter-set: ex-GJ-3-2-1-5-1-2 0; }
+#ex-GJ-3-2-1-5-1-2 > li::marker { content: "("counter(ex-GJ-3-2-1-5-1-2,lower-alpha)")"; }
+#ex-GJ-3-2-1-5-1-2 > li { counter-increment: ex-GJ-3-2-1-5-1-2; }
+#exo-matpermuelem-2-2-9 { counter-set: exo-matpermuelem-2-2-9 0; }
+#exo-matpermuelem-2-2-9 > li::marker { content: "("counter(exo-matpermuelem-2-2-9,lower-alpha)")"; }
+#exo-matpermuelem-2-2-9 > li { counter-increment: exo-matpermuelem-2-2-9; }
+#exo-GJ-6-2-4-1-1 { counter-set: exo-GJ-6-2-4-1-1 0; }
+#exo-GJ-6-2-4-1-1 > li::marker { content: "("counter(exo-GJ-6-2-4-1-1,lower-alpha)")"; }
+#exo-GJ-6-2-4-1-1 > li { counter-increment: exo-GJ-6-2-4-1-1; }
+#exo-mateleminverse-2-1-3 { counter-set: exo-mateleminverse-2-1-3 0; }
+#exo-mateleminverse-2-1-3 > li::marker { content: "("counter(exo-mateleminverse-2-1-3,lower-alpha)")"; }
+#exo-mateleminverse-2-1-3 > li { counter-increment: exo-mateleminverse-2-1-3; }
+#exo-opelemperm-2-1-3 { counter-set: exo-opelemperm-2-1-3 0; }
+#exo-opelemperm-2-1-3 > li::marker { content: "("counter(exo-opelemperm-2-1-3,lower-alpha)")"; }
+#exo-opelemperm-2-1-3 > li { counter-increment: exo-opelemperm-2-1-3; }
+#exo-sel3x3geo-3-2-2-1-1 { counter-set: exo-sel3x3geo-3-2-2-1-1 0; }
+#exo-sel3x3geo-3-2-2-1-1 > li::marker { content: "("counter(exo-sel3x3geo-3-2-2-1-1,lower-alpha)")"; }
+#exo-sel3x3geo-3-2-2-1-1 > li { counter-increment: exo-sel3x3geo-3-2-2-1-1; }
+#exo-sel3x3geo-3-3-2-1-1 { counter-set: exo-sel3x3geo-3-3-2-1-1 0; }
+#exo-sel3x3geo-3-3-2-1-1 > li::marker { content: "("counter(exo-sel3x3geo-3-3-2-1-1,lower-alpha)")"; }
+#exo-sel3x3geo-3-3-2-1-1 > li { counter-increment: exo-sel3x3geo-3-3-2-1-1; }
+#ex-4eq3inc-2-1-4 { counter-set: ex-4eq3inc-2-1-4 0; }
+#ex-4eq3inc-2-1-4 > li::marker { content: ""counter(ex-4eq3inc-2-1-4,decimal)"."; }
+#ex-4eq3inc-2-1-4 > li { counter-increment: ex-4eq3inc-2-1-4; }
+#algo-SELsol-2-1-4 { counter-set: algo-SELsol-2-1-4 0; }
+#algo-SELsol-2-1-4 > li::marker { content: ""counter(algo-SELsol-2-1-4,decimal)"."; }
+#algo-SELsol-2-1-4 > li { counter-increment: algo-SELsol-2-1-4; }
+#algo-SELsol-2-1-4-2-1-1 { counter-set: algo-SELsol-2-1-4-2-1-1 0; }
+#algo-SELsol-2-1-4-2-1-1 > li::marker { content: "("counter(algo-SELsol-2-1-4-2-1-1,lower-alpha)")"; }
+#algo-SELsol-2-1-4-2-1-1 > li { counter-increment: algo-SELsol-2-1-4-2-1-1; }
+#thm-delamatriceinversev2-2-1-3 { counter-set: thm-delamatriceinversev2-2-1-3 0; }
+#thm-delamatriceinversev2-2-1-3 > li::marker { content: ""counter(thm-delamatriceinversev2-2-1-3,decimal)"."; }
+#thm-delamatriceinversev2-2-1-3 > li { counter-increment: thm-delamatriceinversev2-2-1-3; }
+#exo-SELtheo-3-1-1-1 { counter-set: exo-SELtheo-3-1-1-1 0; }
+#exo-SELtheo-3-1-1-1 > li::marker { content: "("counter(exo-SELtheo-3-1-1-1,lower-alpha)")"; }
+#exo-SELtheo-3-1-1-1 > li { counter-increment: exo-SELtheo-3-1-1-1; }
+#exo-SELtheo-3-2-2-1-1 { counter-set: exo-SELtheo-3-2-2-1-1 0; }
+#exo-SELtheo-3-2-2-1-1 > li::marker { content: "("counter(exo-SELtheo-3-2-2-1-1,lower-alpha)")"; }
+#exo-SELtheo-3-2-2-1-1 > li { counter-increment: exo-SELtheo-3-2-2-1-1; }
+#exo-SELtheo-3-2-3-1-4 { counter-set: exo-SELtheo-3-2-3-1-4 0; }
+#exo-SELtheo-3-2-3-1-4 > li::marker { content: "("counter(exo-SELtheo-3-2-3-1-4,lower-alpha)")"; }
+#exo-SELtheo-3-2-3-1-4 > li { counter-increment: exo-SELtheo-3-2-3-1-4; }
+#exo-SELtheo-3-3-2-1-1 { counter-set: exo-SELtheo-3-3-2-1-1 0; }
+#exo-SELtheo-3-3-2-1-1 > li::marker { content: "("counter(exo-SELtheo-3-3-2-1-1,lower-alpha)")"; }
+#exo-SELtheo-3-3-2-1-1 > li { counter-increment: exo-SELtheo-3-3-2-1-1; }
+#exo-SELtheo-3-3-3-1-4 { counter-set: exo-SELtheo-3-3-3-1-4 0; }
+#exo-SELtheo-3-3-3-1-4 > li::marker { content: "("counter(exo-SELtheo-3-3-3-1-4,lower-alpha)")"; }
+#exo-SELtheo-3-3-3-1-4 > li { counter-increment: exo-SELtheo-3-3-3-1-4; }
+#thm-delamatriceinversev3-1-3-3 { counter-set: thm-delamatriceinversev3-1-3-3 0; }
+#thm-delamatriceinversev3-1-3-3 > li::marker { content: "("counter(thm-delamatriceinversev3-1-3-3,lower-alpha)")"; }
+#thm-delamatriceinversev3-1-3-3 > li { counter-increment: thm-delamatriceinversev3-1-3-3; }
+#ex-solbase1-2-1-1 { counter-set: ex-solbase1-2-1-1 0; }
+#ex-solbase1-2-1-1 > li::marker { content: ""counter(ex-solbase1-2-1-1,decimal)"."; }
+#ex-solbase1-2-1-1 > li { counter-increment: ex-solbase1-2-1-1; }
+#exo-prodvec-5-2-1-1 { counter-set: exo-prodvec-5-2-1-1 0; }
+#exo-prodvec-5-2-1-1 > li::marker { content: "("counter(exo-prodvec-5-2-1-1,lower-alpha)")"; }
+#exo-prodvec-5-2-1-1 > li { counter-increment: exo-prodvec-5-2-1-1; }
+#ssec-transpose-6-2-1-1 { counter-set: ssec-transpose-6-2-1-1 0; }
+#ssec-transpose-6-2-1-1 > li::marker { content: ""counter(ssec-transpose-6-2-1-1,decimal)"."; }
+#ssec-transpose-6-2-1-1 > li { counter-increment: ssec-transpose-6-2-1-1; }
+#prop-transposeeprop-2-1-6 { counter-set: prop-transposeeprop-2-1-6 0; }
+#prop-transposeeprop-2-1-6 > li::marker { content: ""counter(prop-transposeeprop-2-1-6,decimal)"."; }
+#prop-transposeeprop-2-1-6 > li { counter-increment: prop-transposeeprop-2-1-6; }
+#prop-fondlinalg-2-3 { counter-set: prop-fondlinalg-2-3 0; }
+#prop-fondlinalg-2-3 > li::marker { content: ""counter(prop-fondlinalg-2-3,decimal)"."; }
+#prop-fondlinalg-2-3 > li { counter-increment: prop-fondlinalg-2-3; }
+#sssec-factchgaire-6-1 { counter-set: sssec-factchgaire-6-1 0; }
+#sssec-factchgaire-6-1 > li::marker { content: ""counter(sssec-factchgaire-6-1,decimal)"."; }
+#sssec-factchgaire-6-1 > li { counter-increment: sssec-factchgaire-6-1; }
+#li-detdef2x2-2 { counter-set: li-detdef2x2-2 0; }
+#li-detdef2x2-2 > li::marker { content: ""counter(li-detdef2x2-2,decimal)"."; }
+#li-detdef2x2-2 > li { counter-increment: li-detdef2x2-2; }
+#li-det2x2prop-2 { counter-set: li-det2x2prop-2 0; }
+#li-det2x2prop-2 > li::marker { content: ""counter(li-det2x2prop-2,decimal)"."; }
+#li-det2x2prop-2 > li { counter-increment: li-det2x2prop-2; }
+#exo-aireparabc-ad-3-2-1 { counter-set: exo-aireparabc-ad-3-2-1 0; }
+#exo-aireparabc-ad-3-2-1 > li::marker { content: "("counter(exo-aireparabc-ad-3-2-1,lower-alpha)")"; }
+#exo-aireparabc-ad-3-2-1 > li { counter-increment: exo-aireparabc-ad-3-2-1; }
+#def-orientationR3-2-1-7 { counter-set: def-orientationR3-2-1-7 0; }
+#def-orientationR3-2-1-7 > li::marker { content: ""counter(def-orientationR3-2-1-7,decimal)"."; }
+#def-orientationR3-2-1-7 > li { counter-increment: def-orientationR3-2-1-7; }
+#li-detdef-2 { counter-set: li-detdef-2 0; }
+#li-detdef-2 > li::marker { content: ""counter(li-detdef-2,decimal)"."; }
+#li-detdef-2 > li { counter-increment: li-detdef-2; }
+#ex-det3x3-2-3-1-2 { counter-set: ex-det3x3-2-3-1-2 0; }
+#ex-det3x3-2-3-1-2 > li::marker { content: ""counter(ex-det3x3-2-3-1-2,decimal)"."; }
+#ex-det3x3-2-3-1-2 > li { counter-increment: ex-det3x3-2-3-1-2; }
+#prop-detmatelem-2-1-5 { counter-set: prop-detmatelem-2-1-5 0; }
+#prop-detmatelem-2-1-5 > li::marker { content: ""counter(prop-detmatelem-2-1-5,decimal)"."; }
+#prop-detmatelem-2-1-5 > li { counter-increment: prop-detmatelem-2-1-5; }
+#li-detprop-2 { counter-set: li-detprop-2 0; }
+#li-detprop-2 > li::marker { content: ""counter(li-detprop-2,decimal)"."; }
+#li-detprop-2 > li { counter-increment: li-detprop-2; }
+#li-detprop-2-1-1-1 { counter-set: li-detprop-2-1-1-1 0; }
+#li-detprop-2-1-1-1 > li::marker { content: "("counter(li-detprop-2-1-1-1,lower-alpha)")"; }
+#li-detprop-2-1-1-1 > li { counter-increment: li-detprop-2-1-1-1; }
+#thm-delamatriceinversev4-2-1-3 { counter-set: thm-delamatriceinversev4-2-1-3 0; }
+#thm-delamatriceinversev4-2-1-3 > li::marker { content: ""counter(thm-delamatriceinversev4-2-1-3,decimal)"."; }
+#thm-delamatriceinversev4-2-1-3 > li { counter-increment: thm-delamatriceinversev4-2-1-3; }
+#concl-detgen-1-1 { counter-set: concl-detgen-1-1 0; }
+#concl-detgen-1-1 > li::marker { content: ""counter(concl-detgen-1-1,decimal)"."; }
+#concl-detgen-1-1 > li { counter-increment: concl-detgen-1-1; }
+#exo-preuvedettranspo-2-2-1-2 { counter-set: exo-preuvedettranspo-2-2-1-2 0; }
+#exo-preuvedettranspo-2-2-1-2 > li::marker { content: "("counter(exo-preuvedettranspo-2-2-1-2,lower-alpha)")"; }
+#exo-preuvedettranspo-2-2-1-2 > li { counter-increment: exo-preuvedettranspo-2-2-1-2; }
+#exo-preuvedettranspo-2-2-1-4 { counter-set: exo-preuvedettranspo-2-2-1-4 0; }
+#exo-preuvedettranspo-2-2-1-4 > li::marker { content: "("counter(exo-preuvedettranspo-2-2-1-4,lower-alpha)")"; }
+#exo-preuvedettranspo-2-2-1-4 > li { counter-increment: exo-preuvedettranspo-2-2-1-4; }
+#sssec-mincof-3-1 { counter-set: sssec-mincof-3-1 0; }
+#sssec-mincof-3-1 > li::marker { content: ""counter(sssec-mincof-3-1,decimal)"."; }
+#sssec-mincof-3-1 > li { counter-increment: sssec-mincof-3-1; }
+#li-ssesp-2 { counter-set: li-ssesp-2 0; }
+#li-ssesp-2 > li::marker { content: ""counter(li-ssesp-2,decimal)"."; }
+#li-ssesp-2 > li { counter-increment: li-ssesp-2; }
+#ex-ssesp-2-1-3 { counter-set: ex-ssesp-2-1-3 0; }
+#ex-ssesp-2-1-3 > li::marker { content: ""counter(ex-ssesp-2-1-3,decimal)"."; }
+#ex-ssesp-2-1-3 > li { counter-increment: ex-ssesp-2-1-3; }
+#sssec-ssesp-10-2-1-2 { counter-set: sssec-ssesp-10-2-1-2 0; }
+#sssec-ssesp-10-2-1-2 > li::marker { content: ""counter(sssec-ssesp-10-2-1-2,decimal)"."; }
+#sssec-ssesp-10-2-1-2 > li { counter-increment: sssec-ssesp-10-2-1-2; }
+#prop-espfondcomportho-2-1-3 { counter-set: prop-espfondcomportho-2-1-3 0; }
+#prop-espfondcomportho-2-1-3 > li::marker { content: ""counter(prop-espfondcomportho-2-1-3,decimal)"."; }
+#prop-espfondcomportho-2-1-3 > li { counter-increment: prop-espfondcomportho-2-1-3; }
+#def-base-2-1-5 { counter-set: def-base-2-1-5 0; }
+#def-base-2-1-5 > li::marker { content: ""counter(def-base-2-1-5,decimal)"."; }
+#def-base-2-1-5 > li { counter-increment: def-base-2-1-5; }
+#ex-baseex-2-1-2 { counter-set: ex-baseex-2-1-2 0; }
+#ex-baseex-2-1-2 > li::marker { content: ""counter(ex-baseex-2-1-2,decimal)"."; }
+#ex-baseex-2-1-2 > li { counter-increment: ex-baseex-2-1-2; }
+#sssec-bases-7-2-1-1 { counter-set: sssec-bases-7-2-1-1 0; }
+#sssec-bases-7-2-1-1 > li::marker { content: ""counter(sssec-bases-7-2-1-1,decimal)"."; }
+#sssec-bases-7-2-1-1 > li { counter-increment: sssec-bases-7-2-1-1; }
+#prop-ensemblevecetdim-2-1-5 { counter-set: prop-ensemblevecetdim-2-1-5 0; }
+#prop-ensemblevecetdim-2-1-5 > li::marker { content: ""counter(prop-ensemblevecetdim-2-1-5,decimal)"."; }
+#prop-ensemblevecetdim-2-1-5 > li { counter-increment: prop-ensemblevecetdim-2-1-5; }
+#prop-ensemblevecetdim-2-1-5-3-1-2 { counter-set: prop-ensemblevecetdim-2-1-5-3-1-2 0; }
+#prop-ensemblevecetdim-2-1-5-3-1-2 > li::marker { content: "("counter(prop-ensemblevecetdim-2-1-5-3-1-2,lower-alpha)")"; }
+#prop-ensemblevecetdim-2-1-5-3-1-2 > li { counter-increment: prop-ensemblevecetdim-2-1-5-3-1-2; }
+#prop-baseesplignenul-2-1-4 { counter-set: prop-baseesplignenul-2-1-4 0; }
+#prop-baseesplignenul-2-1-4 > li::marker { content: ""counter(prop-baseesplignenul-2-1-4,decimal)"."; }
+#prop-baseesplignenul-2-1-4 > li { counter-increment: prop-baseesplignenul-2-1-4; }
+#prop-baseespcolnulg-2-1-9 { counter-set: prop-baseespcolnulg-2-1-9 0; }
+#prop-baseespcolnulg-2-1-9 > li::marker { content: ""counter(prop-baseespcolnulg-2-1-9,decimal)"."; }
+#prop-baseespcolnulg-2-1-9 > li { counter-increment: prop-baseespcolnulg-2-1-9; }
+#thm-delamatriceinversev5-2-1-3 { counter-set: thm-delamatriceinversev5-2-1-3 0; }
+#thm-delamatriceinversev5-2-1-3 > li::marker { content: ""counter(thm-delamatriceinversev5-2-1-3,decimal)"."; }
+#thm-delamatriceinversev5-2-1-3 > li { counter-increment: thm-delamatriceinversev5-2-1-3; }
+#prop-invgauchedroite-2-1-4 { counter-set: prop-invgauchedroite-2-1-4 0; }
+#prop-invgauchedroite-2-1-4 > li::marker { content: ""counter(prop-invgauchedroite-2-1-4,decimal)"."; }
+#prop-invgauchedroite-2-1-4 > li { counter-increment: prop-invgauchedroite-2-1-4; }
+#exo-4esp-19-5-1-1-1 { counter-set: exo-4esp-19-5-1-1-1 0; }
+#exo-4esp-19-5-1-1-1 > li::marker { content: "("counter(exo-4esp-19-5-1-1-1,lower-alpha)")"; }
+#exo-4esp-19-5-1-1-1 > li { counter-increment: exo-4esp-19-5-1-1-1; }
+#li-espacevectoriel-2 { counter-set: li-espacevectoriel-2 0; }
+#li-espacevectoriel-2 > li::marker { content: ""counter(li-espacevectoriel-2,decimal)"."; }
+#li-espacevectoriel-2 > li { counter-increment: li-espacevectoriel-2; }
+#ex-espacesvectoriels-2-1-1 { counter-set: ex-espacesvectoriels-2-1-1 0; }
+#ex-espacesvectoriels-2-1-1 > li::marker { content: ""counter(ex-espacesvectoriels-2-1-1,decimal)"."; }
+#ex-espacesvectoriels-2-1-1 > li { counter-increment: ex-espacesvectoriels-2-1-1; }
+#li-ssesp2-2 { counter-set: li-ssesp2-2 0; }
+#li-ssesp2-2 > li::marker { content: ""counter(li-ssesp2-2,decimal)"."; }
+#li-ssesp2-2 > li { counter-increment: li-ssesp2-2; }
+#li-propespaces-2 { counter-set: li-propespaces-2 0; }
+#li-propespaces-2 > li::marker { content: ""counter(li-propespaces-2,decimal)"."; }
+#li-propespaces-2 > li { counter-increment: li-propespaces-2; }
+#sec-espaces-3-15-2-1-1 { counter-set: sec-espaces-3-15-2-1-1 0; }
+#sec-espaces-3-15-2-1-1 > li::marker { content: ""counter(sec-espaces-3-15-2-1-1,decimal)"."; }
+#sec-espaces-3-15-2-1-1 > li { counter-increment: sec-espaces-3-15-2-1-1; }
+#sec-espaces-3-17-2-3-3 { counter-set: sec-espaces-3-17-2-3-3 0; }
+#sec-espaces-3-17-2-3-3 > li::marker { content: ""counter(sec-espaces-3-17-2-3-3,decimal)"."; }
+#sec-espaces-3-17-2-3-3 > li { counter-increment: sec-espaces-3-17-2-3-3; }
+#ex-basepoly2-2-1-5 { counter-set: ex-basepoly2-2-1-5 0; }
+#ex-basepoly2-2-1-5 > li::marker { content: ""counter(ex-basepoly2-2-1-5,decimal)"."; }
+#ex-basepoly2-2-1-5 > li { counter-increment: ex-basepoly2-2-1-5; }
+#ex-espacesetdimension-2-1-1 { counter-set: ex-espacesetdimension-2-1-1 0; }
+#ex-espacesetdimension-2-1-1 > li::marker { content: ""counter(ex-espacesetdimension-2-1-1,decimal)"."; }
+#ex-espacesetdimension-2-1-1 > li { counter-increment: ex-espacesetdimension-2-1-1; }
+#sec-espaces-4-3-2-1-3 { counter-set: sec-espaces-4-3-2-1-3 0; }
+#sec-espaces-4-3-2-1-3 > li::marker { content: ""counter(sec-espaces-4-3-2-1-3,decimal)"."; }
+#sec-espaces-4-3-2-1-3 > li { counter-increment: sec-espaces-4-3-2-1-3; }
+#concl-espaces-1-1 { counter-set: concl-espaces-1-1 0; }
+#concl-espaces-1-1 > li::marker { content: ""counter(concl-espaces-1-1,decimal)"."; }
+#concl-espaces-1-1 > li { counter-increment: concl-espaces-1-1; }
+#exo-espaces-15-2-2-2-1-2-5 { counter-set: exo-espaces-15-2-2-2-1-2-5 0; }
+#exo-espaces-15-2-2-2-1-2-5 > li::marker { content: "("counter(exo-espaces-15-2-2-2-1-2-5,lower-alpha)")"; }
+#exo-espaces-15-2-2-2-1-2-5 > li { counter-increment: exo-espaces-15-2-2-2-1-2-5; }
+#sec-espaceslabos-3-7-1-2-1 { counter-set: sec-espaceslabos-3-7-1-2-1 0; }
+#sec-espaceslabos-3-7-1-2-1 > li::marker { content: ""counter(sec-espaceslabos-3-7-1-2-1,decimal)"."; }
+#sec-espaceslabos-3-7-1-2-1 > li { counter-increment: sec-espaceslabos-3-7-1-2-1; }
+#thm-delamatriceinversev6-2-1-3 { counter-set: thm-delamatriceinversev6-2-1-3 0; }
+#thm-delamatriceinversev6-2-1-3 > li::marker { content: ""counter(thm-delamatriceinversev6-2-1-3,decimal)"."; }
+#thm-delamatriceinversev6-2-1-3 > li { counter-increment: thm-delamatriceinversev6-2-1-3; }
+#prop-effetvalpropre-2-1-3 { counter-set: prop-effetvalpropre-2-1-3 0; }
+#prop-effetvalpropre-2-1-3 > li::marker { content: ""counter(prop-effetvalpropre-2-1-3,decimal)"."; }
+#prop-effetvalpropre-2-1-3 > li { counter-increment: prop-effetvalpropre-2-1-3; }
+#exo-transfor2vecpropres-2-1-1 { counter-set: exo-transfor2vecpropres-2-1-1 0; }
+#exo-transfor2vecpropres-2-1-1 > li::marker { content: "("counter(exo-transfor2vecpropres-2-1-1,lower-alpha)")"; }
+#exo-transfor2vecpropres-2-1-1 > li { counter-increment: exo-transfor2vecpropres-2-1-1; }
+#exo-transfor2vecpropres-3-1-2 { counter-set: exo-transfor2vecpropres-3-1-2 0; }
+#exo-transfor2vecpropres-3-1-2 > li::marker { content: "("counter(exo-transfor2vecpropres-3-1-2,lower-alpha)")"; }
+#exo-transfor2vecpropres-3-1-2 > li { counter-increment: exo-transfor2vecpropres-3-1-2; }
+#exo-transfor2vecpropres-3-1-2-2-1-1 { counter-set: exo-transfor2vecpropres-3-1-2-2-1-1 0; }
+#exo-transfor2vecpropres-3-1-2-2-1-1 > li::marker { content: ""counter(exo-transfor2vecpropres-3-1-2-2-1-1,lower-roman)"."; }
+#exo-transfor2vecpropres-3-1-2-2-1-1 > li { counter-increment: exo-transfor2vecpropres-3-1-2-2-1-1; }
+#exo-transfor2vecpropres-3-1-2-4-1-1 { counter-set: exo-transfor2vecpropres-3-1-2-4-1-1 0; }
+#exo-transfor2vecpropres-3-1-2-4-1-1 > li::marker { content: ""counter(exo-transfor2vecpropres-3-1-2-4-1-1,lower-roman)"."; }
+#exo-transfor2vecpropres-3-1-2-4-1-1 > li { counter-increment: exo-transfor2vecpropres-3-1-2-4-1-1; }
+#exo-transfor2vecpropres-3-1-2-4-1-2 { counter-set: exo-transfor2vecpropres-3-1-2-4-1-2 0; }
+#exo-transfor2vecpropres-3-1-2-4-1-2 > li::marker { content: ""counter(exo-transfor2vecpropres-3-1-2-4-1-2,lower-roman)"."; }
+#exo-transfor2vecpropres-3-1-2-4-1-2 > li { counter-increment: exo-transfor2vecpropres-3-1-2-4-1-2; }
+#exo-transfor2vecpropres-3-1-2-6-1-1 { counter-set: exo-transfor2vecpropres-3-1-2-6-1-1 0; }
+#exo-transfor2vecpropres-3-1-2-6-1-1 > li::marker { content: ""counter(exo-transfor2vecpropres-3-1-2-6-1-1,lower-roman)"."; }
+#exo-transfor2vecpropres-3-1-2-6-1-1 > li { counter-increment: exo-transfor2vecpropres-3-1-2-6-1-1; }
+#exo-transfor2vecpropres-3-1-2-7-1-1 { counter-set: exo-transfor2vecpropres-3-1-2-7-1-1 0; }
+#exo-transfor2vecpropres-3-1-2-7-1-1 > li::marker { content: ""counter(exo-transfor2vecpropres-3-1-2-7-1-1,lower-roman)"."; }
+#exo-transfor2vecpropres-3-1-2-7-1-1 > li { counter-increment: exo-transfor2vecpropres-3-1-2-7-1-1; }
+#li-simplexe-2 { counter-set: li-simplexe-2 0; }
+#li-simplexe-2 > li::marker { content: ""counter(li-simplexe-2,decimal)"."; }
+#li-simplexe-2 > li { counter-increment: li-simplexe-2; }
+#sec-simplexe-4-24-3-1-1 { counter-set: sec-simplexe-4-24-3-1-1 0; }
+#sec-simplexe-4-24-3-1-1 > li::marker { content: ""counter(sec-simplexe-4-24-3-1-1,decimal)"."; }
+#sec-simplexe-4-24-3-1-1 > li { counter-increment: sec-simplexe-4-24-3-1-1; }
+#sec-simplexe-4-24-3-1-2 { counter-set: sec-simplexe-4-24-3-1-2 0; }
+#sec-simplexe-4-24-3-1-2 > li::marker { content: ""counter(sec-simplexe-4-24-3-1-2,decimal)"."; }
+#sec-simplexe-4-24-3-1-2 > li { counter-increment: sec-simplexe-4-24-3-1-2; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Sauter au contenu</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://jeansebastienturcotte.github.io/ALIR/alir.html"><img src="external/images/frontcover160x200.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="alir.html"><span class="title">Algèbre linéaire:</span> <span class="subtitle">Intuition et rigueur</span></a></h1>
+<p class="byline">Jean-Sébastien Turcotte, Philémon Turcotte</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Table des matières"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Table des matières</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Résultats de la recherche: </h2>
+<div id="searchempty" class="searchempty"><span>Aucun résultat.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="frontmatter.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="frontmatter.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="frontmatter-3.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}  
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}    
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}   
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter contains-active">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Pages Liminaires</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-colophon active"><div class="toc-title-box"><a href="frontmatter-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-dedication"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">Dédicace</span></a></div></li>
+<li class="toc-item toc-acknowledgement"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">Remerciements</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Préface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="messageeleve.html" class="internal"><span class="title">Un message pour l’élève</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="utilisation.html" class="internal"><span class="title">Comment utiliser les fonctionnalités de ce manuel</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="versions.html" class="internal"><span class="title">Versions et source</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-vec.html" class="internal"><span class="codenumber">1</span> <span class="title">Les vecteurs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vec.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Vecteurs géométriques et algébriques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vec.html#sssec-defvec" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Vecteurs à deux et à trois dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vec.html#sssec-opvec" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Opérations sur les vecteurs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vec.html#sssec-utvec" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Utilisation de méthodes vectorielles en géométrie</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vec.html#exo-vec" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-prodscal.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Produit scalaire et calcul d’angles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-prodscal.html#sssec-angle2vec" class="internal"><span class="codenumber">1.2.1</span> <span class="title">L’angle entre deux vecteurs de dimensions deux</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-prodscal.html#sssec-prodscal" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Le produit scalaire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-prodscal.html#ssec-projortho" class="internal"><span class="codenumber">1.2.3</span> <span class="title">La projection orthogonale</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-prodscal.html#exo-prodscal" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-droitesplans.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Droites et plans</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-droitesplans.html#sssec-droites" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Les droites</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-droitesplans.html#sssec-plans" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Les plans</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-droitesplans.html#sssec-distances" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Distances</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-droitesplans.html#exo-droitesplans" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vecndim.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vecteurs dans <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vecndim.html#sssec-defopvecn" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Définition et opérations sur les vecteurs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vecndim.html#sssec-prodscalndim" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Le produit scalaire et le calcul d’angle en dimension supérieure</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vecndim.html#sssec-droitesplanrn" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Espace engendré</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vecndim.html#exo-vecndim" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-veclabos.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-transfo.html" class="internal"><span class="codenumber">2</span> <span class="title">Les transformations linéaires: première partie</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-transfodef.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Les transformations linéaires</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-transfodef.html#sssec-deftransfo" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Définition et premiers exemples de transformations linéaires</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-transfodef.html#sssec-transfomatrice" class="internal"><span class="codenumber">2.1.2</span> <span class="title">La forme matricielle d’une transformation linéaire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-transfodef.html#sssec-opmat" class="internal"><span class="codenumber">2.1.3</span> <span class="title">L’addition matricielle et la multiplication par un scalaire</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-transfodef.html#exo-transfodef" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-prodmat.html" class="internal"><span class="codenumber">2.2</span> <span class="title">La composition et le produit matriciel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-prodmat.html#prodmatdef" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Le produit matriciel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-prodmat.html#sssec-prodmatprop" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Les propriétés du produit matriciel</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-prodmat.html#exo-prodmat" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matinverse.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Transformations inverses</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matinverse.html#sssec-invgeo" class="internal"><span class="codenumber">2.3.1</span> <span class="title">L’inverse de transformations géométriques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matinverse.html#sssec-inv2x2" class="internal"><span class="codenumber">2.3.2</span> <span class="title">L’inverse d’une transformation linéaire du plan</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matinverse.html#sssec-matinv" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Définition formelle de l’inverse d’une matrice carrée</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matinverse.html#sssec-propinv" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Propriétés de la matrice inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matinverse.html#sssec-algmat" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Algèbre matricielle</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matinverse.html#exo-matinverse" class="internal"><span class="codenumber">2.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-transfodimsup.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Transformations linéaires de dimension supérieure</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-transfodimsup.html#sssec-transfor3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Transformations linéaires dans l’espace à trois dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-transfodimsup.html#ssec-transfogen" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Transformations de dimension quelconque</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-transfodimsup.html#exo-transfodimsup" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-transfolabos.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-SEL.html" class="internal"><span class="codenumber">3</span> <span class="title">Les systèmes d’équations linéaires</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-GJ.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Les systèmes d’équations linéaires et la méthode de Gauss-Jordan</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-GJ.html#sssec-SELdef" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Définition et exemples simples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-GJ.html#sssec-opelem" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Opérations et matrices élémentaires</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-GJ.html#sssec-GJ" class="internal"><span class="codenumber">3.1.3</span> <span class="title">La méthode de Gauss-Jordan</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-GJ.html#exo-GJ" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-SELtheo.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Les systèmes qui n’ont aucune ou  ayant une infinité de solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-SELtheo.html#sssec-nbsol" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Le nombre de solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-SELtheo.html#ssec-rang" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Le rang d’une matrice</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-SELtheo.html#exo-SELtheo" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-SELgeo.html" class="internal"><span class="codenumber">3.3</span> <span class="title">La géométrie des systèmes d’équations linéaires</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-SELgeo.html#sssec-transfozero" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Les zéros d’une transformation linéaire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-SELgeo.html#sec-SELgeo-4" class="internal"><span class="codenumber">3.3.2</span> <span class="title">L’image d’une transformation linéaire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-SELgeo.html#sssec-solgen" class="internal"><span class="codenumber">3.3.3</span> <span class="title">La solution générale à <span class="process-math">\(A\vec{x}=\vec{b}\text{.}\)</span></span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-SELgeo.html#exo-SELgeo" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-transposee.html" class="internal"><span class="codenumber">3.4</span> <span class="title">La transposée d’une matrice</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-transposee.html#ssec-transpose" class="internal"><span class="codenumber">3.4.1</span> <span class="title">La transposée d’une matrice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-transposee.html#sssec-4esp" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Quatre ensembles particuliers de vecteurs</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-transposee.html#exo-transposee" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-SELlabos.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-det.html" class="internal"><span class="codenumber">4</span> <span class="title">Le déterminant d’une matrice</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-det2x2.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Le déterminant <span class="process-math">\(2\times 2\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-det2x2.html#sssec-factchgaire" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Le facteur de changement d’aire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-det2x2.html#sec-det2x2-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Définition du déterminant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-det2x2.html#sec-det2x2-5" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Propriétés du déterminant</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-det2x2.html#exo-det2x2" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-detgen.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Le déterminant d’une matrice <span class="process-math">\(n\times n\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-detgen.html#sssec-detR3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">L’espace à trois dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-detgen.html#sec-detgen-4" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Le déterminant</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-detgen.html#exo-detgen" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cofacteurs.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Les mineurs et les cofacteurs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cofacteurs.html#ssec-det3x3formule" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Une formule pour le cas <span class="process-math">\(3\times 3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cofacteurs.html#sssec-mincof" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Les mineurs et les cofacteurs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cofacteurs.html#sssec-adjointe" class="internal"><span class="codenumber">4.3.3</span> <span class="title">La matrice adjointe</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cofacteurs.html#exo-cofacteurs" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-espvec.html" class="internal"><span class="codenumber">5</span> <span class="title">Espaces vectoriels</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ssesp.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Sous-espaces vectoriels</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ssesp.html#sssec-ssesp" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Sous-espace</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ssesp.html#sssec-quatressesp" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Les quatre sous-espaces vectoriels</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ssesp.html#exo-ssesp" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-bases.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Base d’un sous-espace vectoriel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-bases.html#sssec-indlin" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Indépendance linéaire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-bases.html#sssec-bases" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Base d’un sous-espace vectoriel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-bases.html#sssec-dim" class="internal"><span class="codenumber">5.2.3</span> <span class="title">La dimension d’un sous-espace vectoriel</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-bases.html#exo-bases" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-4esp.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Retour sur les quatre sous-espaces fondamentaux</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-4esp.html#sec-4esp-3" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Une base pour les sous-espaces fondamentaux</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-4esp.html#sec-4esp-4" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Quelques résultats supplémentaires</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-4esp.html#sec-4esp-5" class="internal"><span class="codenumber">5.3.3</span> <span class="title">La géométrie de la transposée et un retour sur l’inverse à gauche et à droite</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-4esp.html#exo-4esp" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-espaces.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Espaces vectoriels</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-espaces.html#sec-espaces-3" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Espace vectoriel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-espaces.html#sec-espaces-4" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Quelques espaces importants</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-espaces.html#exo-espaces" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-espaceslabos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-propres.html" class="internal"><span class="codenumber">6</span> <span class="title">Vecteurs et valeurs propres</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-propre.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Vecteurs et valeurs propres</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propre.html#sec-propre-3" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Vecteurs et valeurs propres</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propre.html#sec-propre-4" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Polynôme caractéristique et espace propre</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propre.html#sec-propre-5" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Quelques résultats</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-propre.html#exo-propres" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-diagonalisation.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Diagonalisation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diagonalisation.html#sec-diagonalisation-3" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Diagonalisation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diagonalisation.html#sec-diagonalisation-4" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Changement de base</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diagonalisation.html#sec-diagonalisation-5" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Quelques résultats</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-diagonalisation.html#exo-diagonalisation" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-propreslabos.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Activités et laboratoires</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-applications.html" class="internal"><span class="codenumber">7</span> <span class="title">Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Markov.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Chaines de Markov</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Markov.html#sec-Markov-3" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Définition et exemples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Markov.html#sec-Markov-4" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Le comportement limite</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Markov.html#sec-Markov-5" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Un peu plus loin</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Markov.html#exo-Markov" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-simplexe.html" class="internal"><span class="codenumber">7.2</span> <span class="title">La programmation linéaire</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-simplexe.html#sec-simplexe-3" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Approche graphique à un problème d’optimisation linéaire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-simplexe.html#sec-simplexe-4" class="internal"><span class="codenumber">7.2.2</span> <span class="title">L’algorithme du simplexe</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-simplexe.html#sssec-proglinmin" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Problèmes de minimisation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-simplexe.html#sec-simplexe-6" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Un peu plus loin</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-simplexe.html#exo-simplexe" class="internal"><span class="codenumber">7.2.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="colophon" id="frontmatter-2"><h2 class="heading hide-type">
+<span class="type">Colophon</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Colophon</span>
+</h2>
+<p class="credit"><b class="title">Édition</b> Première édition</p>
+<p class="credit"><b class="title">Site Web</b> <a class="external" href="https://jeansebastienturcotte.github.io/ALIR/alir.html" target="_blank">https://jeansebastienturcotte.github.io/ALIR/alir.html</a><details class="ptx-footnote" aria-live="polite" id="frontmatter-2-2-2"><summary class="ptx-footnote__number" title="Note de bas de page 0.0.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="frontmatter-2-2-2"><code class="code-inline tex2jax_ignore">jeansebastienturcotte.github.io/ALIR/alir.html</code></div></details></p>
+<p class="copyright">©2019–2023 Jean-Sébastien Turcotte</p>
+<p class="license">Sauf indications contraires, le contenu de ce manuel électronique est disponible en vertu des conditions de la licence "Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International (CC BY-SA 4.0)", qu’il est possible de consulter à l’adresse <a class="external" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank">suivante</a><details class="ptx-footnote" aria-live="polite" id="frontmatter-2-3-4-2"><summary class="ptx-footnote__number" title="Note de bas de page 0.0.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="frontmatter-2-3-4-2"><code class="code-inline tex2jax_ignore">https://creativecommons.org/licenses/by-sa/4.0/deed.fr</code></div></details>, symbolisée par le logo ci-dessous. <div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/images/CC-BY-SA-license.svg" role="img" class="contained"></div> <em class="emphasis">Vous êtes autorisé(e) à :</em> <dl class="description-list">
+<dt id="frontmatter-2-3-4-5-1">Partager—</dt>
+<dd><div class="para" id="frontmatter-2-3-4-5-1-2">copier, distribuer et communiquer le matériel par tous moyens et sous tous formats.</div></dd>
+<dt id="frontmatter-2-3-4-5-2">Adapter—</dt>
+<dd><div class="para" id="frontmatter-2-3-4-5-2-2">remixer, transformer et créer à partir du matériel pour toute utilisation, y compris commerciale.</div></dd>
+</dl> <em class="emphasis">Selon les conditions suivantes :</em> <dl class="description-list">
+<dt id="frontmatter-2-3-4-7-1">Attribution —</dt>
+<dd><div class="para" id="frontmatter-2-3-4-7-1-2">Vous devez créditer l’Oeuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées à l’Oeuvre. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l’Offrant vous soutient ou soutient la façon dont vous avez utilisé son Oeuvre.</div></dd>
+<dt id="frontmatter-2-3-4-7-2">Partage dans les Mêmes Conditions —</dt>
+<dd><div class="para" id="frontmatter-2-3-4-7-2-2">Dans le cas où vous effectuez un remix, que vous transformez, ou créez à partir du matériel composant l’Oeuvre originale, vous devez diffuser l’Oeuvre modifiée dans les mêmes conditions, c’est-à-dire avec la même licence avec laquelle l’Oeuvre originale a été diffusée.</div></dd>
+<dt id="frontmatter-2-3-4-7-3">Pas de restrictions complémentaires—</dt>
+<dd><div class="para" id="frontmatter-2-3-4-7-3-2">Vous n’êtes pas autorisé(e) à appliquer des conditions légales ou des mesures techniques qui restreindraient légalement autrui à utiliser l’Oeuvre dans les conditions décrites par la licence.</div></dd>
+</dl>Tout le contenu Geogebra de ce manuel est sous licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 International, qu’il est possible de consulter à l’adresse <a class="external" href="https://www.geogebra.org/license" target="_blank">suivante</a><details class="ptx-footnote" aria-live="polite" id="frontmatter-2-3-5-2"><summary class="ptx-footnote__number" title="Note de bas de page 0.0.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="frontmatter-2-3-5-2"><code class="code-inline tex2jax_ignore">https://www.geogebra.org/license</code></div></details>. Ce contenu est identifié avec la phrase “Fait avec Geogebra”.</p>
+<section class="paragraphs" id="frontmatter-2-4"><h2 class="heading"><span class="title">Pour citer ce document :.</span></h2> <div class="para" id="frontmatter-2-4-2">Turcotte, J-S. (2023). Algèbre linéaire : Intuition et rigueur. Cégep Gérald-Godin. Sous licence CC BY-SA 4.0</div></section><section class="paragraphs" id="frontmatter-2-5"><h2 class="heading"><span class="title">Page couverture :.</span></h2> <div class="para" id="frontmatter-2-5-2">La page couverture est une  Œuvre du photographe <a class="external" href="https://picjumbo.com/author/viktorhanacek/" target="_blank">Viktor Hanacek</a><details class="ptx-footnote" aria-live="polite" id="frontmatter-2-5-2-2"><summary class="ptx-footnote__number" title="Note de bas de page 0.0.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="frontmatter-2-5-2-2"><code class="code-inline tex2jax_ignore">https://picjumbo.com/author/viktorhanacek/</code></div></details> intitulée <i class="foreign">Railway in The Fog</i>. Elle provient du site  <a class="external" href="https://picjumbo.com/railway-in-the-fog/" target="_blank">Picjumbo</a><details class="ptx-footnote" aria-live="polite" id="frontmatter-2-5-2-5"><summary class="ptx-footnote__number" title="Note de bas de page 0.0.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="frontmatter-2-5-2-5"><code class="code-inline tex2jax_ignore">https://picjumbo.com/railway-in-the-fog/</code></div></details> et est rendue disponible gratuitement par l’auteur.</div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="frontmatter.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="frontmatter-3.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

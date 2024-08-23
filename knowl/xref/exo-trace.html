@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">16<span class="period">.</span></span><span class="space"> </span><span class="title">La trace d’une matrice.</span>
+</h5>
+<div class="introduction"><div class="para logical">
+<div class="para">On définit la trace d’une matrice carrée, notée <span class="process-math">\(\text{tr}(A)\)</span> comme la somme des éléments sur sa diagonale principale:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{tr}(A)=a_{1\,1}+a_{2\, 2}+\cdots +a_{n\, n}\text{.}
+\end{equation*}
+</div>
+</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para">Montrer que <span class="process-math">\(\text{tr}(A+B)=\text{tr}(A)+\text{tr}(B)\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Puisque l’addition de matrice se fait entrée par entrée, il s’ensuit que la diagonale de <span class="process-math">\(A+B\)</span> est formée des valeurs <span class="process-math">\(a_{i\,i}+b_{i\,i}\text{.}\)</span> La trace est donc</div>
+<div class="displaymath process-math">
+\begin{align*}
+\text{tr}(A+B)&amp;=a_{1\,1}+b_{1\,1}+a_{2\,2}+b_{2\,2}+\cdots +a_{n\,n}+b_{n\,n}\\
+&amp;=a_{1\,1}+a_{2\,2}+\cdots +a_{n\,n}+b_{1\,1}+b_{2\,2}+\cdots +b_{n\,n}\\
+&amp;\text{tr}(A)+\text{tr}(B)\text{.}
+\end{align*}
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para">Montrer que <span class="process-math">\(\text{tr}(cA)=c \text{tr}(A)\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">De même, la multiplication par un scalaire se fait aussi en multipliant chaque entrée par le scalaire. Il s’ensuit que la diagonale est composée des valeurs <span class="process-math">\(ca_{i\,i}\text{.}\)</span> On a donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{tr}(cA)=ca_{1\,1}+ca_{2\,2}+\cdots +ca_{n\,n}=c(a_{1\,1}+a_{2\, 2}+\cdots +a_{n\, n})=c \text{tr}(A)
+\end{equation*}
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para">Montrer que <span class="process-math">\(\text{tr}(A^T)=\text{tr}(A)\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">Comme les entrées sur la diagonale principale ne changent pas lors du passage à la transposée, la trace est la même.</div></div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para">Montrer que <span class="process-math">\(\text{tr}(AB)=\text{tr}(BA)\text{.}\)</span>
+</div>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para logical">
+<div class="para">Montrer qu’un élément sur la diagonale de <span class="process-math">\(AB\)</span> est de la forme</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_{i}=a_{i\,1}b_{1,i}+a_{i\,2}b_{2,i}+\cdots +a_{i\,n}b_{n,i}
+\end{equation*}
+</div>
+<div class="para">et qu’un élément sur la diagonale de <span class="process-math">\(BA\)</span> est de la forme</div>
+<div class="displaymath process-math">
+\begin{equation*}
+d_{i}=a_{1,i}b_{i\,1}+a_{2,i}b_{i\,2}+\cdots +a_{n,i}b_{i\,n}\text{.}
+\end{equation*}
+</div>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Les entrées sur la diagonale de la matrice <span class="process-math">\(C=AB\)</span> s’obtiennent en effectuant le produit scalaire de la ligne <span class="process-math">\(i\)</span> de <span class="process-math">\(A\)</span> avec la colonne <span class="process-math">\(i\)</span> de <span class="process-math">\(B\text{.}\)</span> Donc, pour l’entrée en position <span class="process-math">\(i\)</span> du produit, on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_{i}=a_{i\,1}b_{1\,i}+a_{i\,2}b_{2\,i}+\cdots +a_{i\,n}b_{n\,i}\text{.}
+\end{equation*}
+</div>
+<div class="para">La trace est donnée par la somme des <span class="process-math">\(c_i\text{.}\)</span> En écrivant chaque entrée sur une ligne, la trace est donnée par la somme de tous les produits <span class="process-math">\(a_{i,j}b_{j,i}\)</span> ci-dessous:</div>
+<div class="displaymath process-math">
+\begin{alignat*}{4}
+c_{1}&amp;=a_{1\,1}b_{1,1}&amp;&amp;+a_{1\,2}b_{2,1}&amp;&amp;+\cdots &amp;&amp;+a_{1\,n}b_{n,1}\\
+c_{2}&amp;=a_{2\,1}b_{1,2}&amp;&amp;+a_{2\,2}b_{2,2}&amp;&amp;+\cdots &amp;&amp;+a_{2\,n}b_{n,2}\\
+\vdots&amp;=\phantom{a_22}\vdots&amp;&amp;+\phantom{a_22}\vdots&amp;&amp;+\ddots&amp;&amp;+\phantom{a_22}\vdots\\
+c_{n}&amp;=a_{n\,1}b_{1,i}&amp;&amp;+a_{n\,2}b_{2,n}&amp;&amp;+\cdots &amp;&amp;+a_{n\,n}b_{n,n}\text{.}
+\end{alignat*}
+</div>
+</div> <div class="para logical">
+<div class="para">Pour la matrice <span class="process-math">\(D=BA\text{,}\)</span> on a plutôt</div>
+<div class="displaymath process-math">
+\begin{equation*}
+d_{i}=b_{i\,1}a_{1\,i}+b_{i\,2}a_{2\,i}+\cdots +b_{i\,n}a_{n\,i}=a_{1\,i}b_{i\,1}+a_{2\,i}b_{i\,2}+\cdots +a_{n\,i}b_{i\,n}\text{.}
+\end{equation*}
+</div>
+<div class="para">La trace est la somme de ces valeurs. Dans la liste de tous les <span class="process-math">\(c_i\text{,}\)</span> cela correspond à faire la somme sur les colonnes en premier plutôt que sur les lignes. Par exemple <span class="process-math">\(d_1\)</span> se retrouve dans le tableau des <span class="process-math">\(c_i\)</span> dans la première colonne. Comme l’addition est commutative, faire la somme sur de toutes les lignes ou faire la somme de toutes les colonnes revient à la même chose. On a alors <span class="process-math">\(\text{tr}(AB)=\text{tr}(BA)\text{.}\)</span>
+</div>
+</div>
+</div></details>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="introduction"><div class="para logical">
+<div class="para">On définit sur l’espace des matrices <span class="process-math">\(\mathcal{M}_{n\times n}\)</span> le produit scalaire suivant:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\langle A~ |~ B\rangle=\text{tr}(A^TB)
+\end{equation*}
+</div>
+</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para">Montrer que le produit scalaire en est bel et bien un en vérifiant les quatre propriétés.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Dans un premier temps, on veut montrer que <span class="process-math">\(\langle A~ |~ B\rangle=\langle B~ |~ A\rangle\text{,}\)</span> c’est-à-dire que <span class="process-math">\(\text{tr}(A^TB)=\text{tr}(B^TA).\)</span> Puisque <span class="process-math">\((A^TB)^T=B^TA\text{,}\)</span> il s’ensuit de l’exercice <a href="sec-espaces.html#exo-tracetransposee" class="xref" data-knowl="./knowl/xref/exo-tracetransposee.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 5.4.3.16.c">5.4.3.16.c</a> que ce produit scalaire est commutatif.</div> <div class="para logical">
+<div class="para">Il découle des propriétés de la multiplication matricielle que <span class="process-math">\(\langle rA~ |~ B\rangle=\langle A~ |~ rB\rangle=r\langle A~ |~ B\rangle\)</span> puisque</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-transposeeprop.html ./knowl/xref/prop-prodmatprop.html ./knowl/xref/prop-prodmatprop.html">
+\begin{align*}
+\langle rA~ |~ B\rangle&amp;=\text{tr}((rA)^TB)\\
+&amp;=\text{tr}(rA^TB)&amp; \text{selon la deuxième propriété de la proposition } \knowl{./knowl/xref/prop-transposeeprop.html}{\text{3.4.3}}\\
+&amp;=\text{tr}(A^TrB)&amp; \text{selon la troisième propriété de la proposition } \knowl{./knowl/xref/prop-prodmatprop.html}{\text{2.2.12}}\\
+&amp;=\langle A~ |~ rB\rangle\\
+&amp;=\text{tr}(A^TrB)\\
+&amp;=r(A^TB)&amp;\text{selon la troisième propriété de la proposition } \knowl{./knowl/xref/prop-prodmatprop.html}{\text{2.2.12}}\\
+&amp;=r\langle A~ |~ B\rangle\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">Selon les propriétés de l’addition matricielle, de la transposée et de la trace, on a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-transposeeprop.html ./knowl/xref/prop-prodmatprop.html ./knowl/xref/exo-tracesomme.html">
+\begin{align*}
+\langle A+B~ |~ C\rangle&amp;=\text{tr}((A+B)^TC)\\
+&amp;=\text{tr}((A^T+B^T)C) &amp;\text{ selon la troisième propriété de la proposition} \knowl{./knowl/xref/prop-transposeeprop.html}{\text{3.4.3}}\\
+&amp;=\text{tr}(A^TC+B^TC)&amp; \text{ selon la deuxième propriété de la proposition}\knowl{./knowl/xref/prop-prodmatprop.html}{\text{2.2.12}} \\
+&amp;=\text{tr}(A^TC)+\text{tr}(B^TC) &amp;\text{ selon l'exercice} \knowl{./knowl/xref/exo-tracesomme.html}{\text{5.4.3.16.a}}\\
+&amp;=\langle A~ |~ C\rangle+\langle B~ |~ C\rangle\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">Finalement, pour montrer que <span class="process-math">\(\langle A~ |~ A\rangle\geq 0\text{,}\)</span> on remarque que l’entrée sur la diagonale en position <span class="process-math">\(i\)</span> de <span class="process-math">\(A^TA\)</span> correspond à</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_{i}=a_{i\,1}a_{i\,1}+a_{i\,2}a_{i\,2}+\cdots +a_{i\,n}a_{i,n}=a_{i\,1}^2+a_{i\,2}^2+\cdots +a_{i\,n}^2\text{,}
+\end{equation*}
+</div>
+<div class="para">puisque les colonnes de <span class="process-math">\(A\)</span> sont les lignes de <span class="process-math">\(A^T\text{.}\)</span> Il s’ensuit donc que, pour que la somme soit nulle, tous les <span class="process-math">\(a_{i\,j}\)</span> doivent aussi être nuls et donc, <span class="process-math">\(A=O\text{.}\)</span>
+</div>
+</div>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para logical">
+<div class="para">Montrer que, si <span class="process-math">\(A\)</span> est une matrice symétrique et si <span class="process-math">\(B\)</span> est une matrice antisymétrique (<span class="process-math">\(B^T=-B)\text{,}\)</span> alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\langle A~ |~ B\rangle=0\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Selon les propriétés de la trace et de la transposée, on a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-traceconstante.html">
+\begin{align*}
+\langle A~ |~ B\rangle&amp;=\text{tr}(A^TB)\\
+&amp;=\text{tr}(AB)&amp;\text{ car } A \text{ est symétrique}\\
+&amp;=\text{tr}(B^TA^T) &amp;\text{car la trace d'une matrice est égale à la trace de sa transposée et} (AB)^T=B^TA^T\\
+&amp;=\text{tr}((-B)A &amp;\text{car} A \text{ est symétrique et } B \text{est antisymétrique}\\
+&amp;=-\text{tr}(BA)&amp;\text{selon l'exercice} \knowl{./knowl/xref/exo-traceconstante.html}{\text{5.4.3.16.b}}\\
+&amp;-\langle B ~ |~ A\rangle\\
+&amp;-\langle B~| ~\rangle &amp;\text{commutativité du produit scalaire}\text{.}
+\end{align*}
+</div>
+<div class="para">Comme le seul nombre pour lequel <span class="process-math">\(\langle A~ |~ B\rangle=-\langle A~ |~ B\rangle\)</span> est zéro, le résultat suit.</div>
+</div></div></details></div></article></article></article><span class="incontext"><a class="internal" href="sec-espaces.html#exo-trace">Contexte</a></span>
+</body>
+</html>

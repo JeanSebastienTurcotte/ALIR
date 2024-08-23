@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">14<span class="period">.</span></span>
+</h4>
+<div class="introduction"><div class="para">On considère une matrice carrée <span class="process-math">\(A\)</span> de taille <span class="process-math">\(n\times n\)</span> telle que <span class="process-math">\(A^2=A\text{.}\)</span>
+</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para">Montrer que <span class="process-math">\(\mathcal{C}(A)=\{\vec{v}\in\mathbb{R}^n~|~ A\vec{v}=\vec{v}\}\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Par définition, l’espace colonne est l’ensemble des vecteurs <span class="process-math">\(\vec{v}\in\mathbb{R}^n\)</span> pour lesquels il existe un vecteur <span class="process-math">\(\vec{u}\in\mathbb{R}^n\)</span> tel que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\vec{u}=\vec{v}\text{.}
+\end{equation*}
+</div>
+<div class="para">En multipliant chaque côté de cette équation par <span class="process-math">\(A\text{,}\)</span> on trouve <span class="process-math">\(A^2\vec{u}=A\vec{v}\text{,}\)</span> mais comme <span class="process-math">\(A^2=A\text{,}\)</span> l’équation devient <span class="process-math">\(A\vec{u}=A\vec{v}\text{.}\)</span> Puisque <span class="process-math">\(A\vec{u}=\vec{v}\)</span> par hypothèse, on a <span class="process-math">\(\vec{v}=A\vec{v}\text{.}\)</span> Tous les vecteurs dans l’espace colonne doivent donc satisfaire cette propriété.</div>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para">Montrer que <span class="process-math">\(\mathcal{N}(A)=\mathcal{C}(I-A)\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">On montre l’égalité entre ces deux ensembles en utilisant un argument d’inclusion. D’une part, si <span class="process-math">\(\vec{v}\in \mathcal{N}(A)\text{,}\)</span> alors <span class="process-math">\(A\vec{v}=\vec{0}\text{.}\)</span> On a</div>
+<div class="displaymath process-math">
+\begin{align*}
+(I-A)\vec{v}&amp;=I\vec{v}-A\vec{v}\\
+&amp;=\vec{v}-\vec{0}\\
+&amp;=\vec{v}\text{.}
+\end{align*}
+</div>
+<div class="para">Donc <span class="process-math">\(\vec{v}\)</span> est bien l’image d’un vecteur par la matrice <span class="process-math">\(I-A\)</span> et ainsi, <span class="process-math">\(\mathcal{N}(A)\subseteq\mathcal{C}(I-A)\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">D’un autre côté, si <span class="process-math">\(\vec{v}\in\mathcal{C}(I-A)\text{,}\)</span> alors il existe <span class="process-math">\(\vec{u}\in\mathbb{R}^n\)</span> pour lequel <span class="process-math">\((I-A)\vec{u}=\vec{v}\text{.}\)</span> On a</div>
+<div class="displaymath process-math">
+\begin{align*}
+A\vec{v}&amp;=A(I-A)\vec{u}\\
+&amp;=(A-A^2)\vec{u}\\
+&amp;=(A-A)\vec{u}&amp;&amp;\text{ car } A^2=A\\
+&amp;=O\vec{u}\\
+&amp;=\vec{0}\text{.}
+\end{align*}
+</div>
+<div class="para">On a donc <span class="process-math">\(\mathcal{C}(I-A)\subseteq \mathcal{N}(A)\)</span> et en combinant les deux arguments, on obtient l’égalité.</div>
+</div>
+</div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para">Montrer que <span class="process-math">\(\mathcal{N}(A)\cap\mathcal{C}(A)=\{\vec{0}\}\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">Soit <span class="process-math">\(\vec{v}\in\mathcal{N}(A)\cap\mathcal{C}(A)\text{.}\)</span> Alors  par la <a href="sec-4esp.html#exo-colonneidempotente" class="xref" data-knowl="./knowl/xref/exo-colonneidempotente.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 5.3.4.14.a">première partie</a> de cet exercice, <span class="process-math">\(A\vec{v}=\vec{v}\)</span> et comme <span class="process-math">\(\vec{v}\)</span> est dans l’espace nul, on a <span class="process-math">\(A\vec{v}=\vec{0}\text{.}\)</span> On obtient alors <span class="process-math">\(\vec{0}=\vec{v}\text{.}\)</span>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para">Montrer que tout vecteur dans <span class="process-math">\(\mathbb{R}^n\)</span> peut s’écrire comme la somme d’un vecteur dans <span class="process-math">\(\mathcal{N}(A)\)</span> et d’un vecteur dans <span class="process-math">\(\mathcal{C}(A)\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Soit <span class="process-math">\(\vec{u}\text{,}\)</span> un vecteur quelconque de <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> On peut toujours écrire</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-nulidempotente.html">
+\begin{equation*}
+\vec{u}=\vec{u}-A\vec{u}+A\vec{u}\text{.}
+\end{equation*}
+</div>
+<div class="para">On pose <span class="process-math">\(\vec{v}=\vec{u}-A\vec{u}\)</span> et <span class="process-math">\(\vec{w}=A\vec{u}\text{.}\)</span> Selon la partie <a href="sec-4esp.html#exo-nulidempotente" class="xref" data-knowl="./knowl/xref/exo-nulidempotente.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 5.3.4.14.b">5.3.4.14.b</a>, le vecteur <span class="process-math">\(\vec{v}\)</span> est dans l’espace nul de <span class="process-math">\(A\text{,}\)</span> car il est dans l’espace colonne de <span class="process-math">\(I-A\text{.}\)</span> De plus, comme <span class="process-math">\(A\vec{w}=A^2\vec{u}=A\vec{u}=\vec{w}\text{,}\)</span> ce vecteur est dans l’espace colonne de <span class="process-math">\(A\text{.}\)</span> On a donc décomposé tout vecteur comme la somme d’un vecteur de l’espace nul et d’un vecteur de l’espace colonne.</div>
+</div></div></details></div></article></article><span class="incontext"><a class="internal" href="sec-4esp.html#exo-4espacesidempotente">Contexte</a></span>
+</body>
+</html>

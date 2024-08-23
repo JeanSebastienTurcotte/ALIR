@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Rotation par rapport aux axes de coordonnées.</span>
+</h4>
+<div class="para">On note les matrices de rotation par rapport aux axes de coordonnées <span class="process-math">\(x,y,z\)</span> respectivement <span class="process-math">\(R_{\theta_x},R_{\theta_y}\)</span> et <span class="process-math">\(R_{\theta_z}\text{.}\)</span> On cherche à déterminer ces matrices en fonction d’un angle <span class="process-math">\(\theta\text{.}\)</span> La figure interactive <a href="sec-transfodimsup.html#fig-rotR3axes" class="xref" data-knowl="./knowl/xref/fig-rotR3axes.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 2.4.3">2.4.3</a> peut être pratique pour visualiser les situations.</div> <figure class="figure figure-like"><iframe id="geog-rotR3axes" width="600" height="600" src="geog-rotR3axes-if.html"></iframe><div class="instructions"><details id="geog-rotR3axes-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></summary><div class="solution-like knowl__content"><div class="para" id="geog-rotR3axes-2-1">Un clic sur l’un des trois boutons mettra la figure dans la bonne perspective. On pourra ensuite déplacer l’image d’un vecteur selon un angle <span class="process-math">\(\theta\)</span> afin de visualiser où vont les vecteurs <span class="process-math">\((1,0,0),(0,1,0)\)</span> et <span class="process-math">\((0,0,1)\text{.}\)</span>
+</div></div></details></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.3<span class="period">.</span></span><span class="space"> </span>Les rotations standards dans <span class="process-math">\(\R^3\)</span></figcaption></figure> <div class="para">Dans chacun des cas, on choisit de mesurer l’angle à partir du raisonnement suivant. On écrit la séquence <span class="process-math">\(x\to y\to z \to x \to y\text{.}\)</span> On choisit l’axe de rotation et l’on supprime la première occurrence de cet axe dans la séquence. L’angle est mesuré entre les demi-axes positifs selon la première flèche à sa droite. Ainsi, l’angle pour une rotation par rapport à l’axe des <span class="process-math">\(y\)</span> est mesuré de l’axe des <span class="process-math">\(z\)</span> vers l’axe des <span class="process-math">\(x\)</span> positifs.</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On débute avec la rotation selon l’axe des <span class="process-math">\(z\text{,}\)</span> car c’est celle qui est le plus près de la rotation dans <span class="process-math">\(\R^2\text{.}\)</span> Dans un premier temps, l’image du vecteur <span class="process-math">\((0,0,1)\)</span> est <span class="process-math">\((0,0,1)\)</span> car celui-ci est sur l’axe de rotation. Comme l’angle est mesuré de l’axe des <span class="process-math">\(x\)</span> vers l’axe des <span class="process-math">\(y\text{,}\)</span> l’image du vecteur <span class="process-math">\((1,0,0)\)</span> sera de la forme <span class="process-math">\((\cos(\theta),\sin(\theta),0)\text{.}\)</span> La figure <a href="sec-transfodimsup.html#fig-rotR3axes" class="xref" data-knowl="./knowl/xref/fig-rotR3axes.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 2.4.3">2.4.3</a> illustre l’image du vecteur <span class="process-math">\((1,0,0)\)</span> si l’on clique sur <em class="emphasis">rotation selon l’axe des</em> <span class="process-math">\(z\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">Comme le vecteur <span class="process-math">\((0,1,0)\)</span> est perpendiculaire au vecteur <span class="process-math">\((1,0,0)\)</span> dans le sens antihoraire, son image sera perpendiculaire à <span class="process-math">\((cos(\theta),\sin(\theta),0)\text{,}\)</span> aussi dans le sens anithoraire et sera aussi dans le plan <span class="process-math">\(z=0\text{.}\)</span> En suivant un raisonnement similaire à celui de l’exemple <a href="sec-transfodef.html#ex-rotr2" class="xref" data-knowl="./knowl/xref/ex-rotr2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 2.1.29: Rotation autour de l’origine dans le plan: dynamique">2.1.29</a>, on obtient <span class="process-math">\(R_{\theta_z}(0,1,0)=(-\sin(\theta),\cos(\theta),0)\text{.}\)</span> La matrice est donc</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-rotr2.html">
+\begin{equation}
+R_{\theta_z}=\begin{pmatrix} \cos(\theta) &amp; -\sin(\theta) &amp; 0 \\
+\sin(\theta) &amp; \cos(\theta) &amp; 0 \\
+0 &amp; 0 &amp; 1\end{pmatrix}\text{.}\tag{2.4.1}
+\end{equation}
+</div>
+</div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On considère maintenant la rotation selon l’axe des <span class="process-math">\(y\text{.}\)</span> Selon la séquence, l’angle sera mesuré de l’axe des <span class="process-math">\(z\)</span> positifs vers l’axe des <span class="process-math">\(x\)</span> positifs. Évidemment, l’image du vecteur <span class="process-math">\((0,1,0)\)</span> est le vecteur lui-même puisque celui-ci est sur l’axe de rotation.</div> <div class="para">On commence par trouver l’image du vecteur <span class="process-math">\((0,0,1)\text{.}\)</span> La figure <a href="sec-transfodimsup.html#fig-rotR3axes" class="xref" data-knowl="./knowl/xref/fig-rotR3axes.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 2.4.3">2.4.3</a> peut être pratique pour visualiser les situations. Un clic sur <em class="emphasis">rotation selon l’axe des</em> <span class="process-math">\(y\)</span> fera apparaitre l’image du vecteur <span class="process-math">\((0,0,1)\text{.}\)</span> L’image du vecteur <span class="process-math">\((0,0,1)\)</span> est <span class="process-math">\((\sin(\theta),0,\cos(\theta))\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">Comme le vecteur <span class="process-math">\((1,0,0)\)</span> est perpendiculaire au vecteur <span class="process-math">\((0,0,1)\)</span> dans le sens antihoraire, son image sera perpendiculaire à <span class="process-math">\((\sin(\theta),0,\cos(\theta))\text{,}\)</span> aussi dans le sens antihoraire et sera aussi dans le plan <span class="process-math">\(y=0\text{.}\)</span> En suivant un raisonnement similaire à celui de l’exemple <a href="sec-transfodef.html#ex-rotr2" class="xref" data-knowl="./knowl/xref/ex-rotr2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 2.1.29: Rotation autour de l’origine dans le plan: dynamique">2.1.29</a>, on obtient <span class="process-math">\(R_{\theta_y}(1,0,0)=(\cos(\theta),0,-\sin(\theta))\text{.}\)</span> La matrice est donc</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-rotr2.html">
+\begin{equation}
+R_{\theta_y}=\begin{pmatrix} \cos(\theta) &amp; 0 &amp; \sin(\theta) \\
+0 &amp; 1 &amp; 0 \\
+-\sin(\theta) &amp; 0 &amp;  \cos(\theta)\end{pmatrix}\text{.}\tag{2.4.2}
+\end{equation}
+</div>
+</div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">3</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">La matrice de rotation selon l’axe des <span class="process-math">\(x\)</span> est obtenue à l’exercice <a href="sec-transfodimsup.html#exo-rotR3x" class="xref" data-knowl="./knowl/xref/exo-rotR3x.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 2.4.3.6">2.4.3.6</a>.</div></div></details>
+</div></article><span class="incontext"><a class="internal" href="sec-transfodimsup.html#ex-rotR3axes">Contexte</a></span>
+</body>
+</html>

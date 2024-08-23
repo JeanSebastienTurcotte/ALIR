@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">4<span class="period">.</span></span>
+</h4>
+<div class="para">Résoudre chacun des problèmes de l’exercice <a href="sec-simplexe.html#exo-proglin1" class="xref" data-knowl="./knowl/xref/exo-proglin1.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.2.5.1">7.2.5.1</a> à l’aide de l’algorithme du simplexe.</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">On commence par créer la matrice initiale du simplexe à l’aide de la forme canonique de l’exercice <a href="sec-simplexe.html#exo-proglin3" class="xref" data-knowl="./knowl/xref/exo-proglin3.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.2.5.3">7.2.5.3</a>. On obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html">
+\begin{equation*}
+S=\left(\begin{array}{rrrrr|r|r}
+-1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0\\
+1&amp; 5&amp;0&amp;1&amp;0&amp;0&amp;24\\
+1&amp;-7&amp;0&amp;0&amp;1&amp;1&amp;-12\\
+-3&amp;-2&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)\text{.}
+\end{equation*}
+</div>
+<div class="para">Puisque la dernière colonne contient une entrée négative, on doit, dans un premier temps, pivoter sur la ligne trois avant de faire l’algorithme. La seule variable négative est <span class="process-math">\(y\text{,}\)</span> on effectue ainsi le pivotage selon l’entrée en position <span class="process-math">\(3,2\text{,}\)</span> ce qui donne</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html">
+\begin{align*}
+\left(\begin{array}{rrrrr|r|r}
+-1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0\\
+1&amp; 5&amp;0&amp;1&amp;0&amp;0&amp;24\\
+1&amp;-7&amp;0&amp;0&amp;1&amp;0&amp;-12\\
+-3&amp;-2&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)&amp;\begin{array}{c} -\frac{1}{7}L_3\to L_3\sim\end{array}\left(\begin{array}{rrrrr|r|r}
+-1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0\\
+1&amp; 5&amp;0&amp;1&amp;0&amp;0&amp;24\\
+-\frac{1}{7}&amp;1&amp;0&amp;0&amp;-\frac{1}{7}&amp;\frac{1}{7}&amp;\frac{12}{7}\\
+-3&amp;-2&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)\\
+&amp;\begin{array}{c}L_1-L_3\to L_3\\ L_2-5L_3\to L_2\\ L_4+2L_3\to L_4\sim\end{array}\left(\begin{array}{rrrrr|r|r}
+-\frac{6}{7}&amp;0&amp;1&amp;0&amp;\frac{1}{7}&amp;0&amp;-\frac{12}{7}\\
+\frac{12}{7}&amp; 0&amp;0&amp;1&amp;\frac{5}{7}&amp;0&amp;\frac{108}{7}\\
+-\frac{1}{7}&amp;1&amp;0&amp;0&amp;-\frac{1}{7}&amp;0&amp;\frac{12}{7}\\
+-\frac{23}{7}&amp;0&amp;0&amp;0&amp;-\frac{2}{7}&amp;1&amp;\frac{24}{7}
+\end{array}\right)\text{.}
+\end{align*}
+</div>
+<div class="para">La première entrée de la dernière colonne est, à son tour, négative. On pivote selon l’entrée en position <span class="process-math">\(1,1\)</span> pour la rendre positive.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html">
+\begin{align*}
+\left(\begin{array}{rrrrr|r|r}
+-\frac{6}{7}&amp;0&amp;1&amp;0&amp;\frac{1}{7}&amp;0&amp;-\frac{12}{7}\\
+\frac{12}{7}&amp; 0&amp;0&amp;1&amp;\frac{5}{7}&amp;0&amp;\frac{108}{7}\\
+-\frac{1}{7}&amp;1&amp;0&amp;0&amp;-\frac{1}{7}&amp;0&amp;\frac{12}{7}\\
+-\frac{23}{7}&amp;0&amp;0&amp;0&amp;-\frac{2}{7}&amp;1&amp;\frac{24}{7}
+\end{array}\right)&amp;\begin{array}{c}-\frac{7}{6}L_1/\to L_1\sim\end{array}\left(\begin{array}{rrrrr|r|r}
+1&amp;0&amp;-\frac{7}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+\frac{12}{7}&amp; 0&amp;0&amp;1&amp;\frac{5}{7}&amp;0&amp;\frac{108}{7}\\
+-\frac{1}{7}&amp;1&amp;0&amp;0&amp;-\frac{1}{7}&amp;0&amp;\frac{12}{7}\\
+-\frac{23}{7}&amp;0&amp;0&amp;0&amp;-\frac{2}{7}&amp;1&amp;\frac{24}{7}
+\end{array}\right)\\
+&amp;\begin{array}{c}L_2-\frac{12}{7}L_1\to L_2 \\ L_3+\frac{1}{7}L_1\to L_3 \\ L_4+\frac{23}{7}L_1\to L_1\sim\end{array}\left(\begin{array}{rrrrr|r|r}
+1&amp;0&amp;-\frac{7}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp; 0&amp;2&amp;1&amp;1&amp;0&amp;12\\
+0&amp;1&amp;-\frac{1}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp;0&amp;-\frac{23}{6}&amp;0&amp;-\frac{5}{6}&amp;1&amp;10
+\end{array}\right)\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">À présent, l’algorithme du simplexe, au sens usuel, peut commencer. La plus petite entrée de la dernière ligne se trouve dans la colonne trois. Le pivotage s’effectue donc par rapport à la première variable d’écart. La seule entrée positive dans cette colonne est à la ligne deux. C’est par rapport à cette ligne que s’effectuera le pivotage. On obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin2.html">
+\begin{align*}
+\left(\begin{array}{rrrrr|r|r}
+1&amp;0&amp;-\frac{7}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp; 0&amp;2&amp;1&amp;1&amp;0&amp;12\\
+0&amp;1&amp;-\frac{1}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp;0&amp;-\frac{23}{6}&amp;0&amp;-\frac{5}{6}&amp;1&amp;10
+\end{array}\right)&amp;\begin{array}{c} \frac{1}{2}L_2\to L_2\sim \end{array}\left(\begin{array}{rrrrr|r|r}
+1&amp;0&amp;-\frac{7}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp; 0&amp;1&amp;\frac{1}{2}&amp;\frac{1}{2}&amp;0&amp;6\\
+0&amp;1&amp;-\frac{1}{6}&amp;0&amp;-\frac{1}{6}&amp;0&amp;2\\
+0&amp;0&amp;-\frac{23}{6}&amp;0&amp;-\frac{5}{6}&amp;1&amp;10
+\end{array}\right)\\
+&amp;\begin{array}{c}L_1+\frac{7}{6}L_2\to L_1 \\ L_3+\frac{1}{6}L_2\to L_3 \\ L_4+\frac{23}{6}L_2\to L_4\sim \end{array}\left(\begin{array}{rrrrr|r|r}
+1&amp;0&amp;0&amp;\frac{7}{12}&amp;\frac{5}{12}&amp;0&amp;9\\
+0&amp; 0&amp;1&amp;\frac{1}{2}&amp;\frac{1}{2}&amp;0&amp;6\\
+0&amp;1&amp;0&amp;\frac{1}{12}&amp;-\frac{1}{12}&amp;0&amp;3\\
+0&amp;0&amp;0&amp;\frac{23}{12}&amp;\frac{13}{12}&amp;1&amp;33
+\end{array}\right)\text{.}
+\end{align*}
+</div>
+<div class="para">À ce stade, toutes les entrées de la dernière ligne sont positives. L’algorithme se termine, offrant comme solution optimale la valeur <span class="process-math">\(33\text{,}\)</span> atteinte lorsque <span class="process-math">\(x=9\)</span> et <span class="process-math">\(y=3\text{,}\)</span> ce qui correspond à la solution obtenue à l’exercice <a href="sec-simplexe.html#exo-proglin2" class="xref" data-knowl="./knowl/xref/exo-proglin2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.2.5.2">7.2.5.2</a>.</div>
+</div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">On commence par créer la matrice initiale du simplexe à l’aide de la forme canonique de l’exercice <a href="sec-simplexe.html#exo-proglin3" class="xref" data-knowl="./knowl/xref/exo-proglin3.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.2.5.3">7.2.5.3</a>. On obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html ./knowl/xref/algo-simplexe.html ./knowl/xref/exo-proglin2.html">
+\begin{equation*}
+S=\left(\begin{array}{rrrrrr|r|r}
+-2&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;-5\\
+-1&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;-1\\
+2&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;14\\
+1&amp;-3&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
+-1&amp;-2&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)\text{.}
+\end{equation*}
+</div>
+<div class="para">Cette matrice contient deux entrées négatives dans la dernière colonne. On doit d’abord les éliminer avant de procéder avec l’algorithme du simplexe. Pour optimiser le nombre d’étapes, on choisit de pivoter dans la première ligne, puisque <span class="process-math">\((-5)/(-2)\geq (-2)/(-1)\)</span> et dans la première colonne, seule valeur négative de la ligne. Cela rendra la valeur dans la deuxième ligne également positive. Ainsi, on a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html ./knowl/xref/algo-simplexe.html ./knowl/xref/exo-proglin2.html">
+\begin{align*}
+\left(\begin{array}{rrrrrr|r|r}
+-2&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;-5\\
+-1&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;-1\\
+2&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;14\\
+1&amp;-3&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
+-1&amp;-2&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)&amp;\begin{array}{c}-\frac{1}{2}L_1\to L_1\sim\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;0&amp;\frac{5}{2}\\
+-1&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;-1\\
+2&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;14\\
+1&amp;-3&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
+-1&amp;-2&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)\\
+&amp;\begin{array}{c} L_2+L_1\to L_2\\ L_3+2L_1\to L_3\\ L_4-L_1\to L_4\\ L_5+L_1\to L_5\sim \end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;0&amp;\frac{5}{2}\\
+0&amp;\frac{1}{2}&amp;-\frac{1}{2}&amp;1&amp;0&amp;0&amp;0&amp;\frac{3}{2}\\
+0&amp;2&amp;1&amp;0&amp;1&amp;0&amp;0&amp;9\\
+0&amp;-\frac{5}{2}&amp;\frac{1}{2}&amp;0&amp;0&amp;1&amp;0&amp;-\frac{5}{2}\\
+0&amp;-\frac{5}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;1&amp;\frac{5}{2}
+\end{array}\right)\text{.}
+\end{align*}
+</div>
+<div class="para">Une nouvelle entrée négative est apparue à la ligne quatre. L’entrée de la deuxième colonne est négative et est choisie pour faire le pivotage. On a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html ./knowl/xref/algo-simplexe.html ./knowl/xref/exo-proglin2.html">
+\begin{align*}
+\left(\begin{array}{rrrrrr|r|r}
+1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;0&amp;\frac{5}{2}\\
+0&amp;\frac{1}{2}&amp;-\frac{1}{2}&amp;1&amp;0&amp;0&amp;0&amp;\frac{1}{2}\\
+0&amp;2&amp;1&amp;0&amp;1&amp;0&amp;0&amp;9\\
+0&amp;-\frac{5}{2}&amp;\frac{1}{2}&amp;0&amp;0&amp;1&amp;0&amp;-\frac{5}{2}\\
+0&amp;-\frac{5}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;1&amp;\frac{5}{2}
+\end{array}\right)&amp;\begin{array}{c}-\frac{2}{5}L_4\to L_4 \\ \sim\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;-\frac{1}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;0&amp;\frac{5}{2}\\
+0&amp;\frac{1}{2}&amp;-\frac{1}{2}&amp;1&amp;0&amp;0&amp;0&amp;\frac{1}{2}\\
+0&amp;2&amp;1&amp;0&amp;1&amp;0&amp;0&amp;9\\
+0&amp;1&amp;-\frac{1}{5}&amp;0&amp;0&amp;-\frac{2}{5}&amp;0&amp;1\\
+0&amp;-\frac{5}{2}&amp;-\frac{1}{2}&amp;0&amp;0&amp;0&amp;1&amp;\frac{5}{2}
+\end{array}\right)\\
+&amp;\begin{array}{c}L_1+\frac{1}{2}L_4\to L_1\\ L_2-\frac{1}{2}L_4\to L_2\\ L_3-2L_4\to L_3\\ L_5+\frac{5}{2}L_4\to L_5\\ \sim\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;-\frac{3}{5}&amp;0&amp;0&amp;-\frac{1}{5}&amp;0&amp;3\\
+0&amp;0&amp;-\frac{2}{5}&amp;1&amp;0&amp;\frac{1}{5}&amp;0&amp;1\\
+0&amp;0&amp;\frac{7}{5}&amp;0&amp;1&amp;\frac{4}{5}&amp;0&amp;7\\
+0&amp;1&amp;-\frac{1}{5}&amp;0&amp;0&amp;-\frac{2}{5}&amp;0&amp;1\\
+0&amp;0&amp;-1&amp;0&amp;0&amp;-1&amp;1&amp;5
+\end{array}\right)\text{.}
+\end{align*}
+</div>
+<div class="para">À présent, l’algorithme du simplexe peut commencer. Il y a deux valeurs négatives dans la dernière ligne et celles-ci ont la même valeur. On choisit la valeur dans la troisième colonne. Il n’y a qu’une entrée positive dans cette colonne, le pivotage s’effectue selon l’entrée en position  <span class="process-math">\(3,3\text{.}\)</span> On obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html ./knowl/xref/algo-simplexe.html ./knowl/xref/exo-proglin2.html">
+\begin{align*}
+\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;-\frac{3}{5}&amp;0&amp;0&amp;-\frac{1}{5}&amp;0&amp;3\\
+0&amp;0&amp;-\frac{2}{5}&amp;1&amp;0&amp;\frac{1}{5}&amp;0&amp;0\\
+0&amp;0&amp;\frac{7}{5}&amp;0&amp;1&amp;\frac{4}{5}&amp;0&amp;7\\
+0&amp;1&amp;-\frac{1}{5}&amp;0&amp;0&amp;-\frac{2}{5}&amp;0&amp;1\\
+0&amp;0&amp;-1&amp;0&amp;0&amp;-1&amp;1&amp;5
+\end{array}\right)&amp;\begin{array}{c}\frac{5}{7}L_3\to L_3 \\ \sim\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;-\frac{3}{5}&amp;0&amp;0&amp;-\frac{1}{5}&amp;0&amp;3\\
+0&amp;0&amp;-\frac{2}{5}&amp;1&amp;0&amp;\frac{1}{5}&amp;0&amp;0\\
+0&amp;0&amp;1&amp;0&amp;\frac{5}{7}&amp;\frac{4}{7}&amp;0&amp;5\\
+0&amp;1&amp;-\frac{1}{5}&amp;0&amp;0&amp;-\frac{2}{5}&amp;0&amp;1\\
+0&amp;0&amp;-1&amp;0&amp;0&amp;-1&amp;1&amp;5
+\end{array}\right)\\
+&amp;\begin{array}{c}L_1+\frac{3}{5}L_3\to L_1\\ L_2+\frac{2}{5}L_3\to L_2\\ L_4+\frac{1}{5}L_3\to L_4\\ L_5+L_3\to L_5\\ \sim\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;0&amp;0&amp;\frac{3}{7}&amp;\frac{1}{7}&amp;0&amp;6\\
+0&amp;0&amp;0&amp;1&amp;\frac{2}{7}&amp;\frac{3}{7}&amp;0&amp;3\\
+0&amp;0&amp;1&amp;0&amp;\frac{5}{7}&amp;\frac{4}{7}&amp;0&amp;5\\
+0&amp;1&amp;0&amp;0&amp;\frac{1}{7}&amp;-\frac{2}{7}&amp;0&amp;2\\
+0&amp;0&amp;0&amp;0&amp;\frac{5}{7}&amp;-\frac{3}{7}&amp;1&amp;10
+\end{array}\right)\text{,}
+\end{align*}
+</div>
+<div class="para">qui possède encore une entrée négative dans la dernière ligne. Dans la colonne correspondante, il y a trois valeurs positives. Celle ayant le plus petit rapport avec la colonne des <span class="process-math">\(b_i\text{,}\)</span> comme prescrit dans l’algorithme <a href="sec-simplexe.html#algo-simplexe" class="xref" data-knowl="./knowl/xref/algo-simplexe.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Algorithme 7.2.19: La méthode du simplexe">7.2.19</a>, est l’entrée dans la ligne deux. On pivote alors pour obtenir</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html ./knowl/xref/algo-simplexe.html ./knowl/xref/exo-proglin2.html">
+\begin{align*}
+\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;0&amp;0&amp;\frac{3}{7}&amp;\frac{1}{7}&amp;0&amp;6\\
+0&amp;0&amp;0&amp;1&amp;\frac{2}{7}&amp;\frac{3}{7}&amp;0&amp;2\\
+0&amp;0&amp;1&amp;0&amp;\frac{5}{7}&amp;\frac{4}{7}&amp;0&amp;5\\
+0&amp;1&amp;0&amp;0&amp;\frac{1}{7}&amp;-\frac{2}{7}&amp;0&amp;2\\
+0&amp;0&amp;0&amp;0&amp;\frac{5}{7}&amp;-\frac{3}{7}&amp;1&amp;10
+\end{array}\right)&amp;\begin{array}{c}\frac{7}{3}L_2\to L_2\end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;0&amp;0&amp;\frac{3}{7}&amp;\frac{1}{7}&amp;0&amp;6\\
+0&amp;0&amp;0&amp;\frac{7}{3}&amp;\frac{2}{3}&amp;1&amp;0&amp;7\\
+0&amp;0&amp;1&amp;0&amp;\frac{5}{7}&amp;\frac{4}{7}&amp;0&amp;5\\
+0&amp;1&amp;0&amp;0&amp;\frac{1}{7}&amp;-\frac{2}{7}&amp;0&amp;2\\
+0&amp;0&amp;0&amp;0&amp;\frac{5}{7}&amp;-\frac{3}{7}&amp;1&amp;10
+\end{array}\right)\\
+&amp;\begin{array}{c}L_1-\frac{1}{7}L_2\to L_2\\ L_3-\frac{4}{7}L_2\to L_3\\ L_4+\frac{2}{7}L_2\to L_4\\ L_5+\frac{3}{7}L_2\to L_5\\ \sim \end{array}\left(\begin{array}{rrrrrr|r|r}
+1&amp;0&amp;0&amp;-\frac{1}{3}&amp;\frac{1}{3}&amp;0&amp;0&amp;5\\
+0&amp;0&amp;0&amp;\frac{7}{3}&amp;\frac{2}{3}&amp;1&amp;0&amp;7\\
+0&amp;0&amp;1&amp;-\frac{4}{3}&amp;\frac{1}{3}&amp;0&amp;0&amp;1\\
+0&amp;1&amp;0&amp;\frac{2}{3}&amp;\frac{1}{3}&amp;0&amp;0&amp;4\\
+0&amp;0&amp;0&amp;1&amp;1&amp;0&amp;1&amp;13
+\end{array}\right)\text{.}
+\end{align*}
+</div>
+<div class="para">L’algorithme se termine, offrant comme solution maximale la valeur <span class="process-math">\(13\text{,}\)</span> atteinte lorsque <span class="process-math">\(x=5\)</span> et <span class="process-math">\(y=4\text{,}\)</span> comme trouvé à l’exercice <a href="sec-simplexe.html#exo-proglin2" class="xref" data-knowl="./knowl/xref/exo-proglin2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.2.5.2">7.2.5.2</a>.</div>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">3</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">On commence par créer la matrice initiale du simplexe à l’aide de la forme canonique de l’exercice <a href="sec-simplexe.html#exo-proglin3" class="xref" data-knowl="./knowl/xref/exo-proglin3.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.2.5.3">7.2.5.3</a>. On obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html">
+\begin{equation*}
+S=\left(\begin{array}{rrrrrrrr|r|r}
+-1&amp;2&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;3\\
+-3&amp;-1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-26\\
+-1&amp;-2&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;12\\
+1&amp;-2&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;8\\
+1&amp;2&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;21\\
+3&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;38\\
+2&amp;-3&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
+\end{array}\right)\text{.}
+\end{equation*}
+</div>
+<div class="para">L’entrée de la deuxième ligne et de la dernière colonne est négative. On pivote sur l’entrée en position <span class="process-math">\(2,1\)</span> afin de la rendre positive. On a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html">
+\begin{align*}
+\left(\begin{array}{rrrrrrrrrr}
+-1 &amp; 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
+-3 &amp; -1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -26 \\
+-1 &amp; -2 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 12 \\
+1 &amp; -2 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 8 \\
+1 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 21 \\
+3 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 38 \\
+2 &amp; -3 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right) &amp; \begin{array}{c} -\frac{1}{3}L_{2} \to L_{2} \\ \sim \end{array} \left(\begin{array}{rrrrrrrrrr}
+-1 &amp; 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
+1 &amp; \frac{1}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{26}{3} \\
+-1 &amp; -2 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 12 \\
+1 &amp; -2 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 8 \\
+1 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 21 \\
+3 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 38 \\
+2 &amp; -3 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right) \\
+&amp; \begin{array}{c} L_{1} + 1L_{1} \to L_{1} \\ L_{3} + 1L_{3} \to L_{3} \\ L_{4} - 1L_{4} \to L_{4} \\ L_{5} - 1L_{5} \to L_{5} \\ L_{6} - 3L_{6} \to L_{6} \\ L_{7} - 2L_{7} \to L_{7} \\ \sim \end{array} \left(\begin{array}{rrrrrrrrrr}
+0 &amp; \frac{7}{3} &amp; 1 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{35}{3} \\
+1 &amp; \frac{1}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{26}{3} \\
+0 &amp; -\frac{5}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{62}{3} \\
+0 &amp; -\frac{7}{3} &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; -\frac{2}{3} \\
+0 &amp; \frac{5}{3} &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; \frac{37}{3} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; -\frac{11}{3} &amp; 0 &amp; \frac{2}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; -\frac{52}{3}
+\end{array}\right) \text{,}
+\end{align*}
+</div>
+<div class="para">qui contient à nouveau une valeur négative dans la dernière colonne, à la quatrième ligne. Un pivotage selon l’entrée <span class="process-math">\(4,2\)</span> la rendra positive. On obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html">
+\begin{align*}
+\left(\begin{array}{rrrrrrrrrr}
+0 &amp; \frac{7}{3} &amp; 1 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{35}{3} \\
+1 &amp; \frac{1}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{26}{3} \\
+0 &amp; -\frac{5}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{62}{3} \\
+0 &amp; -\frac{7}{3} &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; -\frac{2}{3} \\
+0 &amp; \frac{5}{3} &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; \frac{37}{3} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; -\frac{11}{3} &amp; 0 &amp; \frac{2}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; -\frac{52}{3}
+\end{array}\right) &amp; \begin{array}{c} -\frac{3}{7}L_{4} \to L_{4} \\ \sim \end{array} \left(\begin{array}{rrrrrrrrrr}
+0 &amp; \frac{7}{3} &amp; 1 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{35}{3} \\
+1 &amp; \frac{1}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{26}{3} \\
+0 &amp; -\frac{5}{3} &amp; 0 &amp; -\frac{1}{3} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{62}{3} \\
+0 &amp; 1 &amp; 0 &amp; -\frac{1}{7} &amp; 0 &amp; -\frac{3}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{2}{7} \\
+0 &amp; \frac{5}{3} &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; \frac{37}{3} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; -\frac{11}{3} &amp; 0 &amp; \frac{2}{3} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; -\frac{52}{3}
+\end{array}\right) \\
+&amp; \begin{array}{c} L_{1} - \frac{7}{3}L_{4} \to L_{1} \\ L_{2} - \frac{1}{3}L_{4} \to L_{2} \\ L_{3} + \frac{5}{3}L_{4} \to L_{3} \\ L_{5} - \frac{5}{3}L_{4} \to L_{5} \\ L_{7} + \frac{11}{3}L_{4} \to L_{7} \\ \sim \end{array} \left(\begin{array}{rrrrrrrrrr}
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 11 \\
+1 &amp; 0 &amp; 0 &amp; -\frac{2}{7} &amp; 0 &amp; \frac{1}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{60}{7} \\
+0 &amp; 0 &amp; 0 &amp; -\frac{4}{7} &amp; 1 &amp; -\frac{5}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{148}{7} \\
+0 &amp; 1 &amp; 0 &amp; -\frac{1}{7} &amp; 0 &amp; -\frac{3}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{2}{7} \\
+0 &amp; 0 &amp; 0 &amp; \frac{4}{7} &amp; 0 &amp; \frac{5}{7} &amp; 1 &amp; 0 &amp; 0 &amp; \frac{83}{7} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; 0 &amp; 0 &amp; \frac{1}{7} &amp; 0 &amp; -\frac{11}{7} &amp; 0 &amp; 0 &amp; 1 &amp; -\frac{114}{7}
+\end{array}\right) \text{.}
+\end{align*}
+</div>
+<div class="para">Toutes les entrées de la section du vecteur <span class="process-math">\(\vec{b}\)</span> sont positives. L’algorithme du simplexe peut débuter. L’entrée de la dernière ligne et de la sixième colonne est négative. Dans la colonne six, parmi les entrées positives, celle qui offre le plus petit ratio avec la colonne des <span class="process-math">\(b_i\)</span> se trouve dans la ligne un. Cette ligne est choisie pour pivoter. On a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html">
+\begin{align*}
+\left(\begin{array}{rrrrrrrrrr}
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 11 \\
+1 &amp; 0 &amp; 0 &amp; -\frac{2}{7} &amp; 0 &amp; \frac{1}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{60}{7} \\
+0 &amp; 0 &amp; 0 &amp; -\frac{4}{7} &amp; 1 &amp; -\frac{5}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{148}{7} \\
+0 &amp; 1 &amp; 0 &amp; -\frac{1}{7} &amp; 0 &amp; -\frac{3}{7} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{2}{7} \\
+0 &amp; 0 &amp; 0 &amp; \frac{4}{7} &amp; 0 &amp; \frac{5}{7} &amp; 1 &amp; 0 &amp; 0 &amp; \frac{83}{7} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; 0 &amp; 0 &amp; \frac{1}{7} &amp; 0 &amp; -\frac{11}{7} &amp; 0 &amp; 0 &amp; 1 &amp; -\frac{114}{7}
+\end{array}\right) &amp; \begin{array}{c} L_{5} - \frac{5}{7}L_{1} \to L_{5} \\ L_{2} - \frac{1}{7}L_{1} \to L_{2} \\ L_{3} + \frac{5}{7}L_{1} \to L_{3} \\ L_{4} + \frac{3}{7}L_{1} \to L_{4} \\ L_{7} + \frac{11}{7}L_{1} \to L_{7} \\ \sim \end{array} \left(\begin{array}{rrrrrrrrrr}
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 11 \\
+1 &amp; 0 &amp; -\frac{1}{7} &amp; -\frac{2}{7} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 7 \\
+0 &amp; 0 &amp; \frac{5}{7} &amp; -\frac{4}{7} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 29 \\
+0 &amp; 1 &amp; \frac{3}{7} &amp; -\frac{1}{7} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 5 \\
+0 &amp; 0 &amp; -\frac{5}{7} &amp; \frac{4}{7} &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 4 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 12 \\
+0 &amp; 0 &amp; \frac{11}{7} &amp; \frac{1}{7} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1
+\end{array}\right) \text{,}
+\end{align*}
+</div>
+<div class="para">qui ne contient que des entrées positives dans la dernière ligne. L’algorithme est terminé et offre comme solution la valeur maximale <span class="process-math">\(1\text{,}\)</span> atteinte lorsque <span class="process-math">\((x,y)=(7,5)\text{.}\)</span>
+</div>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">4</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">On commence par écrire la matrice initiale du simplexe à l’aide de la forme canonique de l’exercice <a href="sec-simplexe.html#exo-proglin3" class="xref" data-knowl="./knowl/xref/exo-proglin3.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.2.5.3">7.2.5.3</a>. On obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html">
+\begin{equation*}
+S=\left(\begin{array}{rrrrrrr}
+2&amp;-5&amp;1&amp;0&amp;0&amp;0&amp;-1\\
+3&amp;2&amp;0&amp;1&amp;0&amp;0&amp;27\\
+-5&amp;3&amp;0&amp;0&amp;1&amp;0&amp;-7\\
+1&amp;1&amp;0&amp;0&amp;0&amp;1&amp;0\\
+\end{array}\right)\text{.}
+\end{equation*}
+</div>
+<div class="para">On applique l’algorithme du simplexe dual. D’abord, on pivote sur l’entrée en position <span class="process-math">\((3,1)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-proglin3.html">
+\begin{align*}
+\left(\begin{array}{rrrrrrr}
+2 &amp; -5 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; -1 \\
+3 &amp; 2 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 27 \\
+-5 &amp; 3 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; -7 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right) &amp; \begin{array}{c} -\frac{1}{5}L_{3} \to L_{3} \\ \sim \end{array} \left(\begin{array}{rrrrrrr}
+2 &amp; -5 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; -1 \\
+3 &amp; 2 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 27 \\
+1 &amp; -\frac{3}{5} &amp; 0 &amp; 0 &amp; -\frac{1}{5} &amp; 0 &amp; \frac{7}{5} \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right) \\
+&amp; \begin{array}{c} L_{1} - 2L_{1} \to L_{1} \\ L_{2} - 3L_{2} \to L_{2} \\ L_{4} - 1L_{4} \to L_{4} \\ \sim \end{array} \left(\begin{array}{rrrrrrr}
+0 &amp; -\frac{19}{5} &amp; 1 &amp; 0 &amp; \frac{2}{5} &amp; 0 &amp; -\frac{19}{5} \\
+0 &amp; \frac{19}{5} &amp; 0 &amp; 1 &amp; \frac{3}{5} &amp; 0 &amp; \frac{114}{5} \\
+1 &amp; -\frac{3}{5} &amp; 0 &amp; 0 &amp; -\frac{1}{5} &amp; 0 &amp; \frac{7}{5} \\
+0 &amp; \frac{8}{5} &amp; 0 &amp; 0 &amp; \frac{1}{5} &amp; 1 &amp; -\frac{7}{5}
+\end{array}\right) \\
+\end{align*}
+<p class="intertext">On pivote sur l’entrée en position <span class="process-math">\(1,2\text{.}\)</span></p>
+\begin{align*}
+&amp; \begin{array}{c} -\frac{5}{19}L_{1} \to L_{1} \\ \sim \end{array} \left(\begin{array}{rrrrrrr}
+0 &amp; 1 &amp; -\frac{5}{19} &amp; 0 &amp; -\frac{2}{19} &amp; 0 &amp; 1 \\
+0 &amp; \frac{19}{5} &amp; 0 &amp; 1 &amp; \frac{3}{5} &amp; 0 &amp; \frac{114}{5} \\
+1 &amp; -\frac{3}{5} &amp; 0 &amp; 0 &amp; -\frac{1}{5} &amp; 0 &amp; \frac{7}{5} \\
+0 &amp; \frac{8}{5} &amp; 0 &amp; 0 &amp; \frac{1}{5} &amp; 1 &amp; -\frac{7}{5}
+\end{array}\right) \\
+&amp; \begin{array}{c} L_{3} + \frac{3}{5}L_{1} \to L_{3} \\ L_{2} - \frac{19}{5}L_{1} \to L_{2} \\ L_{4} - \frac{8}{5}L_{1} \to L_{4} \\ \sim \end{array} \left(\begin{array}{rrrrrrr}
+0 &amp; 1 &amp; -\frac{5}{19} &amp; 0 &amp; -\frac{2}{19} &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 19 \\
+1 &amp; 0 &amp; -\frac{3}{19} &amp; 0 &amp; -\frac{5}{19} &amp; 0 &amp; 2 \\
+0 &amp; 0 &amp; \frac{8}{19} &amp; 0 &amp; \frac{7}{19} &amp; 1 &amp; -3
+\end{array}\right) \text{.}
+\end{align*}
+</div>
+<div class="para">La dernière ligne ne contenant que des entrées positives sous le bloc principal, l’algorithme se termine. Le problème dual de maximisation a pour solution optimale <span class="process-math">\(-3\text{,}\)</span> atteinte lorsque <span class="process-math">\(x=2\)</span> et <span class="process-math">\(y=1\text{.}\)</span> La solution au problème primal est ainsi <span class="process-math">\(f_4(2,1)=3\text{.}\)</span>
+</div>
+</div></div></details>
+</div></article><span class="incontext"><a class="internal" href="sec-simplexe.html#exo-proglin4">Contexte</a></span>
+</body>
+</html>

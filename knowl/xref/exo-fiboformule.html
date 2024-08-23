@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h5 class="heading">
+<span class="type">Tâche</span><span class="space"> </span><span class="codenumber">6.1.4.19.g</span><span class="period">.</span>
+</h5>
+<div class="para">Décrire comment obtenir <span class="process-math">\(f_n\)</span> sans calculer les précédents et sans calculer de produit matrice vecteur.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">On sait que <span class="process-math">\(\vec{x}_n=A^n\vec{x}_0\text{.}\)</span> En utilisant la décomposition en fonction des vecteurs propres, on trouve</div>
+<div class="displaymath process-math">
+\begin{align*}
+\vec{x}_n&amp;=A^n\vec{x}_0\\
+&amp;=A^n\vecd{0}{1}\\
+&amp;=A^n\left(\frac{\sqrt{5}\lambda_2}{5}\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}\vec{v}_2\right)\\
+&amp;=\frac{\sqrt{5}\lambda_2}{5}A^n\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}A^n\vec{v}_2\\\
+&amp;=\frac{\sqrt{5}\lambda_2}{5}\lambda_1^n\vec{v}_1-\frac{\sqrt{5}\lambda_1}{5}\lambda_2^n\vec{v}_2\text{.}
+\end{align*}
+</div>
+<div class="para">Le nombre <span class="process-math">\(f_n\)</span> se retrouve dans la première composante de ce vecteur et donc</div>
+<div class="displaymath process-math">
+\begin{align*}
+f_n&amp;=\frac{\sqrt{5}\lambda_2}{5}\lambda_1^{n+1}-\frac{\sqrt{5}\lambda_1}{5}\lambda_2^{n+1}\\
+&amp;=\frac{\sqrt{5}}{5}\lambda_1\lambda_2(\lambda_1^n-\lambda_2^n)\\
+&amp;=-\frac{\sqrt{5}}{5}(\lambda_1^n-\lambda_2^n) &amp;&amp; \text{ car } \lambda_1\lambda_2=-1\\
+&amp;=\frac{\sqrt{5}}{5}(\lambda_2^n-\lambda_1^n)\text{.}
+\end{align*}
+</div>
+</div> <pre id="exo-fiboformule-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">l1=(1-sqrt(5))/2
+l2=(1+sqrt(5))/2
+f(n)=sqrt(5)/5*(l2^n-l1^n)
+for n in range(20):
+    print("f(%d)=%f" % (n, f(n).n()))
+print(".")
+print(".")
+print(".")
+print("f(100)=",f(100).n())
+</script></pre>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-propre.html#exo-fiboformule">Contexte</a></span>
+</body>
+</html>

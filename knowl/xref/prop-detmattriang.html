@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.20</span><span class="period">.</span><span class="space"> </span><span class="title">Le déterminant d’une matrice triangulaire.</span>
+</h4>
+<div class="para">Soit <span class="process-math">\(T\text{,}\)</span> une matrice triangulaire inférieure ou supérieure. Alors le déterminant de <span class="process-math">\(T\)</span> est égal au produit des entrées sur la diagonale.</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">On suppose que <span class="process-math">\(T=U\)</span> est une matrice triangulaire supérieure. Puisque <span class="process-math">\(L=U^T\)</span> est une matrice triangulaire inférieure et que <span class="process-math">\(\det(A)=\det(A^T)\)</span> selon la propriété <a href="sec-detgen.html#li-dettransposee" class="xref" data-knowl="./knowl/xref/li-dettransposee.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 4.2.17:6">4.2.17:6</a>, il suffit de le montrer pour un des deux types.</div> <div class="para">Si l’une des entrées sur la diagonale est nulle, alors, en poursuivant les opérations élémentaires pour réduire <span class="process-math">\(T\text{,}\)</span> on aura éventuellement une ligne de zéros. Selon la propriété <a href="sec-detgen.html#li-detvecnul" class="xref" data-knowl="./knowl/xref/li-detvecnul.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 4.2.17:2">4.2.17:2</a>, le déterminant est égal à zéro. Cela correspond aussi au produit de la diagonale puisqu’un produit contenant un zéro est nul.</div> <div class="para logical">
+<div class="para">On suppose donc qu’aucune entrée <span class="process-math">\(a_{i,i}\)</span> sur la diagonale est nulle. La matrice</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-detmatelem.html">
+\begin{equation*}
+U_1=E_{\frac{1}{a_{n,n}}L_n}E_{\frac{1}{a_{n-1,n-1}}L_{n-1}}\cdots E_{\frac{1}{a_{2,2}}L_2}E_{\frac{1}{a_{1,1}}L_1}U
+\end{equation*}
+</div>
+<div class="para">est une matrice triangulaire supérieure qui ne contient que des <span class="process-math">\(1\)</span> sur sa diagonale. On peut poursuivre l’algorithme de Gauss-Jordan pour réduire <span class="process-math">\(U_1\)</span> à l’identité en n’utilisant que l’opération <span class="process-math">\(rL_i+L_j\text{,}\)</span> qui ne change pas le déterminant. On a donc <span class="process-math">\(\det(U_1)=1\text{.}\)</span> Puisque <span class="process-math">\(\det(E_{\frac{1}{a_{i,i}}L_i})=\frac{1}{a_{i,i}}\text{,}\)</span> on isole <span class="process-math">\(\det(U)\)</span> dans l’équation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-detmatelem.html">
+\begin{align*}
+\det(U_1)&amp;=\det(E_{\frac{1}{a_{n,n}}L_n}E_{\frac{1}{a_{n-1,n-1}}L_{n-1}}\cdots E_{\frac{1}{a_{2,2}}L_2}E_{\frac{1}{a_{1,1}}L_1}U)\\
+1&amp;=\det(E_{\frac{1}{a_{n,n}}L_n})\det(E_{\frac{1}{a_{n-1,n-1}}L_{n-1}})\cdots \det(E_{\frac{1}{a_{2,2}}L_2})\det(E_{\frac{1}{a_{1,1}}L_1})\det(U)\\
+1&amp;=\frac{1}{a_{n,n}}\frac{1}{a_{n-1,n-1}}\cdots \frac{1}{a_{2,2}}\frac{1}{a_{1,1}}\det(U)&amp;&amp;\text{selon } \knowl{./knowl/xref/prop-detmatelem.html}{\text{4.2.15}}\\
+1&amp;=a_{1,1}a_{2,2}\cdots a_{n,n}&amp;\det(U)\text{.}
+\end{align*}
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-detgen.html#prop-detmattriang">Contexte</a></span>
+</body>
+</html>

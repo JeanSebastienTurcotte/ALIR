@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.3.9</span><span class="period">.</span><span class="space"> </span><span class="title">Le développement du déterminant par les cofacteurs.</span>
+</h4>
+<div class="para logical">
+<div class="para">Soit</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix} 5&amp; 0&amp; -3\\
+2&amp; -2&amp; 3\\
+1&amp; 0&amp; 4\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">On veut calculer son déterminant en utilisant la méthode des cofacteurs.</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">En regardant la matrice, on constate que la seconde colonne ne contient qu’une entrée non nulle, en position <span class="process-math">\(2,2\text{.}\)</span> Si l’on fait un développement sur la deuxième colonne, il ne restera de l’équation <a href="sec-cofacteurs.html#eq-detcofact" class="xref" data-knowl="./knowl/xref/eq-detcofact.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 4.3.5">(4.3.5)</a> que ce terme non nul:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-detcofact.html">
+\begin{equation*}
+\det(A)=a_{1,2}C_{1,2}+a_{2,2}C_{2,2}+a_{3,2}C_{3,2}=a_{2,2}C_{2,2}\text{.}
+\end{equation*}
+</div>
+<div class="para">On calcule <span class="process-math">\(C_{2,2}=(-1)^{2+2}\det(A_{2,2})=det(A_{2,2})\)</span> en calculant le déterminant de la sous-matrice qui est obtenue en enlevant la deuxième ligne et la deuxième colonne:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-detcofact.html">
+\begin{equation*}
+det(A_{2,2})=\begin{vmatrix}
+5&amp; -3\\ 
+1&amp;4
+\end{vmatrix}=23\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">On a donc <span class="process-math">\(\det(A)=-2*23=-46\text{.}\)</span> Sage pourra confirmer ce résultat.</div> <pre id="ex-detcofact-3-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A=matrix([[5,0,-3],[2,-2,3],[1,0,4]])
+show("det(A)=",A.determinant())
+</script></pre>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-cofacteurs.html#ex-detcofact">Contexte</a></span>
+</body>
+</html>

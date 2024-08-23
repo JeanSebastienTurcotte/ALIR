@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="computation computation-like"><h4 class="heading">
+<span class="type">Calcul</span><span class="space"> </span><span class="codenumber">2.1.21</span><span class="period">.</span><span class="space"> </span><span class="title">Les transformations sur Sage.</span>
+</h4> <div class="para">On verra dans les prochaines sous-sections comment facilement vérifier si une transformation est linéaire ou non et comment l’appliquer efficacement sur un ensemble de points. Pour le moment, on construit à partir l’exemple calculatoire <a href="sec-vec.html#sageex-utvec" class="xref" data-knowl="./knowl/xref/sageex-utvec.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Calcul 1.1.40: Utilisation de Sage dans la résolution de problèmes de géométrie vectorielle">1.1.40</a> en montrant comment on peut appliquer une translation sur un ensemble de points et illustrer cette translation. Pour cela, on définit un quadrilatère, un vecteur de translation et l’on applique ce vecteur à chaque point du quadrilatère. Pour être efficace, on utilise la commande <code class="code-inline tex2jax_ignore">list</code>.</div> <pre id="sageex-deftransfo-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Définition des points du quadrilatère ABCD
+A=vector([0,0])
+B=vector([3,0])
+C=vector([5,4])
+D=vector([2,2])    
+#On forme une liste contenant tous les points (vecteurs)
+L=list([A,B,C,D])
+#On définit le vecteur translation
+w=vector([3,5])
+#On applique la translation à tous les vecteurs de la liste
+Ltrans=list([v+w for v in L])
+#On illustre les quadrilatères, ainsi que le vecteur w sur l'un des points
+polygon(L,color="blue")+polygon(Ltrans,color="red")+plot(w,start=A,color="black")
+</script></pre></article><span class="incontext"><a class="internal" href="sec-transfodef.html#sageex-deftransfo">Contexte</a></span>
+</body>
+</html>

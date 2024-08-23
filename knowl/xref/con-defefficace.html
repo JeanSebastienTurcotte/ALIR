@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="insight remark-like"><h4 class="heading">
+<span class="type">Conseil</span><span class="space"> </span><span class="codenumber">2.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">Utilisation efficace de l’informatique.</span>
+</h4> <div class="para">L’un des  buts de utilisation de l’informatique est de lui déléguer certains calculs, afin de se concentrer davantage sur les concepts. Il faut toutefois être efficace dans son utilisation afin de bénéficier de sa flexibilité et de toute sa puissance. On illustre avec un exemple.</div> <div class="para">Soit <span class="process-math">\(A=\begin{pmatrix} 1\amp 3\\ -2\amp 6 \end{pmatrix}\text{.}\)</span> On cherche à calculer la quantité <span class="process-math">\(ad-bc\)</span> pour cette matrice. Si ce nombre n’est pas zéro, on veut calculer <span class="process-math">\(A^{-1}\vecd{2}{3}\text{.}\)</span> Voici une première option.</div> <pre id="con-defefficace-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#On vérifie si ad-bc=0
+a=1
+b=-2
+c=3
+d=6
+show(a*d-b*c)
+#On définit la matrice
+A=column_matrix([[1,-2],[3,6]])
+#On inverse la matrice
+Ainv=A.inverse()
+#On calcule l'inverse de (2,3)
+u=vector([2,3])
+show(Ainv*u)
+</script></pre> <div class="para">Présentée ainsi, la séquence d’instructions ressemble à ce qui serait fait sur une feuille, les commandes étant effectuées dans l’ordre où l’on se pose les questions pertinentes lors de la résolution. Maintenant si l’on pose les mêmes questions pour la matrice <span class="process-math">\(B=\begin{pmatrix} -1\amp 2\\ 4\amp -3 \end{pmatrix}\text{,}\)</span> on s’imagine recopier le code et corriger les lignes <code class="code-inline tex2jax_ignore">2-5</code> et la ligne <code class="code-inline tex2jax_ignore">8</code>.</div> <div class="para">Voici une deuxième option pour répondre aux questions initiales.</div> <pre id="con-defefficace-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#On définit la matrice et le vecteur 
+A=column_matrix([[1,-2],[3,6]])
+u=vector([2,3])
+#On vérifie si ad-bc=0
+a=A[0][0]
+b=A[1][0]
+c=A[0][1]
+d=A[1][1]
+show(a*d-b*c)
+#on calcule l'inverse de A et l'image inverse du vecteur (2,3)
+Ainv=A.inverse()
+show(Ainv*u)
+</script></pre> <div class="para">Maintenant, pour répondre aux questions avec la matrice <span class="process-math">\(B\text{,}\)</span> seule la ligne <code class="code-inline tex2jax_ignore">2</code> doit être éditée.</div></article><span class="incontext"><a class="internal" href="sec-matinverse.html#con-defefficace">Contexte</a></span>
+</body>
+</html>

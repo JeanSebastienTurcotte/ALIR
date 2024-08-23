@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h6 class="heading">
+<span class="type">Tâche</span><span class="space"> </span><span class="codenumber">7.1.4.9.e</span><span class="period">.</span>
+</h6>
+<div class="para">Toujours en simulant <span class="process-math">\(1000\)</span> parties, déterminer approximativement la proportion de parties nécessitant plus de <span class="process-math">\(20\)</span> tours.</div> <pre id="exo-serpechsimpleplusde20-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></pre>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">d=vector([0,4,2,3,4,5,2,7])
+M=[]
+for i in range(1000):
+    M.append(len(serpech(d))-1)
+M21=[m for m in M if m&gt;20]
+(len(M21)/1000).n()
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">7.1.23<span class="period">.</span></span><span class="space"> </span>Le code de la solution.</figcaption></figure></div></details></div></article><span class="incontext"><a class="internal" href="sec-Markov.html#exo-serpechsimpleplusde20">Contexte</a></span>
+</body>
+</html>

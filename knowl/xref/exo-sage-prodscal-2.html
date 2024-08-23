@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">15<span class="period">.</span></span><span class="space"> </span><span class="title">Automatisation du calcul de l’angle entre deux vecteurs.</span>
+</h5>
+<div class="para">Le but de cet exercice est de créer une fonction Sage qui, étant donné deux vecteurs <span class="process-math">\(\vec{u},\vec{v}\in\R^n\text{,}\)</span> va calculer l’angle entre les vecteurs <span class="process-math">\(\vec{v}\)</span> sur <span class="process-math">\(\vec{u}\text{.}\)</span> Plus précisément, créer une fonction nommée <code class="code-inline tex2jax_ignore">angle_entre_vec</code> qui aura comme arguments deux vecteurs et qui va retourner la valeur de l’angle entre ces vecteurs.</div> <div class="para">Vérifier la fonction créée avec les données de l’exercice <a href="sec-prodscal.html#exo-sage-prodscal-1" class="xref" data-knowl="./knowl/xref/exo-sage-prodscal-1.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 1.2.4.14">1.2.4.14</a>.</div> <pre id="exo-sage-prodscal-2-2-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></pre>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def angle_entre_vec(u,v):
+    return arccos(u*v/(norm(u)*norm(v)))
+u=vector([-1,2,4])
+v=vector([2,4,-1])
+w=vector([5,-3,2])
+show(angle_entre_vec(u,v))
+show(angle_entre_vec(v,w))
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">1.2.24<span class="period">.</span></span><span class="space"> </span>L’angle entre deux vecteurs</figcaption></figure></div></details></div></article><span class="incontext"><a class="internal" href="sec-prodscal.html#exo-sage-prodscal-2">Contexte</a></span>
+</body>
+</html>

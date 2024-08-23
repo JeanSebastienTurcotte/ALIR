@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">9<span class="period">.</span></span>
+</h4>
+<div class="introduction"><div class="para">Soit <span class="process-math">\(R_{\theta_1},R_{\theta_2},S_{\phi_1}\)</span> et <span class="process-math">\(S_{\phi_2}\text{,}\)</span> des matrices de rotation d’angle <span class="process-math">\(\theta_1\)</span> et <span class="process-math">\(\theta_2\)</span> et de réflexion d’angle <span class="process-math">\(\phi_1\)</span> et <span class="process-math">\(\phi_2\text{.}\)</span> En utilisant les résultats de l’exemple <a href="sec-prodmat.html#sageex-propprodmat" class="xref" data-knowl="./knowl/xref/sageex-propprodmat.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Calcul 2.2.17: La composition de certaines transformations">2.2.17</a>, décrire les compositions suivantes en utilisant à la fois <span class="process-math">\((AB)C\)</span> et <span class="process-math">\(A(BC)\)</span> afin de vérifier l’associativité.</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para"><span class="process-math">\(R_{\theta_1}R_{\theta_2}S_{\phi_1}\)</span></div>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para">On procède de façon semblable à l’exemple, en utilisant les résultats pour la composition des rotations et des réflexions. Entre autres, on a <span class="process-math">\(R_{\theta_1}S_{\theta_2}=S_{\frac{\theta_1+2\theta_2}{2}}\)</span> et <span class="process-math">\(S_{\theta_2}R_{\theta_1}=S_{\frac{-\theta_1+2\theta_2}{2}}\text{.}\)</span>
+</div> <div class="para">On remarque également que les démonstrations d’associativité se construisent souvent du début et de la fin, vers le milieu. Autrement dit, on peut développer <span class="process-math">\(A(BC)\)</span> et <span class="process-math">\((AB)C\)</span> et simplifier pour constater qu’on arrive à la même transformation (au milieu des démarches). On a choisi de les écrire du début à la fin puisque c’est plus soignée, mais on a bel et bien construit la démonstration du début jusqu’au milieu et de la fin jusqu’au milieu.</div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="displaymath process-math">
+\begin{align*}
+R_{\theta_1}(R_{\theta_2}S_{\phi_1})&amp;=R_{\theta_1}S_{\frac{\theta_2+2\phi_1}{2}}\\
+&amp;=S_{\frac{\theta_1+2\frac{\theta_2+2\phi_1}{2}}{2}}\\
+&amp;=S_{\frac{\theta_1+\theta_2+2\phi_1}{2}}\\
+&amp;=S_{\frac{(\theta_1+\theta_2)+2\phi_1}{2}}\\
+&amp;=R_{\theta_1+\theta_2}S_{\phi_1}\\
+&amp;=(R_{\theta_1}R_{\theta_2})S_{\phi_1}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une réflexion d’angle <span class="process-math">\(\frac{\theta_1+\theta_2+2\phi_1}{2}\text{.}\)</span>
+</div>
+</div></div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para"><span class="process-math">\(R_{\theta_1}S_{\phi_1}R_{\theta_2}\)</span></div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="displaymath process-math">
+\begin{align*}
+R_{\theta_1}(S_{\phi_1}R_{\theta_2})&amp;=R_{\theta_1}S_{\frac{-\theta_2+2\phi_1}{2}}\\
+&amp;=S_{\frac{\theta_1+2\frac{-\theta_2+2\phi_1}{2}}{2}}\\
+&amp;=S_{\frac{\theta_1-\theta_2+2\phi_1}{2}}\\
+&amp;=S_{\frac{-\theta_2+\theta_1+2\phi_1}{2}}\\
+&amp;=S_{\frac{-\theta_2+2\frac{\theta_1+2\phi_1}{2}}{2}}\\
+&amp;=S_{\frac{\theta_1+2\phi_1}{2}}R_{\theta_2}\\
+&amp;=(R_{\theta_1}S_{\phi_1})R_{\theta_2}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une réflexion d’angle <span class="process-math">\(\frac{\theta_1-\theta_2+2\phi_1}{2}\text{.}\)</span>
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para"><span class="process-math">\(S_{\phi_1}R_{\theta_1}R_{\theta_2}\)</span></div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="displaymath process-math">
+\begin{align*}
+S_{\phi_1}(R_{\theta_1}R_{\theta_2})&amp;=S_{\phi_1}R_{\theta_1+\theta_2}\\
+&amp;=S_{\frac{-(\theta_1+\theta_2)+2\phi_1}{2}}\\
+&amp;=S_{\frac{-\theta_1-\theta_2+2\phi_1}{2}}\\
+&amp;=S_{\frac{-\theta_2-\theta_1+2\phi_1}{2}}\\
+&amp;=S_{\frac{-\theta_2+2\frac{-\theta_1+2\phi_1}{2}}{2}}\\
+&amp;=S_{\frac{-\theta_1+2\phi_1}{2}}R_{\theta_2}\\
+&amp;=(S_{\phi_1}R_{\theta_1})R_{\theta_2}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une réflexion d’angle <span class="process-math">\(\frac{-\theta_1-\theta_2+2\phi_1}{2}\text{.}\)</span>
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para"><span class="process-math">\(R_{\theta_1}S_{\phi_1}S_{\phi_2}\)</span></div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="displaymath process-math">
+\begin{align*}
+R_{\theta_1}(S_{\phi_1}S_{\phi_2})&amp;=R_{\theta_1}R_{2(\phi_1-\phi_2)}\\
+&amp;=R_{\theta_1+2(\phi_1-\phi_2)}\\
+&amp;=R_{\theta_1+2\phi_1-2\phi_2}\\
+&amp;=R_{2(\frac{\theta_1+2\phi_1}{2}-\phi_2)}\\
+&amp;=S_{\frac{\theta_1+2\phi_1}{2}}S_{\phi_2}\\
+&amp;=(R_{\theta_1}S_{\phi_1})S_{\phi_2}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une rotation d’angle <span class="process-math">\(\theta_1+2\phi_1-2\phi_2\text{.}\)</span>
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para"><span class="process-math">\(S_{\phi_1}R_{\theta_1}S_{\phi_2}\)</span></div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="displaymath process-math">
+\begin{align*}
+S_{\phi_1}(R_{\theta_1}S_{\phi_2})&amp;=S_{\phi_1}S_{\frac{\theta_1+2\phi_2}{2}}\\
+&amp;=R_{2(\phi_1-\frac{\theta_1+2\phi_2}{2})}\\
+&amp;=R_{2\phi_1-\theta_1-2\phi_2}\\
+&amp;R_{-\theta_1+2\phi_1-2\phi_2}\\
+&amp;R_{2(\frac{-\theta_1+2\phi_1}{2}-\phi_2)}\\
+&amp;=S_{\frac{-\theta_1+2\phi_1}{2}}S_{\phi_2}\\
+&amp;=(S_{\phi_1}R_{\theta_1})S_{\phi_2}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une rotation d’angle <span class="process-math">\(2\phi_1-\theta_1-2\phi_2\text{.}\)</span>
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="para"><span class="process-math">\(S_{\phi_1}S_{\phi_2}R_{\theta_1}\)</span></div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="displaymath process-math">
+\begin{align*}
+S_{\phi_1}(S_{\phi_2}R_{\theta_1})&amp;=S_{\phi_1}S_{\frac{-\theta_1+2\phi_2}{2}}\\
+&amp;=R_{2(\phi_1-\frac{-\theta_1+2\phi_2}{2})}\\
+&amp;=R_{2\phi_1+\theta_1-2\phi_2}\\
+&amp;=R_{2\phi_1-2\phi_2+\theta_1}\\
+&amp;=R_{2(\phi_1-\phi_2)+\theta_1}\\
+&amp;=R_{2(\phi_1-\phi_2)}R_{\theta_1}\\
+&amp;=(S_{\phi_1}S_{\phi_2})R_{\theta_1}
+\end{align*}
+</div>
+<div class="para">Il s’agit donc globalement d’une rotation d’angle <span class="process-math">\(2\phi_1+\theta_1-2\phi_2\text{.}\)</span>
+</div>
+</div></div></details></div></article></article><span class="incontext"><a class="internal" href="sec-prodmat.html#exo-associativiterotref">Contexte</a></span>
+</body>
+</html>

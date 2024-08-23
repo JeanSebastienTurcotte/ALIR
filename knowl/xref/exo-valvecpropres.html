@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">2<span class="period">.</span></span>
+</h4>
+<div class="introduction"><div class="para">Pour chacune des matrices suivantes, déterminer les valeurs propres et une base de l’espace propre associé à chaque valeur propre.</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para"><span class="process-math">\(A_1=\begin{pmatrix} 1&amp; 0\\ -1&amp; 6\end{pmatrix}\)</span></div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(\lambda_1=1,\lambda_2=6\)</span> avec <span class="process-math">\(Ep(1)=\vspan(5,1)\)</span> et <span class="process-math">\(Ep(6)=\vspan(0,1)\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Pour les valeurs propres, on calcule d’abord le déterminant de <span class="process-math">\(A_1-\lambda I\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lvert A_1 -\lambda I\rvert &amp;=\begin{vmatrix} 1-\lambda&amp; 0\\ -1&amp; 6-\lambda\end{vmatrix}\\
+&amp;=(1-\lambda)(6-\lambda)\text{.}
+\end{align*}
+</div>
+<div class="para">Ceci donne deux valeurs propres, la première <span class="process-math">\(\lambda_1=1\)</span> et la seconde <span class="process-math">\(\lambda_2=6\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On regarde l’espace propre associé à <span class="process-math">\(\lambda_1\text{.}\)</span> La matrice devient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_1-I=\begin{pmatrix} 0&amp; 0\\ -1&amp; 5\end{pmatrix}\stackrel{-L_2\to L_2}{\sim} \begin{pmatrix} 0&amp; 0\\ 1&amp; -5\end{pmatrix}\text{,}
+\end{equation*}
+</div>
+<div class="para">qui a comme base de son espace propre le vecteur <span class="process-math">\((1,1/5)\text{,}\)</span> parallèle à <span class="process-math">\((5,1)\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On regarde ensuite l’espace propre associé à <span class="process-math">\(\lambda_2\text{.}\)</span> La matrice devient</div>
+<div class="displaymath process-math">
+\begin{align*}
+A_1-6I&amp;=\begin{pmatrix} -5&amp; 0\\ -1&amp; 0\end{pmatrix}\\
+&amp;\stackrel{L_1/(-5)\to L_1}{\sim} \begin{pmatrix} 1&amp; 0\\ -1&amp; 0\end{pmatrix}\\
+\stackrel{L_2+L_1\to L_2}{\sim} \begin{pmatrix} 1&amp; 0\\ 0&amp; 0\end{pmatrix}\text{,}
+\end{align*}
+</div>
+<div class="para">qui a comme base de son espace propre le vecteur <span class="process-math">\((0,1)\text{.}\)</span>
+</div>
+</div>
+</div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para"><span class="process-math">\(A_2=\begin{pmatrix}-9&amp;3\\ 0&amp; -5 \end{pmatrix}\)</span></div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(\lambda_1=-5,\lambda_2=-9\)</span> avec <span class="process-math">\(Ep(-5)=\vspan((1, 4/3))=\vspan(3,4)\)</span> et <span class="process-math">\(Ep(-9)=\vspan(1,0)\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Pour les valeurs propres, on calcule d’abord le déterminant de <span class="process-math">\(A_2-\lambda I\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lvert A_2 -\lambda I\rvert &amp;=\begin{vmatrix} -9-\lambda&amp; 3\\ 0&amp; -5-\lambda\end{vmatrix}\\
+&amp;=(-9-\lambda)(-5-\lambda)\text{.}
+\end{align*}
+</div>
+<div class="para">Ceci donne deux valeurs propres, la première <span class="process-math">\(\lambda_1=-5\)</span> et la seconde <span class="process-math">\(\lambda_2=-9\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On regarde l’espace propre associé à <span class="process-math">\(\lambda_1\text{.}\)</span> La matrice devient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_2+5I=\begin{pmatrix} -4&amp; 3\\ 0&amp; 0\end{pmatrix}\stackrel{L_1/(-4)\to L_1}{\sim} \begin{pmatrix} 1&amp; -3/4\\ 0&amp; 0\end{pmatrix}\text{,}
+\end{equation*}
+</div>
+<div class="para">qui a comme base de son espace propre le vecteur <span class="process-math">\((3/4,1)\text{,}\)</span> parallèle à <span class="process-math">\((3,4)\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On regarde ensuite l’espace propre associé à <span class="process-math">\(\lambda_2\text{.}\)</span> La matrice devient</div>
+<div class="displaymath process-math">
+\begin{align*}
+A_2+9I&amp;=\begin{pmatrix} 0&amp; 3\\ 0&amp; 4\end{pmatrix}\\
+&amp;\stackrel{L_1/(5)\to L_1}{\sim} \begin{pmatrix} 0&amp; 1\\ 0&amp; 4\end{pmatrix}\\
+\stackrel{L_2-4L_1\to L_2}{\sim} \begin{pmatrix} 0&amp; 1\\ 0&amp; 0\end{pmatrix}\text{,}
+\end{align*}
+</div>
+<div class="para">qui a comme base de son espace propre le vecteur <span class="process-math">\((1,0)\text{.}\)</span>
+</div>
+</div>
+</div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para"><span class="process-math">\(A_3=\begin{pmatrix} -8&amp; -8\\ -8&amp; -8\end{pmatrix}\)</span></div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(\lambda_1=0,\lambda_2=-16\)</span> avec <span class="process-math">\(Ep(0)=\vspan(-1, 1)\)</span> et <span class="process-math">\(Ep(-16)=\vspan(1, 1)\text{.}\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Pour les valeurs propres, on calcule d’abord le déterminant de <span class="process-math">\(A_3-\lambda I\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lvert A_3 -\lambda I\rvert &amp;=\begin{vmatrix} -8-\lambda&amp; -8\\ -8&amp; -8-\lambda\end{vmatrix}\\
+&amp;=(-8-\lambda)^2-64\\
+&amp;=(-8-\lambda-8)(-8-\lambda+8)\\
+&amp;=(-16-\lambda)\lambda\text{.}
+\end{align*}
+</div>
+<div class="para">Ceci donne deux valeurs propres, la première <span class="process-math">\(\lambda_1=0\)</span> et la seconde <span class="process-math">\(\lambda_2=-16\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On regarde l’espace propre associé à <span class="process-math">\(\lambda_1\text{.}\)</span> La matrice devient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_3=\begin{pmatrix} -8&amp; -8\\ -8&amp; -8\end{pmatrix}\stackrel{L_2-L_1\to L_2}{\sim} \begin{pmatrix} -8&amp; -8\\ 0&amp; 0\end{pmatrix}=\stackrel{L_1/(-8)\to L_1}{\sim}\begin{pmatrix} 1&amp; 1\\ 0&amp; 0\end{pmatrix}\text{,}
+\end{equation*}
+</div>
+<div class="para">qui a comme base de son espace propre le vecteur <span class="process-math">\((-1,1)\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On regarde ensuite l’espace propre associé à <span class="process-math">\(\lambda_2\text{.}\)</span> La matrice devient</div>
+<div class="displaymath process-math">
+\begin{align*}
+A+16I&amp;=\begin{pmatrix} 8&amp; -8\\ -8&amp; 8\end{pmatrix}\\
+&amp;\stackrel{L_1/8\to L_1}{\sim} \begin{pmatrix} 1&amp; -1\\ -8&amp; 8\end{pmatrix}\\
+\stackrel{L_2+8L_1\to L_2}{\sim} \begin{pmatrix} 1&amp; -1\\ 0&amp; 0\end{pmatrix}\text{,}
+\end{align*}
+</div>
+<div class="para">qui a comme base de son espace propre le vecteur <span class="process-math">\((1,1)\text{.}\)</span>
+</div>
+</div>
+</div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para"><span class="process-math">\(A_4=\begin{pmatrix} 3&amp; 7 \\ 5&amp; 5 \end{pmatrix}\)</span></div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(\lambda_1=10,\lambda_2=-2\)</span> avec <span class="process-math">\(Ep(10)=\vspan(1, 1)\)</span> et <span class="process-math">\(Ep(-2)=\vspan(-7, 5)\text{.}\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Pour les valeurs propres, on calcule d’abord le déterminant de <span class="process-math">\(A_4-\lambda I\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lvert A_4 -\lambda I\rvert &amp;=\begin{vmatrix} 3-\lambda&amp; 7\\ 5&amp; 5-\lambda\end{vmatrix}\\
+&amp;=(3-\lambda)(5-\lambda)-35\\
+&amp;=\lambda^2-8\lambda+15-35\\
+&amp;=(\lambda-10)(\lambda+2)\text{.}
+\end{align*}
+</div>
+<div class="para">Ceci donne deux valeurs propres, la première <span class="process-math">\(\lambda_1=10\)</span> et la seconde <span class="process-math">\(\lambda_2=-2\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On regarde l’espace propre associé à <span class="process-math">\(\lambda_1\text{.}\)</span> La matrice devient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_4-10I=\begin{pmatrix} -7&amp; -7\\ 5&amp; -5\end{pmatrix}\stackrel{L_1/(-7)\to L_1}{\sim} \begin{pmatrix} 1&amp; -1\\ 5&amp; -5\end{pmatrix}=\stackrel{L_2-5L_1\to L_1}{\sim}\begin{pmatrix} 1&amp; -1\\ 0&amp; 0\end{pmatrix}\text{,}
+\end{equation*}
+</div>
+<div class="para">qui a comme base de son espace propre le vecteur <span class="process-math">\((1,1)\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On regarde ensuite l’espace propre associé à <span class="process-math">\(\lambda_2\text{.}\)</span> La matrice devient</div>
+<div class="displaymath process-math">
+\begin{align*}
+A+2I&amp;=\begin{pmatrix} 5&amp; 7\\ 5&amp; 7\end{pmatrix}\\
+&amp;\stackrel{L_2-L_1\to L_2}{\sim} \begin{pmatrix} 5&amp; 7\\ 0&amp; 0\end{pmatrix}\\
+\stackrel{L_1/5\to L_1}{\sim} \begin{pmatrix} 1&amp; 7/5\\ 0&amp; 0\end{pmatrix}\text{,}
+\end{align*}
+</div>
+<div class="para">qui a comme base de son espace propre le vecteur <span class="process-math">\((-7/5,1)\text{,}\)</span> parallèle à <span class="process-math">\((-7,5)\text{.}\)</span>
+</div>
+</div>
+</div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para"><span class="process-math">\(A_5=\begin{pmatrix} 7&amp; -1 \\ 0&amp; 7\end{pmatrix}\)</span></div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(\lambda_1=7\)</span> et <span class="process-math">\(Ep(7)=\vspan(1,0)\text{.}\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Pour les valeurs propres, on calcule d’abord le déterminant de <span class="process-math">\(A_5-\lambda I\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lvert A_5 -\lambda I\rvert &amp;=\begin{vmatrix} 7-\lambda&amp; -1\\ 0&amp; 7-\lambda\end{vmatrix}\\
+&amp;=(7-\lambda)^2\text{.}
+\end{align*}
+</div>
+<div class="para">Ceci donne une seule valeur propre,<span class="process-math">\(\lambda_1=7\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On regarde l’espace propre associé à cette valeur propre. La matrice devient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_5-7I=\begin{pmatrix} 0&amp; -1\\ 0&amp; 0\end{pmatrix}\text{,}
+\end{equation*}
+</div>
+<div class="para">qui a comme base de son espace propre le vecteur <span class="process-math">\((1,0)\text{.}\)</span>
+</div>
+</div>
+</div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="para"><span class="process-math">\(A_6=\begin{pmatrix}-1 &amp; 1 &amp; 0 \\ -7 &amp; 3 &amp; 1 \\ -10 &amp; 2 &amp; 3 \end{pmatrix}\)</span></div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(\lambda_1=1,\lambda_2=2\)</span> avec <span class="process-math">\(Ep(1)=\vspan(1,2,3)\)</span> et <span class="process-math">\(Ep(2)=\vspan(1,3,4)\text{.}\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Pour les valeurs propres, on commence par calculer le déterminant de <span class="process-math">\(A_6-\lambda I\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lvert A_6-\lambda I\rvert&amp;=\begin{vmatrix}-1-\lambda &amp; 1 &amp; 0 \\ -7 &amp; 3-\lambda &amp; 1 \\ -10 &amp; 2 &amp; 3-\lambda \end{vmatrix}\\
+&amp;=(-1-\lambda)\begin{vmatrix}  3-\lambda &amp; 1 \\ 2 &amp; 3-\lambda \end{vmatrix}-\begin{pmatrix}\\ -7  &amp; 1 \\ -10  &amp; 3-\lambda \end{pmatrix}\\
+&amp;=(-1-\lambda)((3-\lambda)^2-2)-(-7(3-\lambda)+10)\\
+&amp;=(-1-\lambda)(\lambda^2-6\lambda+7)-(7\lambda-11)\\
+&amp;=(-\lambda^3+5\lambda^2-\lambda-7)-7\lambda+11\\
+&amp;=-\lambda^3+5\lambda^2-8\lambda+4\\
+\end{align*}
+<p class="intertext">On utilise Sage pour la factorisation, ce qui donne</p>
+\begin{align*}
+&amp;=-(x - 1)*(x - 2)^2\text{,}
+\end{align*}
+</div>
+<div class="para">qui s’annule lorsque <span class="process-math">\(\lambda_1=1\)</span> et <span class="process-math">\(\lambda_2=2\text{.}\)</span>
+</div>
+</div> <div class="para">Pour le premier espace propre, on regarde la matrice <span class="process-math">\(A-I\)</span> et l’on détermine une base de son espace nul. On utilise Sage pour effectuer la réduction.</div> <pre id="exo-valvecpropres-7-3-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A6=matrix([[-1,1,0],[-7,3,1],[-10,2,3]])
+I3=identity_matrix(3)
+show((A6-I).rref())
+</script></pre> <div class="para">On remarque que la troisième variable est libre. Une base de l’espace nul serait le vecteur <span class="process-math">\((1/3,2/3,1)\text{,}\)</span> parallèle au vecteur <span class="process-math">\((1,2,3)\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">De même, pour le second espace propre, on obtient avec Sage un système ayant lui aussi une seule variable libre, dont une base est donnée par le vecteur</div>
+<div class="displaymath process-math">
+\begin{align*}
+\vec{v}_1&amp;=(1/4,3/4,1)\text{,}
+\end{align*}
+</div>
+<div class="para">parallèle au vecteur <span class="process-math">\((1,3,4)\text{.}\)</span>
+</div>
+</div> <pre id="exo-valvecpropres-7-3-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show((A6-2*I3).rref())
+</script></pre>
+</div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(g)</span></h5>
+<div class="para"><span class="process-math">\(A_7=\begin{pmatrix}1 &amp; 0 &amp; 0 \\ 5 &amp; -3 &amp; 1 \\ 4 &amp; -5 &amp; 3 \end{pmatrix}\)</span></div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(\lambda_1=-2,\lambda_2=1\)</span> et <span class="process-math">\(\lambda_3=2\)</span> avec <span class="process-math">\(Ep(-2)=\vspan(0,1,1)\text{,}\)</span><span class="process-math">\(Ep(1)=\vspan(1,2,3)\)</span> et <span class="process-math">\(Ep(2)=\vspan(0,1,5)\text{.}\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">On commence par déterminer les valeurs propres en considérant le déterminant de <span class="process-math">\(A_7-\lambda I\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lvert A_7-\lambda I\rvert &amp;=\begin{vmatrix}1-\lambda &amp; 0 &amp; 0 \\ 5 &amp; -3-\lambda &amp; 1 \\ 4 &amp; -5 &amp; 3-\lambda \end{vmatrix}\\
+&amp;=(1-\lambda)\begin{vmatrix} -3-\lambda &amp; 1 \\  -5 &amp; 3-\lambda \end{vmatrix}\\
+&amp;=(1-\lambda)((-3-\lambda)(3-\lambda)+5)\\
+&amp;=(1-\lambda)(\lambda^2-4)\\
+&amp;=(1-\lambda)(\lambda-2)(\lambda+2)\text{,}
+\end{align*}
+</div>
+<div class="para">ce qui donne comme valeur propre <span class="process-math">\(\lambda_1=-2,\lambda_2=1\)</span> et <span class="process-math">\(\lambda_3=2\text{.}\)</span>
+</div>
+</div> <div class="para">On détermine les espaces propres en échelonnant les matrices appropriées avec Sage.</div> <pre id="exo-valvecpropres-8-3-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A7=matrix([[1,0,0],[5,-3,1],[4,-5,3]])
+I3=identity_matrix(3)
+show((A7+2*I3).rref())
+show((A7-I3).rref())
+show((A7-2*I3).rref())
+</script></pre> <div class="para">Pour l’espace propre associé à <span class="process-math">\(\lambda_1=-2\text{,}\)</span> on voit une variable libre en <span class="process-math">\(z\text{.}\)</span> Une base de cet espace propre est donnée par <span class="process-math">\(\vec{v}_1=(0,1,1)\text{.}\)</span> Pour le deuxième espace propre, on a aussi une seule direction invariante donnée par <span class="process-math">\(\vec{u}_2=(1/3,2/3,1)\text{,}\)</span> parallèle à <span class="process-math">\(\vec{v}_2=(1,2,3)\text{.}\)</span> Enfin, pour le dernier espace propre, on trouve le vecteur <span class="process-math">\(\vec{v}_3=(0,1,5)\)</span> après ajustement.</div>
+</div></details>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(h)</span></h5>
+<div class="para"><span class="process-math">\(A_8=\begin{pmatrix} 1 &amp; 1 &amp; -2 \\ 0 &amp; 3 &amp; 0 \\ -2 &amp; 1 &amp; 1\end{pmatrix}\)</span></div>
+<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para">
+<span class="process-math">\(\lambda_1=-1,\lambda_2=3\)</span> avec <span class="process-math">\(Ep(-1)=\vspan(1,0,1)\text{,}\)</span><span class="process-math">\(Ep(3)=\vspan((-1,0,1),(1,2,0))\text{.}\)</span>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Encore une fois, on commence par les valeurs propres. On a</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lvert A_8-\lambda I\rvert &amp;=\begin{vmatrix} 1-\lambda &amp; 1 &amp; -2 \\ 0 &amp; 3-\lambda &amp; 0 \\ -2 &amp; 1 &amp; 1-\lambda\end{vmatrix}\\
+\end{align*}
+<p class="intertext">On interchange les lignes 1 et 2, ce qui a pour effet de changer le signe du déterminant.</p>
+\begin{align*}
+&amp;=-\begin{vmatrix} 0 &amp; 3-\lambda &amp; 0 \\ 1-\lambda &amp; 1 &amp; -2 \\ -2 &amp; 1 &amp; 1-\lambda\end{vmatrix}\\
+&amp;=(3-\lambda)\begin{vmatrix}  1-\lambda &amp; -2 \\ -2 &amp; 1-\lambda\end{vmatrix}\\
+&amp;=(3-\lambda)((1-\lambda)^2-4)\\
+&amp;=(3-\lambda)(1-\lambda-2)(1-\lambda+2)\\
+&amp;=(3-\lambda)(-1-\lambda)(3-\lambda)\text{,}
+\end{align*}
+</div>
+<div class="para">qui offre comme valeurs propres <span class="process-math">\(\lambda_1=-1\)</span> et <span class="process-math">\(\lambda_2=3\text{.}\)</span>
+</div>
+</div> <div class="para">Pour les espaces propres, on se tourne une fois de plus vers Sage afin d’échelonner la matrice.</div> <pre id="exo-valvecpropres-9-3-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A8=matrix([[1,1,-2],[0,3,0],[-2,1,1]])
+I3=identity_matrix(3)
+show((A8+1*I3).rref())
+show((A8-3*I3).rref())
+</script></pre> <div class="para">Pour la première valeur propre, on trouve un vecteur propre associé qui est <span class="process-math">\(\vec{v}_1=(1,0,1)\text{.}\)</span> Pour la seconde valeur propre, il y a deux variables libres et donc, deux directions invariantes associées à cette valeur propre. On trouve <span class="process-math">\(\vec{u}_1=(1/2,1,0)\text{,}\)</span> parallèle à <span class="process-math">\(\vec{v}_1=(1,2,0)\)</span> et <span class="process-math">\(\vec{v}_2=(-1,0,1)\text{.}\)</span>
+</div>
+</div></details>
+</div></article></article><span class="incontext"><a class="internal" href="sec-propre.html#exo-valvecpropres">Contexte</a></span>
+</body>
+</html>

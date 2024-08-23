@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h6 class="heading">
+<span class="type">Tâche</span><span class="space"> </span><span class="codenumber">4.1.4.25.a.i</span><span class="period">.</span>
+</h6>
+<div class="introduction"><div class="para">On commence avec <span class="process-math">\(a=1,b=-1\text{.}\)</span>
+</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(A)</span></h6>
+<div class="para">Résoudre l’équation <span class="process-math">\(\det(A-k I)=0\)</span> en fonction de <span class="process-math">\(k\text{.}\)</span>
+</div> <pre id="exo-partie-valvecpropreintro-2-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></pre>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Voici une manière de résoudre le problème</div> <figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">a=1
+b=-1
+A=column_matrix([[3*a/5+2*b/5,-3*a/5+3*b/5],[-2*a/5+2*b/5,2*a/5+3*b/5]])
+Id=identity_matrix(2)
+var("k")
+show(det(A-k*Id))
+show(solve(det(A-k*Id),k))
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">4.1.36<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(B)</span></h6>
+<div class="para">Pour chaque valeur de <span class="process-math">\(k\)</span> trouvée, déterminer une solution au système d’équations linéaires <span class="process-math">\(A\vec{v}=k \vec{v}\text{.}\)</span>
+</div> <pre id="exo-partie-valvecpropreintro-3-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></pre>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para">Ces vecteurs sont aussi une solution de l’équation <span class="process-math">\((A-k I)\vec{v}=\vec{0}\text{.}\)</span> Trouver une solution spéciale à cette équation.</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Voici une manière de résoudre le problème</div> <figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">######Pour k=-1 #####
+k=-1
+show((A-k*Id).rref())
+######Pour k=1 ######
+k=1
+show((A-k*Id).rref())
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">4.1.37<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure> <div class="para">On a donc, lorsque <span class="process-math">\(k=-1\text{,}\)</span> le vecteur <span class="process-math">\(\vec{v}_1=(\frac{2}{3},1)\)</span> et, lorsque <span class="process-math">\(k=1\text{,}\)</span> le vecteur <span class="process-math">\(\vec{v}_2=(-1,1)\text{.}\)</span>
+</div>
+</div></details>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(C)</span></h6>
+<div class="para">Calculer <span class="process-math">\(A\vec{v}_1\)</span> et <span class="process-math">\(A\vec{v}_2\)</span> où <span class="process-math">\(\vec{v}_1,\vec{v}_2\)</span> sont les solutions trouvées ci-dessus.</div> <pre id="exo-partie-valvecpropreintro-4-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></pre>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Voici une manière de résoudre le problème</div> <figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">#####Pour v1 #####
+v1=vector([2/3,1])
+show("Av_1=",A*v1)
+#####Pour v2 #####
+v2=vector([-1,1])
+show("Av_2=",A*v2)
+</code></pre></div>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">4.1.38<span class="period">.</span></span><span class="space"> </span>Le code solution pour l’exercice</figcaption></figure> <div class="para">On remarque que <span class="process-math">\(A\vec{v}_1=-\vec{v}_1\)</span> et que <span class="process-math">\(A\vec{v}_2=\vec{v}_2\text{.}\)</span>
+</div>
+</div></details></div></article></article><span class="incontext"><a class="internal" href="sec-det2x2.html#exo-partie-valvecpropreintro">Contexte</a></span>
+</body>
+</html>

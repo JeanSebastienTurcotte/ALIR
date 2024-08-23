@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Une base pour l’espace colonne et l’espace nul gauche.</span>
+</h4>
+<div class="para logical">
+<div class="para">Soit <span class="process-math">\(A\text{,}\)</span> une matrice <span class="process-math">\(m\times n\text{,}\)</span> <span class="process-math">\(R=rref(A)\)</span> sa forme échelonnée réduite et soit <span class="process-math">\(E\text{,}\)</span> une matrice <span class="process-math">\(m\times m\)</span> telle que <span class="process-math">\(EA=R\)</span> (la matrice <span class="process-math">\(E\)</span> correspond à la multiplication de matrices élémentaires permettant d’échelonner <span class="process-math">\(A\)</span>). Alors</div>
+<ol class="decimal" id="prop-baseespcolnulg-2-1-9">
+<li><div class="para">Les colonnes pivots de <span class="process-math">\(A\)</span> (celles qui sont pivots dans <span class="process-math">\(R\)</span>) forment une base de <span class="process-math">\(\mathcal{C}(A)\text{;}\)</span>
+</div></li>
+<li><div class="para">Les lignes de <span class="process-math">\(E\)</span> qui sont aux mêmes positions que les lignes nulles de <span class="process-math">\(R\)</span> forment une base de l’espace nul gauche.</div></li>
+</ol>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">Soit <span class="process-math">\(j_1,j_2,\ldots , j_r\text{,}\)</span> l’indice des colonnes de <span class="process-math">\(R\)</span> contenant un pivot, avec <span class="process-math">\(j_1&lt; j_2&lt; \cdots &lt; j_r\text{.}\)</span> Soit <span class="process-math">\(\vec{a}_{j_{1}},\vec{a}_{j_{2}},\ldots ,\vec{a}_{j_{r}}\text{,}\)</span> les colonnes de <span class="process-math">\(A\)</span> correspondant à ces positions. On veut montrer que ces colonnes forment une base de <span class="process-math">\(\mathcal{C}(A)\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">D’abord la question de l’indépendance. Soit <span class="process-math">\(c_1,c_2,\ldots ,c_r\in \R\)</span> tels que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_1\vec{a}_{j_{1}}+c_2\vec{a}_{j_{2}}+\ldots +c_r\vec{a}_{j_{r}}=\vec{0}\text{.}
+\end{equation*}
+</div>
+<div class="para">On pose <span class="process-math">\(\vec{v}\text{,}\)</span> le vecteur qui a une valeur <span class="process-math">\(0\)</span>  en position <span class="process-math">\(i\)</span> si <span class="process-math">\(i\notin \{j_1,j_2,\ldots , j_r\}\)</span> et qui vaut <span class="process-math">\(c_{j_{i}}\)</span> aux positions <span class="process-math">\(j_1,j_2,\ldots , j_r\text{.}\)</span> Le vecteur <span class="process-math">\(\vec{v}\)</span> est donc une solution à l’équation <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span> Par le fait même, on a <span class="process-math">\(R\vec{v}=\vec{0}\text{.}\)</span> Ceci entraine que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_1\vec{a^{'}}_{j_{1}}+c_2\vec{a^{'}}_{j_{2}}+\ldots +c_r\vec{a^{'}}_{j_{r}}=\vec{0}\text{,}
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(\vec{a^{'}}_{j_{k}}\)</span> est la <span class="process-math">\(k\)</span>-ème colonne de <span class="process-math">\(R\text{.}\)</span> Puisque, par définition, celles-ci sont pivots, ces colonnes ne contiennent qu’un <span class="process-math">\(1\)</span> et des zéros partout ailleurs. On conclut que <span class="process-math">\(c_1=c_2=c_r=0\)</span> et que les colonnes de <span class="process-math">\(A\)</span> qui correspondent aux positions pivots de <span class="process-math">\(R\)</span> sont indépendantes.</div>
+</div> <div class="para">Il reste à montrer que ces colonnes engendrent <span class="process-math">\(\mathcal{C}(A)\text{.}\)</span> Évidemment, <span class="process-math">\(\mathcal{C}(A)=\vspan(\vec{a}_1,\vec{a}_2,\ldots ,\vec{a}_n)\text{.}\)</span> Si l’on montre que les colonnes qui ne sont pas pivots peuvent s’écrire comme une combinaison linéaire des colonnes pivots, alors on pourra les retirer du <span class="process-math">\(\vspan\)</span> et il ne restera dans celui-ci que les colonnes pivots.</div> <div class="para">Dans la matrice <span class="process-math">\(R\text{,}\)</span> on a vu comment lire les solutions de base à partir des colonnes qui ne sont pas pivots. Ces solutions de base offrent une solution à l’équation <span class="process-math">\(R\vec{x}=\vec{0}\text{.}\)</span> Elles donnent une combinaison linéaire de la colonne libre ainsi que des colonnes pivots à sa gauche donnant le vecteur nul. Puisque l’équation <span class="process-math">\(A\vec{x}=\vec{0}\)</span> possède les mêmes solutions que l’équation <span class="process-math">\(R\vec{x}=\vec{0}\text{,}\)</span> on obtient aussi une combinaison linéaire des colonnes correspondantes dans <span class="process-math">\(A\)</span> qui donne le vecteur nul. En isolant la colonne correspondant à la colonne libre, on voit qu’elle s’écrit comme une combinaison linéaire des colonnes pivots.</div> <div class="para">On a donc bel et bien que <span class="process-math">\(\mathcal{C}(A)=\vspan(\vec{a}_{j_{1}},\vec{a}_{j_{2}},\ldots ,\vec{a}_{j_{r}})\text{,}\)</span> les colonnes pivots de <span class="process-math">\(A\text{.}\)</span>
+</div></article></details><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">Finalement, on veut montrer que les lignes de <span class="process-math">\(E\)</span> qui sont aux mêmes positions que les lignes nulles de <span class="process-math">\(R\)</span> forment une base pour l’espace nul gauche. La matrice <span class="process-math">\(E\)</span> est la matrice obtenue en multipliant chaque matrice élémentaire transformant <span class="process-math">\(A\)</span> en <span class="process-math">\(R\text{.}\)</span> Chaque matrice élémentaire étant inversible, leur produit l’est aussi, comme indiqué à la proposition <a href="sec-matinverse.html#prop-inverseproduit" class="xref" data-knowl="./knowl/xref/prop-inverseproduit.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 2.3.18: L’inverse d’un produit">2.3.18</a> (sa généralisation). Les lignes de <span class="process-math">\(E\)</span> sont donc indépendantes, plus particulièrement celles qui correspondent aux lignes nulles de <span class="process-math">\(R\text{.}\)</span> Il reste à montrer que ces lignes engendrent l’espace nul gauche.</div> <div class="para logical">
+<div class="para">L’espace nul gauche est consistué de l’ensemble des vecteurs <span class="process-math">\(\vec{x}\)</span> tels que <span class="process-math">\(A^{T}\vec{x}=\vec{0}\text{.}\)</span> Puisque <span class="process-math">\(EA=R\text{,}\)</span> on réécrit <span class="process-math">\(A^T=(E^{-1}R)^T=R^T(E^T)^{-1}\)</span> en vertu des <a href="sec-transposee.html#prop-transposeeprop" class="xref" data-knowl="./knowl/xref/prop-transposeeprop.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.4.3: Les propriétés de la transposée">propriétés de la transposée 3.4.3</a>. On a donc</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-transposeeprop.html ./knowl/xref/lem-NRT.html">
+\begin{align*}
+\vec{0}&amp;=A^{T}\vec{x}\\
+&amp;=R^T(E^T)^{-1}\vec{x}\\
+\end{align*}
+<p class="intertext">On pose <span class="process-math">\(\vec{y}=(E^T)^{-1}\vec{x}\)</span></p>
+\begin{align*}
+&amp;=R^T\vec{y}\text{.}
+\end{align*}
+</div>
+<div class="para">On conclut que <span class="process-math">\(\vec{y}\in \mathcal{N}(R^T)\text{.}\)</span> Selon le lemme <a href="sec-4esp.html#lem-NRT" class="xref" data-knowl="./knowl/xref/lem-NRT.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Lemme 5.3.3: L’espace nul de la transposée d’une matrice échelonnée réduite">5.3.3</a>, l’espace nul de <span class="process-math">\(R^T\)</span> est engendré par les <span class="process-math">\(m-r\)</span> derniers vecteurs de la base standard de <span class="process-math">\(R^m\text{,}\)</span> où <span class="process-math">\(r\)</span> est le rang de <span class="process-math">\(A\text{.}\)</span> Le vecteur <span class="process-math">\(\vec{y}\)</span> est donc une combinaison linéaire de ces vecteurs. Si l’on isole <span class="process-math">\(\vec{x}\)</span> dans l’équation <span class="process-math">\(\vec{y}=(E^T)^{-1}\vec{x}\text{,}\)</span> on obtient <span class="process-math">\(\vec{x}=E^T\vec{y}\text{.}\)</span> Puisque <span class="process-math">\(\vec{y}\)</span> est une combinaison linéaire des <span class="process-math">\(m-r\)</span> derniers vecteurs de la base standard, le vecteur <span class="process-math">\(\vec{x}\)</span> est une combinaison linéaire des <span class="process-math">\(m-r\)</span> dernières colonnes de <span class="process-math">\(E^T\)</span> et donc, aux <span class="process-math">\(m-r\)</span> lignes de <span class="process-math">\(E\text{.}\)</span> Ce sont exactement ces lignes qui correspondent aux lignes nulles de <span class="process-math">\(R\text{.}\)</span> Ceci montre que les <span class="process-math">\(m-r\)</span> lignes de <span class="process-math">\(E\)</span> forment une base pour <span class="process-math">\(\mathcal{N}(A^T)\text{.}\)</span>
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-4esp.html#prop-baseespcolnulg">Contexte</a></span>
+</body>
+</html>

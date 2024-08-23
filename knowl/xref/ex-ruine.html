@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">La ruine du parieur.</span>
+</h4>
+<div class="para">On considère un parieur qui possède <span class="process-math">\(2\)</span>$. Il joue au jeu suivant. Il lance une pièce de monnaie. Dans le cas où la pièce tombe sur ” pile“, il gagne un dollar et dans le cas où la pièce tombe sur ”face“, il perd plutôt un dollar. Afin de considérer une chaine de Markov finie, on suppose que le jeu s’arrête lorsqu’il n’a plus d’argent ou bien qu’il réussit à atteindre <span class="process-math">\(5\)</span>$. La figure suivante illustre le parcours de dix joueurs ayant participé à ce jeu.</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-ruine.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.7<span class="period">.</span></span><span class="space"> </span>La ruine du parieur illustrée</figcaption></figure> <div class="para">Quelles sont les probabilités qu’il soit encore en train de jouer après cinq lancers de  sa pièce?</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">À tout moment, le joueur peut avoir en sa possession <span class="process-math">\(0,1,2,3,4\)</span> ou <span class="process-math">\(5\)</span> dollars. Pour les montants allant de <span class="process-math">\(1\)</span> à <span class="process-math">\(4\text{,}\)</span> on peut se déplacer vers chacun des nombres voisins avec probabilité <span class="process-math">\(0.5\text{.}\)</span> Pour tenir compte de la fin du jeu, on fait en sorte qu’il est impossible de sortir des états représentat les montants <span class="process-math">\(0\)</span> et <span class="process-math">\(5\)</span> dollars en donnant comme seule possibilité à partir de ces états le fait de rester en place. La matrice suivante illustre ces transitions</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-ruineparieurgen.html">
+\begin{equation*}
+T=\begin{pmatrix}
+1 &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1}{2} &amp; 1
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">On pose <span class="process-math">\(X_0=(0,0,1,0,0,0)\)</span> puisque le joueur commence avec <span class="process-math">\(2\)</span>$. La réponse à la question se trouve dans <span class="process-math">\(X_5\text{.}\)</span> Il faut faire la somme de toutes les entrées de ce vecteur qui ne sont pas les extrémités. On aura alors la probabilité qu’après cinq lancers, le joueur ait en sa possession <span class="process-math">\(1,2,3\)</span> ou <span class="process-math">\(4\)</span> dollars. La cellule suivante définit une fonction Sage qui permettra de créer rapidement la matrice. Il faut l’exécuter, mais rien ne sera affiché. Cette fonction sera étudiée et modifiée à l’exercice <a href="sec-Markov.html#exo-ruineparieurgen" class="xref" data-knowl="./knowl/xref/exo-ruineparieurgen.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.1.4.6">7.1.4.6</a>.</div>
+</div> <pre id="ex-ruine-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def ruinetransitionproba(i,j,n):
+    if i==0 and j==0:
+        return 1
+    if i==n-1 and j==n-1:
+        return 1
+    elif j==0:
+        return 0
+    elif j==n-1:
+        return 0
+    elif abs(i-j)==1:
+        return 1/2
+    else:
+        return 0
+</script></pre> <div class="para">On crée dans la cellule suivante la matrice T et l’on calcule <span class="process-math">\(X_5\text{.}\)</span>
+</div> <pre id="ex-ruine-3-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">T=matrix(6,6, lambda i,j: ruinetransitionproba(i,j,6))
+show(T)
+X=vector([0,0,1,0,0,0])
+for i in range(5):
+    X=T*X
+show(X)
+</script></pre> <div class="para">On remarque qu’après cinq lancers, le joueur peut se retrouver avec <span class="process-math">\(0,1,3\)</span> ou <span class="process-math">\(5\)</span> dollars. La probabilité cherchée est <span class="process-math">\(\frac{5}{32}+\frac{1}{4}=13/32\text{,}\)</span> soit légèrement en-dessous d’une chance sur deux.</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-Markov.html#ex-ruine">Contexte</a></span>
+</body>
+</html>

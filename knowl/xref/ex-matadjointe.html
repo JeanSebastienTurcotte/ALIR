@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.3.13</span><span class="period">.</span><span class="space"> </span><span class="title">Exemple de matrice adjointe.</span>
+</h4>
+<div class="para">On considère la matrice <span class="process-math">\(A=\begin{pmatrix} 5&amp; 0&amp; -3\\
+2&amp; -2&amp; 3\\
+1&amp; 0&amp; 4\end{pmatrix}\)</span> de l’exemple <a href="sec-cofacteurs.html#ex-detcofact" class="xref" data-knowl="./knowl/xref/ex-detcofact.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 4.3.9: Le développement du déterminant par les cofacteurs">4.3.9</a> et la matrice <span class="process-math">\(D=\matcold{a}{b}{c}{d}\text{.}\)</span> On cherche la matrice adjointe de chacune de ces matrices.</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On utilise Sage pour calculer chacun des cofacteurs de la matrice. Investiguer pourquoi on ne fait pas <code class="code-inline tex2jax_ignore">Lignes=liste</code>, mais plutôt <code class="code-inline tex2jax_ignore">.copy()</code>.</div> <pre id="ex-matadjointe-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A=matrix([[5,0,5],[2,-2,3],[1,0,4]])
+listcof=[]# La liste de cofacteurs
+liste=list(range(3)) #Une liste contenant [0,1,2]
+for i in range(3):
+    Lignes=liste.copy()
+    Lignes.remove(i)
+    for j in range(3):
+        Colonnes=liste.copy()
+        Colonnes.remove(j)
+        listcof.append((-1)^{i+j}*A[Lignes,Colonnes].determinant())
+C=matrix(3,3,listcof)
+show("adj(A)=",C.transpose())
+</script></pre>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Pour une matrice <span class="process-math">\(2\times 2\text{,}\)</span> les cofacteurs sont simples à calculer directement. On a</div>
+<div class="displaymath process-math">
+\begin{align*}
+C_{1,1}&amp;=d\\
+C_{1,2}&amp;=-b\\
+C_{2,1}&amp;=-c\\
+C_{2,2}&amp;=a\text{.}
+\end{align*}
+</div>
+<div class="para">La matrice adjointe est donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+adj(D)=\matcold{d}{-b}{-c}{a}\text{.}
+\end{equation*}
+</div>
+</div></div></details>
+</div></article><span class="incontext"><a class="internal" href="sec-cofacteurs.html#ex-matadjointe">Contexte</a></span>
+</body>
+</html>

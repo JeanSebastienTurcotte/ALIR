@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">6.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Des calculs de vecteurs et valeurs propres.</span>
+</h4>
+<div class="para logical">
+<div class="para">On cherche les valeurs et vecteurs propres des matrices suivantes:</div>
+<div class="displaymath process-math">
+\begin{align*}
+A&amp;=\begin{pmatrix} 3&amp;1\\ -2&amp;0 \end{pmatrix}\\
+B&amp;=\begin{pmatrix} 1&amp;-3\\ 3&amp;-5 \end{pmatrix}\\
+C&amp;=\begin{pmatrix} -2 &amp; 2 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 2 &amp; -1 &amp; 0 \end{pmatrix}\\
+E&amp;=\begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 2 \end{pmatrix}\\
+F&amp;=\begin{pmatrix} -1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\text{.}
+\end{align*}
+</div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">On commence par trouver les valeurs propres en calculant le déterminant de <span class="process-math">\(A-\lambda I\text{.}\)</span> On obtient</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lvert A-\lambda I\rvert &amp;=\lvert \begin{pmatrix} 3&amp;1\\ -2&amp;0 \end{pmatrix}-\begin{pmatrix} \lambda&amp;0\\ 0&amp;\lambda \end{pmatrix}\rvert\\
+&amp;=\begin{vmatrix} 3-\lambda&amp;1\\ -2&amp;-\lambda \end{vmatrix}\\
+&amp;=(3-\lambda)(-\lambda)+2\\
+&amp;=\lambda^2-3\lambda+2\\
+&amp;=(\lambda-1)(\lambda-2)\text{.}
+\end{align*}
+</div>
+<div class="para">Les valeurs propres sont les valeurs de <span class="process-math">\(\lambda\)</span> qui annulent ce déterminant, soit <span class="process-math">\(\lambda_1=1\)</span> et <span class="process-math">\(\lambda_2=2\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">On trouve le premier vecteur propre en regardant l’espace nul de <span class="process-math">\(A-I=\begin{pmatrix} 2&amp;1\\ -2&amp;-1 \end{pmatrix}\text{.}\)</span> En effectuant l’opération élémentaire <span class="process-math">\(L_2+L_1\to L_2\)</span> et ensuite l’opération élémentaire <span class="process-math">\(L_1/2\to L_1\text{,}\)</span> on obtient la matrice échelonnée réduite</div>
+<div class="displaymath process-math">
+\begin{equation*}
+rref(A-I)=\begin{pmatrix} 1&amp;1/2\\ 0&amp;0 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Celle-ci donne le vecteur propre <span class="process-math">\(\vec{u}_1=(-1/2,1)\text{,}\)</span> ou son multiple <span class="process-math">\(\vec{v}_1=(-1,2)\text{.}\)</span> Un calcul rapide montre qu’on a bel et bien <span class="process-math">\(A\vec{v}_1=\vec{v}_1\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Pour le second vecteur propre, on procède de manière similaire. On regarde l’espace propre associé à <span class="process-math">\(\lambda_2=2\text{.}\)</span> On a alors</div>
+<div class="displaymath process-math">
+\begin{align*}
+A-2I&amp;=\begin{pmatrix} 1&amp;1\\ -2&amp;1 \end{pmatrix}\\
+&amp;\stackrel{L2+2L_1\to L_1}{\sim}\begin{pmatrix}1&amp;1\\ 0&amp;0\end{pmatrix}\text{.}
+\end{align*}
+</div>
+<div class="para">Une base de cet espace, donc un vecteur propre, est le vecteur <span class="process-math">\(\vec{v}_2=(-1,1)\text{.}\)</span> Encore une fois, un calcul rapide permet d’observer que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 3&amp;1\\ -2&amp;0 \end{pmatrix}\begin{pmatrix}-1\\ 1\end{pmatrix}=-\begin{pmatrix}3\\-2 \end{pmatrix}+\begin{pmatrix}1\\0 \end{pmatrix}=\begin{pmatrix}-2\\2\end{pmatrix}=2\begin{pmatrix}-1\\ 1\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+</div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">On procède de la même manière. On a</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lvert B-\lambda I\rvert&amp;=\lvert\begin{pmatrix} 1&amp;-3\\ 3&amp;-5 \end{pmatrix}-\begin{pmatrix} \lambda&amp;0\\ 0&amp;0 \end{pmatrix} \rvert\\
+&amp;=\begin{vmatrix} 1-\lambda&amp;-3\\ 3&amp;-5-\lambda \end{vmatrix}\\
+&amp;=(1-\lambda)(-5-\lambda)+9\\
+&amp;=\lambda^2+4\lambda+4\\
+&amp;=(\lambda+2)^2\text{.}
+\end{align*}
+</div>
+<div class="para">On ne trouve ici qu’une seule valeur propre égale à <span class="process-math">\(\lambda=-2\text{.}\)</span> Pour l’espace propre, on regarde l’espace nul de la matrice <span class="process-math">\(B+2I=\begin{pmatrix} 3&amp;-3\\ 3&amp;-3 \end{pmatrix}\text{,}\)</span> dont la forme échelonnée réduite est <span class="process-math">\(rref(B+2I)=\begin{pmatrix} 1&amp;-1\\ 0&amp;0 \end{pmatrix}\text{.}\)</span> Un vecteur propre est donc <span class="process-math">\(\vec{v}=(1,1)\text{.}\)</span> Encore une fois, un calcul permet de vérifier que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 1&amp;-3\\ 3&amp;-5 \end{pmatrix}\begin{pmatrix} 1\\ 1\end{pmatrix}=\begin{pmatrix}1-3 \\ 3-5 \end{pmatrix}=\begin{pmatrix}-2\\ -2 \end{pmatrix}=-2\begin{pmatrix} 1\\ 1\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+</div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">3</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">On calcule le déterminant de la matrice <span class="process-math">\(C-\lambda I\)</span> afin de déterminer les valeurs propres. On a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-detcofact.html">
+\begin{align*}
+\lvert C-\lambda I\rvert&amp;= \begin{vmatrix} -2-\lambda &amp; 2 &amp; 0 \\ 0 &amp; 2-\lambda &amp; 0 \\ 2 &amp; -1 &amp; -\lambda \end{vmatrix}\\
+\end{align*}
+<p class="intertext">En se basant sur la proposition <a href="sec-cofacteurs.html#prop-detcofact" class="xref" data-knowl="./knowl/xref/prop-detcofact.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 4.3.8: Le développement de Laplace du déterminant n\times n">4.3.8</a>, on développe selon la deuxième ligne:</p>
+\begin{align*}
+&amp;=(2-\lambda)\begin{vmatrix} -2-\lambda &amp;  0  \\ 2 &amp;  -\lambda \end{vmatrix}\\
+&amp;=(2-\lambda)(-2-\lambda)(-\lambda)\text{.}
+\end{align*}
+</div>
+<div class="para">Les valeurs propres sont donc <span class="process-math">\(\lambda_1=2,\lambda_2=-2\)</span> et <span class="process-math">\(\lambda_3=0\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Pour la recherche des vecteurs propres associés, il faut regarder les espaces nuls des matrices <span class="process-math">\(C-\lambda I\)</span> pour chaque valeur <span class="process-math">\(\lambda\)</span> trouvée. Pour <span class="process-math">\(\lambda=2\text{,}\)</span> on trouve</div>
+<div class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix} -4 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 2 &amp; -1 &amp; -2 \end{pmatrix}&amp;=\stackrel{L_2\leftrightarrow L_3}{\sim}\begin{pmatrix} -4 &amp; 2 &amp; 0 \\  2 &amp; -1 &amp; -2 \\ 0 &amp; 0 &amp; 0 \\ \end{pmatrix}\\
+&amp;\stackrel{L_2+L_1/2\to L_2}{\sim}\begin{pmatrix} -4 &amp; 2 &amp; 0 \\  0 &amp; 0 &amp; -2 \\ 0 &amp; 0 &amp; 0 \\ \end{pmatrix}\\
+&amp;\stackrel{\stackrel{L_1/(-4)\to L_1}{L_2/(-2)\to L_2}}{\sim}\begin{pmatrix} 1 &amp; -1/2 &amp; 0 \\  0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 \\ \end{pmatrix}\text{.}
+\end{align*}
+</div>
+<div class="para">Il n’y a qu’une seule variable libre, la deuxième. Une base de l’espace nul est donc <span class="process-math">\(\vec{u}_1=(1/2,1,0)\text{,}\)</span> qui constitue un vecteur propre. Plus simplement, on peut le multiplier par <span class="process-math">\(2\)</span> pour avoir <span class="process-math">\(\vec{v}_1=(1,2,0)\text{.}\)</span>  Un calcul simple montre que l’on a bel et bien <span class="process-math">\(C\vec{v}_1=2\vec{v}_1\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Pour le deuxième vecteur propre associé à la valeur propre <span class="process-math">\(\lambda_2=-2\text{,}\)</span> on procède de la même manière. On a</div>
+<div class="displaymath process-math">
+\begin{align*}
+C+2 I&amp;= \begin{pmatrix} 0 &amp; 2 &amp; 0 \\ 0 &amp; 4 &amp; 0 \\ 2 &amp; -1 &amp; 2 \end{pmatrix}\\
+&amp;\stackrel{\stackrel{L_2-2L_1\to L_2}{L_3+L_1/2\to L_3}}{\sim}\begin{pmatrix} 0 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 2 &amp; 0 &amp; 2 \end{pmatrix}\\
+&amp;\stackrel{\stackrel{L_1/2\to L_1}{L_3/2\to L_3}}{\sim}\begin{pmatrix} 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 1 &amp; 0 &amp; 1 \end{pmatrix}\\
+&amp;\stackrel{L_3\leftrightarrow L_1}{\sim}\begin{pmatrix} 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}\text{.}
+\end{align*}
+</div>
+<div class="para">Encore une fois, on ne retrouve qu’une variable libre, cette fois en <span class="process-math">\(z\text{,}\)</span> qui amène comme vecteur propre le vecteur <span class="process-math">\(\vec{v}_2=(-1,0,1)\text{.}\)</span> On vérifie à nouveau que l’on a bien <span class="process-math">\(C\vec{v}_2=-2\vec{v}_2\)</span> par un calcul de produit matrice vecteur.</div>
+</div> <div class="para logical">
+<div class="para">Finalement, avec la dernière valeur propre <span class="process-math">\(\lambda_3=0\text{,}\)</span> on a</div>
+<div class="displaymath process-math">
+\begin{align*}
+C&amp;=\begin{pmatrix} -2 &amp; 2 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 2 &amp; -1 &amp; 0 \end{pmatrix}\\
+&amp;\stackrel{\stackrel{L_1/(-2)\to L_1}{L_2/2\to L_2}}{\sim}\begin{pmatrix} 1 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 2 &amp; -1 &amp; 0 \end{pmatrix}\\
+&amp;\stackrel{L_3-2L_1\to L_3}{\sim}\begin{pmatrix} 1 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}\\
+&amp;\stackrel{L_3-L_2\to L_3}{\sim}\begin{pmatrix} 1 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}\text{.}
+\end{align*}
+</div>
+<div class="para">Le dernier vecteur propre est <span class="process-math">\(\vec{v}_3=(0,0,1)\text{.}\)</span>
+</div>
+</div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">4</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On se permet de faire les calculs sur Sage pour les deux prochaines matrices. On n’utilisera pas les fonctions <code class="code-inline tex2jax_ignore">eigenvalues</code> et <code class="code-inline tex2jax_ignore">eigenvectors_right</code>, car on veut pour l’instant être en mesure de comprendre comment obtenir les valeurs et vecteurs propres à partir des définitions et résultats, mais on laisse Sage faire les calculs de ces déterminants et l’échelonnage des matrices. Pour les valeurs propres:</div> <pre id="ex-vecvalpropres-6-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">E=matrix(QQ,[[1,1,0],[0,1,0],[0,0,2]])
+I=matrix.identity(3)
+show((E-x*I).determinant())
+</script></pre> <div class="para">Cette fois, les valeurs propres sont <span class="process-math">\(\lambda_1=1\)</span> et <span class="process-math">\(\lambda_2=2\text{.}\)</span> On remarque qu’il n’y a encore une fois que deux valeurs propres.</div> <div class="para">Un premier vecteur propre est obtenu en regardant l’espace propre associé à <span class="process-math">\(\lambda_1\text{.}\)</span>
+</div> <pre id="ex-vecvalpropres-6-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show((E-I).right_kernel(basis="pivot").basis())
+</script></pre> <div class="para">Le vecteur propre est <span class="process-math">\(\vec{v}_1=(1,0,0)\text{.}\)</span> Pour la seconde valeur propre :</div> <pre id="ex-vecvalpropres-6-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show((E-2*I).right_kernel(basis="pivot").basis())
+</script></pre> <div class="para">Le second vecteur propre est <span class="process-math">\(\vec{v}_2=(0,0,1)\text{.}\)</span>
+</div> <div class="para">On remarque dans ce cas-ci que chaque valeur propre n’a qu’une direction propre associée.</div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">5</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On répète la démarche précédente avec la matrice <span class="process-math">\(F\)</span> et Sage.</div> <div class="para">D’abord, pour les valeurs propres, on calcule le déterminant de la matrice <span class="process-math">\(F-\lambda I\)</span> et l’on demande à Sage de factoriser le tout pour pouvoir y lire facilement les zéros. À noter qu’on utilise <span class="process-math">\(x\)</span> plutôt que <span class="process-math">\(\lambda\text{,}\)</span> car le mot <code class="code-inline tex2jax_ignore">lambda</code> est protégé en python.</div> <pre id="ex-vecvalpropres-7-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">F=matrix(QQ,[[-1,1,0],[0,1,0],[0,0,1]]) #Le QQ sera nécessaire pour utiliser les commandes reliées à l'espace nul dans le calcul des vecteurs propres
+I=matrix.identity(3)
+show((F-x*I).determinant())
+</script></pre> <div class="para">Il n’y a que deux valeurs propres distinctes, <span class="process-math">\(\lambda_1=-1\)</span> et <span class="process-math">\(\lambda_2=1\text{.}\)</span> Pour trouver les vecteurs propres, on trouve une base pour les espaces nuls des deux matrices <span class="process-math">\(D+I\)</span> et <span class="process-math">\(D-I\text{.}\)</span>
+</div> <pre id="ex-vecvalpropres-7-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show((F+I).right_kernel(basis="pivot").basis())
+</script></pre> <div class="para">Un vecteur propre associé à <span class="process-math">\(\lambda=-1\)</span> est donc <span class="process-math">\(\vec{v}_1=(1,0,0)\text{.}\)</span> On vérifie facilement que <span class="process-math">\(F\vec{v}_1=-\vec{v}_1\text{,}\)</span> puisque ce produit donne la première colonne de la matrice <span class="process-math">\(F\text{.}\)</span> Pour <span class="process-math">\(\lambda_2=1\text{,}\)</span> on regarde ce que Sage donne comme espace propre.</div> <pre id="ex-vecvalpropres-7-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show((F-I).right_kernel(basis="pivot").basis())
+</script></pre> <div class="para logical">
+<div class="para">On constate qu’il y a ici deux vecteurs propres associés à la valeur propre <span class="process-math">\(\lambda_2=1\text{.}\)</span> Le vecteur <span class="process-math">\(\vec{v}_2=(1,2,0)\)</span> (après multiplication par <span class="process-math">\(2\)</span>)  et le vecteur <span class="process-math">\(\vec{v}_3=(0,0,1)\text{,}\)</span> dont on peut dire que</div>
+<div class="displaymath process-math">
+\begin{align*}
+F\vec{v}_2&amp;=\vec{v}_2 &amp; F\vec{v}_3=\vec{v}_3\text{.}
+\end{align*}
+</div>
+</div>
+</div></details>
+</div></article><span class="incontext"><a class="internal" href="sec-propre.html#ex-vecvalpropres">Contexte</a></span>
+</body>
+</html>
