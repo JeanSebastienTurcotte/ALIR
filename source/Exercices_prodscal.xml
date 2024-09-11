@@ -277,7 +277,7 @@
                              showResetIcon(true);
                         </slate>
                         <instructions>
-                            Utiliser cette figure pour bien visualiser les vecteurs impliqués. Remarquer que les longueurs en bleu, rouge et vert correspondent aux cathètes de triangles rectangles.
+                            <p>Utiliser cette figure pour bien visualiser les vecteurs impliqués. Remarquer que les longueurs en bleu, rouge et vert correspondent aux cathètes de triangles rectangles.</p>
                         </instructions>
                     </interactive>
                 </figure>
@@ -358,7 +358,7 @@
                              showResetIcon(true);
                         </slate>
                         <instructions>
-                            Utiliser cette figure pour bien visualiser le cube.
+                           <p>Utiliser cette figure pour bien visualiser le cube.</p>
                         </instructions>
                     </interactive>
                 </figure>
@@ -395,7 +395,7 @@
                              showResetIcon(true);
                         </slate>
                         <instructions>
-                            Utiliser cette figure pour bien visualiser la molécule.
+                            <p>Utiliser cette figure pour bien visualiser la molécule.</p>
                         </instructions>
                     </interactive>
                 </figure>  
@@ -425,14 +425,14 @@
                  l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des abscisses <m>(x)</m>, <m>\beta</m> l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des ordonnées <m>(y)</m> et <m>\phi</m>
                  l'angle que fait le vecteur <m>\vec{u}</m> avec l'axe des cotes <m>(z)</m>.</p>
                  <figure>
-                    <caption> </caption>
+                    <caption> Les cosinus directeurs </caption>
                     <interactive xml:id="geo-exo-cosdir" platform="geogebra" width="100%" aspect="1:1">
                         <slate xml:id="geo-exo-cosdir1" surface="geogebra" source="code/geogebra/exo-cosdir.ggb" aspect="1:1">
                             setCoordSystem(-3, 3, -3, 3);
                              showResetIcon(true);
                         </slate>
                         <instructions>
-                            Utiliser cette figure pour bien visualiser les cosinus directeurs et répondre aux questions.
+                            <p>Utiliser cette figure pour bien visualiser les cosinus directeurs et répondre aux questions.</p>
                         </instructions>
                     </interactive>
                 </figure>  
@@ -563,12 +563,25 @@
                     <mrow>\Leftrightarrow \norm{\vecl{OA}+\vecl{AC}}^2&amp;=\norm{\vecl{BC}+\vecl{CA}}^2</mrow>
                     <mrow>\Leftrightarrow \norm{\vecl{OA}+\vecl{AC}}^2&amp;=\norm{\vecl{BC}-\vecl{AC}}^2</mrow>
                     <mrow>\Leftrightarrow \norm{\vecl{OA}+\vecl{OB}}^2&amp;=\norm{\vecl{OA}-\vecl{OB}}^2</mrow>
-                    <mrow>\Leftrightarrow \norm{\vecl{OA}}^2+2\vecl{OA}\cdot\vecl{OB}+\norm{\vecl{OB}}^2&amp;=\norm{\vecl{OA}}^2-2\vecl{OA}\cdot\vecl{OB}+\norm{\vecl{OB}}^2\text{  (par l'exercice précédent)}</mrow>
+                    <mrow>\Leftrightarrow \norm{\vecl{OA}}^2+2\vecl{OA}\cdot\vecl{OB}+\norm{\vecl{OB}}^2&amp;=\norm{\vecl{OA}}^2-2\vecl{OA}\cdot\vecl{OB}+\norm{\vecl{OB}}^2\text{  (par l'exercice <xref ref="exo-normsommecarree"/>)}</mrow>
                     <mrow>\Leftrightarrow 2\vecl{OA}\cdot\vecl{OB}&amp;=-2\vecl{OA}\cdot\vecl{OB}</mrow>
                     <mrow>\Leftrightarrow 4\vecl{OA}\cdot\vecl{OB}&amp;=0</mrow>
                     <mrow>\Leftrightarrow \vecl{OA}\cdot\vecl{OB}&amp;=0</mrow>
                 </md>
                 Le produit scalaire des deux vecteurs formant le losange étant nul, ils doivent être à angle droit. C'est donc un carré.</p>
+                
+                <p>Pour montrer l'implication qu'un losange possédant des diagonales de même longueur est un carré, on peut aussi procéder comme suit. Selon la notation de la figure <xref ref="fig-diaglos"/>, il faut montrer que l'angle <m>BOA</m> est droit. En utilisant les vecteurs, on veut ainsi montrer que le produit scalaire de <m>\overrightarrow{OA}</m> et <m>\overrightarrow{OB}</m> est nul. Soit <m>I</m>, l'intersection des diagonales. On a
+                <md>
+                <mrow>\overrightarrow{OA}\cdot\overrightarrow{OB}&amp;=(\overrightarrow{OI}+\overrightarrow{IA})\cdot(\overrightarrow{OI}+\overrightarrow{IB})</mrow>
+                <mrow>&amp;=\overrightarrow{OI}\cdot\overrightarrow{OI}+\overrightarrow{OI}\cdot\overrightarrow{IB}+\overrightarrow{IA}\cdot\overrightarrow{OI}+\overrightarrow{IA}\cdot\overrightarrow{-IA}</mrow>
+                <mrow>&amp;=\norm{\overrightarrow{OI}}^2+0+0+\overrightarrow{IA}\cdot\overrightarrow{IB}\</mrow>
+                <intertext>respectivement selon <xref ref="li-propprodscal-norm"/>, puisque <m>\vecl{OI},\vec{IB}</m> sont perpendiculaires de même que <m>\vecl{IA},\vecl{OI}</m> selon l'exemple <xref ref="ex-diaglos"/> et selon <xref ref="exo-diagpara"/></intertext>
+                <mrow>&amp;=\norm{\overrightarrow{OI}}^2-\norm{\overrightarrow{IA}}^2&amp;&amp; \text{selon <xref ref="li-propprodscal-multscal"/> et <xref ref="li-propprodscal-norm"/></mrow>
+                <mrow>&amp;=\norm{\overrightarrow{OI}}^2-\norm{\overrightarrow{OI}}^2 &amp;&amp; \text{par hypothèse, les diagonales ont la même longueur}</mrow>
+                <mrow>&amp;=0</mrow>
+                </md>.
+                Le losange est donc un carré.
+                </p>
             </solution>
     </exercise>
     <exercise xml:id="exo-accelradtan">
@@ -587,7 +600,7 @@
                              showResetIcon(true);
                         </slate>
                         <instructions>
-                            Utiliser cette figure pour bien visualiser les composantes radiale et tangentielle du vecteur accélération.
+                            <p>Utiliser cette figure pour bien visualiser les composantes radiale et tangentielle du vecteur accélération.</p>
                         </instructions>
                     </interactive>
                 </figure> 

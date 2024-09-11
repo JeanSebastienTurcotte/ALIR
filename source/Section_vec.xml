@@ -38,7 +38,7 @@
     <p>Ce déplacement suggère une autre manière de voir la notion de point,
     soit en traçant une flèche entre l'origine et le point. Cette flèche est ce
     qui est communément appelé un vecteur. En fait, la notion de vecteur est
-    un peu plus complexe. C'est ce que nous allons découvrir au fil du texte.</p>
+    un peu plus complexe. C'est ce que l'on va découvrir au fil du texte.</p>
     <p>
     On associe souvent à un point 
     <m>P</m> le vecteur 
@@ -82,7 +82,7 @@
         <li>une longueur, aussi appelée la norme du vecteur;</li>
         <li>une orientation,<fn>Certains auteurs vont plutôt définir la direction et le sens d'un vecteur. La direction correspond à la droite supportant 
         le vecteur et le sens au sens de parcours de cette droite.
-        </fn> qui correspond aux angles que fait le vecteur avec chacun des axes de coordonnées.
+        </fn> qui correspond aux angles que fait le vecteur avec chacun des axes de coordonnées. Le vecteur nul est une exception et ne possède pas d'orientation.
         </li>
       </ul>
       </p>
@@ -192,9 +192,15 @@
     <m>\vec{u}</m> les nombres correspondant au point à son extrémité lorsque
     le vecteur est placé à l'origine. Ainsi, un vecteur de longueur 
     <m>1</m> parallèle à l'axe des abscisses serait décrit comme 
-    <m>\vec{u}=(1,0)</m>. On verra aussi prochainement l'utilité de la notation
+    <m>\vec{u}=(1,0)</m>. La figure <xref ref="fig-vecalg"/> illustre quelques vecteurs ainsi que leur description géométrique selon le repère fourni. On verra aussi prochainement l'utilité de la notation
     
     <m>\vec{u}=\begin{pmatrix} 1\\0 \end{pmatrix}</m>.</p>
+    <figure xml:id="fig-vecalg">
+    <caption>Des vecteurs algébriques</caption>
+      <image source="images/vecalg" width="80%">
+        <description>Des vecteurs sont illustrés. On peut voir le vecteur un,zéro, le vecteur zéro,un et deux copies du vecteur un,deux, l'une partant à l'origine, l'autre du point deux,un.</description>
+      </image>
+    </figure>
     <aside>
       <title>En passant</title>
       <p>Plusieurs notations sont utilisées pour les vecteurs algébriques. On
@@ -206,12 +212,12 @@
     </aside>
     <p>Si 
     <m>\vec{u}=(u_1,u_2)</m> est un vecteur de 
-    <m>\R^2</m>, alors 
+    <m>\R^2</m>, alors sa norme est donnée par
     <men xml:id="eq-norm2">\norm{\vec{u}}=\sqrt{u_1^2+u_2^2}</men>. 
     C'est une conséquence immédiate du théorème de Pythagore, comme l'illustre la figure 
     <xref ref="fig-unvec"/>. Pour les vecteurs de 
     <m>\R^3</m>, on peut montrer qu'une formule similaire s'applique (voir exercice <xref ref="exo-norm3"/>), c'est-à-dire que 
-    <m>\norm{\vec{u}}=\sqrt{u_1^2+u_2^2+u_3^2}</m>.</p>
+    <men xml:id="eq-norm3">\norm{\vec{u}}=\sqrt{u_1^2+u_2^2+u_3^2}</men>.</p>
     <p>Algébriquement, deux vecteurs sont égaux s'ils ont les mêmes
     composantes.</p>
     <p>Il est plus difficile de caractériser l'orientation d'un vecteur
@@ -228,10 +234,10 @@
     donne une relation entre l'angle et les composantes du vecteur, pourvu que <m>x\neq 0</m>. La fonction <m>\arctan</m> permet d'obtenir l'angle, mais il 
     faudra parfois ajuster selon le quadrant avec un terme <m>+\pi</m>. </p>
     <p>Pour les vecteurs dans 
-    <m>\R^3</m>, on définit la notion de cosinus directeurs (voir l'exercice 
-    <xref ref="exo-cosdir"/>).</p>
+    <m>\R^3</m>, l'orientation est donnée par trois angles, entre le vecteur et chacun des trois axes de coordonnées. On appelle les cosinus directeurs (voir l'exercice 
+    <xref ref="exo-cosdir"/> pour approfondir cette notion) le cosinus de chacun de ces angles. </p>
     <figure xml:id="fig-unvec">
-      <caption>Un vecteur algébrique</caption>
+      <caption>Un vecteur algébrique quelconque</caption>
       <image source="images/unvec" width="80%">
         <description>Un vecteur algébrique quelconque. Ses coordonnées 
         <m>u_1</m> et 
@@ -302,6 +308,45 @@
           </figure>
         </li>
       </ol></p>
+      </example>
+      <example xml:id="ex-cosdir">
+      <title>L'orientation dans <m>\mathbb{R}^3</m></title>
+      <statement><p>On considère le vecteur <m>\vec{v}=(\sqrt{3},\sqrt{2},1)</m>. On cherche à déterminer son orientation en trouvant l'angle que fait ce vecteur avec chacun des trois axes de coordonnées.</p></statement>
+      <solution>
+      <p>La figure suivante est utile pour la compréhension de la situation. Elle fait apparaitre trois triangles dans lesquels on peut voir les angles recherchés.</p>
+      <figure xml:id="fig-cosdir">
+                    <caption> L'orientation dans <m>\mathbb{R}^3</m></caption>
+                    <interactive xml:id="geo-cosdir" platform="geogebra" width="100%" aspect="1:1">
+                        <slate xml:id="slate-cosdir" surface="geogebra" source="code/geogebra/cosdir.ggb" aspect="1:1">
+                             showResetIcon(true);
+                        </slate>
+                        <instructions>
+                            <p>Utiliser cette figure pour bien visualiser les cosinus directeurs.</p>
+                        </instructions>
+                    </interactive>
+                </figure>  
+    <p>Dans un premier temps, on calcule la longueur du vecteur <m>\vec{v}</m>. Selon l'équation <xref ref="eq-norm3"/>, on a
+    <me>
+    \norm{v}=\sqrt{\sqrt{3}^2+\sqrt{2}^2+1^2}=\sqrt{6}
+    </me>.</p>
+    <p>Pour trouver l'angle que fait le vecteur avec l'axe des <m>x</m>, on regarde le triangle rouge de la figure <xref ref="fig-cosdir"/>. Le triangle rectangle permet d'utiliser les rapports trigonométriques pour obtenir que
+    <me>
+    \cos(\alpha)=\frac{\sqrt{3}}{\sqrt{6}}=\sqrt{\frac{1}{2}}
+    </me>.
+    Ainsi, l'angle avec l'axe des <m>x</m> est de <m>45\circ</m>.
+    </p>
+    <p>Pour trouver l'angle que fait le vecteur avec l'axe des <m>y</m>, on regarde le triangle vert de la figure <xref ref="fig-cosdir"/>. Le triangle rectangle permet d'utiliser les rapports trigonométriques pour obtenir que
+    <me>
+    \cos(\beta)=\frac{\sqrt{2}}{\sqrt{6}}=\sqrt{\frac{1}{3}}
+    </me>. 
+    En prenant la fonction <m>\arccos</m> pour isoler l'angle beta, on trouve approximativement <m>54.74\circ</m>.
+    </p>
+    Finalement, pour trouver l'angle que fait le vecteur avec l'axe des <m>y</m>, on regarde le triangle bleu de la figure <xref ref="fig-cosdir"/>. Le triangle rectangle permet d'utiliser les rapports trigonométriques pour obtenir que
+    <me>
+    \cos(\beta)=\frac{1}{\sqrt{6}}
+    </me>. 
+    En prenant la fonction <m>\arccos</m> pour isoler l'angle beta, on trouve approximativement <m>65.91\circ</m>.
+      </solution>
       </example>
       <p> On termine  avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-defvec">
@@ -428,7 +473,7 @@
   </example>
   <p>En comparant une valeur positive et son opposé (négative)
   dans l'exemple <xref ref="ex-geomultscal" />, on constate que la longueur du
-  vecteur reste la même. Cela nous mène donc à la définition suivante.</p>
+  vecteur reste la même. Cela mène donc à la définition suivante.</p>
   <definition xml:id="def-multscal">
     <title>Multiplication par un scalaire</title>
     <statement>
@@ -483,7 +528,7 @@
   <p>Si deux vecteurs non nuls 
   <m>\vec{u},\vec{v}</m> ont la même orientation, alors il existe toujours 
   <m>c\in \R</m> tel que 
-  <m>\vec{v}=c\vec{u}</m>. Ceci nous permet de définir la notion de vecteurs
+  <m>\vec{v}=c\vec{u}</m>. Ceci permet de définir la notion de vecteurs
   parallèles.</p>
   <definition xml:id="def-vecpara">
   <title>Vecteurs parallèles</title>

@@ -15,13 +15,13 @@
         <p>Aller aux <xref ref="exo-prodscal">exercices</xref> de la section.</p>
     <p>Dans la section <xref ref="sec-vec"/>, on a défini le concept d'angle polaire pour un vecteur de <m>\R^2</m>, et, plus généralement, le concept de cosinus directeurs. Pour l'angle polaire, on peut imaginer que c'est l'angle que fait le vecteur <m>\vec{u}</m> avec tout vecteur de la forme <m>(x,0)</m> où <m>x>0</m>.</p>
         
-        <p>Dans cette section, on vise à définir le concept d'angle entre deux vecteurs quelconques dans <m>\R^2</m> et <m>\R^3</m>. Ceci nous mènera à la définition du produit scalaire, une opération vectorielle qui a de nombreuses applications.</p>
+        <p>Dans cette section, on vise à définir le concept d'angle entre deux vecteurs quelconques dans <m>\R^2</m> et <m>\R^3</m>. Ceci mènera à la définition du produit scalaire, une opération vectorielle qui a de nombreuses applications.</p>
     </introduction>
     
     <!-- Sous-sections à écrire, à même ce fichier -->
     <subsection xml:id="sssec-angle2vec">
     <title> L'angle entre deux vecteurs de dimensions deux</title>
-        <p>Considérons deux vecteurs non nuls <m>\vec{u}</m> et <m>\vec{v}</m> de <m>\R^2</m> et dénotons par <m>\theta_{\vec{u}\vec{v}}</m> le plus petit angle entre ces vecteurs<fn>S'il n'y a pas d'ambigüité et que le contexte est clair, on laissera tomber l'indice <m>\vec{u}\vec{v}</m> au profit de seulement <m>\theta</m>.</fn>. On cherche à trouver un moyen de déterminer cet angle à partir des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. L'image interactive <xref ref="fig-angle2d"/> permet de manipuler des vecteurs et de découvrir l'intuition derrière la formule qui suivra.</p>
+        <p>On considère deux vecteurs non nuls <m>\vec{u}</m> et <m>\vec{v}</m> de <m>\R^2</m> et l'on dénote par <m>\theta_{\vec{u}\vec{v}}</m> le plus petit angle entre ces vecteurs<fn>S'il n'y a pas d'ambigüité et que le contexte est clair, on laissera tomber l'indice <m>\vec{u}\vec{v}</m> au profit de seulement <m>\theta</m>.</fn>. On cherche à trouver un moyen de déterminer cet angle à partir des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. L'image interactive <xref ref="fig-angle2d"/> permet de manipuler des vecteurs et de découvrir l'intuition derrière la formule qui suivra.</p>
         <example xml:id="ex-angle2d">
     <title>L'angle entre deux vecteurs de dimensions deux: dynamique</title>
             <p>L'angle entre deux vecteurs peut être obtenu à l'aide d'un résultat bien connu à propos des triangles.</p>
@@ -62,7 +62,7 @@
             <title>Un calcul d'angle</title>
         <p>On considère les vecteurs <m>\vec{u}=(1,2)</m> et <m>\vec{v}=(-3,4)</m>. Le cosinus de l'angle entre ces vecteurs est 
             <md>
-            <mrow> \cos(\theta)&amp;=\frac{u_1v_1+u_2v_2}{\norm{u}\norm{v}}</mrow>
+            <mrow> \cos(\theta)&amp;=\frac{u_1v_1+u_2v_2}{\norm{\vec{u}}\norm{\vec{v}}}</mrow>
             <mrow> &amp;= \frac{1*(-3)+2*4}{\sqrt{1^2+2^2}\sqrt{(-3)^2+4^2}}</mrow>
             <mrow> &amp;= \frac{5}{\sqrt{5}\sqrt{25}}</mrow>
             <mrow>  &amp;= \frac{1}{\sqrt{5}}</mrow>
@@ -94,6 +94,22 @@
         Comme les normes sont toujours positives et que le cosinus varie entre <m>-1</m> et <m>1</m>, le produit scalaire peut être positif ou négatif, selon l'angle,  et de n'importe quelle grandeur, selon les normes.
         </p>
         <p> On a déjà observé que, si l'angle entre deux vecteurs est <m>90^\circ</m>, le produit scalaire vaut <m>0</m>. Le signe du produit scalaire correspond alors au type d'angle (aigu ou obtus) qu'il y a entre les deux vecteurs.</p>
+        <p>On revient sur l'exemple <xref ref="ex-cosdir"/> où l'on a calculé l'orientation d'un vecteur dans <m>\mathbb{R}^3</m> en réfléchissant géométriquement. On refait ce calcul avec le produit scalaire, offrant une vision algébrique complémentaire à la géométrie.</p>
+        <example>
+        <title>L'orientation dans <m>\mathbb{R}^3</m>, revisitée</title>
+        <statement><p>On considère le vecteur <m>\vec{v}=(\sqrt{3},\sqrt{2},1)</m>. On cherche à déterminer son orientation en trouvant l'angle que fait ce vecteur avec chacun des trois axes de coordonnées.</p></statement>
+        <solution>
+        <p>Pour calculer l'angle que fait le vecteur avec l'axe des <m>x</m>, on utilise le vecteur <m>\hat{i}=(1,0,0)</m>. Tout autre vecteur de la forme <m>(x,0,0)</m> serait aussi un bon choix. Selon la formule <xref ref="eq-prodscalgeo"/>, l'angle entre ces deux vecteurs est donnée par
+        <md>
+        <mrow>\cos(\theta)&amp;=\frac{\vec{v}\cdot \hat{i}}{\norm{\vec{v}}\norm{\hat{i}}}</mrow>
+        <mrow>&amp;=\frac{\sqrt{3}}{\sqrt{6}\times 1}</mrow>
+        <mrow>&amp;=\sqrt{\frac{1}{2}}</mrow>
+        </md>.
+        Ainsi, l'angle est égal à <m>45\circ</m>, tel qu'on avait trouvé à l'exemple <xref ref="ex-cosdir"/>.
+        </p>
+        <p>De même,</p>
+        </solution>
+        </example>
         <p>Voici maintenant quelques propriétés du produit scalaire.</p>
         <proposition xml:id="prop-propprodscal">
         <statement><p>Le produit scalaire entre deux vecteurs quelconques possède les propriétés suivantes:</p>
@@ -299,7 +315,7 @@
     </subsection>
     <subsection xml:id="ssec-projortho">
     <title>La projection orthogonale</title>
-        <p>Considérons deux vecteurs non nuls <m>\vec{u},\vec{v}</m> et considérons la droite de même direction que <m>\vec{u}</m>. On aimerait trouver le point sur cette droite qui est le plus près de l'extrémité de <m>\vec{v}</m>. L'intuition nous dit qu'il faut aller vers <m>\vec{u}</m> en partant de <m>\vec{v}</m>, dans une direction perpendiculaire à <m>\vec{u}</m>. On crée de cette façon un vecteur parallèle à <m>\vec{u}</m>. On cherche à déterminer mathématiquement ce vecteur, noté <m>\vec{v}_{\vec{u}}</m>.</p>
+        <p>On considère deux vecteurs non nuls <m>\vec{u},\vec{v}</m> et l'on considère la droite de même direction que <m>\vec{u}</m>. On aimerait trouver le point sur cette droite qui est le plus près de l'extrémité de <m>\vec{v}</m>. L'intuition dit qu'il faut aller vers <m>\vec{u}</m> en partant de <m>\vec{v}</m>, dans une direction perpendiculaire à <m>\vec{u}</m>. On crée de cette façon un vecteur parallèle à <m>\vec{u}</m>. On cherche à déterminer mathématiquement ce vecteur, noté <m>\vec{v}_{\vec{u}}</m>.</p>
      <figure xml:id="fig-projortho">
       <caption>La projection orthogonale</caption>
       <interactive aspect="1:1" platform="geogebra" width="100%"
