@@ -408,9 +408,6 @@ sagecell.makeSagecell({
 #ex-solbase1-2-1-1 { counter-set: ex-solbase1-2-1-1 0; }
 #ex-solbase1-2-1-1 > li::marker { content: ""counter(ex-solbase1-2-1-1,decimal)"."; }
 #ex-solbase1-2-1-1 > li { counter-increment: ex-solbase1-2-1-1; }
-#exo-prodvec-5-2-1-1 { counter-set: exo-prodvec-5-2-1-1 0; }
-#exo-prodvec-5-2-1-1 > li::marker { content: "("counter(exo-prodvec-5-2-1-1,lower-alpha)")"; }
-#exo-prodvec-5-2-1-1 > li { counter-increment: exo-prodvec-5-2-1-1; }
 #ssec-transpose-6-2-1-1 { counter-set: ssec-transpose-6-2-1-1 0; }
 #ssec-transpose-6-2-1-1 > li::marker { content: ""counter(ssec-transpose-6-2-1-1,decimal)"."; }
 #ssec-transpose-6-2-1-1 > li { counter-increment: ssec-transpose-6-2-1-1; }
@@ -924,12 +921,12 @@ $\Box$
 </h3>
 <div class="para" id="sssec-transfozero-2">On considère une matrice <span class="process-math">\(m\times n\)</span> et le système d’équations linéaires <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span> Un tel système est souvent appelé homogène.</div>
 <aside class="aside aside-like" id="sssec-transfozero-3"><h4 class="heading"><span class="title">En passant.</span></h4>
-<div class="para" id="sssec-transfozero-3-2">Le mot <em class="emphasis">homogène</em> a malheureusement plusieurs significations en mathématiques. Souvent utilisé pour signifier que le membre de droite d’une équation (ou un système) est nul (comme ici), il peut aussi faire référence à une fonction homogène. On ne devrait pas rencontrer d’autres utilisations du mot dans ces notes.</div></aside><div class="para" id="sssec-transfozero-4">Géométriquement, les solutions à ce système représentent l’ensemble des valeurs <span class="process-math">\(\vec{x}\)</span> du domaine (<span class="process-math">\(\R^n\)</span>) qui sont envoyées sur le vecteur nul de l’image (<span class="process-math">\(\R^m\)</span>). Comme on l’a remarqué à la proposition <a href="sec-transfodef.html#prop-transfolinprop" class="xref" data-knowl="./knowl/xref/prop-transfolinprop.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 2.1.9: Propriétés d’une transformation linéaire">2.1.9</a>, le vecteur <span class="process-math">\(\vec{0}\in \R^n\)</span> est toujours une solution de ce système. De plus, si la matrice <span class="process-math">\(A\)</span> est carrée et inversible, c’est la <a href="sec-matinverse.html#thm-delamatriceinversev1" class="xref" data-knowl="./knowl/xref/thm-delamatriceinversev1.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Théorème 2.3.15: Théorème de la matrice inverse, première version">seule solution</a>.</div>
+<div class="para" id="sssec-transfozero-3-2">Le mot <em class="emphasis">homogène</em> a malheureusement plusieurs significations en mathématiques. Souvent utilisé pour signifier que le membre de droite d’une équation (ou un système) est nul (comme ici), il peut aussi faire référence à une fonction homogène. On ne devrait pas rencontrer d’autres utilisations du mot dans ces notes.</div></aside><div class="para" id="sssec-transfozero-4">Géométriquement, les solutions à ce système représentent l’ensemble des valeurs <span class="process-math">\(\vec{x}\)</span> du domaine (<span class="process-math">\(\R^n\)</span>) qui sont envoyées sur le vecteur nul de l’image (<span class="process-math">\(\R^m\)</span>). Comme on l’a remarqué à la proposition <a href="sec-transfodef.html#prop-transfolinprop" class="xref" data-knowl="./knowl/xref/prop-transfolinprop.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 2.1.10: Propriétés d’une transformation linéaire">2.1.10</a>, le vecteur <span class="process-math">\(\vec{0}\in \R^n\)</span> est toujours une solution de ce système. De plus, si la matrice <span class="process-math">\(A\)</span> est carrée et inversible, c’est la <a href="sec-matinverse.html#thm-delamatriceinversev1" class="xref" data-knowl="./knowl/xref/thm-delamatriceinversev1.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Théorème 2.3.15: Théorème de la matrice inverse, première version">seule solution</a>.</div>
 <div class="para" id="sssec-transfozero-5">Dans les autres cas, il peut exister d’autres zéros à la transformation. On pourra les trouver à l’aide de <a href="sec-GJ.html#algo-GJ" class="xref" data-knowl="./knowl/xref/algo-GJ.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Algorithme 3.1.25: La méthode de Gauss-Jordan">l’algorithme de Gauss-Jordan 3.1.25</a>.</div>
 <article class="example example-like" id="ex-zerosgeo"><h4 class="heading">
 <span class="type">Exemple</span><span class="space"> </span><span class="codenumber">3.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Les zéros de quelques transformations: dynamique.</span>
 </h4>
-<div class="para" id="ex-zerosgeo-2-1">Dans un premier temps, on considère  les transformations de l’exemple <a href="sec-transfodef.html#ex-transfor2" class="xref" data-knowl="./knowl/xref/ex-transfor2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 2.1.13: Des transformations linéaires du plan : dynamique">2.1.13</a>. Puisque toutes ces transformations sont inversibles sauf la projection orthogonale, on conclut qu’il n’y a que le vecteur nul comme zéro des premières. Pour la projection orthogonale, on peut réfléchir géométriquement. On cherche <span class="process-math">\(T(\vec{x})=\vec{0}\text{.}\)</span> Or selon l’équation <a href="sec-prodscal.html#eq-projortho" class="xref" data-knowl="./knowl/xref/eq-projortho.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 1.2.5">(1.2.5)</a>, un vecteur perpendiculaire à <span class="process-math">\(\vec{w}\)</span> sera projeté sur le vecteur nul. Si <span class="process-math">\(c\in \R\text{,}\)</span> tout vecteur <span class="process-math">\(c\vec{w}_{\perp}\)</span> est un zéro de la projection orthogonale.</div> <div class="para logical" id="ex-zerosgeo-2-2">
+<div class="para" id="ex-zerosgeo-2-1">Dans un premier temps, on considère  les transformations de l’exemple <a href="sec-transfodef.html#ex-transfor2" class="xref" data-knowl="./knowl/xref/ex-transfor2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 2.1.14: Des transformations linéaires du plan : dynamique">2.1.14</a>. Puisque toutes ces transformations sont inversibles sauf la projection orthogonale, on conclut qu’il n’y a que le vecteur nul comme zéro des premières. Pour la projection orthogonale, on peut réfléchir géométriquement. On cherche <span class="process-math">\(T(\vec{x})=\vec{0}\text{.}\)</span> Or selon l’équation <a href="sec-prodscal.html#eq-projortho" class="xref" data-knowl="./knowl/xref/eq-projortho.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 1.2.5">(1.2.5)</a>, un vecteur perpendiculaire à <span class="process-math">\(\vec{w}\)</span> sera projeté sur le vecteur nul. Si <span class="process-math">\(c\in \R\text{,}\)</span> tout vecteur <span class="process-math">\(c\vec{w}_{\perp}\)</span> est un zéro de la projection orthogonale.</div> <div class="para logical" id="ex-zerosgeo-2-2">
 <div class="para">On regarde maintenant quelques exemples à trois dimensions. On considère les matrices</div>
 <div class="displaymath process-math" id="ex-zerosgeo-2-2-1">
 \begin{align*}
@@ -987,7 +984,7 @@ z&amp;=z\text{.}
 <li id="prop-Ax0sev-2-1-5-1"><div class="para" id="prop-Ax0sev-2-1-5-1-1"><span class="process-math">\(A(\vec{u}+\vec{v})=\vec{0}\text{,}\)</span></div></li>
 <li id="prop-Ax0sev-2-1-5-2"><div class="para" id="prop-Ax0sev-2-1-5-2-1"><span class="process-math">\(A(c\vec{u})=\vec{0}\text{.}\)</span></div></li>
 </ul>
-</div></article><details id="prop-Ax0sev-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="prop-Ax0sev-3-1">Voir l’exercice <a href="sec-SELgeo.html#exo-Ax0sev" class="xref" data-knowl="./knowl/xref/exo-Ax0sev.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.13">3.3.4.13</a>.</div></article></details><div class="para" id="sssec-transfozero-9">Si l’on s’attarde aux solutions des systèmes <span class="process-math">\(A\vec{x}=\vec{0}\)</span> pour les matrices <span class="process-math">\(3\times 3\)</span> de l’exemple <a href="sec-SELgeo.html#ex-zerosgeo" class="xref" data-knowl="./knowl/xref/ex-zerosgeo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 3.3.1: Les zéros de quelques transformations: dynamique">3.3.1</a>, on peut y détecter une forme particulière des variables libres. Plus spécifiquement, pour l’exemple dont les solutions étaient contenues dans le plan de vecteurs directeurs <span class="process-math">\(\vec{u}=(2,1,0)\)</span> et <span class="process-math">\(\vec{v}=(-3,0,1)\text{,}\)</span> les variables libres étaient <span class="process-math">\(y\)</span> et <span class="process-math">\(z\text{.}\)</span> Ces variables valent respectivement <span class="process-math">\(1\)</span> et <span class="process-math">\(0\)</span> dans le vecteur <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(0\)</span> et <span class="process-math">\(1\)</span> dans le vecteur <span class="process-math">\(\vec{v}\text{.}\)</span> Cette remarque permet d’établir une autre manière de voir les solutions à un système d’équations linéaires <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span>
+</div></article><details id="prop-Ax0sev-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="prop-Ax0sev-3-1">Voir l’exercice <a href="sec-SELgeo.html#exo-Ax0sev" class="xref" data-knowl="./knowl/xref/exo-Ax0sev.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.12">3.3.4.12</a>.</div></article></details><div class="para" id="sssec-transfozero-9">Si l’on s’attarde aux solutions des systèmes <span class="process-math">\(A\vec{x}=\vec{0}\)</span> pour les matrices <span class="process-math">\(3\times 3\)</span> de l’exemple <a href="sec-SELgeo.html#ex-zerosgeo" class="xref" data-knowl="./knowl/xref/ex-zerosgeo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 3.3.1: Les zéros de quelques transformations: dynamique">3.3.1</a>, on peut y détecter une forme particulière des variables libres. Plus spécifiquement, pour l’exemple dont les solutions étaient contenues dans le plan de vecteurs directeurs <span class="process-math">\(\vec{u}=(2,1,0)\)</span> et <span class="process-math">\(\vec{v}=(-3,0,1)\text{,}\)</span> les variables libres étaient <span class="process-math">\(y\)</span> et <span class="process-math">\(z\text{.}\)</span> Ces variables valent respectivement <span class="process-math">\(1\)</span> et <span class="process-math">\(0\)</span> dans le vecteur <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(0\)</span> et <span class="process-math">\(1\)</span> dans le vecteur <span class="process-math">\(\vec{v}\text{.}\)</span> Cette remarque permet d’établir une autre manière de voir les solutions à un système d’équations linéaires <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span>
 </div>
 <article class="definition definition-like" id="def-solbase"><h4 class="heading">
 <span class="type">Définition</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Les solutions de base à un système <span class="process-math">\(A\vec{x}=\vec{0}\)</span>.</span>
@@ -1425,7 +1422,7 @@ show(solbase(M))
 <li id="prop-imasev-2-1-6-2"><div class="para" id="prop-imasev-2-1-6-2-1">
 <span class="process-math">\(A\vec{x}=c\vec{b}_1\)</span> possède au moins une solution.</div></li>
 </ul>
-</div></article><details id="prop-imasev-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="prop-imasev-3-1">Voir l’exercice <a href="sec-SELgeo.html#exo-Ax0sev" class="xref" data-knowl="./knowl/xref/exo-Ax0sev.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.13">3.3.4.13</a>.</div></article></details><div class="para" id="sec-SELgeo-4-10">On termine avec des commandes Sage en lien avec la sous-section.</div>
+</div></article><details id="prop-imasev-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="prop-imasev-3-1">Voir l’exercice <a href="sec-SELgeo.html#exo-Ax0sev" class="xref" data-knowl="./knowl/xref/exo-Ax0sev.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.12">3.3.4.12</a>.</div></article></details><div class="para" id="sec-SELgeo-4-10">On termine avec des commandes Sage en lien avec la sous-section.</div>
 <article class="computation computation-like" id="sageex-imgalg"><h4 class="heading">
 <span class="type">Calcul</span><span class="space"> </span><span class="codenumber">3.3.27</span><span class="period">.</span><span class="space"> </span><span class="title">L’image de transformations linéaires et Sage.</span>
 </h4>  <div class="para" id="sageex-imgalg-2">Sage ne pourra pas travailler directement avec les variables comme <span class="process-math">\(b_1,b_2,b_3\)</span> si on ne l’aide pas un peu. Pour déterminer l’image d’une transformation avec Sage, trois ajustements seront nécessaires. Leur raison d’être est liée au fonctionnement du logiciel et dépasse le niveau du manuel. On se contente d’appliquer la solution. On constate l’ajout d’une ligne <code class="code-inline tex2jax_ignore">R.&lt;b1,b2,b3&gt;=QQ[]</code> au code. De plus, la colonne augmentée est inscrite à même la matrice. Finalement, on note l’utilisation de la fonction <code class="code-inline tex2jax_ignore">echelon_form()</code> plutôt que le standard <code class="code-inline tex2jax_ignore">rref()</code>. Avec ces  ajustements, on peut obtenir la forme échelonnée réduite de la matrice avec le vecteur <span class="process-math">\(\vec{b}\)</span> variable.</div> <div class="para" id="sageex-imgalg-3">On procède avec les matrices <span class="process-math">\(B,C\)</span> de l’exemple <a href="sec-SELgeo.html#ex-imggeo" class="xref" data-knowl="./knowl/xref/ex-imggeo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 3.3.19: L’image de transformations géométriques: dynamique">3.3.19</a>.</div> <pre id="sageex-imgalg-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<b1,b2,b3>=QQ[]
@@ -1452,12 +1449,12 @@ show("rref(C)=",C.echelon_form())
 \vecddd{1}{0}{1}&amp;=-\frac{1}{3}\vecddd{1}{-2}{-1}+\frac{2}{3}\vecddd{2}{-1}{1}\text{.}
 \end{align*}
 </div>
-<div class="para">Pour comprendre cela, on se rappelle que le produit <span class="process-math">\(A\vec{x}\)</span> peut être interprété comme <a href="sec-transfodef.html#eq-matvecprodgen" class="xref" data-knowl="./knowl/xref/eq-matvecprodgen.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 2.1.7">les combinaisons linéaires des colonnes de la matrice <span class="process-math">\(A\)</span></a>. L’ensemble des <span class="process-math">\(\vec{b}\)</span> s’écrivant comme ces combinaisons linéaires  constitue donc l’image de la transformation <span class="process-math">\(A\text{.}\)</span>
+<div class="para">Pour comprendre cela, on se rappelle que le produit <span class="process-math">\(A\vec{x}\)</span> peut être interprété comme <a href="sec-transfodef.html#eq-matvecprodgen" class="xref" data-knowl="./knowl/xref/eq-matvecprodgen.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 2.1.8">les combinaisons linéaires des colonnes de la matrice <span class="process-math">\(A\)</span></a>. L’ensemble des <span class="process-math">\(\vec{b}\)</span> s’écrivant comme ces combinaisons linéaires  constitue donc l’image de la transformation <span class="process-math">\(A\text{.}\)</span>
 </div>
 </div> <div class="para" id="rem-spancolonne-2">Il semble toutefois qu’il n’est pas nécessaire d’utiliser toutes les colonnes pour engendrer l’image, comme le montrent les images des matrices <span class="process-math">\(P,C\)</span> et <span class="process-math">\(B\text{.}\)</span> La  section <code class="code-inline tex2jax_ignore">[provisional cross-reference: sec-bases4ssesp]</code> va donner la réponse à cette question.</div></article></section><section class="subsection" id="sssec-solgen"><h3 class="heading hide-type">
 <span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">3.3.3</span><span class="space"> </span><span class="title">La solution générale à <span class="process-math">\(A\vec{x}=\vec{b}\text{.}\)</span></span>
 </h3>
-<div class="para" id="sssec-solgen-2">Les solutions à l’équation <span class="process-math">\(A\vec{x}=\vec{0}\)</span> s’écrivent toutes comme des combinaisons linéaires des vecteurs de base. Selon le nombre de vecteurs de base, ces solutions se trouvent sur une droite (un vecteur), un plan (deux vecteurs) ou plus généralement un hyperplan (trois vecteurs ou plus) passant par l’origine. Lorsque le vecteur nul est remplacé par un vecteur <span class="process-math">\(\vec{b}\)</span> quelconque, les solutions ont toujours la forme de droites, plans ou hyperplans, mais ceux-ci ne passent plus nécessairement par l’origine. Il est possible d’écrire toutes les solutions à l’équation <span class="process-math">\(A\vec{x}=\vec{b}\)</span> comme la translation des solutions à l’équation <span class="process-math">\(A\vec{x}=\vec{0}\text{,}\)</span> un peu à l’image de la figure <a href="sec-droitesplans.html#fig-planquelconque" class="xref" data-knowl="./knowl/xref/fig-planquelconque.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 1.3.13">1.3.13</a>.</div>
+<div class="para" id="sssec-solgen-2">Les solutions à l’équation <span class="process-math">\(A\vec{x}=\vec{0}\)</span> s’écrivent toutes comme des combinaisons linéaires des vecteurs de base. Selon le nombre de vecteurs de base, ces solutions se trouvent sur une droite (un vecteur), un plan (deux vecteurs) ou plus généralement un hyperplan (trois vecteurs ou plus) passant par l’origine. Lorsque le vecteur nul est remplacé par un vecteur <span class="process-math">\(\vec{b}\)</span> quelconque, les solutions ont toujours la forme de droites, plans ou hyperplans, mais ceux-ci ne passent plus nécessairement par l’origine. Il est possible d’écrire toutes les solutions à l’équation <span class="process-math">\(A\vec{x}=\vec{b}\)</span> comme la translation des solutions à l’équation <span class="process-math">\(A\vec{x}=\vec{0}\text{,}\)</span> un peu à l’image de la figure <a href="sec-droitesplans.html#fig-planquelconque" class="xref" data-knowl="./knowl/xref/fig-planquelconque.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 1.3.14">1.3.14</a>.</div>
 <div class="para" id="sssec-solgen-3">En fait, si l’on suit la démarche de la section <a href="sec-SELtheo.html" class="internal" title="Section 3.2: Les systèmes qui n’ont aucune ou  ayant une infinité de solutions">3.2</a> lorsqu’il y a infinité de solutions, c’est précisément ce qui se passait lorsqu’on isolait les variables pivots en fonction des variables libres. On ne fait donc que faire le lien avec la première sous-section.</div>
 <article class="example example-like" id="ex-solgen"><h4 class="heading">
 <span class="type">Exemple</span><span class="space"> </span><span class="codenumber">3.3.29</span><span class="period">.</span><span class="space"> </span><span class="title">Des systèmes à quatre équations et trois inconnues, prise deux.</span>
@@ -1663,141 +1660,8 @@ show(solgen(C,c))
 </div> <div class="para" id="concl-SELgeo-2">De plus, avec Sage, on a les commandes <code class="code-inline tex2jax_ignore">matrix_from_rows</code> et <code class="code-inline tex2jax_ignore">matrix_from_columns</code> qui permettent d’extraire d’une matrice une sous-matrice selon les lignes ou colonnes souhaitées. Les fonctions <code class="code-inline tex2jax_ignore">matL</code>, <code class="code-inline tex2jax_ignore">solbase(A)</code> et <code class="code-inline tex2jax_ignore">solgen</code> seront utiles plus tard. On a aussi vu comment utiliser les listes pour créer en étape un vecteur. Pour travailler de manière symbolique, on a vu l’utilisation de la commande <code class="code-inline tex2jax_ignore">echelon_form</code> et l’ajout de <code class="code-inline tex2jax_ignore">R.&lt;variables&gt;.QQ[]</code> afin de pouvoir manipuler les variables dans <code class="code-inline tex2jax_ignore">&lt;variables&gt;</code>.</div></section><section class="exercises" id="exo-SELgeo"><h3 class="heading hide-type">
 <span class="type">Exercices</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="space"> </span><span class="title">Exercices</span>
 </h3>
-<article class="exercise exercise-like" id="exo-prodvec"><h4 class="heading">
-<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Le produit vectoriel.</span>
-</h4>
-<div class="introduction" id="exo-prodvec-2"><div class="para" id="exo-prodvec-2-1">Dans cet exercice, on s’intéresse à trouver les vecteurs de <span class="process-math">\(\R^3\)</span> qui sont perpendiculaires à deux vecteurs donnés. Essentiellement, on cherche à trouver le vecteur normal au plan engendré par les deux vecteurs donnés.</div></div>
-<article class="task exercise-like" id="exo-prodveca"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="exo-prodveca-1-1">Soit <span class="process-math">\(\vec{u}=(1,1,1),\vec{v}=(2,3,4)\text{.}\)</span> On cherche <span class="process-math">\(\vec{w}=(w_1,w_2,w_3)\)</span> tel que <span class="process-math">\(\pscal{w}{u}=0\)</span> et <span class="process-math">\(\pscal{w}{v}=0\text{.}\)</span> Écrire le système d’équations linéaires associé à ces équations et le résoudre.</div>
-<div class="solutions">
-<details id="exo-prodveca-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodveca-2-1">
-<span class="process-math">\(\vec{w}_h=k(1,-2,1)\)</span> avec <span class="process-math">\(k \in \R\)</span>
-</div></div></details><details id="exo-prodveca-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical" id="exo-prodveca-3-1">
-<div class="para">On écrit les équations obtenues en remplaçant par les vecteurs donnés et le vecteur quelconque <span class="process-math">\(\vec{w}\text{.}\)</span>
-</div>
-<div class="displaymath process-math" id="exo-prodveca-3-1-2">
-\begin{align*}
-\pscal{w}{u}=0 &amp; \Rightarrow (w_1,w_2,w_3)\cdot (1,1,1) =0\\
-\pscal{w}{v}=0 &amp; \Rightarrow (w_1,w_2,w_3)\cdot (2,3,4) =0\\
-&amp;\begin{cases} w_1+w_2+w_3=0 \\2w_1+3w_2+4w_3=0\end{cases}
-\end{align*}
-</div>
-<div class="para">La matrice <span class="process-math">\(A=\begin{pmatrix}1 &amp; 1 &amp; 1 \\ 2 &amp; 3 &amp; 4\end{pmatrix}\)</span> et le vecteur <span class="process-math">\(\vec{w}=\vecddd{w_1}{w_2}{w_3}\)</span> résument le système d’équations linéaires dans l’équation matricielle <span class="process-math">\(A\vec{w}=\vec{0}\text{.}\)</span> C’est un système homogène. On va donc l’échelonner sans la partie augmentée.</div>
-<div class="displaymath process-math" id="exo-prodveca-3-1-6">
-\begin{align*}
-\begin{pmatrix}1 &amp; 1 &amp; 1 \\ 2 &amp; 3 &amp; 4\end{pmatrix}&amp;\matsimilc{1}{-2}{2}\begin{pmatrix}1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; 2\end{pmatrix}\\
-&amp;\matsimilc{2}{-}{1}\begin{pmatrix}1 &amp; 0 &amp; -1 \\ 0 &amp; 1 &amp; 2\end{pmatrix}
-\end{align*}
-</div>
-<div class="para">Il n’y a qu’une seule variable libre ici, la troisième (<span class="process-math">\(w_3\)</span>). Les équations restantes sont</div>
-<div class="displaymath process-math" id="exo-prodveca-3-1-8">
-\begin{align*}
-w_1-w_3&amp;=0\\
-w_2+2w_3&amp;=0\\
-w_3&amp;=w_3 \, \text{(libre)}\text{.}
-\end{align*}
-</div>
-</div> <div class="para" id="exo-prodveca-3-2">Si l’on pose <span class="process-math">\(w_3=1\text{,}\)</span> on obtient la solution de base <span class="process-math">\(\vec{w}=(1,-2,1)\text{.}\)</span> La solution homogène est donc <span class="process-math">\(\vec{w}_h=k(1,-2,1)\)</span> avec <span class="process-math">\(k \in \R\text{.}\)</span>
-</div>
-</div></details>
-</div></article><article class="task exercise-like" id="exo-prodvecb"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="exo-prodvecb-1-1">Soit <span class="process-math">\(\vec{u}=(3,1,2),\vec{v}=(-2,1,5)\text{.}\)</span> On cherche <span class="process-math">\(\vec{w}=(w_1,w_2,w_3)\)</span> tel que <span class="process-math">\(\pscal{w}{u}=0\)</span> et <span class="process-math">\(\pscal{w}{v}=0\text{.}\)</span> Écrire le système d’équations linéaires associé à ces équations et le résoudre.</div>
-<div class="solutions">
-<details id="exo-prodvecb-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodvecb-2-1">
-<span class="process-math">\(\vec{w}_h=k(\frac{3}{5},-\frac{19}{5},1)\)</span> avec <span class="process-math">\(k \in \R\)</span>
-</div></div></details><details id="exo-prodvecb-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical" id="exo-prodvecb-3-1">
-<div class="para">On écrit les équations obtenues en remplaçant par les vecteurs donnés et le vecteur quelconque <span class="process-math">\(\vec{w}\text{.}\)</span>
-</div>
-<div class="displaymath process-math" id="exo-prodvecb-3-1-2">
-\begin{align*}
-\pscal{w}{u}=0 &amp; \Rightarrow (w_1,w_2,w_3)\cdot (3,1,2) =0\\
-\pscal{w}{v}=0 &amp; \Rightarrow (w_1,w_2,w_3)\cdot (-2,1,5) =0\\
-&amp;\begin{cases} 3w_1+w_2+2w_3=0 \\-2w_1+w_2+5w_3=0\end{cases}
-\end{align*}
-</div>
-<div class="para">La matrice <span class="process-math">\(A=\begin{pmatrix}3 &amp; 1 &amp; 2 \\ -2 &amp; 1 &amp; 5\end{pmatrix}\)</span> et le vecteur <span class="process-math">\(\vec{w}=\vecddd{w_1}{w_2}{w_3}\)</span> résument le système d’équations linéaires dans l’équation matricielle <span class="process-math">\(A\vec{w}=\vec{0}\text{.}\)</span> C’est un système homogène. On va donc l’échelonner <em class="emphasis">sans</em> la partie augmentée.</div>
-<div class="displaymath process-math" id="exo-prodvecb-3-1-7">
-\begin{align*}
-\begin{pmatrix}3 &amp; 1 &amp; 2 \\ -2 &amp; 1 &amp; 5\end{pmatrix}&amp;\matsimilc{2}{}{1}\begin{pmatrix}1 &amp; 2 &amp; 7 \\ -2 &amp; 1 &amp; 5\end{pmatrix}\\
-&amp;\matsimilc{1}{2}{2}\begin{pmatrix}1 &amp; 2 &amp; 7 \\ 0 &amp; 5 &amp; 19\end{pmatrix}\\
-&amp;\matsimils{2}{\frac{1}{5}}\begin{pmatrix}1 &amp; 2 &amp; 7 \\ 0 &amp; 1 &amp; \frac{19}{5}\end{pmatrix}\\
-&amp;\matsimilc{2}{-2}{1}\begin{pmatrix}1 &amp; 0 &amp; -\frac{3}{5} \\ 0 &amp; 1 &amp; \frac{19}{5}\end{pmatrix}
-\end{align*}
-</div>
-<div class="para">Il n’y a qu’une seule variable libre ici, la troisième (<span class="process-math">\(w_3\)</span>). Les équations restantes sont</div>
-<div class="displaymath process-math" id="exo-prodvecb-3-1-9">
-\begin{align*}
-w_1-\frac{3}{5}w_3&amp;=0\\
-w_2+\frac{19}{5}w_3&amp;=0\\
-w_3&amp;=w_3 \, \text{(libre)}\text{.}
-\end{align*}
-</div>
-</div> <div class="para" id="exo-prodvecb-3-2">Si l’on pose <span class="process-math">\(w_3=1\text{,}\)</span> on obtient la solution de base <span class="process-math">\(\vec{w}=(\frac{3}{5},-\frac{19}{5},1)\text{.}\)</span> La solution homogène est donc <span class="process-math">\(\vec{w}_h=k(\frac{3}{5},-\frac{19}{5},1)\)</span> avec <span class="process-math">\(k \in \R\text{.}\)</span>
-</div>
-</div></details>
-</div></article><article class="task exercise-like" id="exo-prodvec-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para" id="exo-prodvec-5-1-1">Dans les deux calculs précédents, quelle est la plus petite valeur positive de la variable libre qui fait en sorte que les entrées du vecteur <span class="process-math">\(\vec{w}\)</span> sont toutes entières? Quels sont ces vecteurs <span class="process-math">\(\vec{w}\text{?}\)</span>
-</div>
-<div class="solutions"><details id="exo-prodvec-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-prodvec-5-2-1"><ol class="lower-alpha" id="exo-prodvec-5-2-1-1">
-<li id="exo-prodvec-5-2-1-1-1"><div class="para" id="exo-prodvec-5-2-1-1-1-1">
-<span class="process-math">\(w_3=1\)</span> et <span class="process-math">\(\vec{w}=(1,-2,1)\)</span>
-</div></li>
-<li id="exo-prodvec-5-2-1-1-2"><div class="para" id="exo-prodvec-5-2-1-1-2-1">
-<span class="process-math">\(w_3=5\)</span> et <span class="process-math">\(\vec{w}=(3,-19,5)\)</span>
-</div></li>
-</ol></div></div></details></div></article><article class="task exercise-like" id="exo-prodvec-6"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<div class="para" id="exo-prodvec-6-1-1">Refaire les parties <a href="sec-SELgeo.html#exo-prodveca" class="xref" data-knowl="./knowl/xref/exo-prodveca.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 3.3.4.1.a">3.3.4.1.a</a> et <a href="sec-SELgeo.html#exo-prodvecb" class="xref" data-knowl="./knowl/xref/exo-prodvecb.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 3.3.4.1.b">3.3.4.1.b</a> en remplaçant le vecteur <span class="process-math">\(\vec{u}\)</span> par un vecteur quelconque <span class="process-math">\(\vec{u}=(u_1,u_2,u_3)\text{.}\)</span> Compléter les cellules Sage ci-dessous pour faire les calculs.</div> <pre id="exo-prodvec-6-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var("u1,u2,u3")
-u=vector([u1,u2,u3])
-v=vector([2,3,4])
-R.<u1,u2,u3>=QQ[]
-</script></pre> <pre id="exo-prodvec-6-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var("u1,u2,u3")
-u=vector([u1,u2,u3])
-v=vector([-2,1,5])
-R.<u1,u2,u3>=QQ[]
-</script></pre> <div class="para" id="exo-prodvec-6-1-4">Sélectionner à nouveau une valeur pour <span class="process-math">\(w_3\)</span> qui évite les fractions.</div>
-<div class="solutions"><details id="exo-prodvec-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<figure class="listing figure-like" id="exo-prodvec-6-2-1"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">var("u1,u2,u3")
-u=vector([u1,u2,u3])
-v=vector([2,3,4])
-R.&lt;u1,u2,u3&gt;=QQ[]
-A=matrix([u,v])
-rrefA=A.echelon_form()
-show("rref(A)=",rrefA.simplify_full()) #On utilise la fonction simplify_full() pour que les fractions soient réduites
-</code></pre></div>
-<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.3.34<span class="period">.</span></span><span class="space"> </span>Le code solution pour la lettre (a)</figcaption></figure> <div class="para" id="exo-prodvec-6-2-2">On choisit la valeur <span class="process-math">\(w_3=3u_1-2u_2\)</span> pour obtenir le vecteur ayant des valeurs entières <span class="process-math">\(\vec{w}=(4u_2-3u_3,-4u_1+2u_3,3u_1-2u_2)\text{.}\)</span>
-</div> <figure class="listing figure-like" id="exo-prodvec-6-2-3"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">var("u1,u2,u3")
-u=vector([u1,u2,u3])
-v=vector([-2,1,5])
-R.&lt;u1,u2,u3&gt;=QQ[]
-A=matrix([u,v])
-rrefA=A.echelon_form()
-show("rref(A)=",rrefA.simplify_full())
-</code></pre></div>
-<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.3.35<span class="period">.</span></span><span class="space"> </span>Le code solution pour la lettre (b)</figcaption></figure> <div class="para" id="exo-prodvec-6-2-4">On choisit la valeur <span class="process-math">\(w_3=u_1+2u_2\)</span> pour obtenir le vecteur à valeurs entières <span class="process-math">\(\vec{w}=(5u_2-u_3,-5u_1-2u_3,u_1+2u_2)\text{.}\)</span>
-</div>
-</div></details></div></article><article class="task exercise-like" id="exo-prodvec-7"><h5 class="heading"><span class="codenumber">(e)</span></h5>
-<div class="para" id="exo-prodvec-7-1-1">Refaire la partie <a href="sec-SELgeo.html#exo-prodveca" class="xref" data-knowl="./knowl/xref/exo-prodveca.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 3.3.4.1.a">3.3.4.1.a</a> en remplaçant les vecteurs <span class="process-math">\(\vec{u},\vec{v}\)</span> par un vecteur quelconque <span class="process-math">\(\vec{u}=(u_1,u_2,u_3),\vec{v}=(v_1,v_2,v_3)\text{.}\)</span> Compléter la cellule Sage ci-dessous pour faire  les calculs</div> <pre id="exo-prodvec-7-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var("u1,u2,u3,v1,v2,v3")
-u=vector([u1,u2,u3])
-v=vector([v1,v2,v3])
-R.<u1,u2,u3,v1,v2,v3>=QQ[]
-</script></pre> <div class="para" id="exo-prodvec-7-1-3">Sélectionner à nouveau une valeur pour <span class="process-math">\(w_3\)</span> qui évite les fractions.</div>
-<div class="solutions"><details id="exo-prodvec-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<figure class="listing figure-like" id="exo-prodvec-7-2-1"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">var("u1,u2,u3,v1,v2,v3")
-u=vector([u1,u2,u3])
-v=vector([v1,v2,v3])
-R.&lt;u1,u2,u3,v1,v2,v3&gt;=QQ[] 
-A=matrix([u,v])
-rrefA=A.echelon_form()
-show("rref(A)=",rrefA.simplify_full())
-</code></pre></div>
-<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.3.36<span class="period">.</span></span><span class="space"> </span>Le code solution</figcaption></figure> <div class="para" id="exo-prodvec-7-2-2">On choisit la valeur <span class="process-math">\(w_3=-u_{2} v_{1} + u_{1} v_{2}\)</span> pour obtenir le vecteur à valeurs entières <span class="process-math">\(\vec{w}=\left(-u_{3} v_{2} + u_{2} v_{3},\,u_{3} v_{1} - u_{1} v_{3},\,-u_{2} v_{1} + u_{1} v_{2}\right)\text{.}\)</span>
-</div>
-</div></details></div></article><div class="conclusion" id="exo-prodvec-8">
-<div class="para" id="exo-prodvec-8-1">Le vecteur <span class="process-math">\(\vec{w}=\left(-u_{3} v_{2} + u_{2} v_{3},\,u_{3} v_{1} - u_{1} v_{3},\,-u_{2} v_{1} + u_{1} v_{2}\right)\)</span> est appelé le produit vectoriel de <span class="process-math">\(\vec{u}\)</span> et <span class="process-math">\(\vec{v}\text{,}\)</span> et est noté <span class="process-math">\(\vec{w}=\vec{u}\times \vec{v}\text{.}\)</span> On y reviendra à la section <code class="code-inline tex2jax_ignore">[provisional cross-reference: sec-prodvec]</code>.</div> <div class="para" id="exo-prodvec-8-2">Ce vecteur a été obtenu en prenant la variable libre dans le système d’équations linéaires comme étant égale à <span class="process-math">\(w_3=u_1v_2-u_2v_1\)</span> pour éliminer une fraction. Il se peut toutefois que ce nombre soit nul. Dans la section <code class="code-inline tex2jax_ignore">[provisional cross-reference: sec-prodvec]</code>, on montrera que ce n’est pas un problème.</div>
-</div></article><article class="exercise exercise-like" id="exo-SELgeo-3"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para logical" id="exo-SELgeo-3-1-1">
+<article class="exercise exercise-like" id="exo-SELgeo-2"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para logical" id="exo-SELgeo-2-1-1">
 <div class="para">On considère la matrice</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1808,14 +1672,14 @@ A=\matcolt{1}{2}{3}{-1}{4}{3}{2}{4}{x^2-3}\text{.}
 </div>
 </div>
 <div class="solutions">
-<details id="exo-SELgeo-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="exo-SELgeo-3-2-1">Si <span class="process-math">\(x \neq \pm 3\text{,}\)</span> alors <span class="process-math">\(\vec{s}=\vec{0}\text{.}\)</span>
-</div> <div class="para" id="exo-SELgeo-3-2-2">Si <span class="process-math">\(x = \pm 3\text{,}\)</span> alors <span class="process-math">\(\vec{s}=\vecddd{-2}{0}{1}\text{.}\)</span>
+<details id="exo-SELgeo-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="exo-SELgeo-2-2-1">Si <span class="process-math">\(x \neq \pm 3\text{,}\)</span> alors <span class="process-math">\(\vec{s}=\vec{0}\text{.}\)</span>
+</div> <div class="para" id="exo-SELgeo-2-2-2">Si <span class="process-math">\(x = \pm 3\text{,}\)</span> alors <span class="process-math">\(\vec{s}=\vecddd{-2}{0}{1}\text{.}\)</span>
 </div>
-</div></details><details id="exo-SELgeo-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical" id="exo-SELgeo-3-3-1">
+</div></details><details id="exo-SELgeo-2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-SELgeo-2-3-1">
 <div class="para">Pour trouver les solutions, il faut échelonner la matrice. Puisqu’on cherche les solutions de base, il n’est pas nécessaire d’échelonner la matrice augmentée du système puisque cette colonne sera toujours nulle.</div>
-<div class="displaymath process-math" id="exo-SELgeo-3-3-1-1">
+<div class="displaymath process-math" id="exo-SELgeo-2-3-1-1">
 \begin{align*}
 \begin{pmatrix} 1&amp; -1&amp; 2 \\
 2&amp; 4&amp; 4\\
@@ -1839,8 +1703,8 @@ A=\matcolt{1}{2}{3}{-1}{4}{3}{2}{4}{x^2-3}\text{.}
 </div>
 <div class="para">La dernière étape n’est possible que si <span class="process-math">\(x^2-9\neq 0\text{.}\)</span> Cela nous amène à séparer les solutions possibles en deux groupes, selon les valeurs de <span class="process-math">\(x\text{.}\)</span>
 </div>
-</div> <div class="para" id="exo-SELgeo-3-3-2">D’abord, si <span class="process-math">\(x^2-9\neq 0 \Leftrightarrow (x-3)(x+3) \neq 0 \Leftrightarrow x \neq \pm 3\text{,}\)</span> alors, toutes les variables sont pivots et le système <span class="process-math">\(A\vec{x}=\vec{0}\)</span> a une seule solution qui est le vecteur nul. On a donc <span class="process-math">\(\vec{s}=\vec{0}\text{.}\)</span>
-</div> <div class="para logical" id="exo-SELgeo-3-3-3">
+</div> <div class="para" id="exo-SELgeo-2-3-2">D’abord, si <span class="process-math">\(x^2-9\neq 0 \Leftrightarrow (x-3)(x+3) \neq 0 \Leftrightarrow x \neq \pm 3\text{,}\)</span> alors, toutes les variables sont pivots et le système <span class="process-math">\(A\vec{x}=\vec{0}\)</span> a une seule solution qui est le vecteur nul. On a donc <span class="process-math">\(\vec{s}=\vec{0}\text{.}\)</span>
+</div> <div class="para logical" id="exo-SELgeo-2-3-3">
 <div class="para">Ensuite, si <span class="process-math">\(x=3\text{,}\)</span> alors la matrice échelonnée devient:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1851,10 +1715,10 @@ A=\matcolt{1}{2}{3}{-1}{4}{3}{2}{4}{x^2-3}\text{.}
 </div>
 <div class="para">et on peut ainsi lire le vecteur solution de base dans la colonne pivot en changeant le signe des valeurs et en posant la variable pivot à <span class="process-math">\(1\)</span> : <span class="process-math">\(\vec{s}=\vecddd{-2}{0}{1}\text{.}\)</span>
 </div>
-</div> <div class="para" id="exo-SELgeo-3-3-4">Finalement, si <span class="process-math">\(x=-3\text{,}\)</span> la matrice échelonnée est la même et donc la solution de base est la même.</div>
+</div> <div class="para" id="exo-SELgeo-2-3-4">Finalement, si <span class="process-math">\(x=-3\text{,}\)</span> la matrice échelonnée est la même et donc la solution de base est la même.</div>
 </div></details>
-</div></article><article class="exercise exercise-like" id="exo-SELgeo-4"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="exo-SELgeo-4-1-1">
+</div></article><article class="exercise exercise-like" id="exo-SELgeo-3"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para logical" id="exo-SELgeo-3-1-1">
 <div class="para">On considère la matrice</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1869,16 +1733,16 @@ x&amp; x-1&amp; y \\
 </div>
 </div>
 <div class="solutions">
-<details id="exo-SELgeo-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="exo-SELgeo-4-2-1">Si <span class="process-math">\(x \neq 0\)</span> et <span class="process-math">\(x\neq 1\text{,}\)</span> alors <span class="process-math">\(\vec{s}=\vecddd{3}{-\frac{3x+y}{x-1}}{1}\text{.}\)</span>
-</div> <div class="para" id="exo-SELgeo-4-2-2">Si <span class="process-math">\(x \neq 0\text{,}\)</span> <span class="process-math">\(x=1\)</span> et <span class="process-math">\(y\neq -3\text{,}\)</span> alors <span class="process-math">\(\vec{s}=\vecddd{0}{1}{0}\text{.}\)</span>
-</div> <div class="para" id="exo-SELgeo-4-2-3">Si <span class="process-math">\(x \neq 0\text{,}\)</span> <span class="process-math">\(x=1\)</span> et <span class="process-math">\(y=-3\text{,}\)</span> alors <span class="process-math">\(\vec{s}_1=\vecddd{3}{0}{1}\)</span> et <span class="process-math">\(\vec{s}_2=\vecddd{0}{1}{0}\text{.}\)</span>
-</div> <div class="para" id="exo-SELgeo-4-2-4">Si <span class="process-math">\(x=0\text{,}\)</span> alors <span class="process-math">\(\vec{s}=\vecddd{3}{y}{1}\text{.}\)</span>
+<details id="exo-SELgeo-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="exo-SELgeo-3-2-1">Si <span class="process-math">\(x \neq 0\)</span> et <span class="process-math">\(x\neq 1\text{,}\)</span> alors <span class="process-math">\(\vec{s}=\vecddd{3}{-\frac{3x+y}{x-1}}{1}\text{.}\)</span>
+</div> <div class="para" id="exo-SELgeo-3-2-2">Si <span class="process-math">\(x \neq 0\text{,}\)</span> <span class="process-math">\(x=1\)</span> et <span class="process-math">\(y\neq -3\text{,}\)</span> alors <span class="process-math">\(\vec{s}=\vecddd{0}{1}{0}\text{.}\)</span>
+</div> <div class="para" id="exo-SELgeo-3-2-3">Si <span class="process-math">\(x \neq 0\text{,}\)</span> <span class="process-math">\(x=1\)</span> et <span class="process-math">\(y=-3\text{,}\)</span> alors <span class="process-math">\(\vec{s}_1=\vecddd{3}{0}{1}\)</span> et <span class="process-math">\(\vec{s}_2=\vecddd{0}{1}{0}\text{.}\)</span>
+</div> <div class="para" id="exo-SELgeo-3-2-4">Si <span class="process-math">\(x=0\text{,}\)</span> alors <span class="process-math">\(\vec{s}=\vecddd{3}{y}{1}\text{.}\)</span>
 </div>
-</div></details><details id="exo-SELgeo-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical" id="exo-SELgeo-4-3-1">
+</div></details><details id="exo-SELgeo-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-SELgeo-3-3-1">
 <div class="para">Pour trouver les solutions, il faut échelonner la matrice. Puisqu’on cherche les solutions de base, il n’est pas nécessaire d’échelonner la matrice augmentée du système puisque cette colonne sera toujours nulle.</div>
-<div class="displaymath process-math" id="exo-SELgeo-4-3-1-1">
+<div class="displaymath process-math" id="exo-SELgeo-3-3-1-1">
 \begin{align*}
 \begin{pmatrix} 
 x&amp; x-1&amp; y \\
@@ -1915,10 +1779,10 @@ x&amp; x-1&amp; y \\
 </div>
 <div class="para">Les deux dernières étapes ne sont possibles que si <span class="process-math">\(x\neq 0\text{,}\)</span> puis si <span class="process-math">\(x\neq 1\text{.}\)</span> Cela nous amène à séparer les solutions possibles en trois groupes, selon les valeurs de <span class="process-math">\(x\text{.}\)</span>
 </div>
-</div> <div class="para" id="exo-SELgeo-4-3-2">D’abord, si <span class="process-math">\(x \neq 0\)</span> et <span class="process-math">\(x\neq 1\text{,}\)</span> alors, on lit le vecteur solution de base dans la colonne pivot en changeant le signe des valeurs et en posant la variable pivot à <span class="process-math">\(1\text{:}\)</span> <span class="process-math">\(\vec{s}=\vecddd{3}{-\frac{3x+y}{x-1}}{1}\text{.}\)</span>
-</div> <div class="para logical" id="exo-SELgeo-4-3-3">
+</div> <div class="para" id="exo-SELgeo-3-3-2">D’abord, si <span class="process-math">\(x \neq 0\)</span> et <span class="process-math">\(x\neq 1\text{,}\)</span> alors, on lit le vecteur solution de base dans la colonne pivot en changeant le signe des valeurs et en posant la variable pivot à <span class="process-math">\(1\text{:}\)</span> <span class="process-math">\(\vec{s}=\vecddd{3}{-\frac{3x+y}{x-1}}{1}\text{.}\)</span>
+</div> <div class="para logical" id="exo-SELgeo-3-3-3">
 <div class="para">Ensuite, si <span class="process-math">\(x=1\text{,}\)</span> alors, la matrice échelonnée devient:</div>
-<div class="displaymath process-math" id="exo-SELgeo-4-3-3-2">
+<div class="displaymath process-math" id="exo-SELgeo-3-3-3-2">
 \begin{align*}
 \begin{pmatrix} 1&amp; 0&amp; -3\\
 0&amp; 0&amp; 3+y \\
@@ -1942,7 +1806,7 @@ x&amp; x-1&amp; y \\
 </div>
 <div class="para">On a maintenant deux variables pivots et une seule non-pivot. Les vecteurs solutions de base sont donc: <span class="process-math">\(\vec{s}_1=\vecddd{3}{0}{1}\)</span> et <span class="process-math">\(\vec{s}_2=\vecddd{0}{1}{0}\text{.}\)</span> On les a obtenus en posant alternativement chaque variable libre égale à <span class="process-math">\(1\)</span> et <span class="process-math">\(0\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="exo-SELgeo-4-3-4">
+</div> <div class="para logical" id="exo-SELgeo-3-3-4">
 <div class="para">Finalement, si <span class="process-math">\(x=0\text{,}\)</span> la matrice échelonnée devient:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1959,7 +1823,7 @@ x&amp; x-1&amp; y \\
 </div>
 </div>
 </div></details>
-</div></article><article class="exercise exercise-like" id="exo-eqvecsolhomo"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+</div></article><article class="exercise exercise-like" id="exo-eqvecsolhomo"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
 <div class="para" id="exo-eqvecsolhomo-1-1">Un plan a comme équation <span class="process-math">\(2x+5y-10z=0\text{.}\)</span> En fonction de ce plan, que représente la solution homogène à l’équation <span class="process-math">\(\begin{pmatrix} 2&amp; 5&amp; -10\end{pmatrix}\vecddd{x}{y}{z}=0\text{?}\)</span> Donner cette solution.</div>
 <div class="solutions">
 <details id="exo-eqvecsolhomo-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-eqvecsolhomo-2-1">
@@ -1991,17 +1855,17 @@ x&amp; x-1&amp; y \\
 \end{equation*}
 </div>
 </div></div></details>
-</div></article><article class="exercise exercise-like" id="exo-SELgeo-6"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para" id="exo-SELgeo-6-1-1">Un plan a comme équation <span class="process-math">\(2x+5y-10z=20\text{.}\)</span> En fonction de ce plan, que représente la solution générale à l’équation <span class="process-math">\(\begin{pmatrix} 2&amp; 5&amp; -10\end{pmatrix}\vecddd{x}{y}{z}=20\text{?}\)</span> Donner cette solution.</div>
+</div></article><article class="exercise exercise-like" id="exo-SELgeo-5"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para" id="exo-SELgeo-5-1-1">Un plan a comme équation <span class="process-math">\(2x+5y-10z=20\text{.}\)</span> En fonction de ce plan, que représente la solution générale à l’équation <span class="process-math">\(\begin{pmatrix} 2&amp; 5&amp; -10\end{pmatrix}\vecddd{x}{y}{z}=20\text{?}\)</span> Donner cette solution.</div>
 <div class="solutions">
-<details id="exo-SELgeo-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-6-2-1">
+<details id="exo-SELgeo-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-5-2-1">
 <div class="para">L’équation vectorielle de ce plan. La solution générale est:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \vec{x}_g=\vec{x}_h+\vec{x}_p=a\vecddd{-\frac{5}{2}}{1}{0}+b\vecddd{5}{0}{1}+\vecddd{10}{0}{0}\text{ avec } a,b\in\R
 \end{equation*}
 </div>
-</div></div></details><details id="exo-SELgeo-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-6-3-1">
+</div></div></details><details id="exo-SELgeo-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-5-3-1">
 <div class="para">Puisque l’équation sous forme matricielle représente la même équation, il s’agit du même plan. La solution générale correspondra à l’équation vectorielle de ce plan passant par un point de départ qui correspond à la solution particulière. Les vecteurs directeurs seront donnés par les solutions de base. La matrice augmentée échelonnée sera:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-eqvecsolhomo.html">
 \begin{equation*}
@@ -2010,7 +1874,7 @@ x&amp; x-1&amp; y \\
 1&amp; \frac{5}{2}&amp; -5 &amp; | &amp; 10\end{pmatrix}\text{.}
 \end{equation*}
 </div>
-<div class="para">La solution homogène, qui a déjà été trouvée à l’exercice <a href="sec-SELgeo.html#exo-eqvecsolhomo" class="xref" data-knowl="./knowl/xref/exo-eqvecsolhomo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.4">3.3.4.4</a>, est :</div>
+<div class="para">La solution homogène, qui a déjà été trouvée à l’exercice <a href="sec-SELgeo.html#exo-eqvecsolhomo" class="xref" data-knowl="./knowl/xref/exo-eqvecsolhomo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.3">3.3.4.3</a>, est :</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-eqvecsolhomo.html">
 \begin{equation*}
 \vec{x}_h=a\vecddd{-\frac{5}{2}}{1}{0}+b\vecddd{5}{0}{1}\text{ avec } a,b\in\R\text{.}
@@ -2035,20 +1899,20 @@ x&amp; x-1&amp; y \\
 \end{equation*}
 </div>
 </div></div></details>
-</div></article><article class="exercise exercise-like" id="exo-rrefgeo1"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+</div></article><article class="exercise exercise-like" id="exo-rrefgeo1"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
 <div class="para" id="exo-rrefgeo1-1-1">Soit <span class="process-math">\(R\text{,}\)</span> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve la solution de base à l’équation <span class="process-math">\(R\vec{x}=\vec{0}\)</span> et la solution particulière à l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{.}\)</span> Entrer sur la figure les valeurs pour la matrice <span class="process-math">\(R\)</span> et le vecteur <span class="process-math">\(\vec{b}\)</span> qui correspondent à cette géométrie.</div> <figure class="figure figure-like" id="fig-rrefgeo1"><iframe id="geog-exo-rrefgeo1" width="600" height="600" src="geog-exo-rrefgeo1-if.html"></iframe><div class="instructions"><details id="geog-exo-rrefgeo1-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></summary><div class="solution-like knowl__content"><div class="para" id="geog-exo-rrefgeo1-2-1">
 <em class="alert">Instructions pour la figure interactive:</em> Compléter les six valeurs de la matrice augmentée. Un clic sur « Vérifier la réponse » validera celle-ci. Ensuite, un clic sur « Nouveau problème » permet d’en essayer une version différente.</div></div></details></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.37<span class="period">.</span></span><span class="space"> </span>La géométrie de l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{,}\)</span> version 1</figcaption></figure><div class="solutions"><details id="exo-rrefgeo1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.34<span class="period">.</span></span><span class="space"> </span>La géométrie de l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{,}\)</span> version 1</figcaption></figure><div class="solutions"><details id="exo-rrefgeo1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="exo-rrefgeo1-2-1">Attention, on invite le lecteur à essayer plusieurs fois l’exercice pour arriver à comprendre les différents cas possibles avant de lire la solution. Il est clair qu’il faut bien comprendre les deux concepts en présence. La partie de gauche de la matrice augmentée sera déterminée par la solution de base. La partie augmentée sera déterminée par la solution particulière. On distinguera trois cas de figure.</div> <div class="para" id="exo-rrefgeo1-2-2">D’abord, si le vecteur solution de base est <span class="process-math">\(\vec{s}=\vec{0}\text{,}\)</span> on sait que la solution homogène est égale au vecteur nul. La partie de gauche n’a donc pas le choix d’être la matrice identité puisque l’on a une solution unique. La partie augmentée sera simplement le vecteur de la solution particulière. On a donc <span class="process-math">\(\vec{b}=\vec{x}_p\text{.}\)</span>
 </div> <div class="para" id="exo-rrefgeo1-2-3">Ensuite, si le vecteur solution de base est <span class="process-math">\(\vec{s}=\vecd{1}{0}\text{,}\)</span> on sait que la solution homogène est une droite et donc qu’il y a une variable libre. La variable libre est toujours celle pour laquelle le vecteur solution de base a une valeur de <span class="process-math">\(1\text{.}\)</span> C’est donc ici <span class="process-math">\(x\text{.}\)</span> La partie de gauche sera donc la matrice <span class="process-math">\(\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0\end{pmatrix}\text{,}\)</span> puisque c’est la seule matrice échelonnée réduite ayant <span class="process-math">\(x\)</span> comme variable libre. La partie augmentée sera toujours un vecteur de la forme <span class="process-math">\(\vecd{y}{0}\)</span> où <span class="process-math">\(y\)</span> est la deuxième composante du vecteur <span class="process-math">\(\vec{x}_p\text{.}\)</span> Ce vecteur sera toujours de la forme <span class="process-math">\(\vec{x}_p=\vecd{0}{y}\)</span> pour être une solution de l’équation matricielle <span class="process-math">\(R\vec{x}=\vec{b}\text{.}\)</span>
 </div> <div class="para" id="exo-rrefgeo1-2-4">Finalement, si le vecteur solution de base est de la forme <span class="process-math">\(\vec{s}=\vecd{x}{1}\text{,}\)</span> on sait que la solution homogène est une droite et donc qu’il y a une variable libre. La variable libre est toujours celle pour laquelle le vecteur solution de base a une valeur de <span class="process-math">\(1\text{.}\)</span> C’est donc ici <span class="process-math">\(y\text{.}\)</span> La partie de gauche sera donc la matrice <span class="process-math">\(\begin{pmatrix} 1 &amp; -x \\ 0 &amp; 0\end{pmatrix}\text{,}\)</span> puisque c’est la matrice échelonnée réduite ayant <span class="process-math">\(y\)</span> comme variable libre et donnant comme solution de base le vecteur <span class="process-math">\(\vec{s}=\vecd{x}{1}\text{.}\)</span> La partie augmentée sera toujours le vecteur <span class="process-math">\(\vec{b}=\vec{x}_p\)</span> où la première composante seulement peut être non nulle. Ce sera donc toujours un vecteur de la forme <span class="process-math">\(\vec{b}=\vecd{b_1}{0}\text{.}\)</span>
 </div>
-</div></details></div></article><article class="exercise exercise-like" id="exo-SELgeo-8"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para" id="exo-SELgeo-8-1-1">Soit <span class="process-math">\(R\text{,}\)</span> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve la solution de base à l’équation <span class="process-math">\(R\vec{x}=\vec{0}\)</span> et un point <span class="process-math">\(P\)</span> appartenant à l’ensemble solution de l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{.}\)</span> Entrer sur la figure les valeurs pour la matrice <span class="process-math">\(R\)</span> et le vecteur <span class="process-math">\(\vec{b}\)</span> qui correspondent à cette géométrie.</div> <figure class="figure figure-like" id="fig-rrefgeo2"><iframe id="geog-exo-rrefgeo2" width="600" height="600" src="geog-exo-rrefgeo2-if.html"></iframe><div class="instructions"><details id="geog-exo-rrefgeo2-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></summary><div class="solution-like knowl__content"><div class="para" id="geog-exo-rrefgeo2-2-1">
+</div></details></div></article><article class="exercise exercise-like" id="exo-SELgeo-7"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para" id="exo-SELgeo-7-1-1">Soit <span class="process-math">\(R\text{,}\)</span> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve la solution de base à l’équation <span class="process-math">\(R\vec{x}=\vec{0}\)</span> et un point <span class="process-math">\(P\)</span> appartenant à l’ensemble solution de l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{.}\)</span> Entrer sur la figure les valeurs pour la matrice <span class="process-math">\(R\)</span> et le vecteur <span class="process-math">\(\vec{b}\)</span> qui correspondent à cette géométrie.</div> <figure class="figure figure-like" id="fig-rrefgeo2"><iframe id="geog-exo-rrefgeo2" width="600" height="600" src="geog-exo-rrefgeo2-if.html"></iframe><div class="instructions"><details id="geog-exo-rrefgeo2-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></summary><div class="solution-like knowl__content"><div class="para" id="geog-exo-rrefgeo2-2-1">
 <em class="alert">Instructions pour la figure interactive:</em> Compléter les six valeurs de la matrice augmentée. Un clic sur « Vérifier la réponse » validera celle-ci. Ensuite, un clic sur « Nouveau problème » permet d’en essayer une version différente.</div></div></details></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.38<span class="period">.</span></span><span class="space"> </span>La géométrie de l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{,}\)</span> version 2</figcaption></figure><div class="solutions"><details id="exo-SELgeo-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para" id="exo-SELgeo-8-2-1">Attention, on invite le lecteur à essayer plusieurs fois l’exercice pour arriver à comprendre les différents cas possibles avant de lire la solution. Il est clair qu’il faut bien comprendre les deux concepts en présence. La partie de gauche de la matrice augmentée sera déterminée par la solution de base exactement comme à l’exercice <a href="sec-SELgeo.html#exo-rrefgeo1" class="xref" data-knowl="./knowl/xref/exo-rrefgeo1.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.6">3.3.4.6</a>. La partie augmentée sera déterminée par le point appartenant à l’ensemble solution. Il faudra parfois effectuer un calcul, d’autres fois lire directement la valeur. On distinguera les mêmes trois cas de figure.</div> <div class="para" id="exo-SELgeo-8-2-2">D’abord, si le vecteur solution de base est <span class="process-math">\(\vec{s}=\vec{0}\text{,}\)</span> on sait que la solution homogène est égale au vecteur nul. La partie de gauche n’a donc pas le choix d’être la matrice identité puisque l’on a une solution unique. La partie augmentée sera simplement le point appartenant à l’ensemble solution. On a donc <span class="process-math">\(\vec{b}=\vecl{OP}\text{.}\)</span>
-</div> <div class="para logical" id="exo-SELgeo-8-2-3">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.35<span class="period">.</span></span><span class="space"> </span>La géométrie de l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{,}\)</span> version 2</figcaption></figure><div class="solutions"><details id="exo-SELgeo-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exo-SELgeo-7-2-1">Attention, on invite le lecteur à essayer plusieurs fois l’exercice pour arriver à comprendre les différents cas possibles avant de lire la solution. Il est clair qu’il faut bien comprendre les deux concepts en présence. La partie de gauche de la matrice augmentée sera déterminée par la solution de base exactement comme à l’exercice <a href="sec-SELgeo.html#exo-rrefgeo1" class="xref" data-knowl="./knowl/xref/exo-rrefgeo1.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.5">3.3.4.5</a>. La partie augmentée sera déterminée par le point appartenant à l’ensemble solution. Il faudra parfois effectuer un calcul, d’autres fois lire directement la valeur. On distinguera les mêmes trois cas de figure.</div> <div class="para" id="exo-SELgeo-7-2-2">D’abord, si le vecteur solution de base est <span class="process-math">\(\vec{s}=\vec{0}\text{,}\)</span> on sait que la solution homogène est égale au vecteur nul. La partie de gauche n’a donc pas le choix d’être la matrice identité puisque l’on a une solution unique. La partie augmentée sera simplement le point appartenant à l’ensemble solution. On a donc <span class="process-math">\(\vec{b}=\vecl{OP}\text{.}\)</span>
+</div> <div class="para logical" id="exo-SELgeo-7-2-3">
 <div class="para">Ensuite, si le vecteur solution de base est <span class="process-math">\(\vec{s}=\vecd{1}{0}\text{,}\)</span> on sait que la solution homogène est une droite et donc qu’il y a une variable libre qui est <span class="process-math">\(x\)</span> dans ce cas. La partie de gauche sera donc la matrice <span class="process-math">\(\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0\end{pmatrix}\text{,}\)</span> puisque c’est la seule matrice échelonnée réduite ayant <span class="process-math">\(x\)</span> comme variable libre. La partie augmentée sera toujours un vecteur de la forme <span class="process-math">\(\vecd{y}{0}\)</span> où <span class="process-math">\(y\)</span> est la deuxième composante du vecteur <span class="process-math">\(\vec{x}_p\text{.}\)</span> Puisqu’on n’a pas cette solution particulière, mais seulement un point <span class="process-math">\(P\)</span> faisant partie de l’ensemble solution, il faudra déduire sa valeur. Toute solution à l’équation <span class="process-math">\(R\vec{x}=\vec{b}\)</span> aura la forme:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2056,7 +1920,7 @@ x&amp; x-1&amp; y \\
 \end{equation*}
 </div>
 <div class="para">Ainsi, la coordonnée en <span class="process-math">\(y\)</span> du point <span class="process-math">\(P\)</span> nous donne directement la valeur voulue. Aucun calcul n’est nécessaire.</div>
-</div> <div class="para logical" id="exo-SELgeo-8-2-4">
+</div> <div class="para logical" id="exo-SELgeo-7-2-4">
 <div class="para">Finalement, si le vecteur solution de base est de la forme <span class="process-math">\(\vec{s}=\vecd{x}{1}\text{,}\)</span> on sait que la solution homogène est une droite et donc qu’il y a une variable libre qui est <span class="process-math">\(y\)</span> dans ce cas-ci. La partie de gauche sera donc la matrice <span class="process-math">\(\begin{pmatrix} 1 &amp; -x \\ 0 &amp; 0\end{pmatrix}\text{,}\)</span> puisque c’est la matrice échelonnée réduite ayant <span class="process-math">\(y\)</span> comme variable libre et donnant comme solution de base le vecteur <span class="process-math">\(\vec{s}=\vecd{x}{1}\text{.}\)</span> La partie augmentée sera toujours le vecteur <span class="process-math">\(\vec{b}=\vec{x}_p=\vecd{b_1}{0}\)</span> où la première composante seulement peut être non nulle. Cependant, on n’a pas cette solution particulière avec la bonne forme, on en a une quelconque donnée par <span class="process-math">\(P\)</span> qui est dans l’ensemble solution. Il faudra donc calculer la valeur en isolant <span class="process-math">\(b_1\)</span> dans l’équation:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2064,11 +1928,11 @@ x&amp; x-1&amp; y \\
 \end{equation*}
 </div>
 </div>
-</div></details></div></article><article class="exercise exercise-like" id="exo-SELgeo-9"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para" id="exo-SELgeo-9-1-1">Soit <span class="process-math">\(R\text{,}\)</span> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve un vecteur <span class="process-math">\(\vec{v}\)</span> parallèle à la solution de base à l’équation <span class="process-math">\(R\vec{x}=\vec{0}\)</span> et un point <span class="process-math">\(P\)</span> appartenant à l’ensemble solution de l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{.}\)</span> Entrer sur la figure les valeurs pour la matrice <span class="process-math">\(R\)</span> et le vecteur <span class="process-math">\(\vec{b}\)</span> qui correspondent à cette géométrie.</div> <figure class="figure figure-like" id="fig-rrefgeo3"><iframe id="geog-exo-rrefgeo3" width="600" height="600" src="geog-exo-rrefgeo3-if.html"></iframe><div class="instructions"><details id="geog-exo-rrefgeo3-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></summary><div class="solution-like knowl__content"><div class="para" id="geog-exo-rrefgeo3-2-1">
+</div></details></div></article><article class="exercise exercise-like" id="exo-SELgeo-8"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="para" id="exo-SELgeo-8-1-1">Soit <span class="process-math">\(R\text{,}\)</span> une matrice échelonnée réduite. Dans la figure ci-dessous, on retrouve un vecteur <span class="process-math">\(\vec{v}\)</span> parallèle à la solution de base à l’équation <span class="process-math">\(R\vec{x}=\vec{0}\)</span> et un point <span class="process-math">\(P\)</span> appartenant à l’ensemble solution de l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{.}\)</span> Entrer sur la figure les valeurs pour la matrice <span class="process-math">\(R\)</span> et le vecteur <span class="process-math">\(\vec{b}\)</span> qui correspondent à cette géométrie.</div> <figure class="figure figure-like" id="fig-rrefgeo3"><iframe id="geog-exo-rrefgeo3" width="600" height="600" src="geog-exo-rrefgeo3-if.html"></iframe><div class="instructions"><details id="geog-exo-rrefgeo3-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></summary><div class="solution-like knowl__content"><div class="para" id="geog-exo-rrefgeo3-2-1">
 <em class="alert">Instructions pour la figure interactive:</em> Compléter les six valeurs de la matrice augmentée. Un clic sur « Vérifier la réponse » validera la réponse. Ensuite, un clic sur « Nouveau problème » permet d’en essayer une version différente.</div></div></details></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.39<span class="period">.</span></span><span class="space"> </span>La géométrie de l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{,}\)</span> version 3</figcaption></figure><div class="solutions"><details id="exo-SELgeo-9-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para" id="exo-SELgeo-9-2-1">Attention, on invite le lecteur à essayer plusieurs fois l’exercice pour arriver à comprendre les différents cas possibles avant de lire la solution. Il est clair qu’il faut bien comprendre les deux concepts en présence. La partie de gauche de la matrice augmentée sera déterminée par la solution de base exactement comme à l’exercice <a href="sec-SELgeo.html#exo-rrefgeo1" class="xref" data-knowl="./knowl/xref/exo-rrefgeo1.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.6">3.3.4.6</a>. La partie augmentée sera déterminée par le point appartenant à l’ensemble solution. Il faudra parfois effectuer un calcul, d’autres fois lire directement la valeur. On distinguera les mêmes trois cas de figure.</div> <div class="para logical" id="exo-SELgeo-9-2-2">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.36<span class="period">.</span></span><span class="space"> </span>La géométrie de l’équation <span class="process-math">\(R\vec{x}=\vec{b}\text{,}\)</span> version 3</figcaption></figure><div class="solutions"><details id="exo-SELgeo-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exo-SELgeo-8-2-1">Attention, on invite le lecteur à essayer plusieurs fois l’exercice pour arriver à comprendre les différents cas possibles avant de lire la solution. Il est clair qu’il faut bien comprendre les deux concepts en présence. La partie de gauche de la matrice augmentée sera déterminée par la solution de base exactement comme à l’exercice <a href="sec-SELgeo.html#exo-rrefgeo1" class="xref" data-knowl="./knowl/xref/exo-rrefgeo1.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.5">3.3.4.5</a>. La partie augmentée sera déterminée par le point appartenant à l’ensemble solution. Il faudra parfois effectuer un calcul, d’autres fois lire directement la valeur. On distinguera les mêmes trois cas de figure.</div> <div class="para logical" id="exo-SELgeo-8-2-2">
 <div class="para">D’abord, si le vecteur donné est de la forme <span class="process-math">\(\vec{v}=\vecd{x}{0}\text{,}\)</span> on sait que le vecteur solution de base est <span class="process-math">\(\vec{s}=\vecd{1}{0}\text{,}\)</span> puisqu’il doit y avoir une variable libre qui est <span class="process-math">\(x\text{,}\)</span> la seule variable non nulle ici. Alors, on sait que la solution homogène est une droite de vecteur directeur <span class="process-math">\(\vec{s}=\vecd{1}{0}\text{.}\)</span> La partie de gauche sera donc la matrice <span class="process-math">\(\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0\end{pmatrix}\text{,}\)</span> puisque c’est la seule matrice échelonnée réduite ayant <span class="process-math">\(x\)</span> comme variable libre. La partie augmentée sera toujours un vecteur de la forme <span class="process-math">\(\vecd{y}{0}\)</span> où <span class="process-math">\(y\)</span> est la deuxième composante du vecteur <span class="process-math">\(\vec{x}_p\text{.}\)</span> Puisqu’on n’a pas cette solution particulière, mais seulement un point <span class="process-math">\(P\)</span> faisant partie de l’ensemble solution, il faudra déduire sa valeur. Toute solution à l’équation <span class="process-math">\(R\vec{x}=\vec{b}\)</span> aura la forme:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2076,7 +1940,7 @@ x&amp; x-1&amp; y \\
 \end{equation*}
 </div>
 <div class="para">Ainsi, la coordonnée en <span class="process-math">\(y\)</span> du point <span class="process-math">\(P\)</span> nous donne directement la valeur voulue. Aucun calcul n’est nécessaire.</div>
-</div> <div class="para logical" id="exo-SELgeo-9-2-3">
+</div> <div class="para logical" id="exo-SELgeo-8-2-3">
 <div class="para">Ensuite, si le vecteur donné est de la forme <span class="process-math">\(\vec{v}=\vecd{0}{y}\text{,}\)</span> on sait que le vecteur solution de base est <span class="process-math">\(\vec{s}=\vecd{0}{1}\text{,}\)</span> puisqu’il doit y avoir une variable libre qui est <span class="process-math">\(y\text{,}\)</span> la seule variable non nulle ici. On sait alors que la solution homogène est une droite de vecteur directeur <span class="process-math">\(\vec{s}=\vecd{0}{1}\text{.}\)</span> La partie de gauche sera donc la matrice <span class="process-math">\(\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0\end{pmatrix}\text{,}\)</span> puisque c’est la seule matrice échelonnée réduite ayant <span class="process-math">\(y\)</span> comme variable libre et pour laquelle <span class="process-math">\(x\)</span> vaut <span class="process-math">\(0\text{.}\)</span> La partie augmentée sera toujours un vecteur de la forme <span class="process-math">\(\vecd{x}{0}\)</span> où <span class="process-math">\(x\)</span> est la première et seule composante du vecteur <span class="process-math">\(\vec{x}_p\text{.}\)</span> Puisqu’on n’a pas cette solution particulière, mais seulement un point <span class="process-math">\(P\)</span> faisant partie de l’ensemble solution, il faudra déduire sa valeur. Toute solution à l’équation <span class="process-math">\(R\vec{x}=\vec{b}\)</span> aura la forme:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2084,7 +1948,7 @@ x&amp; x-1&amp; y \\
 \end{equation*}
 </div>
 <div class="para">Ainsi, la coordonnée en <span class="process-math">\(x\)</span> du point <span class="process-math">\(P\)</span> nous donne directement la valeur voulue. Aucun calcul n’est nécessaire.</div>
-</div> <div class="para logical" id="exo-SELgeo-9-2-4">
+</div> <div class="para logical" id="exo-SELgeo-8-2-4">
 <div class="para">Finalement, si le vecteur donné est de la forme <span class="process-math">\(\vec{v}=\vecd{x}{y}\text{,}\)</span> alors le vecteur solution de base est de la forme <span class="process-math">\(\vec{s}=\vecd{x}{1}\text{,}\)</span> puisqu’il doit y avoir une variable libre et que ça ne peut être <span class="process-math">\(x\)</span> sans que la composante <span class="process-math">\(y\)</span> du vecteur <span class="process-math">\(\vec{s}\)</span> soit nulle. On obtient la valeur de <span class="process-math">\(x\)</span> à partir du fait que <span class="process-math">\(\vec{v}=k\vec{s}\)</span> (ils sont parallèles). Par exemple, si <span class="process-math">\(\vec{v}=\vecd{7}{-1}=k\vecd{x}{1}\text{,}\)</span> alors <span class="process-math">\(k=-1\)</span> et donc <span class="process-math">\(x=-7\text{.}\)</span> Ainsi, on sait que la solution homogène est une droite de vecteur directeur <span class="process-math">\(\vec{s}=\vecd{x}{1}\text{.}\)</span> La partie de gauche sera donc la matrice <span class="process-math">\(\begin{pmatrix} 1 &amp; -x \\ 0 &amp; 0\end{pmatrix}\text{,}\)</span> puisque c’est la matrice échelonnée réduite ayant <span class="process-math">\(y\)</span> comme variable libre et donnant comme solution de base le vecteur <span class="process-math">\(\vec{s}=\vecd{x}{1}\text{.}\)</span> La partie augmentée sera toujours le vecteur <span class="process-math">\(\vec{b}=\vec{x}_p=\vecd{b_1}{0}\)</span> où la première composante seulement peut être non nulle. Cependant, on n’a pas cette solution particulière avec la bonne forme, on en a une quelconque donnée par <span class="process-math">\(P\)</span> qui est dans l’ensemble solution. Il faudra donc calculer la valeur en isolant <span class="process-math">\(b_1\)</span> dans l’équation:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2092,15 +1956,15 @@ x&amp; x-1&amp; y \\
 \end{equation*}
 </div>
 </div>
-</div></details></div></article><article class="exercise exercise-like" id="exo-SELgeo-10"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para" id="exo-SELgeo-10-1-1">Donner une transformation telle que son image est égale à ses zéros.</div>
+</div></details></div></article><article class="exercise exercise-like" id="exo-SELgeo-9"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="para" id="exo-SELgeo-9-1-1">Donner une transformation telle que son image est égale à ses zéros.</div>
 <div class="solutions">
-<details id="exo-SELgeo-10-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-SELgeo-10-2-1">Une <span class="process-math">\(2\times 2\)</span> suffit.</div></div></details><details id="exo-SELgeo-10-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-10-3-1"><div class="displaymath process-math">
+<details id="exo-SELgeo-9-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-SELgeo-9-2-1">Une <span class="process-math">\(2\times 2\)</span> suffit.</div></div></details><details id="exo-SELgeo-9-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-9-3-1"><div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}
 \end{equation*}
-</div></div></div></details><details id="exo-SELgeo-10-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para" id="exo-SELgeo-10-4-1">On suit l’indication et l’on cherche une transformation de <span class="process-math">\(\R^2\)</span> vers <span class="process-math">\(\R^2\text{.}\)</span> Il n’est pas facile à priori de trouver une telle transformation sans avoir une bonne intuition géométrique de ces deux concepts. On rappelle que les zéros sont l’ensemble des solutions à l’équation homogène <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span> Ce sont donc des vecteurs du plan qui sont tels que la transformation recherchée les amènera à zéro. C’est la solution homogène <span class="process-math">\(\vec{x}_h\)</span> à la transformation. On indique dans la question que la transformation a <em class="emphasis">des</em> zéros. Or, on sait que si elle en a plus d’un, elle en a une infinité. On a donc des zéros de la forme <span class="process-math">\(\vec{x}_h=k\vec{s}\)</span> où <span class="process-math">\(\vec{s}\)</span> est la solution de base. Pour simplifier le problème, on suppose que <span class="process-math">\(\vec{s}=\vecd{1}{0}\text{.}\)</span> Les zéros sont donc l’ensemble des vecteurs sur l’axe des <span class="process-math">\(x\text{.}\)</span> Une transformation linéaire amenant tous les vecteurs sur l’axe des <span class="process-math">\(x\)</span> à l’origine a nécessairement comme première colonne des zéros.</div> <div class="para logical" id="exo-SELgeo-10-4-2">
+</div></div></div></details><details id="exo-SELgeo-9-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exo-SELgeo-9-4-1">On suit l’indication et l’on cherche une transformation de <span class="process-math">\(\R^2\)</span> vers <span class="process-math">\(\R^2\text{.}\)</span> Il n’est pas facile à priori de trouver une telle transformation sans avoir une bonne intuition géométrique de ces deux concepts. On rappelle que les zéros sont l’ensemble des solutions à l’équation homogène <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span> Ce sont donc des vecteurs du plan qui sont tels que la transformation recherchée les amènera à zéro. C’est la solution homogène <span class="process-math">\(\vec{x}_h\)</span> à la transformation. On indique dans la question que la transformation a <em class="emphasis">des</em> zéros. Or, on sait que si elle en a plus d’un, elle en a une infinité. On a donc des zéros de la forme <span class="process-math">\(\vec{x}_h=k\vec{s}\)</span> où <span class="process-math">\(\vec{s}\)</span> est la solution de base. Pour simplifier le problème, on suppose que <span class="process-math">\(\vec{s}=\vecd{1}{0}\text{.}\)</span> Les zéros sont donc l’ensemble des vecteurs sur l’axe des <span class="process-math">\(x\text{.}\)</span> Une transformation linéaire amenant tous les vecteurs sur l’axe des <span class="process-math">\(x\)</span> à l’origine a nécessairement comme première colonne des zéros.</div> <div class="para logical" id="exo-SELgeo-9-4-2">
 <div class="para">On propose la matrice de transformation <span class="process-math">\(A=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\)</span> qui envoie le vecteur <span class="process-math">\(\vecd{1}{0}\)</span> à <span class="process-math">\(\vecd{0}{0}\)</span> et le vecteur <span class="process-math">\(\vecd{0}{1}\)</span> à <span class="process-math">\(\vecd{1}{0}\text{.}\)</span> On a présenté la raison pour laquelle la première colonne est formée seulement de zéros. Pourquoi amener la deuxième colonne à <span class="process-math">\(\vecd{1}{0}\text{?}\)</span> La réponse est parce que l’on veut que l’image de la transformation soit aussi l’ensemble des vecteurs sur l’axe des <span class="process-math">\(x\text{.}\)</span> Avec cette transformation, on a effectivement:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2117,46 +1981,46 @@ A\vecd{x}{y}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\vecd{x}{y}=\vecd{y}{0}
 </div>
 </div>
 </div></details>
-</div></article><article class="exercise exercise-like" id="exo-SELgeo-11"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="introduction" id="exo-SELgeo-11-1"><div class="para" id="exo-SELgeo-11-1-1">Les matrices ci-dessous sont des matrices <span class="process-math">\(L\text{,}\)</span> obtenues par exemple avec la fonction <code class="code-inline tex2jax_ignore">matL</code>. Pour chaque matrice, donner une matrice échelonnée réduite <span class="process-math">\(R\)</span> qui possède la matrice <span class="process-math">\(L\)</span> comme sous matrice.</div></div>
-<article class="task exercise-like" id="exo-SELgeo-11-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="exo-SELgeo-11-2-1-1"><span class="process-math">\(L_1\vecddd{1}{-1}{2}\)</span></div></article><article class="task exercise-like" id="exo-SELgeo-11-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="exo-SELgeo-11-3-1-1"><span class="process-math">\(L_2\left(\begin{array}{rr}
+</div></article><article class="exercise exercise-like" id="exo-SELgeo-10"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="introduction" id="exo-SELgeo-10-1"><div class="para" id="exo-SELgeo-10-1-1">Les matrices ci-dessous sont des matrices <span class="process-math">\(L\text{,}\)</span> obtenues par exemple avec la fonction <code class="code-inline tex2jax_ignore">matL</code>. Pour chaque matrice, donner une matrice échelonnée réduite <span class="process-math">\(R\)</span> qui possède la matrice <span class="process-math">\(L\)</span> comme sous matrice.</div></div>
+<article class="task exercise-like" id="exo-SELgeo-10-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exo-SELgeo-10-2-1-1"><span class="process-math">\(L_1\vecddd{1}{-1}{2}\)</span></div></article><article class="task exercise-like" id="exo-SELgeo-10-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exo-SELgeo-10-3-1-1"><span class="process-math">\(L_2\left(\begin{array}{rr}
 -1 &amp; 0 \\
 1 &amp; 0
-\end{array}\right)\)</span></div></article><article class="task exercise-like" id="exo-SELgeo-11-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para" id="exo-SELgeo-11-4-1-1"><span class="process-math">\(L_3\left(\begin{array}{rrr}
+\end{array}\right)\)</span></div></article><article class="task exercise-like" id="exo-SELgeo-10-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exo-SELgeo-10-4-1-1"><span class="process-math">\(L_3\left(\begin{array}{rrr}
 -\frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\
 -1 &amp; -2 &amp; 0
-\end{array}\right)\)</span></div></article><article class="task exercise-like" id="exo-SELgeo-11-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<div class="para" id="exo-SELgeo-11-5-1-1"><span class="process-math">\(L_4\left(\begin{array}{rrrr}
+\end{array}\right)\)</span></div></article><article class="task exercise-like" id="exo-SELgeo-10-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="exo-SELgeo-10-5-1-1"><span class="process-math">\(L_4\left(\begin{array}{rrrr}
 2 &amp; 1 &amp; 1 &amp; 0 \\
 1 &amp; -\frac{1}{2} &amp; -1 &amp; -\frac{1}{2} \\
 -1 &amp; -2 &amp; 2 &amp; 0
-\end{array}\right)\)</span></div></article></article><article class="exercise exercise-like" id="exo-SELgeo-12"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
-<div class="introduction" id="exo-SELgeo-12-1"><div class="para" id="exo-SELgeo-12-1-1">Soit <span class="process-math">\(A,B\text{,}\)</span> des transformations linéaires non nulles telles que <span class="process-math">\(AB=O\text{.}\)</span>
+\end{array}\right)\)</span></div></article></article><article class="exercise exercise-like" id="exo-SELgeo-11"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div class="introduction" id="exo-SELgeo-11-1"><div class="para" id="exo-SELgeo-11-1-1">Soit <span class="process-math">\(A,B\text{,}\)</span> des transformations linéaires non nulles telles que <span class="process-math">\(AB=O\text{.}\)</span>
 </div></div>
-<article class="task exercise-like" id="exo-SELgeo-12-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="exo-SELgeo-12-2-1-1">Que peut-on dire de l’image de <span class="process-math">\(B\)</span> par rapport aux zéros de <span class="process-math">\(A\text{?}\)</span>
+<article class="task exercise-like" id="exo-SELgeo-11-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exo-SELgeo-11-2-1-1">Que peut-on dire de l’image de <span class="process-math">\(B\)</span> par rapport aux zéros de <span class="process-math">\(A\text{?}\)</span>
 </div>
-<div class="solutions"><details id="exo-SELgeo-12-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-SELgeo-12-2-2-1">On a <span class="process-math">\(Im(B)\subseteq Z(A)\text{.}\)</span>
-</div></div></details></div></article><article class="task exercise-like" id="exo-SELgeo-12-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="exo-SELgeo-12-3-1-1">Donner des exemples de transformations <span class="process-math">\(A,B\)</span> non nulles de taille <span class="process-math">\(2\times 2\)</span> telles que <span class="process-math">\(AB=0\)</span> et determiner les zéros de <span class="process-math">\(A\)</span> et l’image de <span class="process-math">\(B\text{.}\)</span> Vérifier la relation de l’exercice précédent.</div></article><article class="task exercise-like" id="exo-SELgeo-12-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para" id="exo-SELgeo-12-4-1-1">Donner des exemples de transformations <span class="process-math">\(A,B\)</span> non nulles de taille <span class="process-math">\(3\times 3\)</span> telles que <span class="process-math">\(AB=0\)</span> et telles que l’image de <span class="process-math">\(B\)</span> n’est pas égale aux zéros de <span class="process-math">\(A\text{.}\)</span>
-</div></article></article><article class="exercise exercise-like" id="exo-SELgeo-13"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
-<div class="introduction" id="exo-SELgeo-13-1"><div class="para" id="exo-SELgeo-13-1-1">Donner, si possible, une matrice qui a comme solution(s) de base les vecteurs suivants. Dans l’impossibilité de le faire, expliquer pourquoi.</div></div>
-<article class="task exercise-like" id="exo-SELgeo-13-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="exo-SELgeo-13-2-1-1">Le vecteur <span class="process-math">\(\vec{s}=(1,-1,1)\text{.}\)</span>
+<div class="solutions"><details id="exo-SELgeo-11-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-SELgeo-11-2-2-1">On a <span class="process-math">\(Im(B)\subseteq Z(A)\text{.}\)</span>
+</div></div></details></div></article><article class="task exercise-like" id="exo-SELgeo-11-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exo-SELgeo-11-3-1-1">Donner des exemples de transformations <span class="process-math">\(A,B\)</span> non nulles de taille <span class="process-math">\(2\times 2\)</span> telles que <span class="process-math">\(AB=0\)</span> et determiner les zéros de <span class="process-math">\(A\)</span> et l’image de <span class="process-math">\(B\text{.}\)</span> Vérifier la relation de l’exercice précédent.</div></article><article class="task exercise-like" id="exo-SELgeo-11-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exo-SELgeo-11-4-1-1">Donner des exemples de transformations <span class="process-math">\(A,B\)</span> non nulles de taille <span class="process-math">\(3\times 3\)</span> telles que <span class="process-math">\(AB=0\)</span> et telles que l’image de <span class="process-math">\(B\)</span> n’est pas égale aux zéros de <span class="process-math">\(A\text{.}\)</span>
+</div></article></article><article class="exercise exercise-like" id="exo-SELgeo-12"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<div class="introduction" id="exo-SELgeo-12-1"><div class="para" id="exo-SELgeo-12-1-1">Donner, si possible, une matrice qui a comme solution(s) de base les vecteurs suivants. Dans l’impossibilité de le faire, expliquer pourquoi.</div></div>
+<article class="task exercise-like" id="exo-SELgeo-12-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exo-SELgeo-12-2-1-1">Le vecteur <span class="process-math">\(\vec{s}=(1,-1,1)\text{.}\)</span>
 </div>
 <div class="solutions">
-<details id="exo-SELgeo-13-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-SELgeo-13-2-2-1">S’inspirer de l’exemple <a href="sec-SELgeo.html#ex-zerosperplignes" class="xref" data-knowl="./knowl/xref/ex-zerosperplignes.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 3.3.13: Les zéros sont perpendiculaires aux lignes de la matrice">3.3.13</a> et de la proposition <a href="sec-SELgeo.html#prop-zerosperplignes" class="xref" data-knowl="./knowl/xref/prop-zerosperplignes.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.3.17: Les zéros sont perpendiculaires aux lignes de la matrice">3.3.17</a>.</div></div></details><details id="exo-SELgeo-13-2-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-13-2-3-1"><div class="displaymath process-math">
+<details id="exo-SELgeo-12-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-SELgeo-12-2-2-1">S’inspirer de l’exemple <a href="sec-SELgeo.html#ex-zerosperplignes" class="xref" data-knowl="./knowl/xref/ex-zerosperplignes.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 3.3.13: Les zéros sont perpendiculaires aux lignes de la matrice">3.3.13</a> et de la proposition <a href="sec-SELgeo.html#prop-zerosperplignes" class="xref" data-knowl="./knowl/xref/prop-zerosperplignes.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.3.17: Les zéros sont perpendiculaires aux lignes de la matrice">3.3.17</a>.</div></div></details><details id="exo-SELgeo-12-2-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-12-2-3-1"><div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 
 1&amp; 0&amp; -1\\
 2&amp; 1&amp;  -1\\
 3&amp; 1&amp; -2\end{pmatrix}
 \end{equation*}
-</div></div></div></details><details id="exo-SELgeo-13-2-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-13-2-4-1">
+</div></div></div></details><details id="exo-SELgeo-12-2-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-12-2-4-1">
 <div class="para">On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <span class="process-math">\(\vec{s}=(1,-1,1)\)</span> et qui donnera la matrice suivante lorsqu’échelonnée:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2177,18 +2041,18 @@ A\vecd{x}{y}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\vecd{x}{y}=\vecd{y}{0}
 </div>
 <div class="para">On a simplement fait <span class="process-math">\(2L_1+L_2\rightarrow L_2\)</span> et ensuite <span class="process-math">\(L_1+L_2 \rightarrow L_3\text{.}\)</span> Un calcul rapide permet de vérifier que chaque ligne est perpendiculaire à <span class="process-math">\(\vec{s}\)</span> (produit scalaire égal à zéro).</div>
 </div></div></details>
-</div></article><article class="task exercise-like" id="exo-SELgeo-13-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="exo-SELgeo-13-3-1-1">Les vecteurs <span class="process-math">\(\vec{s}_1=(1,1,0),\vec{s}_2=(-1,0,1)\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exo-SELgeo-12-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exo-SELgeo-12-3-1-1">Les vecteurs <span class="process-math">\(\vec{s}_1=(1,1,0),\vec{s}_2=(-1,0,1)\text{.}\)</span>
 </div>
 <div class="solutions">
-<details id="exo-SELgeo-13-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-13-3-2-1"><div class="displaymath process-math">
+<details id="exo-SELgeo-12-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-12-3-2-1"><div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 
 1&amp; -1&amp; 1\\
 2&amp; -2&amp;  2\\
 3&amp; -3&amp; 3\end{pmatrix}
 \end{equation*}
-</div></div></div></details><details id="exo-SELgeo-13-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-13-3-3-1">
+</div></div></div></details><details id="exo-SELgeo-12-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-12-3-3-1">
 <div class="para">On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <span class="process-math">\(\vec{s}_1=(1,1,0)\)</span> et <span class="process-math">\(\vec{s}_2=(-1,0,1)\)</span> et qui donnera la matrice suivante lorsqu’échelonnée:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2209,18 +2073,18 @@ A\vecd{x}{y}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\vecd{x}{y}=\vecd{y}{0}
 </div>
 <div class="para">On a simplement fait <span class="process-math">\(2L_1\rightarrow L_2\)</span> et <span class="process-math">\(3L_1 \rightarrow L_3\text{.}\)</span> Un calcul rapide permet de vérifier que chaque ligne est perpendiculaire à <span class="process-math">\(\vec{s}_1=(1,1,0)\)</span> et <span class="process-math">\(\vec{s}_2=(-1,0,1)\)</span> (produit scalaire égal à zéro).</div>
 </div></div></details>
-</div></article><article class="task exercise-like" id="exo-SELgeo-13-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para" id="exo-SELgeo-13-4-1-1">Les vecteurs <span class="process-math">\(\vec{s}_1=(1,0,0),\vec{s}_2=(0,2,1)\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exo-SELgeo-12-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exo-SELgeo-12-4-1-1">Les vecteurs <span class="process-math">\(\vec{s}_1=(1,0,0),\vec{s}_2=(0,2,1)\text{.}\)</span>
 </div>
 <div class="solutions">
-<details id="exo-SELgeo-13-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-13-4-2-1"><div class="displaymath process-math">
+<details id="exo-SELgeo-12-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-12-4-2-1"><div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 
 0&amp; 1&amp; -2\\
 0&amp; 2&amp;  -4\\
 0&amp; 3&amp; -6\end{pmatrix}
 \end{equation*}
-</div></div></div></details><details id="exo-SELgeo-13-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-13-4-3-1">
+</div></div></div></details><details id="exo-SELgeo-12-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-12-4-3-1">
 <div class="para">On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <span class="process-math">\(\vec{s}_1=(1,0,0)\)</span> et <span class="process-math">\(\vec{s}_2=(0,2,1)\)</span> et qui donnera la matrice suivante lorsqu’échelonnée:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2241,16 +2105,16 @@ A\vecd{x}{y}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\vecd{x}{y}=\vecd{y}{0}
 </div>
 <div class="para">On a simplement fait <span class="process-math">\(2L_1\rightarrow L_2\)</span> et <span class="process-math">\(3L_1 \rightarrow L_3\text{.}\)</span> Un calcul rapide permet de vérifier que chaque ligne est perpendiculaire à <span class="process-math">\(\vec{s}_1=(1,0,0)\)</span> et <span class="process-math">\(\vec{s}_2=(0,2,1)\)</span> (produit scalaire égal à zéro).</div>
 </div></div></details>
-</div></article><article class="task exercise-like" id="exo-SELgeo-13-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<div class="para" id="exo-SELgeo-13-5-1-1">Les vecteurs <span class="process-math">\(\vec{s}_1=(1,0),\vec{s}_2=(0,1),\vec{s}_3=(1,1)\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exo-SELgeo-12-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="exo-SELgeo-12-5-1-1">Les vecteurs <span class="process-math">\(\vec{s}_1=(1,0),\vec{s}_2=(0,1),\vec{s}_3=(1,1)\text{.}\)</span>
 </div>
 <div class="solutions">
-<details id="exo-SELgeo-13-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-SELgeo-13-5-2-1">Impossible.</div></div></details><details id="exo-SELgeo-13-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="exo-SELgeo-13-5-3-1">On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <span class="process-math">\(\vec{s}_1=(1,0),\vec{s}_2=(0,1),\vec{s}_3=(1,1)\text{.}\)</span> Cela est impossible puisqu’un vecteur de <span class="process-math">\(\R^2\)</span> ne peut pas être à la fois perpendiculaire à trois différents vecteurs qui ne sont pas parallèles entre eux.</div></div></details>
-</div></article><article class="task exercise-like" id="exo-SELgeo-13-6"><h5 class="heading"><span class="codenumber">(e)</span></h5>
-<div class="para" id="exo-SELgeo-13-6-1-1">Le vecteur <span class="process-math">\(\vec{s}=(-2,3,1,0,0)\text{.}\)</span>
+<details id="exo-SELgeo-12-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-SELgeo-12-5-2-1">Impossible.</div></div></details><details id="exo-SELgeo-12-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="exo-SELgeo-12-5-3-1">On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <span class="process-math">\(\vec{s}_1=(1,0),\vec{s}_2=(0,1),\vec{s}_3=(1,1)\text{.}\)</span> Cela est impossible puisqu’un vecteur de <span class="process-math">\(\R^2\)</span> ne peut pas être à la fois perpendiculaire à trois différents vecteurs qui ne sont pas parallèles entre eux.</div></div></details>
+</div></article><article class="task exercise-like" id="exo-SELgeo-12-6"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para" id="exo-SELgeo-12-6-1-1">Le vecteur <span class="process-math">\(\vec{s}=(-2,3,1,0,0)\text{.}\)</span>
 </div>
 <div class="solutions">
-<details id="exo-SELgeo-13-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-13-6-2-1"><div class="displaymath process-math">
+<details id="exo-SELgeo-12-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-12-6-2-1"><div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 
 1&amp; 0&amp; 2 &amp; 0&amp; 0\\
@@ -2259,7 +2123,7 @@ A\vecd{x}{y}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\vecd{x}{y}=\vecd{y}{0}
 5&amp; 2&amp; 4 &amp; 1&amp; 1\\
 8&amp; 3&amp; 7 &amp; 2&amp; 1\end{pmatrix}
 \end{equation*}
-</div></div></div></details><details id="exo-SELgeo-13-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-13-6-3-1">
+</div></div></div></details><details id="exo-SELgeo-12-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-12-6-3-1">
 <div class="para">On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <span class="process-math">\(\vec{s}=(-2,3,1,0,0)\)</span> et qui donnera la matrice suivante lorsqu’échelonnée:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2284,11 +2148,11 @@ A\vecd{x}{y}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\vecd{x}{y}=\vecd{y}{0}
 </div>
 <div class="para">On a simplement fait <span class="process-math">\(2L_1+L_2\rightarrow L_2\text{,}\)</span> ensuite <span class="process-math">\(L_1+L_2 \rightarrow L_3\text{,}\)</span> puis <span class="process-math">\(L_2+L_3 \rightarrow L_4\)</span> et finalement <span class="process-math">\(L_3+L_4 \rightarrow L_5\text{.}\)</span> Un calcul rapide permet de vérifier que chaque ligne est perpendiculaire à <span class="process-math">\(\vec{s}\)</span> (produit scalaire égal à zéro).</div>
 </div></div></details>
-</div></article><article class="task exercise-like" id="exo-SELgeo-13-7"><h5 class="heading"><span class="codenumber">(f)</span></h5>
-<div class="para" id="exo-SELgeo-13-7-1-1">Les vecteurs <span class="process-math">\(\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0),\vec{s}_3=(-4,0,-1,0,1)\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exo-SELgeo-12-7"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="para" id="exo-SELgeo-12-7-1-1">Les vecteurs <span class="process-math">\(\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0),\vec{s}_3=(-4,0,-1,0,1)\text{.}\)</span>
 </div>
 <div class="solutions">
-<details id="exo-SELgeo-13-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-13-7-2-1"><div class="displaymath process-math">
+<details id="exo-SELgeo-12-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-SELgeo-12-7-2-1"><div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 
 1&amp; 3&amp; 0 &amp; -2&amp; 4\\
@@ -2297,7 +2161,7 @@ A\vecd{x}{y}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\vecd{x}{y}=\vecd{y}{0}
 5&amp; 15&amp; 2 &amp; -12&amp; 22\\
 8&amp; 24&amp; 3 &amp; -19&amp; 35\end{pmatrix}
 \end{equation*}
-</div></div></div></details><details id="exo-SELgeo-13-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-13-7-3-1">
+</div></div></div></details><details id="exo-SELgeo-12-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-SELgeo-12-7-3-1">
 <div class="para">On cherche essentiellement une matrice où toutes les lignes sont perpendiculaires à <span class="process-math">\(\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0)\)</span> et <span class="process-math">\(\vec{s}_3=(-4,0,-1,0,1)\)</span> et qui donnera la matrice suivante lorsqu’échelonnée:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -2322,7 +2186,7 @@ A\vecd{x}{y}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\vecd{x}{y}=\vecd{y}{0}
 </div>
 <div class="para">On a simplement fait <span class="process-math">\(2L_1+L_2\rightarrow L_2\text{,}\)</span> ensuite <span class="process-math">\(L_1+L_2 \rightarrow L_3\text{,}\)</span> puis <span class="process-math">\(L_2+L_3 \rightarrow L_4\)</span> et finalement <span class="process-math">\(L_3+L_4 \rightarrow L_5\text{.}\)</span> Un calcul rapide (un peu long!) permet de vérifier que chaque ligne est perpendiculaire à <span class="process-math">\(\vec{s}_1=(-3,1,0,0,0),\vec{s}_2=(2,0,1,1,0),\vec{s}_3=(-4,0,-1,0,1)\)</span> (produit scalaire égal à zéro).</div>
 </div></div></details>
-</div></article></article><article class="exercise exercise-like" id="exo-Ax0sev"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+</div></article></article><article class="exercise exercise-like" id="exo-Ax0sev"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
 <div class="para" id="exo-Ax0sev-1-1">Démontrer la proposition <a href="sec-SELgeo.html#prop-Ax0sev" class="xref" data-knowl="./knowl/xref/prop-Ax0sev.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.3.3: Les zéros d’une transformation linéaire sont fermés pour l’addition et la multiplication par un scalaire">3.3.3</a> et la proposition <a href="sec-SELgeo.html#prop-imasev" class="xref" data-knowl="./knowl/xref/prop-imasev.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.3.26: L’image d’une transformation est fermée pour l’addition et la multiplication par un scalaire">3.3.26</a>.</div>
 <div class="solutions"><details id="exo-Ax0sev-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-Ax0sev-2-1">
 <div class="para">D’abord, on démontre la proposition <a href="sec-SELgeo.html#prop-Ax0sev" class="xref" data-knowl="./knowl/xref/prop-Ax0sev.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.3.3: Les zéros d’une transformation linéaire sont fermés pour l’addition et la multiplication par un scalaire">3.3.3</a>.</div>
@@ -2357,12 +2221,12 @@ c\vec{b}_1&amp;=c(A\vec{x}_1)\\
 </div>
 <div class="para">Une solution à <span class="process-math">\(A\vec{x}=c\vec{b}_1\)</span> est donc le vecteur <span class="process-math">\(\vec{x}=c\vec{x}_1\text{.}\)</span>
 </div>
-</div></div></details></div></article><article class="exercise exercise-like" id="exo-SELgeo-15"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
-<div class="para" id="exo-SELgeo-15-1-1">Voici un énoncé et sa « démonstration ».</div> <div class="para" id="exo-SELgeo-15-1-2">
-<em class="alert">Énoncé:</em> Soit <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span> Cette équation a une infinité de solutions.</div> <div class="para" id="exo-SELgeo-15-1-3">
-<em class="alert">Démonstration:</em> On sait qu’il existe au moins une solution à l’équation. La proposition <a href="sec-SELgeo.html#prop-Ax0sev" class="xref" data-knowl="./knowl/xref/prop-Ax0sev.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.3.3: Les zéros d’une transformation linéaire sont fermés pour l’addition et la multiplication par un scalaire">3.3.3</a> dit que tout multiple d’une solution est aussi une solution. Il y en a donc une infinité.</div> <div class="para" id="exo-SELgeo-15-1-4">Trouver l’erreur dans l’argument ci-dessus.</div>
-<div class="solutions"><details id="exo-SELgeo-15-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="exo-SELgeo-15-2-1">Il est vrai que l’équation <span class="process-math">\(A\vec{x}=\vec{0}\)</span> a au moins une solution. En effet, par la proposition <a href="sec-transfodef.html#prop-transfolinprop" class="xref" data-knowl="./knowl/xref/prop-transfolinprop.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 2.1.9: Propriétés d’une transformation linéaire">2.1.9</a>, toute équation homogène a toujours comme solution le vecteur nul <span class="process-math">\(\vec{0}\text{.}\)</span> Cependant, l’argument qu’on peut obtenir une infinité de solutions à partir de cette dernière en la multipliant par un scalaire oublie le fait que lorsqu’on multiplie le vecteur nul par un scalaire, il demeure le vecteur nul. Bref, rien ne montre dans cette « démonstration » que l’équation a d’autres solutions que la solution triviale <span class="process-math">\(\vec{0}\text{.}\)</span>
-</div></div></details></div></article><article class="exercise exercise-like" id="exo-imgalg"><h4 class="heading"><span class="codenumber">15<span class="period">.</span></span></h4>
+</div></div></details></div></article><article class="exercise exercise-like" id="exo-SELgeo-14"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<div class="para" id="exo-SELgeo-14-1-1">Voici un énoncé et sa « démonstration ».</div> <div class="para" id="exo-SELgeo-14-1-2">
+<em class="alert">Énoncé:</em> Soit <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span> Cette équation a une infinité de solutions.</div> <div class="para" id="exo-SELgeo-14-1-3">
+<em class="alert">Démonstration:</em> On sait qu’il existe au moins une solution à l’équation. La proposition <a href="sec-SELgeo.html#prop-Ax0sev" class="xref" data-knowl="./knowl/xref/prop-Ax0sev.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.3.3: Les zéros d’une transformation linéaire sont fermés pour l’addition et la multiplication par un scalaire">3.3.3</a> dit que tout multiple d’une solution est aussi une solution. Il y en a donc une infinité.</div> <div class="para" id="exo-SELgeo-14-1-4">Trouver l’erreur dans l’argument ci-dessus.</div>
+<div class="solutions"><details id="exo-SELgeo-14-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="exo-SELgeo-14-2-1">Il est vrai que l’équation <span class="process-math">\(A\vec{x}=\vec{0}\)</span> a au moins une solution. En effet, par la proposition <a href="sec-transfodef.html#prop-transfolinprop" class="xref" data-knowl="./knowl/xref/prop-transfolinprop.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 2.1.10: Propriétés d’une transformation linéaire">2.1.10</a>, toute équation homogène a toujours comme solution le vecteur nul <span class="process-math">\(\vec{0}\text{.}\)</span> Cependant, l’argument qu’on peut obtenir une infinité de solutions à partir de cette dernière en la multipliant par un scalaire oublie le fait que lorsqu’on multiplie le vecteur nul par un scalaire, il demeure le vecteur nul. Bref, rien ne montre dans cette « démonstration » que l’équation a d’autres solutions que la solution triviale <span class="process-math">\(\vec{0}\text{.}\)</span>
+</div></div></details></div></article><article class="exercise exercise-like" id="exo-imgalg"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
 <div class="introduction" id="exo-imgalg-1"><div class="para" id="exo-imgalg-1-1">Pour chaque matrice ci-dessous, déterminer l’image de la transformation associée.</div></div>
 <article class="task exercise-like" id="exo-imgalg-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="exo-imgalg-2-1-1"><span class="process-math">\(\left(\begin{array}{rrr}
@@ -2652,11 +2516,11 @@ c\vec{b}_1&amp;=c(A\vec{x}_1)\\
 \end{equation*}
 </div>
 </div></div></details>
-</div></article></article><div class="exercisegroup" id="exo-SELgeo-17">
+</div></article></article><div class="exercisegroup" id="exo-SELgeo-16">
 <h4 class="heading"><span class="title">Exercices Sage.</span></h4>
-<div class="introduction" id="exo-SELgeo-17-2"><div class="para" id="exo-SELgeo-17-2-1">Les exercices qui suivent sont conçus pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d’arriver aux réponses.</div></div>
-<div class="exercisegroup-exercises"><article class="exercise exercise-like" id="exo-SELgeo-17-3"><h5 class="heading"><span class="codenumber">16<span class="period">.</span></span></h5>
-<div class="para" id="exo-SELgeo-17-3-1-1">Utiliser Sage pour trouver l’image des matrices de l’exercice <a href="sec-SELgeo.html#exo-imgalg" class="xref" data-knowl="./knowl/xref/exo-imgalg.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.15">3.3.4.15</a>.</div></article></div>
+<div class="introduction" id="exo-SELgeo-16-2"><div class="para" id="exo-SELgeo-16-2-1">Les exercices qui suivent sont conçus pour être résolus avec Sage. Des cellules vides sont disponibles pour écrire les réponses. Évidemment, il y a plusieurs manières d’arriver aux réponses.</div></div>
+<div class="exercisegroup-exercises"><article class="exercise exercise-like" id="exo-SELgeo-16-3"><h5 class="heading"><span class="codenumber">15<span class="period">.</span></span></h5>
+<div class="para" id="exo-SELgeo-16-3-1-1">Utiliser Sage pour trouver l’image des matrices de l’exercice <a href="sec-SELgeo.html#exo-imgalg" class="xref" data-knowl="./knowl/xref/exo-imgalg.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.3.4.14">3.3.4.14</a>.</div></article></div>
 </div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-SELtheo.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-transposee.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
