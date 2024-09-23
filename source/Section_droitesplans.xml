@@ -374,7 +374,9 @@
     <md>
       <mrow>v_1y-v_2x&amp;=cv_1v_2+a_2v_1-cv_1v_2-a_1v_2</mrow>
       <mrow>v_1y-v_2x&amp;=a_2v_1-a_1v_2</mrow>
-    </md>. On simplifie un peu l'écriture en posant 
+      </md>.</p>
+    <p>On remarque la présence des variables <m>x,y</m> d'un côté de l'équation, affectées de constantes, alors que l'autre côté est composé d'une constante dépendante du point et du vecteur directeur.</p>
+    <p>On simplifie un peu l'écriture en posant 
     <m>a=-v_2,b=v_1</m> et 
     <m>c=a_2v_1-a_1v_2=aa_1+ba_2</m>. On obtient alors 
     <men xml:id="eq-normale2">\mathcal{D}: \, ax+by=c</men>, une forme semblable à la forme standard, mais plus
@@ -382,7 +384,9 @@
     <m>y=ax+b</m>, il est impossible de décrire une droite verticale, mais avec
     la forme 
     <m>ax+by=c</m>, il suffit que 
-    <m>b=0</m> pour obtenir une droite verticale. On peut aller plus loin dans
+    <m>b=0</m> pour obtenir une droite verticale. </p>
+    <aside><p>Le mot &#xAB;normal &#xBB; provient du latin <em>normalis</em> qui est lui-même dérivée du mot <em>norma</em> en latin classique et qui signifie &#xAB;équerre pour mesurer les angles droits &#xBB;. En mathématique, le terme <em>normal</em> est principalement remplacé par orthogonal ou perpendiculaire, mais quelques occurences ont persisté, principalement en rapport avec des courbes et des surfaces.</p></aside>
+    <p>On peut aller plus loin dans
     l'analyse. En posant 
     <m>\vec{n}=(a,b)=(-v_2,v_1)</m>, il est possible de réécrire l'équation
     normale à l'aide du produit scalaire: 
@@ -445,6 +449,37 @@
         </slate>
       </interactive>
     </figure>
+    <p>Toutefois, ces droites rouges ont la particularité d'être toutes sur un même niveau. En réalité, on dit qu'elles sont contenues dans un même plan. Les plans sont l'objet d'étude de la prochaine sous-section. La figure <xref ref="fig-droitesperp"/> permet aussi de constater qu'étant donné deux vecteurs de <m>\mathbb{R}^3</m>, il existe une seule orientation perpendiculaire aux deux vecteurs à la fois. On regarde comment on peut trouver une telle direction.</p>
+    <example xml:id="ex-unvecperpR3">
+    <title>Un vecteur perpendiculaire à deux autres dans l'espace</title>
+    <statement>
+    <p>On considère les vecteurs <m>\vec{u}=(2,1,0)</m> et<m>\vec{v}=(1,0,-1)</m>. On cherche à déterminer un vecteur <m>\vec{w}</m> qui est perpendiculaire à <m>\vec{u}</m> et à <m>\vec{v}</m>.</p>
+    </statement>
+    <solution>
+    <p>Soit 
+        <m>\vec{w}=(w_1,w_2,w_3)</m>. On doit avoir 
+        <md>
+          <mrow>\vec{w}\cdot\vec{u}&amp;=0</mrow>
+          <mrow>(w_1,w_2,w_3)\cdot (2,1,0)&amp;=0</mrow>
+          <mrow>2w_1+w_2&amp;=0</mrow>
+        </md> et 
+        <md>
+          <mrow>\vec{w}\cdot\vec{v}&amp;=0</mrow>
+          <mrow>(w_1,w_2,w_3)\cdot (1,0,-1) &amp;=0</mrow>
+          <mrow>w_1-w_3&amp;=0</mrow>
+        </md>. On a par conséquent trois inconnues à déterminer et deux équations qui les relient. En réarrangeant les équations, on arrive à 
+        <m>w_2=-2w_1</m> et 
+        <m>w_3=w_1</m>. En particulier, on a écrit deux des trois composantes du vecteur selon la première. Le vecteur 
+        <m>\vec{w}</m> peut donc être exprimé comme 
+        <m>\vec{w}=(w_1,w_2,w_3)=(w_1,-2w_1,w_1)</m>. On met le facteur commun 
+        <m>w_1</m> en évidence pour obtenir 
+        <m>\vec{w}=w_1(1,-2,1)</m>, avec 
+        <m>w_1</m> un nombre réel quelconque. On dit que <m>w_1</m> est une variable libre, car elle n'est pas sujette à des contraintes comme <m>w_2</m> et <m>w_3</m> le sont en vertu des équations ci-dessus. Peu importe la valeur de 
+        <m>w_1</m>, on obtient un multiple du vecteur 
+        <m>(1,-2,1)</m> qui sera perpendiculaire à <m>\vec{u}</m> et <m>\vec{v}</m>. On peut donc choisir ce vecteur (en posant <m>w_1=1</m>) comme étant l'orientation cherchée.</p>
+    </solution>
+    </example>
+    <p>Dans l'exemple précédent, les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> ont été choisis afin que les calculs demeurent simples. En ayant l'une des composantes égales à <m>0</m>, il était possible d'isoler facilement deux des variables en fonction de la troisième. L'exemple <xref ref="ex-eqnormplan"/> montre un cas plus complexe et la proposition <xref ref="prop-prodvec"/> permet d'obtenir une formule générale.</p>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-droites">
       <title>Les droites avec Sage</title>
@@ -790,50 +825,57 @@
       <m>\vec{v}</m>.</p></proof>
     </proposition>
     <p>On illustre maintenant la méthode pour trouver la direction
-    perpendiculaire au plan avec un exemple numérique. L'exemple  
-    <xref ref="ex-prodvecdet2x2" /> donnera la manière générale de déterminer
+    perpendiculaire au plan avec un exemple numérique. La proposition <xref ref="prop-prodvec"/> et plus tard l'exemple  
+    <xref ref="ex-prodvecdet2x2" /> donneront une manière générale de déterminer
     cette direction.</p>
     <example xml:id="ex-eqnormplan">
       <title>L'équation d'une droite perpendiculaire à un plan</title>
       <statement>
         <p>On considère le plan d'équation 
-        <m>\mathcal{P}: (x,y,z)=a(2,1,0)+b(1,0,-1)+(3,2,-1)</m>. On cherche
+        <m>\mathcal{P}: (x,y,z)=a(2,1,4)+b(-2,2,1)+(3,2,-1)</m>. On cherche
         l'équation de la droite 
         <m>\mathcal{D}</m> qui passe par le point 
         <m>A(3,2,-1)</m> et qui est perpendiculaire au plan 
         <m>\mathcal{P}</m>.</p>
       </statement>
       <solution>
+      <p>Pour trouver l'équation de la droite, on doit trouver un vecteur directeur et un point.</p>
         <p>Soit 
         <m>\vec{w}=(w_1,w_2,w_3)</m>, un vecteur directeur de cette droite. Si l'on
         réussit à trouver 
         <m>\vec{w}</m> perpendiculaire à 
-        <m>\vec{u}=(2,1,0)</m> et 
-        <m>\vec{v}=(1,0,-1)</m>, alors, selon la proposition 
+        <m>\vec{u}=(2,1,4)</m> et 
+        <m>\vec{v}=(-2,2,1)</m>, alors, selon la proposition 
         <xref ref="prop-perpclin" />, 
         <m>\vec{w}</m> sera orthogonal à tous les vecteurs du plan. On doit avoir 
         <md>
           <mrow>\vec{w}\cdot\vec{u}&amp;=0</mrow>
-          <mrow>(w_1,w_2,w_3)\cdot (2,1,0)&amp;=0</mrow>
-          <mrow>2w_1+w_2&amp;=0</mrow>
+          <mrow>(w_1,w_2,w_3)\cdot (2,1,4)&amp;=0</mrow>
+          <mrow>2w_1+w_2+4w_3&amp;=0</mrow>
         </md> et 
         <md>
           <mrow>\vec{w}\cdot\vec{v}&amp;=0</mrow>
-          <mrow>(w_1,w_2,w_3)\cdot (1,0,-1) &amp;=0</mrow>
-          <mrow>w_1-w_3&amp;=0</mrow>
-        </md>. On a par conséquent trois inconnues à déterminer et deux équations qui les relient. En réarrangeant les équations, on arrive à 
-        <m>w_2=-2w_1</m> et 
-        <m>w_3=w_1</m>. Le vecteur 
-        <m>\vec{w}</m> peut donc être exprimé comme 
-        <m>\vec{w}=(w_1,w_2,w_3)=(w_1,-2w_1,w_1)</m>. On met le facteur commun 
-        <m>w_1</m> en évidence pour obtenir 
-        <m>\vec{w}=w_1(1,-2,1)</m>, avec 
-        <m>w_1</m> un nombre réel quelconque. Peu importe la valeur de 
-        <m>w_1</m>, on obtient un multiple du vecteur 
-        <m>(1,-2,1)</m>. On choisit donc ce vecteur (en posant <m>w_1=1</m>) comme étant la direction cherchée.</p>
+          <mrow>(w_1,w_2,w_3)\cdot (-2,2,1) &amp;=0</mrow>
+          <mrow>-2w_1+2w_2+w_3&amp;=0</mrow>
+        </md>. On a par conséquent trois inconnues à déterminer et deux équations qui les relient. Contrairement à l'exemple <xref ref="ex-unvecperpR3"/>, il n'est pas possible d'isoler une variable selon une seule autre dans chacune des équations. Toutfois, en réarrangeant la première équation, on arrive à 
+        <m>w_2=-2w_1-4w_3</m> et en remplaçant <m>w_2</m> dans la seconde équation et en réarrangeant, on obtient 
+        <md>
+        <mrow>-2w_1+2w_2+w_3&amp;=0</mrow>
+        <mrow>-2w_1+2(-2w_1-4w_3)+w_3&amp;=0</mrow>
+        <mrow>-6w_1-7w_3&amp;0</mrow>
+        <mrow>w_1&amp;=-\frac{7}{6}w_3</mrow>
+        </md>.
+        À nouveau, on remplace cette valeur, mais dans la première équation pour finalement obtenir
+        <md>
+        <mrow>w_2&amp;=-2w_1-4w_3</mrow>
+        <mrow>&amp;=-2\left(-\frac{7}{6}w_3\right)-4w_3</mrow>
+        <mrow>&amp;=\frac{7}{3}w_3-\frac{12}{3}w_3</mrow>
+        <mrow>&amp;=-\frac{5}{3}w_3</mrow>
+        </md>.
+        Le vecteur <m>\vec{w}</m> peut donc être exprimé comme <m>\vec{w}=(w_1,w_2,w_3)=\left(-\frac{7}{6}w_3,-\frac{5}{3}w_3,w_3\right)</m>, avec <m>w_3</m> un nombre réel quelconque. Pour choisir le vecteur directeur de la droite, on peut prendre n'importe quelle valeur non nulle de ce vecteur. En posant <m>w_3=6</m> on obtient <m>\vec{w}=(-7,-10,6)</m>.</p>
         <p>Puisque l'on cherchait l'équation de la droite passant par le point 
         <m>(3,2,-1)</m>, la réponse est 
-        <me>\mathcal{D}: (x,y,z)=c(1,-2,1)+(3,2,-1) \quad c\in \R</me>.</p>
+        <me>\mathcal{D}: (x,y,z)=c(-7,-10,6)+(3,2,-1) \quad c\in \R</me>.</p>
       </solution>
     </example>
     <p>Une équation de la forme 
@@ -897,13 +939,55 @@
     </example>
     <p>Dans le dernier exemple, on a déterminé deux vecteurs directeurs à
     partir de trois points du plan. Dans la définition d'un plan, il faut que
-    les vecteurs directeurs soient non parallèles. Peut-on alors penser que deux vecteurs formés à partir de trois points sont toujours non parallèles ?</p>
+    les vecteurs directeurs soient non parallèles. Peut-on alors penser que deux vecteurs formés à partir de trois points sont toujours non parallèles ? En général, ce sera le cas, mais il faut s'en assurer avant de donner l'équation du plan.</p>
     <p>Avec les équations normales, le contexte est très important afin
     d'interpréter correctement un objet donné. L'équation 
     <m>x+2y=3</m> représente une droite dans 
     <m>\R^2</m> et un plan dans 
     <m>\R^3</m>. Il est donc primordial de spécifier l'espace dans lequel on se
     trouve si l'on travaille avec les équations normales.</p>
+    <p>L'équation normale d'un plan est une manière importante de le décrire. Dans le chapitre <xref ref="chap-SEL"/>, on s'en servira, entre autres, pour déterminer l'intersection de plusieurs plans. Il est donc primordial d'être en mesure de déterminer un vecteur normal d'un plan à partir de deux vecteurs directeurs. S'inspirant de la démarche des exemples <xref ref="ex-unvecperpR3"/> et <xref ref="ex-eqnormplan"/>, la proposition suivante introduit une formule générale pour cela, à travers une nouvelle opération appelée le <term>produit vectoriel</term>.</p>
+    <proposition xml:id="prop-prodvec">
+    <title>Le produit vectoriel</title>
+    <statement><p>Soit <m>\vec{u}=(u_1,u_2,u_3)</m> et <m>\vec{v}=(v_1,v_2,v_3)</m> des vecteurs non parallèles de <m>\mathbb{R}^3</m>. Alors le vecteur
+    <me>
+    \vec{w}=\left( u_{2} v_{3}-u_{3} v_{2},\,u_{3} v_{1} - u_{1} v_{3},\,  u_{1} v_{2}-u_{2} v_{1}\right)
+    </me>
+    est perpendiculaire à <m>\vec{u}</m> et <m>\vec{v}</m>. On appelle ce vecteur le produit vectoriel entre <m>\vec{u}</m> et <m>\vec{v}</m> et on le note par <m>\vec{w}=\vec{u}\times \vec{v}</m>.</p></statement>
+    <proof><p>On pourrait utiliser le produit scalaire afin de vérifier que ce vecteur est bel et bien perpendiculaire à <m>\vec{u}</m> et <m>\vec{v}</m>, mais il est plus intéressant de faire la démarche qui mène à l'obtention de celui-ci.</p>
+    <p>On pose <m>\vec{w}=(x,y,z)</m>. Pour que ce vecteur soit perpendiculaire à <m>\vec{u}</m>, on doit avoir
+    <me>
+    u_1x+u_2y+u_3z=0
+    </me>.
+    De même, pour qu'il soit perpendiculaire à <m>\vec{v}</m>, on doit avoir
+    <me>
+    v_1x+v_2y+v_3z=0    
+    </me>.
+    L'intuition géométrique développée dans cette section permet de comprendre qu'il y a une seule orientation qui respecte ces deux contraintes. On s'attend donc à n'avoir qu'une seule variable utile dans la solution. On choisit <m>z</m> pour tenir le rôle de cette variable et on réécrit les équations pour obtenir
+    <mdn>
+    <mrow xml:id="eq-prodvecu"> u_1x+u_2y&amp;=-u_3z</mrow>
+    <mrow xml:id="eq-prodvecv"> v_1x+v_2y&amp;=-v_3z</mrow>
+    </mdn>.
+    </p>
+    <p>On veut maintenant isoler <m>x</m> et <m>y</m> en fonction de <m>z</m>. Toutefois, contrairement aux exemples <xref ref="ex-unvecperpR3"/> et <xref ref="ex-eqnormplan"/>, on ne connait pas les valeurs des composantes de <m>\vec{u}</m> et  de <m>\vec{v}</m>. Dans le but d'éviter de diviser par des nombres qui pourraient être nuls, on utilise une approche semblable à celle ayant menée à l'équation <xref ref="eq-normale2" text="custom">normale</xref> d'une droite. </p>
+    <p>On multiplie l'équation <xref ref="eq-prodvecu"/> par <m>-v_1</m> et l'équation <xref ref="eq-prodvecv"/> par <m>u_1</m>. On additionne ensuite les deux résultats et on obtient
+    <men>
+    (u_1v_2-v_1u_2)y=(u_3v_1-u_1v_3)z
+    </men>.
+    </p>
+    <p>Si l'on multiplie plutôt l'équation <xref ref="eq-prodvecu"/> par <m>v_2</m> et l'équation <xref ref="eq-prodvecv"/> par <m>-u_2</m> et que l'on additionne ensuite les deux résultats, on obtient
+    <men>
+    (u_1v_2-v_1u_2)x=(u_2v_3-u_3v_2)z
+    </men>.
+    </p>
+    <p>À ce stade-ci, on peut remarquer que le coefficient devant le <m>x</m> et devant le <m>y</m> de ces dernière équation est le même. Si l'on choisit <m>z=u_1v_2-v_1u_2</m>, on pourra éliminer ce facteur, obtenant ainsi le vecteur
+    <me>
+    \vec{w}=\left( u_{2} v_{3}-u_{3} v_{2},\,u_{3} v_{1} - u_{1} v_{3},\,  u_{1} v_{2}-u_{2} v_{1}\right)
+    </me>,
+    à condition que le nombre <m>(u_1v_2-v_1u_2)</m> soit non nul. Pour cela, voir l'exercice <xref provisional="exo-vecsnonnulsprodvec"/>
+    </p>
+    </proof>
+    </proposition>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-plans">
       <title>Les plans avec Sage</title>

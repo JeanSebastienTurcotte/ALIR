@@ -216,7 +216,7 @@
     <mrow>
     c_{i,j}&amp;= \left(A\vec{b}_j\right)_i &amp; &amp;\text{ selon la définition } <xref ref="def-matmatprod"/>
     </mrow>
-    <mrow>&amp;=\vec{a}_i\cdot \vec{b}_j &amp; &amp;\text{ selon l'équation } <xref ref="eq-matvecprodgen"/></mrow>
+    <mrow>&amp;=\vec{a}_i\cdot \vec{b}_j &amp; &amp;\text{ selon l'équation } <xref ref="eq-matvecprodgeneral"/></mrow>
     </md>
     </p>
     </proof>
@@ -246,7 +246,7 @@
     </me>.
     </p></statement>
     </definition>
-    <p>Les puissances de matrices sont utiles dans divers contextes, comme le montre l'exemple suivant. Le chapitre <xref provisional="Applications"/> contient
+    <p>Les puissances de matrices sont utiles dans divers contextes, comme le montre l'exemple suivant. Le chapitre <xref ref="chap-Applications"/> contient
     d'autres exemples concrets d'applications.</p>
     <example xml:id="ex-prodmatchemins">
     <title>Une application du produit matriciel</title>
@@ -281,7 +281,7 @@ plot(D,layout='circular',vertex_color="blue")
     show("A^2=",A^2)
     show("A^3=",A^3)
     show("A^5=",A^5)
-    show("En particulier, il y a   ", (A^5)[0,0], " chemins de longueur 5 se rendant de la ville 1 et retournant à la ville 1")
+    print("En particulier, il y a   ", (A^5)[0,0], " chemins de longueur 5 se rendant de la ville 1 et retournant à la ville 1")
     </input>
     </sage>
     </example>
@@ -377,7 +377,7 @@ plot(D,layout='circular',vertex_color="blue")
       </p>
       </proof>
       <proof>
-      <p>On pose <m>\vec{c}_k</m>, la <m>k</m> ième colonne de la matrice <m>C</m>. Selon l'addition matricielle, on a pour la <m>k</m> ième colonne de <m>(A+B)C</m>
+      <p>On pose <m>\vec{c}_k</m>, la <m>k</m> ième colonne de la matrice <m>C</m>. Selon l'addition et la multiplication matricielle, on a pour la <m>k</m> ième colonne de <m>(A+B)C</m>
       <me>
       (A+B)\vec{c}_k=A\vec{c}_k+B\vec{c}_k
       </me>
@@ -399,7 +399,7 @@ plot(D,layout='circular',vertex_color="blue")
      \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp;</mrow>
      <mrow>&amp;= \begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
      r(A\vec{b}_1) &amp; r(A\vec{b}_2) &amp;\cdots &amp; r(A\vec{b}_n) \\
-     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp; \text{selon l'associativité du produit matrice vecteur (À faire?)}</mrow>
+     \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp; \text{selon la multiplication d'un vecteur par un scalaire}</mrow>
      <mrow>&amp;= r\begin{pmatrix}  \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
      A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\vec{b}_n \\
      \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\  \end{pmatrix} &amp; &amp; \text{Selon }<xref ref="def-matprodscal"/></mrow>

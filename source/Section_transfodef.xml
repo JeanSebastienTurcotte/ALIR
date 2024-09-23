@@ -11,7 +11,7 @@
 
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-transfodef">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Les transformations linéaires </title>
-    <introduction xml:id= "intro-transfodef">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <introduction xml:id= "intro-transfodef">
         <p>Aller aux <xref ref="exo-transfodef">exercices</xref> de la section.</p>
     <p>
     Le concept de fonction <m>y=f(x)</m> associant à tout nombre réel <m>x</m> un autre nombre réel <m>y</m> est bien connu. Ces fonctions sont
@@ -39,7 +39,7 @@
     étroitement lié aux transformations linéaires.</p>
     </introduction>
     
-    <!-- Sous-sections à écrire, à même ce fichier -->
+
     <subsection xml:id="sssec-deftransfo">
     <title>Définition et premiers exemples de transformations linéaires</title>
     <definition xml:id="def-transfo">
@@ -62,7 +62,21 @@
     </example>
     <p>Une étude exhaustive de toutes les fonctions serait beaucoup trop difficile et sortirait du cadre de ce cours. On se restreint donc à un type particulier de fonctions, dites linéaires, exception faite de la transformation représentant une <xref ref="li-translation">translation</xref>.
     Pour l'instant, la raison de ce choix est surtout de nature géométrique. <!-- ToDo: faire un ref sur l'importance des transf lin générale, polynome derivée etc. -->
-    Il est assez difficile de représenter une fonction vectorielle, principalement dû à la dimension des vecteurs. Pour illustrer une fonction comme la fonction <m>T_3(x,y)</m>
+    Il est assez difficile de représenter une fonction vectorielle, principalement dû à la dimension des vecteurs. Les fonctions de la forme <m>z=f(x,y)</m> prennent un couple de variables à l'entrée et donnent un nombre réel comme résultat. Celles-ci peuvent être représentées graphiquement dans un espace à trois dimensions où le plan <m>XY</m> représente le domaine et l'espace donne l'image des points du domaine. Contrairement aux fonctions de <m>\mathbb{R}</m> vers <m>\mathbb{R}</m> comme <m>y=x^2</m>, on obtient une surface plutôt qu'une courbe. La figure ci-dessous illustre la fonction <m>z=x^2+y^2</m>
+    <figure>
+    <caption>Une fonction de deux variables</caption>
+    <image>
+    <sageplot variant="3d" xml:id="sageplot-fonctiondeuxvariables">
+var("y,z")
+P=plot3d(x^2+y^2,(x,-4,4),(y,-4,4),color="blue",opacity=0.6)+point((2,-2,0),size=200,color="black")+point((2,-2,8),size=200,color="black")+line([(2,-2,0),(2,-2,8)],color="black")+text3d("(2,-2)",(2,0,0))+text3d("f(2,-2)",(4,-2,8))
+P
+    </sageplot>
+    <shortdescription>
+    Un paraboloide est illustré, de même qu'un point et son image sur la surface, reliés par une droite.
+    </shortdescription>
+    </image>
+    </figure>
+    Par contre, pour illustrer une fonction comme la fonction <m>T_3(x,y)</m>
     de l'exemple <xref ref="ex-transfquelc"/>, il faut deux dimensions pour le domaine et deux pour l'image. On contourne cette difficulté en utilisant deux copies de <m>\R^2</m> comme 
     dans la figure suivante.</p>
     <figure xml:id="fig-transfquelc">
@@ -80,7 +94,7 @@
     </image>
     </sidebyside>
     </figure>
-    <p>Dans la figure, le plan de gauche représente le domaine et dans le plan de droite, on retrouve l'image de chacune des courbes. Certaines courbes ont été colorées afin de pouvoir associer la courbe originale, à gauche, et son image par la transformation, à droite. En réalité, tous les points de <m>\R^2</m> sont transformés. 
+    <p>Dans la figure, le plan de gauche représente le domaine et dans le plan de droite, on retrouve l'image de chacune des courbes. Certaines courbes ont été colorées afin de pouvoir associer la courbe originale, à gauche, et son image par la transformation, à droite. En réalité, tous les points de <m>\R^2</m> sont transformés, mais le graphique de l'image ne serait pas très intéressant si on les montrait tous. 
     </p>
     <p>On constate assez rapidement que la visualisation des fonctions vectorielles peut être difficile. Les exemples de la section <xref provisional="La section un peu plus loin du chapitre 1"/>
     sont des cas particuliers qui sont souvent étudiés à l'aide du calcul vectoriel. 
@@ -110,6 +124,7 @@
         </instructions>
         </interactive>
     </figure>
+    <p>Contrairement à la figure <xref ref="fig-transfquelc"/>, on a illustré à la fois le domaine et l'image dans la même copie de <m>\mathbb{R}^2</m>. L'important est d'avoir une manière de distinguer l'espace de départ et l'espace d'arrivée. Ici, la couleur et le texte ont été utilisés pour cela.</p>
     <p>Voici maintenant une série de conséquences et de propriétés des transformations linéaires découlant directement de la définition.</p>
     <proposition xml:id="prop-transfolinprop">
     <title> Propriétés d'une transformation linéaire</title>
@@ -134,7 +149,7 @@
      </md>.
      La dernière équation nous donne <m>T(\vec{u})=T(\vec{u})+\vec{w}</m> et donc, <m>\vec{0}=T(\vec{u})-T(\vec{u})=\vec{w}</m>.
      </p></li>
-     <li><p>La seconde propriété est une simple reformulation de la propriété <xref ref="li-transfosomme"/> des transformations linéaires. 
+     <li><p>La seconde propriété est une simple reformulation de la propriété <xref ref="li-transfoscal"/> des transformations linéaires. 
      En effet, soit <m>\vec{v}=c\vec{u}</m> un vecteur parallèle à <m>\vec{u}</m>. Alors
      <md>
      <mrow>T(\vec{v})&amp;=T(c\vec{u})</mrow>
@@ -142,7 +157,7 @@
      </md>
      et donc, l'image du vecteur <m>\vec{v}</m> est parallèle à l'image du  vecteur <m>\vec{u}</m>.
      </p></li>
-     <li><p>Soit <m>\vecl{OP}=a\vec{u}+\vecl{OA}</m> un plan. On a
+     <li><p>Soit <m>\vecl{OP}=a\vec{u}+\vecl{OA}</m> une droite. On a
      <md>
      <mrow>T(\vecl{OP})&amp;=T(a\vec{u}+\vecl{OA})</mrow>
      <mrow>&amp;=T(a\vec{u})+T(\vecl{OA}) &amp;&amp; \text{ par } <xref ref="li-transfosomme"/> </mrow>
@@ -153,6 +168,7 @@
      </ol></p>
      </proof>
     </proposition>
+    <p>La figure interactive <xref ref="fig-transfolin1"/> permet de visualiser chacune de ces propriétés pour la tranformation <m>T(x,y)=(x-y,x+y)</m>. En déplaçant l'un des points de la figure bleue sur l'origine, son image se déplacera aussi vers l'origine. De plus, si l'on déplace l'un des points en suivant une ligne droite, l'image devrait aussi suivre une le tracée d'une (autre) droite.</p>
     <p>  Les transformations s'appliquent sur des vecteurs, mais, comme la distinction entre point et vecteur est volontairement laissée floue, il est utile de faire la remarque suivante.</p>
     <remark xml:id="rem-transfolinpoints">
     <title>Les transformations linéaires et les points</title>
@@ -527,24 +543,35 @@
     (x,y)=(x,0)+(0,y)=x(1,0)+y(0,1)
     </men>.
     En fait, cette décomposition est toujours possible avec <m>(x,y,z)\in \R^3</m>  avec les vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>, car <me>(x,y,z)=x(1,0,0)+y(0,1,0)+z(0,0,1)</me>
-    ou même dans <m>\R^n</m> avec <me>\begin{pmatrix}x_1\\x_2 \\ x_3 \\\vdots \\ x_n\end{pmatrix}=x_1\begin{pmatrix}1\\0\\ 0\\ \vdots \\ 0\end{pmatrix}+x_2\begin{pmatrix}0\\1\\ 0\\ \vdots \\ 0\end{pmatrix}+x_n\begin{pmatrix}0\\ \vdots \\ 0 \\ 1\end{pmatrix}</me>.
+    ou même dans <m>\R^n</m> avec <me>\begin{pmatrix}x_1\\x_2 \\ x_3 \\\vdots \\ x_n\end{pmatrix}=x_1\begin{pmatrix}1\\0\\ 0\\ \vdots \\ 0\end{pmatrix}+x_2\begin{pmatrix}0\\1\\ 0\\ \vdots \\ 0\end{pmatrix}+x_n\begin{pmatrix}0 \\0 \\ \vdots \\ 0 \\ 1\end{pmatrix}</me>.
 </p>
+<p>Les vecteurs qui ne contiennent que des zéros sauf pour l'une de leur composante ont une importance particulière, en vertu de cette décomposition. On leur donne un nom et une définition ci-dessous.</p>
+<definition xml:id="def-basecanonique">
+<title>Les vecteurs de la base canonique</title>
+<p>On pose <m>\vec{e}_i</m> le vecteur de <m>\mathbb{R}^n</m> qui ne contient que des zéros, sauf pour sa composante <m>i</m> qui vaut <m>1</m>. L'ensemble des vecteurs 
+<md>
+<mrow>\vec{e}_1&amp;=(1,0,\ldots , 0, 0)</mrow>
+<mrow>\vec{e}_2&amp;=(0,1,\ldots , 0, 0)</mrow>
+<mrow>vdots&amp;=\vdots</mrow>
+<mrow>\vec{e}_n&amp;=(0,0,\ldots , 0, 1)</mrow>
+</md>
+forme la base canonique de <m>\mathbb{R}^n</m>. Les bases sont l'objet d'étude de la section <xref ref="sec-bases"/>.</p>
+</definition>
 <p>Si l'on considère une transformation linéaire <m>T</m>, en se concentrant sur <m>\R^2</m> pour le moment, il est possible de voir que l'image d'un vecteur <m>(x,y)</m>
-est simplement une combinaison linéaire des images des vecteurs <m>(1,0)</m> et <m>(0,1)</m>, dont les coefficients sont aussi <m>x</m> et <m>y</m>:
+est simplement une combinaison linéaire des images des vecteurs <m>(1,0)</m> et <m>(0,1)</m>, dont les coefficients sont aussi <m>x</m> et <m>y</m> :
 <md>
 <mrow>T\begin{pmatrix}x\\ y\end{pmatrix}&amp;=T\left(x\begin{pmatrix}1\\ 0\end{pmatrix}+y\begin{pmatrix}0\\ 1\end{pmatrix}\right) &amp;&amp;\text{ selon l'équation } <xref ref="eq-decstd"/></mrow>
 <mrow>&amp;= T\left(x\begin{pmatrix}1\\ 0\end{pmatrix}\right)+T\left(y\begin{pmatrix}0\\ 1\end{pmatrix}\right) &amp;&amp;\text{ par la propriété de linéarité } <xref ref="li-transfosomme"/></mrow>
 <mrow>&amp;=xT\begin{pmatrix}1\\ 0\end{pmatrix}+yT\begin{pmatrix}0\\ 1\end{pmatrix} &amp;&amp;\text{ par la propriété de linéarité } <xref ref="li-transfoscal"/></mrow>
 </md>.
 </p>
-<p>On pose <m>(a,b)=T(1,0)</m> et <m>(c,d)=T(0,1)</m>, l'image des vecteurs <m>(1,0),(0,1)</m> par la transformation <m>T</m>. On pousse le calcul précédent un peu plus loin, en utilisant la notation verticale des vecteurs:
+<p>On pose <m>(a,b)=T(1,0)</m> et <m>(c,d)=T(0,1)</m>, l'image des vecteurs <m>(1,0),(0,1)</m> par la transformation <m>T</m>. On pousse le calcul précédent un peu plus loin:
 <md>
-<mrow>T(x,y)&amp;=xT(1,0)+yT(0,1)</mrow>
-<mrow >&amp;=x(a,b)+y(c,d)</mrow>
+<mrow>T(x,y)&amp;=xT\begin{pmatrix}1\\ 0\end{pmatrix}+yT\begin{pmatrix}0\\ 1\end{pmatrix}</mrow>
 <mrow number="yes" xml:id="eq-comblincol">&amp;=x\begin{pmatrix}a\\ b\end{pmatrix}+y\begin{pmatrix}c\\d\end{pmatrix}</mrow>
 <mrow>&amp;=\begin{pmatrix}ax\\bx\end{pmatrix}+\begin{pmatrix}cy\\dy\end{pmatrix}</mrow>
 <mrow>&amp;=\begin{pmatrix}ax+cy\\bx+dy\end{pmatrix}</mrow>
-<mrow>&amp;=\begin{pmatrix}(a,c)\cdot (x,y)\\(b,d)\cdot(x,y)\end{pmatrix}</mrow>
+<mrow number="yes" xml:id="eq-prodscaltransfo">&amp;=\begin{pmatrix}(a,c)\cdot (x,y)\\(b,d)\cdot(x,y)\end{pmatrix}</mrow>
 </md>.
 En regardant la dernière ligne, on remarque un vecteur dont chaque composante est un produit scalaire, dont l'un des vecteurs est commun, <m>(x,y)</m>. On est tenté ici de mettre en évidence ce vecteur, mais une question s'impose.
 </p>
@@ -555,13 +582,16 @@ Ces deux expressions n'ont pas de sens mathématique. On propose la notation sui
 \begin{pmatrix}(a,c)\cdot (x,y)\\(b,d)\cdot(x,y)\end{pmatrix}=\begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}\vecd{x}{y}
 </men>.
 </p>
-<p>Il convient de rappeler ici que <m>\vecd{a}{b}=T(1,0)</m> et <m>\vecd{c}{d}=T(0,1)</m>, soit l'image par la transformation des vecteurs <m>(1,0)</m> et <m>(0,1)</m>.
+<p>Il convient de rappeler ici que <m>\vecd{a}{b}=T(1,0)</m> et <m>\vecd{c}{d}=T(0,1)</m>, soit l'image par la transformation des vecteurs <m>(1,0)</m> et <m>(0,1)</m>, la base canonique de <m>\mathbb{R}^2</m>.
 L'objet <m>\begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}</m> est appelé la matrice de la transformation linéaire <m>T</m>. Ses colonnes sont donc les images des vecteurs <m>(1,0)</m> et <m>(0,1)</m>.
 En fait, les colonnes d'une matrice seront très importantes pour la suite des choses. Dans l'équation <xref ref="eq-matvecprod"/>, on définit le vecteur <m>\begin{pmatrix}(a,c)\cdot (x,y)\\(b,d)\cdot(x,y)\end{pmatrix}</m>
 comme étant le produit de la matrice <m>\begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}</m> et du vecteur <m>\vecd{x}{y}</m>. On peut toutefois voir le produit comme
-une combinaison linéaire des colonnes de la matrice, dont les coefficients sont <m>x</m> et <m>y</m>. On peut voir cela en se référant à l'équation <xref ref="eq-comblincol"/> où
-les vecteurs ont été écrits en colonne.
+une combinaison linéaire des colonnes de la matrice, dont les coefficients sont <m>x</m> et <m>y</m>. On peut voir cela en se référant à l'équation <xref ref="eq-comblincol"/>.
 </p>
+<!-- ToDo
+Un exemple avec un transfo faite plus tôt, décortiquer la matrice 
+
+-->
 <p>Bien que, pour le moment, on se concentre sur les transformations linéaires dans <m>\R^2</m>, on définit quand même de manière plus précise la notion de matrice quelconque.</p>
 <definition xml:id="def-matrice">
 <title>Une matrice</title>
@@ -585,29 +615,17 @@ A=\begin{pmatrix}
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert
 \end{pmatrix}
 </men>.
-
-De même, si <m>\vec{r}_1,\vec{r}_2,\ldots, \vec{r}_m</m> sont des vecteurs de <m>\R^n</m>, on note la matrice dont les lignes sont formées des vecteurs 
+Ces colonnes sont des vecteurs de <m>\mathbb{R}^m</m> qui correspondent à l'image des <xref ref="def-basecanonique" text="custom">vecteurs de la base canonique</xref> de <m>\mathbb{R}^n</m>.</p>
+<p>De même, si <m>\vec{r}_1,\vec{r}_2,\ldots, \vec{r}_m</m> sont des vecteurs de <m>\R^n</m>, on note la matrice dont les lignes sont formées des vecteurs 
 <m>\vec{r}_1,\vec{r}_2,\ldots, \vec{r}_m</m> comme étant  
-<me>
-\begin{pmatrix}
+<men xml:id="eq-matligne">
+A=\begin{pmatrix}
     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
     \vdots &amp; \vdots &amp; \vdots \\
      \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_m &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} 
 \end{pmatrix}
-</me>.</p>
-<p>Cette dernière façon d'écrire une matrice permet d'écrire la généralisation de l'équation <xref ref="eq-matvecprod"/> ainsi:
-<men xml:id="eq-matvecprodgeneral">A\vec{u}=\begin{pmatrix}
-    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
-    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
-    \vdots &amp; \vdots &amp; \vdots \\
-     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_m &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} 
-\end{pmatrix}\vec{u}=\begin{pmatrix}
-    \vec{r}_1\cdot\vec{u} \\
-    \vec{r}_2\cdot\vec{u} \\
-    \vdots \\
-     \vec{r}_m\cdot\vec{u} 
-\end{pmatrix}</men></p>
+</men>.</p>
 <p>L'ensemble de toutes les matrices de <m>m</m> lignes et <m>n</m> colonnes est noté <m>\mathcal{M}_{m\times n}</m>. Si <m>m=n</m>, la matrice est dite carrée et l'ensemble des matrices carrées de dimension <m>n</m>, aussi
 dites d'ordre <m>n</m>, est simplement noté <m>\mathcal{M}_n</m>.</p></statement>
 </definition>
@@ -636,7 +654,21 @@ A\vec{u}=\begin{pmatrix}
 L'équation <xref ref="eq-matvecprodgen"/> est par le fait même une définition du produit d'une matrice de <m>n</m> colonnes par un vecteur de <m>\R^n</m> d'un point de vue purement algébrique. L'ordre de ces facteurs est important,
 on verra  que l'équation <m>\vec{u}A</m> ne signifie pas nécessairement la même chose, et ne serait définie ici que si <m>m=n</m>.
 </p>
-<p>À titre d'exemple, on détermine la matrice pour chacune des transformations linéaires de la liste <xref ref="liste-transfor2"/>.</p>
+<p>L'équation <xref ref="eq-matligne"/> permet d'écrire d'écrire la généralisation de l'équation <xref ref="eq-matvecprod"/> ainsi:
+<men xml:id="eq-matvecprodgeneral">A\vec{u}=\begin{pmatrix}
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
+    \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
+    \vdots &amp; \vdots &amp; \vdots \\
+     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_m &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} 
+\end{pmatrix}\vec{u}=\begin{pmatrix}
+    \vec{r}_1\cdot\vec{u} \\
+    \vec{r}_2\cdot\vec{u} \\
+    \vdots \\
+     \vec{r}_m\cdot\vec{u} 
+\end{pmatrix}</men>.
+Ainsi, pour faire un produit matrice vecteur, on peut avoir une vision par les colonnes de la matrice, comme le montre l'équation <xref ref="eq-matvecprodgen"/> et une vision par les lignes, illustrée par l'équation <xref ref="eq-matvecprodgeneral"/>.
+</p>
+<p>À titre de premiers exemples, on détermine la matrice pour chacune des transformations linéaires de la liste <xref ref="liste-transfor2"/>.</p>
 <example xml:id="ex-mattransfor2">
 <title>Les matrices de certaines transformations linéaires du plan </title>
 <statement><p>Pour chaque transformation linéaire de la liste <xref ref="liste-transfor2"/>, on cherche à déterminer la matrice qui la représente.</p></statement>
@@ -745,6 +777,7 @@ matrice dont les entrées sont multipliées par <m>r</m>. Pour le cas <m>2</m> p
 <me>
 r\begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}=\begin{pmatrix}ra&amp;rc \\ rb&amp;rd\end{pmatrix}
 </me>.</p>
+<p> La définition <xref ref="def-matprodscal"/> formalisera cette remarque.</p>
 </remark>
 <p>
 La démarche qui a mené à la forme matricielle d'une transformation linéaire de <m>\R^2</m> vers <m>\R^2</m> se généralise facilement pour montrer que toute transformation linéaire de <m>\R^n</m> vers
@@ -831,7 +864,7 @@ Toute matrice correspond donc à une transformation linéaire.
 </proof>
 </proposition>
 <p>Cette proposition donne une autre option pour vérifier si une transformation est linéaire. Étant donnée <m>T</m>, une transformation quelconque, on peut calculer l'image des vecteurs <m>(1,0,\ldots ,0),(0,1,0,\ldots, 0),\ldots , (0,\ldots ,0 ,1)</m>,
- les mettre dans une matrice et vérifier que cette matrice correspond à la transformation <m>T</m>. Si c'est le cas, <m>T</m> est linéaire, sinon, elle ne l'est pas<fn>Techniquement, il faudrait s'assurer que la représentation
+ les mettre dans une matrice et vérifier que cette matrice correspond à la transformation <m>T</m>. Si c'est le cas, <m>T</m> est linéaire, sinon, elle ne l'est pas<fn>Théoriquement, il faudrait s'assurer que la représentation
  par une matrice d'une transformation linéaire est unique. Pour cela, voir l'exercice <xref ref="exo-reptransfomatunique"/>.</fn>.</p>
  <example xml:id="ex-transfomatrice">
  <title>Les transformations et les matrices</title>
@@ -899,6 +932,7 @@ Toute matrice correspond donc à une transformation linéaire.
  <title>L'équivalence entre une transformation linéaire et une matrice</title>
  <p>La proposition <xref ref="prop-matsonttransfos"/> affirme qu'il y a une équivalence entre transformation linéaire et matrice. Pour cette raison, on utilisera souvent la lettre <m>T</m> pour désigner à la fois
  la transformation ou sa matrice associée.</p>
+ <p>De même, on accepte l'abus de langage lorsqu'on mentionne qu'une matrice <m>A</m> est une transformation linéaire, alors que la réelle transformation est <m>A\vec{x}</m>.</p>
  </remark>
  <p> Dans l'exemple <xref ref="ex-transfomatrice"/>, on a, entre autre, déterminé la matrice d'une rotation de <m>90^{\circ}</m> autour de l'origine. On s'intéresse maintenant
  au cas plus général d'une rotation d'angle <m>\theta</m> autour de l'origine.</p>
@@ -964,7 +998,7 @@ show('B=',B)
 </input>
 </sage>
 <p>
-On peut accéder aux différentes entrées d'une matrice à l'aide de la commande <c>A[i,j]</c>, qui retourne l'entrée sur la ligne <m>i+1</m> et la colonne <m>j+1</m>. (Il convient de rappeler ici qu'avec Sagem les entrées d'une liste commencent à 0.)</p>
+On peut accéder aux différentes entrées d'une matrice à l'aide de la commande <c>A[i,j]</c>, qui retourne l'entrée sur la ligne <m>i+1</m> et la colonne <m>j+1</m>. (Il convient de rappeler ici qu'avec Sage, les entrées d'une liste commencent à 0.)</p>
 <sage>
 <input>
 show('A[0,0]=',A[0,0])
@@ -1039,7 +1073,7 @@ plot(u,color="blue")+plot(A*u,color="red")
 \begin{pmatrix}
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
 \vec{b}_1 &amp; \vec{b}_2 &amp; \cdots &amp; \vec{b}_n \\
-\lvert &amp; \lvert &amp; \cdots &amp;r
+\lvert &amp; \lvert &amp; \cdots &amp;\lvert
 \end{pmatrix}\begin{pmatrix}u_1\\ u_2\\ \vdots\\ u_n \end{pmatrix}</mrow>
      <mrow>&amp;=u_1\vec{a}_1  + u_2\vec{a}_2  + \cdots + u_n\vec{a}_n +u_1\vec{b}_1  + u_2\vec{b}_2  + \cdots + u_n\vec{b}_n </mrow>
      <mrow>&amp;=u_1\vec{a}_1 +u_1\vec{b}_1 + u_2\vec{a}_2  + u_2\vec{b}_2+ \cdots + u_n\vec{a}_n  +u_n\vec{b}_n </mrow>
