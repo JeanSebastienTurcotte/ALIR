@@ -34,7 +34,7 @@ a_{3,1} &amp; a_{3,2} &amp; a_{3,3}
 show(liste)
 A=matrix(3,3,liste)    #3,3 est la taille de la matrice
 show(A)
-</script></pre> <div class="para">On veut donc créer une fonction Sage qui, étant donné des dimensions <span class="process-math">\(m,n\)</span> et un paramètre alphabétique, retournera une matrice de taille <span class="process-math">\(m\times n\)</span> dont les entrées seront dénotées par la lettre choisie indicée de la position, comme à l’équation <a href="sec-transfodef.html#eq-matindice" class="xref" data-knowl="./knowl/xref/eq-matindice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 2.1.5">(2.1.5)</a>. Voici une manière d’y arriver, avec commentaire dans le code.</div> <pre id="sageex-algmat-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def matquelc(m,n,lettre):
+</script></pre> <div class="para">On veut donc créer une fonction Sage qui, étant donné des dimensions <span class="process-math">\(m,n\)</span> et un paramètre alphabétique, retournera une matrice de taille <span class="process-math">\(m\times n\)</span> dont les entrées seront dénotées par la lettre choisie indicée de la position, comme à l’équation <a href="sec-transfodef.html#eq-matindice" class="xref" data-knowl="./knowl/xref/eq-matindice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 2.1.4">(2.1.4)</a>. Voici une manière d’y arriver, avec commentaire dans le code.</div> <pre id="sageex-algmat-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def matquelc(m,n,lettre):
     a=str(lettre)   #On s'assure que lettre est un caractère de la forme "a"
     liste=[] #Création d'une liste vide
     for i in range(m):

@@ -408,6 +408,9 @@ sagecell.makeSagecell({
 #ex-solbase1-2-1-1 { counter-set: ex-solbase1-2-1-1 0; }
 #ex-solbase1-2-1-1 > li::marker { content: ""counter(ex-solbase1-2-1-1,decimal)"."; }
 #ex-solbase1-2-1-1 > li { counter-increment: ex-solbase1-2-1-1; }
+#exo-prodvec-5-2-1-1 { counter-set: exo-prodvec-5-2-1-1 0; }
+#exo-prodvec-5-2-1-1 > li::marker { content: "("counter(exo-prodvec-5-2-1-1,lower-alpha)")"; }
+#exo-prodvec-5-2-1-1 > li { counter-increment: exo-prodvec-5-2-1-1; }
 #ssec-transpose-6-2-1-1 { counter-set: ssec-transpose-6-2-1-1 0; }
 #ssec-transpose-6-2-1-1 > li::marker { content: ""counter(ssec-transpose-6-2-1-1,decimal)"."; }
 #ssec-transpose-6-2-1-1 > li { counter-increment: ssec-transpose-6-2-1-1; }
@@ -1966,7 +1969,7 @@ x^2&amp;y^2&amp;z^2
 <article class="task exercise-like" id="exo-detortho-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="exo-detortho-2-1-1">Montrer que les matrices de rotation et de réflexion dans <span class="process-math">\(\R^2\)</span> sont orthogonales.</div>
 <div class="solutions"><details id="exo-detortho-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-detortho-2-2-1">
-<div class="para">On connait ces matrices. Il suffit de faire le calcul. On commence par la <a href="sec-transfodef.html#eq-rotr2" class="xref" data-knowl="./knowl/xref/eq-rotr2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 2.1.15">matrice de rotation (2.1.15)</a>.</div>
+<div class="para">On connait ces matrices. Il suffit de faire le calcul. On commence par la <a href="sec-transfodef.html#eq-rotr2" class="xref" data-knowl="./knowl/xref/eq-rotr2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Équation 2.1.13">matrice de rotation (2.1.13)</a>.</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-rotr2.html ./knowl/xref/eq-refr2-2.html" id="exo-detortho-2-2-1-2">
 \begin{align*}
 R_{\theta}R_{\theta}^T&amp;=\begin{pmatrix}
@@ -2099,7 +2102,7 @@ A^T=\begin{pmatrix}
 \end{vmatrix}}&amp;=\sqrt{\det\left(\begin{pmatrix}
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{u} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{v} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}
-\end{pmatrix}\begin{pmatrix}\lvert &amp; \lvert \\ \vec{u} &amp; \vec{v} \\ \lvert &amp; \lvert \end{pmatrix}\right)}&amp; \text{ par } \knowl{./knowl/xref/eq-matvecprodgeneral.html}{\text{(2.1.9)}}\\
+\end{pmatrix}\begin{pmatrix}\lvert &amp; \lvert \\ \vec{u} &amp; \vec{v} \\ \lvert &amp; \lvert \end{pmatrix}\right)}&amp; \text{ par } \knowl{./knowl/xref/eq-matvecprodgeneral.html}{\text{(2.1.6)}}\\
 &amp;=\sqrt{\det(A^TA)}\\
 &amp;=\sqrt{\det(A^T)\det(A)} &amp; \text{ par } \knowl{./knowl/xref/li-detproduit.html}{\text{4.2.17:4}}\\
 &amp;=\sqrt{\det(A)\det(A)} &amp; \text{ par } \knowl{./knowl/xref/li-dettransposee.html}{\text{4.2.17:6}}\\
@@ -2141,7 +2144,7 @@ A=\begin{pmatrix}\lvert &amp; \lvert &amp; \lvert \\ \vec{u} &amp; \vec{v} &amp;
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{u} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{v} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}\\
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{w} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}
-\end{pmatrix}\begin{pmatrix}\lvert &amp; \lvert &amp; \lvert \\ \vec{u} &amp; \vec{v} &amp; \vec{w} \\ \lvert &amp; \lvert &amp; \lvert \end{pmatrix}\right)}&amp; \text{ par } \knowl{./knowl/xref/eq-matvecprodgeneral.html}{\text{(2.1.9)}}\\
+\end{pmatrix}\begin{pmatrix}\lvert &amp; \lvert &amp; \lvert \\ \vec{u} &amp; \vec{v} &amp; \vec{w} \\ \lvert &amp; \lvert &amp; \lvert \end{pmatrix}\right)}&amp; \text{ par } \knowl{./knowl/xref/eq-matvecprodgeneral.html}{\text{(2.1.6)}}\\
 &amp;=\sqrt{\det(A^TA)}\\
 &amp;=\sqrt{\det(A^T)\det(A)} &amp; \text{ par } \knowl{./knowl/xref/li-detproduit.html}{\text{4.2.17:4}}\\
 &amp;=\sqrt{\det(A)\det(A)} &amp; \text{ par } \knowl{./knowl/xref/li-dettransposee.html}{\text{4.2.17:6}}\\
@@ -2187,7 +2190,7 @@ A=\begin{pmatrix}\lvert &amp; \lvert &amp; \cdots &amp;\lvert \\ \vec{u}_1 &amp;
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{u}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}\\
 \vdots &amp; \vdots &amp;\vdots\\
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{u}_n &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt}
-\end{pmatrix}\begin{pmatrix}\lvert &amp; \lvert &amp; \cdots &amp;\lvert \\ \vec{u}_1 &amp; \vec{u}_2 &amp; \cdots &amp; \vec{u}_n \\ \lvert &amp; \lvert &amp; \cdots &amp; \lvert  \end{pmatrix}\right)}&amp; \text{ par } \knowl{./knowl/xref/eq-matvecprodgeneral.html}{\text{(2.1.9)}}\\
+\end{pmatrix}\begin{pmatrix}\lvert &amp; \lvert &amp; \cdots &amp;\lvert \\ \vec{u}_1 &amp; \vec{u}_2 &amp; \cdots &amp; \vec{u}_n \\ \lvert &amp; \lvert &amp; \cdots &amp; \lvert  \end{pmatrix}\right)}&amp; \text{ par } \knowl{./knowl/xref/eq-matvecprodgeneral.html}{\text{(2.1.6)}}\\
 &amp;=\sqrt{\det(A^TA)}\\
 &amp;=\sqrt{\det(A^T)\det(A)} &amp; \text{ par } \knowl{./knowl/xref/li-detproduit.html}{\text{4.2.17:4}}\\
 &amp;=\sqrt{\det(A)\det(A)} &amp; \text{ par } \knowl{./knowl/xref/li-dettransposee.html}{\text{4.2.17:6}}\\
