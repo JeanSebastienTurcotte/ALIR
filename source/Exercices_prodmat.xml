@@ -48,30 +48,28 @@
                 <me>(A+B)^2=A^2+2AB+B^2</me>. Démontrer cette équation si elle est valide. Sinon, donner un contrexemple. </p>
             </statement>
             <hint>
-                <p>Considérer la commutativité du produit matriciel.</p>
+                <p>Développer l'expression attentivement, en considérerant l'effet de la commutativité et du produit matriciel.</p>
             </hint>
             <answer>
-                <p>L'équation n'est pas valide. Un contrexemple possible est <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</m>.</p>
+                <p>L'équation n'est pas valide. Un contrexemple possible inspiré de l'exemple <xref ref="ex-matmatprod1"/> est <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}</m>.</p>
             </answer>
             <solution>
                 <p>
                 Algébriquement, c'est faux puisque le produit matriciel n'est en général pas commutatif. On a donc que <m>AB\neq BA</m>. Ainsi,
                 <me>(A+B)^2=(A+B)(A+B)=AA+BA+AB+BB\neq A^2+2AB+B^2</me> en général.</p>
-                <p> Pour trouver une exemple concret, on peut penser à deux réflexions. En prenant une réflexion par rapport à la droite <m>y=x</m> et une autre par rapport à l'axe des <m>y</m>, on obtient les matrices  <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</m>, 
-                on calcule <m>(A+B)^2</m> et <m>A^2+2AB+B^2</m> et l'on constate que ce n'est pas égal. En effet,
+                <p> Pour trouver une exemple concret, on peut penser à la rotation et à la permutation de l'exemple <xref ref="ex-matmatprod1"/> . Les matrices <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}</m> mènent à
                 <md>
-                <mrow>(A+B)^2&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;2\\3&amp;0\end{pmatrix}\right)^2</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}^2</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}</mrow>
+                <mrow>(A+B)^2&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}\right)^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;0\\2&amp;0\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;0\\2&amp;0\end{pmatrix}\begin{pmatrix}0&amp;0\\2&amp;0\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;0\\0&amp;0\end{pmatrix}</mrow>
                 </md>
                 et
-                <md>
-                <mrow>A^2+2AB+B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2+2\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}+\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}^2</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+2\begin{pmatrix}-1&amp;1\\0&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}+\begin{pmatrix}-2&amp;2\\0&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}-1&amp;2\\-1&amp;2\end{pmatrix}</mrow>
-                </md>
+                <md>               <mrow>A^2+2AB+B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2+2\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix+2\begin{pmatrix}-1&amp;1\\0&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}+\begin{pmatrix}2&amp;0\\0&amp;-2\end{pmatrix}+\begin{pmatrix}-1&amp;0\\0&amp;-1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}2&amp;0\\ 0&amp;-2\end{pmatrix}</mrow>
+                </md>.
                 </p>
             </solution>
     </exercise>
@@ -80,25 +78,25 @@
                 <p>Est-ce que l'équation <m>(A-B)(A+B)=A^2-B^2</m> est valide pour les matrices carrées? Si oui, il faut le démontrer et si non, trouver un contrexemple.</p>
             </statement>
             <answer>
-                <p>L'équation n'est pas valide. Un contrexemple possible est <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</m>.</p>
+                <p>L'équation n'est pas valide. Un contrexemple possible inspiré de l'exemple <xref ref="ex-matmatprod1"/> est <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}</m>.</p>
             </answer>
             <solution>
                     <p>  Algébriquement, c'est faux puisque le produit matriciel n'est en général pas commutatif. On a donc que <m>AB\neq BA</m>. Ainsi,
                 <me>(A-B)(A+B)=AA+AB-BA-BB=A^2+AB-BA-B^2\neq A^2-B^2</me>.</p> 
-                <p>Avec le contrexemple <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</m>, 
+                <p>Avec le contrexemple <m>A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}</m> et <m>B=\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}</m>, 
                 on calcule <m>(A-B)(A+B)</m> et <m>A^2-B^2</m> et l'on constate que ce n'est pas égal. En effet,
                 <md>
-                <mrow>(A-B)(A+B)&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}\right)\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}\right)</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;1\\2&amp;-1\end{pmatrix}\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;1\\0&amp;1\end{pmatrix}</mrow>
+                <mrow>(A-B)(A+B)&amp;=\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}\right)\left(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}\right)</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;2\\ 0&amp;0\end{pmatrix}\begin{pmatrix}0&amp;0\\ 2&amp;0\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}4&amp;0\\0&amp;0\end{pmatrix}</mrow>
                 </md>
                 et
                 <md>
-                <mrow>A^2-B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2-\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}^2</mrow>
-                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}-\begin{pmatrix}0&amp;0\\-1&amp;1\end{pmatrix}</mrow>
-                <mrow>&amp;=\begin{pmatrix}1&amp;0\\1&amp;0\end{pmatrix}</mrow>
-                </md>
+                <mrow>A^2-B^2&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}^2-\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}^2</mrow>
+                <mrow>&amp;=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}-\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}-\begin{pmatrix}-1&amp;0\\0&amp;-1\end{pmatrix}</mrow>
+                <mrow>&amp;=\begin{pmatrix}2&amp;0\\ 0&amp;2\end{pmatrix}</mrow>
+                </md>.
 </p>
             </solution>
     </exercise>
@@ -383,45 +381,6 @@
             </task>
             <task>
             <statement>
-                <p><m>A^2=O</m>.</p>
-            </statement>
-            <answer>
-                <p><me>A=\begin{pmatrix}
-                    0 &amp; 0\\
-                    0 &amp; 0
-                    \end{pmatrix}\text{ ,  }
-                    A=\begin{pmatrix}
-                    0 &amp; 0\\
-                    b &amp; 0
-                    \end{pmatrix}\text{  ou  }
-                    A=\begin{pmatrix}
-                    0 &amp; c\\
-                    0 &amp; 0
-                    \end{pmatrix} \text{ , }b,c\in\R</me></p>
-            </answer>
-            <solution>
-                <p>Pour obtenir la matrice nulle en transformant deux fois de suite, il existe quelques options.
-                La plus facile est de définir <m>A=O</m>, la transformation qui ramène tous les vecteurs à l'origine. 
-                Il est évident que <m>O^2=O</m>, on n'a pas à le démontrer algébriquement.</p>
-                <p>De la même manière, les matrices
-                <me>\begin{pmatrix}
-                    0 &amp; 0\\
-                    b &amp; 0
-                    \end{pmatrix}\text{  et  }
-                    \begin{pmatrix}
-                    0 &amp; c\\
-                    0 &amp; 0
-                    \end{pmatrix} \text{ , }b,c\in\R
-                 </me>
-                 satisfont l'équation <m>A^2=O</m> en raison des nombreux zéros. 
-                 Elles représentent des transformations que l'on ne connait pas encore. 
-                 On peut avoir une intuition géométrique en voyant où les vecteurs de base se retrouvent.
-                 La première matrice envoie <m>(1,0)</m> sur <m>(0,b)</m> et <m>(0,1)</m> sur <m>(0,0)</m>.
-                 </p>
-            </solution>
-            </task>
-            <task>
-            <statement>
                 <p><m>A^2=A</m>.</p>
             </statement>
             <answer>
@@ -455,8 +414,8 @@
             </answer>
             <solution>
                 <p>Intuitivement, il faut trouver une matrice de transformation qui donne le même résultat qu'elle soit composée avec elle-même ou prise seule.
-                Toutes les transformations du type projections orthogonales ou pas sont telles qu'on ne change rien en répétant la transformation.
-                On peut penser rapidement aux transformations orthogonales sur <m>(1,0)</m> et sur <m>(0,1)</m> données respectivement par les matrices
+                Toutes les transformations du type projections, orthogonales ou non, sont telles qu'on ne change rien en répétant la transformation.
+                On peut penser rapidement aux projections orthogonales sur <m>(1,0)</m> et sur <m>(0,1)</m> données respectivement par les matrices
                 <me>\begin{pmatrix}
                     1 &amp; 0\\
                     0 &amp; 0
@@ -503,6 +462,45 @@
                 </p>
                 <p>Finalement, la matrice identité et la matrice nulle fonctionnent également. Il est facile de le vérifier.
                 </p>
+            </solution>
+            </task>
+<task>
+            <statement>
+                <p><m>A^2=O</m>.</p>
+            </statement>
+            <answer>
+                <p><me>A=\begin{pmatrix}
+                    0 &amp; 0\\
+                    0 &amp; 0
+                    \end{pmatrix}\text{ ,  }
+                    A=\begin{pmatrix}
+                    0 &amp; 0\\
+                    b &amp; 0
+                    \end{pmatrix}\text{  ou  }
+                    A=\begin{pmatrix}
+                    0 &amp; c\\
+                    0 &amp; 0
+                    \end{pmatrix} \text{ , }b,c\in\R</me></p>
+            </answer>
+            <solution>
+                <p>Pour obtenir la matrice nulle en transformant deux fois de suite, il existe quelques options.
+                La plus facile est de définir <m>A=O</m>, la transformation qui ramène tous les vecteurs à l'origine. 
+                Il est évident que <m>O^2=O</m>, on n'a pas à le démontrer algébriquement.</p>
+                <p>De la même manière, les matrices
+                <me>\begin{pmatrix}
+                    0 &amp; 0\\
+                    b &amp; 0
+                    \end{pmatrix}\text{  et  }
+                    \begin{pmatrix}
+                    0 &amp; c\\
+                    0 &amp; 0
+                    \end{pmatrix} \text{ , }b,c\in\R
+                 </me>
+                 satisfont l'équation <m>A^2=O</m> en raison des nombreux zéros. 
+                 Elles représentent des transformations que l'on ne connait pas encore. 
+                 On peut avoir une intuition géométrique en voyant où les vecteurs de base se retrouvent.
+                 La première matrice envoie <m>(1,0)</m> sur <m>(0,b)</m> et <m>(0,1)</m> sur <m>(0,0)</m>.
+                 </p>
             </solution>
             </task>
     </exercise>
@@ -587,7 +585,7 @@ k\sin(\theta)&amp;\cos(\theta)
                 <p>À partir de la matrice développée à l'exercice <xref ref="exo-etirementR2"/> considérer un étirement <m>T</m> dans la direction d'angle <m>\theta=30^\circ</m> et de facteur <m>k=2</m>. 
                 Vérifier que pour le vecteur <m>\vec{u}=\begin{pmatrix}\cos(\theta)\\ \sin(\theta)\end{pmatrix}=\begin{pmatrix}\sqrt{3}/2\\1/2\end{pmatrix}</m>, on a <m>T(\vec{u})=2\vec{u}</m> et que <m>T(\vec{u}_\perp)=\vec{u}_\perp</m>.</p>
                 <p>On appelle ces deux directions les <em>directions invariantes</em> d'une transformation linéaire. 
-                On les appelle également des <em>vecteurs propres</em> et le facteur d'étirement une <em>valeur propre</em>. On étudiera ces notions à la section <xref provisional="section sur les valeurs propres"/>.</p>
+                On les appelle également des <em>vecteurs propres</em> et le facteur d'étirement une <em>valeur propre</em>. On étudiera ces notions à la section <xref ref="sec-propre"/>.</p>
             </statement>
             <solution>
                 <p>On calcule la matrice d'étirement de facteur <m>2</m>dans la direction <m>\theta=30^\circ</m> simplement en remplaçant cet angle et cette valeur dans la matrice trouvée précédemment.
@@ -1077,8 +1075,8 @@ show(LatexExpr(r"\sin(\alpha+\beta)="),(Rotalpha*Rotbeta)[1,0])
 0 \amp 0 \amp 0 \amp 0
 \end{pmatrix}</m></li>
     <li><m>B=\begin{pmatrix}
-1 \amp 2 \amp \\ 
-0 \amp 4 \amp
+1 \amp 2  \\ 
+0 \amp 4 
 \end{pmatrix}</m></li>
 <li><m>C=\begin{pmatrix}
 1 \amp 1 \amp 1 \\ 

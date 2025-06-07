@@ -602,6 +602,247 @@
             </solution>
         </task>
     </exercise>
+    <exercise>
+    <introduction><p>Soit <m>\vec{u}=(1,-1,2),\vec{v}=(3,2,-5),\hat{i}=(1,0,0),\hat{j}=(0,1,0)</m> et <m>\hat{k}=(0,0,1)</m>. Calculer les produits vectoriels suivants.</p></introduction>
+    <task>
+    <statement>
+    <p><m>\vec{u}\times \vec{v}</m></p>
+    </statement>
+    <solution>
+    <p>Selon l'équation <xref ref="eq-prodvec"/>, le vecteur cherché est donné par
+    <md>
+    <mrow>\vec{u}\times \vec{v}&amp;=((-1)(-5)-2\cdot 2,3\cdot 2-(-5),1\cdot 2-3(-1))</mrow>
+    <mrow>&amp;=(1,11,5)</mrow>
+    </md>.</p>
+    </solution>
+    </task>
+    <task>
+    <statement>
+    <p><m>\vec{v}\times \vec{u}</m></p>
+    </statement>
+    <solution>
+    <p>Selon l'équation <xref ref="eq-prodvec"/>, le vecteur cherché est donné par
+    <md>
+    <mrow>\vec{v}\times \vec{u}&amp;=(2\cdot 2-(-1)(-5),-5-3\cdot 2,3(-1)-1\cdot 2)</mrow>
+    <mrow>&amp;=(-1,-11,-5)</mrow>
+    </md>.</p>
+    </solution>
+    </task>
+    <task>
+    <statement>
+    <p><m>\vec{u}\times \vec{i}</m></p>
+    </statement>
+    <solution>
+    <p>Selon l'équation <xref ref="eq-prodvec"/>, le vecteur cherché est donné par
+    <md>
+    <mrow>\vec{u}\times \vec{i}&amp;=((-1)(0)-0\cdot 2 ,1\cdot 2-0\cdot 2,1\cdot 0-1\cdot(-1))</mrow>
+    <mrow>&amp;=(0,2,1)</mrow>
+    </md>.</p>
+    </solution>
+    </task>
+    <task>
+    <statement>
+    <p><m>\vec{j}\times \vec{v}</m></p>
+    </statement>
+    <solution>
+    <p>Selon l'équation <xref ref="eq-prodvec"/>, le vecteur cherché est donné par
+    <md>
+    <mrow>\vec{j}\times \vec{v}&amp;=(1\cdot (-5)-2\cdot 0,3\cdot 0-0\cdot(-5),0\cdot 2-3\cdot 1)</mrow>
+    <mrow>&amp;=(-5,0,-3)</mrow>
+    </md>.</p>
+    </solution>
+    </task>
+    <task>
+    <statement>
+    <p><m>\vec{i}\times \vec{j}</m></p>
+    </statement>
+    <answer><p><m>\vec{k}=(0,0,1)</m></p></answer>
+    </task>
+    <task>
+    <statement>
+    <p><m>\vec{j}\times \vec{k}</m></p>
+    </statement>
+    <answer><p><m>\vec{i}=(1,0,0)</m></p></answer>
+    </task>
+    <task>
+    <statement>
+    <p><m>\vec{k}\times \vec{i}</m></p>
+    </statement>
+    <answer><p><m>\vec{j}=(0,1,0)</m></p></answer>
+    </task>
+    </exercise>
+    <exercise xml:id="exo-propprodvec">
+    <title>Les propriétés du produit vectoriel</title>
+    <introduction><p>Soit <m>\vec{u}=(u_1,u_2,u_3)</m>, <m>\vec{v}=(v_1,v_2,v_3)</m> et <m>\vec{w}=(w_1,w_2,w_3)</m> ainsi que <m>c\in\mathbb{R}</m>. Démontrer les propriétés suivantes en lien avec le <xref ref="prop-prodvec" text="custom">produit vectoriel</xref>.</p></introduction>
+    <task>
+    <statement><p> L'anticommutativité:
+    <m>\vec{u}\times \vec{v}=-\vec{v}\times \vec{u}</m>.
+    </p></statement>
+    <solution>
+    <p>Il suffit de remarquer qu'en mettant un facteur <m>-1</m> en évidence de l'expression du produit vectoriel <m>\vec{u}\times \vec{v}</m>, on obtient le vecteur correspondant à <m>\vec{v}\times \vec{u}</m>:
+    <md>
+    <mrow>\vec{u}\times \vec{v}&amp;=\left( u_{2} v_{3}-u_{3} v_{2},\,u_{3} v_{1} - u_{1} v_{3},\,  u_{1} v_{2}-u_{2} v_{1}\right)</mrow>
+    <mrow>&amp;=\left( -(-u_{2} v_{3}+u_{3} v_{2}),-(-\,u_{3} v_{1} + u_{1} v_{3}),\,  -(-u_{1} v_{2}+u_{2} v_{1})\right)</mrow>
+    <mrow>&amp;=-\left( -u_{2} v_{3}+u_{3} v_{2},-\,u_{3} v_{1} + u_{1} v_{3},\,  -u_{1} v_{2}+u_{2} v_{1}\right)</mrow>
+    <mrow>&amp;=-\left( u_{3} v_{2}-u_{2} v_{3},  u_{1} v_{3}-\,u_{3} v_{1},\,  u_{2} v_{1}-u_{1} v_{2}\right)</mrow>
+    <mrow>&amp;=-(\vec{v}\times \vec{u})</mrow>
+    </md>.
+    </p>
+    </solution>
+    </task>
+    <task>
+    <statement><p> La distributivité:
+    <m>\vec{u}\times (\vec{v}+\vec{w})=\vec{u}\times \vec{v}+\vec{u}\times \vec{w}</m>.
+    </p></statement>
+    <solution><p>On développe l'expression de gauche afin d'obtenir celle de droite. On obtient
+    <md>
+    <mrow>\vec{u}\times (\vec{v}+\vec{w})&amp;=\left( u_2 (v_3 + w_3) - u_3 (v_2 + w_2), u_3 (v_1 + w_1)- u_1 (v_3 + w_3),  u_1 (v_2 + w_2) - u_2 (v_1 + w_1) \right)</mrow>
+    <mrow>&amp;=\left( u_2v_3 + u_2w_3 - u_3v_2 - u_3w_2, u_3v_1 + u_3w_1- u_1v_3 - u_1w_3,  u_1 v_2 + u_1w_2 - u_2v_1 -u_2w_1 \right)</mrow>
+    <mrow>&amp;=\left( u_2v_3 - u_3v_2+ u_2w_3  - u_3w_2, u_3v_1 - u_1v_3+ u_3w_1 - u_1w_3,  u_1 v_2 - u_2v_1+ u_1w_2  -u_2w_1 \right)</mrow>
+    <mrow>&amp;=\left( u_2v_3 - u_3v_2, u_3v_1 - u_1v_3,  u_1 v_2 - u_2v_1 \right)+\left( u_2w_3  - u_3w_2,  u_3w_1 - u_1w_3,  u_1w_2  -u_2w_1 \right)</mrow>
+    <mrow>&amp;=\vec{u}\times \vec{v}+\vec{u}\times \vec{w}</mrow>
+    </md>.
+    </p></solution>
+    </task>
+    <task xml:id="exo-propprodvecconstante">
+    <statement><p> La multiplication par une constante:
+    <m>c(\vec{u}\times \vec{v})=(c\vec{u})\times \vec{v}=\vec{u}\times (c\vec{v})</m>.
+    </p></statement>
+    <solution>
+    <p>On a
+    <md>
+    <mrow>c(\vec{u}\times \vec{v})&amp;=c\left( u_{2} v_{3}-u_{3} v_{2},\,u_{3} v_{1} - u_{1} v_{3},\,  u_{1} v_{2}-u_{2} v_{1}\right)</mrow>
+    <mrow>&amp;=\left( c(u_{2} v_{3}-u_{3} v_{2}),\,c(u_{3} v_{1} - u_{1} v_{3}),\,  c(u_{1} v_{2}-u_{2} v_{1})\right)</mrow>
+    <mrow>&amp;=\left( (cu_{2}) v_{3}-(cu_{3}) v_{2},\,(cu_{3}) v_{1} - (cu_{1}) v_{3},\,  (cu_{1}) v_{2}-(cu_{2}) v_{1}\right)</mrow>
+    <mrow>&amp;=\left( u_{2}(cv_{3})-u_{3}(cv_{2}),\,u_{3}(cv_{1}) - u_{1}(cv_{3}),\,  u_{1}(cv_{2})-u_{2}(cv_{1})\right)</mrow>
+    </md>. L'avant-dernière ligne est égale à <m>(c\vec{u})\times\vec{v}</m> alors que la dernière vaut <m>\vec{u}\times (c\vec{v})</m>, ce qui complète la preuve.</p>
+    </solution>
+    </task>
+    <task>
+    <statement>
+    <p>Si l'on veut étendre la définition du produit vectoriel pour pouvoir considérer le produit d'un vecteur <m>\vec{u}</m> non nul avec <m>\vec{0}</m>, argumenter que la réponse devrait être <m>\vec{0}</m> et vérifier la validité de l'équation <xref ref="eq-prodvec"/>. </p>
+    <p> Le produit vectoriel du vecteur nul:
+    <m>\vec{u}\times \vec{0}=\vec{0}\times \vec{u}=\vec{0}</m>.
+    </p></statement>
+    <solution>
+    <p>Le produit vectoriel doit être un vecteur perpendiculaire à <m>\vec{u}</m> et <m>\vec{v}</m>. Or si l'un des vecteurs est nul et que l'autre est libre d'être quelconque, cela implique de trouver un vecteur qui est perpendiculaire à <m>\vec{0}</m> et à <m>\vec{u}</m>. Par défaut, tous les vecteurs sont perpendiculaires avec <m>\vec{0}</m> et il en existe une infinité qui le sont avec <m>\vec{u}</m>, ceux-ci se retrouvant sur le plan de vecteur normal <m>\vec{u}</m>. Il apparait important que la réponse au produit vectoriel soit unique et il ne semble pas y avoir de manière simple de choisir objectivement un vecteur du plan normal à <m>\vec{u}</m>. Il reste donc le choix de prendre comme valeur du produit vectoriel le vecteur <m>\vec{0}</m>. Cela est d'autant plus cohérent avec le fait usuel que le produit avec <m>0</m> devrait donner <m>0</m>.</p>
+    <p>Pour la validiter de l'équation, il suffit de remplacer <m>v_1,v_2,v_3</m> par <m>0</m> dans l'équation <xref ref="eq-prodvec"/>.</p></solution>
+    </task>
+    <task>
+    <introduction><p>Dans la proposition <xref ref="prop-prodvec"/>, on a imposé que les vecteurs <m>\vec{u},\vec{v}</m> soient non parallèles, car le but était alors de trouver un vecteur perpendiculaire à la fois à <m>\vec{u}</m> et à <m>\vec{v}</m>. Toutefois, une fois la formule obtenue, on peut s'intéresser à généraliser son application lorsque les vecteurs sont parallèles. </p>
+    <p>Un peu comme dans la solution à l'exercice précédent, le seul choix objectif pour ces produits vectoriels est de prendre le résultat égal au vecteur nul.</p>
+    </introduction>
+    <task xml:id="exo-propprodvecsoi">
+    <statement><p> Le produit vectoriel avec soi-même:
+    <m>\vec{u}\times \vec{u}=\vec{0}</m>.
+    </p></statement>
+    <solution><p>On remplace <m>v_1,v_2,v_3</m> respectivement par <m>u_1,u_2,u_3</m> dans l'équation <xref ref="eq-prodvec"/> pour obtenir le résultat.</p></solution>
+    </task>
+    <task>
+    <statement><p> Le produit vectoriel de vecteurs parallèles:
+    <m>\vec{u}\times (c\vec{u})=\vec{0}</m>.
+    </p></statement>
+        <solution><p>On utilise la partie <xref ref="exo-propprodvecconstante"/> et la partie <xref ref="exo-propprodvecsoi"/> pour obtenir
+        <md>
+        <mrow>\vec{u}\times (c\vec{u})&amp;=c(\vec{u}\times\vec{u})</mrow>
+        <mrow>&amp;=c\vec{0}</mrow>
+        <mrow>&amp;=\vec{0}</mrow>
+        </md>.</p></solution>
+    </task>
+    </task>
+    <task>
+    <statement><p> Le produit mixte:
+    <m>\vec{u}\cdot(\vec{v}\times \vec{w})=(\vec{u}\times \vec{v})\cdot \vec{w}</m>.
+    </p></statement>
+    <solution><p>Le plus simple ici consiste à calculer les deux côtés de l'égalité afin de vérifier qu'ils sont égaux. Pour le membre de gauche, on a
+    <md>
+    <mrow>\vec{u}\cdot(\vec{v}\times \vec{w})&amp;=(u_1,u_2,u_3)\cdot \left( v_{2} w_{3}-v_{3} w_{2},\,v_{3} w_{1} - v_{1} w_{3},\,  v_{1} w_{2}-v_{2} w_{1}\right)</mrow>
+    <mrow>&amp;= u_1(v_{2} w_{3}-v_{3} w_{2})+u_2(v_{3} w_{1} - v_{1} w_{3})+u_3(v_{1} w_{2}-v_{2} w_{1})</mrow>
+    <mrow>&amp;=u_1v_{2} w_{3}-u_1v_{3} w_{2}+u_2v_{3} w_{1} - u_2v_{1} w_{3}+u_3v_{1} w_{2}-u_3v_{2} w_{1}</mrow>
+    </md>
+    alors que pour le membre de droite c'est 
+    <md>
+    <mrow>(\vec{u}\times \vec{v})\cdot \vec{w}&amp;=\left( u_{2} v_{3}-u_{3} v_{2},\,u_{3} v_{1} - u_{1} v_{3},\,  u_{1} v_{2}-u_{2} v_{1}\right)\cdot(w_1,w_2,w_3)</mrow>
+    <mrow>&amp;=(u_{2} v_{3}-u_{3} v_{2})w_1+(u_{3} v_{1} - u_{1} v_{3})w_2+ (u_{1} v_{2}-u_{2} v_{1})w_3</mrow>
+    <mrow>&amp;=u_{2} v_{3}w_1-u_{3} v_{2}w_1+u_{3} v_{1}w_2 - u_{1} v_{3}w_2+ u_{1} v_{2}w_3-u_{2} v_{1}w_3</mrow>
+    <mrow>&amp;=u_{1} v_{2}w_3- u_{1} v_{3}w_2+u_{2} v_{3}w_1-u_{2} v_{1}w_3+u_{3} v_{1}w_2-u_{3} v_{2}w_1 &amp;&amp; \text{en réordonnant}</mrow>
+    </md>.
+    </p>
+    <p>On a bel et bien égalité.</p>
+    </solution>
+    </task>
+    <task>
+    <statement><p> Le triple produit vectoriel:
+    <m>\vec{u}\times(\vec{v}\times \vec{w})=(\vec{u}\cdot \vec{w})\vec{v}-(\vec{u}\cdot\vec{v})\vec{w}</m>.
+    </p></statement>
+    <solution><p>Encore une fois ici, développer indépendamment les deux membres de l'égalité est probablement l'option la plus simple. Pour le côté gauche, on a
+    <md>
+    <mrow>\vec{u}\times(\vec{v}\times \vec{w})&amp;=(u_1,u_2,u_3)\times (v_{2} w_{3}-v_{3} w_{2},\,v_{3} w_{1} - v_{1} w_{3},\,  v_{1} w_{2}-v_{2} w_{1})</mrow>
+    <mrow>&amp;=\begin{pmatrix}u_{2}(v_{1} w_{2}-v_{2} w_{1})-u_{3}( v_{3} w_{1} - v_{1} w_{3})\\ u_{3} (v_{2} w_{3}-v_{3} w_{2}) - u_{1} (v_{1} w_{2}-v_{2} w_{1})\\  u_{1} (v_{3} w_{1} - v_{1} w_{3})-u_{2} (v_{2} w_{3}-v_{3} w_{2})\end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix}u_{2}v_{1} w_{2}-u_2v_{2} w_{1}-u_{3}v_{3} w_{1} + u_3v_{1} w_{3}\\ u_{3}v_{2} w_{3}-u_3v_{3} w_{2} - u_{1}v_{1} w_{2}+u_1v_{2} w_{1}\\  u_{1}v_{3} w_{1} - u_1v_{1} w_{3})-u_{2}v_{2} w_{3}+u_2v_{3} w_{2}\end{pmatrix}</mrow>
+    </md>.
+    </p>
+    <p>Pour le côté gauche, c'est plutôt
+    <md>
+    <mrow>(\vec{u}\cdot \vec{w})\vec{v}-(\vec{u}\cdot\vec{v})\vec{w}&amp;=(u_1w_1+u_2w_2+u_3w_3)\vec{v}-(u_1v_1+u_2v_2+u_3v_3)\vec{w}</mrow>
+    <mrow>&amp;=\begin{pmatrix} (u_1w_1+u_2w_2+u_3w_3)v_1\\ (u_1w_1+u_2w_2+u_3w_3)v_2\\ (u_1w_1+u_2w_2+u_3w_3)v_3 \end{pmatrix}-\begin{pmatrix}(u_1v_1+u_2v_2+u_3v_3)w_1\\ (u_1v_1+u_2v_2+u_3v_3)w_2 \\ (u_1v_1+u_2v_2+u_3v_3)w_3 \end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix} u_1w_1v_1+u_2w_2v_1+u_3w_3v_1\\ u_1w_1v_2+u_2w_2v_2+u_3w_3v_2\\ u_1w_1v_3+u_2w_2v_3+u_3w_3v_3 \end{pmatrix}-\begin{pmatrix}u_1v_1w_1+u_2v_2w_1+u_3v_3w_1\\ u_1v_1w_2+u_2v_2w_2+u_3v_3w_2 \\ u_1v_1w_3+u_2v_2w_3+u_3v_3w_3 \end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix} u_1w_1v_1+u_2w_2v_1+u_3w_3v_1-(u_1v_1w_1+u_2v_2w_1+u_3v_3w_1)\\ u_1w_1v_2+u_2w_2v_2+u_3w_3v_2-(u_1v_1w_2+u_2v_2w_2+u_3v_3w_2)\\ u_1w_1v_3+u_2w_2v_3+u_3w_3v_3-(u_1v_1w_3+u_2v_2w_3+u_3v_3w_3) \end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix} u_2w_2v_1+u_3w_3v_1-u_2v_2w_1-u_3v_3w_1\\ u_1w_1v_2+u_3w_3v_2-u_1v_1w_2-u_3v_3w_2\\ u_1w_1v_3+u_2w_2v_3-u_1v_1w_3-u_2v_2w_3 \end{pmatrix}</mrow>
+    <mrow>&amp;=\begin{pmatrix} u_2v_1w_2-u_2v_2w_1-u_3v_3w_1+u_3v_1w_3\\ u_3v_2w_3-u_3v_3w_2-u_1v_1w_2+u_1v_2w_1\\ u_1v_3w_1-u_1v_1w_3-u_2v_2w_3+u_2v_3w_2 \end{pmatrix}&amp;&amp;\text{en réordonnant}</mrow>
+    </md>.
+    L'égalité est démontrée.
+    </p>
+    </solution>
+    </task>
+    <task>
+    <statement>
+    <p>La norme du produit vectoriel:
+    <me>
+    \norm{\vec{u}\times \vec{v}}=\norm{\vec{u}}\norm{\vec{v}}\sin(\theta)
+    </me>
+    où <m>\theta</m> est l'angle entre les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>.</p>
+    </statement>
+    <solution><p>
+    On calcule la norme au carré afin d'éviter de travailler avec la racine. On ajustera à la fin. On a 
+    <md>
+    <mrow>\norm{\vec{u}\times\vec{v}}^2&amp;=\norm{( u_{2} v_{3}-u_{3} v_{2},\,u_{3} v_{1} - u_{1} v_{3},\,  u_{1} v_{2}-u_{2} v_{1})}^2</mrow>
+    <mrow>&amp;=(u_{2} v_{3}-u_{3} v_{2})^2+(u_{3} v_{1} - u_{1} v_{3})^2+(u_{1} v_{2}-u_{2} v_{1})^2</mrow>
+    <mrow>&amp;=u^2_2v^2_3−2u_2u_3v_2v_3+u^2_3v^2_2+u^2_3v^2_1−2u_1u_3v_1v_3+u^2_1v^2_3+u^2_1v^2_2−2u_1u_2v_1v_2+u^2_2v^2_1</mrow>
+    <mrow>&amp;=u^2_1v^2_2+u^2_1v^2_3+u^2_2v^2_1+u^2_2v^2_3+u^2_3v^2_1+u^2_3v^2_2−2u_1u_2v_1v_2-2u_1u_3v_1v_3-2u_2u_3v_2v_3</mrow>
+    <intertext>On remarque qu'il &#xAB;manque&#xBB; les termes <m>u^2_kv^2_k</m>, alors on les ajoute et on les retranche.</intertext>
+    <mrow>&amp;=u^2_1v^2_1+u^2_1v^2_2+u^2_1v^2_3+u^2_2v^2_1+u^2_2v^2_2+u^2_2v^2_3+u^2_3v^2_1+u^2_3v^2_2+u^2_3v^2_3-u^2_1v^2_1-u^2_2v^2_2-u^2_3v^2_3−2u_1u_2v_1v_2-2u_1u_3v_1v_3-2u_2u_3v_2v_3</mrow>
+    <mrow>&amp;=u^2_1(v^2_1+v^2_2+v^2_3)+u^2_2(v^2_1+v^2_2+v^2_3)+u^2_3(v^2_1+v^2_2+v^2_3)-(u^2_1v^2_1+u^2_2v^2_2+u^2_3v^2_3+2u_1u_2v_1v_2+2u_1u_3v_1v_3+2u_2u_3v_2v_3)</mrow>
+    <intertext>C'est souvent à l'étape ci-dessus que l'on bloque. On peut alors partir de l'autre côté de l'égalité et remonter, en espérant rejoindre l'étape précédente.</intertext>
+    <mrow>&amp;=(u^2_1+u^2_2+u^2_3)(v^2_1+v^2_2+v^2_3)-(u_1v_1+u_2v_2+u_3v_3)^2</mrow>
+    <mrow>&amp;=\norm{\vec{u}}^2\norm{\vec{v}}^2-(\vec{u}\cdot \vec{v})^2</mrow>
+<mrow>&amp;=\norm{\vec{u}}^2\norm{\vec{v}}^2-(\norm{\vec{u}}\norm{\vec{v}}\cos(\theta))^2</mrow>
+<mrow>&amp;=\norm{\vec{u}}^2\norm{\vec{v}}^2(1-\cos^2(\theta))</mrow>
+<mrow>&amp;=\norm{\vec{u}}^2\norm{\vec{v}}^2\sin^2(\theta)</mrow>
+    </md>.
+    En prenant la racine de chaque côté et en remarquant que lorsque <m>0^\circ\leq \theta\leq 180^\circ</m> <mdash/> ce qui est le toujours le cas pour l'angle entre deux vecteurs <mdash/> la fonction <m>\sin(\theta)</m> est toujours plus grande ou égale à <m>0</m>, on obtient le résultat.
+    </p></solution>
+    </task>
+    </exercise>
+    <exercise><statement><p>Est-ce que
+    <me>
+    (\vec{u}\times \vec{v})\times \vec{w}=\vec{u}\times(\vec{v}\times \vec{w})
+    </me>?</p></statement>
+    <hint><p>Considérer le cas <m>\vec{u}=\vec{v}</m>.</p></hint>
+    <answer><p>Non.</p></answer>
+    <solution><p>On prend <m>\vec{v}=\vec{u}</m>. D'un côté, on a
+    <me>
+    (\vec{u}\times \vec{u})\times \vec{w}=\vec{0}\times \vec{w}=\vec{0}
+    </me>. De l'autre côté, le vecteur <m>\vec{u}\times \vec{w}</m> est par définition perpendiculaire à <m>\ve{u}</m> et donc
+    <me>
+    \vec{u}\times(\vec{u}\times \vec{w})\neq \vec{0}
+    </me>.</p>
+    
+    Ceci montre donc qu'en général, le produit vectoriel n'est pas associatif.</solution>
+    </exercise>
+    <!-- vecsnonnulsprodvec voir preuve prodvec -->
+    <!-- ToDO Exercices de calculs avec les propriétés -->
+    <!--Distances -->
     <exercise xml:id="exo-distancedroiteplanpara">
             <introduction>
                 <p>Dans le texte, il est dit que, pour calculer la distance entre une droite et un plan qui sont parallèles, il suffit de faire la distance entre un point quelconque de la droite et le plan.

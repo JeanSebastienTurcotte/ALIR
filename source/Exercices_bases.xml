@@ -712,6 +712,27 @@
     <solution><p>On sait déjà, par la partie précédente, que ces vecteurs sont indépendants. En vertu de la proposition <xref ref="prop-ensemblevecetdim"/>, ces <m>n</m> vecteurs indépendants forment une base.</p></solution>
     </task>
     </exercise>
+    <exercise xml:id="exo-indepspan">
+    Démontrer la proposition <xref ref="prop-indepspan"/>.
+    <solution>
+    <p>Dans un premier temps, on démontre l'implication directe, c'est-à-dire qu'on suppose que l'ensemble des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k</m> et <m>\vec{v}</m> est indépendant. On suppose que <m>\vec{v}\in \text{span}\{\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k\}</m>. Il existe donc une combinaison linéaire de ces vecteurs telle que
+    <me>
+    \vec{v}=a_1\vec{v}_1+a_2\vec{v}_2+\ldots + a_k\vec{v}_k
+    </me>.
+    Or, cela revient à écrire
+    <me>
+    \vec{0}=a_1\vec{v}_1+a_2\vec{v}_2+\ldots + a_k\vec{v}_k-\vec{v}
+    </me>,
+    qui est une combinaison linéaire non triviale du vecteur nul, contredisant l'hypothèse que les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k</m> et <m>\vec{v}</m> sont indépendants.
+    </p>
+    <p>Pour l'implication indirecte, l'argument est semblable. Sous l'hypothèse que <m>\vec{v}\notin \text{span}\{\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k\}</m>, on tente d'écrire le vecteur nul comme une combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k</m> et <m>\vec{v}</m>, par exemple
+    <me>
+    a_1\vec{v}_1+a_2\vec{v}_2+\ldots + a_k\vec{v}_k+b\vec{v}=\vec{0}
+    </me>.
+    Puisque <m>\vec{v}</m> n'est pas dans l'espace engendré des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k</m>, on doit avoit <m>b=0</m>, car on pourrait obtenir une combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k</m> donnant <m>\vec{v}</m> dans le cas contraire. Comme les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k</m> sont indépendants et que <m>b=0</m>, la combinaison linéaire de l'équation <xref ref="eq-indepspan"/> doit être la combinaison triviale. Ainsi, l'ensemble de vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k</m> et <m>\vec{v}</m> est indépendant.
+    </p>
+    </solution>
+    </exercise>
     <exercise xml:id="exo-solbaseindep">
     <statement>
     <p>Soit <m>A</m>, une matrice telle que l'équation <m>A\vec{x}=\vec{0}</m> possède des solutions non triviales et soit <m>\vec{s}_1,\vec{s}_2,\ldots , \vec{s}_k</m> les solutions de base à cette équation. Montrer que

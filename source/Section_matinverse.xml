@@ -43,7 +43,7 @@
     <title>L'inverse de transformations géométriques</title>
     <statement><p>On considère les transformations de la liste <xref ref="liste-transfor2"/> et l'on cherche à les inverser, si possible.</p></statement>
     <solution>
-    <p>La transformation identité n'a aucun effet sur les vecteurs de <m>\R^2</m>. Ainsi, si l'on la compose avec elle-même, on restera avec l'identité. L'inverse de <m>I</m> est donc <m>I</m>.</p>
+    <p>La transformation identité n'a aucun effet sur les vecteurs de <m>\R^2</m>. Ainsi, si on la compose avec elle-même, on restera avec l'identité. L'inverse de <m>I</m> est donc <m>I</m>.</p>
     </solution>
     <solution>
     <p>Afin de défaire une réflexion par rapport à l'axe des <m>x</m>, il semble suffisant d'appliquer à nouveau la réflexion. On aurait donc <m>S_x^{-1}=S_x</m>. On vérifie algébriquement que c'est le cas.
@@ -141,7 +141,9 @@
     <mrow>TUU^{-1}&amp;=VU^{-1} &amp; &amp; \text{multiplication à droite de part et d'autre par } U^{-1}</mrow>
     <mrow number="yes" xml:id="eq-UUm1">TI&amp;=VU^{-1} &amp;&amp; \text{ car } UU^{-1}=I \text{ par définition de l'inverse}</mrow>
     <mrow number="yes" xml:id="eq-matparvecteursuv"> T&amp;=VU^{-1}</mrow>
-    </md>.</p>
+    </md>.
+    Pour déterminer la matrice d'une transformation linéaire, on savait qu'il fallait trouver l'effet de la transformation sur les vecteurs de la base canonique, mais l'équation <xref ref="eq-matparvecteursuv"/> montre que l'on peut aussi trouver la matrice en autant que l'on connaisse l'effet sur deux vecteurs (pour <m>\mathbb{R}^2</m> du moins) et que l'inverse de la matrice contenant ces vecteurs existent.
+    </p>
     <p>En principe, l'équation <xref ref="eq-UUm1"/> suppose que l'inverse à droite <m>U^{-1}</m> sera le même que l'inverse à gauche (la définition <xref ref="def-transfoinverseprelim"/> parle seulement d'inverse à gauche). La définition 
     <xref ref="def-matcarreeinverse"/> qui suivra permettra de lever l'ambigüité. On accepte l'incohérence temporaire puisque le but n'est que de donner un exemple de l'utilisation de la matrice inverse.</p>
     <p>On commence l'exploration de l'inverse d'une matrice quelconque par le calcul d'un tel inverse pour une matrice qui n'a pas d'interprétation géométrique claire.</p>
@@ -203,7 +205,7 @@
    <mrow> \vecd{cx+dz}{cy+dw}&amp;= \vecd{0}{1}</mrow>
     </md>.
     </p>
-    <p>Rappelons ici que <m>a,b,c,d</m> sont les coefficients de la matrice <m>A</m> et qu'ils sont en général connus. On cherche donc à résoudre ces systèmes en fonction
+    <p>On rappelle ici que <m>a,b,c,d</m> sont les coefficients de la matrice <m>A</m> et qu'ils sont en général connus. On cherche donc à résoudre ces systèmes en fonction
     des inconnues <m>x,y,z,w</m>. En couplant les premières composantes ensemble et les secondes composantes ensemble, on obtient deux systèmes à deux équations et deux inconnues.
     Le premier de ces systèmes est
     <md>
@@ -216,6 +218,7 @@
     <mrow> cy+dw&amp;=1</mrow>
     </md>.
     </p>
+    <!-- Ci-dessous, rappeler le conseil/technique lorsque fait : Voir ToDo.task -->
     <p>Comme on veut éviter de restreindre le plus possible les valeurs de <m>a,b,c,d</m>, on ne peut pas isoler <m>x</m> ou <m>z</m> dans la seconde équation du premier système.
     Cela supposerait que <m>c\neq 0</m> ou <m>d\neq 0</m>. Pour contourner ce problème, on multiplie la première équation par <m>c</m> et la seconde par <m>a</m>. On obtient
     <mdn>

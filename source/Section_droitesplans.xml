@@ -892,8 +892,8 @@
         <mrow>\mathcal{P}&amp;:ax+by+cz=d</mrow>
         <mrow>\mathcal{P}&amp;:1*x-2*y+1*z=d</mrow>
         <mrow>\mathcal{P}&amp;:x-2y+z=d</mrow>
-        <mrow>&amp;:3-2*2-1=d</mrow>
-        <mrow>&amp;:-2=d</mrow>
+        <mrow>\mathcal{P}&amp;:3-2*2-1=d</mrow>
+        <mrow>\mathcal{P}&amp;:-2=d</mrow>
         <mrow>\mathcal{P}&amp;:x-2y+z=-2</mrow>
     </md>
     On regarde maintenant la situation inverse.</p>
@@ -949,11 +949,13 @@
     <p>L'équation normale d'un plan est une manière importante de le décrire. Dans le chapitre <xref ref="chap-SEL"/>, on s'en servira, entre autres, pour déterminer l'intersection de plusieurs plans. Il est donc primordial d'être en mesure de déterminer un vecteur normal d'un plan à partir de deux vecteurs directeurs. S'inspirant de la démarche des exemples <xref ref="ex-unvecperpR3"/> et <xref ref="ex-eqnormplan"/>, la proposition suivante introduit une formule générale pour cela, à travers une nouvelle opération appelée le <term>produit vectoriel</term>.</p>
     <proposition xml:id="prop-prodvec">
     <title>Le produit vectoriel</title>
-    <statement><p>Soit <m>\vec{u}=(u_1,u_2,u_3)</m> et <m>\vec{v}=(v_1,v_2,v_3)</m> des vecteurs non parallèles de <m>\mathbb{R}^3</m>. Alors le vecteur
-    <me>
-    \vec{w}=\left( u_{2} v_{3}-u_{3} v_{2},\,u_{3} v_{1} - u_{1} v_{3},\,  u_{1} v_{2}-u_{2} v_{1}\right)
-    </me>
-    est perpendiculaire à <m>\vec{u}</m> et <m>\vec{v}</m>. On appelle ce vecteur le produit vectoriel entre <m>\vec{u}</m> et <m>\vec{v}</m> et on le note par <m>\vec{w}=\vec{u}\times \vec{v}</m>.</p></statement>
+    <statement><p>Soit <m>\vec{u}=(u_1,u_2,u_3)</m> et <m>\vec{v}=(v_1,v_2,v_3)</m> des vecteurs non parallèles et non nuls de <m>\mathbb{R}^3</m>. Alors le vecteur
+    <men xml:id="eq-prodvec">
+    \vec{w}=\vec{u}\times \vec{v}=\left( u_{2} v_{3}-u_{3} v_{2},\,u_{3} v_{1} - u_{1} v_{3},\,  u_{1} v_{2}-u_{2} v_{1}\right)
+    </men>
+    est perpendiculaire à <m>\vec{u}</m> et <m>\vec{v}</m>. On appelle ce vecteur le produit vectoriel entre <m>\vec{u}</m> et <m>\vec{v}</m> et on le note par <m>\vec{w}=\vec{u}\times \vec{v}</m>.</p>
+    <p>À l'exercice <xref ref="exo-propprodvec"/>, on étend la définition du produit vectoriel pour inclure des vecteurs parallèles ou nuls.</p>
+    </statement>
     <proof><p>On pourrait utiliser le produit scalaire afin de vérifier que ce vecteur est bel et bien perpendiculaire à <m>\vec{u}</m> et <m>\vec{v}</m>, mais il est plus intéressant de faire la démarche qui mène à l'obtention de celui-ci.</p>
     <p>On pose <m>\vec{w}=(x,y,z)</m>. Pour que ce vecteur soit perpendiculaire à <m>\vec{u}</m>, on doit avoir
     <me>
@@ -984,7 +986,7 @@
     <me>
     \vec{w}=\left( u_{2} v_{3}-u_{3} v_{2},\,u_{3} v_{1} - u_{1} v_{3},\,  u_{1} v_{2}-u_{2} v_{1}\right)
     </me>,
-    à condition que le nombre <m>(u_1v_2-v_1u_2)</m> soit non nul. Pour cela, voir l'exercice <xref provisional="exo-vecsnonnulsprodvec"/>
+    à condition que le nombre <m>(u_1v_2-v_1u_2)</m> soit non nul. Pour cela, voir l'exercice <xref provisional="exo-vecsnonnulsprodvec"/>.
     </p>
     </proof>
     </proposition>
