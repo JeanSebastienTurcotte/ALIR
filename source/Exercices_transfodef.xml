@@ -1072,12 +1072,12 @@ T_2(\vec{u})+T_2(\vec{v})=T_2(1,1)+T_2(-1,1)=(1,-1)+(1,-1)=(2,-2)
     <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
                 A=column_matrix([[-1,0],[2,3],[4,-2]])
                 B=column_matrix([[-3,2,0],[3,1,-5]])
                 show("A=",A)
                 show("B=",B)
-</input>
+</code>
                    </program>
                    </listing>
     </li>
@@ -1085,9 +1085,9 @@ T_2(\vec{u})+T_2(\vec{v})=T_2(1,1)+T_2(-1,1)=(1,-1)+(1,-1)=(2,-2)
     <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
                 show(A.row(1)+B.column(0))
-</input>
+</code>
                    </program>
                    </listing>
     </li>
@@ -1095,9 +1095,9 @@ T_2(\vec{u})+T_2(\vec{v})=T_2(1,1)+T_2(-1,1)=(1,-1)+(1,-1)=(2,-2)
     <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
                 show(sum(A.column(k) for k in range(A.ncols()))+sum(B.row(k) for k in range(B.nrows())))
-</input>
+</code>
                    </program>
                    </listing>
     </li>
@@ -1105,9 +1105,9 @@ T_2(\vec{u})+T_2(\vec{v})=T_2(1,1)+T_2(-1,1)=(1,-1)+(1,-1)=(2,-2)
     <li><listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
                 show(A.column(0)*B.row(0))
-</input>
+</code>
                    </program>
                    </listing></li>
     </ol></p>
@@ -1146,7 +1146,7 @@ polygon(L,color="blue")+polygon(Ltrans,color="red")
     <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
 #Définition des points du quadrilatère ABCD
 A=vector([1,0])
 B=vector([1,1])
@@ -1161,7 +1161,7 @@ R=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]])
 Ltrans=list([R*v for v in L])
 #On illustre les quadrilatères, ainsi que le vecteur w sur l'un des points
 polygon(L,color="blue")+polygon(Ltrans,color="red")
-</input>
+</code>
                    </program>
                    </listing>
     </solution>
@@ -1221,7 +1221,7 @@ polygon(L,color="blue")+polygon(Ltrans,color="red")
     <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
 rot90=column_matrix([[0,1],[-1,0]]) #la matrice de rotation de 90 degrés
 trans=vector([2,3]) #Le centre de la rotation, aussi le vecteur de translation
 point=vector([-1,1])
@@ -1229,7 +1229,7 @@ pointtrans=point-trans # L'image du point après la translation
 pointtransrot=rot90*pointtrans #L'image du point translaté après la translation
 pointfinal=pointtransrot+trans
 show(pointfinal)
-</input>
+</code>
                    </program>
                    </listing>
     </solution>
@@ -1252,14 +1252,14 @@ show(pointfinal)
     <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
 def rotaffine(c,theta,P):
     rot=column_matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]]) #la matrice de rotation de theta radians
     Ptrans=P-c # L'image du point après la translation
     Ptransrot=rot*Ptrans #L'image du point translaté après la translation
     Pfinal=Ptransrot+c
     return Pfinal
-</input>
+</code>
                    </program>
                    </listing>
                    <p>Il suffit ensuite d'appeler la fonction avec les arguments nécessaires. Par exemple, le code <c>rotaffine(vector([2,3]),pi/2,vector([-1,1]))</c>

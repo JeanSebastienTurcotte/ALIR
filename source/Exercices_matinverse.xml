@@ -683,13 +683,13 @@
     <listing>
                    <caption>Le code solution pour la matrice A de l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
 A=matrix([[3,-1],[0,-3]])
 Ainv=A.inverse()
 show("A=",A)
 show("A^(-1)=",Ainv)
 show("AA^(-1)=",A*Ainv)
-               </input>
+               </code>
                    </program>
                    </listing> 
                    <p>On peut simplement remplacer la matrice initiale et exécuter le code à nouveau pour calculer l'inverse de B, puis de C.</p>
@@ -709,7 +709,7 @@ show("AA^(-1)=",A*Ainv)
     <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
 B=matrix([[2,-2,1],[-1,5,1],[2,1,3]])
 Binv=B.inverse()
 show("B=",B)
@@ -723,7 +723,7 @@ BCinv=BC.inverse()
 show("C^(-1)B^(-1)=",Cinv*Binv)
 show("(BC)^(-1)",BCinv)
 show(Cinv*Binv==BCinv)
-               </input>
+               </code>
                    </program>
                    </listing> 
                    <p>On a vérifié l'équation des deux façons proposées.</p>
@@ -753,7 +753,7 @@ show(Cinv*Binv==BCinv)
     <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
 u1,u2,k =var('u1,u2,k')
 def etirR2(u,k):
     uperp=vector([-u[1],u[0]]) #Le vecteur u perpendiculaire
@@ -762,7 +762,7 @@ def etirR2(u,k):
     T=V*(U.inverse()) #La transformation
     return T
 show(etirR2(vector([u1,u2]),k).simplify_full())
-               </input>
+               </code>
                    </program>
                    </listing> 
                    <p>Remarquer qu'on a utilisé la commande <c>simplify_full()</c> afin d'avoir une forme plus compacte.</p>
@@ -786,7 +786,7 @@ show(etirR2(vector([u1,u2]),k).simplify_full())
             <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
 def perm_matrix(n):
     Id=identity_matrix(n)
     col=Id.columns()
@@ -814,13 +814,13 @@ show("Le nombre de matrices de permutation 4x4 qui sont leur propre inverse est 
 show("Voici ces matrices qui sont leur propre inverse :", P4propreinverse)
 show("Le nombre de matrices de permutation 4x4 qui ne sont pas leur propre inverse est de ", len(P4autreinverse))
 show("Celles-ci ne sont pas leur propre inverse :",P4autreinverse)
-</input>
+</code>
                    </program>
                    </listing>
             <listing>
                    <caption>Une remarque concernant les copies créées simplement avec "=" </caption>
                <program language="sage">
-               <input>
+               <code>
 L1=[1,2,3,4,5] 
 L2=L1 #On veut créer une copie de travail de la liste L1
 L2.remove(4)
@@ -830,7 +830,7 @@ L3.remove(3)
 show(L1)
 show(L2)
 show(L3)
-</input>
+</code>
                    </program>
                    </listing>
             </solution>
@@ -922,7 +922,7 @@ show("P3P3*v=",P3*P3*v)
                     <listing>
                     <caption>Le code où l'on définit la fonction <em>matquelc</em></caption>
                     <program language="sage">
-                    <input>
+                    <code>
 def matquelc(m,n,lettre):
     a=str(lettre)   #On s'assure que lettre est un caractère de la forme "a"
     liste=[] #Création d'une liste vide
@@ -931,7 +931,7 @@ def matquelc(m,n,lettre):
             liste.append('%s_%d%d'%(a,i+1,j+1))   #On ajoute à la fin de la liste (append) la chaine a_i+1j+1 , les +1 paliant au fait que range(k) va de 0 à k-1
     M=matrix(SR,m,n,liste)  #On crée une matrice mxn à partir de liste (Le SR dit à sage que la matrice est symbolique. Il n'est pas nécessaire de comprendre son rôle)
     return M  #La fonction retourne la matrice M
-                   </input>
+                   </code>
                    </program>
                    </listing>
                    <p>
@@ -942,14 +942,14 @@ def matquelc(m,n,lettre):
                     <listing>
                     <caption>Le code solution pour l'exercice</caption>
                     <program language="sage">
-                    <input>
+                    <code>
 #Ne pas oublier de recopier la définition de la fonction matquelc donnée plus haut.
 A=matquelc(3,3,'a')
 B=matquelc(2,3,'b')
 C=matquelc(2,3,'c')
 X=(C-B)*(A^(-1))
 X*A+B==C
-                   </input>
+                   </code>
                    </program>
                    </listing> 
                    </li>
@@ -959,13 +959,13 @@ X*A+B==C
                     <listing>
                     <caption>Le code solution pour l'exercice</caption>
                     <program language="sage">
-                    <input>
+                    <code>
 A=matquelc(2,2,'a')
 B=matquelc(2,3,'b')
 I=I3=identity_matrix(2)
 X=-((A-I)^(-1))*B
 A*X+B==X
-                    </input>
+                    </code>
                     </program>
                     </listing>
                     </li>
@@ -975,13 +975,13 @@ A*X+B==X
                     <listing>
                     <caption>Le code solution pour l'exercice</caption>
                     <program language="sage">
-                    <input>
+                    <code>
 A=matquelc(3,3,'a')
 B=matquelc(2,2,'b')
 D=matquelc(3,2,'d')
 X=(A^(-1))*D*(B^(-1))
 A*X*B==D
-                    </input>
+                    </code>
                     </program>
                     </listing>
                     </li>
@@ -991,13 +991,13 @@ A*X*B==D
                     <listing>
                     <caption>Le code solution pour l'exercice</caption>
                     <program language="sage">
-                    <input>
+                    <code>
 A=matquelc(2,2,'a')
 B=matquelc(2,2,'b')
 C=matquelc(2,2,'c')
 X=((C-B)^(-1))*A
 A*(X^(-1))+B==C
-                    </input>
+                    </code>
                     </program>
                     </listing>
                     </li>
@@ -1022,14 +1022,14 @@ A*(X^(-1))+B==C
    <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
 def inversecompo(T11,T12,C1,C2):
     T1=column_matrix([T11,T12])
     T1inv=T1.inverse()
     C=column_matrix([C1,C2])
     T2=T1inv*C
     return T2
-</input>
+</code>
                    </program>
                    </listing> 
     </solution>

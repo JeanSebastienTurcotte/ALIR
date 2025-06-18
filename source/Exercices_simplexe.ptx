@@ -629,31 +629,31 @@ enableRightClick(false);
 <sage><input>#Inscrire le code ici</input></sage></statement>
 <solution><listing><caption>Code pour le premier problème</caption>
 <program language="Sage">
-<input>
+<code>
 A=matrix([[-1,1],[1,5],[1,-7]])
 b=vector([0,24,-12])
 c=vector([3,2])
 P=InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
 P=P.standard_form()
 P.run_simplex_method()
-</input>
+</code>
 </program>
 </listing>
 <listing><caption>Code pour le deuxième problème</caption>
 <program language="Sage">
-<input>
+<code>
 A=matrix([[-2,1],[-1,1],[2,1],[1,-3]])
 b=vector([-5,-1,14,0])
 c=vector([1,2])
 P=InteractiveLPProblem(A, b, c, ["x", "y"], variable_type=">=")
 P=P.standard_form()
 P.run_simplex_method()
-</input>
+</code>
 </program>
 </listing>
 <listing><caption>Code pour le troisième problème</caption>
 <program language="Sage">
-<input>
+<code>
 A=matrix([[-1,2],[3,1],[1,2],[1,-2],[1,2],[3,1]])
 b=vector([3,26,12,8,21,38])
 c=vector([-2,3])
@@ -661,12 +661,12 @@ c=vector([-2,3])
 P=InteractiveLPProblem(A, b, c, ["x", "y"],constraint_type=["&lt;=",">=",">=","&lt;=","&lt;=","&lt;="], variable_type=">=")
 P=P.standard_form()
 P.run_simplex_method()
-</input>
+</code>
 </program>
 </listing>
 <listing><caption>Code pour le dernier problème</caption>
 <program language="Sage">
-<input>
+<code>
 A=matrix([[-2,5],[3,2],[5,-3]])
 b=vector([1,27,7])
 c=vector([1,1])
@@ -674,7 +674,7 @@ c=vector([1,1])
 P=InteractiveLPProblem(A, b, c, ["x", "y"],constraint_type=[">=","&lt;=",">="], variable_type=">=",problem_type="min")
 P=P.standard_form()
 P.run_simplex_method()
-</input>
+</code>
 </program>
 </listing>
 </solution>
@@ -740,7 +740,7 @@ Le code suivant permet d'écrire le problème sous forme canonique. La variable 
 </p>
 <listing><caption>La forme canonique du problème</caption>
 <program language="Sage">
-<input>
+<code>
 A = matrix([[1, 1, 1, 0, 0, 0],[-1, -1, -1, 0, 0, 0],[ 0, 0, 0, 1, 1, 1],[ 0, 0, 0, -1, -1, -1],[ 1, 0, 0, 1, 0, 0],[ 0, 1, 0, 0, 1, 0],[ 0, 0, 1, 0, 0, 1]])
 b = vector([150,-150, 275,-275, 160, 140, 170,])
 c = vector([2,2,3,1,3,1])
@@ -748,7 +748,7 @@ P=InteractiveLPProblem(A, b, c, ["U11", "U12","U13","U21","U22","U23"], variable
 P=P.standard_form()
 %display typeset
 P
-</input>
+</code>
 </program>
 </listing>
 </solution>
@@ -765,7 +765,7 @@ Le code suivant permet de trouver la solution optimale.
 </p>
 <listing><caption>La forme canonique du problème</caption>
 <program language="Sage">
-<input>
+<code>
 A = matrix([[1, 1, 1, 0, 0, 0],[-1, -1, -1, 0, 0, 0],[ 0, 0, 0, 1, 1, 1],[ 0, 0, 0, -1, -1, -1],[ 1, 0, 0, 1, 0, 0],[ 0, 1, 0, 0, 1, 0],[ 0, 0, 1, 0, 0, 1]])
 b = vector([150,-150, 275,-275, 160, 140, 170,])
 c = vector([2,2,3,1,3,1])
@@ -774,7 +774,7 @@ P=P.standard_form()
 %display typeset
 show(P.optimal_solution())
 show(c*P.optimal_solution())
-</input>
+</code>
 </program>
 </listing>
 <p>On constate que, pour <m>575</m> millions de dollars, la compagnie minimise ses couts de transport quand elle envoie du premier site de coupe <m>55</m> millions de PMP vers l'usine <m>1</m> et <m>95</m> millions de PMP vers l'usine <m>B</m> ainsi que <m>105</m> millions de PMP à l'usine <m>1</m> et <m>170</m> vers l'usine <m>3</m> provenant du deuxième site de coupe.</p>

@@ -114,7 +114,7 @@ R.&lt;u1,u2,u3>=QQ[]
     <listing>
     <caption>Le code solution pour la lettre (a)</caption>
     <program language="sage">
-    <input>
+    <code>
 var("u1,u2,u3")
 u=vector([u1,u2,u3])
 v=vector([2,3,4])
@@ -122,14 +122,14 @@ R.&lt;u1,u2,u3>=QQ[]
 A=matrix([u,v])
 rrefA=A.echelon_form()
 show("rref(A)=",rrefA.simplify_full()) #On utilise la fonction simplify_full() pour que les fractions soient réduites
-    </input>
+    </code>
     </program>
     </listing>
     <p>On choisit la valeur <m>w_3=3u_1-2u_2</m> pour obtenir le vecteur ayant des valeurs entières <m>\vec{w}=(4u_2-3u_3,-4u_1+2u_3,3u_1-2u_2)</m>.</p>
     <listing>
     <caption>Le code solution pour la lettre (b)</caption>
     <program language="sage">
-    <input>
+    <code>
 var("u1,u2,u3")
 u=vector([u1,u2,u3])
 v=vector([-2,1,5])
@@ -137,7 +137,7 @@ R.&lt;u1,u2,u3>=QQ[]
 A=matrix([u,v])
 rrefA=A.echelon_form()
 show("rref(A)=",rrefA.simplify_full()) 
-    </input>
+    </code>
     </program>
     </listing>
     <p>On choisit la valeur <m>w_3=u_1+2u_2</m> pour obtenir le vecteur à valeurs entières <m>\vec{w}=(5u_2-u_3,-5u_1-2u_3,u_1+2u_2)</m>.</p>
@@ -157,7 +157,7 @@ R.&lt;u1,u2,u3,v1,v2,v3>=QQ[]
     <listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 var("u1,u2,u3,v1,v2,v3")
 u=vector([u1,u2,u3])
 v=vector([v1,v2,v3])
@@ -165,7 +165,7 @@ R.&lt;u1,u2,u3,v1,v2,v3>=QQ[]
 A=matrix([u,v])
 rrefA=A.echelon_form()
 show("rref(A)=",rrefA.simplify_full())
-    </input>
+    </code>
     </program>
     </listing>
     <p>On choisit la valeur <m>w_3=-u_{2} v_{1} + u_{1} v_{2}</m> pour obtenir le vecteur à valeurs entières <m>\vec{w}=\left(-u_{3} v_{2} + u_{2} v_{3},\,u_{3} v_{1} - u_{1} v_{3},\,-u_{2} v_{1} + u_{1} v_{2}\right)</m>.</p>
@@ -1014,7 +1014,7 @@ def solbase(A):
     <listing>
     <caption>La fonction pour la solution homogène</caption>
     <program language="sage">
-    <input>
+    <code>
     def solh(A):
     base=solbase(A)
     if base=="Il n'y a pas de solution de base. La seule solution à Ax=0 est le vecteur nul":
@@ -1032,7 +1032,7 @@ def solbase(A):
         solh=message.replace("La solution de base est ","")
         print(message)
         return solh
-    </input>
+    </code>
         </program>
     </listing>
     </solution>

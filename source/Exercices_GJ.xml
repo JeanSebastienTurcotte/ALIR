@@ -1317,13 +1317,13 @@ Quelle est la solution de ce système dans le cas où la valeur de <m>x</m> fait
     <listing>
     <caption>Le code pour les matrices élémentaires</caption>
     <program language="sage">
-    <input>
+    <code>
 show(elementary_matrix(5,row1=2,row2=4)) #On se rapelle que la première ligne est indicée à 0
 show(elementary_matrix(8,row1=2,row2=4))
 show(elementary_matrix(3,row1=1,scale=4))
 show(elementary_matrix(3,row1=1,scale=4))
 show(elementary_matrix(5,row1=3,row2=0,scale=-4))    
-    </input>
+    </code>
     </program>
     </listing>
     </solution>
@@ -1351,14 +1351,14 @@ show(elementary_matrix(5,row1=3,row2=0,scale=-4))
     <solution><listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[3,2,-5,1],[0,8,2,0],[1,-7,5,0],[2,3,1,-1]])# La matrice
 b=vector([-1,3,-2,5]) #Le vecteur
 sol=(A.augment(b).rref()) #La matrice augmentée échelonnée réduite
 show(sol)
 vecsol=sol.column(-1) #-1 permet d'avoir la dernière colonne
 pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty devant le print fait en sorte que les fractions soient debout
-    </input>
+    </code>
     </program>
     </listing></solution>
     </task>
@@ -1388,7 +1388,7 @@ pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty dev
     <listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[0,1,4,-1,2,7],[-1,3,3,1,12,3],[11,0,2,5,0,-4],[9,5,-1,11,-7,4],[1,2,3,-4,5,7],[-3,2,5,7,8,-13]])
 b1=vector([1,2,3,4,5,6])
 b2=vector([6,5,4,3,2,1])
@@ -1411,7 +1411,7 @@ pretty_print("La solution de Ax=b1 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol1)
 pretty_print("La solution de Ax=b2 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol2)
 pretty_print("La solution de Ax=b3 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol3)
 pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
-    </input>
+    </code>
     </program>
     </listing>
     </solution>
@@ -1434,7 +1434,7 @@ pretty_print("La solution de Ax=b4 est (x_1,x_2,x_3,x_4,x_5,x_6)=",vecsol4)
     <solution><listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[1,1,1,1],[1,2,3,4],[1,4,9,16],[1,8,27,64]])# La matrice
 b=vector([1,2,3,4]) #Le vecteur
 show(A.augment(b)) #Optionnel: pour vérifier qu'on a bien écrit le système dans Sage
@@ -1442,7 +1442,7 @@ sol=(A.augment(b).rref()) #La matrice augmentée échelonnée réduite
 show(sol)
 vecsol=sol.column(-1) #-1 permet d'avoir la dernière colonne
 pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty devant le print fait en sorte que les fractions soient debout    
-    </input>
+    </code>
     </program>
     </listing></solution></task>
     <task>
@@ -1466,14 +1466,14 @@ pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty dev
     <solution><listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[1,-1,1,-1],[1,-2,3,-4],[1,-4,9,-16],[1,-8,27,-64]])# La matrice
 b=vector([1,-2,3,-4]) #Le vecteur
 show(A.augment(b)) #Optionnel: pour vérifier qu'on a bien écrit le système dans Sage
 sol=(A.augment(b).rref()) #La matrice augmentée échelonnée réduite
 show(sol)
 vecsol=sol.column(-1) #-1 permet d'avoir la dernière colonne
-pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty devant le print fait en sorte que les fractions soient debout    </input>
+pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty devant le print fait en sorte que les fractions soient debout    </code>
     </program>
     </listing></solution>
     </task>
@@ -1497,12 +1497,12 @@ pretty_print("La solution est (x_1,x_2,x_3,x_4)=",vecsol) #L'ajout de pretty dev
     <solution><listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[1,1,1,1],[1,2,3,4],[1,4,9,16],[1,8,27,64]])# La matrice
 b=vector([1,2,3,4]) #Le vecteur
 sol=(A.solve_right(b))
 pretty_print("La solution est (x_1,x_2,x_3,x_4)=",sol)   
-    </input>
+    </code>
     </program>
     </listing></solution>
     </task>
@@ -1524,12 +1524,12 @@ pretty_print("La solution est (x_1,x_2,x_3,x_4)=",sol)
     <solution><listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[1,-1,1,-1],[1,-2,3,-4],[1,-4,9,-16],[1,-8,27,-64]])# La matrice
 b=vector([1,-2,3,-4]) #Le vecteur
 sol=(A.solve_right(b))
 pretty_print("La solution est (x_1,x_2,x_3,x_4)=",sol)
-    </input>
+    </code>
     </program>
     </listing></solution>
     </task>
@@ -1554,7 +1554,7 @@ pretty_print("La solution est (x_1,x_2,x_3,x_4)=",sol)
     <listing>
     <caption>Le code solution permettant de trouver l'équation et de tracer la parabole et les trois points</caption>
     <program language="sage">
-    <input>
+    <code>
 P=vector([-1,22])
 Q=vector([2,19])
 R=vector([3,34])
@@ -1568,7 +1568,7 @@ ptP=plot(point(P))+text('  P(%s,%s)'%(P[0],P[1]),P,horizontal_alignment='left')
 ptQ=plot(point(Q))+text('  Q(%s,%s)'%(Q[0],Q[1]),Q,horizontal_alignment='left')
 ptR=plot(point(R))+text('  R(%s,%s)'%(R[0],R[1]),R,horizontal_alignment='left')
 show(para+ptP+ptQ+ptR)
-    </input>
+    </code>
     </program>
     </listing>
     </solution>
@@ -1587,7 +1587,7 @@ show(para+ptP+ptQ+ptR)
     <listing>
     <caption>La fonction qui donne l'équation de la parabole passant par trois points donnés</caption>
     <program language="sage">
-    <input>
+    <code>
 def eqparapoints(P1,P2,P3):
     v1=P2-P1
     v2=P3-P1
@@ -1606,7 +1606,7 @@ P4=(P1+P2)/2
 eqparapoints(P1,P2,P3)
 eqparapoints(P1,P1,P3) #On teste avec deux points pareils
 eqparapoints(P1,P2,P4) #On teste avec trois points sur une droite
-    </input>
+    </code>
     </program>
     </listing>
     <p>On remarque que l'équation obtenue pour trois points alignés est l'équation d'une droite.</p>

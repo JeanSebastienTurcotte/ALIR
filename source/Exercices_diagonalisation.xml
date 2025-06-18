@@ -625,7 +625,7 @@ B_{\mathcal{B}}=P^{-1}BP=\begin{pmatrix} -2&amp; 1\\ 0&amp; -2 \end{pmatrix}
 Le code de la solution
 </caption>
 <program language="sage">
-<input>
+<code>
 l1=(1-sqrt(5))/2
 l2=(1+sqrt(5))/2
 v1=vector([l1,1])
@@ -637,7 +637,7 @@ D=matrix(RDF,[[l1,0],[0,l2]])
 show(D^100)
 show(P*D^100*Pinv)
 show(P*D^100*Pinv*x0)
-</input>
+</code>
 </program>
 </listing>
 </solution>
@@ -655,13 +655,13 @@ show(P*D^100*Pinv*x0)
 <listing>
 <caption>Le code de la solution</caption>
 <program language="sage">
-<input>
+<code>
 def axe(R):
     VVP={} #Dictionnaire des valeurs-vecteurs propres. On utilise un dictionnaire parce qu'on ne sait pas dans quel élément de la liste se retrouvera la valeur propre 1
     for couple in R.eigenvectors_right(): #on itère sur tous les couples de valeurs-vecteurs propres retournés
         VVP[couple[0]]=couple[1]  #On assiste au dictionnaire la clé valeur propre et la valeur les vecteurs propres associés
     return VVP[1][0]  #On retourne le vecteur propre associé à 1
-</input>
+</code>
 </program>
 </listing>
 </solution>

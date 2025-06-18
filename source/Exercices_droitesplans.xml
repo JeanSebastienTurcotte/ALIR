@@ -1120,12 +1120,12 @@
      <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
                 var("a")
                 D1=parametric_plot([-a-3,2*a+2],(a,-5,5),color="black")
                 D2=parametric_plot([3*a+4,-a],(a,-5,5),color="red")
                 D1+D2
-</input>
+</code>
                    </program>
                    </listing>
     </solution>
@@ -1163,7 +1163,7 @@
      <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
                 var("a","b")
                 u=vector([-1,2,1])
                 v=vector([-5,4,-3])
@@ -1173,7 +1173,7 @@
                 graphu=plot(u,color="red",start=A)
                 graphv=plot(v,color="red",start=A)
                 P+graphA+graphu+graphv
-</input>
+</code>
                    </program>
                    </listing>
     </solution>
@@ -1228,7 +1228,7 @@
      <listing>
                    <caption>Le code pour le vecteur normal, partie 1</caption>
                <program language="sage">
-               <input>
+               <code>
                 u=vector([-1,2,1])  #le premier vecteur directeur
                 v=vector([-5,4,-3]) #le second vecteur directeur
                 var("a","b","c")
@@ -1237,7 +1237,7 @@
                 eq2=v*n==0   #le vecteur normal doit être perpendiculaire à v
                 sol=solve([eq1,eq2],a,b,c,solution_dict=True) #on résout les équations en fonction des composantes du vecteur normal. L'option solution_dict permet de coder différement les entrées de sol
                 sol
-                </input>
+                </code>
                    </program>
                    </listing>
                    <p>
@@ -1246,22 +1246,22 @@
                    <listing xml:id="code-extrairevariables">
                    <caption>Le code pour le vecteur normal, partie 2</caption>
                <program language="sage">
-               <input>
+               <code>
                 n=vector([sol[0][a],sol[0][b],sol[0][c]]) #on extrait de la liste de solutions sol les expressions voulues
                 libre=sol[0][a].variables()[0] #On va chercher le nom de la variable libre. Ceci est nécessaire au cas où des exécutions multiples sont effectuées
                 n=n.subs({libre:3})     #on pose la variable libre à 3
                 n
-                </input>
+                </code>
                    </program>
                    </listing>
                    <p>Finalement, on obtient l'équation normale <m>\vec{n}\cdot (x-6,y-3,z-2)=0</m> ce qui donne </p>
                     <listing>
                    <caption>Le code pour l'équation normale</caption>
                <program language="sage">
-               <input>
+               <code>
                 var("x","y","z")
                 show(n*vector([x-6,y-3,z-2])==0)
-                </input>
+                </code>
                    </program>
                    </listing>
                    </li>
@@ -1269,13 +1269,13 @@
                    <listing>
                    <caption>Le code pour la distance point plan</caption>
                <program language="sage">
-               <input>
+               <code>
                 OA=vector([6,3,2]) #un point connu sur le plan
                 OP=vector([3,-4,2]) #le point extérieur au plan
                 AP=OP-OA
                 APsurn=AP*n/(n*n)*n  #calcul de la projection
                 show(norm(APsurn))
-                </input>
+                </code>
                    </program>
                    </listing>
                    </li>
@@ -1283,10 +1283,10 @@
                    <listing>
                    <caption>Les coordonnées du points <m>Q</m></caption>
                <program language="sage">
-               <input>
+               <code>
                 OQ=OP-APsurn
                 show(OQ)
-                </input>
+                </code>
                    </program>
                    </listing>
                    </li>
@@ -1294,12 +1294,12 @@
                    <listing>
                    <caption>Le code de la représentation graphique</caption>
                <program language="sage">
-               <input>
+               <code>
                 plan=implicit_plot3d(n*vector([x-6,y-3,z-2])==0,(x,-10,10),(y,-10,10),(z,-10,10),color="blue")
                 P=point(OP,size=15,color="black")
                 vecproj=plot(APsurn,color="red",start=OQ)
                 plan+P+vecproj
-                </input>
+                </code>
                    </program>
                    </listing>
                    </li>
@@ -1348,14 +1348,14 @@ l
     <listing>
                    <caption>L'équation d'une parabole</caption>
                <program language="sage">
-               <input>
+               <code>
                 def eqpara(v,A,F):
                     var("x","y",domain="real")
                     P=vector([x,y])
                     AP=P-A
                     PF=F-P
                     return (expand(norm(PF)^2-norm(AP-AP*v/(v*v)*v)^2)==0)
-                </input>
+                </code>
                    </program>
                    </listing>
     </solution>

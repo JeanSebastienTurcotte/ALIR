@@ -1028,11 +1028,11 @@
                <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
                 u=vector([-1,2])
                 v=vector([2,1])
                 plot(u,color="red")+plot(v,color="blue")   
-                </input>
+                </code>
                    </program>
                    </listing>
             </solution></task> 
@@ -1091,13 +1091,13 @@
            <listing>
                    <caption>Le code solution pour l'exercice</caption>
                <program language="sage">
-               <input>
+               <code>
                 u1=plot(u,start=(1,3),color="red")+text('$\\vec{u}$',(0.5,3.6),color="red")          
                 v1=plot(v,start=(1,3),color="blue")+text('$\\vec{v}$',(2,3.4),color="blue")
                 u2=plot(u,start=vector([1,3])+v,color="green")+text('$\\vec{u}$',(2.5,5.3),color="green")
                 v2=plot(v,start=vector([1,3])+u,color="orange")+text('$\\vec{v}$',(1,5.4),color="orange")
                 u1+u2+v1+v2
-                </input>
+                </code>
                    </program>
                    </listing>
              
@@ -1152,7 +1152,7 @@
     <listing>
         <caption>La conversion d'un angle de degrés à radians</caption>
         <program language="sage">
-            <input>
+            <code>
                 def radians(theta): #Pour convertir theta degrés en radians
                     theta=theta*2*pi/360
                     return theta
@@ -1161,14 +1161,14 @@
                 radians(340)
                 radians(-60)
                 radians(400)
-            </input>
+            </code>
         </program>
         </listing></li>
         <li>
     <listing>
         <caption>La conversion d'un angle de radians à degrés</caption>
         <program language="sage">
-            <input>
+            <code>
                 def degres(theta): #Pour convertir theta radians en degrés
                     theta=theta*360/(2*pi)
                     return theta
@@ -1177,14 +1177,14 @@
                 degres(7*pi/5)
                 degres(-6*pi/7)
                 degres(13*pi/6)
-            </input>
+            </code>
         </program>
         </listing></li>
         <li>
     <listing>
         <caption>La conversion d'un angle en degrés à l'intervalle <m>[0,360[</m></caption>
         <program language="sage">
-            <input>
+            <code>
               def degres360(theta): #Prend un angle en degrés et le ramène à son équivalent entre 0 et 360
                   if theta&gt;=0 and theta&lt; 360:
                       return theta
@@ -1200,14 +1200,14 @@
               degres360(390)
               degres360(-60)
               degres360(1988)
-            </input>
+            </code>
         </program>
         </listing></li>
         <li>
     <listing>
         <caption>La conversion d'un angle en radians à l'intervalle <m>[0,2\pi[</m></caption>
         <program language="sage">
-            <input>
+            <code>
                 def radians2pi(theta): #Prend un angle en radians et le ramène à son équivalent entre 0 et 2pi
                     if theta &gt;=0 and theta &lt;2*pi:
                         return theta
@@ -1224,7 +1224,7 @@
                 radians2pi(19*pi/6)
                 radians2pi(-5*pi/3)
                 radians2pi(2020*pi/4)
-            </input>
+            </code>
         </program>
         </listing></li>
         </ol>
@@ -1233,12 +1233,12 @@
     <listing>
     <caption>Vérifications demandées</caption>
     <program language="sage">
-    <input>
+    <code>
     show("$\\frac{-2020\pi}{3}\equiv$",degres360(degres(-2020*pi/3))) #On convertit en degres et ensuite on ramène dans l'intervalle 0-360
     show("$\\frac{-109\pi}{5}\equiv$",degres360(degres(-109*pi/5))) #On convertit en degres et ensuite on ramène dans l'intervalle 0-360
     show("$2020^\circ\equiv$",radians2pi(radians(2020))) #On convertit en degres et ensuite on ramène dans l'intervalle 0-360
     show("$-1988^\circ\equiv$",radians2pi(radians(-1988))) #On convertit en degres et ensuite on ramène dans l'intervalle 0-360
-    </input>
+    </code>
     </program>
     </listing>
     </solution>

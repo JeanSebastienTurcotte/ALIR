@@ -742,11 +742,11 @@ fibo(10)
     <answer><p><m>f_{100}=354224848179261915075</m></p></answer>
     <solution><listing><caption>Le code de la solution</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[1,1],[1,0]])
 x0=vector([0,1])
 show(A^100*x0[0])
-    </input>
+    </code>
     </program>
     </listing></solution>
     </task>
@@ -901,13 +901,13 @@ limit(f(n+1)/f(n),n=infinity)
     <answer><p>Les valeurs propres et les vecteurs propres associés à chacune sont <m>\lambda_1=3,\vec{v}_1=(1, -4, 1, -19), \lambda_2=-1,\vec{v}_2=(0, 1, -1, -17),\lambda_3=2, \vec{v}_3=(1, 0, -1/2, 3/2),\vec{v}_4=(0, 1, -1/2, 1/2)</m>. Il y a deux valeurs propres de multiplicité algébrique et géométrique égales à <m>1</m> et une valeur propre de multiplicité algébrique et géométrique égales à <m>2</m>.</p></answer>
     <solution><listing><caption>Le code de la solution</caption>
     <program language="Sage">
-    <input>
+    <code>
 A=matrix([[21, 18, 35, -1],
 [-16, -13, -29, 1],
 [-41, -39, -74, 2],
 [-1381, -1311, -2552, 72]])
 show(A.eigenvectors_right())
-    </input>
+    </code>
     </program></listing></solution>
     </task>
     <task><statement><p><m>B=\begin{pmatrix}4 &amp; -6 &amp; 6 &amp; 6 \\
@@ -919,13 +919,13 @@ show(A.eigenvectors_right())
     <answer><p>Les valeurs propres et les vecteurs propres associés sont <m>\lambda_1=4,\vec{v}_1=(1, -1, 0, -1), \lambda_2=2,\vec{v}_2=(0, 1, 1, 0),\lambda_3=0,\vec{v}_3=(0, 1, 1/2, 1/2),\lambda_4=-2,\vec{v}_4=(1, -1, 2, -4)</m>. Toutes les valeurs propres ont les multiplicités algébrique et géométrique égales à <m>1</m>.</p></answer>
     <solution><listing><caption>Le code de la solution</caption>
     <program language="Sage">
-    <input>
+    <code>
 B=matrix([[4, -6, 6, 6],
 [-6, -4, 6, 2],
 [-2, -14, 16, 12],
 [-4, 12, -12, -12]])
 show(B.eigenvectors_right())
-    </input>
+    </code>
     </program></listing></solution>
     </task>
     <task><statement><p><m>C=\begin{pmatrix}-14 &amp; -1 &amp; 6 &amp; -5 \\
@@ -938,13 +938,13 @@ show(B.eigenvectors_right())
 </m>. La valeur propre <m>-1</m> est de multiplicité algébrique et géométrique <m>1</m>. La valeur propre <m>1</m> a pour multiplicité algébrique <m>3</m>, mais seulement <m>2</m> comme multiplicité géométrique.</p></answer>
     <solution><listing><caption>Le code de la solution</caption>
     <program language="Sage">
-    <input>
+    <code>
 C=matrix([[-14, -1, 6, -5],
 [-9, 0, 4, -3],
 [-27, -1, 11, -9],
 [12, 2, -6, 5],])
 show(C.eigenvectors_right())
-    </input>
+    </code>
     </program></listing></solution>
     </task>
     <task><statement><p><m>D=\begin{pmatrix}3 &amp; -5 &amp; 15 &amp; 14 \\
@@ -956,13 +956,13 @@ show(C.eigenvectors_right())
     <answer><p>Les valeurs propres et les vecteurs propres associés sont <m>\lambda_1=2,\vec{v}_2=(1, 0, -1, 1),\lambda_2=-3,\vec{v}_2=(1, 1, -1, 1)</m>. Les deux valeurs propres ont comme multiplicité algébrique <m>2</m>, mais une multiplicité géométrique seulement égale à <m>1</m>.</p></answer>
     <solution><listing><caption>Le code de la solution</caption>
     <program language="Sage">
-    <input>
+    <code>
 D=matrix([[3, -5, 15, 14],
 [1, -3, 14, 13],
 [-6, 5, -58, -54],
 [6, -5, 60, 56]])
 show(D.eigenvectors_right())  
-    </input>
+    </code>
     </program></listing></solution>
     </task>
     </exercise>
@@ -985,13 +985,13 @@ lucas(10)
     <listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
     A=matrix([[1,1],[1,0]])
     Ainv=A.inverse()
     x1=vector([1,2])
     x0=Ainv*x1
     show(x0)
-    </input>
+    </code>
     </program></listing>
     </solution>
     </task>
@@ -1002,7 +1002,7 @@ lucas(10)
     </me></p></answer>
     <solution><listing><caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 l1=(1-sqrt(5))/2
 l2=(1+sqrt(5))/2
 T=column_matrix([[l1,1],[l2,1]])
@@ -1013,7 +1013,7 @@ show(rep)
 maxima_calculus('algebraic: true;')
 rep[0].simplify_rational()
 rep[1].simplify_rational()
-    </input>
+    </code>
     </program>    </listing></solution>
     </task>
     <task><statement><p>Montrer que

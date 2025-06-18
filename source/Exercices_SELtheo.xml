@@ -1547,13 +1547,13 @@ Elle est de rang <m>1</m>.
 <solution><listing>
     <caption>Le code solution pour les vecteurs initiaux</caption>
     <program language="sage">
-    <input>
+    <code>
 u=matrix([[2],[1]])
 vT=matrix([[3,4]])
 uvT=u*vT
 show(uvT)
 show(rank(uvT))
-    </input>
+    </code>
     </program>
     </listing>
 <p>On remarque qu'il suffit de remplacer les vecteurs initiaux par d'autres vecteurs pour tester.
@@ -1894,12 +1894,12 @@ Sinon, on risque d'obtenir une solution unique même s'il y a une infinité de s
 <listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[5,-3,2,7],[3,0,3,-1],[6,2,1,-2],[2,-1,-6,8],[8,-1,0,6]])
 b=vector([-3,2,0,-9,-5])
 show((A.augment(b,subdivide=True))) #Pour vérifier qu'on a le bon système
 show((A.augment(b,subdivide=True)).rref())
-    </input>
+    </code>
     </program>
     </listing>
 <p>On interprète cette solution ainsi:
@@ -1926,12 +1926,12 @@ Sinon, on risque d'obtenir une solution unique même s'il y a une infinité de s
 <listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[2,-4,-1,3],[1,0,4,1],[1,2,-4,-1],[0,1,7,4],[4,-1,0,7]])
 b=vector([-1,-12,5,4,-1])
 show((A.augment(b,subdivide=True)))
 show((A.augment(b,subdivide=True)).rref())
-    </input>
+    </code>
     </program>
     </listing>
 <p>Il n'y a donc aucune solution à ce système, puisqu'il y a un pivot dans la partie augmentée.</p></solution>
@@ -1956,12 +1956,12 @@ Sinon, on risque d'obtenir une solution unique même s'il y a une infinité de s
 <listing>
     <caption>Le code solution</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[3,-5,0,3,-1],[-2,3,-1,4,0],[-3,0,5,1,2]])
 b=vector([7,-1,-3])
 show((A.augment(b,subdivide=True)))
 show((A.augment(b,subdivide=True)).rref())
-    </input>
+    </code>
     </program>
     </listing>
 <p>On interprète cette solution ainsi:
@@ -1981,31 +1981,31 @@ Si ces rangs sont égaux, le système est compatible.</p>
 <listing>
     <caption>Le code solution pour la lettre (a)</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[5,-3,2,7],[3,0,3,-1],[6,2,1,-2],[2,-1,-6,8],[8,-1,0,6]])
 b=vector([-3,2,0,-9,-5])
 show(rank(A)==rank(A.augment(b,subdivide=True))) #si l'on obtient True, cela veut dire que les rangs sont égaux et donc le système est compatible
-    </input>
+    </code>
     </program>
     </listing>
 <listing>
     <caption>Le code solution pour la lettre (b)</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[2,-4,-1,3],[1,0,4,1],[1,2,-4,-1],[0,1,7,4],[4,-1,0,7]])
 b=vector([-1,-12,5,4,-1])
 show(rank(A)==rank(A.augment(b,subdivide=True)))
-    </input>
+    </code>
     </program>
     </listing>
 <listing>
     <caption>Le code solution pour la lettre (c)</caption>
     <program language="sage">
-    <input>
+    <code>
 A=matrix([[3,-5,0,3,-1],[-2,3,-1,4,0],[-3,0,5,1,2]])
 b=vector([7,-1,-3])
 show(rank(A)==rank(A.augment(b,subdivide=True)))
-    </input>
+    </code>
     </program>
     </listing>
 </solution>
@@ -2023,7 +2023,7 @@ Essayer de comprendre le code suivant et l'adapter pour résoudre les autres éq
 <listing>
     <caption>Le code solution pour la lettre (a)</caption>
     <program language="sage">
-    <input>
+    <code>
 var("a","b","c","d") #nos variables 
 A=matrix([[a,c],[b,d]]) #une matrice 2 par 2 quelconque
 show(A)
@@ -2039,7 +2039,7 @@ show(sol)
 matsol=[] 
 for solpart in sol:
     matsol.append(column_matrix(len(solpart)/2,len(solpart)/2,list(solpart.values())))
-    </input>
+    </code>
     </program>
     </listing>
 </hint>
@@ -2082,7 +2082,7 @@ du fait qu'elles peuvent être obtenues par l'intersection d'un cône avec un pl
     <listing>
     <caption>Le code solution pour trouver la conique</caption>
     <program language="sage">
-    <input>
+    <code>
 var("a,b,c,d,e,f,x,y")
 conique=a*x^2+b*x*y+c*y^2+d*x+e*y+f==0
 P1=vector([0,0])
@@ -2094,17 +2094,17 @@ P=[P1,P2,P3,P4,P5]
 eq=[]
 for p in P:
     eq.append(conique.substitute(x=p[0],y=p[1]))
-show(solve(eq,[a,b,c,d,e,f]))</input>
+show(solve(eq,[a,b,c,d,e,f]))</code>
     </program>
     </listing>
     <p>On prend la variable libre égale à <m>1</m> pour obtenir la conique <m>x^2+x*y+y^2+x+y=0</m>. Graphiquement, on obtient l'ellipse suivante.</p>
     <listing>
     <caption>Le code pour le graphique</caption>
     <program language="sage">
-    <input>
+    <code>
 conique1=1*x^2+1*x*y+1*y^2+1*x+1*y==0
 implicit_plot(conique1,(x,-1,1),(y,-1,1),color="blue")+points(P,color="black",size=30)
-    </input>
+    </code>
     </program>
     </listing>
     </solution>
@@ -2124,7 +2124,7 @@ implicit_plot(conique1,(x,-1,1),(y,-1,1),color="blue")+points(P,color="black",si
     <listing>
     <caption>Le code solution pour trouver la conique</caption>
     <program language="sage">
-    <input>
+    <code>
 var("a,b,c,d,e,f,x,y")
 conique=a*x^2+b*x*y+c*y^2+d*x+e*y+f==0
 P1=vector([0,2])
@@ -2136,17 +2136,17 @@ P=[P1,P2,P3,P4,P5]
 eq=[]
 for p in P:
     eq.append(conique.substitute(x=p[0],y=p[1]))
-show(solve(eq,[a,b,c,d,e,f]))</input>
+show(solve(eq,[a,b,c,d,e,f]))</code>
     </program>
     </listing>
     <p>On prend la variable libre égale à <m>8</m> pour obtenir la conique <m>-x^2+2y^2+2x-8y+8=0</m>. Graphiquement, on obtient l'ellipse suivante.</p>
     <listing>
     <caption>Le code pour le graphique</caption>
     <program language="sage">
-    <input>
+    <code>
 conique2=-x^2+2*y^2+2*x-8*y+8==0
 implicit_plot(conique2,(x,-10,10),(y,-10,10),color="blue")+points(P,color="black",size=30)
-    </input>
+    </code>
     </program>
     </listing>
     </solution>
@@ -2169,7 +2169,7 @@ implicit_plot(conique2,(x,-10,10),(y,-10,10),color="blue")+points(P,color="black
     <listing>
     <caption>Le code solution pour trouver la conique</caption>
     <program language="sage">
-    <input>
+    <code>
 var("a,b,c,d,e,f,x,y")
 conique=a*x^2+b*x*y+c*y^2+d*x+e*y+f==0
 P1=vector([0,0])
@@ -2181,17 +2181,17 @@ P=[P1,P2,P3,P4,P5]
 eq=[]
 for p in P:
     eq.append(conique.substitute(x=p[0],y=p[1]))
-show(solve(eq,[a,b,c,d,e,f]))</input>
+show(solve(eq,[a,b,c,d,e,f]))</code>
     </program>
     </listing>
     <p>On prend la variable libre égale à <m>1</m> pour obtenir la conique <m>x^2+(\frac{51\sqrt{3}}{949}+\frac{1582}{949})xy+(\frac{2870\sqrt{3}}{1847}-\frac{1226}{949})y^2+(\frac{-5159\sqrt{3}}{5694}-\frac{11147}{1898})x+(\frac{6661\sqrt{3}}{1898}-\frac{15463}{1898})y=0</m>. Graphiquement, on obtient l'ellipse suivante.</p>
     <listing>
     <caption>Le code pour le graphique</caption>
     <program language="sage">
-    <input>
+    <code>
 conique3=-2/3*sqrt(3)*x*y + x^2 + 1/3*y^2 - 2/3*sqrt(3)*y - 2/3*x == 0
 implicit_plot(conique3,(x,-8,8),(y,-8,8),color="blue")+points(P,color="black",size=30)
-    </input>
+    </code>
     </program>
     </listing>
     </solution>   
@@ -2208,7 +2208,7 @@ implicit_plot(conique3,(x,-8,8),(y,-8,8),color="blue")+points(P,color="black",si
     <listing>
     <caption>Le code solution pour trouver la conique</caption>
     <program language="sage">
-    <input>
+    <code>
 var("a,b,c,d,e,f,x,y")
 conique=a*x^2+b*x*y+c*y^2+d*x+e*y+f==0
 P1=vector([4,-5])
@@ -2220,17 +2220,17 @@ P=[P1,P2,P3,P4,P5]
 eq=[]
 for p in P:
     eq.append(conique.substitute(x=p[0],y=p[1]))
-show(solve(eq,[a,b,c,d,e,f]))</input>
+show(solve(eq,[a,b,c,d,e,f]))</code>
     </program>
     </listing>
     <p>On prend la variable libre égale à <m>43</m> pour obtenir la conique <m>x^2+y^2-16x+4y+43=0</m>. Graphiquement, on obtient l'ellipse suivante.</p>
     <listing>
     <caption>Le code pour le graphique</caption>
     <program language="sage">
-    <input>
+    <code>
 conique4=x^2+y^2-16*x+4*y+43==0
 implicit_plot(conique4,(x,0,16),(y,-10,4),color="blue")+points(P,color="black",size=30)
-    </input>
+    </code>
     </program>
     </listing>
     </solution>

@@ -16,14 +16,20 @@
         Pour l'inclure, il suffit de compléter la commande ci-dessous et d'enlever les commentaires 
         -->
        <brandlogo url="https://jeansebastienturcotte.github.io/ALIR/alir.html" source="images/frontcover160x200.png" />
-    <!--
-        Les packages LaTeX qui sont aussi implémentés dans MathJaX sont inclus ici.
+   LaTeX packages that are also implemented as MathJax extensions
+        may be specified here and any macros they have in common may be
+        used within mathematics.  See below in the "Mathematics" section
+        an example of the use of the "\cancelto{}{}" macro from
+        the "cancel" package.
         -->
-        <latex-preamble>
-            <package>cancel</package>  <!-- à titre d'exemple -->
-            <!-- <package>[customcolors]{hf-tikz} </package> -->
-        </latex-preamble>
+        <math-package latex-name="cancel" mathjax-name="cancel"/>
+        <!-- Superior bevelled/slanted fractions in LaTeX output (only) -->
+        <math-package latex-name="xfrac" mathjax-name=""/>
+        <math-package latex-name="extpfeil" mathjax-name="extpfeil"/>
         <!--
+        TeX/LaTeX macros can be written in the usual way.
+        Whitespace and line breaks are irrelevant here.
+        These are "write once, use everywhere".
         Il es possible de définir ses propres macros qui seront ensuite utilisées dans le reste du texte. 
         -->
         <macros>

@@ -844,7 +844,7 @@ Cela correspond également à <xref ref="li-detk2x2"> une des propriétés </xre
         Le code solution pour l'exercice
         </caption>
         <program language="sage">
-        <input>
+        <code>
 A=matrix([[-4,12],[-8,4]])
 B=matrix([[2,1],[2,-2]])
 AB=A*B
@@ -852,7 +852,7 @@ moinsBA=-B*A
 show(AB)
 show(moinsBA)
 show(AB==moinsBA)
-        </input>
+        </code>
         </program>
         </listing></solution></task>
     <task><statement><p>Calculer le déterminant des matrices <m>A</m> et <m>B</m> ci-dessus.</p></statement>
@@ -862,12 +862,12 @@ show(AB==moinsBA)
         Le code solution pour l'exercice
         </caption>
         <program language="sage">
-        <input>
+        <code>
 A=matrix([[-4,12],[-8,4]])
 B=matrix([[2,1],[2,-2]])
 show(det(A))
 show(det(B))
-        </input>
+        </code>
         </program>
         </listing>
         <p>On aurait aussi pu les calculer à la main rapidement.</p></solution></task>
@@ -1175,7 +1175,7 @@ show(det(B))
         Le code solution pour l'exercice
         </caption>
         <program language="sage">
-        <input>
+        <code>
         a=1
         b=-1
         A=column_matrix([[3*a/5+2*b/5,-3*a/5+3*b/5],[-2*a/5+2*b/5,2*a/5+3*b/5]])
@@ -1183,7 +1183,7 @@ show(det(B))
         var("k")
         show(det(A-k*Id))
         show(solve(det(A-k*Id),k))
-        </input>
+        </code>
         </program>
         </listing>
         </solution>
@@ -1202,14 +1202,14 @@ show(det(B))
         Le code solution pour l'exercice
         </caption>
         <program language="sage">
-        <input>
+        <code>
         ######Pour k=-1 #####
         k=-1
         show((A-k*Id).rref())
         ######Pour k=1 ######
         k=1
         show((A-k*Id).rref())
-        </input>
+        </code>
         </program>
         </listing>
         <p>On a donc, lorsque <m>k=-1</m>, le vecteur <m>\vec{v}_1=(\frac{2}{3},1)</m> et, lorsque <m>k=1</m>, le vecteur <m>\vec{v}_2=(-1,1)</m>.</p>
@@ -1228,14 +1228,14 @@ show(det(B))
         Le code solution pour l'exercice
         </caption>
         <program language="sage">
-        <input>
+        <code>
         #####Pour v1 #####
         v1=vector([2/3,1])
         show("Av_1=",A*v1)
         #####Pour v2 #####
         v2=vector([-1,1])
         show("Av_2=",A*v2)
-        </input>
+        </code>
         </program>
         </listing>
         <p>On remarque que <m>A\vec{v}_1=-\vec{v}_1</m> et que <m>A\vec{v}_2=\vec{v}_2</m>.</p>
@@ -1256,7 +1256,7 @@ show(det(B))
         Le code solution pour l'exercice
         </caption>
         <program language="sage">
-        <input>
+        <code>
         var("a,b,k")
         A=column_matrix([[3*a/5+2*b/5,-3*a/5+3*b/5],[-2*a/5+2*b/5,2*a/5+3*b/5]])
         Id=identity_matrix(2)
@@ -1274,7 +1274,7 @@ show(det(B))
         #####Pour v2 #####
         v2=vector([-1,1])
         show("Av_2=",A*v2)
-        </input>
+        </code>
         </program>
         </listing>
         <p>On remarque, encore une fois, que les valeurs de <m>k </m> qui satisfont l'équation <m>\det(A-kI)=0</m> sont <m>a</m> et <m>b</m>. 

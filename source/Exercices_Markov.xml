@@ -591,14 +591,14 @@ show(d)
 <solution><listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 def tour(d,p): #fonction qui simule un tour de jeu, selon le vecteur de déplacement d et la position de départ p
     t=choice([1,2])
     if p==7:
         return 7
     else:
         return d[p+t]
-</input>
+</code>
 </program>
 </listing></solution></task>
 <task><statement><p>Créer une fonction <c>serpech</c>, qui simule une partie de serpents et échelle sur ce plateau. La fonction prend comme argument le vecteur de déplacement et retourne le parcours du joueur. </p>
@@ -610,13 +610,13 @@ def tour(d,p): #fonction qui simule un tour de jeu, selon le vecteur de déplace
 Le code de la solution.
 </caption>
 <program language="sage">
-<input>
+<code>
 def serpech(d):
     p=[0]
     while p[-1]!=d[-1]:
         p.append(tour(d,p[-1]))
     return p
-</input>
+</code>
 </program>
 </listing>
 </solution>
@@ -628,13 +628,13 @@ def serpech(d):
 <listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 d=vector([0,4,2,3,4,5,2,7])
 M=[]
 for i in range(1000):
     M.append(len(serpech(d))-1)
 numpy.mean(M)
-</input>
+</code>
 <!--<output>
 9.63  #Cette valeur sera évidemment différente chaque utilisation
 </output>-->
@@ -649,14 +649,14 @@ numpy.mean(M)
 <listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 d=vector([0,4,2,3,4,5,2,7])
 M=[]
 for i in range(1000):
     M.append(len(serpech(d))-1)
 M21=[m for m in M if m>20]
 (len(M21)/1000).n()
-</input>
+</code>
 <!--<output>
 0.086000000000000  #Cette valeur sera évidemment différente chaque utilisation
 </output>-->
@@ -671,7 +671,7 @@ M21=[m for m in M if m>20]
 <listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 def transition_serpech(d,n): #Retourne la matrice de transition selon un vecteur de déplacement d et un dé à n faces
     cols=[]
     for case in range(len(d)): #On crée les colonnes de la matrice
@@ -689,7 +689,7 @@ def transition_serpech(d,n): #Retourne la matrice de transition selon un vecteur
         cols.append(col)  #On ajoute la colonne à la liste des colonnes
     T=column_matrix(cols) #La matrice de transition
     return T
-</input>
+</code>
 </program>
 </listing>
 </solution>
@@ -718,7 +718,7 @@ def transition_serpech(d,n): #Retourne la matrice de transition selon un vecteur
 <solution><listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 T=transition_serpech(d,2)
 X0=vector([1,0,0,0,0,0,0,0])
 X=X0
@@ -728,7 +728,7 @@ while X[-1]==0:
     X=T*X
 print("Le nombre de tours minimal est ",i)
 print("Les chances sont ",X[-1])
-</input>
+</code>
 <!--<ouput>Le nombre de tours minimal est 3 et les chances sont de 1/8.</ouput>-->
 </program>
 </listing></solution>
@@ -741,9 +741,9 @@ print("Les chances sont ",X[-1])
 Le code de la solution.
 </caption>
 <program language="sage">
-<input>
+<code>
 (1-(T^20*X0)[-1]).n()
-</input>
+</code>
 </program>
 </listing></solution>
 </task>
@@ -760,14 +760,14 @@ config={1:38, 4:14, 9:31, 16:6, 21:42, 28:84, 36:44,47:26, 49:11, 51:67, 56:53, 
 <listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 def deplacement(config):
     d=vector(range(101))
     for i in config.keys():
         d[i]=config[i]
     return d
 deplacement(config)
-</input>
+</code>
 <!--<output>
 (0, 38, 2, 3, 14, 5, 6, 7, 8, 31, 10, 11, 12, 13, 14, 15, 6, 17, 18, 19, 20, 42, 22, 23, 24, 25, 26, 27, 84, 29, 30, 31, 32, 33, 34, 35, 44, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 26, 48, 11, 50, 67, 52, 53, 54, 55, 53, 57, 58, 59, 60, 61, 19, 63, 60, 65, 66, 67, 68, 69, 70, 91, 72, 73, 74, 75, 76, 77, 78, 79, 100, 81, 82, 83, 84, 85, 86, 24, 88, 89, 90, 91, 92, 73, 94, 75, 96, 97, 78, 99, 100)
 </output>-->
@@ -782,7 +782,7 @@ deplacement(config)
 <listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 def tour(d,p): #fonction qui simule un tour de jeu, selon le vecteur de déplacement d et la position de départ p
     t=choice([1,2,3,4,5,6])
     if p==100:  #On modifie l'arrivée
@@ -801,7 +801,7 @@ def deplacement(config):
     return d
 d=deplacement(config)
 serpech(d)
-</input>
+</code>
 </program>
 </listing>
 </solution>
@@ -812,12 +812,12 @@ serpech(d)
 <listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 M=[]
 for i in range(1000):
     M.append(len(serpech(d))-1)
 numpy.mean(M)
-</input>
+</code>
 <!--<output>
 36.483  #Cette valeur sera évidemment différente chaque utilisation
 </output>-->
@@ -832,13 +832,13 @@ numpy.mean(M)
 <listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 M=[]
 for i in range(1000):
     M.append(len(serpech(d))-1)
 M21=[m for m in M if m>20]
 (len(M21)/1000).n()
-</input>
+</code>
 <!--<output>
 0.734000000000000  #Cette valeur sera évidemment différente chaque utilisation
 </output>-->
@@ -854,7 +854,7 @@ M21=[m for m in M if m>20]
 <solution><listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 T=transition_serpech(d,2)
 X0=vector([1,0,0,0,0,0,0,0])
 X=X0
@@ -865,7 +865,7 @@ while X[-1]==0:
     X=T*X
 print("Le nombre de tours minimal est ",i)
 print("Les chances sont ",X[-1])
-</input>
+</code>
 </program>
 </listing></solution></task>
 <task><statement><p>À la partie <xref ref="exo-serpechplusde20"/>, on a estimé le nombre de parties qui n'étaient pas terminées après <m>20</m> tours. Déterminer la véritable valeur de ce nombre à l'aide de la matrice de transition.</p>
@@ -876,9 +876,9 @@ print("Les chances sont ",X[-1])
 Le code de la solution.
 </caption>
 <program language="sage">
-<input>
+<code>
 (1-(T^20*X0)[-1]).n()
-</input>
+</code>
 </program>
 </listing></solution>
 </task>
@@ -887,11 +887,11 @@ Le code de la solution.
 <listing>
 <caption>Le code de la solution.</caption>
 <program language="sage">
-<input>
+<code>
 fin=[((T^n*X0)[-1]).n() for n in range(200)]
 coordx=list(range(200))
 point(list(zip(coordx,fin)))
-</input>
+</code>
 </program>
 </listing>
 </solution>
