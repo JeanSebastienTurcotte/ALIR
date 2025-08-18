@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr-CA" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-red                     *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -9,10 +16,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+<script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
+  "inputLocation": "div.sagecell-sage",
   "linked": true,
   "linkKey": "linked-sage",
   "autoeval": false,
@@ -25,21 +32,38 @@ sagecell.makeSagecell({
 </head>
 <body class="ignore-math">
 <article class="exercise exercise-like"><h5 class="heading">
-<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">12<span class="period">.</span></span><span class="space"> </span><span class="title">Construction des matrices de permutation d’ordre <span class="process-math">\(n\)</span>.</span>
+<span class="type">Exercice</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Construction des matrices de permutation d’ordre <span class="process-math">\(n\)</span>.</span>
 </h5>
-<div class="para">Dans cet exercice, on veut donner une manière de faire la liste des matrices de permutation <span class="process-math">\(n\times n\text{,}\)</span> définies à l’exercice <a href="sec-prodmat.html#exo-matpermudef" class="xref" data-knowl="./knowl/xref/exo-matpermudef.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 2.2.3.5">2.2.3.5</a>.Pour cela, on va utiliser la commande <code class="code-inline tex2jax_ignore">Permutations(n).list()</code>, qui renvoie la liste des permutations à <span class="process-math">\(n\)</span> éléments. Par exemple</div> <pre id="exosage-permmatrices-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">Permutations(3).list()
-</script></pre> <div class="para logical">
+<div class="para">Dans cet exercice, on veut donner une manière de faire la liste des matrices de permutation <span class="process-math">\(n\times n\text{,}\)</span> définies à l’exercice <a href="sec-prodmat.html#exo-matpermudef" class="xref" data-knowl="./knowl/xref/exo-matpermudef.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Exercice 2.2.3.5">2.2.3.5</a>.Pour cela, on va utiliser la commande <code class="code-inline tex2jax_ignore">Permutations(n).list()</code>, qui renvoie la liste des permutations à <span class="process-math">\(n\)</span> éléments. Par exemple<div class="autopermalink" data-description="Paragraphe"><a href="#exosage-permmatrices-2-1" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+</div> <div id="exosage-permmatrices-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">Permutations(3).list()
+</script></div> <div class="para logical">
 <div class="para">renvoie une liste de <span class="process-math">\(6\)</span> éléments correspondant à toutes les manières d’ordonner les nombres <span class="process-math">\(1,2,3\text{.}\)</span> Une matrice de permutation est une matrice obtenue en permutant les colonnes de la matrice identité. Dans cet exercice, on  crée une fonction <code class="code-inline tex2jax_ignore">perm_matrix(n)</code> qui  donnera une liste des matrices de permutation d’ordre <span class="process-math">\(n\text{.}\)</span> Pour cela, il faudra</div>
 <ul class="disc" id="exosage-permmatrices-2-3-5">
-<li><div class="para">Créer la liste des permutations d’ordre <span class="process-math">\(n\)</span> à l’aide de la commande <code class="code-inline tex2jax_ignore">Permutations(n).list()</code>.</div></li>
-<li><div class="para">Créer la liste des vecteurs <span class="process-math">\(\vec{e}_1,\vec{e}_2 , \ldots ,\vec{e}_n\)</span> à partir de la matrice identité. (Utiliser la commande <code class="code-inline tex2jax_ignore">A.columns()</code>.</div></li>
-<li><div class="para">Créer chaque matrice de permutation à partir de la liste des permutations. La liste des permutations permet de savoir à quelle colonne de la matrice identité correspond chacune des colonnes de la matrice <span class="process-math">\(P\text{.}\)</span>
-</div></li>
+<li>
+<div class="para">Créer la liste des permutations d’ordre <span class="process-math">\(n\)</span> à l’aide de la commande <code class="code-inline tex2jax_ignore">Permutations(n).list()</code>.<div class="autopermalink" data-description="Paragraphe"><a href="#exosage-permmatrices-2-3-5-1-1" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Point"><a href="#exosage-permmatrices-2-3-5-1" title="Copy heading and permalink for Point" aria-label="Copy heading and permalink for Point">🔗</a></div>
+</li>
+<li>
+<div class="para">Créer la liste des vecteurs <span class="process-math">\(\vec{e}_1,\vec{e}_2 , \ldots ,\vec{e}_n\)</span> à partir de la matrice identité. (Utiliser la commande <code class="code-inline tex2jax_ignore">A.columns()</code>.<div class="autopermalink" data-description="Paragraphe"><a href="#exosage-permmatrices-2-3-5-2-1" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Point"><a href="#exosage-permmatrices-2-3-5-2" title="Copy heading and permalink for Point" aria-label="Copy heading and permalink for Point">🔗</a></div>
+</li>
+<li>
+<div class="para">Créer chaque matrice de permutation à partir de la liste des permutations. La liste des permutations permet de savoir à quelle colonne de la matrice identité correspond chacune des colonnes de la matrice <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" data-description="Paragraphe"><a href="#exosage-permmatrices-2-3-5-3-1" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Point"><a href="#exosage-permmatrices-2-3-5-3" title="Copy heading and permalink for Point" aria-label="Copy heading and permalink for Point">🔗</a></div>
+</li>
 </ul>
+<div class="autopermalink" data-description="Paragraphe"><a href="#exosage-permmatrices-2-3" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
 </div>
 <div class="solutions">
-<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para">Commencer par créer une fonction qui fournira les matrices de permutation <span class="process-math">\(2\times 2\)</span> et une autre fonction qui va donner les matrices de permutation <span class="process-math">\(3\times 3\text{.}\)</span> Des réponses possibles se trouvent dans l’indice suivant.</div></div></details><details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
-<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def perm_matrix2x2():
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para">Commencer par créer une fonction qui fournira les matrices de permutation <span class="process-math">\(2\times 2\)</span> et une autre fonction qui va donner les matrices de permutation <span class="process-math">\(3\times 3\text{.}\)</span> Des réponses possibles se trouvent dans l’indice suivant.<div class="autopermalink" data-description="Paragraphe"><a href="#exosage-permmatrices-3-1" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Indice 2.2.3.12.1"><a href="#exosage-permmatrices-3" title="Copy heading and permalink for Indice 2.2.3.12.1" aria-label="Copy heading and permalink for Indice 2.2.3.12.1">🔗</a></div>
+</div></details><details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<figure class="listing figure-like"><figcaption><span class="type">Bloc de code</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Un indice pour l’exercice<div class="autopermalink" data-description="Bloc de code 2.2.21: Un indice pour l’exercice"><a href="#exosage-permmatrices-4-1" title="Copy heading and permalink for Bloc de code 2.2.21: Un indice pour l’exercice" aria-label="Copy heading and permalink for Bloc de code 2.2.21: Un indice pour l’exercice">🔗</a></div></figcaption><div class="listing__contents"><div class="code-box"><pre class="program clipboardable"><code class="language-py">def perm_matrix2x2():
     Id=identity_matrix(2)
     col=Id.columns()
     p=Permutations(2).list() #La liste des permutations
@@ -58,9 +82,11 @@ def perm_matrix3x3():
         P=column_matrix([col[perm[0]-1],col[perm[1]-1],col[perm[2]-1]]) #On construit une matrice de permutation selon une permutation spécifique
         L.append(P) #On l'ajoute à la liste existante
     return L
-</code></pre></div>
-<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.2.21<span class="period">.</span></span><span class="space"> </span>Un indice pour l’exercice</figcaption></figure> <div class="para">Pour le cas <span class="process-math">\(n\times n\text{,}\)</span> il faudra faire quelques modifications. D’abord, on change les <span class="process-math">\(2,3\)</span> dans les premières lignes par des <span class="process-math">\(n\text{,}\)</span> afin d’avoir une idée du comportement plus général de l’exercice. Ensuite parce, qu’on ne connait pas d’avance la dimension des matrices cherchées, il faut trouver un moyen de changer la ligne <code class="code-inline tex2jax_ignore">P=column_matrix(...)</code>.</div>
-</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def perm_matrix(n):
+</code></pre></div></div></figure><div class="para">Pour le cas <span class="process-math">\(n\times n\text{,}\)</span> il faudra faire quelques modifications. D’abord, on change les <span class="process-math">\(2,3\)</span> dans les premières lignes par des <span class="process-math">\(n\text{,}\)</span> afin d’avoir une idée du comportement plus général de l’exercice. Ensuite parce, qu’on ne connait pas d’avance la dimension des matrices cherchées, il faut trouver un moyen de changer la ligne <code class="code-inline tex2jax_ignore">P=column_matrix(...)</code>.<div class="autopermalink" data-description="Paragraphe"><a href="#exosage-permmatrices-4-2" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Indice 2.2.3.12.2"><a href="#exosage-permmatrices-4" title="Copy heading and permalink for Indice 2.2.3.12.2" aria-label="Copy heading and permalink for Indice 2.2.3.12.2">🔗</a></div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<figure class="listing figure-like"><figcaption><span class="type">Bloc de code</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>La solution pour l’exercice<div class="autopermalink" data-description="Bloc de code 2.2.22: La solution pour l’exercice"><a href="#exosage-permmatrices-5-1" title="Copy heading and permalink for Bloc de code 2.2.22: La solution pour l’exercice" aria-label="Copy heading and permalink for Bloc de code 2.2.22: La solution pour l’exercice">🔗</a></div></figcaption><div class="listing__contents"><div class="code-box"><pre class="program clipboardable"><code class="language-py">def perm_matrix(n):
     Id=identity_matrix(n)
     col=Id.columns()
     p=Permutations(n).list()
@@ -72,8 +98,9 @@ def perm_matrix3x3():
         P=column_matrix(colperm)
         L.append(P)
     return L
-</code></pre></div>
-<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">2.2.22<span class="period">.</span></span><span class="space"> </span>La solution pour l’exercice</figcaption></figure></div></details>
-</div></article><span class="incontext"><a class="internal" href="sec-prodmat.html#exosage-permmatrices">Contexte</a></span>
+</code></pre></div></div></figure><div class="autopermalink" data-description="Solution 2.2.3.12.1"><a href="#exosage-permmatrices-5" title="Copy heading and permalink for Solution 2.2.3.12.1" aria-label="Copy heading and permalink for Solution 2.2.3.12.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercice 2.2.3.12: Construction des matrices de permutation d’ordre n"><a href="#exosage-permmatrices" title="Copy heading and permalink for Exercice 2.2.3.12: Construction des matrices de permutation d’ordre n" aria-label="Copy heading and permalink for Exercice 2.2.3.12: Construction des matrices de permutation d’ordre n">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-prodmat.html#exosage-permmatrices">Contexte</a></span>
 </body>
 </html>
