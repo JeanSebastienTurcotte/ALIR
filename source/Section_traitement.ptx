@@ -11,19 +11,19 @@
 <!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
 
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
-    <title> Traitement d'images </title>
+    <title> Traitement d'images (EN CONSTRUCTIION) </title>
     <introduction xml:id= "intro-traitement">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Aller aux <xref ref="exo-traitement">exercices</xref> de la section.</p>    
     
-    <p>Une image sur un ordinateur est composée de pixels, des petits carrés de couleur. Une image de qualité contient davantage de pixels par pouce (ppi). On dit que l'image a une grande résolution. Une image prise par un apparail photo peut être exportée en format RAW, où tous les pixels tels que captés par l'objectif seront présents, ou dans un format compressé, par exemple JPEG, afin de réduire la taille du fichier. Différents algorithme menant la l'image compressée existent. Certains sont basés sur l'observation que dans le voisinage d'un pixel quelconque, il est peu probable qu'il y ait de grand changement de couleurs. On peut alors prendre la couleur moyenne d'un groupe de pixels et fusionner ces pixels en un unique représentant. Cela réduit alors le nombres de pixels par pouces, produisant une image de taille inférieure. </p>
-    <p>Si l'on prend comme hypothèse que l'image est uniquement en noir et blanc, chaque pixel peut être représenté par un nombre, typiquement entre <m>0</m> (noir) et <m>255</m> (blanc). Les entrées d'une matrice du format de l'image correspond alors à la <q>couleur</q> de chaque pixel, en ton de gris. Pour les images en couleur, on doit ajouter une dimension afin de représenter les couleurs selon la quantité de rouge, vert et bleu. En voyant ces images comme des matrices, il est possible de faire des opérations sur ces images et d'obtenir des résultats intéressants. Parfois, ces matrices sont composées uniquement de valeurs entre <m>0</m> et <m>1</m>. Les entrées représentes alors le pourcentage de blanc ou de la couleur présent.</p>
+    <p>Une image sur un ordinateur est composée de pixels, des petits carrés de couleur. Une image de qualité contient davantage de pixels par pouce (ppi). On dit que l'image a une grande résolution. Une image prise par un apparail photo peut être exportée en format RAW, où tous les pixels tels que captés par l'objectif seront présents, ou dans un format compressé, par exemple JPEG, afin de réduire la taille du fichier. Différents algorithme menant à l'image compressée existent. Certains sont basés sur l'observation que, dans le voisinage d'un pixel quelconque, il est peu probable qu'il y ait de grands changements de couleur. On peut alors prendre la couleur moyenne d'un groupe de pixels et fusionner ces pixels en un unique représentant. Cela réduit alors le nombres de pixels par pouces, produisant une image de taille inférieure. </p>
+    <p>Si l'on prend comme hypothèse que l'image est uniquement en noir et blanc, chaque pixel peut être représenté par un nombre, typiquement entre <m>0</m> (noir) et <m>255</m> (blanc). Les entrées d'une matrice du format de l'image correspondent alors à la &#xAB; couleur&#xBB; de chaque pixel, en ton de gris. Pour les images en couleur, on doit ajouter une dimension afin de représenter les couleurs selon la quantité de rouge, vert et bleu. En voyant ces images comme des matrices, il est possible de faire des opérations sur ces images et d'obtenir des résultats intéressants. Parfois, ces matrices sont composées uniquement de valeurs entre <m>0</m> et <m>1</m>. Les entrées représentent alors le pourcentage de blanc ou de couleur.</p>
     </introduction>
     <subsection>
     <title>Premiers pas</title>
-    <p>Sage est en mesure de produire une image en ton de gris à partir d'une matrice. La commande <c>matrix_plot(A,cmap="gray")</c> lui permet de prendre la matrice <m>A</m> et de donner sa représentation graphique. L'argument <c>cmap="gray"</c> s'assure de convertir les entrées de la matrice en tons de gris si les nombres ne sont pas dans le format <m>0</m>-<m>255</m>. Toutefois, il est nécessaire d'importer la commande avant de l'exécuter, car Sage ne le fait pas par défaut. Ci-dessous, on la représentation de damiers de différentes dimensions.</p>
+    <p>Sage est en mesure de produire une image en ton de gris à partir d'une matrice. La commande <c>matrix_plot(A,cmap="gray")</c> lui permet de prendre la matrice <m>A</m> et de donner sa représentation graphique. L'argument <c>cmap="gray"</c> s'assure de convertir les entrées de la matrice en tons de gris si les nombres ne sont pas dans le format <m>0</m>-<m>255</m>. <!--Toutefois, il est nécessaire d'importer la commande avant de l'exécuter, car Sage ne le fait pas par défaut. Ci-dessous, on la représentation de damiers de différentes dimensions.--></p>
     <sage>
     <input>
-from sage.plot.matrix_plot import MatrixPlot
+<!--from sage.plot.matrix_plot import MatrixPlot --> <!-- ne semble plus nécessaire -->
 A1=matrix([[0,255],[255,0]])
 A2=matrix([[0,255,0,255],[255,0,255,0],[0,255,0,255],[255,0,255,0]])
 A3=matrix([[0,255,0,255,0,255,0,255],[255,0,255,0,255,0,255,0],[0,255,0,255,0,255,0,255],[255,0,255,0,255,0,255,0],[0,255,0,255,0,255,0,255],[255,0,255,0,255,0,255,0],[0,255,0,255,0,255,0,255],[255,0,255,0,255,0,255,0]])
@@ -35,24 +35,26 @@ show(matrix_plot(A3,cmap='gray'))
     <p>On peut également créer une image aléatoire.</p>
     <sage>
     <input>
-from sage.plot.matrix_plot import MatrixPlot
+<!--from sage.plot.matrix_plot import MatrixPlot --> <!-- ne semble plus nécessaire -->
 B=matrix(8,8,lambda i,j: randint(0,255))
 show(matrix_plot(B,cmap='gray'))
     </input></sage>
     <p>Pour un effet plus intéressant, on peut bien sûr partir d'une véritable image. Il suffit de la charger dans Sage et de la convertir en format noir et blanc. Par exemple, voici une version déjà compressée de la couverture du manuel.</p>
 <sage>
 <input>
-from sage.plot.matrix_plot import MatrixPlot
+<!--from sage.plot.matrix_plot import MatrixPlot --> <!-- ne semble plus nécessaire -->
 #Les deux prochaines commandes sont nécessaires pour faire une requête permettant le téléchargement de l'image
 from PIL import Image
 import requests
 #On télécharge l'image de la source
 im = Image.open(requests.get('https://github.com/JeanSebastienTurcotte/ALIR/raw/master/assets/images/frontcover160x200.png', stream=True).raw)
 #On la convertit en tons de gris
-im=im.convert("L")
+im=im.convert("L") # L signifie luminescence, équivalent au ton de gris
 #On convertit l'image en matrice Sage
 grey=numpy.array(im)
 G=matrix(grey)
+#On affiche une partie de la matrice
+show(G[0:5,0:5])
 #On affiche l'image
 matrix_plot(G,cmap='gray')
 </input>
@@ -81,7 +83,7 @@ matrix_plot(G,cmap='gray')
     </definition>
    <p>Pour déterminer la nouvelle image, on effectue un passage du noyau sur la matrice. L'entrée au centre est remplacée par la moyenne des neufs entrées couvertes par le noyau. La figure <xref ref="fig-floutage1"/> illustre ce concept.</p>
    <figure xml:id="fig-floutage1">
-   <caption>Le floutage d'une entrée</caption>
+   <caption>Le floutage d'une entrée par un noyau d'ordre $3$</caption>
    <image xml:id="img-floutage1">
    <sageplot>
 grid = Graphics()
@@ -117,36 +119,7 @@ grid+Num+polygon([[4,4],[4,7],[1,7],[1,4]],alpha=0.45)+polygon([[12,5],[12,6],[1
     <p>Pour les entrées sur le bord de la grille, il n'y a pas nécessairement neuf voisins. Dans ces cas, on prend remplace la valeur des voisins absents par <m>0</m>. L'animation suivante montre le processus complet de l'application du noyau sur la grille de l'image précédente.  </p>
    <figure xml:id="fig-floutage2">
    <caption>Application d'un noyau de floutage sur une matrice</caption>
-   <image xml:id="img-floutage2" source="floutage2.gif">
-<!--grid = Graphics()
-set_random_seed(12344)
-var("row","col")
-for i in range(0,9,1):
-    grid += line([(i,0),(i,8)],color="black")
-    grid += line([(0,i),(8,i)],axes=False,color="black")
-    grid += line([(i+10,0),(i+10,8)],color="black")
-    grid += line([(10,i),(18,i)],axes=False,color="black")
-L=[randrange(0,9) for n in range(64)]
-Num=Graphics()
-k=0
-for j in range(7,-1,-1):
-    for i in range(8):
-        Num+=text(L[k],(i+0.5,j+0.5),color="black")
-        k+=1
-k=0
-M=matrix(8,8,L)
-M=block_diagonal_matrix(zero_matrix(QQ,1), M,zero_matrix(QQ,1))
-m=sum(M[0:3,0:3].list())/9
-Numd=[text(m,(10+0.5,7+0.5),color="black",fontsize=8)]
-k=1
-for i in range(1,9):
-    for j in range(1,9):
-        if (i,j)!=(1,1):
-            m=sum(M[i-1:i+2,j-1:j+2].list())/9
-            Numd.append(Numd[k-1]+text(m,(9+j+0.5,7-i+1+0.5),color="black",fontsize=8))
-            k+=1
-Panim=[grid+Num+Numd[8*(7-col)+row]+polygon([[row+2,col-1],[row+2,col+2],[row-1,col+2],[row-1,col-1]],alpha=0.45)+polygon([[row+11,col],[row+11,col+1],[row+11-1,col+1],[row+11-1,col]],alpha=0.45) for col in sxrange(7,-1,-1) for row in sxrange(8)]#+polygon([[12,5],[12,6],[13,6],[13,5]],alpha=0.45)+arrow2d(path=[[(2.65,5.5),(8.5,8.5),(12.35,5.5)]],color="red",)
-animate(Panim,xmin=-1,xmax=20,ymin=-1,ymax=10)-->
+   <image xml:id="img-floutage2" source="images/floutage2.png">
    <description>Une grille de taille huit par huit est composée d'entiers sur laquelle on peut voir une autre grille de taille trois par trois qui se déplace le long de la grande grillee. La petite grille est bleu et représente le noyeau de floutage. À sa droite, on retrouve la même grille, qui se remplit graduellement avec la moyenne des valeurs dans la noyau de floutage.</description>
    </image>
    </figure>
@@ -155,7 +128,7 @@ animate(Panim,xmin=-1,xmax=20,ymin=-1,ymax=10)-->
    <title>Floutage par noyau simple</title>
    <p>On propose de flouter la couverture du manuel à l'aide d'un noyau simple d'ordre 3. Dans un premier temps, on doit charger l'image. La cellule suivante est identique à celle se trouvant dans le texte ci-haut.</p>
    <sage><input>
-   from sage.plot.matrix_plot import MatrixPlot
+   <!--from sage.plot.matrix_plot import MatrixPlot-->
 #Les deux prochaines commandes sont nécessaires pour faire une requête permettant le téléchargement de l'image
 from PIL import Image
 import requests
@@ -169,7 +142,7 @@ G=matrix(grey)
 #On affiche l'image
 matrix_plot(G,cmap='gray')
 </input></sage>
-<p>Pour le moment, <m>G</m> est une matrice de taille <m>200\times 155</m>. Afin de pouvoir appliquer le floutage sur l'ensemble de ces valeurs, il est utile d'ajouter un contour de zéros à cette matrice afin de pouvoir appliquer le noyau sans se soucier des bords. On appelle ce procédé le bourrage. Pour cela, la commande <c>block__diagonal_matrix</c> peut être utile. Celle-ci permet de créer une matrice en définissant les blocs se retrouvant le long de la diagonale principale. Sage complètera la matrice afin qu'elle soit de la bonne taille en ajoutant des zéros. En anglais, cet ajout de zéros se nomme <q>padding</q>. Voici un exemple simple avant de l'appliquer sur la matrice <m>G</m>.</p>
+<p>Pour le moment, <m>G</m> est une matrice de taille <m>200\times 155</m>. Afin de pouvoir appliquer le floutage sur l'ensemble de ces valeurs, il est utile d'ajouter un contour de zéros à cette matrice afin de pouvoir appliquer le noyau sans se soucier des bords. On appelle ce procédé le bourrage. Pour cela, la commande <c>block_diagonal_matrix</c> peut être utile. Celle-ci permet de créer une matrice en définissant les blocs se retrouvant le long de la diagonale principale. Sage complètera la matrice afin qu'elle soit de la bonne taille en ajoutant des zéros. En anglais, cet ajout de zéros se nomme <q>padding</q>. Voici un exemple simple avant de l'appliquer sur la matrice <m>G</m>.</p>
 <sage>
 <input>
 A=matrix([[1,2],[3,4]])
@@ -189,31 +162,28 @@ Gpad[0:3,0:3] #Le coin supérieur gauche de la matrice Gpad.
 <p>Pour appliquer le floutage, on doit calculer la moyenne de chaque pixel de la matrice <m>G</m> et de ses voisins immédiats. Dans la cellule précédente, on voit le coin supérieur gauche de la matrice modifiée. Dans ce cas, la moyenne du premier pixel et de ses vosins est de <m>103.55556</m>. On doit convertir les entrées de la matrices en liste afin de calculer la moyenne.</p>
 <sage>
 <input>
-sum(Gpad[0:3,0:3].list())/9
+(sum(Gpad[0:3,0:3].list())/9).n()
 </input>
 </sage>
-<p>On crée une fonction qui prend comme argument une paire de nombres et retourne la moyenne de ce nombre et de ses voisins immédiats. On s'assure également que l'argument ne peut pas être au bord de la matrice.</p>
+<p>On crée une fonction qui prend comme argument une paire de nombres <m>i,j</m> et une matrice <c>Gpad</c> et retourne la moyenne de l'entrée en position <m>i,j</m> et de ses voisins immédiats dans la matrice . On s'assure également que l'argument ne peut pas être au bord de la matrice.</p>
 <sage>
 <input>
-def noyausimple(i,j,Gpad):
-    if i==0 or j==0 or i>=Gpad.nrows() or j>=Gpad.ncols():
-        return None
-    else:
-        noyau=Gpad[i-1:i+2,j-1:j+2]
-        m=sum(noyau.list())/9
-        return m
-show(noyausimple(1,1,Gpad))
-show(noyausimple(123,45,Gpad))
-show(noyausimple(0,1,Gpad)) #Sur la ligne de 0 au début.
-show(noyausimple(3,0,Gpad)) # Sur la colonne de 0 au début.
-show(noyausimple(202,7,Gpad)) #Sur la ligne de 0 à la fin.
-show(noyausimple(20,157,Gpad)) #Sur la colonne de 0 à la fin.
+def floutagesimple(i,j,Gpad):
+    centre=Gpad[i-1:i+2,j-1:j+2] #La sous-matrice centrée en (i,j)
+    m=(sum(centre.list())/9).n()
+    return m
+show(floutagesimple(1,1,Gpad))
+show(floutagesimple(123,45,Gpad))
+show(floutagesimple(0,1,Gpad)) #Sur la ligne de 0 au début.
+show(floutagesimple(3,0,Gpad)) # Sur la colonne de 0 au début.
+show(floutagesimple(202,7,Gpad)) #Sur la ligne de 0 à la fin.
+show(floutagesimple(20,157,Gpad)) #Sur la colonne de 0 à la fin.
 </input>
 </sage>
 <p>Enfin, on crée la nouvelle matrice formée de ces moyennes. À noter le décalage nécessaire puisque le pixel correspondant dans la matrice <c>Gpad</c> se trouve une ligne et une colonne plus loin.</p>
 <sage>
 <input>
-Gfloutee=matrix(200,155, lambda i,j: noyausimple(i+1,j+1,Gpad))
+Gfloutee=matrix(200,155, lambda i,j: floutagesimple(i+1,j+1,Gpad))
 show(matrix_plot(G,cmap='gray'))
 show(matrix_plot(Gfloutee,cmap='gray'))
 </input>
@@ -235,25 +205,153 @@ def bourreur(A,n):
 <p>La prochaine étape consiste à modifier la fonction <c>noyausimple</c> afin qu'elle soit modulable selon la valeur <m>n</m> du noyau. La nouvelle version prend comme arguments la matrice de l'image originale <m>G</m> ainsi que l'ordre du noyau <m>n</m>. </p>
 <sage>
 <input>
-def noyausimple(i,j,n,Gpad):
-    if i&lt;0 or j&lt;0 or i>=Gpad.nrows()-(n-1)/2-1 or j>=Gpad.ncols()-(n-1)/2-1:
-        return None
-    else:
-        noyau=Gpad[i:i+n,j:j+n] #Le noyau est centré à l'entrée (i,j) de la matrice Gpad
-        m=sum(noyau.list())/n^2
-        return m
+def floutagesimple(i,j,n,Gpad):
+    centre=Gpad[i-1:i+n-1,j-1:j+n-1] #Le centre est l'entrée (i,j) de la matrice G
+    m=sum(centre.list())/n^2
+    return m
 </input>
 </sage>
 <p>Finalement, on crée la fonction qui permet de flouter une image <m>G</m> selon un noyau d'ordre <m>n</m> impair.</p>
 <sage>
 <input>
-def flouteur(G,n):
+def flouteursimple(G,n):
     Gpad=bourreur(G,n)
-    Gfloutee=matrix(G.nrows(),G.ncols(), lambda i,j: noyausimple(i+1,j+1,n,Gpad))
+    Gfloutee=matrix(G.nrows(),G.ncols(), lambda i,j: floutagesimple(i+1,j+1,n,Gpad))
     return Gfloutee
 </input>
 </sage>
+<p>La cellule ci-dessous permet de comparer l'effet de l'ordre de floutage sur l'image originale de manière interactive.</p>
+<sage>
+<input>
+@interact
+def _(ordre=slider(range(1,12,2))):
+      show(matrix_plot(flouteursimple(G,ordre),cmap='gray'))
+</input>
+</sage>
 </computation>
+<p>Lorsque la taille du noyau augmente, il est légitime de se demander si le fait d'attribuer autant de poids aux pixels éloignés du centre est la chose à faire. Dans une image haute résolution, plus on s'éloigne d'un pixel, plus les chances sont que les couleurs (ou dans ce cas-ci, les tons de gris) soit différentes augmentent. On peut alors utiliser un noyeau pondéré. </p>
+<definition>
+<title>Noyeau de floutage pondéré</title>
+<statement><p>Une matrice <m>N\in\mathcal{M}_{(2n+1)\times (2n+1)}</m> dont la somme de éléments vaut 1 et pour laquelle les valeurs au centre sont plus grandes que les valeurs éloignées est appelé un noyau de floutage pondéré.
+</p></statement>
+</definition>
+<example xml:id="ex-floutageponderes">
+<title>Des noyaux de floutage pondéré</title>
+<statement><p>Les matrices suivantes sont des noyaux de floutage pondéré:
+<md>
+<mrow>A&amp;=\frac{1}{10}\begin{pmatrix}
+1&amp;1&amp;1\\
+1&amp;2&amp;1\\
+1&amp;1&amp;1\\
+\end{pmatrix}</mrow>
+<mrow>B&amp;=\frac{1}{80}\begin{pmatrix}
+5&amp;10&amp;5\\
+10&amp;20&amp;10\\
+5&amp;10&amp;5\\
+\end{pmatrix}</mrow>
+<mrow>C&amp;=\frac{1}{48}\begin{pmatrix}
+0&amp;1&amp;2&amp;1&amp;0\\
+1&amp;2&amp;4&amp;2&amp;1\\
+2&amp;4&amp;8&amp;4&amp;2\\
+1&amp;2&amp;4&amp;2&amp;1\\
+0&amp;1&amp;2&amp;1&amp;0\\
+\end{pmatrix}</mrow>
+</md>
+</p></statement>
+</example>
+<p>Il est commun d'avoir un étalement symétrique des poids alloués aux pixels, comme dans les noyaux de l'exemple <xref ref="ex-floutageponderes"/>, mais ce n'est pas strictement nécessaire. L'effet pourrait toutefois être disproportionné.</p>
+<p>Un noyau de floutage pondéré particulièrement utile est le noyeau Gaussien. Les valeurs du noyau sont déterminées selon la distribution de la loi normale, aussi appelée distribution gaussienne. Cette distribution statistique donne un poids plus grand au centre et attribue un poids proportionnellement plus petits aux valeurs éloignées. La loi normale dépend de deux paramètres, la moyenne <m>\mu</m> et l'écart type <m>\sigma</m>, mais pour le noyau de floutage, seul l'écart type est nécessaire. Celui-ci va définir l'intensité du floutage. Voici la représentation de quelques courbes de la loi normale ainsi que leur valeur pour <m>\sigma</m>. </p>
+<figure xml:id="fig-loinormale">
+<caption>Quelques courbes de loi normale</caption>
+<image xml:id="img-loinormale">
+<sageplot>
+var("s")
+mu=500
+sigma=1
+tailles=[2,1,5]
+sigmas=[1,3,5]
+f(x,s)=exp(-(x-mu)^2/(2*s^2))/sqrt(2*s*pi)
+G=[]
+colors=["blue","red","black"]
+for s in sigmas:
+    color=colors[sigmas.index(s)]
+    G.append(plot(f(x,s),x,mu-3*s,mu+3*s,color=color,ticks=[[],None])+text(r"$\sigma={sig}$".format(sig=s),(500,f(500,s)+0.005),color=color))
+sum(G)
+</sageplot>
+<description><p>Trois courbe de la loi normale sont illustrées. La première, de couleur bleue, est identifiée comme sigma égal à trois et est la plus étroite des trois courbes. La deuxième, identifiée sigma égal à trois est de couleur rouge et est plus aplatie que la première. La dernière, de couleur noire, est identifiée sigma égal à cinq et est encore plus aplatie. </p></description>
+<shortdescription>Trois courbe de la loi normale pour sigma égale à un, trois et cinq.</shortdescription>
+</image>
+</figure>
+<p>Comme on travaille en deux dimensions, il faut considérer l'équation de la loi normale pour deux variables. Celle-ci, pour une moyenne égale à zéro, est donnée par l'équation
+<men>
+\frac{1}{\sqrt{2\pi \sigma}}e^{-\frac{(x^2+y^2)}{2\sigma^2}}
+</men>.
+Pour construire le noyau gaussien, il est pratique de créer une fonction intermédiaire de déphasage permettant à l'entrée au centre d'une matrice d'être considéré comme le point <m>(0,0)</m>. Les coordonnées des autres entrées de la matrice sont données en relation de leur distance horizontale et verticale avec le centre. Le code suivant donne la fonction de déphasage à utiliser ainsi que son effet sur les entrées d'une matrice <m>n\times n</m>.
+</p>
+<sage>
+<input>
+def dephasage(i,j,n):
+    return i-(n+1)/2,j-(n+1)/2
+n=5
+lignes=[[dephasage(i,j,n) for j in range(1,n+1)] for i in range(1,n+1)]
+table(lignes)
+</input>
+</sage>
+<p>En théorie, tous les points contribuent à la moyenne d'un noyau gaussien, même ceux très éloignés. En pratique, il n'y a que les points situés à une distance de plus ou moins six sigmas qui auront une contribution significative. Deux choix sont possibles pour la suite. On peut fixer la taille du noyau et renormaliser en divisant par la somme des données. On peut également déterminer la taille du noyau à utiliser en fonction de l'écart type. On prendra l'entier impair plus grand que <m>6\sigma+1</m>, afin qu'il y ait <m>6</m> écarts types de part et d'autre de l'entrée au centre. Pour alléger les calculs, il est parfois possible de réduire ce facteur <m>6</m>, en gardant au minimum <m>3</m>. Dans ce qui suit, on opte pour l'option de déterminer la taille selon l'écart type. La cellule ci-dessous crée une fonction qui retourne le noyeau gaussien d'écart type <c>sigma</c> de dimension correspondant à plus ou moins <c>nbr</c> écarts types.</p>
+<sage>
+<input>
+def normal(coord,sigma): #On définit la distribution gaussienne
+    return 1/(2*pi*sigma^2)*exp(-(coord[0]^2+coord[1]^2)/(2*sigma^2))
+def noyaugaussien(sigma,nbr): #Retourne le noyau gaussien à +- nbr sigma
+    n=ceil(nbr*sigma) #On arrondit à l'entier supérieur
+    if n%2==0: #Si n est pair, on prend l'entier suivant pour avoir un noyau de dimension impaire
+        n+=1
+    K=matrix(n,n, lambda i,j: normal(dephasage(i+1,j+1,n),sigma).n())
+    return K
+</input>
+</sage>
+<sage>
+<input>
+Gaussien=noyaugaussien(1,6)
+Gaussien
+</input>
+</sage>
+<p>Maintenant qu'on a le noyau, il faut l'appliquer à la matrice image. Pour un noyau simple, il suffisait de faire la somme des entrées autour du centre et diviser par le carré de la dimension du noyau. Avec un noyau pondéré, il faut passer par l'étape intermédiaire où l'on multiplie chaque entrée autour du centre dans la matrice image par son poids relatif dans le noyau. Ce n'est pas aussi simple que de passer par la multiplication matricielle, puisqu'au final on veut obtenir une seule valeur pour chaque centre de l'image. La fonction suivante modifie la fonction de floutage simple pour tenir en compte de ce calcul. Attention, un écart type trop grand fera en sorte que les fonctions ci-dessous ne seront pas en mesure de s'exécuter dans un temps appréciable.</p>
+<sage>
+<input>
+def floutagepondere(i,j,noyau,Gpad):
+    n=noyau.nrows()
+    centre=Gpad[i-1:i+n-1,j-1:j+n-1] #Le centre est l'entrée (i,j) de la matrice G
+    m=0
+    for ligne in range(n):
+        for colonne in range(n):
+            m+=centre[ligne,colonne]*noyau[ligne,colonne]
+    return m
+</input>
+</sage>
+<p>Finalement, on combine le tout dans une seule fonction qui transforme l'image initiale à l'aide du noyau pondéré.</p>
+<sage>
+<input>
+def flouteurpondere(G,noyau):
+    n=noyau.nrows()
+    Gpad=bourreur(G,n)
+    Gfloutee=matrix(G.nrows(),G.ncols(), lambda i,j: floutagepondere(i+1,j+1,noyau,Gpad))
+    return Gfloutee
+</input>
+</sage>
+<sage>
+<input>
+Gfloutee=flouteurpondere(G,Gaussien)
+show(matrix_plot(G,cmap='gray'))
+show(matrix_plot(Gfloutee,cmap='gray'))
+</input>
+</sage>
+<!-- continuer avec exemple sage pondéré et gaussien -->
+    </subsection>
+    <subsection>
+    <title>Détection de contours</title>
+    
+    <!-- empreintes digitales? comme application? -->
     </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
     
@@ -261,5 +359,8 @@ def flouteur(G,n):
     
     </conclusion>
    <!--Inclure les exercices de la section ci-dessous--> 
-   <!--<xi:include href="Exercices_.xml"/> -->
+   <xi:include href="Exercices_traitement.ptx"/>
 </section>
+<!-- introduire convolution trouver la manière comme opération (Pas certain si  nécessaire) 
+median kernel pour floutage?
+-->
