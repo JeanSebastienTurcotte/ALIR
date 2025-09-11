@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-red                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Élimination des quadrilatères non conformes.</span>
+</h5>
+<div class="para">Dans cet exercice, on améliore le code de l’exemple <a href="sec-vec.html#sageex-utvec" class="xref" data-knowl="./knowl/xref/sageex-utvec.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Calcul 1.1.44: Utilisation de Sage dans la résolution de problèmes de géométrie vectorielle">1.1.44</a> afin de s’assurer de ne pas avoir de quadrilatère dégénérés ou inadéquat. La somme des angles intérieurs d’un quadrilatère doit donner <span class="process-math">\(2\pi=360^\circ\text{.}\)</span> On peut calculer l’angle entre deux côtés adjacent à l’aide du produit scalaire.<div class="autopermalink" data-description="Paragraphe"><a href="#exosage-quadrilatereconforme-2-1" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+</div>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="code-box"><pre class="program clipboardable"><code class="language-py">#Le fonctionnement global de ce programme est de filtrer les quadrilatères non désirés en vérifiant certaines caractéristiques.
+#Les quadrilatères croisés (dont les points sont liés dans le mauvais ordre) n'ont pas une somme d'angles interieurs égale à 2Pi.
+#Les quadrilatères avec des points identiques ont des vecteurs nuls parmi leurs cotés
+#Les quadrilatères avec des côtés continus (des vecteurs parallèles bout à bout) ont un cosinus de l'angle entre eux de 1 ou -1.
+#Les quadrilatères non convexes peuvent fonctionner dans le cadre de cet exercice, mais sont filtrés avec les quadrilatères croisés puisque la formule renvoie toujours l'angle le plus petit entre deux vecteurs et à cause de l'angle supérieur à Pi radians, la somme des angles internes n'est plus égale à 2Pi.
+
+#On essaie des combinaisons de points jusqu'à ce qu'on obtienne un quadrilatère valide.
+valide = False
+while not valide:
+    
+    #Définition des points du quadrilatère ABCD dans la liste de points
+    A=vector([ZZ.random_element(-8,8),ZZ.random_element(-8,8)])
+    B=vector([ZZ.random_element(-8,8),ZZ.random_element(-8,8)])
+    C=vector([ZZ.random_element(-8,8),ZZ.random_element(-8,8)])
+    D=vector([ZZ.random_element(-8,8),ZZ.random_element(-8,8)])    
+    points = [A, B, C, D]
+    
+    #Initialisation de la variable qui comptera la somme des angles
+    somme_angles = 0
+
+    #Pour chaque point dans la liste, on trouve le vecteur qui le relie aux deux points voisins (les côtés)
+    for i in range(4) :
+        
+        #Le point central
+        ot = points[i]
+        
+        #Les deux points voisins
+        p1 = points[i-3]
+        p2 = points[i-1]
+        
+        #Les vecteurs représentant les cotés du quadrilatère
+        p1prime = vector([p1[0]-ot[0], p1[1]-ot[1]])
+        p2prime = vector([p2[0]-ot[0], p2[1]-ot[1]])
+        
+        #Vérifier la présence de vecteurs nuls
+        if p1prime.norm() == 0 or p2prime.norm() == 0:
+            break
+            
+        #Calcul du cosinus
+        cosinus = (p1prime.dot_product(p2prime)) / (p1prime.norm() * p2prime.norm())
+
+        #Vérifier la présence de côtés continus
+        if cosinus &gt;= 1 or cosinus &lt;= -1:
+            break
+        
+        #Calcul de l'angle entre les vecteurs
+        teta = arccos(cosinus)
+        
+        #On ajoute la valeur de l'angle à la somme totale
+        somme_angles += teta
+        
+        #Vérifier la présence de quadrilatère croisé ou non-convexe"
+        if i==3 and somme_angles &lt; 2*pi:
+            if i==3:
+                break
+        #Si le quadrilatère est conforme, on brise la boucle initiale en inversant la variable 'valide'      
+        elif i==3 and teta&lt;pi:
+            valide = True
+
+#Définition des points milieux
+M=A+(B-A)/2
+N=B+(C-B)/2
+P=C+(D-C)/2
+Q=D+(A-D)/2
+
+#Illustration des polygones
+polygon([A,B,C,D])+polygon([M,N,P,Q],color="red")
+</code></pre></div>
+<div class="autopermalink" data-description="Réponse 1.2.4.17.1"><a href="#exosage-quadrilatereconforme-3" title="Copy heading and permalink for Réponse 1.2.4.17.1" aria-label="Copy heading and permalink for Réponse 1.2.4.17.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercice 1.2.4.17: Élimination des quadrilatères non conformes"><a href="#exosage-quadrilatereconforme" title="Copy heading and permalink for Exercice 1.2.4.17: Élimination des quadrilatères non conformes" aria-label="Copy heading and permalink for Exercice 1.2.4.17: Élimination des quadrilatères non conformes">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-prodscal.html#exosage-quadrilatereconforme">Contexte</a></span>
+</body>
+</html>
