@@ -53,10 +53,7 @@
     exemple, un vecteur seul peut générer tout autre vecteur parallèle par la
     bonne combinaison linéaire, alors que deux vecteurs non parallèles de 
     <m>\R^2</m> pourront engendrer n'importe quel vecteur de 
-    <m>\R^2</m>. La figure de l'exemple interactif <xref ref="ex-comblin" /> permet de comprendre ces exemples de manière intuitive, alors que
-    les détails techniques seront abordés avec le concept de base d'un espace
-    au chapitre 
-    <xref provisional="chap-base" />.</p>
+    <m>\R^2</m>. La figure de l'exemple interactif <xref ref="ex-comblin" /> permet de comprendre ces exemples de manière intuitive, alors que les détails techniques seront abordés avec le concept de base d'un espace à la section <xref provisional="sec-bases" />.</p>
     <example xml:id="ex-comblin">
       <title>Combinaison linéaire de deux vecteurs: dynamique</title>
       <p>Dans cet exemple, on considère, pour des vecteurs 
@@ -453,7 +450,7 @@
     <example xml:id="ex-unvecperpR3">
     <title>Un vecteur perpendiculaire à deux autres dans l'espace</title>
     <statement>
-    <p>On considère les vecteurs <m>\vec{u}=(2,1,0)</m> et<m>\vec{v}=(1,0,-1)</m>. On cherche à déterminer un vecteur <m>\vec{w}</m> qui est perpendiculaire à <m>\vec{u}</m> et à <m>\vec{v}</m>.</p>
+    <p>On considère les vecteurs <m>\vec{u}=(2,1,0)</m> et <m>\vec{v}=(1,0,-1)</m>. On cherche à déterminer un vecteur <m>\vec{w}</m> qui est perpendiculaire à <m>\vec{u}</m> et à <m>\vec{v}</m>.</p>
     </statement>
     <solution>
     <p>Soit 
@@ -885,16 +882,15 @@
     L'exemple 
     <xref ref="ex-eqnormplan" /> montre comment passer de l'équation vectorielle
     à l'équation normale. En effet, le vecteur directeur de la droite perpendiculaire au plan servira de vecteur normal <m>\vec{n}</m>.
-    On a donc <m>\vec{n}=(1,-2,1)</m>.
+    On a donc <m>\vec{n}=(-7,-10,6)</m>.
     On peut calculer la valeur de la constante manquante en remplaçant dans l'équation n'importe quel point sur le plan. 
     On utilise le point <m>(3,2,-1)</m> puisqu'on sait qu'il s'y trouve. On y arrive ainsi:
     <md>
         <mrow>\mathcal{P}&amp;:ax+by+cz=d</mrow>
-        <mrow>\mathcal{P}&amp;:1*x-2*y+1*z=d</mrow>
-        <mrow>\mathcal{P}&amp;:x-2y+z=d</mrow>
-        <mrow>\mathcal{P}&amp;:3-2*2-1=d</mrow>
-        <mrow>\mathcal{P}&amp;:-2=d</mrow>
-        <mrow>\mathcal{P}&amp;:x-2y+z=-2</mrow>
+        <mrow>\mathcal{P}&amp;:-7*x-10*y+6*z=d</mrow>
+        <mrow>\mathcal{P}&amp;:-7*3-10*2-6*1=d</mrow>
+        <mrow>\mathcal{P}&amp;:-43=d</mrow>
+        <mrow>\mathcal{P}&amp;:-7x-10y+6z=-43</mrow>
     </md>
     On regarde maintenant la situation inverse.</p>
     <example xml:id="ex-normavec">
@@ -990,6 +986,83 @@
     </p>
     </proof>
     </proposition>
+    <remark>
+    <title>Truc mnémotechnique pour le produit vectoriel</title>
+    <statement><p>Voici un petit truc pour se rappeler des composantes du vecteur produit vectoriel. Dans un premier temps, on remarque que les composantes <m>i</m> des vecteurs <m>\vec{u}</m> et <m>\vec{v}</m> n'apparaissent pas dans la composante <m>i</m> du <xref ref="eq-prodvec" text="custom">produit vectoriel</xref>. Ainsi, dans la première composante de <m>\vec{u}\times \vec{v}</m>, on n'utilise que les nombres <m>u_2,u_3,v_2,v_3</m>.</p>
+    <p>On constate de plus que les valeurs de <m>\vec{u}</m> utilisées vont en augmentant selon le cycle <m>u_2\to u_3\to u_1\to u_2</m> et les valeurs de <m>\vec{v}</m> vont  en diminuant selon le cycle <m>v_3\to v_2\to v_1\to v_3</m>. Le schéma ci-dessous aide aussi à se rappeler des composantes du produit vectoriel.
+</p>
+<figure xml:id="fig-prodveccomposantes">
+<caption>Mnémotechnique pour le produit vectoriel</caption>
+<interactive platform="sage" width="100%" aspect="4:3">
+<instruction><p>Changer le curseur pour voir comment est calculer la composante du produit vectoriel <m>\vec{w}=(w_1,w_2,w_3)</m></p></instruction>
+<slate surface="sage">
+x_positions = [0, 2, 4, 6, 8]
+u_y = 2.0
+v_y = 0.0
+
+u_labels = ['u₁', 'u₂', 'u₃', 'u₁', 'u₂']
+v_labels = ['v₁', 'v₂', 'v₃', 'v₁', 'v₂']
+
+def make_plot(state):
+    G = Graphics()
+
+    # Étiquettes
+    for x, label in zip(x_positions, u_labels):
+        G += text(label, (x, u_y), fontsize=14, horizontal_alignment='center',color="black")
+    for x, label in zip(x_positions, v_labels):
+        G += text(label, (x, v_y), fontsize=14, horizontal_alignment='center',color="black")
+
+    # Arrow helper
+    def add_arrow(start, end, color, style='solid'):
+        return arrow(start, end, color=color, arrowsize=2, width=1.5, linestyle=style)
+
+    # --- Green loop ---
+    if state == "$w_1$":
+        color, style = 'green', 'solid'
+        G+=  line([(0,2.5),(0,-0.5)],color=color,thickness=1.75)
+    else:
+        color, style = 'lightgray', 'dashed'
+    G += add_arrow((2, u_y-0.1), (4, v_y+0.1), color, style)
+    G += add_arrow((4, v_y+0.1), (4, u_y-0.1), color, style)
+    G += add_arrow((4, u_y-0.1), (2, v_y+0.1), color, style)
+    G += text(r"$\times$", (3, 1.4), color=color, fontsize=20, horizontal_alignment='center')
+    G += text(r"$-$", (4.3, 1.0), color=color, fontsize=20, horizontal_alignment='center')
+    
+
+    # --- Red loop ---
+    if state == "$w_2$":
+        color, style = 'red', 'solid'
+        G+=  line([(2,2.5),(2,-0.5)],color=color,thickness=1.75)
+    else:
+        color, style = 'lightgray', 'dashed'
+    G += add_arrow((4, u_y-0.1), (6, v_y+0.1), color, style)
+    G += add_arrow((6, v_y+0.1), (6, u_y-0.1), color, style)
+    G += add_arrow((6, u_y-0.1), (4, v_y+0.1), color, style)
+    G += text(r"$\times$", (5, 1.3), color=color, fontsize=20, horizontal_alignment='center')
+    G += text("−", (6.3, 1.0), color=color, fontsize=20, horizontal_alignment='center')
+
+    # --- Blue loop ---
+    if state == "$w_3$":
+        color, style = 'blue', 'solid'
+        G+=  line([(4,2.5),(4,-0.5)],color=color,thickness=1.75)
+    else:
+        color, style = 'lightgray', 'dashed'
+    G += add_arrow((6, u_y-0.1), (8, v_y+0.1), color, style)
+    G += add_arrow((8, v_y+0.1), (8, u_y-0.1), color, style)
+    G += add_arrow((8, u_y-0.1), (6, v_y+0.1), color, style)
+    G += text(r"$\times$", (7, 1.3), color=color, fontsize=20, horizontal_alignment='center')
+    G += text("−", (8.3, 1.0), color=color, fontsize=20, horizontal_alignment='center')
+
+    return G
+
+@interact
+def show_loops(state=slider([r"$w_1$",r"$w_2$",r"$w_3$"], label="Composante du produit vectoriel")):
+    return make_plot(state).show(axes=False, figsize=6, aspect_ratio=2/3)
+    </slate>
+    </interactive>
+</figure>
+    </statement>
+    </remark>
     <p>On termine avec des commandes Sage en lien avec la sous-section.</p>
     <computation xml:id="sageex-plans">
       <title>Les plans avec Sage</title>
@@ -1121,9 +1194,65 @@
   Dans <m>\R^2</m>, deux droites sont soit parallèles, soit sécantes, mais dans <m>\R^3</m>, il existe une troisième option. 
   Deux droites peuvent ne pas se croiser sans être parallèles. On dit alors qu'elles sont gauches. 
   Pour déterminer la distance entre les deux droites, on doit trouver la distance entre deux plans parallèles contenant chacun l'une des droites. 
-  Ceci nécessite de déterminer un vecteur qui est perpendiculaire au vecteur directeur respectif de chaque droite. 
-  Les détails pour trouver ce vecteur sont donnés dans l'exemple <xref ref="ex-prodvecdet2x2"/>. 
-  En attendant, la figure <xref provisional="fig-distdg"/> illustre l'intuition derrière la méthode décrite ci-dessus.</p>    
+  Ceci nécessite de déterminer un vecteur qui est perpendiculaire au vecteur directeur respectif de chaque droite. Ce vecteur sera le vecteur normal des plans parallèles. 
+  </p>    
+  <p>On utilise le produit vectoriel des vecteurs directeurs des droites <m>\vec{v_1},\vec{v_2}</m> pour obtenir le vecteur <m>\vec{n}</m>. En prenant un point sur la première droite et ce vecteur normal, on obtient un plan <m>\mathcal{P_1}</m> et en prenant un point sur la seconde droite, on obtient un plan <m>\mathcal{P}_2</m>, parallèle à <m>\mathcal{P}_1</m>.  La distance entre les deux droites est donnée par la distance entre les deux plans parallèles. L'équation <xref ref="eq-distpp"/> permet d'obtenir cette distance en prenant un point de la première droite et le plan <m>\mathcal{P}_2</m> ou encore le plan <m>\mathcal{P}_1</m> et un point de la deuxième droite. La figure interactive ci-dessous permet de visualiser les éléments pertinents à ce calcul.</p>
+  <figure xml:id="fig-distdroiteg">
+        <caption>Distance entre deux droites gauches </caption>
+        <interactive aspect="1:1" platform="geogebra" width="100%"
+        xml:id="geog-droitesgauches">
+          <slate aspect="1:1" source="code/geogebra/Droites_gauches.ggb"
+          surface="geogebra" xml:id="slate-droitesgauches">
+          showResetIcon(true);</slate>
+          <instructions>
+            <p>Il est possible de déplacer les vecteurs 
+            <m>\vec{v_1},\vec{v_2}</m>, ainsi que les points <m>A</m> et <m>P</m>. Le produit vectoriel de <m>\vec{v_1}</m> et <m>\vec{v_2}</m> est affiché, de même que le vecteur <m>\overrightarrow{AP}</m> et sa projection sur le vecteur normal. </p>
+          </instructions>
+        </interactive>
+      </figure>
+  <p>On regarde un exemple de calcul de distance entre deux droites gauches.</p>
+  <example>
+  <title>Distance entre deux droites gauches</title>
+  <statement>
+  <p>
+  Soit <m>\mathcal{D}_1 : \overrightaarrow{OP}=c(-1,4,2)+(4,5,1)</m> et <m>\mathcal{D}_2: \overrightarrow{OP}: d(5,3,1)+(-3,2,7)</m> deux droites dans <m>\mathbb{R}^3</m>. On cherche la distance entre ces deux droites.
+  </p>
+  </statement>
+  <solution><p>Comme les vecteurs directeurs ne sont pas parallèles, les droites ne le sont pas non plus. Elles sont donc sécantes ou gauches. Si elles étaient sécantes, on pourrait trouver <m>c\in \mathbb{R}</m> tel que
+  <me>
+  \vecddd{-3}{2}{7}=c\vecddd{-1}{4}{2}+\vecddd{4}{5}{1}
+  </me>,
+  ce qui entraine que 
+  <me>
+  \vecddd{-7}{-3}{6}=c\vecddd{-1}{4}{2}
+  </me>.
+  
+ Or ceci est impossible puisqu'il faudrait que <m>c=7</m> pour que la première composante fonctionne, que <m>c=-3/4</m> pour que la deuxième composante fonctionne et que <m>c=3</m> pour que la troisième composante fonctionne. On conclut donc que les droites sont gauches.
+  </p>
+  <p>On calcule le produite vectoriel des vecteurs directeurs, en utilisant la formule <xref ref="eq-prodvec"/>. On obtient le vecteur
+  <me>
+  \vec{n}=(4\cdot 1-2\cdot 3, 2\cdot 5+1\cdot 1, -1\cdot(-3)-4\cdot 5)=(-2,11,-23)
+  </me>.
+  Bien qu'elles ne soient pas nécessaires, l'équation normale du plan <m>\mathcal{P}_1</m> est <m>-2x+11y-23z=-8</m> et l'équation normale du plan <m>\mathcal{P}_2</m> est <m>-2x+11y-23z=-49</m>. Pour calculer la distance entre les deux droites, on choisit de prendre <m>A(4,5,1)</m> sur le premier plan et <m>P(-3,2,7)</m> sur le second, pour projeter le vecteur <m>\overrightarrow{AP}=(-7,-3,6)</m> sur le vecteur <m>\vec{n}</m>. Ceci donne le vecteur
+  <md>
+  <mrow>\overrightarrow{AP}_{\vec{n}}&amp;=\frac{(-7,-3,6)\cdot (-2,11,-23)}{(-2,11,-23)\cdot (-2,11,-23)} (-2,11,-23)</mrow>
+  <mrow>&amp;=\frac{-157}{654}(-2,11,-23)</mrow>
+  </md>,
+  dont la norme est la distance cherchée. La cellule Sage ci-dessous refait et complète les calculs.
+  </p>
+  <sage>
+  <input>
+v1=vector([-1,4,2])
+v2=vector([5,3,1])
+A=vector([4,5,1])
+P=vector([-3,2,7])
+n=v1.cross_product(v2)
+AP=P-A
+((AP*n)/(n*n)*n).norm().n()
+  </input>
+  </sage>
+  </solution>
+  </example>
       <p>Il n'y a pas de nouvelles commandes Sage, mais on illustre l'utilisation de Sage pour résoudre un exemple concret de calcul de distance.</p>
       <computation xml:id="sageex-distpd">
           <title>La distance entre un point et une droite</title>
@@ -1193,3 +1322,4 @@
   <xi:include href="Exercices_droitesplans.xml" />
     
 </section>
+<!-- Exercices droites gauches ex le point le plus proche --> <!-- Ajouter à geogebra-->
