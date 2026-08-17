@@ -83,7 +83,7 @@ matrix_plot(G,cmap='gray')
     </definition>
    <p>Pour déterminer la nouvelle image, on effectue un passage du noyau sur la matrice. L'entrée au centre est remplacée par la moyenne des neufs entrées couvertes par le noyau. La figure <xref ref="fig-floutage1"/> illustre ce concept.</p>
    <figure xml:id="fig-floutage1">
-   <caption>Le floutage d'une entrée par un noyau d'ordre $3$</caption>
+   <caption>Le floutage d'une entrée par un noyau d'ordre <m>3</m></caption>
    <image xml:id="img-floutage1">
    <sageplot>
 grid = Graphics()
@@ -206,7 +206,7 @@ def bourreur(A,n):
 <sage>
 <input>
 def floutagesimple(i,j,n,Gpad):
-    centre=Gpad[i-1:i+n-1,j-1:j+n-1] #Le centre est l'entrée (i,j) de la matrice G
+    centre=Gpad[i-1:i+n-1,j-1:j+n-1] #La sous-matrice centrée en (i,j)
     m=sum(centre.list())/n^2
     return m
 </input>
@@ -321,7 +321,7 @@ Gaussien
 <input>
 def floutagepondere(i,j,noyau,Gpad):
     n=noyau.nrows()
-    centre=Gpad[i-1:i+n-1,j-1:j+n-1] #Le centre est l'entrée (i,j) de la matrice G
+    centre=Gpad[i-1:i+n-1,j-1:j+n-1] #La sous-matrice centrée en (i,j)
     m=0
     for ligne in range(n):
         for colonne in range(n):
@@ -350,7 +350,109 @@ show(matrix_plot(Gfloutee,cmap='gray'))
     </subsection>
     <subsection>
     <title>Détection de contours</title>
+    <p>Une autre application des noyaux matriciels est la détection de contour. Pour comprendre le fonctionnement, on imagine une image simple contenant une moitié blanche à gauche et une moitié noire à droite comme celle ci-dessous.</p>
+<figure xml:id="fig-ligneverticalenb">
+    <caption>Une bicoloration blanche et noire</caption>
+    <image xml:id="img-ligneverticalenb">
+    <sageplot>
+V=matrix([[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0]])
+matrix_plot(V,cmap="gray")
+    </sageplot>
+    </image>
+    </figure>
+    <p>Lorsque le noyau est entièrement dans la partie blanche ou dans la partie noire de l'image, on aimerait qu'il n'y ait pas de détection, mais lorsque le noyau chevauche les deux régions, un contour soit détecté. Comme on s'attarde pour le moment aux lignes verticales uniquement, on peut montrer que le noyau suivant fait ce qui est souhaité:
+    <md number="yes" xml:id="eq-noyaucontourv">
+    DV=\begin{pmatrix}
+    -1\amp 0\amp 1\\
+    -1\amp 0\amp 1\\
+    -1\amp 0\amp 1
+    \end{pmatrix}
+    </md>.
+    Ce noyau ignore la colonne centrale de l'image où il est appliqué et fait la somme des valeurs de part et d'autre du centre, en attribuant une valeur négative au coté gauche. Si la couleur est la même, le noyau suppose que le centre n'est pas un contour et retourne la valeur <m>0</m>. Au contraire, si un changement est détecté, la différence entre les deux donnera l'intensité du contour. Dans l'exemple de la figure <xref ref="fig-ligneverticalenb"/>, le contour est à l'extrême des deux couleurs. Voici l'effet de ce noyau sur cette image.   
+    </p>
+    <sage>
+    <input>
+    #On définit une fonction qui calcule les entrées de la matrice une fois passées par le noyau.
+    def detectecontourv(i,j,n,Gpad):
+        noyau=matrix([[-1,0,1],[-1,0,1],[-1,0,1]])
+        centre=Gpad[i-1:i+n-1,j-1:j+n-1] #La sous-matrice centrée en (i,j)
+        m=0
+        for ligne in range(n):
+            for colonne in range(n):
+                m+=centre[ligne,colonne]*noyau[ligne,colonne]
+        return m
+    #Ensuite, on définit la fonction qui applique le noyau
+    def contourvertical(G,n):
+        Gpad=bourreur(G,n)
+        Gcontourvertical=matrix(G.nrows(),G.ncols(), lambda i,j: detectecontourv(i+1,j+1,n,Gpad))
+        return Gcontourvertical
+    V=matrix([[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0],[255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,0,0,0,0]])
+    matrix_plot(contourvertical(V,3),cmap="gray") #On utilise un noyau d'ordre 3
+    </input>
+    </sage>
+    <p>On détecte bien la ligne centrale, ainsi que quelques artefacts aux bords de la figure. On y reviendra à l'exercice <xref provisional="exo-contourbourreur"/>. On peut ensuite se demander ce que fait ce noyau pour les lignes horizontales? En théorie, tout devrait s'annuler et on ne devrait pas détecter de contour. On teste ceci dans la cellule ci-bas.</p>
+    <sage>
+    <input>
+    H=V.transpose()
+    show(matrix_plot(H,cmap="gray"))
+    matrix_plot(contourvertical(H,3),cmap="gray")
+    </input>
+    </sage>
+    <p>L'effet est bien celui attendu, hormis encore une fois aux abords de la figure du côté blanc. Pour détecter les contours horizontaux, il suffit de modifier le noyau de l'équation <xref ref="eq-noyaucontourv"/> en définissant <m>DH=DV^T</m>. Le code suivant produit une fonction qui détecte les contours horizontaux.</p>
+    <sage>
+    <input>
+#On définit une fonction qui calcule les entrées de la matrice une fois passées par le noyau.
+def detectecontourh(i,j,n,Gpad):
+    noyau=matrix([[-1,0,1],[-1,0,1],[-1,0,1]]).transpose()
+    centre=Gpad[i-1:i+n-1,j-1:j+n-1] #La sous-matrice centrée en (i,j)
+    m=0
+    for ligne in range(n):
+        for colonne in range(n):
+            m+=centre[ligne,colonne]*noyau[ligne,colonne]
+    return m
+#Ensuite, on définit la fonction qui applique le noyau
+def contourhorizontal(G,n):
+    Gpad=bourreur(G,n)
+    Gcontourhorizontal=matrix(G.nrows(),G.ncols(), lambda i,j: detectecontourh(i+1,j+1,n,Gpad))
+    return Gcontourhorizontal
+matrix_plot(contourhorizontal(H,3),cmap="gray") #On utilise un noyau d'ordre 3    
+    </input>
+    </sage>
     
+    <p> La majorité des images auront des contours horizontaux et verticaux et mêmes obliques. Pour détecter le tout, on peut combiner les applications des noyeaux horizontal et vertical. Pour cela, on choisit de prendre la somme quadratique des contributions. Ainsi, en chaque point, on calcule le résultat du noyeau <m>DH</m> et celui du noyau <m>DV</m> pour obtenir le résultat final:
+        <md>
+        D=\sqrt{DH^2+DV^2}
+        </md>.
+        On regarde cet effet sur une image comprenant les deux types de contours.</p>
+        <sage>
+        <input>
+def quad(i,j):
+    if i&lt;12 and j&lt;12:
+        return 255
+    elif i&lt;12 and j>=12:
+        return 0
+    elif i>=12 and j>=12:
+        return 255
+    else:
+        return 0
+C=matrix(24,24, lambda i,j : quad(i,j))
+def contour(G,n):
+    Gpad=bourreur(G,n)
+    Gcontour=matrix(G.nrows(),G.ncols(), lambda i,j: sqrt(detectecontourh(i+1,j+1,n,Gpad)^2+detectecontourv(i+1,j+1,n,Gpad)^2))
+    return Gcontour
+show(matrix_plot(C,cmap="gray"))
+show(matrix_plot(contourhorizontal(C,3),cmap="gray"))
+show(matrix_plot(contourvertical(C,3),cmap="gray"))
+show(matrix_plot(contour(C,3),cmap="gray"))
+        </input>
+        </sage>
+        <p>Finalement, on essaie avec une image plus complexe.</p>
+        <sage>
+        <input>
+show(matrix_plot(G,cmap="gray"))
+show(matrix_plot(contour(G,3),cmap="gray"))            
+        </input>
+        </sage>
     <!-- empreintes digitales? comme application? -->
     </subsection>
     <!-- Sous-sections à écrire, à même ce fichier -->
@@ -363,4 +465,5 @@ show(matrix_plot(Gfloutee,cmap='gray'))
 </section>
 <!-- introduire convolution trouver la manière comme opération (Pas certain si  nécessaire) 
 median kernel pour floutage?
+modifier bourreur pour détection des contours. exercice?
 -->
