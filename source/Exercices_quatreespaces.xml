@@ -375,7 +375,7 @@ show(K.rref())
     </task>
     </exercise>
 <exercise><introduction>
-<p>On considère la matrice <me>A=\begin{pmatrix}1&amp; 1&amp; 0&amp; -1\\ 1&amp; -2&amp;1&amp; -1\\ 0&amp;1&amp;-1&amp;3 \end{pmatrix}</me>.
+<p>On considère la matrice <md>A=\begin{pmatrix}1&amp; 1&amp; 0&amp; -1\\ 1&amp; -2&amp;1&amp; -1\\ 0&amp;1&amp;-1&amp;3 \end{pmatrix}</md>.
 Pour chaque situation ci-dessous, donner une matrice de format demandé respectant la condition ou dire pourquoi une telle matrice n'existe pas.
 </p>
 </introduction>
@@ -397,14 +397,14 @@ show("rref(A)=",A.rref())
 </input>
 </sage>
 <p>L'espace ligne est donc à trois dimensions et engendré par les vecteurs <m>(1,0,0,1/2),(0,1,0,-3/2),(0,0,1,-9/2)</m>. Pour avoir une matrice de format <m>4\times 5</m> qui produira un espace colonne égal à l'espace ligne de <m>A</m>, on peut prendre une matrice <m>B</m> dont trois des colonnes sont les vecteurs ci-dessus et les deux autres colonnes sont des combinaisons linéaires de ces mêmes vecteurs. Voici un exemple:
-<me>
+<md>
 B=\begin{pmatrix}
 1&amp;0&amp;0&amp;1&amp;0\\
 0&amp;1&amp;0&amp;1&amp;1\\
 0&amp;0&amp;1&amp;0&amp;1\\
 \frac{1}{2}&amp;-\frac{3}{2}&amp;-\frac{9}{2}&amp;-1&amp;-6
 \end{pmatrix}
-</me>.</p>
+</md>.</p>
 </solution>
 </task>
 <task>
@@ -427,14 +427,14 @@ D=\begin{pmatrix}
 \end{pmatrix}
 </m></p></answer>
 <solution><p>En regardant les calculs Sage faits précédemment, on constate que l'espace colonne de la matrice <m>A</m> est généré par les trois premières colonnes. Pour créer la matrice <m>D</m> demandée, il suffit de mettre les trois premières colonnes de <m>A</m> comme lignes d'une matrice et d'ajouter une ligne qui est une combinaison linéaire de ces trois premières lignes. Voici un exemple:
-<me>
+<md>
 D=\begin{pmatrix}
 1&amp;1&amp;0\\
 1&amp;-2&amp;1\\
 0&amp;1&amp;-1\\
 2&amp;0&amp;0
 \end{pmatrix}
-</me>.</p></solution>
+</md>.</p></solution>
 </task>
 <task>
 <statement>
@@ -454,14 +454,14 @@ D=\begin{pmatrix}
 1&amp;1&amp;1\\
 \end{pmatrix}</m></p></answer>
 <solution><p>Toujours selon les calculs Sage précédents, le rang de la matrice <m>A</m> est <m>3</m>. Cela signifie que la dimension de l'espace nul sera égale à <m>1</m> selon le <xref ref="thm-fondalg" text="title"/>. On peut trouver une base de l'espace nul en regardant la <xref ref="def-solbase" text="custom">solution de base</xref> telle que définie à la section <xref ref="sec-SELgeo"/>. On trouve le vecteur <m>\left(-\frac{1}{2}, \frac{3}{2}, \frac{9}{2},1 \right)</m> comme générateur de l'espace nul. Pour satisfaire les conditions de taille de la matrice <m>F</m>, il suffit de copier ce vecteur ou l'un de ses multiples dans les trois colonnes d'une matrice <m>4\times 3</m>. Ainsi,
-<me>
+<md>
 F=\begin{pmatrix}
 -\frac{1}{2}&amp;-\frac{1}{2}&amp;-\frac{1}{2}\\
 \frac{3}{2}&amp;\frac{3}{2}&amp;\frac{3}{2}\\
 \frac{9}{2}&amp;\frac{9}{2}&amp;\frac{9}{2}\\
 1&amp;1&amp;1\\
 \end{pmatrix}
-</me> fait l'affaire.</p></solution>
+</md> fait l'affaire.</p></solution>
 </task>
 <task>
 <statement>
@@ -474,14 +474,14 @@ F=\begin{pmatrix}
 -\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
 \end{pmatrix}</m></p></answer>
 <solution><p>L'espace nul de la matrice <m>A</m> est engendré par le vecteur <m>\left(-\frac{1}{2}, \frac{3}{2}, \frac{9}{2},1 \right)</m>. Pour obtenir une matrice <m>G</m> dont l'espace ligne sera engendré par ce vecteur, il suffit de le placer comme les quatre lignes d'une matrice. La matrice
-<me>
+<md>
 G=\begin{pmatrix}
 -\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
 -\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
 -\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
 -\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{9}{2}&amp;1\\
 \end{pmatrix}
-</me> est un exemple.</p></solution>
+</md> est un exemple.</p></solution>
 </task>
 </exercise>
 <exercise>
@@ -507,12 +507,12 @@ show("rref(A)=",A.rref())
 <statement><p><m>V_2=\{\vec{x}\in \mathbb{R}^5~|~ x_1+x_3+x_5=0 \text{ et } x_2+x_4=0\}</m>.</p></statement>
 <answer><p><m>V_2^{\perp}=\vspan((1,0,1,0,1),(0,1,0,1,0))</m></p></answer>
 <solution><p>Soit 
-<me>
+<md>
 B=\begin{pmatrix}
 1&amp;0&amp;1&amp;0&amp;1\\
 0&amp;1&amp;0&amp;1&amp;0
 \end{pmatrix}
-</me>,
+</md>,
 la matrice pour laquelle le système <m>B\vec{x}=\vec{0}</m> correspond aux conditions caractéristiques du sous-espace <m>V_2</m>. Par définition, les solutions à ce système correspondent à l'espace nul de la matrice <m>B</m> et donc, le sous-espace <m>V_2</m> est équivalent à l'espace nul de la matrice <m>B</m>. Le complément orthogonal de l'espace nul étant l'espace ligne, on conclut que <m>V_2^{\perp}=\vspan((1,0,1,0,1),(0,1,0,1,0))</m>, puisque la matrice <m>B</m> est déjà échelonnée réduite.
 </p></solution>
 </task>
@@ -520,7 +520,7 @@ la matrice pour laquelle le système <m>B\vec{x}=\vec{0}</m> correspond aux cond
 <exercise><introduction><p>À la proposition <xref ref="prop-baseexiste"/>, on a montré que tout espace vectoriel de dimension plus grande à <m>0</m> possédait une base. Voici un processus qui permet de compléter un ensemble de vecteurs indépendants afin de trouver une base d'un espace vectoriel de dimension connue.</p>
 </introduction>
 <task><statement><p>On considère les vecteurs de <m>\mathbb{R}^5</m> suivants:
-<me>
+<md>
 \vec{v}_1=\begin{pmatrix}
 0\\ 1\\ 2\\ 3\\ 4
 \end{pmatrix} \qquad \vec{v}_2=\begin{pmatrix}
@@ -528,9 +528,9 @@ la matrice pour laquelle le système <m>B\vec{x}=\vec{0}</m> correspond aux cond
 \end{pmatrix} \qquad \vec{v}_3=\begin{pmatrix}
 -1\\ 2\\ -3\\ 4\\ -5
 \end{pmatrix} 
-</me>.
+</md>.
 L'idée est de créer une matrice dont l'espace colonne sera <m>\mathbb{R}^5</m> et dont les colonnes pivots donneront une base qui contiendra les vecteurs <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m>. Pour cela, on considère la matrice
-<me>
+<md>
 \begin{pmatrix}
 0&amp; 5&amp; -1&amp; 1&amp;0&amp;0&amp;0&amp;0\\
 1&amp; 6&amp; 2&amp; 0&amp;1&amp;0&amp;0&amp;0\\
@@ -538,7 +538,7 @@ L'idée est de créer une matrice dont l'espace colonne sera <m>\mathbb{R}^5</m>
 3&amp; 8&amp; 4&amp; 0&amp;0&amp;0&amp;1&amp;0\\
 4&amp; 9&amp; -5&amp; 0&amp;0&amp;0&amp;0&amp;1\\
 \end{pmatrix}
-</me>.
+</md>.
 Donner une base de <m>\mathbb{R}^5</m> contenant les vecteurs <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m>.
 </p></statement>
 <answer>
@@ -555,7 +555,7 @@ show(A.rref())
 <p>En ajoutant les vecteurs <m>(1,0,0,0,0),(0,1,0,0,0)</m> aux vecteurs <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m>, on obtient une base de <m>\mathbb{R}^5</m>.</p>
 </solution>
 </task>
-<task><statement><p>Répéter avec les vecteurs <me>
+<task><statement><p>Répéter avec les vecteurs <md>
 \vec{w}_1=\begin{pmatrix}
 5\\ 4\\ 3\\ 2\\ 1
 \end{pmatrix} \qquad \vec{w}_2=\begin{pmatrix}
@@ -563,7 +563,7 @@ show(A.rref())
 \end{pmatrix} \qquad \vec{w}_3=\begin{pmatrix}
 -11\\ -12\\ -13\\ -6\\ -3
 \end{pmatrix} 
-</me>.</p></statement>
+</md>.</p></statement>
 <solution>
 <p>Il faut échelonner la matrice contenant ces trois vecteurs dans les premières colonnes et augmentée de l'identité afin de déterminer les colonnes pivots. On utilise Sage.</p>
 <sage>
@@ -603,9 +603,9 @@ Si la matrice <m>R</m> est de rang <m>r</m>, alors l'espace nul gauche est de di
 <task><statement><p>Décomposer le vecteur <m>\vec{w}=(1,0,1)\times (-1,1,0)</m> de cette manière.</p></statement>
 <answer><p><m>\vec{w}=(0,0,0)+(-1, -1, 1)</m></p></answer>
 <solution><p>Dans un premier temps, on calcule le vecteur <m>\vec{w}</m>. Selon l'équation <xref ref="eq-prodvecdet2x2"/>, le produit vectoriel des lignes de <m>A</m> est
-<me>
+<md>
 \vec{x}=\left(\begin{vmatrix} 0&amp; 1\\ 1&amp;0 \end{vmatrix},-\begin{vmatrix} 1&amp; -1\\ 1&amp;0 \end{vmatrix},\begin{vmatrix} 1&amp; -1\\ 0&amp;1 \end{vmatrix}\right)=(-1,-1,1)
-</me>. Puisque ce vecteur est perpendiculaire aux lignes de <m>A</m> (par définition du produit vectoriel), on conclut que le vecteur <m>(-1,-1,1)</m> est dans l'espace nul de <m>A</m>. On prend donc le vecteur nul comme élément de l'espace ligne pour écrire <m>(-1,-1,1)=(0,0,0)+(-1,-1,1)</m></p></solution>
+</md>. Puisque ce vecteur est perpendiculaire aux lignes de <m>A</m> (par définition du produit vectoriel), on conclut que le vecteur <m>(-1,-1,1)</m> est dans l'espace nul de <m>A</m>. On prend donc le vecteur nul comme élément de l'espace ligne pour écrire <m>(-1,-1,1)=(0,0,0)+(-1,-1,1)</m></p></solution>
 </task>
 <task><statement><p>Décomposer le vecteur <m>(1,1,1)</m> de cette manière.</p></statement>
 <answer><p><m>(1,1,1)=\frac{2}{3}(1,1,2)-\frac{1}{3}(-1,-1,1)</m></p></answer>
@@ -622,12 +622,12 @@ show("rref((M|b))=",Maug.rref())
 </input>
 </sage>
 <p>On peut donc écrire 
-<me>
+<md>
 (1,1,1)=\frac{4}{3}(1,0,1)+\frac{2}{3}(-1,1,0)-\frac{1}{3}(-1,-1,1)
-</me>. En combinant les deux premiers vecteurs, on a
-<me>
+</md>. En combinant les deux premiers vecteurs, on a
+<md>
 (1,1,1)=\frac{2}{3}(1,1,2)-\frac{1}{3}(-1,-1,1)
-</me> avec le vecteur <m>\frac{2}{3}(1,1,2)\in \mathcal{L}(A)</m> et le vecteur <m>-\frac{2}{3}(-1,-1,1)\in \mathcal{N}(A)</m>.</p>
+</md> avec le vecteur <m>\frac{2}{3}(1,1,2)\in \mathcal{L}(A)</m> et le vecteur <m>-\frac{2}{3}(-1,-1,1)\in \mathcal{N}(A)</m>.</p>
 </solution></task>
 <task><statement><p>Décomposer le vecteur <m>(x,y,z)</m> de cette manière.</p></statement>
 <solution><p>On utilise la même idée qu'au problème précédent. On ajuste les calculs avec Sage en vertu des remarques de l'exemple <xref ref="sageex-imgalg"/>.</p>
@@ -643,12 +643,12 @@ show("rref((M|b))=",M.echelon_form())
 </input>
 </sage>
 <p>On peut donc écrire 
-<me>
+<md>
 (x,y,z)=\frac{(x+y+2z)}{3}(1,0,1)+\frac{-x+2y+z}{3}(-1,1,0)+\frac{-x-y+z}{3}(-1,-1,1)
-</me>. En combinant les deux premiers vecteurs, on a
-<me>
+</md>. En combinant les deux premiers vecteurs, on a
+<md>
 (x,y,z)=\frac{1}{3}(4x-5y-z,-3x+6y+3z,x-y-z)+\frac{x+y+2z}{3}(-1,-1,1)
-</me> avec le vecteur <m>\frac{1}{3}(4x-5y-z,-3x+6y+3z,x-y-z)\in \mathcal{L}(A)</m> et le vecteur <m>\frac{x+y+2z}{3}(-1,-1,1)\in \mathcal{N}(A)</m>.</p>
+</md> avec le vecteur <m>\frac{1}{3}(4x-5y-z,-3x+6y+3z,x-y-z)\in \mathcal{L}(A)</m> et le vecteur <m>\frac{x+y+2z}{3}(-1,-1,1)\in \mathcal{N}(A)</m>.</p>
 </solution>
 </task>
 </exercise>
@@ -671,21 +671,21 @@ show("rref((M|b))=",M.echelon_form())
 </input>
 </sage>
 <p>La solution à ce système est
-<me>
+<md>
 (x,y,z,w)=\underbrace{\frac{1}{2}(x+y)\vec{v}_1+\frac{1}{2}(z-w)\vec{v}_2}_{\mathcal{L}(B)}+\underbrace{\frac{1}{2}(-x+y)\vec{v}_3+\frac{1}{2}(z+w)\vec{v}_4}_{\mathcal{N}(B)}
-</me>. En combinant les vecteurs <m>\vec{v}_1,\vec{v}_2</m> et les vecteurs <m>\vec{v}_3,\vec{v}_4</m>, on obtient une décomposition de <m>(x,y,z,w)</m> comme la somme d'un vecteur de l'espace ligne et d'un vecteur de l'espace nul.
+</md>. En combinant les vecteurs <m>\vec{v}_1,\vec{v}_2</m> et les vecteurs <m>\vec{v}_3,\vec{v}_4</m>, on obtient une décomposition de <m>(x,y,z,w)</m> comme la somme d'un vecteur de l'espace ligne et d'un vecteur de l'espace nul.
 </p>
 </solution>
 </task>
 <task><statement><p>Soit <m>\vec{u}=(1,1)</m>. Trouver un vecteur <m>\vec{x}</m> dans <m>\mathcal{L}(B)</m> tel que <m>B\vec{x}=(1,1)</m>.</p></statement>
 <answer><p><m>\vec{x}=\left(\frac{1}{2},\frac{1}{2},\frac{1}{2},-\frac{1}{2}\right)</m></p></answer>
 <solution><p>Ceci revient à trouver quelles valeurs de <m>x,y</m> satisfont l'équation matricielle
-<me>
+<md>
 B\left(x\begin{pmatrix} 1\\ 1\\ 0\\ 0\end{pmatrix}+y\begin{pmatrix} 0\\ 0\\ 1\\ -1\end{pmatrix}\right)=\begin{pmatrix} 1\\1\end{pmatrix}
-</me>. En distribuant la matrice <m>B</m>, cela revient à trouver comment écrire le vecteur <m>(1,1)</m> en fonction des vecteurs images de chaque ligne. Puisque <m>B\vec{l}_1=\vecd{2}{0}</m> et <m>B\vec{l}_2=\vecd{0}{2}</m>, on trouve rapidement <m>x=y=\frac{1}{2}</m>. Le vecteur
-<me>
+</md>. En distribuant la matrice <m>B</m>, cela revient à trouver comment écrire le vecteur <m>(1,1)</m> en fonction des vecteurs images de chaque ligne. Puisque <m>B\vec{l}_1=\vecd{2}{0}</m> et <m>B\vec{l}_2=\vecd{0}{2}</m>, on trouve rapidement <m>x=y=\frac{1}{2}</m>. Le vecteur
+<md>
 \vec{x}=\frac{1}{2}(1,1,0,0)+\frac{1}{2}(0,0,1,-1)=\left(\frac{1}{2},\frac{1}{2},\frac{1}{2},-\frac{1}{2}\right)
-</me> est la solution cherchée.</p></solution>
+</md> est la solution cherchée.</p></solution>
 </task>
 <task><statement><p>Trouver trois vecteurs de <m>\mathbb{R}^4</m> différents de celui trouvé à la partie précédente pour lesquels le produit par la matrice <m>B</m> donne aussi <m>(1,1)</m>.</p></statement>
 <answer><p><md>
@@ -748,9 +748,9 @@ Ainsi, le vecteur <m>c</m> est dans l'espace colonne du produit <m>AB</m>.</p>
 <task><statement><p>Montrer que <m>rg(AB)\leq rg(B)</m> en utilisant les espaces fondamentaux. On note qu'on a démontré ce résultat à l'exercice</p></statement>
 <hint><p>Utiliser le résultat de l'exercice <xref ref="exo-dimnulprod"/> et la proposition <xref ref="prop-diminclusion"/>.</p></hint>
 <solution><p>Soit <m>r</m>, le rang de la matrice <m>B</m>. Selon l'exercice <xref ref="exo-dimnulprod"/>, on a <m>\mathcal{N}(B)\subseteq \mathcal{N}(AB)</m>. La dimension de l'espace nul est <m>p-r</m>. Selon la proposition <xref ref="prop-diminclusion"/>, on a alors <m>p-r\leq \text{dim}(\mathcal{N}(AB))</m>. Puisque la dimension de <m>\mathcal{N}(AB)</m> est égale à <m>p-\mathcal{L}(AB)=p-rg(AB)</m>, on a
-<me>
+<md>
 p-r\leq p-rg(AB)
-</me>, qui, en réarrangeant et en utilisant <m>r=rg(B)</m>, devient <m>rg(AB)\leq rg(B)</m>.</p></solution>
+</md>, qui, en réarrangeant et en utilisant <m>r=rg(B)</m>, devient <m>rg(AB)\leq rg(B)</m>.</p></solution>
 </task>
 <task><statement><p>Montrer que si <m>A</m> est une matrice carrée inversible, alors <m>rg(AB)=rg(B)</m>.</p></statement>
 <hint><p>Utiliser l'exercice <xref ref="exo-dimnulprodeg"/>.</p></hint>
@@ -804,21 +804,21 @@ p-r\leq p-rg(AB)
 <task><statement><p>Donner deux matrices <m>3\times 3</m> de rang <m>1</m> pour lesquelles <m>AB=O</m>.</p></statement>
 <answer><p>Plusieurs réponses sont possibles.</p></answer>
 <solution><p>Pour que le produit soit <m>O</m>, il faut que l'espace colonne de <m>B</m> soit inclus dans l'espace nul de la matrice <m>A</m>. On commence avec une matrice <m>
-A</m> de rang <m>1</m> arbitraire. Pour cela, il suffit que les lignes soient parallèles. On pose <me>
+A</m> de rang <m>1</m> arbitraire. Pour cela, il suffit que les lignes soient parallèles. On pose <md>
 A=\begin{pmatrix}
 1&amp; 1&amp;1\\
 1&amp; 1&amp;1\\
 1&amp; 1&amp;1\\
 \end{pmatrix}
-</me>.
+</md>.
 Géométriquement, l'espace ligne de cette matrice est une droite de vecteur directeur <m>(1,1,1)</m>. L'espace nul est donc un plan de vecteur normal <m>(1,1,1)</m>. Pour que l'espace colonne de la matrice <m>B</m> soit inclus dans cet espace nul, il suffit de prendre comme colonne un vecteur du plan <m>x+y+z=0</m>. Le vecteur <m>(1,-1,0)</m> fera l'affaire. On pose alors
-<me>
+<md>
 \begin{pmatrix}
 1&amp;1&amp;1\\
 -1&amp;-1&amp;-1&amp;\\
 0&amp;0&amp;0
 \end{pmatrix}
-</me>.
+</md>.
 On vérifie avec Sage que le produit de ces matrices donne bien la matrice nulle et qu'elles sont de rang 1.</p>
 <sage>
 <input>
@@ -856,9 +856,9 @@ show("AB=",A*B)
 <introduction><p>On considère une matrice carrée <m>A</m> de taille <m>n\times n</m> telle que <m>A^2=A</m>.</p></introduction>
 <task xml:id="exo-colonneidempotente"><statement><p>Montrer que <m>\mathcal{C}(A)=\{\vec{v}\in\mathbb{R}^n~|~ A\vec{v}=\vec{v}\}</m>.</p></statement>
 <solution><p>Par définition, l'espace colonne est l'ensemble des vecteurs <m>\vec{v}\in\mathbb{R}^n</m> pour lesquels il existe un vecteur <m>\vec{u}\in\mathbb{R}^n</m> tel que 
-<me>
+<md>
 A\vec{u}=\vec{v}
-</me>.
+</md>.
 En multipliant chaque côté de cette équation par <m>A</m>, on trouve <m>A^2\vec{u}=A\vec{v}</m>, mais comme <m>A^2=A</m>, l'équation devient <m>A\vec{u}=A\vec{v}</m>. Puisque <m>A\vec{u}=\vec{v}</m> par hypothèse, on a
 <m>\vec{v}=A\vec{v}</m>. Tous les vecteurs dans l'espace colonne doivent donc satisfaire cette propriété.
 </p></solution>
@@ -889,9 +889,9 @@ On a donc <m>\mathcal{C}(I-A)\subseteq \mathcal{N}(A)</m> et en combinant les de
 </task>
 <task><statement><p>Montrer que tout vecteur dans <m>\mathbb{R}^n</m> peut s'écrire comme la somme d'un vecteur dans <m>\mathcal{N}(A)</m> et d'un vecteur dans <m>\mathcal{C}(A)</m>.</p></statement>
 <solution><p>Soit <m>\vec{u}</m>, un vecteur quelconque de <m>\mathbb{R}^n</m>. On peut toujours écrire
-<me>
+<md>
 \vec{u}=\vec{u}-A\vec{u}+A\vec{u}
-</me>.
+</md>.
 On pose <m>\vec{v}=\vec{u}-A\vec{u}</m> et <m>\vec{w}=A\vec{u}</m>. Selon la partie <xref ref="exo-nulidempotente"/>, le vecteur <m>\vec{v}</m> est dans l'espace nul de <m>A</m>, car il est dans l'espace colonne de <m>I-A</m>. De plus, comme <m>A\vec{w}=A^2\vec{u}=A\vec{u}=\vec{w}</m>, ce vecteur est dans l'espace colonne de <m>A</m>. On a donc décomposé tout vecteur comme la somme d'un vecteur de l'espace nul et d'un vecteur de l'espace colonne.
 </p></solution>
 </task>

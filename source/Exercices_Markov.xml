@@ -29,12 +29,12 @@
     </exercise>
     -->
     <exercise><introduction><p>Considérer une chaine de Markov dont la matrice de transition est donnée par
-<me>
+<md>
 T=\begin{pmatrix}
 0.4&amp;0.1\\
 0.6&amp;0.9
 \end{pmatrix}
-</me>.</p></introduction>
+</md>.</p></introduction>
 <task><statement><p> Si l'état initial <m>X_0</m> est donné par le vecteur <m>(0.2,\,0.8)</m>, déterminer l'état après <m>4</m> transitions.</p></statement>
 <answer><p><m>\begin{pmatrix}
 0.14332\\
@@ -94,7 +94,7 @@ T=\begin{pmatrix}
 6/7
 \end{pmatrix}</m></p></answer>
 <solution><p>On cherche un vecteur état qui sera stationnaire et donc inchangé par la matrice de transition. On pose <m>X=(x,\,1-x)</m>, cet état. Ainsi,
-<me>
+<md>
 \begin{pmatrix}
 0.4&amp;0.1\\
 0.6&amp;0.9
@@ -103,21 +103,21 @@ x\\1-x
 \end{pmatrix}=
 \begin{pmatrix}
 x\\1-x
-\end{pmatrix}</me>.
+\end{pmatrix}</md>.
 On obtient les équations suivantes:
 <md>
 <mrow>0.4x+0.1(1-x)&amp;=x</mrow>
 <mrow>0.6x+0.9(1-x)&amp;=1-x</mrow>
 </md>
 On résout pour trouver <m>x=1/7</m>, le vecteur stable est donc
-<me>
+<md>
 X=\begin{pmatrix}
 x\\
 1-x
 \end{pmatrix}=\begin{pmatrix}
 1/7\\
 6/7
-\end{pmatrix}</me>.</p></solution>
+\end{pmatrix}</md>.</p></solution>
 </task>
 </exercise>
 <exercise><introduction><p>On considère la chaine de Markov se déroulant sur le graphe de la figure suivante.</p>
@@ -177,7 +177,7 @@ On peut donc voir que la position la plus probable après deux transitions est l
 <task><statement><p>L'objet est oublié et continue ses déplacements pendant un bon moment. Une personne finit par l'apercevoir et note la position de l'objet. Quelles sont les probabilités qu'à ce moment, l'objet se trouve sur le sommet <m>3</m>?</p></statement>
 <answer><p>Environ <m>25\%</m>.</p></answer>
 <solution><p>Sans connaitre l'état initial et le nombre de transitions effectuées jusqu'à maintenant, on ne peut répondre de manière exacte à cette question. Dans ce cas, la probabilité associée à l'état stable fournit la meilleure estimation. On pose <m>X=(x,y,z,1-(x+y+z))</m>, le vecteur stable recherché. Ainsi,
-<me>\begin{pmatrix}
+<md>\begin{pmatrix}
 0&amp;1/3&amp;1/3&amp;1\\
 1/3&amp;0&amp;1/3&amp;0\\
 1/3&amp;1/3&amp;0&amp;0\\
@@ -187,7 +187,7 @@ x\\y\\z\\1-x-y-z
 \end{pmatrix}=
 \begin{pmatrix}
 x\\y\\z\\1-x-y-z
-\end{pmatrix}</me>.
+\end{pmatrix}</md>.
 À partir de cette égalité vectorielle, on obtient le système d'équations linéaires
 <md>
 <mrow>\frac{y}{3}+\frac{z}{3}+1-x-y-z&amp;=x</mrow>
@@ -203,7 +203,7 @@ Une fois réduit (on a multiplié par <m>3</m> pour éliminer les fractions), le
 <mrow>4x+4y+4z&amp;=3</mrow>
 </md>.
 On résout avec Gauss-Jordan:
-<me>\left(\begin{array}{ccc|c}
+<md>\left(\begin{array}{ccc|c}
 6&amp;2&amp;2&amp;3\\
 1&amp;-3&amp;1&amp;0\\
 1&amp;1&amp;-3&amp;0\\
@@ -215,30 +215,30 @@ On résout avec Gauss-Jordan:
 0&amp;1&amp;0&amp;3/16\\
 0&amp;0&amp;1&amp;3/16\\
 0&amp;0&amp;0&amp;0
-\end{array}\right)</me>
+\end{array}\right)</md>
 On obtient donc <m>x=3/8</m>, <m>y=3/16</m> et <m>z=3/16</m> et ainsi,
-<me>X=\begin{pmatrix}
+<md>X=\begin{pmatrix}
 x\\y\\z\\1-x-y-z
 \end{pmatrix}=\begin{pmatrix}
 3/8\\3/16\\3/16\\1/4
-\end{pmatrix}</me>
+\end{pmatrix}</md>
 On conclut que la position  <m>3</m> est fréquentée <m>25\%</m> du temps à l'état stable. C'est la meilleure estimation à donner pour la probabilité cherchée.</p></solution>
 </task>
 </exercise>
 <exercise><statement><p>On s'intéresse aux chaines de Markov à deux états dont la matrice de transition est
-<me>
+<md>
 T=\begin{pmatrix}
 a&amp;b\\
 1-a&amp;1-b
 \end{pmatrix}
-</me>
+</md>
 avec <m>0&lt;a,b&lt;1</m>. Déterminer l'état stationnaire d'une telle chaine.</p></statement>
 <answer><p><m>\begin{pmatrix}
 \frac{b}{1+b-a}\\
 \frac{1-a}{1+b-a}
 \end{pmatrix}</m></p></answer>
 <solution><p>On cherche un vecteur de probabilité qui sera stationnaire et donc inchangé par la matrice de transition. On pose <m>X=(x,1-x)</m>, cet état. On a
-<me>
+<md>
 \begin{pmatrix}
 a&amp;b\\
 1-a&amp;1-b
@@ -247,33 +247,33 @@ x\\1-x
 \end{pmatrix}=
 \begin{pmatrix}
 x\\1-x
-\end{pmatrix}</me>,
+\end{pmatrix}</md>,
 d'où l'on tire les équations suivantes
 <md>
 <mrow>ax+b(1-x)&amp;=x</mrow>
 <mrow>(1-a)x+(1-b)(1-x)&amp;=1-x</mrow>
 </md>.
 On obtient en résolvant <m>x=\frac{b}{1+b-a}</m>, l'état stable est donc
-<me>X=\begin{pmatrix}
+<md>X=\begin{pmatrix}
 x\\
 1-x
 \end{pmatrix}=\begin{pmatrix}
 \frac{b}{1+b-a}\\
 \frac{1-a}{1+b-a}
-\end{pmatrix}.</me></p></solution>
+\end{pmatrix}.</md></p></solution>
 </exercise>
 <exercise xml:id="exo-etatstablesouris"><statement><p>Calculer l'état stable de la chaine de Markov représentant le déplacement de la souris dans l'exemple <xref ref="ex-sourisMarkov"/>.</p></statement>
 <answer><p><m>X=(0.266666666791633, 0.399999999875033, 0.200000000077234, 0.133333333256100)</m></p></answer>
 <solution>
 <p>La matrice de transition est donnée par 
-<me>
+<md>
 T=\begin{pmatrix}
 0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\
 \frac{1}{2} &amp; 0 &amp; 1 &amp; \frac{1}{2} \\
 0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
 \frac{1}{2} &amp; 0 &amp; 0 &amp; 0
 \end{pmatrix}
-</me>. 
+</md>. 
 Un calcul montre que <m>T^2</m> n'a pas d'entrée égale à zéro, il est donc possible de calculer une grande puissance de <m>T</m> pour trouver l'état stable. Avec Sage, on trouve <m>X=(0.266666666791633, 0.399999999875033, 0.200000000077234, 0.133333333256100)</m>.
 </p>
 <sage>
@@ -313,7 +313,7 @@ T=\begin{pmatrix}
 <answer><p>C'est la pièce numéro 4 qui est la plus probable.</p></answer>
 <solution>
 <p>On peut procéder par itération à partir du vecteur <m>X_0=(0,0,0,0,1,0,0)</m>. On a
-<me>
+<md>
 X_1=\begin{pmatrix}
 0 &amp;0&amp;1/3&amp;0&amp; 0 &amp;0 &amp; 0\\
 0 &amp;0&amp;0&amp;1/4&amp; 1/2 &amp;0 &amp; 0\\
@@ -323,9 +323,9 @@ X_1=\begin{pmatrix}
 0 &amp;0&amp;1/3&amp;0&amp; 0 &amp;0 &amp; 0\\
 0 &amp;0&amp;0&amp;1/4&amp; 0 &amp;0 &amp; 0
 \end{pmatrix}\begin{pmatrix}0\\ 0\\ 0\\ 0\\ 1\\ 0\\ 0\end{pmatrix}=\begin{pmatrix}0\\ 1/2 \\ 0 \\ 1/2 \\ 0 \\ 0\\ 0 \end{pmatrix}
-</me>,
+</md>,
 puis
-<me>
+<md>
 X_2=\begin{pmatrix}
 0 &amp;0&amp;1/3&amp;0&amp; 0 &amp;0 &amp; 0\\
 0 &amp;0&amp;0&amp;1/4&amp; 1/2 &amp;0 &amp; 0\\
@@ -335,9 +335,9 @@ X_2=\begin{pmatrix}
 0 &amp;0&amp;1/3&amp;0&amp; 0 &amp;0 &amp; 0\\
 0 &amp;0&amp;0&amp;1/4&amp; 0 &amp;0 &amp; 0
 \end{pmatrix}\begin{pmatrix}0\\ 1/2 \\ 0 \\ 1/2 \\ 0 \\ 0\\ 0 \end{pmatrix}=\begin{pmatrix}0 \\ 1/8 \\ 1/8 \\ 1/4 \\ 3/8 \\ 0 \\ 1/8)\end{pmatrix}
-</me>
+</md>
 et finalement,
-<me>
+<md>
 X_3=\begin{pmatrix}
 0 &amp;0&amp;1/3&amp;0&amp; 0 &amp;0 &amp; 0\\
 0 &amp;0&amp;0&amp;1/4&amp; 1/2 &amp;0 &amp; 0\\
@@ -347,7 +347,7 @@ X_3=\begin{pmatrix}
 0 &amp;0&amp;1/3&amp;0&amp; 0 &amp;0 &amp; 0\\
 0 &amp;0&amp;0&amp;1/4&amp; 0 &amp;0 &amp; 0
 \end{pmatrix}\begin{pmatrix}0 \\ 1/8 \\ 1/8 \\ 1/4 \\ 3/8 \\ 0 \\ 1/8)\end{pmatrix}=\begin{pmatrix}1/24 \\ 1/4 \\ 1/16 \\ 5/12 \\ 1/8 \\ 1/24 \\ 1/16 \end{pmatrix}
-</me>.
+</md>.
 </p>
 </solution>
 </task>
@@ -450,14 +450,14 @@ show(T^100*vector([0,0,1,0,0,0]).n())
 0.0001&amp;0.0099 &amp; 0.0099 &amp; 0.9801
 \end{pmatrix}</m></p></answer>
 <solution><p>Pour toute chaine, la probabilité de demeurer inchangé est obtenue par <m>p^2=0.9801</m>. La probabilité que le premier bit change, mais pas le deuxième est <m>(1-p)p=0.0099</m>, tout comme la probabilité que le premier soit inchangé, mais que le deuxième le soit, puisque <m>p(1-p)=(1-p)p=0.0099</m>. Finalement, la probabilité que les deux bits soient changés est <m>(1-p)(1-p)=0.0001</m>. La matrice de transition est donc
-<me>
+<md>
 T=\begin{pmatrix}
 0.9801&amp;0.0099 &amp; 0.0099 &amp; 0.0001\\
 0.0099&amp;0.9801 &amp; 0.0001 &amp; 0.0099\\
 0.0099&amp;0.0001 &amp; 0.9801 &amp; 0.0099\\
 0.0001&amp;0.0099 &amp; 0.0099 &amp; 0.9801
 \end{pmatrix}
-</me></p></solution>
+</md></p></solution>
 </task>
 <task><statement><p>On transmet <m>10</m> comme information. Cette chaine passe de l'ordinateur d'un utilisateur à un réseau central, elle est ensuite envoyée aux serveurs d'une compagnie et se retrouve finalement sur l'ordinateur d'une autre utilisateur, d'une autre utilisatrice. La chaine a donc subi trois transferts. Quelle est la probabilité que le message soit toujours <m>10</m> lors de la lecture par le deuxième utilisateur? (On note que le message pourrait avoir été corrompu en chemin, mais s'être corrigé de lui-même.)</p></statement>
 <answer><p><m>94\%</m></p></answer>

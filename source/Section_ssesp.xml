@@ -126,9 +126,9 @@
     <solution>
     <p>
     Un hyperplan peut être écrit comme le produit scalaire d'un vecteur <m>\vec{n}</m> avec le vecteur <m>\vec{x}=(x_1,x_2,\ldots , x_n)</m>, c'est-à-dire
-    <me>
+    <md>
     \vec{n}\cdot \vec{x}=d
-    </me>
+    </md>
     où <m>d\in \R</m>. Si l'hyperplan passe par l'origine, alors <m>d=0</m>. Les vecteurs dans l'hyperplan sont donc l'ensemble des vecteurs <m>\vec{x}</m> tels que <m>\vec{n}\cdot \vec{x}=0</m>.
     Soit <m>\vec{u},\vec{v}</m>, des vecteurs de <m>\R^n</m> sur l'hyperplan, c'est-à-dire des vecteurs tels que <m>\vec{n}\cdot \vec{u}=0, \vec{n}\cdot \vec{v}=0</m> et soit <m>k\in \R</m>, un scalaire. On a
     <md>
@@ -171,7 +171,7 @@
     <p>Des exemples importants de sous-espaces vectoriels sont les ensembles solutions à un système d'équations linéaires homogènes, correspondant aux zéros de la transformation linéaire associée.</p>
     <proposition xml:id="prop-Ax0ssesp">
     <title>Les zéros d'une transformation forment un sous-espace vectoriel</title>
-    <statement><p>Soit <m>A</m>, la matrice <m>m\times n</m> d'une transformation linéaire. Alors les solutions à l'équation linéaire <me>A\vec{x}=\vec{0}</me> forment un sous-espace vectoriel de <m>\R^n</m>.</p></statement>
+    <statement><p>Soit <m>A</m>, la matrice <m>m\times n</m> d'une transformation linéaire. Alors les solutions à l'équation linéaire <md>A\vec{x}=\vec{0}</md> forment un sous-espace vectoriel de <m>\R^n</m>.</p></statement>
     <proof><p>En fait, cette proposition est une reformulation de la proposition <xref ref="prop-Ax0sev"/></p></proof>
     </proposition>
     <p>Un résultat en apparence évident, mais qui aura son utilité à plus d'une reprise, est obtenu en considérant l'ensemble de toutes les combinaisons linéaires obtenues à partir d'un ensemble de vecteurs. Dans la section
@@ -224,9 +224,9 @@
     <title>Le complément orthogonal</title>
     <statement><p>Soit <m>V</m>, un sous-ensemble de <m>\R^n</m>. On définit le complément orthogonal de <m>V</m> comme étant l'ensemble des vecteurs <m>\vec{u}</m> dans <m>\R^n</m> tels que <m>\vec{u}</m> est orthogonal
     à tous les vecteurs de <m>V</m>. On le note
-    <me>
+    <md>
     V^{\perp}=\{\vec{u}\in\R^n ~|~ \vec{u}\cdot\vec{v}=0 \text{ pour tout } \vec{v}\in V\}
-    </me>.</p></statement>
+    </md>.</p></statement>
     </definition>
     <p>On regarde des exemples géométriques de compléments orthogonaux.</p>
     <example>
@@ -247,18 +247,18 @@
     d'équation normale <m>x+2y-3z=0</m>, dont le vecteur normal est le vecteur directeur de <m>\mathcal{D}_2</m>.</p></solution>
     <solution>
     <p>Les points sur le plan <m>\mathcal{P}</m> sont tous perpendiculaires aux points sur la droite ayant comme vecteur directeur le vecteur normal du plan. On peut calculer ce vecteur en utilisant le produit vectoriel:
-    <me>
+    <md>
     \vec{n}=\left(\begin{vmatrix}2&amp;3\\-1&amp;1 \end{vmatrix},-\begin{vmatrix}1&amp;-1\\-1&amp;1 \end{vmatrix},\begin{vmatrix}1&amp;-1\\2&amp; 3 \end{vmatrix}\right)=(5,0,5)
-    </me>.
+    </md>.
     Le complément orthogonal du plan <m>\mathcal{P}</m> est donc la droite <m>\mathcal{D}: (x,y,z)=r(5,0,5)</m>.</p>
     </solution>
     </example>
     <remark>
     <title>Le complément orthogonal n'est pas réservé aux sous-espaces vectoriels</title>
     <p>On peut déterminer le complément orthogonal de n'importe quel ensemble de vecteurs, non pas uniquement des ensembles qui sont des sous-espaces vectoriels. Par exemple, si l'on considère la droite
-    <me>
+    <md>
     \mathcal{D}: (x,y)=c(2,1)+(1,1)
-    </me>,
+    </md>,
     ce n'est pas un sous-espace vectoriel, car la droite ne passe pas par l'origine. On peut toutefois trouver son complément orthogonal en raisonnant géométriquement. On pourrait penser que les vecteurs se trouveront
     sur la droite perpendiculaire à <m>\mathcal{D}</m> et passant par le point <m>(1,1)</m>, mais la situation réelle est plus complexe. Puisque chaque valeur de <m>c</m> apporte une direction différente (dû à l'addition du point <m>(1,1)</m>),
     il y a en fait une infinité de droites qui composent le complément orthogonal. Comme on va principalement se concentrer sur les sous-espaces vectoriels dans le cadre de ces notes, on s'arrête à cette remarque.
@@ -310,9 +310,9 @@
     <title>Le complément orthogonal du vecteur nul</title>
     <statement>
     <p>Soit <m>V=\{\vec{0}\}</m>, le sous-espace trivial qui ne contient que le vecteur nul <m>\vec{0}\in\R^n</m>. Alors
-    <me>
+    <md>
     V^{\perp}=\R^n
-    </me>.</p>
+    </md>.</p>
     </statement>
     <proof>
     <p>Puisque pour tout vecteur <m>\vec{v}\in\R^n</m> on a <m>\vec{v}\cdot\vec{0}=0</m>, tous les vecteurs de <m>\R^n</m> sont dans le complément orthogonal.</p>
@@ -337,22 +337,22 @@
     <example>
     <title>Les sous-espaces fondamentaux comme sous-espaces vectoriels</title>
     <statement>
-    <p>On considère la matrice <me>
+    <p>On considère la matrice <md>
 A=\left(\begin{array}{rrrr}
 1 &amp; -1 &amp; 2 &amp; -3 \\
 2 &amp; 0 &amp; 4 &amp; -8 \\
 -1 &amp;-1 &amp; -2 &amp; 5
 \end{array}\right)
-    </me>. L'espace nul est un sous-espace de <m>\R^4</m> et l'espace colonne est un sous-espace de <m>\R^3</m>. On cherche à les caractériser en tant que sous-espaces vectoriels.</p>
+    </md>. L'espace nul est un sous-espace de <m>\R^4</m> et l'espace colonne est un sous-espace de <m>\R^3</m>. On cherche à les caractériser en tant que sous-espaces vectoriels.</p>
     </statement>
     <solution><p>La forme échelonnée réduite de <m>A</m> est 
-    <me>
+    <md>
     R=\left(\begin{array}{rrrr}
 1 &amp; 0 &amp; 2 &amp; -4 \\
 0 &amp; 1 &amp; 0 &amp; -1 \\
 0 &amp; 0 &amp; 0 &amp; 0
 \end{array}\right)
-    </me>.</p>
+    </md>.</p>
     <p>De cette matrice <m>R</m>, on peut déduire les solutions de base
     <md>
     <mrow>\vec{s}_1&amp;=(-2,0,1,0)</mrow>
@@ -368,13 +368,13 @@ show(A.echelon_form())
     </input>
     </sage>
     <p>permettent d'obtenir la matrice
-    <me>
+    <md>
     (R|\vec{b})=\left(\begin{array}{rrrr|r}
 1 &amp; 0 &amp; 2 &amp; -4 &amp; \frac{1}{2} b_{2} \\
 0 &amp; 1 &amp; 0 &amp; -1 &amp; -b_{1} + \frac{1}{2} b_{2} \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; -b_{1} + b_{2} + b_{3}
 \end{array}\right)
-    </me>. Afin d'être compatible, la dernière ligne doit être nulle et le vecteur <m>\vec{b}</m> doit satisfaire l'équation <m>-b_{1} + b_{2} + b_{3}=0</m>. On reconnait ici l'équation normale d'un plan. L'espace colonne
+    </md>. Afin d'être compatible, la dernière ligne doit être nulle et le vecteur <m>\vec{b}</m> doit satisfaire l'équation <m>-b_{1} + b_{2} + b_{3}=0</m>. On reconnait ici l'équation normale d'un plan. L'espace colonne
     peut aussi être vu comme un plan dans <m>\R^3</m>.</p>
     <p>Intuitivement, on devrait ainsi être en mesure de réduire le nombre de vecteurs qui génèrent le <m>\vspan</m> de quatre à deux, puisque la dimension d'un plan est deux. La prochaine section précisera quels vecteurs choisir et
     garder pour décrire de manière efficace les espaces colonne et ligne.
@@ -385,7 +385,7 @@ show(A.echelon_form())
     <example xml:id="ex-espcolcommenul">
     <title>L'espace colonne vu comme un espace nul</title>
     <p>Soit <m>A</m>, une matrice <m>4\times 3</m> et <m>\vec{b}=(b_1,b_2,b_3,b_4)</m>, un vecteur de l'image. On donne la forme échelonnée réduite de la matrice <m>A</m> augmentée du vecteur <m>\vec{b}</m> :
-    <me>
+    <md>
     rref((A|\vec{b}))=
 \left(\begin{array}{rrr|r}
 1 &amp; 0 &amp; -4 &amp; \frac{1}{2} b_{2} \\
@@ -393,7 +393,7 @@ show(A.echelon_form())
 0 &amp; 0 &amp; 0 &amp; -b_{1} + b_{2} + b_{3} \\
 0 &amp; 0 &amp; 0 &amp; b_{1} + b_{4}
 \end{array}\right)
-    </me>.
+    </md>.
     On pose <m>\vec{c}_1=(-1,1,1,0)</m> et <m>\vec{c}_2=(1,0,0,1)</m>. Les vecteurs de l'image sont donc caractérisés par les vecteurs <m>\vec{b}\in \R^4</m> tels que 
     <md>
     <mrow>\vec{c}_1\cdot\vec{b}&amp;=0</mrow>
@@ -401,9 +401,9 @@ show(A.echelon_form())
     </md>.
     </p>
     <p>Si l'on réécrit ces équations sous forme matricielle, on a 
-    <me>
+    <md>
     C\vec{b}=\vec{0}
-    </me> où <m>C=\begin{pmatrix} -1&amp; 1&amp; 1&amp;0 \\ 1&amp; 0&amp; 0&amp; 1\end{pmatrix}</m>. Les vecteurs <m>\vec{b}</m> dans l'image de <m>A</m> sont donc les mêmes vecteurs que ceux qui se retrouvent dans l'espace nul de <m>C</m>.</p>
+    </md> où <m>C=\begin{pmatrix} -1&amp; 1&amp; 1&amp;0 \\ 1&amp; 0&amp; 0&amp; 1\end{pmatrix}</m>. Les vecteurs <m>\vec{b}</m> dans l'image de <m>A</m> sont donc les mêmes vecteurs que ceux qui se retrouvent dans l'espace nul de <m>C</m>.</p>
     </example>
     <p>On effectue maintenant une première étape vers le théorème fondamental de l'algèbre linéaire, cité pour la première fois à la proposition <xref ref="prop-fondlinalg"/>. On peut reformuler deux des énoncés en utilisant le complément orthogonal.</p>
     <proposition xml:id="prop-espfondcomportho">

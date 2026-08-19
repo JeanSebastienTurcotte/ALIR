@@ -21,8 +21,8 @@
     ou une infinité de solutions. Comment cela se manifeste-t-il dans la forme échelonnée réduite d'une matrice?</p>
     
     <p>On considère les deux matrices échelonnées réduites suivantes:
-    <men xml:id="eq-infsol">A=\begin{pmatrix} 1&amp; 0 &amp; 2 &amp;| &amp; 1 \\ 0&amp; 1 &amp; -3 &amp; |&amp; 2 \\ 0&amp; 0&amp; 0&amp;|&amp; 0\end{pmatrix}</men>
-    <men xml:id="eq-aucsol">B=\begin{pmatrix} 1&amp; 0 &amp;2&amp;| &amp; 1 \\ 0&amp; 1 &amp; -3 &amp; |&amp; 2 \\  0 &amp;0&amp; 0&amp; |&amp; 1\end{pmatrix}</men>.
+    <md number="yes" xml:id="eq-infsol">A=\begin{pmatrix} 1&amp; 0 &amp; 2 &amp;| &amp; 1 \\ 0&amp; 1 &amp; -3 &amp; |&amp; 2 \\ 0&amp; 0&amp; 0&amp;|&amp; 0\end{pmatrix}</md>
+    <md number="yes" xml:id="eq-aucsol">B=\begin{pmatrix} 1&amp; 0 &amp;2&amp;| &amp; 1 \\ 0&amp; 1 &amp; -3 &amp; |&amp; 2 \\  0 &amp;0&amp; 0&amp; |&amp; 1\end{pmatrix}</md>.
     La forme de la première matrice indique une infinité de solutions au système d'équations associé, alors que la forme de la seconde révèle qu'il n'y a pas de solution
     au système.
     </p>
@@ -142,9 +142,9 @@
     </p>
     <p>La dernière ligne étant équivalente à <m>0=0</m>, elle ne donne aucune information sur la solution. La première équation s'écrit <m>x+2y=4</m> et l'on y reconnait l'équation 
     de la droite de départ. Pour avoir la forme vectorielle et suivre l'exemple de l'introduction de cette sous-section, on isole <m>x</m> dans l'équation:
-    <me>
+    <md>
     x=-2y+4
-    </me>.
+    </md>.
     </p>
     <p>Une solution à ce système d'équations doit donc être de la forme 
     <md>
@@ -180,11 +180,11 @@
     </statement>
     <solution>
     <p>Les systèmes avec la matrice <m>A</m> sont équivalents à la matrice augmentée
-    <me>
+    <md>
     \left(\begin{array}{rrr|rr} 2&amp; -3&amp; 1 &amp; 5&amp;3 \\ 
                             6&amp; 0&amp; 4 &amp; 3&amp; 4\\ 
                             6 &amp; 9&amp; 5 &amp; -9&amp;1 \\ 
-                            -6&amp; 9 &amp; -3 &amp;-15&amp;-9\end{array}\right)</me>.
+                            -6&amp; 9 &amp; -3 &amp;-15&amp;-9\end{array}\right)</md>.
     On peut résoudre simultanément ces systèmes puisque la matrice est la même. On a
     <md>
     <mrow>
@@ -240,11 +240,11 @@
     </solution>
     <solution>
     <p>Les systèmes avec la matrice <m>B</m> sont équivalents à la matrice augmentée
-    <me>
+    <md>
     \left(\begin{array}{rrr|rr} 1&amp; 6&amp; -3 &amp; 5&amp;3 \\ 
                             \frac{4}{3}&amp; 8&amp; -4&amp; 3&amp; 4\\ 
                             \frac{1}{3} &amp; 2&amp; -1 &amp; -9&amp;1 \\ 
-                            -3&amp; -18 &amp; 9 &amp;-15&amp;-9\end{array}\right)</me>.
+                            -3&amp; -18 &amp; 9 &amp;-15&amp;-9\end{array}\right)</md>.
                             L'échelonnage est fait à l'exercice <xref ref="exo-4eq3inc"/>. On obtient la matrice
                             <m>
                             \left(\begin{array}{rrr|rr}
@@ -356,7 +356,7 @@
     <definition xml:id="def-rang">
     <title>Le rang d'une matrice</title>
     <statement>
-    <p>Soit <m>A</m>, une matrice <m>m\times n</m> quelconque. On définit le rang de la matrice <m>A</m> comme étant le nombre <me>rg(A)=r</me> où <m>r</m> correspond au
+    <p>Soit <m>A</m>, une matrice <m>m\times n</m> quelconque. On définit le rang de la matrice <m>A</m> comme étant le nombre <md>rg(A)=r</md> où <m>r</m> correspond au
     nombre de variables pivots dans la forme échelonnée réduite de la matrice <m>A</m>.</p>
     </statement></definition>
     <remark xml:id="rem-ranglignenulle">
@@ -383,9 +383,9 @@
     <proposition xml:id="prop-rangmaximal">
     <title>Le rang maximal</title>
     <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m>. Alors
-    <me>
+    <md>
     rg(A)\leq \min(m,n)
-    </me>.
+    </md>.
     La valeur maximale du rang est donc bornée par le nombre de lignes ou de colonnes, le plus petit de ces deux nombres.
     </p></statement>
     <proof>
@@ -415,16 +415,16 @@
    <m>A\vec{b}_j=\vec{e}_j</m>. Puisque l'inverse d'une matrice est unique, c'est aussi la seule solution. On note <m>(A|I)</m> la matrice <m>A</m> augmentée de l'identité.
    La forme échelonnée réduite de cette matrice augmentée correspond aux solutions des systèmes d'équations linéaires <m>A\vec{x}=\vec{e}_j</m>. Ces solutions sont les (uniques) colonnes de <m>B</m>,
    ce qui signifie que
-   <me>
+   <md>
    rref(A|I)=(I|B)
-   </me>.
+   </md>.
    Cela signifie donc que <m>rref(A)=I</m> et donc, <m>rg(A)=n</m>.
    </p>
    <p>On suppose maintenant que <m>rg(A)=n</m>. Ceci signifie que chaque colonne est pivot et de même, chaque ligne, car la matrice est carrée. On a donc <m>rref(A)=I</m>.
    Soit <m>\vec{v}</m>, un vecteur de <m>\R^n</m>. Le système <m>A\vec{x}=\vec{v}</m> se résout en échelonnant la matrice augmentée <m>(A|\vec{v})</m>, ce qui donne
-   <me>
+   <md>
    rref(A|\vec{v})=(I|\vec{u})
-   </me>, 
+   </md>, 
    où <m>\vec{u}</m> est obtenu de <m>\vec{v}</m> à partir des opérations élémentaires effectuées pour échelonner <m>A</m>. Comme toutes les variables sont pivots, il n'y a qu'une solution. Cela
    montre que le rang égal à <m>n</m> implique le second énoncé.</p>
    </proof>

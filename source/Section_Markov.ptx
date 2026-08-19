@@ -33,20 +33,20 @@
     </md>.
     </p>
     <p>De même, la matrice
-    <me>
+    <md>
     T=\begin{pmatrix}
     \frac{1}{2}&amp; 0&amp; 1\\
     \frac{1}{3}&amp; \frac{1}{5}&amp; 0\\
     \frac{1}{6}&amp; \frac{4}{5}&amp; 0\\
-    \end{pmatrix}</me>
+    \end{pmatrix}</md>
     est une matrice stochastique, ce qui n'est pas le cas de la matrice 
-    <me>
+    <md>
     A=\begin{pmatrix}
     1&amp; -2&amp;\frac{1}{3}\\
     1&amp; 3&amp;\frac{1}{4}\\
     \frac{1}{2}&amp;0&amp;\frac{1}{5}
     \end{pmatrix}
-    </me>.
+    </md>.
     </p>
     <p>À noter qu'on dit parfois un vecteur de distribution, ou simplement distribution, pour parler d'un vecteur de probabilité. On dit aussi matrice de transition pour une matrice stochastique, pour des raisons qui deviendront évidentes sous peu.</p>
     <definition xml:id="def-Markov">
@@ -71,13 +71,13 @@
     <p>On montre que l'évolution des parts de marché de ces deux compagnies obéit à une chaine de Markov.</p>
     </statement>
     <solution><p>On pose <m>X_0=\begin{pmatrix}0.55\\0.45\end{pmatrix}</m> et <m>T=\begin{pmatrix}0.8&amp; 0.1\\ 0.2&amp; 0.9\end{pmatrix}</m>. Soit <m>\vec{v}</m>, un vecteur de probabilité quelconque. On peut interpréter ce vecteur comme les parts de marché des compagnies <m>B</m> et <m>V</m>. Le produit <m>T\vec{v}</m> représente alors les nouvelles proportions, après une première transition de la population d'une compagnie à l'autre. En effet, si l'on note <m>p_B</m> les parts de marché de la compagnie <m>B</m> et <m>p_V</m> celles de <m>V</m>, le produit matrice vecteur <m>T\vec{v}=T\begin{pmatrix}p_B\\p_V\end{pmatrix}</m> correspond à
-    <me>
+    <md>
     T\vec{v}=p_B\begin{pmatrix}0.8\\ 0.2\end{pmatrix}+p_B\begin{pmatrix}0.1\\ 0.9\end{pmatrix}=\begin{pmatrix}0.8p_B+0.1p_V\\ 0.2p_B+0.9p_V\end{pmatrix}
-    </me>. Ceci est cohérent avec le modèle de l'énoncé qui dit que <m>80\%</m> des clients chez <m>B</m> y restent et que <m>10\%</m> des clients de <m>V</m> migrent vers <m>B</m>. Un raisonnement semblable démontre le même effet pour la deuxième compagnie.</p>
+    </md>. Ceci est cohérent avec le modèle de l'énoncé qui dit que <m>80\%</m> des clients chez <m>B</m> y restent et que <m>10\%</m> des clients de <m>V</m> migrent vers <m>B</m>. Un raisonnement semblable démontre le même effet pour la deuxième compagnie.</p>
     <p>De cette observation, on déduit que les parts de marché après un an seront de
-    <me>
+    <md>
     X_1=TX_0=\begin{pmatrix} 0.485\\ 0.515 \end{pmatrix}
-    </me>.
+    </md>.
     Le reste de la suite s'obtient itérativement.
     </p>
     </solution>
@@ -87,13 +87,13 @@
     Modèle markovien pour la météo
     </title>
     <statement><p>On suppose que la matrice suivante modélise adéquatement les transitions entre les scénarios météorologiques décrits à l'introduction de cette section 
-    <me>
+    <md>
     T=\begin{pmatrix}
     0.4 &amp; 0.3&amp; 0.05\\
     0.5&amp;0.4&amp; 0.1\\
     0.1&amp;0.3&amp; 0.85
     \end{pmatrix}
-    </me>.
+    </md>.
     On identifie la première colonne par le scénario <rq/>pluie<lq/>, la deuxième par le scénario <rq/>nuageux<lq/> et la troisième par le scénario <rq/>ensoleillé<lq/>. Puisque l'image d'une matrice va des colonnes vers les lignes, l'entrée  <m>t_{1,2}</m> représente la probabilité de passer d'une journée nuageuse à une journée pluvieuse.
     </p>
     <p>Sachant que le temps est ensoleillé aujourd'hui, une famille veut connaitre les chances qu'il y ait de la pluie lors de leur annuel BBQ familial, qui est dans deux jours.</p>
@@ -140,14 +140,14 @@ plot(G,edge_labels=False,layout="circular")
     <p>Lorsqu'elle est dans son habitat, la souris se promène de pièce en pièce en choisissant au hasard, chaque fois, l'une des portes disponibles au hasard. On prend cette souris et on la place au hasard dans l'une des quatre pièces, sans préférence pour une pièce particulière. On se demande où la souris a le moins de chance de se trouver après trois transitions.</p>
 </statement>
 <solution><p>À partir du graphe de la figure <xref ref="fig-sourisMarkov"/>, on peut créer la matrice de transition associée à la chaine de Markov. On constate, par exemple, qu'à partir de la première pièce, il est possible d'aller dans la deuxième ou dans la quatrième, de façon équiprobable. En raisonnant ainsi pour les trois autres pièces, on arrive à la matrice 
-<me>
+<md>
 T=\begin{pmatrix}
 0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\
 \frac{1}{2} &amp; 0 &amp; 1 &amp; \frac{1}{2} \\
 0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
 \frac{1}{2} &amp; 0 &amp; 0 &amp; 0
 \end{pmatrix}
-</me>.</p>
+</md>.</p>
 <p>On pose ensuite <m>X_0=\begin{pmatrix}0.25 \\ 0.25\\ 0.25 \\ 0.25\end{pmatrix}</m>. Pour calculer la pièce qui a le moins de chance d'être occupée par la souris après trois déplacements, on utilise Sage.</p>
 <sage>
 <input>
@@ -201,7 +201,7 @@ P
     </statement>
     <solution><p>
     À tout moment, le joueur peut avoir en sa possession <m>0,1,2,3,4</m> ou <m>5</m> dollars. Pour les montants allant de <m>1</m> à <m>4</m>, on peut se déplacer vers chacun des nombres voisins avec probabilité <m>0.5</m>. Pour tenir compte de la fin du jeu, on fait en sorte qu'il est impossible de sortir des états représentat les montants <m>0</m> et <m>5</m> dollars en donnant comme seule possibilité à partir de ces états le fait de rester en place. La matrice suivante illustre ces transitions 
-    <me>
+    <md>
     T=\begin{pmatrix}
 1 &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 \\
@@ -210,7 +210,7 @@ P
 0 &amp; 0 &amp; 0 &amp; \frac{1}{2} &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1}{2} &amp; 1
     \end{pmatrix}
-    </me>.
+    </md>.
     On pose <m>X_0=(0,0,1,0,0,0)</m> puisque le joueur commence avec <m>2</m>$. La réponse à la question se trouve dans <m>X_5</m>. Il faut faire la somme de toutes les entrées de ce vecteur qui ne sont pas les extrémités. On aura alors la probabilité qu'après cinq lancers, le joueur ait en sa possession <m>1,2,3</m> ou <m>4</m> dollars. La cellule suivante définit une fonction Sage qui permettra de créer rapidement la matrice. Il faut l'exécuter, mais rien ne sera affiché. Cette fonction sera étudiée et modifiée à l'exercice <xref ref="exo-ruineparieurgen"/>.
     </p>
     <sage><input>
@@ -260,7 +260,7 @@ show(X)
     <title>Le modèle d'Enrenfest</title>
     <statement><p>On considère deux contenants <m>A,B</m>, l'un contenant <m>n</m> objets identiques et l'autre étant vide. À chaque étape, on choisit l'un des <m>n</m> objets au hasard et on le change de contenant. On propose d'étudier le cas où l'urne <m>A</m> possède initialement quatre objets. Quelle peut être la situation après dix transitions?</p></statement>
     <solution><p>En considérant uniquement le nombre d'objets dans le premier contenant, on peut voir ce processus comme une marche aléatoire réfléchissante sur <m>\{0,1,2,3,4,5\}</m> dont les probabilités changent selon l'état actuel. En effet, si tous les objets sont dans un contenant, il est certain qu'à la prochaine transition, l'autre contenant en recevra une. Pour les états intermédiaires, si le contenant <m>A</m> possède <m>m\in \{1,2,3,4\}</m> objets, alors il en possèdera <m>m-1</m> avec probabilité <m>m/5</m> et <m>m+1</m> avec probabilité <m>(5-m)/5</m>. On peut illustrer cela par la matrice de transition
-    <me>
+    <md>
     T=\begin{pmatrix}
     0 &amp; \frac{1}{5}&amp; 0           &amp; 0           &amp; 0           &amp; 0\\
     1 &amp; 0          &amp; \frac{2}{5} &amp; 0           &amp; 0           &amp; 0\\
@@ -269,7 +269,7 @@ show(X)
     0 &amp; 0          &amp; 0           &amp; \frac{2}{5} &amp; 0           &amp; 1\\
     0 &amp; 0          &amp; 0           &amp; 0           &amp; \frac{1}{5} &amp; 0
     \end{pmatrix}
-    </me>.
+    </md>.
     On pose comme vecteur initial <m>X_0=(0,0,0,0,0,1)</m>. Avec Sage, on obtient <m>X_{10}=(0, 0.30683136, 0, 0.628779008, 0, 0.064389632)</m> représentant le portrait après dix transitions.
     </p>
     <sage>
@@ -314,9 +314,9 @@ for n in range(1,11):
     <proposition>
     <title>Calcul de <m>X_n</m></title>
     <statement><p>Soit <m>T</m>, la matrice d'une chaine de Markov et <m>X_0</m>, l'état initial. Alors
-    <me>
+    <md>
     X_n=T^tX_0
-    </me>.</p></statement>
+    </md>.</p></statement>
     <proof>
     <p>Il suffit de remarquer qu'en calculant <m>X_n</m> par itération, on finit par arriver à <m>X_0</m> :
     <md>
@@ -359,9 +359,9 @@ for n in range(1,11):
     <proposition xml:id="prop-etatstable">
     <title>L'état stable et la convergence de la chaine de Markov</title>
     <statement><p>Soit <m>T</m>, une matrice stochastique finie telle que toutes les entrées de <m>T^k</m> sont strictement plus grandes que zéro pour un certain <m>k</m>. Alors, <m>T</m> possède un unique état stable <m>X</m>. De plus, pour tout vecteur de probabilité <m>X_0</m>, on a
-    <me>
+    <md>
     \lim_{n\to \infty} X_n=X
-    </me>.</p>
+    </md>.</p>
     <p>Également, les puissances de la matrice <m>T</m> convergent vers une matrice dont toutes les colonnes correspondent au vecteur de l'état stable.</p>
     </statement>
     </proposition>
@@ -477,9 +477,9 @@ T=matrix(6,6, lambda i,j: ruinetransitionproba(i,j,6))
     </output>
     </sage>
     <p>Avec le vecteur <m>X_0=(0,0,1,0,0,0)</m>, on obtient, en calculant une grande puissance de la chaine, que l'état stable est environ <m>X=(0.6,0,0,0,0,0.4)</m>. Ceci signifie que le joueur de l'exemple <xref ref="ex-ruine"/> a environ <m>60\%</m> de chance de perdre tout son argent, contre <m>40\%</m> de chance d'atteindre son objectif. Certains et certaines auront peut-être réalisé que l'état stable dépend forcément de l'état initial, contrairement aux autres exemples. Si l'on considère un joueur dont la mise initiale n'est que d'un dollar, dans <m>50\%</m> des cas, le joueur se retrouve déjà ruiné et dans les autres cas, il se retrouve avec deux dollars. On sait alors qu'il possède, à partir de deux dollars, <m>60\%</m> des chances de se ruiner. Les règles de probabilités établissent donc les chances de se ruiner à partir d'un montant initial égal à un dollar à
-    <me>
+    <md>
     \frac{1}{2}+\frac{1}{2}\frac{60}{100}=\frac{80}{100}
-    </me>.
+    </md>.
     Ce calcul est un exemple de ce que l'on appelle <em>les probabilités conditionnelles</em> en théorie des probabilités. On vérifie le tout numériquement. La cellule ci-dessous donne l'état stable pour les chaines de Markov commençant à deux dollars et à un dollar.
     </p>
     <sage>

@@ -19,9 +19,9 @@
     </introduction>
     <subsection><title>Diagonalisation</title>
     <p>À la section <xref ref="sec-bases"/>, on a défini le concept de base ordonnée à partir d'un ensemble de vecteurs et des composantes d'un vecteur selon cette base. Ainsi, le vecteur <m>(1,9)</m>, tel que représenté dans la base standard, s'écrit plutôt <m>(3,-1)_{\mathcal{B}}</m> dans la base <m>\mathcal{B}=\langle (1,2),(2,-3)\rangle</m> puisque
-    <me>
+    <md>
     3(1,2)-(2,-3)=(1,9)
-    </me>. De plus, selon les notions de la sous-section <xref ref="sssec-transfomatrice" text="title"/>, une matrice contient dans chaque colonne l'image des vecteurs <m>\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_n</m>. Spontanément, on peut se demander s'il est possible d'exprimer une matrice dans une autre base. À titre d'exemple, la matrice <m>A</m> de l'équation <xref ref="eq-Apropre"/>, à l'introduction de la section précédente, peut aussi s'écrire selon la base <m>\mathcal{B}</m> comme <m>A=\begin{pmatrix} 14&amp; 0\\ 0&amp; 7\end{pmatrix}_{\mathcal{B}}</m>, puisque l'exemple <xref ref="ex-valpropresA1"/> a montré que c'était un étirement de facteur <m>14</m> dans la direction du vecteur <m>(1,2)</m> et un étirement de facteur <m>7</m> dans la direction du vecteur <m>(2,-3)</m>.</p>
+    </md>. De plus, selon les notions de la sous-section <xref ref="sssec-transfomatrice" text="title"/>, une matrice contient dans chaque colonne l'image des vecteurs <m>\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_n</m>. Spontanément, on peut se demander s'il est possible d'exprimer une matrice dans une autre base. À titre d'exemple, la matrice <m>A</m> de l'équation <xref ref="eq-Apropre"/>, à l'introduction de la section précédente, peut aussi s'écrire selon la base <m>\mathcal{B}</m> comme <m>A=\begin{pmatrix} 14&amp; 0\\ 0&amp; 7\end{pmatrix}_{\mathcal{B}}</m>, puisque l'exemple <xref ref="ex-valpropresA1"/> a montré que c'était un étirement de facteur <m>14</m> dans la direction du vecteur <m>(1,2)</m> et un étirement de facteur <m>7</m> dans la direction du vecteur <m>(2,-3)</m>.</p>
     <p>Il y a un lien intéressant entre la matrice <m>A_{\mathcal{B}}</m> et la matrice <m>D=\begin{pmatrix} 14&amp; 0\\ 0&amp; 7\end{pmatrix}</m>. En regardant seulement ses entrées, il semble que ce soit la même matrice, mais comme <m>A_{\mathcal{B}}</m> est exprimée dans une autre base, les deux transformations représentent des transformations différentes. La matrice <m>A_{\mathcal{B}}</m> est un étirement de facteur <m>14</m> dans la direction du vecteur <m>(1,2)</m> et un étirement de facteur <m>7</m> dans la direction du vecteur <m>(2,-3)</m>, alors que <m>D</m> est un étirement horizontal et vertical de ces mêmes facteurs. On note <m>P=\begin{pmatrix} 1&amp; 2\\ 2&amp; -3 \end{pmatrix}</m> la matrice contenant les vecteurs propres en colonne. Justement, parce que ce sont des vecteurs propres, l'effet de <m>A</m> sur <m>P</m> est
     <md>
     <mrow>AP&amp;=\begin{pmatrix} 14\cdot 1&amp; 14\cdot 2\\ 7\cdot 2&amp; 7\cdot (-3) \end{pmatrix}</mrow>
@@ -29,16 +29,16 @@
     <mrow>&amp;=PD</mrow>
     </md>.</p>
     <p>En particulier, on peut isoler <m>A</m> pour obtenir 
-    <me>
+    <md>
     A=PDP^{-1}
-    </me>.
+    </md>.
     La proposition <xref ref="prop-propresindep"/> garantit ici que la matrice <m>P</m> est inversible puisque ses colonnes sont indépendantes. En général, ce pourrait ne pas être le cas. On introduit le concept de matrice diagonalisable.</p>
     <definition xml:id="def-diagonalisable">
     <title>Matrice diagonalisable</title>
     <statement><p>Soit <m>A</m>, une matrice carrée. Si la matrice <m>A</m> possède <m>n</m> vecteurs propres indépendants, alors il existe des matrices <m>P,D</m> avec <m>D</m> une matrice diagonale telles que
-    <me>
+    <md>
     A=PDP^{-1}
-    </me>.
+    </md>.
     On dit alors que <m>A</m> est diagonalisable.
     </p>
     <p>La matrice <m>P</m> contient dans ses colonnes les <m>n</m> vecteurs propres et la matrice <m>D</m> a pour éléments de sa diagonale les valeurs propres associées aux vecteurs propres, dans le même ordre que ceux-ci apparaissent dans <m>P</m>.</p>
@@ -50,9 +50,9 @@
     <solution><p>La matrice 
     <m>A=\begin{pmatrix} 3&amp;1\\ -2&amp;0 \end{pmatrix}</m> a pour valeurs propres <m>\lambda_1=1</m> et <m>\lambda_2=2</m> et comme vecteurs propres associés à ces valeurs propres <m>\vec{v}_1=(-1,2)</m> et<m>\vec{v}_2=(-1,1)</m>.
     On pose donc <m>P=\begin{pmatrix} -1&amp;-1\\ 2&amp;1 \end{pmatrix}</m> et <m>D=\begin{pmatrix} 1&amp;0\\ 0&amp;2 \end{pmatrix}</m>. De cela, on devrait obtenir
-    <me>
+    <md>
     A=PDP^{-1}
-    </me>.
+    </md>.
     On vérifie avec Sage.
     </p>
     <sage>
@@ -69,9 +69,9 @@
     <p>La matrice
     <m>C=\begin{vmatrix} -2 &amp; 2 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 2 &amp; -1 &amp; 0 \end{vmatrix}</m> a pour valeurs propres <m>\lambda_1=2,\lambda_2=-2</m> et <m>\lambda_3=0</m> et comme vecteurs propres associés à ces valeurs propres <m>\vec{v}_1=(1,2,0)</m>,<m>\vec{v}_2=(-1,0,1))</m> et <m>\vec{v}_3=(0,0,1)</m>.
     On pose donc <m>P=\begin{pmatrix} 1&amp;-1&amp;0\\ 2&amp;0&amp;0\\ 0&amp;1&amp; 1 \end{pmatrix}</m> et <m>D=\begin{pmatrix} 2&amp;0&amp; 0\\ 0&amp;-2&amp; 0\\ 0&amp; 0&amp; 0 \end{pmatrix}</m>. De cela, on devrait obtenir
-    <me>
+    <md>
     C=PDP^{-1}
-    </me>.
+    </md>.
     On vérifie avec Sage.
     </p>
     <sage>
@@ -88,9 +88,9 @@
     <p>La matrice
     <m>F=\begin{pmatrix} -1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}</m> a pour valeurs propres <m>\lambda_1=-1</m> et <m>\lambda_2=1</m>. Pour la valeur propre <m>\lambda_1</m>, on a trouvé <m>\vec{v}_1=(1,0,0)</m>, alors que pour la valeur propre <m>\lambda_2</m>, on a trouvé deux vecteurs propres indépendants en <m>\vec{v}_2=(1,2,0)</m> et <m>\vec{v}_3=(0,0,1)</m>.
     On pose donc <m>P=\begin{pmatrix} 1&amp;1&amp;0\\ 0&amp;2&amp;0\\ 0&amp;0&amp; 1 \end{pmatrix}</m> et <m>D=\begin{pmatrix} -1&amp;0&amp; 0\\ 0&amp;1&amp; 0\\ 0&amp; 0&amp; 1 \end{pmatrix}</m>. De cela, on devrait obtenir
-    <me>
+    <md>
     F=PDP^{-1}
-    </me>.
+    </md>.
     On vérifie avec Sage.
     </p>
     <sage>
@@ -177,9 +177,9 @@ graph2
     <p>Pour chacune des matrices diagonalisables de l'exemple <xref ref="ex-vecvalpropres"/>, on souhaite calculer la dixième puissance. On rappelle que la diagonalisation a été trouvée à l'exemple <xref ref="ex-vecvalpropresdiago"/>. </p></statement>
     <solution>
     <p>Pour première matrice, on a
-    <me>
+    <md>
     A=\begin{pmatrix} -1&amp;-1\\ 2&amp;1 \end{pmatrix}\begin{pmatrix} 1&amp;0\\ 0&amp;2 \end{pmatrix}\begin{pmatrix} 1&amp;1\\ -2&amp;-1 \end{pmatrix}
-    </me> et donc
+    </md> et donc
     <md>
     <mrow>A^{10}&amp;=\begin{pmatrix} -1&amp;-1\\ 2&amp;1 \end{pmatrix}\begin{pmatrix} 1^{10}&amp;0\\ 0&amp;2^{10} \end{pmatrix}\begin{pmatrix} 1&amp;1\\ -2&amp;-1 \end{pmatrix}</mrow>
     <mrow>&amp;=\begin{pmatrix} -1&amp;-2^{10}\\ 2&amp;2^{10} \end{pmatrix}\begin{pmatrix} 1&amp;1\\ -2&amp;-1 \end{pmatrix}</mrow>
@@ -189,9 +189,9 @@ graph2
     </md></p>
     </solution>
     <solution><p>Pour la deuxième matrice, on a
-    <me>
+    <md>
     C=\begin{pmatrix} 1&amp;-1&amp;0\\ 2&amp;0&amp;0\\ 0&amp;1&amp; 1 \end{pmatrix}\begin{pmatrix} 2&amp;0&amp; 0\\ 0&amp;-2&amp; 0\\ 0&amp; 0&amp; 0 \end{pmatrix}\begin{pmatrix}0 &amp; \frac{1}{2} &amp; 0 \\ -1 &amp; \frac{1}{2} &amp; 0 \\ 1 &amp; -\frac{1}{2} &amp; 1\end{pmatrix}
-    </me>
+    </md>
     où l'inverse a été calculé par Sage. On a alors
     <md>
     <mrow>C^{10}&amp;=\begin{pmatrix} 1&amp;-1&amp;0\\ 2&amp;0&amp;0\\ 0&amp;1&amp; 1 \end{pmatrix}\begin{pmatrix} 2^{10}&amp;0&amp; 0\\ 0&amp;(-2)^{10}&amp; 0\\ 0&amp; 0&amp; 0 \end{pmatrix}\begin{pmatrix}0 &amp; \frac{1}{2} &amp; 0 \\ -1 &amp; \frac{1}{2} &amp; 0 \\ 1 &amp; -\frac{1}{2} &amp; 1\end{pmatrix}</mrow>
@@ -201,9 +201,9 @@ graph2
     </md>.
     </p></solution>
     <solution><p>Enfin, pour la dernière matrice, on a
-    <me>
+    <md>
     F=\begin{pmatrix} 1&amp;1&amp;0\\ 0&amp;2&amp;0\\ 0&amp;0&amp; 1 \end{pmatrix}\begin{pmatrix} -1&amp;0&amp; 0\\ 0&amp;1&amp; 0\\ 0&amp; 0&amp; 1 \end{pmatrix}\begin{pmatrix} 1 &amp; -\frac{1}{2} &amp; 0 \\ 0 &amp; \frac{1}{2} &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix}
-    </me>
+    </md>
     où l'inverse a été calculé par Sage. On a alors
 <md>
     <mrow>F^{10}&amp;=\begin{pmatrix} 1&amp;1&amp;0\\ 0&amp;2&amp;0\\ 0&amp;0&amp; 1 \end{pmatrix}\begin{pmatrix} (-1)^n&amp;0&amp; 0\\ 0&amp;1^n&amp; 0\\ 0&amp; 0&amp; 1^n \end{pmatrix}\begin{pmatrix} 1 &amp; -\frac{1}{2} &amp; 0 \\ 0 &amp; \frac{1}{2} &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix}</mrow>
@@ -335,9 +335,9 @@ show(M.rref())
     <proposition xml:id="prop-changementdebase">
     <title>Formule de changement de base</title>
     <statement><p>Soit <m>A</m>, une matrice et <m>A_{\mathcal{B}}</m>, sa représentation dans une base ordonnée <m>\mathcal{B}</m> et soit <m>P</m>, la matrice contenant les vecteurs de <m>\mathcal{B}</m> dans ses colonnes. Alors
-    <me>
+    <md>
     AP=PA_{\mathcal{B}}
-    </me>.</p>
+    </md>.</p>
     <p>Puisque <m>\mathcal{B}</m> est une base, la matrice <m>P</m> est inversible, on obtient alors des formules pour les représentations de <m>A</m>:
     <md>
     <mrow>A&amp;=PA_{\mathcal{B}}P^{-1}</mrow>
@@ -347,14 +347,14 @@ show(M.rref())
     </p>
     </statement>
     <proof><p>On analyse les colonnes de chacun des produits <m>AP</m> et <m>PA_{\mathcal{B}}</m>. Pour <m>AP</m>, chaque colonne <m>j</m> est donnée par le produit de la matrice <m>A</m> avec les vecteurs de la base <m>\mathcal{B}</m>, soit les colonnes de <m>P</m>. Ces colonnes sont donc les images des vecteurs de la base <m>\mathcal{B}</m> par <m>A</m> représentées dans la base usuelle. On peut certainement convertir ces vecteurs dans la base <m>\mathcal{B}</m>, c'est-à-dire qu'il existe <m>c_1,c_2,\ldots , c_n</m> tels que
-    <me>
+    <md>
     A\vec{v}_{j}=c_1\vec{v}_{1}+c_2\vec{v}_2+\cdots +c_n\vec{v}_n=(c_1,c_2,\ldots , c_n)_\mathcal{B}
-    </me>.
+    </md>.
     </p>
     <p>D'un autre côté, la colonne <m>j</m> de la matrice <m>A_{\mathcal{B}}</m> est précisément l'image du vecteur <m>\vec{v}_j</m> et est donc <m>(c_1,c_2,\ldots , c_n)</m> (cette fois dans la base usuelle). On a alors
-    <me>
+    <md>
     P\begin{pmatrix} c_1\\ c_2\\ \vdots \\ c_n\end{pmatrix}=c_1\vec{v}_{1}+c_2\vec{v}_2+\cdots +c_n\vec{v}_n
-    </me>.
+    </md>.
     Ainsi, les colonnes de <m>AP</m> sont les mêmes que les colonnes de <m>PA_{\mathcal{B}}</m>.
     </p></proof>
     </proposition>
@@ -365,9 +365,9 @@ show(M.rref())
     On veut convertir la matrice <m>A=\begin{pmatrix} 1&amp; 4&amp; 7\\ 2&amp; 5&amp; 8\\ 3&amp; 6&amp; 9\end{pmatrix}</m> dans la base <m>\mathcal{B}= \langle (1,0,1),(-1,2,-3),(2,2,1)\rangle</m>.
     </p></statement>
     <solution><p>On pose <m>P=\begin{pmatrix}  1&amp;-1&amp;2 \\0&amp;2&amp;2\\ 1&amp;-3&amp;1 \end{pmatrix}</m>. Selon la proposition <xref ref="prop-changementdebase"/>, la formule pour écrire <m>A</m> dans la base <m>\mathcal{B}</m> est
-    <me>
+    <md>
     A_{\mathcal{B}}=P^{-1}AP
-    </me>.
+    </md>.
     On utilise Sage pour les calculs.
     </p>
     <sage>
@@ -380,11 +380,11 @@ show(M.rref())
     </input>
     </sage>
     <p>On a donc
-    <me>
+    <md>
     A_{\mathcal{B}}=\begin{pmatrix} -29 &amp; 38 &amp; -68 \\
 -9 &amp; 12 &amp; -21 \\
 14 &amp; -20 &amp; 32\end{pmatrix}
-    </me>.
+    </md>.
     Les colonnes de <m>A_{\mathcal{B}}</m> correspondent à l'écriture des vecteurs <m>(1,2,3),(4,5,6),(7,8,9)</m> dans la base <m>\mathcal{B}</m>.
     </p>
     </solution>
@@ -392,9 +392,9 @@ show(M.rref())
     <example><title>D'une base <m>\mathcal{B}</m> à la base standard</title>
     <statement><p>Soit <m>C_{\mathcal{B}}=\begin{pmatrix} 1&amp;1&amp;1&amp;3 \\ 1&amp; -1&amp; 2&amp;-3\\ 1&amp; 1&amp; 2&amp;3\\ 1&amp; -1&amp; 1&amp;-3\end{pmatrix}_{\mathcal{B}}</m>, où <m>\mathcal{B}=\langle (4,3,2,1),(-2,4,-6,8),(0,1,1,0),(3,5,-1,0)\rangle</m>. On cherche la représentation de ces vecteurs dans la base standard.</p></statement>
     <solution><p>On procède comme dans l'exemple précédent, avec une matrice <m>C_{\mathcal{B}}=\begin{pmatrix} 1&amp;1&amp;1&amp;3 \\ 1&amp; -1&amp; 2&amp;-3\\ 1&amp; 1&amp; 2&amp;3\\ 1&amp; -1&amp; 1&amp;-3\end{pmatrix}_{\mathcal{B}}</m> et une matrice de passage <m>P=\begin{pmatrix}4&amp; -2&amp; 0&amp;3 \\ 3&amp; 4&amp;1 &amp;5\\ 2&amp; -6&amp;1&amp;1\\ 1&amp;8&amp; 0&amp; 0 \end{pmatrix}</m>. Selon la proposition <xref ref="prop-changementdebase"/>, la formule pour obtenir la matrice <m>C</m> est 
-    <me>
+    <md>
     C=PC_{\mathcal{B}}P^{-1}
-    </me>. On utilise Sage pour les calculs.</p>
+    </md>. On utilise Sage pour les calculs.</p>
     <sage>
     <input>
     CB=column_matrix([[1,1,1,1],[1,-1,1,-1],[1,2,2,1],[3,-3,3,-3]])
@@ -405,12 +405,12 @@ show(M.rref())
     </input>
     </sage>
     <p>La matrice dans la base usuelle est donc
-    <me>
+    <md>
     C=\begin{pmatrix} -\frac{5}{7} &amp; \frac{33}{14} &amp; \frac{9}{14} &amp; -\frac{1}{2} \\
 -\frac{286}{35} &amp; \frac{321}{70} &amp; \frac{939}{70} &amp; \frac{51}{10} \\
 \frac{163}{35} &amp; \frac{41}{35} &amp; -\frac{356}{35} &amp; -\frac{29}{5} \\
 -\frac{127}{15} &amp; \frac{107}{30} &amp; \frac{403}{30} &amp; \frac{53}{10}\end{pmatrix}
-    </me>.
+    </md>.
     </p>
     </solution>
     </example>
@@ -426,9 +426,9 @@ show(M.rref())
     <mrow>\text{det}(\vec{v}_1,\vec{v}_2,\vec{v}_3)&amp;\gt 0</mrow>
     </md>.
     On dit que la base est orthonormée, c'est-à-dire que les vecteurs sont orthogonaux deux à deux et ont une norme égale à <m>1</m>, et qu'elle est orientée positivement. Dans ce cas, la matrice de rotation autour de <m>\vec{v}_3</m> dans la base <m>\mathcal{B}</m> est 
-    <men xml:id="eq-rotR3B">
+    <md number="yes" xml:id="eq-rotR3B">
     R_{\theta_{\vec{v_3}}\mathcal{B}}=\begin{pmatrix}\cos(\theta)&amp;-\sin(\theta)&amp; 0\\ \sin(\theta)&amp;\cos(\theta)&amp; 0\\ 0&amp;0&amp;1\end{pmatrix}_{\mathcal{B}}
-    </men>.
+    </md>.
     </p></statement>
     <proof><p>Puisque <m>\vec{v}_3</m> est l'axe de rotation, on doit avoir pour <m>\vec{v}_3=(0,0,1)_{\mathcal{B}}</m> que <m>R_{\theta_{\vec{v_3}}\mathcal{B}}\,\vec{v}_3=R_{\theta_{\vec{v_3}}\mathcal{B}}\begin{pmatrix}0\\ 0\\ 1\end{pmatrix}_{\mathcal{B}}=\begin{pmatrix}0\\ 0\\ 1\end{pmatrix}_{\mathcal{B}}</m> et donc, la troisième colonne de la matrice est déterminée.</p>
     <p>Le même dessin que celui de la figure <xref ref="fig-rotr2"/> peut être utilisé pour voir que le vecteur <m>\vec{v}_1=(1,0,0)_\mathcal{B}</m> sera déplacé à <m>(\cos(\theta),\sin(\theta),0)_{\mathcal{B}}</m> et que <m>\vec{v}_2=(0,1,0)_{\mathcal{B}}</m> sera envoyé sur <m>(-\sin(\theta),\cos(\theta),0)_{\mathcal{B}}</m>. On obtient alors les deux premières colonnes.</p>
@@ -483,9 +483,9 @@ show(R.apply_map(lambda x: x.n()))
     <example>
     <title>Changement de base générale</title>
     <statement><p>Soit <m>\mathcal{B}=\langle (1,1),(1,-1)\rangle</m> et <m>\mathcal{C}=\langle (-2,1),(3,2)\rangle</m>, deux bases de <m>\mathbb{R}^2</m> et 
-    <me>
+    <md>
     A_{\mathbb{B}}=\begin{pmatrix}3&amp;-2\\ -1&amp; -4 \end{pmatrix}_{\mathcal{B}}
-    </me> la matrice d'une transformation linéaire représentée en base <m>\mathcal{B}</m>. On cherche la représentation de <m>A</m> en base <m>\mathcal{C}</m>.</p></statement>
+    </md> la matrice d'une transformation linéaire représentée en base <m>\mathcal{B}</m>. On cherche la représentation de <m>A</m> en base <m>\mathcal{C}</m>.</p></statement>
     <solution><p>
     On pose <m>P=\begin{pmatrix}1&amp;1\\ 1&amp; -1 \end{pmatrix}</m> et <m>Q=\begin{pmatrix}-2&amp;3\\ 1&amp; 2 \end{pmatrix}</m>. On a alors
     <md>
@@ -533,9 +533,9 @@ show(R.apply_map(lambda x: x.n()))
 <title>Une matrice possédant <m>n</m> valeurs propres est diagonalisable</title>
 <statement><p>Soit <m>A</m>, une matrice <m>n\times n</m> qui possède <m>n</m> valeurs propres distinctes. Alors <m>n</m> est diagonalisable.</p></statement>
 <proof><p>Selon la proposition <xref ref="prop-propresindep"/>, les vecteurs propres associés à des valeurs propres distinctes sont indépendants. Dans ce cas, la matrice <m>P</m> existe et est inversible. Dans la base <m>\mathcal{B}</m> des vecteurs propres, la matrice <m>A</m> est égale à une matrice diagonale <m>D_{\mathcal{B}}</m> où les entrées sont les valeurs propres. On a donc
-<me>
+<md>
 A=PDP^{^1}
-</me> selon la formule du changement de base.</p></proof>
+</md> selon la formule du changement de base.</p></proof>
 </proposition>
 <p>Bien sûr, il existe des matrices diagonalisables qui n'ont pas <m>n</m> valeurs propres distinctes, c'est la raison pour laquelle on affirme que la condition est suffisante (au sens où cette condition est suffisante pour garantir), mais non nécessaire (on peut être diagonalisable sans avoir les valeurs propres distinctes). En fait, une condition qui est nécessaire et suffisante concerne la relation entre la multiplicité algébrique et la multiplicité géométrique des valeurs propres. On se souvient que, pour être diagonalisable, il faut que la matrice possède <m>n</m> vecteurs propres indépendants. Pour chaque valeur propre, on veut donc produire suffisamment de vecteurs propres pour que le nombre total donne <m>n</m>. On aura besoin des deux résultats suivants pour démontrer la condition.</p>
 <lemma xml:id="lem-multgeoalg">
@@ -544,7 +544,7 @@ A=PDP^{^1}
 <p>Soit <m>A</m>, une matrice carrée et <m>\lambda_0</m>, une valeur propre de multiplicité géométrique <m>g</m> et de multiplicité algébrique <m>a</m>. Alors <m>1\leq g\leq a</m>.</p>
 </statement>
 <proof><p>Par définition, la multiplicité géométrique est la dimension de l'espace propre et celui-ci contient au moins un vecteur non nul, donc <m>1\leq g</m>. Soit <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_g</m>, une base de cet espace propre. Il est toujours possible d'étendre cette base en ajoutant des vecteurs indépendants pour former une base de <m>\mathbb{R}^n</m>. Soit <m>\mathcal{B}=\langle \vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_g,\vec{v}_{g+1},\ldots , \vec{v}_n \rangle</m>, une base possible. À quoi ressemble la matrice <m>A</m> dans la base <m>\mathcal{B}</m>?</p> <p>Les <m>g</m> premières colonnes correspondent aux vecteurs propres associés à <m>\lambda_0</m>, qui sont les premiers vecteurs de la base. En base <m>\mathcal{B}</m>, l'écriture d'un vecteur<m>\vec{v}_i</m> est équivalente à celle du vecteur <m>\vec{e}_i</m> si <m>1\leq i\leq g</m> et <m>A_{\mathcal{B}}\vec{v}_i=\lambda_0\vec{e}_i=</m>, signifiant que la première partie de <m>A_{\mathcal{B}}</m> est équivalente à la première partie de <m>\lambda_0 I</m>. Pour le reste, on ne sait pas en quoi consiste la matrice, mais on peut l'écrire de la manière suivante
-<me>
+<md>
 A_{\mathcal{B}}=\begin{pmatrix}
 \lambda_0 I
   &amp; \hspace{-1in}|\hspace{-1in} &amp; B \\
@@ -552,7 +552,7 @@ A_{\mathcal{B}}=\begin{pmatrix}
   O &amp; \hspace{-1in}|\hspace{-1in} &amp;
 C
 \end{pmatrix}
-</me>,
+</md>,
 où <m>B</m> est une matrice <m>g\times (n-g)</m> quelconque, la matrice nulle <m>O</m> est de taille <m>(n-g)\times g</m> et <m>C</m> est une matrice carrée <m>(n-g)\times (n-g)</m>. Selon la proposition <xref ref="exo-similvalpropres"/>, les matrices <m>A</m> et <m>A_{\mathcal{B}}</m> ont le même polynôme caractéristique puisqu'elles sont semblables. En développant avec les cofacteurs la matrice <m>A_{\mathcal{B}}-\lambda I</m>, on trouve
 <md>
 <mrow>\text{det}(A_{\mathcal{B}}-\lambda I)&amp;=\begin{pmatrix}
@@ -571,15 +571,15 @@ C-\lambda I
 <lemma xml:id="lem-sommepropre">
 <title>Une combinaison spéciale de vecteurs</title>
 <statement><p>Soit <m>A</m>, une matrice et <m>\lambda_1,\lambda_2,\ldots , \lambda_k</m> des valeurs propres distinctes. Soit <m>\vec{u}_1,\vec{u}_2,\ldots , \vec{u}_k</m>, des vecteurs dans les espaces propres respectifs des valeurs propres. Si 
-<me>
+<md>
 \vec{u}_1+\vec{u}_2+\ldots + \vec{u}_k=\vec{0}
-</me>,
+</md>,
 alors <m>\vec{u}_1=\vec{u}_2=\ldots = \vec{u}_k=\vec{0}</m>.
 </p></statement>
 <proof><p>On suppose qu'il y a des vecteurs non nuls. On peut simplement éliminer tous les vecteurs nuls de l'équation et obtenir une équation similaire, alors on suppose simplement qu'on a un ensemble de <m>p</m> vecteurs non nuls 
-<me>
+<md>
 \vec{v}_1+\vec{v}_2+\ldots + \vec{v}_p=\vec{0}
-</me> où chaque vecteur <m>\vec{v}_i</m> est un des vecteurs dans <m>\{\vec{u}_1,\ldots , \vec{u}_k\}</m>. Si ces vecteurs sont non nuls et dans un espace propre, ce sont donc des vecteurs propres. Selon la proposition <xref ref="prop-propresindep"/>, on ne peut pas avoir une combinaison linéaire de vecteurs propres associés à des valeurs propres différentes qui donne le vecteur nul, car ces vecteurs devraient être indépendants. Les vecteurs <m>\vec{v}</m> ne peuvent donc pas être non nuls. On conclut alors que tous les vecteurs <m>\vec{u}</m> sont en effet nuls.  </p></proof>
+</md> où chaque vecteur <m>\vec{v}_i</m> est un des vecteurs dans <m>\{\vec{u}_1,\ldots , \vec{u}_k\}</m>. Si ces vecteurs sont non nuls et dans un espace propre, ce sont donc des vecteurs propres. Selon la proposition <xref ref="prop-propresindep"/>, on ne peut pas avoir une combinaison linéaire de vecteurs propres associés à des valeurs propres différentes qui donne le vecteur nul, car ces vecteurs devraient être indépendants. Les vecteurs <m>\vec{v}</m> ne peuvent donc pas être non nuls. On conclut alors que tous les vecteurs <m>\vec{u}</m> sont en effet nuls.  </p></proof>
 </lemma>
 <p>Avec ces résultats, on est en mesure de démontrer qu'une matrice est diagonalisable si et seulement si les multiplicités algébriques et géométriques sont égales.</p>
 <proposition xml:id="prop-matdiagomult">
@@ -600,24 +600,24 @@ Soit <m>A</m>, une matrice <m>n\times n</m> et soit <m>\lambda_1,\lambda_2,\ldot
 <mrow>&amp;\phantom{=}+a_{k,1}\vec{v}_{k,1}+a_{k,2}\vec{v}_{k,2}+\cdots a_{k,g_1}\vec{v}_{k,g_k}</mrow>
 </md>.
 Pour chaque <m>1\leq i\leq k</m>, on pose
-<me>
+<md>
 \vec{u}_i=a_{i,1}\vec{v}_{i,1}+a_{i,2}\vec{v}_{i,2}+\cdots a_{i,g_1}\vec{v}_{i,g_i}
-</me>.
+</md>.
 Chacun de ces vecteurs appartient à l'espace propre de <m>\lambda_i</m>. La combinaison linéaire des vecteurs dans <m>\mathcal{B}</m> devient donc
-<me>
+<md>
 \vec{u}+1+\vec{u}_2+\cdots \vec{u}_k=\vec{0}
-</me>.
+</md>.
 En vertu du lemme <xref ref="lem-sommepropre"/>, on doit avoir <m>\vec{u}_i=\vec{0}</m> pour tous les <m>i</m>. Ceci entraine à son tour que tous les coefficients <m>a_{i,1},a_{i,2},\ldots , a_{i,g_i}</m> sont nuls car les vecteurs <m>\vec{v}_{i,1}\vec{v}_{i,2}\ldots \vec{v}_{i,g_i}</m> forment une base. Ainsi, l'ensemble <m>\mathcal{B}</m> est indépendant et, puisqu'il est composé de <m>n</m> vecteurs dans un espace de dimension <m>n</m>, il forme une base. En posant <m>P</m> la matrice contenant ces vecteurs dans ses colonnes et <m>D</m> la matrice des valeurs propres associées, dans le même ordre d'apparition que les vecteurs dans <m>P</m>, on a bel et bien
-<me>
+<md>
 AP=PD
-</me>.
+</md>.
 Ainsi, <m>A=PDP^{-1}</m> est diagonalisable.
 </p> 
 <p>Dans un deuxième temps, on suppose que <m>A</m> est diagonalisable. On veut montrer que les multiplicités géométriques et algébriques concordent et somment à <m>1</m>. </p>
 <p>Soit <m>\mathcal{B}</m>, une base de vecteurs propres pour l'espace vectoriel. On note <m>\mathcal{B}_i=\mathcal{B}\cap Ep(\lambda_i)</m> l'intersection de cette base avec l'espace propre associé à <m>\lambda_i</m>. Soit <m>n_i</m>, le nombre de vecteurs dans <m>\mathcal{B}_i</m>. On a alors <m>n_i\leq g_i</m> puisque <m>Ep(\lambda_i)</m> est de dimension <m>g_i</m> et que les vecteurs dans <m>\mathcal{B}</m> sont indépendants (on ne peut avoir plus de vecteurs indépendants que la dimension du sous-espace, selon la proposition <xref ref="prop-ensemblevecetdim"/>). De plus, selon le lemme <xref ref="lem-multgeoalg"/>, on a <m>g_i\leq m_i</m>. Comme il y a <m>n</m> vecteurs dans <m>\mathcal{B}</m> et que <m>A</m> est diagonalisable, il faut que <m>n_1+n_2+\cdots n_k=n</m>. De même, on peut écrire le polynôme caractéristique de <m>A</m> comme
-<me>
+<md>
 \text{det}(A-\lambda I)=(\lambda_1-\lambda)^{m_1}(\lambda_2-\lambda)^{m_2}\cdots(\lambda_k-\lambda)^{m_k}
-</me>. De plus, comme ce polynôme doit être de degré <m>n</m>, on obtient que <m>m_1+m_2+\cdots m_k=n</m>. En combinant le tout, on a
+</md>. De plus, comme ce polynôme doit être de degré <m>n</m>, on obtient que <m>m_1+m_2+\cdots m_k=n</m>. En combinant le tout, on a
 <md>
 <mrow>n&amp;\leq n_1+n_2+\cdots n_k</mrow>
  <mrow>    &amp;\leq g_1+g_2+\cdots g_k</mrow>  
@@ -625,9 +625,9 @@ Ainsi, <m>A=PDP^{-1}</m> est diagonalisable.
  <mrow>&amp;\leq n</mrow>
 </md>.
 Ainsi, <m>n_1+n_2+\cdots n_k=g_1+g_2+\cdots g_k=m_1+m_2+\cdots m_k=n</m>. En particulier, on a
-<me>
+<md>
 (a_1-g_1)+(a_2-g_2)+\cdots (a_k-g_k)=0
-</me>
+</md>
 et comme chacun de ces termes est plus grand que <m>0</m>, on conclut que <m>a_i=g_i</m> pour tout <m>1\leq i\leq k</m> et que les multiplicités concordent.
 </p>
 <p>*<em>Bruit de soupir</em>*</p>

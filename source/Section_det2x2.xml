@@ -83,9 +83,9 @@ P
     </ol>
     </p>
     <p>L'aire du parallélogramme est donc 
-    <me>
+    <md>
     ab+ad+bc+cd-2bc-ab-cd=ad-bc
-    </me>.
+    </md>.
     Ce terme devrait être familier. C'est le même terme que l'on a vu dans la section <xref ref="sec-matinverse"/> pour qu'une matrice <m>2\times 2</m> soit inversible. En y réfléchissant, on peut se convaincre du lien entre l'apparition de ce terme dans le calcul de l'aire du parallélogramme et la nécessité de sa présence pour qu'une matrice soit inversible, sachant que si <m>ad-bc=0</m>, alors l'aire du parallélogramme est nulle et que l'on a plutôt une droite ou un point. La solution à &#x00AB; l'inverse &#x00BB; de la projection orthogonale, à l'exemple <xref ref="ex-transfor2inv"/>, fournit une explication à l'impossibilité d'avoir un inverse si l'image de la transformation dans <m>\R^2</m> est une droite.
     </p>
     <example>
@@ -237,7 +237,7 @@ alors les déterminants de <m>A</m> et de <m>B</m> devraient être de signes opp
 </p>
 <p>Il se trouve toutefois que ces trois propriétés ne sont pas suffisantes pour caractériser uniquement ce qu'on cherche. Plusieurs options pourraient être utilisées afin d'arriver à une définition complète du déterminant.
 La propriété manquante trouve son inspiration de l'exemple <xref ref="ex-dettransfogeo"/> et de la matrice de cisaillement. On peut voir cette matrice comme étant
-<me>
+<md>
 Ch_k=\begin{pmatrix}
 1&amp; k\\
 0&amp; 1
@@ -246,15 +246,15 @@ Ch_k=\begin{pmatrix}
 \vec{e}_1&amp;\vec{e}_2 + k\vec{e}_1\\
 \lvert&amp; \rvert
 \end{pmatrix}
-</me>.
+</md>.
 La géométrie du cisaillement montre que le déterminant est <m>1</m>, car l'aire d'un parallélogramme est aussi la longueur de la base multipliée par la hauteur. La figure <xref ref="fig-det2x2"/> permet d'observer que la hauteur et la base ne changent
 pas pour le parallélogramme ainsi obtenu. On peut maintenant définir la notion de déterminant d'une matrice.</p>
 <definition xml:id="def-determinant2x2">
 <title>Le déterminant d'une matrice</title>
 <statement><p>Soit <m>A=\begin{pmatrix} a&amp; c\\ b&amp; d\end{pmatrix}</m>, une matrice <m>2\times 2</m>. On note <m>\vec{u}=\vecd{a}{b}</m> et <m>\vec{v}=\vecd{c}{d}</m>. Le déterminant de la matrice <m>A</m> est un scalaire, noté
-<me>
+<md>
 \det(A)=\begin{vmatrix} a&amp; c\\ b&amp; d \end{vmatrix}=\det(\vec{u},\vec{v})=\Delta(\vec{u},\vec{v})
-</me>,
+</md>,
 qui satisfait les quatre propriétés suivantes:</p>
 <list xml:id="li-detdef2x2">
 <title>Propriétés à satisfaire</title>
@@ -271,9 +271,9 @@ qui satisfait les quatre propriétés suivantes:</p>
 <remark>
 <title>Précisions sur le déterminant</title>
 <p>La définition du déterminant utilise plusieurs notations. On utilisera principalement la forme
-<me>
+<md>
 \det(A)=\begin{vmatrix} a&amp; c\\ b&amp; d \end{vmatrix}=\det(\vec{u},\vec{v})
-</me>.
+</md>.
 Si le nombre en tant que tel est important, on privilégiera <m>\det(A)</m>, alors que s'il est pratique de voir les entrées de la matrice ou si l'on fait un calcul, on utilisera <m>\begin{vmatrix} a&amp; c\\ b&amp; d \end{vmatrix}</m>.
 La notation <m>\det(\vec{u},\vec{v})</m> sera surtout utile dans les démonstrations des propriétés du déterminant.
 </p>
@@ -285,7 +285,7 @@ déterminants qui se déduit de la définition.</p>
 <proposition xml:id="prop-detcolnulle2x2">
 <title>Le déterminant et le vecteur nul</title>
 <statement><p>Soit <m>\vec{u}</m>, un vecteur quelconque. Alors
-<me>\det(\vec{u},\vec{0})=0</me>.</p></statement>
+<md>\det(\vec{u},\vec{0})=0</md>.</p></statement>
 <proof><p>Il suffit de remarquer que <m>\det(\vec{u},\vec{0})=\det(\vec{u},0*\vec{0})=0*\det(\vec{u},\vec{0})=0</m>. On a évidemment aussi <m>\det(\vec{0},\vec{u})=0</m>.</p></proof>
 </proposition>
 <p>Et maintenant, pour relier déterminant et facteur de changement d'aire, on a la proposition suivante.</p>
@@ -367,9 +367,9 @@ aussi positif.</p>
 <title>Le produit vectoriel</title>
 <statement><p>À la proposition <xref ref="prop-prodvec"/>, on a introduit le produit vectoriel de deux vecteurs <m>\vec{u},\vec{v}\in \R^3</m> comme étant un vecteur <m>\vec{w}=\vec{u}\times \vec{v}</m> qui est à la fois
 perpendiculaire à <m>\vec{u}</m> et à <m>\vec{v}</m>. Géométriquement, ce vecteur est un vecteur normal du plan engendré par les vecteurs <m>\vec{u}</m> et <m>\vec{v}</m>. On montre que le produit vectoriel, tel que défini à la proposition <xref ref="prop-prodvec"/>, peut s'écrire comme 
-<men xml:id="eq-prodvecdet2x2">
+<md number="yes" xml:id="eq-prodvecdet2x2">
 \vec{u}\times\vec{v}=\left(\begin{vmatrix} u_2 &amp; u_3 \\ v_2 &amp; v_3\end{vmatrix},-\begin{vmatrix} u_1 &amp; u_3 \\ v_1 &amp; v_3\end{vmatrix},\begin{vmatrix} u_1 &amp; u_2 \\ v_1 &amp; v_2\end{vmatrix}\right)
-</men></p></statement>
+</md></p></statement>
 <solution>
 <p>Il suffit de développer chaque déterminant et de comparer avec le vecteur<m>\vec{w}=(u_{2} v_{3}-u_{3} v_{2},\,u_{3} v_{1} - u_{1} v_{3},\,  u_{1} v_{2}-u_{2} v_{1})</m> de la proposition <xref ref="prop-prodvec"/>.
 On a 
@@ -379,9 +379,9 @@ On a
 </md>.
 </p>
 <p>On a bel et bien l'égalité. Cet exemple propose un moyen simple de trouver un vecteur perpendiculaire à deux autres vecteurs dans <m>\R^3</m>, qui requiert le calcul de trois déterminants. En regardant composante par composante le vecteur produit vectoriel de l'équation <xref ref="eq-prodvecdet2x2"/>, on peut s'imaginer une matrice <m>3\times 2</m> contenant les vecteurs <m>\vec{u},\vec{v}</m>
-<me>
+<md>
 M=\begin{pmatrix}u_1&amp; v_1\\ u_2&amp;v_2\\u_3&amp;v_3 \end{pmatrix}
-</me>.
+</md>.
 Pour obtenir la composante <m>i</m> du produit vectoriel (<m>i=1,2,3)</m>, on calcule le déterminant de la matrice obtenue de <m>M</m> en éliminant la ligne <m>i</m>. On doit se rappeler qu’il faut changer le signe de la seconde composante. On aura une explication plus détaillée dans la prochaine section.</p>
 </solution>
 </example>
@@ -416,7 +416,7 @@ show("w=",w)
 <p>Dans cette sous-section, on énonce quelques propriétés des déterminants. On énoncera à nouveau et l'on démontrera ces résultats pour les déterminants de matrices <m>n\times n</m> dans la section suivante. Pour l'instant, on donne des arguments géométriques
 justifiant le cas <m>2\times 2</m>.</p>
 <p>On débute avec une propriété simple, soit lorsque la matrice contient deux colonnes parallèles. Dans ce cas, le déterminant vaut zéro, car le parallélogramme engendré par les colonnes est en fait un segment de droite.
-En équation de déterminant, cela se traduit par <me>\det(\vec{u},k\vec{u})=0</me>.
+En équation de déterminant, cela se traduit par <md>\det(\vec{u},k\vec{u})=0</md>.
 Une autre propriété, plus surprenante est que<md>
 <mrow>\det(\vec{u}+\vec{v},\vec{w})&amp; =\det(\vec{u},\vec{w})+\det(\vec{v},\vec{w})&amp; &amp; \text{ et }</mrow>
 <mrow>\det(\vec{u},\vec{v}+\vec{w})&amp; =\det(\vec{u},\vec{v})+\det(\vec{u},\vec{w})&amp; &amp;</mrow>
@@ -448,9 +448,9 @@ Les figures <xref ref="fig-det2x2sommememesigne"/> et <xref ref="fig-det2x2somme
     </interactive>
 </figure>
 <p>La prochaine propriété est peut-être surprenante du point de vue algébrique, mais, vue sous l'&#x153;il des transformations linéaires, elle devient presque évidente. Elle stipule que le déterminant d'un produit est égal au produit des déterminants, à savoir
-<me>
+<md>
 \det(AB)=\det(A)\det(B)
-</me>.
+</md>.
 Puisqu'on sait que le produit de deux transformations linéaires correspond à la composition des transformations, on comprend que le facteur de changement d'aire de la composition, qui applique <m>B</m> et ensuite <m>A</m>,
 va d'abord changer l'aire des régions transformées d'un facteur <m>\det(B)</m> et ensuite d'un facteur <m>\det(A)</m>.
 </p>
@@ -458,9 +458,9 @@ va d'abord changer l'aire des régions transformées d'un facteur <m>\det(B)</m>
 <proposition xml:id="prop-dettranspo2x2">
 <title>Le déterminant de la transposée d'une matrice <m>2\times 2</m></title>
 <statement><p>Soit <m>A</m>, une matrice <m>2\times 2</m> et <m>A^T</m>, sa <xref ref="def-transposee" text="custom">transposée</xref>. Alors
-<me>
+<md>
 \det(A^T)=\det(A)
-</me>.</p></statement>
+</md>.</p></statement>
 <proof><p>Voir l'exercice <xref ref="exo-dettranspo2x2"/>.</p></proof>
 </proposition>
 <p>Cette proposition a pour conséquence que les propriétés des déterminants, énoncées en fonction des colonnes de la matrice, sont aussi valides si l'on considère plutôt les lignes de la matrice. Par exemple,

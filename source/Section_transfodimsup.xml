@@ -25,13 +25,13 @@
     <p>N'importe quel vecteur de <m>\R^3</m> peut être écrit de manière unique comme une <xref ref="def-comblin">combinaison linéaire</xref> des vecteurs 
     <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>. On peut donc décrire une transformation linéaire dans <m>\R^3</m> par une matrice <m>3\times 3</m> où chaque colonne 
     représente l'image de ces trois vecteurs. La transformation identité, qui consiste à  ne rien faire, est donnée par la matrice
-    <me>
+    <md>
     I_3=\begin{pmatrix}
     1&amp; 0&amp; 0\\
     0&amp; 1&amp; 0\\
     0&amp; 0&amp; 1
     \end{pmatrix}
-    </me>.
+    </md>.
     </p>
     <p>Un étirement de facteurs <m>k_1,k_2,k_3</m> dans la direction des vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m> est un exemple plus élaboré d'une transformation de l'espace.
     </p>
@@ -42,13 +42,13 @@
     et dans la direction des cotes d'un facteur <m>-4</m>. On veut déterminer la matrice de cette transformation.</p></statement>
     <solution>
     <p>L'image des vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m> est respectivement <m>(3,0,0),(0,2,0)</m> et <m>(0,0,-4)</m>. La matrice est donc
-    <me>
+    <md>
     A=\begin{pmatrix}
     3&amp; 0&amp; 0\\
     0&amp; 2&amp; 0\\
     0&amp; 0&amp; -4
     \end{pmatrix}
-    </me>.
+    </md>.
     </p>
     </solution>
     
@@ -90,11 +90,11 @@
     <p>Comme le vecteur <m>(0,1,0)</m> est perpendiculaire au vecteur <m>(1,0,0)</m> dans le sens antihoraire, son image sera perpendiculaire à <m>(cos(\theta),\sin(\theta),0)</m>, aussi dans le sens anithoraire et sera aussi
     dans le plan <m>z=0</m>. En suivant un raisonnement similaire à celui de l'exemple <xref ref="ex-rotr2"/>, on obtient <m>R_{\theta_z}(0,1,0)=(-\sin(\theta),\cos(\theta),0)</m>. La matrice
     est donc
-    <men xml:id="eq-rotR3z">
+    <md number="yes" xml:id="eq-rotR3z">
     R_{\theta_z}=\begin{pmatrix} \cos(\theta) &amp; -\sin(\theta) &amp; 0 \\
                                  \sin(\theta) &amp; \cos(\theta) &amp; 0 \\
                                   0 &amp; 0 &amp; 1\end{pmatrix}
-    </men>.</p>
+    </md>.</p>
     </solution>
     <solution>
     <p>On considère maintenant la rotation selon l'axe des <m>y</m>. Selon la séquence, l'angle sera mesuré de l'axe des <m>z</m> positifs vers l'axe des <m>x</m> positifs.
@@ -104,11 +104,11 @@
     <p>Comme le vecteur <m>(1,0,0)</m> est perpendiculaire au vecteur <m>(0,0,1)</m> dans le sens antihoraire, son image sera perpendiculaire à <m>(\sin(\theta),0,\cos(\theta))</m>, aussi dans le sens antihoraire 
     et sera aussi dans le plan <m>y=0</m>. En suivant un raisonnement similaire à celui de l'exemple <xref ref="ex-rotr2"/>, on obtient <m>R_{\theta_y}(1,0,0)=(\cos(\theta),0,-\sin(\theta))</m>. La matrice
     est donc
-    <men xml:id="eq-rotR3y">
+    <md number="yes" xml:id="eq-rotR3y">
     R_{\theta_y}=\begin{pmatrix} \cos(\theta) &amp; 0 &amp; \sin(\theta) \\
                                  0 &amp; 1 &amp; 0 \\
                                   -\sin(\theta) &amp; 0 &amp;  \cos(\theta)\end{pmatrix}
-    </men>.</p>
+    </md>.</p>
     </solution>
     <solution>
     <p>La matrice de rotation selon l'axe des <m>x</m> est obtenue à l'exercice <xref ref="exo-rotR3x"/>.</p>
@@ -129,30 +129,30 @@
     <solution>
     <p>On commence par la réflexion <m>S_{yOz}</m> selon le plan <m>x=0</m>. Comme le vecteur <m>(1,0,0)</m> est perpendiculaire au plan (c'est un vecteur normal de ce plan), sa 
     réflexion est donnée par <m>(-1,0,0)</m>. Les vecteurs <m>(0,1,0)</m> et <m>(0,0,1)</m>, quant à eux sont, sur le plan et ne sont pas affectés par la réflexion. La matrice est donc
-    <men xml:id="eq-refR3yOz">
+    <md number="yes" xml:id="eq-refR3yOz">
     S_{yOz}=\begin{pmatrix}
     -1&amp; 0&amp; 0\\
     0&amp; 1 &amp; 0 \\
     0&amp; 0&amp; 1
     \end{pmatrix}
-    </men>.
+    </md>.
     </p>
     <p>De manière similaire, on obtient
-    <men xml:id="eq-refR3xOz">
+    <md number="yes" xml:id="eq-refR3xOz">
     S_{xOz}=\begin{pmatrix}
     1&amp; 0&amp; 0\\
     0&amp; -1 &amp; 0 \\
     0&amp; 0&amp; 1
     \end{pmatrix}
-    </men>
+    </md>
     et
-    <men xml:id="eq-refR3xOy">
+    <md number="yes" xml:id="eq-refR3xOy">
     S_{xOy}=\begin{pmatrix}
     1&amp; 0&amp; 0\\
     0&amp; 1 &amp; 0 \\
     0&amp; 0&amp; -1
     \end{pmatrix}
-    </men>.
+    </md>.
     </p>
     </solution>
     </example>
@@ -190,9 +190,9 @@
  Pour la réflexion, on remarque que les deuxième et troisième colonnes de <m>S_{yOz}</m> <xref ref="eq-refR3yOz"/> sont respectivement <m>(0,1,0)</m> et <m>(0,0,1)</m>. Les produits 
  <m>S_{yOz}\vecddd{0}{1}{0}</m> et <m>S_{yOz}\vecddd{0}{0}{1}</m> seront donc égaux, respectivement à la deuxième et la troisième colonne de la matrice <m>S_{yOz}</m>.
  De plus, comme le produit <m>S_{yOz}\vecddd{-1}{0}{0}</m> donne l'opposé de la première colonne, on a
- <me>
+ <md>
  S_{yOz}S_{yOz}=\begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}=I
- </me>.
+ </md>.
     </p>
     <p>En fonction du théorème <xref ref="def-matcarreeinverse"/>, on a 
     <md>
@@ -321,12 +321,12 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     <subsection xml:id="ssec-transfogen">
     <title>Transformations de dimension quelconque</title>
     <p>On considère la matrice 
-    <me>
+    <md>
     A=\begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}
-    </me>.
+    </md>.
     Cet exemple simple est une transformation linéaire  qui transforme des vecteurs de <m>\R^2</m> en les associant à des vecteurs de <m>\R^3</m> 
     en faisant correspondre les coordonnées <m>x,y</m> de l'image à celles du domaine et en additionnant les valeurs <m>x,y</m> pour obtenir la valeur de <m>z</m>:
-    <me>A\vecd{x}{y}=\begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}\vecd{x}{y}=\vecddd{x}{y}{x+y}</me>.
+    <md>A\vecd{x}{y}=\begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}\vecd{x}{y}=\vecddd{x}{y}{x+y}</md>.
     </p>
     <p>La question du produit matriciel de deux matrices <m>m\times n</m> a déjà été considérée à la section <xref ref="sec-prodmat"/>,
     bien que ces exemples concernaient principalement un contexte géométrique avec des matrices <m>2\times 2</m> ou <m>3\times 3</m>.
@@ -334,15 +334,15 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     <p>Toutefois, la question de l'inverse demeure. Une première question se pose si l'on se souvient de la proposition <xref ref="prop-investsurj"/> qui dit que les transformations inversibles atteignent tous les
     vecteurs de leur image. Comme la matrice <m>A</m> est restreinte aux vecteurs tels que <m>z=x+y</m>, elle n'atteint pas l'ensemble des vecteurs de <m>\R^3</m>. Serait-elle donc non inversible?</p>
     <p>Un calcul simple montre pourtant que
-    <me>
+    <md>
     \begin{pmatrix} 1&amp; 0&amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}\begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}=\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1\end{pmatrix}
-    </me>.
+    </md>.
     </p>
     <p>On pourrait alors penser que la matrice <m>B=\begin{pmatrix} 1&amp; 0&amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}</m> est un inverse et que la proposition <xref ref="prop-investsurj"/> n'est vraie que pour les matrices carrées. </p>
     <p>Un autre problème survient lorsqu'on regarde si le théorème <xref ref="thm-invgauchedroite"/> est satisfait. Un autre calcul simple montre que
-    <me>
+    <md>
     \begin{pmatrix} 1&amp; 0 \\ 0&amp; 1 \\ 1&amp; 1 \end{pmatrix}\begin{pmatrix} 1&amp; 0&amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}=\begin{pmatrix} 1&amp; 0&amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 1 &amp; 1 &amp; 0 \end{pmatrix}
-    </me>.
+    </md>.
     Comme cela ne coïncide pas avec la matrice identité dans <m>\R^3</m>, on conclut que <m>A</m> n'est pas l'inverse de <m>B</m>, au sens de la définition <xref ref="def-transfoinverseprelim"/>, bien que <m>B</m> semble 
     être l'inverse de <m>A</m> selon cette même définition. Afin de distinguer les choses, on propose la définition suivante.</p>
     <definition xml:id="def-invmn">
@@ -374,9 +374,9 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     <proposition xml:id="prop-invgauche">
     <title>L'inverse à gauche et l'image de la transformation</title>
     <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m> possédant un inverse à gauche <m>B</m>. Alors pour tout vecteur <m>v\in \R^m</m>, il existe au plus un vecteur <m>\vec{u}\in \R^n</m> tel que
-    <me>
+    <md>
     A\vec{u}=\vec{v}
-    </me>. En termes plus simples, si un vecteur de l'image est atteint par la transformation <m>A</m>, il ne l'est que par un seul vecteur du domaine.</p></statement>
+    </md>. En termes plus simples, si un vecteur de l'image est atteint par la transformation <m>A</m>, il ne l'est que par un seul vecteur du domaine.</p></statement>
     <proof>
     <p>Si un vecteur <m>\vec{u}_1\in \R^n</m> existe tel que <m>A\vec{u}_1=\vec{v}</m>, alors on a
     <md>
@@ -406,9 +406,9 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     <proposition xml:id="prop-invdroite">
     <title>L'inverse à droite et l'image de la transformation</title>
     <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m> possédant un inverse à droite <m>C</m>. Alors pour tout vecteur <m>\vec{v}\in \R^m</m>, il existe au moins un vecteur <m>\vec{u}\in \R^n</m> tel que
-    <me>
+    <md>
     A\vec{u}=\vec{v}
-    </me>.
+    </md>.
     En termes plus simples, tout vecteur de l'image est atteint par au moins un vecteur du domaine.</p></statement>
     <proof>
     <p>Soit <m>\vec{v}</m>, un vecteur de l'image. On pose <m>\vec{u}=C\vec{v}</m>. Alors
@@ -433,9 +433,9 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     </statement>
     <proof>
     <p>Soit <m>A</m>, une matrice <m>m\times n</m> avec <m>m&lt; n</m>. Pour simplifier, on suppose que <m>m=2</m>. On considère l'équation
-    <men xml:id="eq-mltn">
+    <md number="yes" xml:id="eq-mltn">
     A\vec{u}=\vecd{0}{0}
-    </men>. Évidemment, <m>\vec{u}=\vec{0}</m> est une solution à l'équation. Soit <m>\vec{a}_1,\vec{a}_2</m> et <m>\vec{a_3}</m>, les trois premières colonnes de <m>A</m> 
+    </md>. Évidemment, <m>\vec{u}=\vec{0}</m> est une solution à l'équation. Soit <m>\vec{a}_1,\vec{a}_2</m> et <m>\vec{a_3}</m>, les trois premières colonnes de <m>A</m> 
     (on se rappelle que <m>n&gt; m=2</m>). Si deux de ces vecteurs sont parallèles, disons <m>\vec{a_1}=k\vec{a_2}</m>, alors en prenant <m>\vec{u}=(1,-k,0,\ldots 0)</m>, on 
     obtient une solution à l'équation <xref ref="eq-mltn"/> différente du vecteur <m>\vec{u}=\vec{0}</m>. Si aucun des vecteurs n'est parallèle à un autre, alors l'exercice
     <xref ref="exo-3vecr2dep"/> garantit l'existence d'une combinaison linéaire <m>a\vec{a}_1+b\vec{a}_2+c\vec{a}_3=\vec{0}</m> où <m>a,b,c</m> ne sont pas tous nuls.
@@ -443,9 +443,9 @@ show("Ru=",(Rzinv*Ryinv*R*Ry*Rz).apply_map(lambda x: x.n()))
     on obtient aussi une solution à l'équation <xref ref="eq-mltn"/> différente du vecteur <m>\vec{u}=\vec{0}</m>. Si <m>A</m> possédait un inverse à gauche, ceci contredirait la proposition <xref ref="prop-invgauche"/>.
     </p>
     <p>Maintenant soit  <m>B</m>, une matrice <m>m\times n</m> avec <m>m&gt; n</m>. Par simplicité, on suppose que <m>n=2</m>. On considère l'équation
-    <men xml:id="eq-mgtn">
+    <md number="yes" xml:id="eq-mgtn">
     B\vecd{x}{y}=\vec{v}
-    </men>.
+    </md>.
     Soit <m>\vec{b}_1,\vec{b}_2</m>, les colonnes de la matrice <m>B</m>. Alors l'équation <xref ref="eq-mgtn"/> revient à exprimer le vecteur <m>\vec{v}\in \R^m</m> comme
     <m>\vec{v}=x\vec{b}_1+y\vec{b}_2</m>. C'est donc dire que le vecteur <m>\vec{v}</m> est dans le plan engendré par les colonnes de <m>B</m>. Or, le plan est un objet à deux
     dimensions et le vecteur <m>\vec{v}</m> vit dans un espace à <m>m&gt; 2</m> dimensions. Il y a donc certainement des vecteurs dans <m>\R^m</m> qui ne peuvent satisfaire 

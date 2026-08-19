@@ -26,17 +26,17 @@
     <definition xml:id="def-transfoinverseprelim">
     <title> La transformation inverse, définition préliminaire</title>
     <statement><p>Soit <m>T_1</m>, une transformation linéaire. La transformation inverse de <m>T_1</m>, notée <m>T_1^{-1}</m>, est une transformation telle que
-    <men xml:id="eq-invprelim">
+    <md number="yes" xml:id="eq-invprelim">
     T_1^{-1}(T_1(\vec{u}))=\vec{u}
-    </men> pour tout <m>\vec{u}</m> dans le domaine de <m>T_1</m>.</p></statement>
+    </md> pour tout <m>\vec{u}</m> dans le domaine de <m>T_1</m>.</p></statement>
     </definition>
     <remark xml:id="rem-invprelim">
     <title>Une précision sur l'inverse</title>
     <p>Dans la définition, il n'est pas mentionné que la transformation inverse est une transformation linéaire. Comme on peut interpréter l'équation <xref ref="eq-invprelim"/> de manière matricielle, on cherche l'existence
     d'une matrice <m>T_1^{-1}</m> telle que <m>T_1^{-1}T_1\vec{u}=\vec{u}</m> pour tout vecteur <m>\vec{u}</m> dans le domaine de <m>T_1</m>, c'est-à-dire une transformation telle que
-    <me>
+    <md>
     T_1^{-1}T_1=I
-    </me>.
+    </md>.
     En vertu de la proposition <xref ref="prop-matsonttransfos"/>, si une telle matrice existe, alors <m>T_1^{-1}</m> est une transformation linéaire.</p>
     </remark>
     <example xml:id="ex-transfor2inv">
@@ -91,9 +91,9 @@
     Ainsi, <m>Eh_r^{-1}=Eh_{\frac{1}{r}}</m> si <m>r\neq 0</m>.
     </p>
     <p>On considère maintenant le cas <m>r=0</m>. La matrice de l'étirement est 
-    <me>
+    <md>
     Eh_0=\begin{pmatrix} 0&amp; 0\\ 0 &amp;1\end{pmatrix}
-    </me>. 
+    </md>. 
     On affirme dès le départ qu'il ne peut exister d'inverse pour cette transformation. En effet, soit <m>A</m>, la matrice représentant l'inverse. Selon la définition <xref ref="def-transfoinverseprelim"/>, il faut que <m>AEh_0=I</m>. 
     En particulier, il faudrait que <m>A\vecd{0}{0}=\vecd{1}{0}</m> selon la définition du <xref ref="def-matmatprod">produit matriciel</xref>, puisque <m>\vecd{0}{0}</m> est la première colonne de <m>Eh_0</m> et <m>\vecd{1}{0}</m> 
     la première colonne de la matrice identité. Selon la proposition <xref ref="prop-transfolinprop"/>, l'image du vecteur nul sera toujours le vecteur nul et en conséquence, il est impossible d'avoir <m>\vecd{1}{0}</m> comme résultat.</p>
@@ -132,9 +132,9 @@
     <p>On sait que les colonnes de la matrice d'une transformation linéaire correspondent aux images des vecteurs <m>(1,0)</m> et <m>(0,1)</m> (dans <m>\R^2</m>, le cas général étant semblable, voir la proposition <xref ref="prop-matsonttransfos"/> et
     le texte qui la suit). Qu'en est-il si l'on connait l'effet d'une transformation <m>T</m>, non pas sur ces vecteurs, mais sur deux vecteurs quelconques? <fn>Il y a une condition à respecter, mais on ne veut pas trop en dire pour le moment.</fn></p>
     <p>Concrètement, si <m>T(\vec{u}_1)=\vec{v}_1</m> et <m>T(\vec{u}_2)=\vec{v}_2</m>, alors, selon la définition de la multiplication, on peut écrire
-    <me>
+    <md>
     T\begin{pmatrix} \lvert &amp; \lvert \\ \vec{u}_1 &amp; \vec{u}_2 \\ \lvert &amp; \lvert \end{pmatrix}=\begin{pmatrix} \lvert &amp; \lvert \\ \vec{v}_1 &amp; \vec{v}_2 \\ \lvert &amp; \lvert \end{pmatrix}
-    </me>.
+    </md>.
     Pour simplifier, on écrit <m>TU=V</m>. Si l'on était capable d'inverser la matrice <m>U</m>, on pourrait isoler la matrice de la transformation linéaire <m>T</m>: 
     <md>
     <mrow>TU&amp;=V</mrow>
@@ -154,7 +154,7 @@
     </statement>
     <solution>
     <p>On cherche une matrice <m>A^{-1}</m> telle que 
-    <me>A^{-1}\begin{pmatrix} 1&amp; 1\\ 4&amp; 5 \end{pmatrix}=\begin{pmatrix} 1&amp; 0\\ 0&amp; 1 \end{pmatrix}</me>.
+    <md>A^{-1}\begin{pmatrix} 1&amp; 1\\ 4&amp; 5 \end{pmatrix}=\begin{pmatrix} 1&amp; 0\\ 0&amp; 1 \end{pmatrix}</md>.
     En appliquant la définition de la multiplication, on trouve deux équations vectorielles <m>A^{-1}\vecd{1}{4}=\vecd{1}{0}</m> et <m>A^{-1}\vecd{1}{5}=\vecd{0}{1}</m>. Si l'on pose <m>A^{-1}=\begin{pmatrix} x&amp;z\\ y&amp;w \end{pmatrix}</m>, on obtient une 
     paire de systèmes à deux équations deux inconnues. D'une part,
     <md>
@@ -221,32 +221,32 @@
     <!-- Ci-dessous, rappeler le conseil/technique lorsque fait : Voir ToDo.task -->
     <p>Comme on veut éviter de restreindre le plus possible les valeurs de <m>a,b,c,d</m>, on ne peut pas isoler <m>x</m> ou <m>z</m> dans la seconde équation du premier système.
     Cela supposerait que <m>c\neq 0</m> ou <m>d\neq 0</m>. Pour contourner ce problème, on multiplie la première équation par <m>c</m> et la seconde par <m>a</m>. On obtient
-    <mdn>
+    <md number="yes">
     <mrow xml:id="eq-matinverse2x2-1">acx+bcz&amp;=c </mrow>
     <mrow xml:id="eq-matinverse2x2-2"> acx+adz&amp;=0</mrow>
-    </mdn>.
+    </md>.
     En soustrayant l'équation <xref ref="eq-matinverse2x2-1"/> de l'équation <xref ref="eq-matinverse2x2-2"/>, on obtient
-    <me>
+    <md>
     (ad-bc)z=-c
-    </me>.
+    </md>.
     On ne peut plus éviter la division et donc, en faisant la supposition que <m>ad-bc\neq 0</m>, on obtient <m>z=\frac{-c}{ad-bc}</m>. 
     </p>
     <p>En multipliant maintenant la première équation du premier système par <m>d</m> et la seconde par <m>b</m>, on obtient
-    <mdn>
+    <md number="yes">
     <mrow xml:id="eq-matinverse2x2-3">adx+bdz&amp;=d </mrow>
     <mrow xml:id="eq-matinverse2x2-4"> cbx+bdz&amp;=0</mrow>
-    </mdn>.
+    </md>.
     En soustrayant  cette fois l'équation <xref ref="eq-matinverse2x2-4"/> de l'équation <xref ref="eq-matinverse2x2-3"/>, on obtient
-    <me>
+    <md>
     (ad-bc)x=d
-    </me>.
+    </md>.
     La supposition que <m>ad-bc\neq 0</m> ayant déjà été faite, on trouve <m>x=\frac{d}{ad-bc}</m>.
     </p>
     <p>Dans l'exercice <xref ref="exo-SEL2x2matinverse"/>, il est montré que <m>y=\frac{-b}{ad-bc}</m> et <m>w=\frac{a}{ad-bc}</m>.</p>
     <p>En sortant le facteur <m>ad-bc</m> commun à chacun des termes, on obtient finalement la matrice inverse 
-    <men xml:id="eq-matinverse2x2">
+    <md number="yes" xml:id="eq-matinverse2x2">
     \begin{pmatrix}a\amp c \\ b\amp d  \end{pmatrix}^{-1}=\frac{1}{ad-bc}\begin{pmatrix} d \amp -c \\ -b \amp a \end{pmatrix}
-    </men>.</p>
+    </md>.</p>
     <example xml:id="ex-matinverse2">
     <title>Calcul de l'inverse avec la formule</title>
     <p>On reprend la matrice de l'exemple <xref ref="ex-matinverse1"/> et l'on détermine son inverse avec la formule <xref ref="eq-matinverse2x2"/>. On obtient
@@ -425,13 +425,13 @@ show("Tu2=",T*u2)
     <p>Soit <m>\vec{e}_1=(1,0,\cdots , 0),\vec{e}_2=(0,1,0,\ldots , 0),\ldots, \vec{e}_n=(0,\ldots ,0 ,1)</m>, les vecteurs colonnes de la matrice identité. Par hypothèse sur <m>A</m>, il existe des vecteurs
     <m>\vec{b}_1,\vec{b}_2,\ldots , \vec{b}_n</m> tels que <m>A\vec{b}_k=\vec{e}_k</m> pour chacun des <m>k=1,\ldots , n</m>.</p>
     <p>On pose 
-    <me>
+    <md>
     B=\begin{pmatrix}
     \lvert \amp \lvert \amp \cdots \amp \lvert \\
      \vec{b}_1\amp \vec{b}_2\amp \cdots \amp \vec{b}_n \\
     \lvert \amp \lvert \amp \cdots \amp \lvert \\
     \end{pmatrix}
-    </me>.
+    </md>.
     On a alors <m>AB=I</m> puisque la colonne <m>k</m> de <m>AB</m> est donnée par <m>A\vec{b_k}=\vec{e}_k</m>.
     </p>
     </proof>
@@ -473,14 +473,14 @@ show("Tu2=",T*u2)
     <definition xml:id="def-matcarreeinverse">
     <title>L'inverse d'une matrice carrée</title>
     <statement><p>Soit <m>A</m>, une matrice carrée. On dit que <m>A</m> est inversible s'il existe une matrice <m>A^{-1}</m> telle que 
-    <me>
+    <md>
     A^{-1}A=AA^{-1}=I
-    </me>.</p>
+    </md>.</p>
     <p>En ce qui concerne les transformations linéaires, on dit que la transformation <m>T</m> de <m>\R^n</m> vers <m>\R^n</m> est inversible s'il existe une transformation
     linéaire <m>T^{-1}</m> de <m>\R^n</m> vers <m>\R^n</m> telle que 
-    <me>
+    <md>
     T^{-1}(T(\vec{u}))=T(T^{-1}(\vec{u}))=\vec{u}
-    </me>
+    </md>
     pour tout vecteur <m>\vec{u}\in\R^n</m>.</p></statement>
     </definition>
     <remark xml:id="rem-obtenirinverse">
@@ -497,12 +497,12 @@ show("Tu2=",T*u2)
     </p>
     <p>De plus, la proposition <xref ref="prop-surjestinv"/> donne une démarche explicite pour obtenir l'inverse. Pour chaque vecteur <m>\vec{e}_k</m>, on cherche un
     vecteur <m>\vec{b}_k</m> tel que <m>A\vec{b}_k=\vec{e}_k</m>. La matrice inverse est alors
-    <men xml:id="eq-matinversecol">
+    <md number="yes" xml:id="eq-matinversecol">
     A^{-1}=\begin{pmatrix}
     \lvert \amp \lvert \amp \cdots \amp \lvert \\
      \vec{b}_1\amp \vec{b}_2\amp \cdots \amp \vec{b}_n \\
     \lvert \amp \lvert \amp \cdots \amp \lvert \\
-    \end{pmatrix}</men>.
+    \end{pmatrix}</md>.
     </p>
     </remark>
     <p>On utilise cette méthode pour calculer à nouveau l'inverse de la matrice de l'exemple <xref ref="ex-matinverse1"/>.</p>
@@ -610,9 +610,9 @@ show("A^(-1)A=",Ainv*A)
      <p>On commence en supposant que les matrices <m>A,B</m> sont inversibles. Avant de s'embarquer dans des manipulations algébriques abstraites, on réfléchit un instant sur la signification de la proposition. Si deux transformations sont inversibles et 
      qu'on les compose, c'est-à-dire qu'on les fait l'une après l'autre, il n'y a alors pas de raison apparente qui ferait en sorte que cette composition ne soit pas inversible.
      De plus, il semble que pour revenir sur le vecteur original, il suffit de faire les transformations inverses dans l'ordre inverse. Il paraît donc assez intuitif que
-     <me>
+     <md>
      (AB)^{-1}=B^{-1}A^{-1}
-     </me>
+     </md>
      D'un point de vue algébrique, on vérifie facilement que <m>(B^{-1}A^{-1})(AB)=B^{-1}A^{-1}AB=B^{-1}IB=B^{-1}B=I</m>. Il ne reste donc qu'à vérifier l'existence de l'inverse.
      </p>
      <p>Soit <m>\vec{v}\in \R^n</m> un vecteur de l'image de <m>AB</m>. On cherche <m>\vec{u}</m> telle que <m>AB\vec{u}=\vec{v}</m>. En vertu de la proposition 
@@ -636,29 +636,29 @@ show("A^(-1)A=",Ainv*A)
      <p>Parfois, la proposition <xref ref="prop-inverseproduit"/> est appelée le théorème du bas et du soulier. L'analogie va comme suit:</p>
      <p>Lorsqu'on se lève le matin pour quitter la maison, on commence par mettre des bas à ses pieds, pour  mettre ensuite des souliers. Le soir venu, on enlève d'abord
      les souliers, puis les bas. L'inverse de <em>mettre ses bas puis ses souliers</em> est donc <em>d'enlever ses souliers puis ses bas</em>:
-     <me>
+     <md>
      (\text{bas}\circ \text{souliers})^{-1}=\text{soulier}^{-1}\circ\text{bas}^{-1}
-     </me>.</p>
+     </md>.</p>
      </aside>
      <p>Avec les nombres réels, on dit souvent par exemple que <m>\frac{1}{2}</m> est l'inverse multiplicatif de <m>2</m>, car <m>2*\frac{1}{2}=1</m>. De même, on peut aussi
      dire que <m>2</m> est l'inverse multiplicatif de <m>\frac{1}{2}</m>. Est-ce que ce résultat est aussi vrai pour les matrices? C'est ce que la proposition permet d'affirmer.</p>
      <proposition xml:id="prop-invdeinv">
      <title>L'inverse de l'inverse</title>
      <statement>
-     <p>Soit <m>A</m>, une matrice inversible qui possède un inverse <m>A^{-1}</m>. Alors <me>(A^{-1})^{-1}=A</me>.</p>
+     <p>Soit <m>A</m>, une matrice inversible qui possède un inverse <m>A^{-1}</m>. Alors <md>(A^{-1})^{-1}=A</md>.</p>
      </statement>
      <proof>
      <p>Cela découle directement du théorème <xref ref="thm-invgauchedroite"/>.</p>
      </proof>
     <!-- <proof>
      <p>On pose <m>B=A^{-1}</m>. Pour trouver l'inverse de <m>B</m>, on cherche une matrice <m>B^{-1}</m> telle que 
-     <me>
+     <md>
      B^{-1}B=BB^{-1}=I
-     </me>.</p>
+     </md>.</p>
      <p>Selon la définition <xref ref="def-matcarreeinverse"/>, puisque <m>B</m> est l'inverse de <m>A</m>, on a 
-     <me>
+     <md>
      BA=AB=I
-     </me>.
+     </md>.
      Or ceci implique aussi que <m>A</m> est l'inverse de <m>B</m> et donc <m>A=B^{-1}</m>. On rapelle aussi que l'inverse est unique, selon la proposition <xref ref="prop-inverseunique"/>.
      L'inverse de l'inverse de <m>A</m> est donc <m>A</m>.
      </p>
@@ -673,9 +673,9 @@ show("A^(-1)A=",Ainv*A)
      <proposition xml:id="prop-invdematscalaire">
      <title>L'inverse pour la multiplication par un scalaire</title>
      <statement><p>Soit <m>A</m>, une matrice inversible qui possède un inverse <m>A^{-1}</m> et <m>k\in\R\setminus\{0\}</m>, un scalaire non-nul. Alors,
-     <me>
+     <md>
      (kA)^{-1}=\frac{1}{k}A^{-1}
-     </me>.</p>
+     </md>.</p>
      </statement>
      <proof><p>La preuve est laissée au lecteur à l'exercice <xref ref="exo-prop-invdematscalaire"/>.</p></proof>
      </proposition>
@@ -687,9 +687,9 @@ show("A^(-1)A=",Ainv*A)
     <example xml:id="ex-algmat1">
     <title>Algèbre matricielle</title>
     <statement><p>Soit <m>A,B,C</m> et <m>X</m>, des matrices. On cherche à isoler <m>X</m> dans l'équation
-    <me>
+    <md>
     AX+B=C
-    </me>.</p>
+    </md>.</p>
     <p>Quelles sont les conditions sur les matrices <m>A,B,C</m> pour qu'il soit possible d'isoler <m>X</m>.</p></statement> 
     <solution>
     <p>On isole <m>X</m>, sans se soucier des conditions sur les matrices. On les déterminera après avoir effectué les opérations algébriques. On a donc
@@ -754,9 +754,9 @@ show("A^(-1)A=",Ainv*A)
     </solution>
     <solution>
     <p>On commence par poser <m>Y=X^{-1}</m>. L'expression devient <m>AY+B=C</m>, équivalente à celle de l'exemple <xref ref="ex-algmat1"/>. On a donc
-    <me>
+    <md>
     Y=A^{-1}(C-B)
-    </me>.
+    </md>.
     Puisque <m>X=Y^{-1}=(X^{-1})^{-1}</m>, on a
     <md>
     <mrow>X&amp;=\left(A^{-1}(C-B)\right)^{-1}</mrow>

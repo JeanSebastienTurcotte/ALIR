@@ -13,32 +13,32 @@
     <exercise>
     <statement>
     <p>L'ensemble des nombres complexes est défini comme l'ensemble
-    <me>
+    <md>
     \mathbb{C}=\{a+bi~|~a,b,\in \mathbb{R}\}
-    </me>
+    </md>
     et <m>i</m> est lui-même un nombre complexe ayant la propriété que <m>i^2=-1</m>. On munit cet espace de l'addition
-    <me>
+    <md>
     (a+bi)+(c+di)=a+c+(b+d)i
-    </me>
+    </md>
     et de la multiplication par un scalaire réel
-    <me>
+    <md>
     r(a+bi)=ra+rbi
-    </me>.
+    </md>.
     </p>
     <p>Montrer que cet ensemble muni de ces opérations est un espace vectoriel.</p>
     </statement>
     <solution>
     <p>Soit <m>x=a+bi,y=c+di</m> et <m>z=e+fi</m>, des nombres complexes et <m>r,s</m>, des réels.</p>
     <p>Pour la propriété <xref ref="li-espacevectoriel1"/>, on doit montrer que la somme de deux nombres complexes est encore un nombre complexe, c'est-à-dire qu'elle peut s'écrire sous la forme un réel plus un réel fois <m>i</m>. On a
-    <me>
+    <md>
     x+y=a+c+(b+d)i
-    </me>
+    </md>
     en vertu de l'addition sur les complexes. Comme <m>a+c\in \mathbb{R}</m> de même que <m>b+d\in\mathbb{R}</m>, la somme de nombres complexes est encore un nombre complexe.
     </p>
     <p>La commutativité et l'associativité découlent directement des propriétés de l'addition sur les réels, puisque
-    <me>
+    <md>
     x+y=a+c+(b+d)i=c+a+(d+b)i=y+x
-    </me>
+    </md>
     et que
     <md>
     <mrow>x+(y+z)&amp;=a+bi+(c+e+(d+f)i)</mrow>
@@ -48,16 +48,16 @@
     </md>.
     </p>
     <p>Le neutre additif est aussi <m>0=0+0i</m> dans cet espace, puisque
-    <me>
+    <md>
     x+0=a+0+(b+0)i=a+bi=x
-    </me> et l'inverse additif est simplement <m>-x=-a-bi</m>, puisque
-    <me>
+    </md> et l'inverse additif est simplement <m>-x=-a-bi</m>, puisque
+    <md>
     x+-x=a-b+(b-b)i=0
-    </me>.</p>
+    </md>.</p>
     <p>Pour les propriétés avec la multiplication, elles découlent aussi des propriétés de l'addition et de la multiplication avec les nombres réels. Puisque <m>ra\in\mathbb{R}</m> et <m>rb\in\mathbb{R}</m>, on obtient la fermeture par rapport à la multiplication. L'associativité s'obtient du fait que
-    <me>
+    <md>
     rs(a+bi)=rsa+rsbi=r(sa+sbi)=r(sx)
-    </me>.</p>
+    </md>.</p>
     <p>De plus,
     <md>
     <mrow>r(x+y)&amp;=r(a+c+(b+d)i)</mrow>
@@ -80,9 +80,9 @@
     </exercise>
     <exercise><statement>
     <p>On considère l'ensemble des nombres réels muni de l'addition 
-    <me>
+    <md>
     x\oplus y=x+y^2
-    </me>
+    </md>
     et de la multiplication par un scalaire usuelle. Cet ensemble n'est pas un espace vectoriel. Déterminer quelle(s) propriété(s) n'est (ne sont) pas satisfaite(s).</p>
     </statement>
     <answer>
@@ -101,29 +101,29 @@
     </md>. Dans le premier cas, <m>z</m> est pris deux fois dans un côté droit de l'opération <m>\oplus</m>, il apparait donc avec une puissance quatre, mais dans le second cas, il est seulement affecté d'un exposant deux, conséquence du fait qu'il n'est à droite de l'opération qu'une seule fois.</p>
     <p>D'un point de vue technique, l'élément neutre existe, puisque <m>x\oplus 0=x</m>. Comme cette addition n'est pas commutative, il faudrait aussi vérifier à gauche aussi. Dans ce cas, on a <m>0\oplus y=y^2</m>, ce qui, en général, ne donnera pas <m>y</m>. On pourrait donc dire qu'il y a un neutre additif à gauche, mais qu'il n'y en a pas à droite. De même, pour l'inverse additif, on peut prendre <m>x=-y^2</m> et avoir <m>-y^2\oplus y=0</m>, qui correspond au neutre à gauche, mais si <m>x\geq 0</m>, aucune valeur de <m>y</m> ne fera que <m>x\oplus y =0</m>. </p>
     <p>Comme la multiplication est celle qui est usuelle, la propriété <m>rx\in \mathbb{R}</m> est respectée, de même que la propriété <m>(rs)x=r(sx)</m> et la propriété du neutre multiplicatif. Pour les propriétés qui combinent multiplication et addition, elles ne sont pas respectées. En effet,
-    <me>
+    <md>
     r(x\oplus y)=rx+ry^2
-    </me>
+    </md>
     alors que 
-    <me>
+    <md>
     rx\oplus ry=rx+(ry)^2=rx+r^2y^2
-    </me>. De même, on a
-    <me>
+    </md>. De même, on a
+    <md>
     (r+s)x=rx+sx
-    </me>,
+    </md>,
     mais
-    <me>
+    <md>
     rx\oplus sx=rx+s^2x^2
-    </me>.
+    </md>.
     Ces propriétés ne sont donc pas respectées.
     </p>
     </solution>
     </exercise>
     <exercise><statement>
     <p>On considère les nombres réels strictement positifs munis des opérations suivantes:
-<me>
+<md>
 x\oplus y=xy, r\otimes x=x^r.
-</me>
+</md>
 Est-ce que ceci forme un espace vectoriel?</p></statement>
     <answer><p>Oui.</p></answer>
     <solution><p>On note <m>V</m>, l'ensemble des nombres réels strictement positifs. Muni de ces opérations, c'est en effet un espace vectoriel. On montre chacune des propriétés. Soit <m>x,y,z>0</m> et <m>r,s\in \mathbb{R}</m>. Puisque le produit de deux nombres strictement positifs est encore positif, il s'ensuit que <m>x\oplus y</m> est dans <m>V</m>. La propriété <xref ref="li-espacevectoriel1"/> est satisfaite. De la même manière, puisque la multiplication usuelle de nombres réels est commutative, on a <m>x\oplus y=xy=yx=y\oplus x</m> et la propriété <xref ref="li-espacevectoriel2"/> est satisfaite. La propriété <xref ref="li-espacevectoriel3"/> découle aussi des propriétés de la multiplication usuelle, notamment l'associativité. Ainsi, <m>x\oplus (y\oplus z)=x(yz)=(xy)z=(x\oplus y)\oplus z</m>.</p>
@@ -148,9 +148,9 @@ Est-ce que ceci forme un espace vectoriel?</p></statement>
     <mrow>&amp;=x^rx^s</mrow>
      <mrow>&amp;=x^r\oplus x^s</mrow>
     <mrow>&amp;=(r\otimes x)\oplus (s\otimes x)</mrow>
-    </md>. Finalement, la propriété <xref ref="li-espacevectoriel10"/> s'obtient grâce au fait que <me>
+    </md>. Finalement, la propriété <xref ref="li-espacevectoriel10"/> s'obtient grâce au fait que <md>
     1\otimes x=x^1=x
-    </me>.</p>
+    </md>.</p>
     <p>Toutes les propriétés étant respectées, l'ensemble est un espace vectoriel.</p>
     </solution>
     
@@ -159,9 +159,9 @@ Est-ce que ceci forme un espace vectoriel?</p></statement>
 <task><statement><p><m>U=\left\{\begin{pmatrix}1&amp;-1\\0&amp;1\end{pmatrix},\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix},\begin{pmatrix}1&amp;1\\1&amp;1\end{pmatrix}\right\}</m> vu comme un ensemble de <m>\mathcal{M}_{2\times 2}</m>.</p></statement>
 <answer><p>Oui</p></answer>
 <solution><p>On regarde deux manières de faire le problème. Dans un premier temps, la définition demande de trouver des coefficients <m>c_1,c_2,c_3</m> tels que
-<me>
+<md>
 c_1\begin{pmatrix}1&amp;-1\\0&amp;1\end{pmatrix}+c_2\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}+c_3\begin{pmatrix}1&amp;1\\1&amp;1\end{pmatrix}=\begin{pmatrix}0&amp;0\\0&amp;0\end{pmatrix}
-</me>.
+</md>.
 Si la seule solution à ce système est celle où <m>c_1=c_2=c_3=0</m>, alors l'ensemble est linéairement indépendant. On obtient alors un système à quatre équations et trois inconnues, en regardant composante par composante les entrées des matrices:
 <md>
 <mrow>c_1+c_3&amp;=0</mrow>
@@ -172,9 +172,9 @@ Si la seule solution à ce système est celle où <m>c_1=c_2=c_3=0</m>, alors l'
 On voit rapidement qu'on doit avoir <m>c_1=c_2=-c_3</m> et, avec la deuxième équation, on trouve <m>c_3-c_3+c_3=0</m>, tous les coefficients doivent donc être nuls.
 </p>
 <p>Dans un second temps, on a établi, à l'exemple <xref ref="ex-espacesetdimension"/>, que la dimension de l'espace <m>\mathcal{M}_{2\times 2}</m> était <m>4</m> en trouvant une base qui générait cet espace. On peut donc écrire chacune des matrices de l'ensemble <m>U</m> en fonction de la base ordonnée
-<me>
+<md>
 \left \langle \begin{pmatrix} 1&amp;0\\0&amp;0 \end{pmatrix},\begin{pmatrix} 0&amp;1\\0&amp;0 \end{pmatrix},\begin{pmatrix} 0&amp;0\\1&amp;0 \end{pmatrix},\begin{pmatrix} 0&amp;0\\0&amp;1 \end{pmatrix}\right \rangle
-</me>. Ainsi, on a
+</md>. Ainsi, on a
 <md>
 <mrow>\begin{pmatrix}1&amp;-1\\0&amp;1\end{pmatrix}&amp;=(1,-1,0,1)_{\mathcal{B}}</mrow>
 <mrow>\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}&amp;=(0,1,1,0)_{\mathcal{B}}</mrow>
@@ -214,24 +214,24 @@ A.row_space().dimension()
 <task><statement><p>L'ensemble des matrices <m>2\times 2</m> qui contiennent le vecteur <m>(1,-1)</m> dans leur espace nul.</p></statement>
 <answer><p>Oui.</p></answer>
 <solution><p>Cela découle du fait que si <m>A\vec{x}=\vec{0}</m> et <m>B\vec{x}=\vec{0}</m>, alors 
-<me>
+<md>
 (A+B)\vec{x}=A\vec{x}+B\vec{x}=\vec{0}+\vec{0}
-</me>
+</md>
 et <m>rA\vec{x}=r\vec{0}=\vec{0}</m>. C'est donc un sous-espace vectoriel.</p>
 <p>On cherche maintenant une base de ce sous-espace. Dans <m>\mathbb{R}^2</m> si l'espace nul contient le vecteur <m>(1,-1)</m>, alors l'espace nul est de dimension <m>1</m> ou <m>2</m>. Cela signifie que l'espace ligne de la matrice est de dimension <m>1</m> ou <m>0</m>. De plus, l'espace ligne doit être perpendiculaire à l'espace nul. Ainsi, si l'espace nul est simplement <m>\vspan((1,-1))</m>, alors l'espace ligne est engendré par <m>(1,1)</m>. Les matrices possédant cet espace ligne sont toutes de la forme
-<me>
+<md>
 \begin{pmatrix}
 a&amp;a\\
 a&amp;a
 \end{pmatrix}
-</me>
+</md>
 pour <m>a\neq 0</m>. Si toutefois l'espace nul est <m>\mathbb{R}^2</m> au complet, alors l'espace nul ne contient que le vecteur nul. Il n'y a que la matrice nulle qui est ainsi. On peut donc dire que toutes les matrices ayant le vecteur <m>(1,-1)</m> dans leur espace nul s'écrivent comme 
-<me>
+<md>
 \begin{pmatrix}
 a&amp;a\\
 a&amp;a
 \end{pmatrix}
-</me>,
+</md>,
 sans restriction sur <m>a</m>. Le sous-espace est de dimension <m>1</m> et la matrice <m>\begin{pmatrix}
 1&amp;1\\
 1&amp;1
@@ -252,12 +252,12 @@ sans restriction sur <m>a</m>. Le sous-espace est de dimension <m>1</m> et la ma
 </md>
 et <m>(rA)^T=rA^T=rA</m>.</p>
 <p>Pour trouver une base, on remarque que les matrices symétriques de taille <m>2\times 2</m> sont de la forme
-<me>
+<md>
 S=\begin{pmatrix}
 a&amp;b\\
 b&amp;c
 \end{pmatrix}
-</me>. On peut donc l'engendrer par les matrices indépendantes
+</md>. On peut donc l'engendrer par les matrices indépendantes
 <md>
 <mrow>\begin{pmatrix}1&amp;0\\ 0&amp;0\end{pmatrix}</mrow>
 <mrow>\begin{pmatrix}0&amp;1\\ 1&amp;0\end{pmatrix}</mrow>
@@ -289,9 +289,9 @@ b&amp;c
     <answer><p>La dimension est deux. Une base possible est <m>\langle x-1,x^2-1\rangle</m>.</p></answer>
     <solution>
     <p>Soit <m>p(x)=a+bx+cx^2</m>, un polynôme de degré <m>2</m> avec <m>p(1)=0</m>. On a alors
-    <me>
+    <md>
     a=-b-c
-    </me>, ce qui entraine que <md>
+    </md>, ce qui entraine que <md>
     <mrow>p(x)&amp;=-b-c+bx+cx^2</mrow>
     <mrow>&amp;=b(x-1)+c(x^2-1)</mrow>
     </md>.
@@ -313,9 +313,9 @@ b&amp;c
     </solution>
     </exercise>
     <exercise><statement><p>Dans la preuve de la propriété <xref ref="li-propespaces3"/>, on a fait l'hypothèse que soit <m>r=0</m>, soit <m>r\neq 0</m> et l'on a démontré l'implication sous cette dichotomie supplémentaire. Faire une preuve alternative où l'hypothèse supplémentaire est plutôt <m>\vec{u}=\vec{0}</m> ou <m>\vec{u}\neq \vec{0}</m>.</p></statement>
-    <hint><p>Débuter avec <me>
+    <hint><p>Débuter avec <md>
     r\vec{v}=r\otimes\vec{v}\oplus \vec{0}
-    </me>
+    </md>
     et conclure qu'on doit avoir <m>\vec{v}=\vec{v}+\vec{u}</m> ou <m>r=0</m>.
     </p></hint>
     <solution>
@@ -330,9 +330,9 @@ Ceci implique que <m>\vec{v}=\vec{v}+\vec{u}</m> ou <m>r=0</m>. Puisque, par hyp
     </solution>
     </exercise>
     <exercise><statement><p>Soit <m>A\in\mathcal{M}_{n\times n}</m>, une matrice carrée quelconque. On considère l'ensemble des matrices qui commutent avec <m>A</m>:
-    <me>
+    <md>
     V=\{B\in\mathcal{M}{n\times n}~| ~ AB=BA\}
-    </me>.
+    </md>.
     Montrer que <m>V</m> est un sous-espace vectoriel de <m>\mathcal{M}_{n\times n}</m> muni des opérations usuelles.
     </p></statement>
     <solution>
@@ -406,13 +406,13 @@ Ceci implique que <m>\vec{v}=\vec{v}+\vec{u}</m> ou <m>r=0</m>. Puisque, par hyp
     <exercise xml:id="exo-proprelativite">
     <introduction>
     <p>À l'exemple <xref ref="ex-relativite"/>, on a montré que l'ensemble des nombres réels muni des opérations spéciales
-<me>
+<md>
 x\oplus y=\frac{x+y}{1+xy}
-</me>
+</md>
 et 
-<me>
+<md>
 r\otimes x=\frac{(1+x)^r-(1-x)^r}{(1+x)^r+(1-x)^r}
-</me>
+</md>
     était un espace vectoriel, mais certaines propriétés n'ont pas été démontrées dans l'exemple.</p>
     </introduction>
     <task>
@@ -440,7 +440,7 @@ r\otimes x=\frac{(1+x)^r-(1-x)^r}{(1+x)^r+(1-x)^r}
     </statement>
     <solution>
     <p>
-    Si l'on prend <m>\overrightarrow{-x}=-x</m>, on a <me>x\oplus (-x)=\frac{x+(-x)}{1+x(-x)}=0</me>.
+    Si l'on prend <m>\overrightarrow{-x}=-x</m>, on a <md>x\oplus (-x)=\frac{x+(-x)}{1+x(-x)}=0</md>.
     </p>
     </solution>
     </task>
@@ -475,8 +475,8 @@ Ceci signifie que <m>r\otimes x\in V</m>.
     </statement>
     <solution>
     <p>On voit  que
-<me>
-(r+s)\otimes x=\frac{(1+x)^r(1+x)^s-(1-x)^r(1-x)^s}{(1+x)^r(1-x)^s+(1-x)^r(1-x)^s}</me>.</p>
+<md>
+(r+s)\otimes x=\frac{(1+x)^r(1+x)^s-(1-x)^r(1-x)^s}{(1+x)^r(1-x)^s+(1-x)^r(1-x)^s}</md>.</p>
 <p>
 On pose <m>A=(1+x)^r+(1-x)^r, B=(1+x)^s+(1-x)^s,C=(1+x)^r-(1-x)^r</m> et <m>D=(1+x)^s-(1-x)^s</m>. Pour l'autre côté, on a
 <md>
@@ -502,16 +502,16 @@ Puisque
  \right) ^{s} \left( 1-x \right) ^{r})</mrow>
 </md>.
 D'une manière similaire, on trouve
-<me>
+<md>
 AB+CD=2(\left( 1+x \right) ^{s} \left( 1+x \right) ^{r}+ \left( 1-x
  \right) ^{s} \left( 1-x \right) ^{r})
-</me>
+</md>
 et donc
-<me>
+<md>
 rx\oplus sy=\frac{\left( 1+x \right) ^{s} \left( 1+x \right) ^{r}-\, \left( 1-x
  \right) ^{s} \left( 1-x \right) ^{r}}{\left( 1+x \right) ^{s} \left( 1+x \right) ^{r}+ \left( 1-x
  \right) ^{s} \left( 1-x \right) ^{r}}
-</me>.
+</md>.
 La propriété est donc respectée.
 </p>
     </solution>
@@ -570,16 +570,16 @@ plot((1-2*x)/(2-x),x,-1/2,1/2,axes_labels=['$y$', '$\\frac{1-2y}{2-y}$'])
     </li></dl></p>
     </introduction>
     <exercise><statement><p>Soit <m>\mathcal{P}_2</m>, l'espace des polynômes de degré inférieur ou égal à <m>2</m> et <m>x_0,x_1,x_2\in \mathbb{R}</m>, des points distincts. Soit <m>p(x),q(x)</m>, des polynômes. On définit un produit scalaire sur <m>\mathcal{P}(x)</m> de la manière suivante:
-    <me>
+    <md>
     \langle p(x)~|~q(x)\rangle=p(t_0)q(t_0)+p(t_1)q(t_1)+p(t_2)q(t_2)
-    </me>. Montrer que ceci définit bel et bien un produit scalaire.</p></statement>
+    </md>. Montrer que ceci définit bel et bien un produit scalaire.</p></statement>
     <solution><p>On prend trois polynômes quelconques <m>p,q,r</m> et un scalaire <m>c\in\mathbb{R}</m>. Il faut vérifier chacune des quatre propriétés. Pour la première, cela découle directement de la commutativité de la multiplication.
-    <me>
+    <md>
     \langle p(x)~|~q(x)\rangle=p(t_0)q(t_0)+p(t_1)q(t_1)+p(t_2)q(t_2)=q(t_0)p(t_0)+q(t_1)p(t_1)+q(t_2)p(t_2)=\langle q(x)~|~p(x)\rangle
-    </me>. De manière similaire, la deuxième propriété découle des propriétés de l'addition et de la multiplication:
-    <me>
+    </md>. De manière similaire, la deuxième propriété découle des propriétés de l'addition et de la multiplication:
+    <md>
     \langle rp(x)~|~q(x)\rangle=rp(t_0)q(t_0)+rp(t_1)q(t_1)+rp(t_2)q(t_2)=r(p(t_0)q(t_0)+p(t_1)q(t_1)+p(t_2)q(t_2))=r\langle rp(x)~|~q(x)\rangle
-    </me>
+    </md>
     alors que la propriété trois est similaire elle aussi
     <md>
     <mrow>\langle p(x)+q(x)~|~r(x)\rangle&amp;=(p(t_0)+q(t_0))r(t_0)+(p(t_1)+q(t_1))r(t_1)+(p(t_2)+q(t_2))r(t_2)</mrow>
@@ -588,17 +588,17 @@ plot((1-2*x)/(2-x),x,-1/2,1/2,axes_labels=['$y$', '$\\frac{1-2y}{2-y}$'])
     </md>.
     </p>
     <p>La dernière propriété est celle qui demande un peu plus de réflexion. La première partie est relativement simple, si
-    <me>
+    <md>
     \langle p(x)~|~p(x)\rangle=p(t_0)p(t_0)+p(t_1)p(t_1)+p(t_2)p(t_2)=p(t_0)^2+p(t_1)^2+p(t_2)^2\geq 0
-    </me>.
+    </md>.
     Si <m>p(t_0)^2+p(t_1)^2+p(t_2)^2= 0</m>, alors <m>p(t_0)=p(t_1)=p(t_2)=0</m>. Comme <m>p(x)</m> est un polynôme de degré <m>2</m> ou moins, il ne peut avoir plus de deux zéros. Les points <m>t_0,t_1</m> et <m>t_2</m> étant distincts, il s'ensuit que le seul polynôme pour lequel <m>\langle p(x)~|~p(x)\rangle=0</m> est possible est <m>p(x)=0</m>.
     </p>
     </solution>
     </exercise>
     <exercise><statement><p>Soit <m>\mathcal{C}^0([a,b])</m>, l'ensemble des fonctions continues sur <m>[a,b]</m>. Soit <m>f(x),g(x)\in\mathcal{C}^0([a,b])</m>. On considère le produit scalaire définit par 
-    <me>
+    <md>
     \langle f(x)~|~g(x)\rangle=\int_a^b f(x)g(x)dx
-    </me>.  Montrer que ceci définit bel et bien un produit scalaire.</p></statement>
+    </md>.  Montrer que ceci définit bel et bien un produit scalaire.</p></statement>
     <solution><p>Les trois premières propriétés découlent aussi des propriétés de l'addition, de la multiplication et également des propriétés de l'intégrale:
     <md>
     <mrow>\langle f(x)~|~g(x)\rangle&amp;=\int_a^b f(x)g(x)dx&amp;&amp;=\int_a^b g(x)f(x)dx&amp;&amp;=\langle g(x)~|~f(x)\rangle</mrow>
@@ -610,9 +610,9 @@ plot((1-2*x)/(2-x),x,-1/2,1/2,axes_labels=['$y$', '$\\frac{1-2y}{2-y}$'])
     </solution>
     </exercise>
     <exercise xml:id="exo-trace"><title>La trace d'une matrice</title><introduction><p>On définit la trace d'une matrice carrée, notée <m>\text{tr}(A)</m> comme la somme des éléments sur sa diagonale principale:
-    <me>
+    <md>
     \text{tr}(A)=a_{1\,1}+a_{2\, 2}+\cdots +a_{n\, n}
-    </me>.</p></introduction>
+    </md>.</p></introduction>
     <task xml:id="exo-tracesomme"><statement><p>Montrer que <m>\text{tr}(A+B)=\text{tr}(A)+\text{tr}(B)</m>.</p></statement>
     <solution><p>Puisque l'addition de matrice se fait entrée par entrée, il s'ensuit que la diagonale de <m>A+B</m> est formée des valeurs <m>a_{i\,i}+b_{i\,i}</m>. La trace est donc
     <md>
@@ -622,27 +622,27 @@ plot((1-2*x)/(2-x),x,-1/2,1/2,axes_labels=['$y$', '$\\frac{1-2y}{2-y}$'])
     </md>.</p></solution></task>
     <task xml:id="exo-traceconstante"><statement><p>Montrer que <m>\text{tr}(cA)=c \text{tr}(A)</m>.</p></statement>
     <solution><p>De même, la multiplication par un scalaire se fait aussi en multipliant chaque entrée par le scalaire. Il s'ensuit que la diagonale est composée des valeurs <m>ca_{i\,i}</m>. On a donc
-    <me>
+    <md>
     \text{tr}(cA)=ca_{1\,1}+ca_{2\,2}+\cdots +ca_{n\,n}=c(a_{1\,1}+a_{2\, 2}+\cdots +a_{n\, n})=c \text{tr}(A)
-    </me></p></solution>
+    </md></p></solution>
     </task>
     <task xml:id="exo-tracetransposee"><statement><p>Montrer que <m>\text{tr}(A^T)=\text{tr}(A)</m>.</p></statement>
     <solution><p>Comme les entrées sur la diagonale principale ne changent pas lors du passage à la transposée, la trace est la même.</p></solution></task>
     <task><statement><p>Montrer que <m>\text{tr}(AB)=\text{tr}(BA)</m>.</p></statement>
     <hint><p>
     Montrer qu'un élément sur la diagonale de <m>AB</m> est de la forme
-    <me>
+    <md>
     c_{i}=a_{i\,1}b_{1,i}+a_{i\,2}b_{2,i}+\cdots +a_{i\,n}b_{n,i}
-    </me>
+    </md>
     et qu'un élément sur la diagonale de <m>BA</m> est de la forme
-    <me>
+    <md>
     d_{i}=a_{1,i}b_{i\,1}+a_{2,i}b_{i\,2}+\cdots +a_{n,i}b_{i\,n}
-    </me>.
+    </md>.
     </p></hint>
     <solution><p>Les entrées sur la diagonale de la matrice <m>C=AB</m> s'obtiennent en effectuant le produit scalaire de la ligne <m>i</m> de <m>A</m> avec la colonne <m>i</m> de <m>B</m>. Donc, pour l'entrée en position <m>i</m> du produit, on a
-    <me>
+    <md>
     c_{i}=a_{i\,1}b_{1\,i}+a_{i\,2}b_{2\,i}+\cdots +a_{i\,n}b_{n\,i}
-    </me>.
+    </md>.
    La trace est donnée par la somme des <m>c_i</m>. En écrivant chaque entrée sur une ligne, la trace est donnée par la somme de tous les produits <m>a_{i,j}b_{j,i}</m> ci-dessous:
    <md alignment="alignat">
    <mrow>c_{1}&amp;=a_{1\,1}b_{1,1}&amp;&amp;+a_{1\,2}b_{2,1}&amp;&amp;+\cdots &amp;&amp;+a_{1\,n}b_{n,1}</mrow>
@@ -652,17 +652,17 @@ plot((1-2*x)/(2-x),x,-1/2,1/2,axes_labels=['$y$', '$\\frac{1-2y}{2-y}$'])
    </md>.
    </p>
     <p>Pour la matrice <m>D=BA</m>, on a plutôt
-    <me>
+    <md>
     d_{i}=b_{i\,1}a_{1\,i}+b_{i\,2}a_{2\,i}+\cdots +b_{i\,n}a_{n\,i}=a_{1\,i}b_{i\,1}+a_{2\,i}b_{i\,2}+\cdots +a_{n\,i}b_{i\,n}
-    </me>.
+    </md>.
     La trace est la somme de ces valeurs. Dans la liste de tous les <m>c_i</m>, cela correspond à faire la somme sur les colonnes en premier plutôt que sur les lignes. Par exemple <m>d_1</m> se retrouve dans le tableau des <m>c_i</m> dans la première colonne. Comme l'addition est commutative, faire la somme sur de toutes les lignes ou faire la somme de toutes les colonnes revient à la même chose. On a alors <m>\text{tr}(AB)=\text{tr}(BA)</m>.
     </p>
     </solution>
     </task>
     <task><introduction><p>On définit sur l'espace des matrices <m>\mathcal{M}_{n\times n}</m> le produit scalaire suivant:
-    <me>
+    <md>
     \langle A~ |~ B\rangle=\text{tr}(A^TB)
-    </me></p></introduction>
+    </md></p></introduction>
     <task><statement><p>Montrer que le produit scalaire en est bel et bien un en vérifiant les quatre propriétés.</p></statement>
     <solution>
     <p>Dans un premier temps, on veut montrer que <m>\langle A~ |~ B\rangle=\langle B~ |~ A\rangle</m>, c'est-à-dire que <m>\text{tr}(A^TB)=\text{tr}(B^TA).</m> Puisque <m>(A^TB)^T=B^TA</m>, il s'ensuit de l'exercice <xref ref="exo-tracetransposee"/> que ce produit scalaire est commutatif. </p>
@@ -685,16 +685,16 @@ plot((1-2*x)/(2-x),x,-1/2,1/2,axes_labels=['$y$', '$\\frac{1-2y}{2-y}$'])
     <mrow>&amp;=\langle A~ |~ C\rangle+\langle B~ |~ C\rangle</mrow>
     </md>.</p>
     <p>Finalement, pour montrer que <m>\langle A~ |~ A\rangle\geq 0</m>, on remarque que l'entrée sur la diagonale en position <m>i</m> de <m>A^TA</m> correspond à
-    <me>
+    <md>
     c_{i}=a_{i\,1}a_{i\,1}+a_{i\,2}a_{i\,2}+\cdots +a_{i\,n}a_{i,n}=a_{i\,1}^2+a_{i\,2}^2+\cdots +a_{i\,n}^2
-    </me>,
+    </md>,
     puisque les colonnes de <m>A</m> sont les lignes de <m>A^T</m>. Il s'ensuit donc que, pour que la somme soit nulle, tous les <m>a_{i\,j}</m> doivent aussi être nuls et donc, <m>A=O</m>.</p>
     </solution>
     </task>
     <task><statement><p>Montrer que, si <m>A</m> est une matrice symétrique et si <m>B</m> est une matrice antisymétrique (<m>B^T=-B)</m>, alors 
-    <me>
+    <md>
     \langle A~ |~ B\rangle=0
-    </me>.
+    </md>.
     </p></statement>
     <solution><p>Selon les propriétés de la trace et de la transposée, on a
     <md>

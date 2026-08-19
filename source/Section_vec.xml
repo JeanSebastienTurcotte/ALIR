@@ -213,11 +213,11 @@
     <p>Si 
     <m>\vec{u}=(u_1,u_2)</m> est un vecteur de 
     <m>\R^2</m>, alors sa norme est donnée par
-    <men xml:id="eq-norm2">\norm{\vec{u}}=\sqrt{u_1^2+u_2^2}</men>. 
+    <md number="yes"  xml:id="eq-norm2">\norm{\vec{u}}=\sqrt{u_1^2+u_2^2}</md>. 
     C'est une conséquence immédiate du théorème de Pythagore, comme l'illustre la figure 
     <xref ref="fig-unvec"/>. Pour les vecteurs de 
     <m>\R^3</m>, on peut montrer qu'une formule similaire s'applique (voir exercice <xref ref="exo-norm3"/>), c'est-à-dire que 
-    <men xml:id="eq-norm3">\norm{\vec{u}}=\sqrt{u_1^2+u_2^2+u_3^2}</men>.</p>
+    <md number="yes"  xml:id="eq-norm3">\norm{\vec{u}}=\sqrt{u_1^2+u_2^2+u_3^2}</md>.</p>
     <p>Algébriquement, deux vecteurs sont égaux s'ils ont les mêmes
     composantes.</p>
     <p>Il est plus difficile de caractériser l'orientation d'un vecteur
@@ -228,9 +228,9 @@
     <xref ref="fig-unvec" />. C'est un exercice simple de trigonométrie de
     calculer l'angle d'un vecteur dans 
     <m>\R^2</m>, mais il y a toutefois des exceptions à considérer. En général, l'équation
-    <me>
+    <md>
     \tan(\theta)=\frac{y}{x}
-    </me>
+    </md>
     donne une relation entre l'angle et les composantes du vecteur, pourvu que <m>x\neq 0</m>. La fonction <m>\arctan</m> permet d'obtenir l'angle, mais il 
     faudra parfois ajuster selon le quadrant avec un terme <m>+\pi</m>. Si on connait la norme du vecteur, on peut aussi utiliser les fonctions <m>\sin</m> et <m>\cos</m>. </p>
     <p>Pour les vecteurs dans 
@@ -326,25 +326,25 @@
                     </interactive>
                 </figure>  
     <p>Dans un premier temps, on calcule la longueur du vecteur <m>\vec{v}</m>. Selon l'équation <xref ref="eq-norm3"/>, on a
-    <me>
+    <md>
     \norm{v}=\sqrt{\sqrt{3}^2+\sqrt{2}^2+1^2}=\sqrt{6}
-    </me>.</p>
+    </md>.</p>
     <p>Pour trouver l'angle que fait le vecteur avec l'axe des <m>x</m>, on regarde le triangle rouge de la figure <xref ref="fig-cosdir"/>. Le triangle rectangle permet d'utiliser les rapports trigonométriques pour obtenir que
-    <me>
+    <md>
     \cos(\alpha)=\frac{\sqrt{3}}{\sqrt{6}}=\sqrt{\frac{1}{2}}
-    </me>.
+    </md>.
     Ainsi, l'angle avec l'axe des <m>x</m> est de <m>45^\circ</m>.
     </p>
     <p>Pour trouver l'angle que fait le vecteur avec l'axe des <m>y</m>, on regarde le triangle vert de la figure <xref ref="fig-cosdir"/>. Le triangle rectangle permet d'utiliser les rapports trigonométriques pour obtenir que
-    <me>
+    <md>
     \cos(\beta)=\frac{\sqrt{2}}{\sqrt{6}}=\sqrt{\frac{1}{3}}
-    </me>. 
+    </md>. 
     En prenant la fonction <m>\arccos</m> pour isoler l'angle beta, on trouve approximativement <m>54.74^\circ</m>.
     </p>
     <p>Finalement, pour trouver l'angle que fait le vecteur avec l'axe des <m>y</m>, on regarde le triangle bleu de la figure <xref ref="fig-cosdir"/>. Le triangle rectangle permet d'utiliser les rapports trigonométriques pour obtenir que
-    <me>
+    <md>
     \cos(\phi)=\frac{1}{\sqrt{6}}
-    </me>. 
+    </md>. 
     En prenant la fonction <m>\arccos</m> pour isoler l'angle beta, on trouve approximativement <m>65.91^\circ</m>.</p>
       </solution>
       </example>
@@ -521,7 +521,7 @@
   <m>c\vecl{v}</m> est 
   <m>\abs{c}\norm{\vec{v}}</m>. En fixant 
   <m>c=\frac{1}{\norm{\vec{v}}}</m>, on obtient un vecteur unitaire
-  <me>\hat{v}=\frac{1}{\norm{\vec{v}}}\vec{v}</me>. </p>
+  <md>\hat{v}=\frac{1}{\norm{\vec{v}}}\vec{v}</md>. </p>
   <p>Unitariser des vecteurs est un concept important en algèbre
   linéaire. Cela simplifie souvent les problèmes où la longueur d'un vecteur
   n'est pas importante, mais où seule compte son orientation.</p>
@@ -568,14 +568,14 @@
   </statement>
   <solution><p>La difficulté de ce problème est qu'on ne connait pas la longueur du vecteur <m>\vec{u}</m>. On ne peut pas simplement prendre <m>3\vec{u}</m>, puisque la longueur de ce vecteur dépend de celle de <m>\vec{u}</m>. L'idée est de trouver un vecteur d'une longueur connue qui est parallèle à <m>\vec{u}</m> et ensuite le multiplier par les bons scalaires pour créer les vecteurs souhaités.</p>
   <p>On commence par unitariser le vecteur <m>\vec{u}</m>. On sait alors que le vecteur <m>\hat{u}</m> est d'une longueur <m>1</m> et a la même orientation que <m>\vec{u}</m>, en multipliant ce vecteur par <m>3</m>, on obtient un vecteur de longueur <m>3</m>, soit 
-  <me>
+  <md>
   \vec{v}=3\hat{u}=3\frac{\vec{u}}{\norm{\vec{u}}}
-  </me>.
+  </md>.
   </p>
   <p>Pour obtenir un deuxième vecteur, on cherche à avoir le vecteur parallèle, mais dans le sens opposé au vecteur <m>\vec{u}</m>. En multipliant le vecteur <m>\hat{u}</m> par <m>-3</m> plutôt que <m>3</m>, on obtient 
-  <me>
+  <md>
   \vec{w}=-3\hat{u}=-3\frac{\vec{u}}{\norm{\vec{u}}}
-  </me>.</p>
+  </md>.</p>
   </solution>
   </example>
   <p>Le vecteur unitaire obtenu à l'exemple 
@@ -587,7 +587,7 @@
   l'angle 
   <m>\theta</m> que fait le vecteur avec l'horizontale, on obtient l'équation
   suivante, appelée forme polaire d'un vecteur :
-  <men xml:id="eq-vecpol">\vec{u}=\norm{\vec{u}}(\cos(\theta),\sin(\theta))</men>.</p> 
+  <md number="yes"  xml:id="eq-vecpol">\vec{u}=\norm{\vec{u}}(\cos(\theta),\sin(\theta))</md>.</p> 
   <p>Avant de passer à l'addition de vecteurs, on termine sur une remarque
   concernant la multiplication par un scalaire.</p>
   <remark xml:id="rem-multscal">
@@ -670,13 +670,13 @@
           </image>   
               </figure>
       <p> L'addition de deux vecteurs algébriques est donc
-      <me>
+      <md>
       \vec{u}+\vec{v}=(u_1,u_2)+(v_1,v_2)=(u_1+v_1,u_2+v_2)
-      </me>.
+      </md>.
       La notation verticale est particulièrement utile pour illustrer l'addition de vecteurs algébriques:
-          <me>
+          <md>
       \vec{u}+\vec{v}=\begin{pmatrix} u_1\\ u_2 \end{pmatrix}+\begin{pmatrix} v_1\\ v_2 \end{pmatrix}=\begin{pmatrix} u_1+v_1\\ u_2+v_2 \end{pmatrix}
-      </me>.
+      </md>.
       </p>
       <p>La commutativité de l'addition vectorielle, de même que plusieurs autres propriétés (voir l'exercice <xref ref="exo-propvec2"/>), se déduisent immédiatement des propriétés équivalentes pour l'addition de nombres réels. L'image interactive de l'exemple <xref ref="ex-geoaddvecasso"/> permet de visualiser géométriquement l'associativité de l'addition vectorielle. </p>
       
@@ -734,7 +734,7 @@
     </figure>
   </example>
       <p>On remarque que le vecteur correspondant à <m>\vec{u}-\vec{v}</m> est le vecteur tel que <m>\vec{v}+(\vec{u}-\vec{v})=\vec{u}</m>. Le parallélogramme illustre bien cette interprétation.</p>
-      <p>Lorsque deux points <m>P(p_1,p_2)</m> et <m>Q(q_1,q_2)</m> sont donnés, on peut définir algébriquement le vecteur <m>\overrightarrow{PQ}</m> comme étant <men xml:id="eq-vecPQ">\overrightarrow{PQ}=\overrightarrow{OQ}-\overrightarrow{OP}=(q_1-p_1,q_2-p_2)</men>. En particulier, si <m>A(a_1,a_2),B(b_1,b_2),C(c_1,c_2)</m> et <m>D(d_1,d_2)</m> sont quatre points de <m>\R^2</m>, les vecteurs <m>\vecl{AB}</m> et <m>\vecl{CD}</m> sont égaux si <m>(b_1-a_1,b_2-a_2)=(d_1-c_1,d_2-c_2)</m>.</p>
+      <p>Lorsque deux points <m>P(p_1,p_2)</m> et <m>Q(q_1,q_2)</m> sont donnés, on peut définir algébriquement le vecteur <m>\overrightarrow{PQ}</m> comme étant <md number="yes"  xml:id="eq-vecPQ">\overrightarrow{PQ}=\overrightarrow{OQ}-\overrightarrow{OP}=(q_1-p_1,q_2-p_2)</md>. En particulier, si <m>A(a_1,a_2),B(b_1,b_2),C(c_1,c_2)</m> et <m>D(d_1,d_2)</m> sont quatre points de <m>\R^2</m>, les vecteurs <m>\vecl{AB}</m> et <m>\vecl{CD}</m> sont égaux si <m>(b_1-a_1,b_2-a_2)=(d_1-c_1,d_2-c_2)</m>.</p>
       <p>Regardons maintenant un exemple algébrique d'addition et de soustraction de vecteurs.</p>
       <example xml:id="ex-addsousvec">
           <title>Additions et soustractions de vecteurs</title>
@@ -758,7 +758,7 @@
           </p></solution>
       </example>
       
-      <p>Il est possible de considérer les vecteurs comme étant une opération de translation agissant sur les points. Par exemple, le vecteur <m>\vec{u}=\vecl{PQ}</m> peut être interprété comme la translation du point <m>P</m> jusqu'au point <m>Q</m> le long d'une droite. On écrira alors parfois <me>Q=P+\vec{u}</me>, qui est en fait une forme abrégée, mais somme toute équivalente, de l'équation purement vectorielle <m>\vecl{OQ}=\vecl{OP}+\vecl{PQ}</m>. Cette dernière est simplement une réécriture de l'équation <xref ref="eq-vecPQ"/>. </p>
+      <p>Il est possible de considérer les vecteurs comme étant une opération de translation agissant sur les points. Par exemple, le vecteur <m>\vec{u}=\vecl{PQ}</m> peut être interprété comme la translation du point <m>P</m> jusqu'au point <m>Q</m> le long d'une droite. On écrira alors parfois <md>Q=P+\vec{u}</md>, qui est en fait une forme abrégée, mais somme toute équivalente, de l'équation purement vectorielle <m>\vecl{OQ}=\vecl{OP}+\vecl{PQ}</m>. Cette dernière est simplement une réécriture de l'équation <xref ref="eq-vecPQ"/>. </p>
       
     <p>En utilisant cette équivalence entre points et vecteurs, on en arrive à poser quatre postulats, qui forment les axiomes initiaux de la géométrie:</p>
       <list xml:id="li-axiomesgeo">
@@ -843,8 +843,8 @@
               Dans le reste du texte, on utilise la notation <m>d(\text{objet}_1,\text{objet}_2)</m> pour dénoter la distance entre <m>\text{objet}_1</m> et <m>\text{objet}_2</m>. Ces objets peuvent être des points, des droites, des plans, etc.
           </fn>
           Ainsi,</p>
-          <p><me>d(P,Q)
-          =\norm{\vecl{PQ}}</me>.</p>
+          <p><md>d(P,Q)
+          =\norm{\vecl{PQ}}</md>.</p>
           
           
           <p>En particulier, si <m>P(1,4)</m> et <m>Q(-2,2)</m>, la distance entre <m>P</m> et <m>Q</m> est 
@@ -891,9 +891,9 @@
                   </md>.
           </p>
           <p> En général, on peut toujours se rendre à un point <m>X</m> entre <m>P</m> et <m>Q</m>, situé à <m>x\in [0,1]</m> fois la longueur  de <m>\vecl{PQ}</m> à l'aide de la formule
-          <men xml:id="eq-propvec">
+          <md number="yes"  xml:id="eq-propvec">
           \vecl{OX} =\vecl{OP}+x\vecl{PQ}   
-          </men>.
+          </md>.
           </p>
           <p> L'interaction ci-dessous permet de visualiser.</p>
           <figure>
@@ -921,11 +921,11 @@ possédant une propriété commune. Un cercle, une ellipse, une parabole, etc. s
       <p>On peut aussi caractériser vectoriellement certains lieux géométriques.</p>
       <example xml:id="ex-veccercle">
       <title>Le cercle, vu vectoriellement</title>
-          <p>Il est possible de définir algébriquement un cercle de rayon <m>r</m> centré à l'origine par l'équation <me>x^2+y^2=r^2</me>. 
-          Plus généralement, un cercle centré au point <m>C(a,b)</m>, toujours de rayon <m>r</m> aura pour équation <me>(x-a)^2+(y-b)^2=r^2</me>.  
+          <p>Il est possible de définir algébriquement un cercle de rayon <m>r</m> centré à l'origine par l'équation <md>x^2+y^2=r^2</md>. 
+          Plus généralement, un cercle centré au point <m>C(a,b)</m>, toujours de rayon <m>r</m> aura pour équation <md>(x-a)^2+(y-b)^2=r^2</md>.  
           On peut également caractériser un tel cercle vectoriellement. Un cercle constitue l'ensemble des points qui sont à une distance <m>r</m> d'un centre <m>C</m>. 
           Vectoriellement, on peut traduire cette phrase par une équation avec la norme. 
-          Ainsi, un cercle centré en <m>C(a,b)</m> est formé de l'ensemble des points <m>P(x,y)</m> pour lesquels <me>\norm{\vecl{CP}}=r</me>.</p>
+          Ainsi, un cercle centré en <m>C(a,b)</m> est formé de l'ensemble des points <m>P(x,y)</m> pour lesquels <md>\norm{\vecl{CP}}=r</md>.</p>
       </example>
       <p>On termine avec l'utilisation de Sage pour résoudre des problèmes géométriques. </p>
       <computation xml:id="sageex-utvec">
@@ -1002,9 +1002,9 @@ polygon([A,B,C,D])+polygon([M,N,P,Q],color="red")
     <mrow>\vecl{ON}&amp;=\vecl{OB}+\frac{1}{2}\vecl{BC}=\frac{1}{2}(\vecl{OB}+\vecl{OC})</mrow>
     </md></p>
     <p>
-    <mdn >
+    <md>
    <mrow xml:id="eq-vecMN" tag="star"> \vecl{MN}=\vecl{ON}-\vecl{OM}=\frac{1}{2}\vecl{AC}</mrow>
-    </mdn></p>
+    </md></p>
     </sidebyside>
     <p>et </p> 
      <sidebyside widths="50% 50%" valigns="top middle">
@@ -1014,21 +1014,21 @@ polygon([A,B,C,D])+polygon([M,N,P,Q],color="red")
     <mrow>\vecl{OP}&amp;=\vecl{OD}+\frac{1}{2}\vecl{DC}=\frac{1}{2}(\vecl{OD}+\vecl{OC})</mrow>
     </md></p>
     <p>
-    <mdn >
+    <md >
     <mrow xml:id="eq-vecQP" tag="dstar">\vecl{QP}&amp;=\vecl{OP}-\vecl{OQ}=\frac{1}{2}\vecl{AC}</mrow>
-    </mdn>,</p>
+    </md>,</p>
     </sidebyside><p>
    les vecteurs <m>\vecl{MN}</m> et <m>\vecl{QP}</m> sont égaux, car les membres de droite des équations <xref ref="eq-vecMN"/> et <xref ref="eq-vecQP"/> sont égaux.</p>
    
    <p>
    De même, en se servant des équations ci-dessus, on a
-   <mdn >
+   <md>
    <mrow xml:id="eq-vecNP" tag="dagger">\vecl{NP}&amp;=\vecl{OP}-\vecl{ON}=\frac{1}{2}\vecl{BD}</mrow>
-   </mdn>
+   </md>
    et 
-    <mdn >
+    <md>
    <mrow xml:id="eq-vecMQ" tag="ddagger">\vecl{MQ}&amp;=\vecl{OQ}-\vecl{OM}=\frac{1}{2}\vecl{BD}</mrow>
-   </mdn>.
+   </md>.
    Puisque les membres de droite des équations <xref ref="eq-vecNP"/> et <xref ref="eq-vecMQ"/> sont égaux, les vecteurs <m>\vecl{NP}</m> et <m>\vecl{MQ}</m> sont égaux.
    </p>
       </computation>

@@ -42,25 +42,25 @@
             </hint>
             <solution>
                 <p>On multiplie la première équation par <m>c</m> et la seconde par <m>a</m>. On obtient
-    <mdn>
+    <md number="yes">
     <mrow xml:id="eq-exomatinverse2x2-1">acy+bcw&amp;=0 </mrow>
     <mrow xml:id="eq-exomatinverse2x2-2"> acy+adw&amp;=a</mrow>
-    </mdn>.
+    </md>.
     En soustrayant l'équation <xref ref="eq-exomatinverse2x2-1"/> de l'équation <xref ref="eq-exomatinverse2x2-2"/>, on obtient
-    <me>
+    <md>
     (ad-bc)w=a
-    </me>.
+    </md>.
     Toujours dans l'hypothèse que <m>ad-bc\neq 0</m>, on obtient <m>w=\frac{a}{ad-bc}</m>. 
     </p>
     <p>En multipliant maintenant la première équation du premier système par <m>d</m> et la seconde par <m>b</m>, on obtient
-    <mdn>
+    <md number="yes">
     <mrow xml:id="eq-exomatinverse2x2-3">ady+bdw&amp;=0 </mrow>
     <mrow xml:id="eq-exomatinverse2x2-4"> cby+bdw&amp;=b</mrow>
-    </mdn>.
+    </md>.
     En soustrayant  cette fois l'équation <xref ref="eq-exomatinverse2x2-3"/> de l'équation <xref ref="eq-exomatinverse2x2-4"/>, on obtient
-    <me>
+    <md>
     (ad-bc)y=-b
-    </me>.
+    </md>.
     On trouve <m>y=\frac{-b}{ad-bc}</m>.
                 </p>
             </solution>
@@ -123,10 +123,10 @@
             <p>Soit <m>A</m>, <m>B</m> et <m>C</m>, trois matrices carrées d'ordre <m>n</m>. Le produit <m>ABC</m> est inversible  si
             et seulement si les matrices <m>A,B,C</m> sont inversibles. De plus, on a <m>(ABC)^{-1}=C^{-1}B^{-1}A^{-1}</m>.</p>
             <p>On commence en supposant que les matrices <m>A,B,C</m> sont inversibles. Il est assez intuitif que
-            <me>
+            <md>
             (ABC)^{-1}=C^{-1}B^{-1}A^{-1}
-            </me>
-            On le vérifie algébriquement: <me>(C^{-1}B^{-1}A^{-1})(ABC)=C^{-1}B^{-1}A^{-1}ABC=C^{-1}B^{-1}IBC=C^{-1}B^{-1}BC=C^{-1}IC=C^{-1}C=I</me>. 
+            </md>
+            On le vérifie algébriquement: <md>(C^{-1}B^{-1}A^{-1})(ABC)=C^{-1}B^{-1}A^{-1}ABC=C^{-1}B^{-1}IBC=C^{-1}B^{-1}BC=C^{-1}IC=C^{-1}C=I</md>. 
             Il ne reste donc qu'à vérifier l'existence de l'inverse.
             </p>
             <p>Soit <m>\vec{v}\in \R^n</m> un vecteur de l'image de <m>ABC</m>. On cherche <m>\vec{u}</m> tel que <m>ABC\vec{u}=\vec{v}</m>. En vertu de la proposition 
@@ -274,7 +274,7 @@
                 <mrow>&amp;=AC</mrow>
                 </md>
                 Mais,
-                <me>B=\begin{pmatrix}1&amp;0\\ 0&amp;1\end{pmatrix}\neq\begin{pmatrix}0&amp;1\\ 1&amp;0\end{pmatrix}=C</me>.
+                <md>B=\begin{pmatrix}1&amp;0\\ 0&amp;1\end{pmatrix}\neq\begin{pmatrix}0&amp;1\\ 1&amp;0\end{pmatrix}=C</md>.
                 </p>
             </solution>
             </task>
@@ -292,27 +292,27 @@
                 La démarche serait très semblable pour les lignes en multipliant <m>PA</m> au lieu de <m>AP</m>. 
                 Pour les matrices <m>2\times 2</m>, cette matrice est toujours : <m>P=\begin{pmatrix}0&amp;1\\ 1&amp;0\end{pmatrix}</m>, puisque l'on n'a qu'une seule option.
                 En effet, pour <m>A=\begin{pmatrix}a&amp;c\\ b&amp;d\end{pmatrix}</m>, on voit que:
-                <me>AP=\begin{pmatrix}a&amp;c\\ b&amp;d\end{pmatrix}\begin{pmatrix}0&amp;1\\ 1&amp;0\end{pmatrix}=\begin{pmatrix}c&amp;a\\ d&amp;b\end{pmatrix}</me>.
+                <md>AP=\begin{pmatrix}a&amp;c\\ b&amp;d\end{pmatrix}\begin{pmatrix}0&amp;1\\ 1&amp;0\end{pmatrix}=\begin{pmatrix}c&amp;a\\ d&amp;b\end{pmatrix}</md>.
                 Cette matrice est toujours inversible et est même sa propre inverse, puisqu'en réfléchissant en termes de transformations linéaires, comment fait-on pour ramener les colonnes
                 permutées à leur emplacement initial? On les permute à nouveau et de la même manière. 
                 C'est toujours une matrice de symétrie que l'on construit.
                 Lorsqu'on trouve une telle matrice pour effectuer les permutations, on montre immédiatement que <m>B=AP</m> est inversible.
                 En effet, 
-                <me>B^{-1}=(AP)^{-1}=P^{-1}A^{-1}</me>.
+                <md>B^{-1}=(AP)^{-1}=P^{-1}A^{-1}</md>.
                 Bref, afin de généraliser cette situation, il ne nous reste qu'à fournir une matrice de permutation qui permet d'échanger la colonne <m>i</m> avec la colonne <m>j</m>. 
                 Cette matrice est simplement la matrice identité où l'on a interchangé les colonnes <m>i</m> et <m>j</m>.
-                Bref, <me>Pcol_{i\leftrightarrow j}=\begin{pmatrix}
+                Bref, <md>Pcol_{i\leftrightarrow j}=\begin{pmatrix}
                 \lvert &amp; \lvert &amp; \cdots &amp; \lvert &amp; \cdots &amp; \lvert &amp; \cdots &amp; \lvert \\
                 \vec{e}_1 &amp; \vec{e}_2 &amp;\cdots &amp; \vec{e}_j &amp;\cdots &amp; \vec{e}_i &amp; \cdots &amp; \vec{e}_n \\
                 \lvert &amp; \lvert &amp; \cdots &amp; \lvert &amp; \cdots &amp; \lvert &amp; \cdots &amp; \lvert \\
-                \end{pmatrix}</me>.
+                \end{pmatrix}</md>.
                 Par exemple, dans <m>\R^4</m>, la matrice de permutation des colonnes <m>2</m> et <m>4</m> est:
-                <me>Pcol_{2\leftrightarrow 4}=\begin{pmatrix}
+                <md>Pcol_{2\leftrightarrow 4}=\begin{pmatrix}
                 1 &amp; 0 &amp; 0 &amp; 0 \\
                 0 &amp; 0 &amp; 0 &amp; 1 \\
                 0 &amp; 0 &amp; 1 &amp; 0 \\
                 0 &amp; 1 &amp; 0 &amp; 0 \\
-                \end{pmatrix}</me>.
+                \end{pmatrix}</md>.
                 On remarque finalement que, puisque permuter deux colonnes de la matrice identité ou deux lignes de la matrice identité donne exactement la même matrice,
                 les matrices de permutation de lignes et de colonnes sont les mêmes.
                 La permutation des lignes ou des colonnes d'une matrice <m>A</m> se produira selon si l'on multiplie à droite ou à gauche.
@@ -333,14 +333,14 @@
                 Un exemple simple est un vecteur qui ne possède que des zéros, sauf à la position correspondant à la ligne de zéros de la matrice.
                 Ce vecteur est en fait <m>\vec{v}=\vec{e}_i</m> où la i-ème ligne de la matrice <m>A</m> est nulle.
                 Sans perdre trop de généralité, si la première ligne de <m>A</m> est nulle, on écrit
-                <me>A=\begin{pmatrix}
+                <md>A=\begin{pmatrix}
                 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{0} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
                 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
                 \vdots &amp; \vdots &amp; \vdots \\
                 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_m &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} 
-                \end{pmatrix}</me>
+                \end{pmatrix}</md>
                 Quand on multiplie cette matrice par <m>\vec{u}</m>, par l'équation <xref ref="eq-matvecprodgeneral"/>, on peut faire 
-                <me>A\vec{u}=\begin{pmatrix}
+                <md>A\vec{u}=\begin{pmatrix}
                 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{0} &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
                 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
                 \vdots &amp; \vdots &amp; \vdots \\
@@ -359,7 +359,7 @@
                 \vec{r}_m\cdot\vec{u}  
                 \end{pmatrix}\neq
                 \begin{pmatrix}1\\ 0\\ \vdots\\ 0 \end{pmatrix}
-                </me>, peu importe le vecteur <m>\vec{u}</m> choisi.
+                </md>, peu importe le vecteur <m>\vec{u}</m> choisi.
                 La preuve serait semblable si l'on choisissait une autre ligne nulle dans la matrice <m>A</m>.
                 </p>
             </solution>
@@ -392,14 +392,14 @@
                 <p>Trouver un vecteur <m>\vec{u}</m> tel que <m>\begin{pmatrix}1\amp 2\\ -1 \amp 4  \end{pmatrix}\vec{u}=\vecd{3}{1}</m>.</p>
             </statement>
             <answer>
-                <p><me>\vec{u}=\vecd{\frac{5}{3}}{\frac{2}{3}}</me></p>
+                <p><md>\vec{u}=\vecd{\frac{5}{3}}{\frac{2}{3}}</md></p>
             </answer>
             <solution>
                 <p>On calcule simplement la matrice <m>A^{-1}</m> à l'aide de la formule <xref ref="eq-matinverse2x2"/> et on la multiplie à gauche par le vecteur <m>\vec{v}</m>.
-                <me>A^{-1}=\begin{pmatrix}1\amp 2\\ -1 \amp 4  \end{pmatrix}^{-1}=\frac{1}{1*4-2*(-1)}\begin{pmatrix}4\amp -2\\ 1 \amp 1  \end{pmatrix}
-                =\begin{pmatrix}\frac{2}{3}\amp -\frac{1}{3}\\ \frac{1}{6} \amp \frac{1}{6}  \end{pmatrix}</me>
+                <md>A^{-1}=\begin{pmatrix}1\amp 2\\ -1 \amp 4  \end{pmatrix}^{-1}=\frac{1}{1*4-2*(-1)}\begin{pmatrix}4\amp -2\\ 1 \amp 1  \end{pmatrix}
+                =\begin{pmatrix}\frac{2}{3}\amp -\frac{1}{3}\\ \frac{1}{6} \amp \frac{1}{6}  \end{pmatrix}</md>
                 Puis, on fait la multiplication.
-                    <me>\vec{u}=A^{-1}\vec{v}=\begin{pmatrix}\frac{2}{3}\amp -\frac{1}{3}\\ \frac{1}{6} \amp \frac{1}{6}  \end{pmatrix}\vecd{3}{1}=\vecd{\frac{5}{3}}{\frac{2}{3}}</me></p>
+                    <md>\vec{u}=A^{-1}\vec{v}=\begin{pmatrix}\frac{2}{3}\amp -\frac{1}{3}\\ \frac{1}{6} \amp \frac{1}{6}  \end{pmatrix}\vecd{3}{1}=\vecd{\frac{5}{3}}{\frac{2}{3}}</md></p>
             </solution>
             </task>
             <task>
@@ -407,14 +407,14 @@
                 <p>Trouver un vecteur <m>\vec{u}</m> tel que <m>\begin{pmatrix}1\amp 2\\ 0 \amp 1  \end{pmatrix}\vec{u}=\vecd{-1}{5}</m>.</p>
             </statement>
             <answer>
-                <p><me>\vec{u}=\vecd{-11}{5}</me></p>
+                <p><md>\vec{u}=\vecd{-11}{5}</md></p>
             </answer>
             <solution>
                 <p>On calcule simplement la matrice <m>A^{-1}</m> à l'aide de la formule <xref ref="eq-matinverse2x2"/> et on la multiplie à gauche par le vecteur <m>\vec{v}</m>.
-                <me>A^{-1}=\begin{pmatrix}1\amp 2\\ 0 \amp 1  \end{pmatrix}^{-1}=\frac{1}{1*1-2*0}\begin{pmatrix}1\amp -2\\ 0 \amp 1  \end{pmatrix}
-                =\begin{pmatrix}1\amp -2\\ 0 \amp 1  \end{pmatrix}</me>
+                <md>A^{-1}=\begin{pmatrix}1\amp 2\\ 0 \amp 1  \end{pmatrix}^{-1}=\frac{1}{1*1-2*0}\begin{pmatrix}1\amp -2\\ 0 \amp 1  \end{pmatrix}
+                =\begin{pmatrix}1\amp -2\\ 0 \amp 1  \end{pmatrix}</md>
                 Puis, on fait la multiplication.
-                    <me>\vec{u}=A^{-1}\vec{v}=\begin{pmatrix}1\amp -2\\ 0 \amp 1  \end{pmatrix}\vecd{-1}{5}=\vecd{-11}{5}</me></p>
+                    <md>\vec{u}=A^{-1}\vec{v}=\begin{pmatrix}1\amp -2\\ 0 \amp 1  \end{pmatrix}\vecd{-1}{5}=\vecd{-11}{5}</md></p>
            </solution>
             </task>
             <task>
@@ -422,11 +422,11 @@
                 <p>Trouver un vecteur <m>\vec{u}\in \R^2</m> tel que son image par une rotation de <m>30^{\circ}</m> est le vecteur <m>(2,-3)</m>.</p>
             </statement>
             <answer>
-                <p><me>\vec{u}=\vecd{\sqrt{3}-\frac{3}{2}}{-\frac{3\sqrt{3}}{2}-1}</me></p>
+                <p><md>\vec{u}=\vecd{\sqrt{3}-\frac{3}{2}}{-\frac{3\sqrt{3}}{2}-1}</md></p>
             </answer>
             <solution>
                 <p>C'est essentiellement la même question, mais la matrice <m>A</m> est une matrice de rotation de <m>30^{\circ}</m>.
-                <me>A=R_{30^{\circ}}=
+                <md>A=R_{30^{\circ}}=
                 \begin{pmatrix}
                 \cos(30^{\circ}) &amp; -\sin(30^{\circ})\\
                 \sin(30^{\circ}) &amp; \cos(30^{\circ})
@@ -434,11 +434,11 @@
                 =\begin{pmatrix}
                 \frac{\sqrt{3}}{2} &amp; -\frac{1}{2}\\
                 \frac{1}{2} &amp; \frac{\sqrt{3}}{2}
-                \end{pmatrix}</me>
+                \end{pmatrix}</md>
                 On pourrait simplement utiliser la formule <xref ref="eq-matinverse2x2"/> pour obtenir l'inverse.
                 Cependant, en réfléchissant, on réalise que l'inverse d'une rotation de <m>30^{\circ}</m> est une rotation de <m>-30^{\circ}</m>.
                 Ainsi, 
-                <me>A^{-1}=R_{-30^{\circ}}=
+                <md>A^{-1}=R_{-30^{\circ}}=
                 \begin{pmatrix}
                 \cos(-30^{\circ}) &amp; -\sin(-30^{\circ})\\
                 \sin(-30^{\circ}) &amp; \cos(-30^{\circ})
@@ -446,12 +446,12 @@
                 =\begin{pmatrix}
                 \frac{\sqrt{3}}{2} &amp; \frac{1}{2}\\
                 -\frac{1}{2} &amp; \frac{\sqrt{3}}{2}
-                \end{pmatrix}</me>
+                \end{pmatrix}</md>
                 Et donc, on calcule le vecteur <m>\vec{u}</m>:
-                <me>\vec{u}=A^{-1}\vec{v}=\begin{pmatrix}
+                <md>\vec{u}=A^{-1}\vec{v}=\begin{pmatrix}
                 \frac{\sqrt{3}}{2} &amp; \frac{1}{2}\\
                 -\frac{1}{2} &amp; \frac{\sqrt{3}}{2}
-                \end{pmatrix}\vecd{2}{-3}=\vecd{\sqrt{3}-\frac{3}{2}}{-\frac{3\sqrt{3}}{2}-1}</me>
+                \end{pmatrix}\vecd{2}{-3}=\vecd{\sqrt{3}-\frac{3}{2}}{-\frac{3\sqrt{3}}{2}-1}</md>
                 </p>
             </solution>
             </task>
@@ -461,18 +461,18 @@
                 <m>\begin{pmatrix}-3\amp 1\\ 2 \amp -1\end{pmatrix}\vec{u}_2=\vecd{0}{1}</m>.</p>
             </statement>
             <answer>
-                <p><me>\vec{u}_1=\vecd{-1}{-2}</me>
+                <p><md>\vec{u}_1=\vecd{-1}{-2}</md>
                 et
-                <me>\vec{u}_2=\vecd{-1}{-3}</me></p>
+                <md>\vec{u}_2=\vecd{-1}{-3}</md></p>
             </answer>
             <solution>
                 <p>On effectue d'abord l'inversion de matrice suivie de la multiplication de cet inverse par les vecteurs voulus pour calculer <m>\vec{u}_1</m> et <m>\vec{u}_2</m>.
-                <me>A^{-1}=\begin{pmatrix}-3\amp 1\\ 2 \amp -1  \end{pmatrix}^{-1}=\frac{1}{(-3)*(-1)-2*1}\begin{pmatrix}-1\amp -1\\ -2 \amp -3  \end{pmatrix}
-                =\begin{pmatrix}-1\amp -1\\ -2 \amp -3  \end{pmatrix}</me>
+                <md>A^{-1}=\begin{pmatrix}-3\amp 1\\ 2 \amp -1  \end{pmatrix}^{-1}=\frac{1}{(-3)*(-1)-2*1}\begin{pmatrix}-1\amp -1\\ -2 \amp -3  \end{pmatrix}
+                =\begin{pmatrix}-1\amp -1\\ -2 \amp -3  \end{pmatrix}</md>
                 Ainsi,
-                <me>\vec{u}_1=A^{-1}\vec{v}_1=\begin{pmatrix}-1\amp -1\\ -2 \amp -3  \end{pmatrix}\vecd{1}{0}=\vecd{-1}{-2}</me>
+                <md>\vec{u}_1=A^{-1}\vec{v}_1=\begin{pmatrix}-1\amp -1\\ -2 \amp -3  \end{pmatrix}\vecd{1}{0}=\vecd{-1}{-2}</md>
                 et
-                <me>\vec{u}_2=A^{-1}\vec{v}_2=\begin{pmatrix}-1\amp -1\\ -2 \amp -3  \end{pmatrix}\vecd{0}{1}=\vecd{-1}{-3}</me>
+                <md>\vec{u}_2=A^{-1}\vec{v}_2=\begin{pmatrix}-1\amp -1\\ -2 \amp -3  \end{pmatrix}\vecd{0}{1}=\vecd{-1}{-3}</md>
                 </p>
             </solution>
             </task>
@@ -481,7 +481,7 @@
                 <p>Trouver un vecteur <m>\vec{u}</m> tel que <m>\begin{pmatrix}1\amp 0\\ 0 \amp 3  \end{pmatrix}\vec{u}=\vecd{2}{6}</m>, sans calculer la matrice inverse.</p>
             </statement>
             <answer>
-                <p><me>\vec{u}=\vecd{2}{2}</me></p>
+                <p><md>\vec{u}=\vecd{2}{2}</md></p>
             </answer>
             <solution>
                 <p>Cette transformation linéaire est un étirement vertical de facteur <m>3</m>, selon l'équation <xref ref="eq-etirementvr2"/>. 
@@ -490,7 +490,7 @@
                 Pour la seconde, il faut simplement diviser par <m>3</m>, ce qui donne aussi <m>2</m>. 
                 Bref, le vecteur est <m>\vec{u}=\vecd{2}{2}</m>.
                 Vérifions que c'est la bonne réponse.
-                <me>A\vec{u}=\begin{pmatrix}1\amp 0\\ 0 \amp 3  \end{pmatrix}\vecd{2}{2}=\vecd{2}{6}</me></p>
+                <md>A\vec{u}=\begin{pmatrix}1\amp 0\\ 0 \amp 3  \end{pmatrix}\vecd{2}{2}=\vecd{2}{6}</md></p>
             </solution>
             </task>
     </exercise>
@@ -526,9 +526,9 @@
     Géométriquement, c'est un déplacement du vecteur<m>\vecd{0}{1}</m> vers la droite.
     Il conserve sa coordonnée en <m>y</m>, mais on lui ajoute une coordonnée en <m>x</m> de valeur <m>k</m>. 
     En résumé,
-    <me>Ch_k\vecd{1}{0}=\vecd{1}{0} \text{ et } Ch_k\vecd{0}{1}=\vecd{0}{1}+k\vecd{1}{0}\text{.}</me>
+    <md>Ch_k\vecd{1}{0}=\vecd{1}{0} \text{ et } Ch_k\vecd{0}{1}=\vecd{0}{1}+k\vecd{1}{0}\text{.}</md>
     Ainsi, pour un vecteur quelconque <m>\vecd{x}{y}</m>, on a:
-    <me>Ch_k\vecd{x}{y}=\begin{pmatrix}1\amp k\\ 0 \amp 1  \end{pmatrix}\vecd{x}{y}=\vecd{x+ky}{y}\text{.}</me>
+    <md>Ch_k\vecd{x}{y}=\begin{pmatrix}1\amp k\\ 0 \amp 1  \end{pmatrix}\vecd{x}{y}=\vecd{x+ky}{y}\text{.}</md>
     Dans cette dernière équation, on voit ce que le mot <em>horizontal</em> signifie dans l'expression <em>cisaillement horizontal</em>. 
     C'est la coordonnée qui changera (<m>x</m>), de façon proportionnelle à la coordonnée <m>y</m>.
     Une analogie pour ce genre de cisaillement est celle du vent. 
@@ -536,15 +536,15 @@
     Si le carré est fait d'un matériau assez souple, mais qu'il est bien ancré dans le sol (axe des <m>x</m>), alors il se déplacera selon le cisaillement horizontal illustré en bleu.
     Plus la valeur <m>k</m> est grande, plus le vent est fort!</p>
     <p>Pour ce qui est de l'inverse, on peut intuitivement penser que, pour <em>défaire</em> un cisaillement, on doit avoir le déplacement en sens inverse.
-    Ainsi, on a: <me>Ch_k^{-1}\vecd{x}{y}=\begin{pmatrix}1\amp -k\\ 0 \amp 1  \end{pmatrix}\vecd{x}{y}=\vecd{x-ky}{y}\text{.}</me>
+    Ainsi, on a: <md>Ch_k^{-1}\vecd{x}{y}=\begin{pmatrix}1\amp -k\\ 0 \amp 1  \end{pmatrix}\vecd{x}{y}=\vecd{x-ky}{y}\text{.}</md>
     </p>
     <p>Le cisaillement vertical est défini de façon semblable.
     On  le résume ainsi:
-    <me>Cv_k\vecd{1}{0}=\vecd{1}{0}+k\vecd{0}{1} \text{ et } Cv_k\vecd{0}{1}=\vecd{0}{1}</me>
+    <md>Cv_k\vecd{1}{0}=\vecd{1}{0}+k\vecd{0}{1} \text{ et } Cv_k\vecd{0}{1}=\vecd{0}{1}</md>
     ou bien ainsi:
-    <me>Cv_k\vecd{x}{y}=\begin{pmatrix}1\amp 0\\ k \amp 1  \end{pmatrix}\vecd{x}{y}=\vecd{x}{y+kx}\text{.}</me>
+    <md>Cv_k\vecd{x}{y}=\begin{pmatrix}1\amp 0\\ k \amp 1  \end{pmatrix}\vecd{x}{y}=\vecd{x}{y+kx}\text{.}</md>
     Son inverse sera:
-    <me>Cv_k\vecd{x}{y}^{-1}=\begin{pmatrix}1\amp 0\\ -k \amp 1  \end{pmatrix}\vecd{x}{y}=\vecd{x}{y-kx}\text{.}</me>
+    <md>Cv_k\vecd{x}{y}^{-1}=\begin{pmatrix}1\amp 0\\ -k \amp 1  \end{pmatrix}\vecd{x}{y}=\vecd{x}{y-kx}\text{.}</md>
     </p>
     </solution>
     </exercise>
@@ -563,9 +563,9 @@
           </slate>
         <instructions>
           <p>Déplacer le point bleu afin de voir l'effet de <m>T_1</m> et de <m>T_1(T_2(x,y))</m> sur le vecteur <m>\vec{u}</m>. Dans les champs de texte <m>a,b,c,d</m>, entrer les valeurs pour
-          <me>
+          <md>
           T_2=\begin{pmatrix} a&amp;c\\ b&amp;d \end{pmatrix}
-          </me> et appuyer sur "Vérifier la réponse" pour valider la solution. Si désiré, un nouveau problème peut être généré en cliquant sur "Nouveau problème".</p>
+          </md> et appuyer sur "Vérifier la réponse" pour valider la solution. Si désiré, un nouveau problème peut être généré en cliquant sur "Nouveau problème".</p>
         </instructions>
         </interactive>
     </figure>
@@ -636,14 +636,14 @@
     </p>
     </statement>
     <answer>
-        <p><me>A=\begin{pmatrix}\frac{7}{5}&amp;\frac{4}{5}\\ \frac{4}{5}&amp; \frac{13}{5}\end{pmatrix}</me></p>
+        <p><md>A=\begin{pmatrix}\frac{7}{5}&amp;\frac{4}{5}\\ \frac{4}{5}&amp; \frac{13}{5}\end{pmatrix}</md></p>
     </answer>
     <solution>
         <p>On Commençe par énoncer l'effet de notre transformation sur les vecteurs <m>\vec{u}</m> et <m>\vec{u}_{\perp}</m>. 
         Si <m>A</m> est la matrice de transformation de l'étirement <m>E_{(1,2),3}</m>, alors
-        <me>A\vec{u}=A\vecd{1}{2}=3\vecd{1}{2}=\vecd{3}{6} \text{ et }A\vec{u}_{\perp}=A\vecd{-2}{1}=\vecd{-2}{1}\text{.}</me>
+        <md>A\vec{u}=A\vecd{1}{2}=3\vecd{1}{2}=\vecd{3}{6} \text{ et }A\vec{u}_{\perp}=A\vecd{-2}{1}=\vecd{-2}{1}\text{.}</md>
         On écrit ces résultats sous forme matricielle en incluant les deux vecteurs.
-        <me>A\begin{pmatrix}1&amp;-2\\ 2&amp; 1\end{pmatrix}=\begin{pmatrix}3&amp;-2\\ 6&amp; 1\end{pmatrix}</me>
+        <md>A\begin{pmatrix}1&amp;-2\\ 2&amp; 1\end{pmatrix}=\begin{pmatrix}3&amp;-2\\ 6&amp; 1\end{pmatrix}</md>
         Il ne reste qu'à isoler <m>A</m>.
         <md>
             <mrow>A&amp;=\begin{pmatrix}3&amp;-2\\ 6&amp; 1\end{pmatrix}\begin{pmatrix}1&amp;-2\\ 2&amp; 1\end{pmatrix}^{-1}&amp;&amp;\text{ par } <xref ref="eq-matparvecteursuv"/></mrow>
@@ -651,7 +651,7 @@
             <mrow>&amp;=\begin{pmatrix}3&amp;-2\\ 6&amp; 1\end{pmatrix}\begin{pmatrix}\frac{1}{5}&amp;\frac{2}{5}\\ -\frac{2}{5}&amp; \frac{1}{5}\end{pmatrix}</mrow>
             <mrow>&amp;=\begin{pmatrix}\frac{7}{5}&amp;\frac{4}{5}\\ \frac{4}{5}&amp; \frac{13}{5}\end{pmatrix}</mrow>
         </md>
-        Donc, on obtient <me>A=\begin{pmatrix}\frac{7}{5}&amp;\frac{4}{5}\\ \frac{4}{5}&amp; \frac{13}{5}\end{pmatrix}\text{.}</me></p>
+        Donc, on obtient <md>A=\begin{pmatrix}\frac{7}{5}&amp;\frac{4}{5}\\ \frac{4}{5}&amp; \frac{13}{5}\end{pmatrix}\text{.}</md></p>
     </solution>
     </exercise>
     <exercisegroup xml:id="exosage-matinverse">
@@ -742,12 +742,12 @@ show(Cinv*Binv==BCinv)
     </sage>
     </statement>
     <answer>
-    <p><me>
+    <p><md>
     \left(\begin{array}{rr}
 \frac{k u_{1}^{2} + u_{2}^{2}}{u_{1}^{2} + u_{2}^{2}} \amp \frac{{\left(k - 1\right)} u_{1} u_{2}}{u_{1}^{2} + u_{2}^{2}} \\
 \frac{{\left(k - 1\right)} u_{1} u_{2}}{u_{1}^{2} + u_{2}^{2}} \amp \frac{k u_{2}^{2} + u_{1}^{2}}{u_{1}^{2} + u_{2}^{2}}
 \end{array}\right)
-    </me></p>
+    </md></p>
     </answer>
     <solution>
     <listing>

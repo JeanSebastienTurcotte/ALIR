@@ -52,9 +52,9 @@
     
     <li><p>L'ensemble <m>\mathscr{P}_2(x)</m>, constitué des polynômes de degré inférieur ou égal à <m>2</m> à coefficients réels, muni de l'addition et de la multiplication usuelle.</p></li>
     <li><p>L'ensemble <m>\mathbb{R}^{\infty}</m> des suites infinies de nombres réels, muni  de l'addition et de la multiplication usuelle. Un élément de <m>\mathbb{R}^{\infty}</m> est de la forme
-    <me>
+    <md>
     \vec{x}=(x_1,x_2,x_3,\ldots)
-    </me>. L'addition et la multiplication se font composante par composante.</p></li>
+    </md>. L'addition et la multiplication se font composante par composante.</p></li>
     <li><p>L'ensemble <m>\mathbb{R}^2</m> muni de l'addition et de la multiplication par un scalaire décrites ci-dessous. Pour <m>\vec{u}=(u_1,u_2),\vec{v}=(v_1,v_2)</m> et <m>r,s\in\mathbb{R}</m>,
     <md>
     <mrow>\vec{u}\oplus \vec{v}&amp;=(u_1+v_1+1,u_2+v_2-1)</mrow>
@@ -65,9 +65,9 @@
     <solution><p>C'était l'objet de l'exercice <xref ref="exo-propopmat"/>. Il ne manque qu'à justifier que l'addition de deux matrices de taille <m>m\times n</m> est aussi une matrice de taille <m>m\times n</m>, et de même pour la multiplication par un scalaire. Comme ces opérations se font composante par composante, c'est bien le cas.</p></solution>
     <solution><p>Un polynôme de degré inférieur ou égal à <m>2</m> peut s'écrire sous la forme <m>p(x)=a+bx+cx^2</m> où <m>a,b,c\in \mathbb{R}</m>. On considère un deuxième polynôme de cette forme <m>q(x)=d+ex+fx^2</m> et des scalaires réels <m>r,s</m>. On démontre certaines des propriétés, laissant les autres à l'exercice <xref provisional="exo-polyespace"/>.</p>
     <p>Dans un premier temps, si l'on additionne les polynômes <m>p(x)</m> et <m>q(x)</m>, on obtient
-    <me>
+    <md>
     p(x)+q(x)=a+bx+cx^2+d+ex+fx^2=a+d+(b+e)x+(c+f)x^2
-    </me>. Puisque <m>a+d,b+e,c+f\in \mathbb{R}</m>, l'addition de deux polynômes de degré inférieur ou égal à <m>2</m> est encore un polynôme de degré inférieur ou égal à <m>2</m>.</p>
+    </md>. Puisque <m>a+d,b+e,c+f\in \mathbb{R}</m>, l'addition de deux polynômes de degré inférieur ou égal à <m>2</m> est encore un polynôme de degré inférieur ou égal à <m>2</m>.</p>
     <p>On montre ensuite la commutativité de l'addition. Puisqu'on peut écrire <m>a+d+(b+e)x+(c+f)x^2=d+a+(e+b)x+(f+c)x^2</m> et que ceci correspond à l'addition <m>q(x)+p(x)</m>, on obtient la commutativité.</p>
     <p>Finalement, on montre la distributivité sur l'addition vectorielle. On a
     <md>
@@ -98,19 +98,19 @@
     <mrow>                                     &amp;=(\vec{u}\oplus \vec{v})\oplus \vec{w}&amp;\text{définition de l'addition spéciale}</mrow>
     </md>.</p>
     <p>Les choses se compliquent un peu lorsqu'on arrive à la propriété du neutre additif. Si l'on essaie naïvement d'additionner le vecteur<m>(0,0)</m> au vecteur <m>\vec{u}</m>, on obtient
-    <me>
+    <md>
     (u_1,u_2)\oplus(0,0)=(u_1+0+1,u_2+0-1)\neq(u_1,u_2)
-    </me>.
+    </md>.
     Cela ne veut toutefois pas dire que la propriété n'est pas respectée. Celle-ci dit qu'il doit exister un vecteur qui ne change rien lors de l'addition, et non pas que ce vecteur doit être <m>(0,0)</m>. En observant la structure de l'opération <m>\oplus</m>, on voit qu'il faut être en mesure d'annuler les contributions du <m>+1</m> dans la première composante et <m>-1</m> dans la seconde. On essaie alors avec le vecteur <m>(-1,1)</m>:
-    <me>
+    <md>
     (u_1,u_2)\oplus(-1,1)=(u_1-1+1,u_2+1-1)=(u_1,u_2)
-    </me>.
+    </md>.
     Ainsi, dans cet espace, on a <m>\vec{0}=(-1,1)</m>.
     </p>
     <p>Pour l'existence d'un inverse additif, il faut se rappeler, dans un premier temps, que l'on cherche à obtenir le vecteur nul de cet espace, soit <m>(-1,1)</m>. Ainsi, si l'on essaie <m>-\vec{u}=(-u_1,-u_2)</m>, on aura
-    <me>
+    <md>
     (u_1,u_2)\oplus(-u_1,-u_2)=(u_1-u_1+1,u_2-u_2-1)\neq(-1,1)
-    </me>.
+    </md>.
     Il faut donc repenser encore à l'opération pour trouver le bon inverse. On doit annuler la contribution du vecteur <m>\vec{u}</m> et modifier la constante ajoutée afin qu'elle donne <m>-1</m> à la première composante et <m>1</m> à la seconde. En posant <m>-\vec{u}=(-u_1-2,-u2+2)</m>, on aura
     <md>
     <mrow>\vec{u}\oplus -\vec{u}&amp;=(u_1,u_2)\oplus(-u_1-2,-u_2+2)</mrow>
@@ -258,9 +258,9 @@ Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
     <mrow>&amp;=0+0</mrow>
     <mrow>&amp;=0</mrow>
     </md>. Cet ensemble est donc fermé par rapport à l'addition. De même
-    <me>
+    <md>
     rs(0)=r(0)=0
-    </me>, montrant que l'ensemble est aussi fermé par rapport à la multiplication par un scalaire.</p></solution>
+    </md>, montrant que l'ensemble est aussi fermé par rapport à la multiplication par un scalaire.</p></solution>
     <solution><p>Soit <m>a=(a_1,a_2,\ldots a_{n-1},0,0,0,\ldots)</m> et <m>b=(b_1,b_2,\ldots , b_{m-1},0,0,\ldots)</m>, deux suites qui sont éventuellement nulles passé un certain indice. Lorsqu'on les additionne, les entrées seront toujours nulles au-delà de l'indice <m>\max(m,n)</m>. L'ensemble est donc fermé par rapport à l'addition. </p>
     <p>De même, si l'on multiplie les éléments de <m>a</m> par un scalaire quelconque, toutes les entrées au-delà de l'indice <m>n</m> sont encore nulles. L'ensemble est donc aussi fermé par rapport à la multiplication par un scalaire. C'est un sous-espace vectoriel de <m>\mathbb{R}^{\infty}</m>.</p>
     </solution>
@@ -269,11 +269,11 @@ Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
     <definition>
     <title>Span, indépendance linéaire, base et dimension</title>
     <statement><p>Soit <m>V</m>, un espace vectoriel et soit <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n</m>, des éléments de <m>V</m>. On définit l'espace engendré par ces vecteurs comme l'ensemble de leurs combinaisons linéaires:
-    <me>
+    <md>
     \vspan(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n)=\left\{c_1\vec{v}_1+c_2\vec{v}_2,\ldots +c_n\vec{v}_n ~|~ c_1,c_2,\ldots c_n\in \mathbb{R}\right\}
-    </me>.</p>
+    </md>.</p>
     <p>On dit que l'ensemble <m>\left\{\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n\right\}</m> est linéairement indépendant si 
-    <me>c_1\vec{v}_1+c_2\vec{v}_2,\ldots +c_n\vec{v}_n=0</me>
+    <md>c_1\vec{v}_1+c_2\vec{v}_2,\ldots +c_n\vec{v}_n=0</md>
     uniquement lorsque <m>c_1=c_2=\cdots =c_n=0</m>. Dans le cas contraire, on dit que l'ensemble est dépendant.</p>
     <p>On dit que l'ensemble <m>\left\{\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n\right\}</m> est une base de <m>V</m> si
     <ol>
@@ -293,13 +293,13 @@ Ainsi, si <m>r\neq 0</m>, le vecteur <m>\vec{u}</m> doit être nul.
     faisant de cet ensemble une base pour <m>\mathcal{P}_2(x)</m>.</p></statement>
     <solution>
     <p>On commence avec une combinaison linéaire des polynômes <m>p_1,p_2,p_3</m> donnant le vecteur nul:
-    <me>
+    <md>
     c_1x+c_2(x^2-1)+c_3(x^2+1)=0
-    </me>.
+    </md>.
     Deux stratégies sont possibles ici. L'équation précédente peut être développée et réécrite en regroupant les puissances de <m>x</m>:
-    <me>
+    <md>
     (c_3-c_2)x^0+c_1x+(c_2+c_3)x^2=0x^0+0x+0x^2
-    </me>.
+    </md>.
     Ceci donne un système à trois équations et trois inconnues que l'on peut résoudre avec les techniques usuelles.
     </p>
     <sage>
@@ -323,9 +323,9 @@ show(Caug.rref())
     </solution>
     <solution><p>
     Pour montrer que les trois polynômes engendrent <m>\mathcal{P}_2(x)</m>, il faut prendre un élément quelconque de l'espace et montrer qu'il peut s'écrire comme une combinaison linéaire des trois polynômes. On obtient donc
-    <me>
+    <md>
     a+bx+cx^2=c_1x+c_2(x^2-1)+c_3(x^2+1)
-    </me>.
+    </md>.
     Encore une fois, on peut développer ou utiliser des valeurs spécifiques de <m>x</m>. On propose de reprendre le calcul Sage fait précédemment, mais de résoudre l'équation en fonction du vecteur <m>(a,b,c)</m> plutôt que du vecteur nul.
     </p>
     <sage>
@@ -362,9 +362,9 @@ show(C.echelon_form())
     <mrow>M_2&amp;=\begin{pmatrix} 0&amp;1\\0&amp;0 \end{pmatrix}</mrow>
     <mrow>M_3&amp;=\begin{pmatrix} 0&amp;0\\1&amp;0 \end{pmatrix}</mrow>
     <mrow>M_4&amp;=\begin{pmatrix} 0&amp;0\\0&amp;1 \end{pmatrix}</mrow>
-    </md>. On voit en effet que toute matrice <m>A</m> peut s'écrire comme <me>
+    </md>. On voit en effet que toute matrice <m>A</m> peut s'écrire comme <md>
     A=aM_1+bM_2+cM_3+dM_4
-    </me>.</p>
+    </md>.</p>
     <p>De plus, la seule manière d'avoir la matrice nulle, correspondant au neutre additif de cet espace, est de prendre <m>0M_1+0M_2+0M_3+0M_4</m>. Ces matrices forment donc une base et la dimension est <m>4</m>.</p>
     </solution>
     <solution><p>Le nom de l'espace suggère fortement que la dimension de cet espace sera infinie. Il faut montrer qu'il est impossible d'engendrer cette espace avec un nombre fini de vecteurs. Pour montrer que cela est impossible, on procède par contradiction.
@@ -395,9 +395,9 @@ show(C.echelon_form())
     Un sous-espace familier
     </title>
     <statement><p>On considère l'espace vectoriel <m>\mathscr{C}^1(\mathbb{R})</m> et le sous-espace
-    <me>
+    <md>
     V=\{f\in\mathscr{C}^1(\mathbb{R})~ |~ f^{'}(x)=f(x) \text{ pour tout } x\in\mathbb{R}\}
-    </me>.
+    </md>.
     Ce sous-espace représente l'ensemble des fonctions qui sont égales à leur dérivée première. On montre dans un premier temps que c'est bel et bien un sous-espace vectoriel et l'on détermine une base de ce sous-espace.
     </p></statement>
     <solution>
@@ -406,7 +406,7 @@ show(C.echelon_form())
     <mrow>(f(x)+g(x))^{'}&amp;=f^{'}(x)+g^{'}(x) &amp; \text{ en vertu de la règle sur la somme des dérivées}</mrow>
     <mrow>&amp;=f(x)+g(x) &amp;\text{par hypothèse}</mrow>
     </md>, la somme fait donc partie de <m>V</m>. De même, on a 
-    <me>(cf(x))^{'}=cf^{'}(x)=cf(x)</me>
+    <md>(cf(x))^{'}=cf^{'}(x)=cf(x)</md>
     en vertu de la règle sur la dérivée d'un multiple d'une fonction. <m>V</m> est donc un sous-espace vectoriel.
     </p>
     <p>En plus de la fonction nulle, une fonction bien connue qui est égale à sa dérivée est <m>f(x)=e^x</m>. Cette fonction constitue, en fait, une base pour ce sous-espace vectoriel, qui est donc de dimension <m>1</m>. Puisqu'il n'y a qu'un seul élément, il suffit de montrer que celui-ci génère <m>V</m>. On considère un élément quelconque du sous-espace <m>g(x)\in V</m> et l'on considère la fonction <m>h(x)=g(x)f(-x)=g(x)e^{-x}</m>. En dérivant cette fonction, on trouve
@@ -426,13 +426,13 @@ show(C.echelon_form())
     <title>Addition de vitesses en relativité</title>
     <statement>
     <p>L'ensemble <m>V=]-1,1[</m> muni des opérations suivantes, pour <m>x,y \in V</m>
-<me>
+<md>
 x\oplus y=\frac{x+y}{1+xy}
-</me>
+</md>
 et 
-<me>
+<md>
 r\otimes x=\frac{(1+x)^r-(1-x)^r}{(1+x)^r+(1-x)^r}
-</me>
+</md>
 est un espace vectoriel sur les réels. Ici, les variables <m>x,y</m> représentent des fractions de la vitesse de la lumière, les signes positif ou négatif indiquant la direction.
 </p>
 <p>On montre que les propriétés d'un espace vectoriel sont respectées avec ces opérations.</p>
@@ -475,9 +475,9 @@ L'argument pour montrer que <m>-1&lt;\frac{x+y}{1+xy}</m> est similaire et sera 
     <mrow>(rs)\otimes\vec{x}&amp;=\frac{(1+x)^{rs}-(1-x)^{rs}}{(1+x)^{rs}+(1-x)^{rs}}</mrow>
     </md>.
     Pour l'autre côté, on commence par calculer <m>y=s\otimes x</m>:
-    <me>
+    <md>
     y=\frac{(1+x)^{s}-(1-x)^{s}}{(1+x)^{s}+(1-x)^{s}}
-    </me>.
+    </md>.
     On fait ensuite <m>r\otimes y</m>, ce qui donne
     <md>
     <mrow>
@@ -545,16 +545,16 @@ Puisque
  \right) ^{r} \left( 1-x \right) ^{r})</mrow>
 </md>.
 D'une manière similaire, on trouve
-<me>
+<md>
 AB+CD=2(\left( 1+y \right) ^{r} \left( 1+x \right) ^{r}+ \left( 1-y
  \right) ^{r} \left( 1-x \right) ^{r})
-</me>
+</md>
 et donc
-<me>
+<md>
 rx\oplus ry=\frac{\left( 1+y \right) ^{r} \left( 1+x \right) ^{r}-\, \left( 1-y
  \right) ^{r} \left( 1-x \right) ^{r}}{\left( 1+y \right) ^{r} \left( 1+x \right) ^{r}+ \left( 1-y
  \right) ^{r} \left( 1-x \right) ^{r}}
-</me>.
+</md>.
 La propriété est donc respectée.
     </p>
     </solution>

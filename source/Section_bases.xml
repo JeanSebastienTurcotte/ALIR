@@ -33,13 +33,13 @@
     </statement>
 <solution>
     <p>On recherche l'existence de constantes <m>a,b,c</m> telles que
-    <me>
+    <md>
     \vecddd{2}{2}{2}=a\vecddd{1}{1}{-3}+b\vecddd{3}{-5}{2}+c\vecddd{-1}{7}{-8}
-    </me>
+    </md>
     et de constantes <m>x,y,z</m> telles que 
-    <me>
+    <md>
     \vecddd{-2}{6}{-5}=x\vecddd{1}{1}{-3}+y\vecddd{3}{-5}{2}+z\vecddd{-1}{7}{-8}
-    </me>.
+    </md>.
     </p>
     <p>Sous forme matricielle, avec <m>A=\begin{pmatrix}1&amp;3&amp;-1\\1&amp;-5&amp; 7\\ -3&amp;2&amp;-8\end{pmatrix}</m>, les systèmes d'équations linéaires sont équivalents à la matrice augmentée
     <m>(A|\vec{u}_1 ~ \vec{u}_2)</m>. Avec Sage,</p>
@@ -61,13 +61,13 @@
     </output>
     </sage>
     <p>on trouve la solution à ces systèmes en échelonnant la matrice :
-    <me>
+    <md>
     (A|\vec{u}_1 ~ \vec{u}_2)=\left(\begin{array}{rrr|rr}
 1 &amp; 0 &amp; 2 &amp; 0 &amp; 1 \\
 0 &amp; 1 &amp; -1 &amp; 0 &amp; -1 \\
 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
 \end{array}\right)
-    </me>. Le vecteur <m>\vec{u}_1</m> ne s'écrit pas comme une combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m>. Il n'est donc pas dans l'espace colonne de la matrice <m>A</m>. Par contre, le vecteur <m>\vec{u}_2</m>, lui, en
+    </md>. Le vecteur <m>\vec{u}_1</m> ne s'écrit pas comme une combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\vec{v}_3</m>. Il n'est donc pas dans l'espace colonne de la matrice <m>A</m>. Par contre, le vecteur <m>\vec{u}_2</m>, lui, en
     fait partie. Il y a même une infinité de manières de l'écrire. Par exemple, on a <m>\vec{u}_2=\vec{v}_1-\vec{v}_2</m>, mais aussi <m>\vec{u}_2=3\vec{v}_1-2\vec{v}_2-\vec{v}_3</m>.</p>
     <p>En observant la matrice augmentée (ou l'expression  de la solution), on peut arriver à la conclusion que si le troisième vecteur n'était pas là, on pourrait quand même écrire le vecteur <m>\vec{u}_2</m> et, qui plus est, la solution serait unique.</p>
     </solution>
@@ -79,19 +79,19 @@
     <title>Unicité des combinaisons linéaires dans le <m>\vspan</m></title>
     <statement><p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m>, des vecteurs de <m>\R^n</m>. Si la seule combinaison linéaire de ces vecteurs qui produit le vecteur nul est la combinaison triviale, alors tous les vecteurs dans
     <m>\vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)</m> s'écrivent de manière unique comme une combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m>. Mathématiquement, si la seule solution à l'équation
-    <me>
+    <md>
     c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_k\vec{v}_k=\vec{0}
-    </me>
+    </md>
     est la solution où <m>c_1=c_2=\cdots = c_k=0</m>, alors l'écriture <m>\vec{u}=d_1\vec{v}_1+d_2\vec{v}_2+\cdots + d_k\vec{v}_k</m> est unique pour tout vecteur <m>\vec{u}\in \vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k).</m>
     </p></statement>
     <proof>
     <p>On suppose qu'il existe <m>d_1,d_2,\ldots , d_k</m> et <m>d^{'}_1,d^{'}_2,\ldots , d^{'}_k</m> telles que
-    <me>
+    <md>
     \vec{u}=d_1\vec{v}_1+d_2\vec{v}_2+\cdots + d_k\vec{v}_k
-    </me>
-    et <me>
+    </md>
+    et <md>
     \vec{u}=d^{'}_1\vec{v}_1+d^{'}_2\vec{v}_2+\cdots + d^{'}_k\vec{v}_k
-    </me>. On peut alors écrire le vecteur nul comme
+    </md>. On peut alors écrire le vecteur nul comme
     <md>
     <mrow>\vec{0}&amp;=\vec{u}-\vec{u}</mrow>
     <mrow>&amp;=d_1\vec{v}_1+d_2\vec{v}_2+\cdots + d_k\vec{v}_k-(d^{'}_1\vec{v}_1+d^{'}_2\vec{v}_2+\cdots + d^{'}_k\vec{v}_k)</mrow>
@@ -124,9 +124,9 @@
     <statement>
     <p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots \vec{v}_k</m>, un ensemble de vecteurs de <m>\R^n</m>. L'ensemble est dit linéairement indépendant (on dit parfois aussi que les vecteurs sont linéairement indépendants) si
     la seule solution à l'équation 
-        <me>
+        <md>
     c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_k\vec{v}_k=\vec{0}
-    </me>
+    </md>
     est la solution triviale où <m>c_1=c_2=\cdots =c_k=0</m>.
     </p>
     <p>Dans le cas contraire, on dit que l'ensemble de vecteurs est linéairement dépendant (on dit parfois aussi que les vecteurs sont linéairement dépendants).</p>
@@ -371,8 +371,8 @@ show(V.span(L)==V.span(Lv4))
     </p>
     <p>Pour avoir un autre exemple, on prend des vecteurs indépendants qui satisfont l'équation <m>x+y+z=0</m> jusqu'à l'obtention d'un ensemble qui génère le plan. Par exemple, si l'on prend <m>\vec{u}=(1,1,-2)</m>, ce vecteur est 
     sur le plan. Par lui-même, il engendre une droite et il faut donc en ajouter un autre pour obtenir le plan. Une possibilité est <m>\vec{v}=(3,-1,-2)</m>, qui est indépendant de <m>\vec{u}</m>. Ensemble, ils engendrent le plan.
-    Par exemple, on peut montrer que <me>(-1,1,0)=\frac{1}{2}(1,1,-2)-\frac{1}{2}(3,-1,-2)</me> et <me>(-1,0,1)=-\frac{1}{4}(1,1,-2)-\frac{1}{4}(3,-1,-2)</me>, la base originale du plan est alors dans <m>\vspan((1,1,-2),(3,-1,-2))</m>.
-    De même, on a <me>(1,1,-2)=(-1,1,0)-2(-1,0,1)</me> et <me>(3,-1,-2)=-(-1,1,0)-2(-1,0,1)</me> et donc, la base formée des vecteurs <m>(1,1,-2)</m> et <m>(3,-1,-2)</m> est dans le sous-espace engendré par la base originale. Ces bases engendrent ainsi bel et bien le même espace.
+    Par exemple, on peut montrer que <md>(-1,1,0)=\frac{1}{2}(1,1,-2)-\frac{1}{2}(3,-1,-2)</md> et <md>(-1,0,1)=-\frac{1}{4}(1,1,-2)-\frac{1}{4}(3,-1,-2)</md>, la base originale du plan est alors dans <m>\vspan((1,1,-2),(3,-1,-2))</m>.
+    De même, on a <md>(1,1,-2)=(-1,1,0)-2(-1,0,1)</md> et <md>(3,-1,-2)=-(-1,1,0)-2(-1,0,1)</md> et donc, la base formée des vecteurs <m>(1,1,-2)</m> et <m>(3,-1,-2)</m> est dans le sous-espace engendré par la base originale. Ces bases engendrent ainsi bel et bien le même espace.
     </p>
     </solution>
     <solution>
@@ -384,9 +384,9 @@ show(V.span(L)==V.span(Lv4))
     <title>Composantes d'un vecteur relatives à une base </title>
     <statement><p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k</m>, une base d'un sous-espace <m>V</m>. On note par <m>\mathcal{B}=\langle \vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_k\rangle</m> la base ordonnée de ces vecteurs,
     c'est-à-dire la base où l'ordre des vecteurs est important. Soit <m>\vec{u}\in V</m>, un vecteur du sous-espace peut-être égal à l'un des vecteurs de <m>\mathcal{B}</m>. Parce que <m>\mathcal{B}</m> est une base de <m>V</m>, il existe <m>c_1,c_2,\ldots ,c_k\in \R</m> tels que <m>\vec{u}=c_1\vec{v}_1+c_2\vec{v}_2+\cdots c_k\vec{v}_k</m>. Les nombres <m>c_1,c_2,\ldots, c_k</m> sont appelés les composantes de <m>\vec{u}</m> dans la base ordonnée <m>\mathcal{B}</m> et l'on écrit
-    <me>
+    <md>
     \vec{u}=(c_1,c_2,\ldots c_k)_{\mathcal{B}}
-    </me>.</p></statement>
+    </md>.</p></statement>
     </definition>
     <p>Tel que mentionné précédemment, le concept de vecteur algébrique fait déjà explicitement référence à la notion de composantes. Pour cela, on considère comme standard l'écriture d'un vecteur en fonction des vecteurs
     <m>\vec{e}_1,\vec{e}_2,\ldots, \vec{e}_n</m>. Ces vecteurs forment ce qu'on pourrait appeler la base canonique de <m>\R^n</m>. De ce fait, lorsque cette base est utilisée, on omet l'indice <m>\mathcal{B}</m> dans l'écriture
@@ -419,20 +419,20 @@ show(V.span(L)==V.span(Lv4))
     </input>
     </sage>
     <p>Ainsi, on peut écrire 
-    <me>
+    <md>
     \vec{u}=\left(-5,\frac{19}{4},\frac{-41}{4}\right)_{\mathcal{B}_1}
-    </me>.</p>
+    </md>.</p>
 </solution>
 <solution>
 <p>La seule différence entre la base ordonnée <m>\mathcal{B}_2</m> et la base ordonnée <m>\mathcal{B}_1</m> est l'ordre des vecteurs. On devrait donc avoir 
-<me>
+<md>
 \vec{u}=\left(-\frac{41}{4},-5,\frac{19}{4}\right)_{\mathcal{B}_2}
-</me>.</p>
+</md>.</p>
 </solution>
 <solution>
-<p>On procède comme pour la première méthode. Toujours avec Sage, on trouve que <me>
+<p>On procède comme pour la première méthode. Toujours avec Sage, on trouve que <md>
 \vec{u}=\left(-\frac{143}{354},\,-\frac{41}{354},\,-\frac{229}{177}\right)_{\mathcal{B}_3}
-</me></p>
+</md></p>
 <sage>
 <input>
     v1=vector([1,1,-3])
@@ -554,9 +554,9 @@ show("Une base pour span(v1,v2,v4):",spanLv4.basis())
     <title> L'indépendance linéaire n'était pas nécessaire</title>
 <p>Dans la proposition <xref ref="prop-depnbr"/>, les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> forment une base. On dit alors que tout ensemble comprenant plus de <m>k</m> vecteurs est forcément
     dépendant. En fait, on peut alléger un peu les hypothèses de la proposition et exiger seulement que les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k</m> génèrent <m>V</m>, c'est-à-dire que
-    <me>
+    <md>
     \vspan(\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k)=V
-    </me>.
+    </md>.
     
     Les détails sont examinés à l'exercice <xref ref="exo-depnbr"/></p>
     </remark>

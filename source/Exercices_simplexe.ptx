@@ -209,14 +209,14 @@ et <m>x,y\geq 0</m>.</p></solution>
 <exercise xml:id="exo-proglin4"><statement><p>Résoudre chacun des problèmes de l'exercice <xref ref="exo-proglin1"/> à l'aide de l'algorithme du simplexe.</p></statement>
 <solution>
 <p>On commence par créer la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
-<me>
+<md>
 S=\left(\begin{array}{rrrrr|r|r}
 -1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0\\
 1&amp; 5&amp;0&amp;1&amp;0&amp;0&amp;24\\
 1&amp;-7&amp;0&amp;0&amp;1&amp;1&amp;-12\\
 -3&amp;-2&amp;0&amp;0&amp;0&amp;1&amp;0
 \end{array}\right)
-</me>.
+</md>.
 Puisque la dernière colonne contient une entrée négative, on doit, dans un premier temps, pivoter sur la ligne trois avant de faire l'algorithme. La seule variable négative est <m>y</m>, on effectue ainsi le pivotage selon l'entrée en position <m>3,2</m>, ce qui donne
 <md>
 <mrow>\left(\begin{array}{rrrrr|r|r}
@@ -282,7 +282,7 @@ La première entrée de la dernière colonne est, à son tour, négative. On piv
 </p>
 </solution>
 <solution><p>On commence par créer la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
-<me>
+<md>
 S=\left(\begin{array}{rrrrrr|r|r}
 -2&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;-5\\
 -1&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;-1\\
@@ -290,7 +290,7 @@ S=\left(\begin{array}{rrrrrr|r|r}
 1&amp;-3&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
 -1&amp;-2&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
 \end{array}\right)
-</me>. Cette matrice contient deux entrées négatives dans la dernière colonne. On doit d'abord les éliminer avant de procéder avec l'algorithme du simplexe. Pour optimiser le nombre d'étapes, on choisit de pivoter dans la première ligne, puisque <m>(-5)/(-2)\geq (-2)/(-1)</m> et dans la première colonne, seule valeur négative de la ligne. Cela rendra la valeur dans la deuxième ligne également positive. Ainsi, on a
+</md>. Cette matrice contient deux entrées négatives dans la dernière colonne. On doit d'abord les éliminer avant de procéder avec l'algorithme du simplexe. Pour optimiser le nombre d'étapes, on choisit de pivoter dans la première ligne, puisque <m>(-5)/(-2)\geq (-2)/(-1)</m> et dans la première colonne, seule valeur négative de la ligne. Cela rendra la valeur dans la deuxième ligne également positive. Ainsi, on a
 <md>
 <mrow>\left(\begin{array}{rrrrrr|r|r}
 -2&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;-5\\
@@ -383,7 +383,7 @@ S=\left(\begin{array}{rrrrrr|r|r}
 L'algorithme se termine, offrant comme solution maximale la valeur <m>13</m>, atteinte lorsque <m>x=5</m> et <m>y=4</m>, comme trouvé à l'exercice <xref ref="exo-proglin2"/>.
 </p></solution>
 <solution><p>On commence par créer la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
-<me>
+<md>
 S=\left(\begin{array}{rrrrrrrr|r|r}
 -1&amp;2&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;3\\
 -3&amp;-1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-26\\
@@ -393,7 +393,7 @@ S=\left(\begin{array}{rrrrrrrr|r|r}
 3&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;38\\
 2&amp;-3&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
 \end{array}\right)
-</me>.
+</md>.
 L'entrée de la deuxième ligne et de la dernière colonne est négative. On pivote sur l'entrée en position <m>2,1</m> afin de la rendre positive. On a
 <md>
 <mrow> \left(\begin{array}{rrrrrrrrrr}
@@ -476,14 +476,14 @@ Toutes les entrées de la section du vecteur <m>\vec{b}</m> sont positives. L'al
 qui ne contient que des entrées positives dans la dernière ligne. L'algorithme est terminé et offre comme solution la valeur maximale <m>1</m>, atteinte lorsque <m>(x,y)=(7,5)</m>.
 </p></solution>
 <solution><p>On commence par écrire la matrice initiale du simplexe à l'aide de la forme canonique de l'exercice <xref ref="exo-proglin3"/>. On obtient
-<me>
+<md>
 S=\left(\begin{array}{rrrrrrr}
 2&amp;-5&amp;1&amp;0&amp;0&amp;0&amp;-1\\
 3&amp;2&amp;0&amp;1&amp;0&amp;0&amp;27\\
 -5&amp;3&amp;0&amp;0&amp;1&amp;0&amp;-7\\
 1&amp;1&amp;0&amp;0&amp;0&amp;1&amp;0\\
 \end{array}\right)
-</me>.
+</md>.
 On applique l'algorithme du simplexe dual. D'abord, on pivote sur l'entrée en position <m>(3,1)</m>.
 <md>
 <mrow> \left(\begin{array}{rrrrrrr}
@@ -680,22 +680,22 @@ P.run_simplex_method()
 </solution>
 </exercise>
 <exercise xml:id="exosage-minpivoty"><statement><p>À la sous-section <xref ref="sssec-proglinmin"/>, on a étudié le problème de maximisation
-<me>
+<md>
 f(x,y)=-2x-3y
-</me>,
+</md>,
 qui est sujette aux contraintes
 <md>
 <mrow>-x-y&amp;\leq -9</mrow>
 <mrow>x-y&amp;\leq 1</mrow>
 </md>
  dont la matrice initiale du simplexe est
-<me>
+<md>
 S=\left(\begin{array}{rrrr|r|r}
 -1&amp;-1&amp;1&amp;0&amp;0&amp;-9\\
 1&amp;-1&amp;0&amp;1&amp;0&amp;1\\
 2&amp;3&amp;0&amp;0&amp;1&amp;0
 \end{array}\right)
-</me>. Dans le texte, la première étape a été de pivoter selon l'entrée de la première ligne et de la première colonne.</p>
+</md>. Dans le texte, la première étape a été de pivoter selon l'entrée de la première ligne et de la première colonne.</p>
 <p>À l'aide de multiplications par des matrices élémentaires, résoudre le problème à nouveau en pivotant, cette fois-ci, selon l'entrée de la première ligne et de la deuxième colonne.</p>
 <sage><input>#Inscrire le code ici</input></sage>
 <sage><input>#Inscrire le code ici</input></sage>
@@ -792,9 +792,9 @@ show(c*P.optimal_solution())
 <m>
 \frac{2x+4y+9z}{x+y+z}
 </m>. Si cette moyenne doit être plus grande ou égale à <m>4</m>, on peut réécrire la moyenne sous la forme
-<me>
+<md>
 2x+4y+9z\geq 4x+4y+4z
-</me>, qui devient <m>-2x+0y+5z\geq 0</m>. Avec la contrainte de temps, le problème peut être écrit sur Sage de la manière suivante.</p>
+</md>, qui devient <m>-2x+0y+5z\geq 0</m>. Avec la contrainte de temps, le problème peut être écrit sur Sage de la manière suivante.</p>
 <sage>
 <input>
 A = matrix([[-2,0,5],[1,3,5]])
@@ -815,13 +815,13 @@ P
 Ce problème comporte trois contraintes. On note <m>P,G,L</m>, le nombre représentant la quantité de chacun des trois types de service, avec <m>P</m> pour le nombre de petits commerces, <m>G</m> pour le nombre de grandes surfaces et <m>L</m> pour le nombre de logements.
 </p>
 <p>La contrainte sur la superficie peut s'écrire sous la forme
-<me>
+<md>
 \frac{1}{2000}P+\frac{1}{90}G+\frac{1}{10000}L\leq 0.7
-</me>,,
+</md>,,
 la contrainte sur le nombre de logements est <m>L\geq 3000</m> et la contrainte de budget pour l'entretien est
-<me>
+<md>
 200P+300G+100L\leq 350000
-</me>.
+</md>.
 On inscrit dans Sage ces paramètres, sous la forme de la matrice et des vecteurs nécessaires à la création d'un problème de programmation linéaire.
 </p>
 <sage>

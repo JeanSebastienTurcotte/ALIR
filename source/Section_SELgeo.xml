@@ -244,14 +244,14 @@ show("rref(Baug)=",Baug.rref())
     <title>Les sous-matrices <m>I</m> et <m>L</m></title>
     <statement>
     <p>On considère la matrice échelonnée réduite
-    <me>R=\left(\begin{array}{rrrrrr}
+    <md>R=\left(\begin{array}{rrrrrr}
 1 &amp; 2 &amp; 0 &amp; -2 &amp; 0 &amp; 3 \\
 0 &amp; 0 &amp; 1 &amp; 4 &amp; 0 &amp; -1 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 2 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
-\end{array}\right)</me>.</p>
+\end{array}\right)</md>.</p>
 <p>Les colonnes <m>1,3</m> et <m>5</m> sont pivots et les colonnes <m>2,4</m> et <m>6</m> sont libres. En éliminant les lignes nulles et les colonnes libres, on peut observer
 une matrice identité:</p>
 <figure xml:id="fig-sousmatI">
@@ -294,12 +294,12 @@ show("Rs3=",R*s3)
  </statement>
     </example>
     <p>On regarde maintenant un aspect important de la géométrie des solutions à l'équation <m>A\vec{x}=\vec{0}</m>. Si l'on voit la matrice <m>A</m> selon ses lignes,
-    <me>A=\begin{pmatrix}
+    <md>A=\begin{pmatrix}
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
 \vdots &amp; \vdots &amp; \vdots \\
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{a}_m &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} 
-\end{pmatrix}</me>,
+\end{pmatrix}</md>,
 alors l'équation <m>A\vec{x}=\vec{0}</m> peut s'interpréter comme le système d'équations
 <md>
 <mrow>a_{1,1}x_1+a_{1,2}x_2+\ldots +a_{1,n}x_n&amp;=0</mrow>
@@ -333,9 +333,9 @@ alors l'équation <m>A\vec{x}=\vec{0}</m> peut s'interpréter comme le système 
     </statement>
     <solution>
     <p>On échelonne la matrice <m>A</m>. L'opération <m>3L_1+L_2\rightarrow L_2</m> permet d'obtenir la matrice échelonnée réduite équivalente
-    <m>R=\begin{pmatrix} 1 &amp; 2 \\ 0&amp; 0 \end{pmatrix}</m>. Il y a une  variable libre et donc, une solution de base. Celle-ci est <me>
+    <m>R=\begin{pmatrix} 1 &amp; 2 \\ 0&amp; 0 \end{pmatrix}</m>. Il y a une  variable libre et donc, une solution de base. Celle-ci est <md>
     s=\vecd{-2}{1}
-    </me>.</p>
+    </md>.</p>
     <p>La figure suivante permet d'observer la perpendicularité de cette solution (ou ses multiples) et des lignes de la matrice <m>A</m>.</p>
     <figure>
     <caption>Les zéros de <m>A</m> sont perpendiculaires aux lignes</caption>
@@ -567,7 +567,7 @@ solbase(R)
     <subsection>
     <title>L'image d'une transformation linéaire</title>
     <p>L'équation <m>A\vec{x}=\vec{0}</m> a toujours une solution. Parfois, elle en a une infinité. Lorsqu'on remplace le vecteur nul par un vecteur quelconque, l'équation
-    <mdn><mrow xml:id="eq-Axb" tag="star">A\vec{x}=\vec{b}</mrow></mdn> peut ne pas avoir de solution(s). Étant donnée une matrice <m>A</m>, pour quel(s) vecteur(s) <m>\vec{b}</m> l'équation
+    <md><mrow xml:id="eq-Axb" tag="star">A\vec{x}=\vec{b}</mrow></md> peut ne pas avoir de solution(s). Étant donnée une matrice <m>A</m>, pour quel(s) vecteur(s) <m>\vec{b}</m> l'équation
     <xref ref="eq-Axb"/> possède-t-elle au moins une solution?</p>
     <p>Géométriquement parlant, quels sont les vecteurs qui sont atteints par la transformation linéaire <m>A</m>, c'est-à-dire, quels sont les vecteurs qui forment l'image de cette transformation? On explore quelques cas
     dans l'exemple suivant.</p>
@@ -714,12 +714,12 @@ solbase(R)
     <p>La matrice est déjà sous la forme échelonnée réduite et l'on constate que les deux dernières lignes (de la partie non augmentée) sont nulles. Pour que le système possède une solution,
     il faut que les termes de la partie augmentée dans ces  lignes soient nuls aussi, c'est-à-dire, il faut que <m>b_2+2b_1=0</m> et <m>b_3+b_1=0</m>.
     Ceci amène un nouveau système d'équations linéaires homogène à deux équations et trois inconnues. La matrice de ce système est 
-    <me>
+    <md>
     \left(\begin{array}{rrr}
     1 &amp; 0 &amp; 1 \\
     2&amp; 1 &amp; 0
     \end{array}\right)
-    </me>.
+    </md>.
     On utilise la fonction <c>solbase</c> définie plus haut afin de trouver les solutions de base de ce système.
     </p>
     <sage>
@@ -824,27 +824,27 @@ show("rref(C)=",C.echelon_form())
     <title>Des systèmes à quatre équations et trois inconnues, prise deux</title>
     <statement>
     <p>On reprend les systèmes
-    <me>
+    <md>
     (A|\vec{b}_1)=\left(\begin{array}{rrr|r} 2&amp; -3&amp; 1 &amp; 5 \\ 
                             6&amp; 0&amp; 4 &amp; 3\\ 
                             6 &amp; 9&amp; 5 &amp; -9 \\ 
                             -6&amp; 9 &amp; -3 &amp;-15\end{array}\right)
-    </me>
+    </md>
     et
-    <me>
+    <md>
     (B|\vec{b}_2)\left(\begin{array}{rrr|r} 1&amp; 6&amp; -3 &amp;3 \\ 
                             \frac{4}{3}&amp; 8&amp; -4&amp; 4\\ 
                             \frac{1}{3} &amp; 2&amp; -1 &amp;1 \\ 
                             -3&amp; -18 &amp; 9 &amp;-9\end{array}\right)
-    </me>
+    </md>
     de l'exemple <xref ref="ex-4eq3inc"/>. La solution respective à ces systèmes était
-    <me>
+    <md>
     \vecddd{x}{y}{z}=z\vecddd{-\frac{2}{3}}{-\frac{1}{9}}{1}+\vecddd{\frac{1}{2}}{-\frac{4}{3}}{0}
-    </me>
+    </md>
     et
-    <me>
+    <md>
     \vecddd{x}{y}{z}=y\vecddd{-6}{1}{0}+z\vecddd{3}{0}{1}+\vecddd{3}{0}{0}
-    </me>.</p>
+    </md>.</p>
     <p>Pour la matrice <m>A</m>, le vecteur <m>\vecddd{-\frac{2}{3}}{-\frac{1}{9}}{1}</m> devrait être celui de la solution de base et le vecteur <m>\vecddd{\frac{1}{2}}{-\frac{4}{3}}{0}</m>
     représente la translation de la droite de vecteur directeur <m>\vecddd{-\frac{2}{3}}{-\frac{1}{9}}{1}</m>. On vérifie avec la fonction <c>solbase</c> et la
     matrice <m>A</m>. Malheureusement, on doit la redéfinir puisque l'on n'est pas dans la section principale du texte.</p>
@@ -904,9 +904,9 @@ solbase(B)
     <statement><p>Soit <m>A</m>, une matrice <m>m\times n</m>, <m>\vec{b}</m>, un vecteur de <m>\R^m</m> pour lequel l'équation <m>A\vec{x}=\vec{b}</m> possède
     au moins une solution et soit <m>\vec{x}_h</m>, la solution à l'équation homogène <m>A\vec{x}=\vec{0}</m>. Finalement, soit <m>\vec{x}_p</m>, une solution particulière
     à l'équation <m>A\vec{x}=\vec{b}</m>. Alors 
-    <me>
+    <md>
     \vec{x}_g=\vec{x}_p+\vec{x}_h
-    </me>
+    </md>
     représente l'ensemble de toutes les solutions à l'équation <m>A\vec{x}=\vec{b}</m>. On dit que <m>\vec{x}_g</m> est la solution générale. 
     </p>
     </statement>
@@ -923,14 +923,14 @@ solbase(B)
     <p>On montre maintenant que toute solution à l'équation <m>A\vec{x}=\vec{b}</m> peut s'écrire sous cette forme. Soit <m>\vec{x}</m>, une solution à <m>A\vec{x}=\vec{b}</m>.
     On remarque que <md><mrow>A(\vec{x}-\vec{x}_p)&amp;=A\vec{x}-A\vec{x}_p</mrow><mrow>&amp;=\vec{b}-\vec{b}</mrow><mrow>&amp;=\vec{0}</mrow></md>.</p>
     <p>Ainsi, <m>\vec{x}-\vec{x}_p</m> est une solution à l'équation <m>A\vec{x}=\vec{0}</m>. Il existe donc <m>a_1,a_2,\ldots a_k\in \R</m> tels que
-    <men xml:id="eq-solgencomb">
+    <md number="yes" xml:id="eq-solgencomb">
     \vec{x}-\vec{x}_p=a_1\vec{s}_1+a_2\vec{s}_2+\cdots + a_k\vec{s}_k+\vec{0}
-    </men>
+    </md>
     où les vecteurs <m>\vec{s}_1,\vec{s}_2,\ldots , \vec{s}_k</m> sont les solutions de base de l'équation homogène. En laissant <m>\vec{x}</m> représenter n'importe quelle solution à
     <m>A\vec{x}=\vec{b}</m> et en l'isolant dans l'équation <xref ref="eq-solgencomb"/>, on a
-    <me>
+    <md>
     \vec{x}=\vec{x}_p+\vec{x}_h
-    </me>.</p>
+    </md>.</p>
     </proof>
     </proposition>
     <p>Une manière facile de trouver une solution particulière à l'équation <m>A\vec{x}=\vec{b}</m> est de prendre celle pour laquelle les variables libres sont toutes égales à <m>0</m>.
@@ -938,9 +938,9 @@ solbase(B)
     <example xml:id="ex-solpart">
     <title>La solution particulière à un système d'équations linéaire</title>
  <statement><p>On reprend les systèmes <m>(A|b_1),(B|b_2)</m> de l'exemple <xref ref="ex-solgen"/>. De plus, on considère la matrice échelonnée réduite
- <me>(C|\vec{c})=\left(\begin{array}{rrrr|r} 0&amp; 1 &amp; 1&amp; 0&amp; 2\\
+ <md>(C|\vec{c})=\left(\begin{array}{rrrr|r} 0&amp; 1 &amp; 1&amp; 0&amp; 2\\
                                        0&amp; 0&amp; 0&amp; 1&amp; -4\\
-                                       0&amp; 0&amp; 0&amp; 0&amp; 0\end{array}\right)</me>.
+                                       0&amp; 0&amp; 0&amp; 0&amp; 0\end{array}\right)</md>.
  </p>
  </statement>
  <solution><p>On fait la matrice <m>A</m> et la matrice <m>B</m> ensemble. On échelonne ces systèmes afin de voir comment lire la solution particulière.</p>

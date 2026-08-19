@@ -15,12 +15,12 @@
     <introduction xml:id= "intro-vecvalpropres">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Aller aux <xref ref="exo-propres">exercices</xref> de la section.</p>
     <p>On considère la matrice 
-    <men xml:id="eq-Apropre">
+    <md number="yes" xml:id="eq-Apropre">
     A=\begin{pmatrix}
     10 &amp; 2 \\
 6 &amp; 11
     \end{pmatrix}
-    </men>.
+    </md>.
     On peut observer l'effet géométrique de cette transformation sur le carré unité à la figure <xref ref="fig-vecpropre1"/>. À priori, il n'est pas évident de voir comment décrire la transformation dans des termes géométriques. Est-ce une rotation, une réflexion, un étirement, un cisaillement ou même une combinaison de tout cela? Par contre, si l'on regarde son effet sur le parallélogramme engendré par les vecteurs <m>\vec{u}=(1,2),\vec{v}=(2,-3)</m>, son effet devient clair. La figure <xref ref="fig-vecpropre2"/> permet de voir cet effet.
     </p>
     <sidebyside>
@@ -80,29 +80,29 @@ graph2
     <example xml:id="ex-valpropresA1">
     <title>Un premier calcul avec les directions invariantes</title>
     <statement><p>On cherche les deux nombres <m>\lambda_1,\lambda_2</m> associés aux directions invariantes de la matrice
-        <me>
+        <md>
     A=\begin{pmatrix}
     10 &amp; 2 \\
 6 &amp; 11
     \end{pmatrix}
-    </me>.
+    </md>.
     </p>
     <p>Ces directions sont <m>\vec{v}_1=(1,2)</m> et <m>\vec{v}_2=(2,-3)</m>.</p></statement>
     <solution>
     <p>Parce que les directions sont données, il suffit de calculer l'image de chacune de ces directions et de déduire le facteur associé. Pour la direction <m>(1,2)</m>, on a
-        <me>
+        <md>
     A=\begin{pmatrix}
     10 &amp; 2 \\
 6 &amp; 11
     \end{pmatrix}\begin{pmatrix} 1\\ 2\end{pmatrix}=\begin{pmatrix}14 \\ 28 \end{pmatrix}=14\begin{pmatrix} 1\\ 2\end{pmatrix}
-    </me>
+    </md>
     et pour la direction <m>(2,-3)</m>, on a
- <me>
+ <md>
     A=\begin{pmatrix}
     10 &amp; 2 \\
 6 &amp; 11
     \end{pmatrix}\begin{pmatrix} 2\\ -3\end{pmatrix}=\begin{pmatrix}14 \\ -21\end{pmatrix}=7\begin{pmatrix} 2\\ -3\end{pmatrix}
-    </me>.   
+    </md>.   
     </p>
     <p>La matrice <m>A</m> représente alors un étirement de facteur <m>14</m> dans la direction du vecteur <m>(1,2)</m> et un étirement de facteur <m>7</m> dans la direction <m>(2,-3)</m>.</p>
     </solution>
@@ -112,9 +112,9 @@ graph2
     <title>Vecteurs et valeurs propres</title>
     <statement><p>
     Soit <m>A</m>, une matrice carrée représentant une transformation linéaire d'un espace <m>V</m> vers ce même espace. On dit que <m>\vec{v}\in V</m> est un vecteur propre si <m>\vec{v}\neq \vec{0}</m> et s'il existe un scalaire <m>\lambda</m> pour lequel
-    <men xml:id="eq-propres">
+    <md number="yes" xml:id="eq-propres">
     A\vec{v}=\lambda \vec{v}
-    </men>.
+    </md>.
     Le scalaire <m>\lambda</m> est alors appelé la valeur propre associée à <m>\vec{v}</m>.
     </p></statement>
     </definition>
@@ -219,12 +219,12 @@ show(S.eigenvectors_right())
     <title>Calcul des valeurs propres de la matrice d'introduction</title>
     <statement>
     <p>On calcule les valeurs propres de la matrice
-    <me>
+    <md>
     A=\begin{pmatrix}
     10 &amp; 2 \\
 6 &amp; 11
     \end{pmatrix}
-    </me>. À l'exemple <xref ref="ex-valpropresA1"/>, on a déjà calculé ces valeurs propres, mais c'était en connaissant les vecteurs propres qui leur étaient associés.</p>
+    </md>. À l'exemple <xref ref="ex-valpropresA1"/>, on a déjà calculé ces valeurs propres, mais c'était en connaissant les vecteurs propres qui leur étaient associés.</p>
     </statement>
     <solution>
     <p>On calcule le polynôme caractéristique de la matrice <m>A</m> en calculant le déterminant de <m>A-\lambda I</m>:
@@ -255,38 +255,38 @@ show(S.eigenvectors_right())
     </p></statement>
     <solution>
     <p>La transformation identité garde tous les vecteurs en place. On a donc <m>I\vec{v}=\vec{v}</m> pour tous vecteurs de <m>\mathbb{R}^2</m>. Il s'ensuit que <m>\lambda=1</m> est une valeur propre. Le polynôme caractéristique de la matrice est 
-    <me>
+    <md>
     \begin{vmatrix}1-\lambda &amp; 0\\ 0&amp; 1-\lambda \end{vmatrix}=(1-\lambda)^2
-    </me>. 
+    </md>. 
     Ce polynôme s'annule seulement lorsque <m>\lambda=1</m>, c'est donc la seule valeur propre possible.</p>
     </solution>
     <solution><p>La réflexion par rapport à l'axe des <m>x</m> laisse tout vecteur parallèle à <m>(1,0)</m> inchangé et tout vecteur perpendiculaire à <m>(1,0)</m> est envoyé sur son opposé. Les valeurs propres devraient donc être <m>\lambda_1=1</m> et <m>\lambda_2=-1</m>. En effet, le polynôme caractéristique donne
-    <me>
+    <md>
     \begin{vmatrix}1-\lambda &amp; 0\\ 0&amp; -1-\lambda \end{vmatrix}=(1-\lambda)(-1-\lambda)
-    </me>.
+    </md>.
     Comme ce polynôme s'annule uniquement en <m>\lambda_1=-1</m> et <m>\lambda_2=1</m>, ce sont les seules valeurs propres possibles.
     </p></solution>
     <solution><p>Une rotation ne laisse aucun vecteur en place, sauf le vecteur nul qui ne peut pas être un vecteur propre. Il ne devrait donc pas y avoir de valeurs propres. Le polynôme caractéristique est
-    <me>
+    <md>
     \begin{vmatrix}-\lambda &amp; 1\\ -1&amp; -\lambda \end{vmatrix}=\lambda^2+1
-    </me>. Ce polynôme n'a en effet pas de solution dans les réels.</p></solution>
+    </md>. Ce polynôme n'a en effet pas de solution dans les réels.</p></solution>
     <solution><p>Les étirements ont dans leur définition une direction qui est inchangée. Une valeur propre est très certainement le facteur d'étirement <m>r</m>. Dans l'exercice <xref ref="exo-dirinvariantesR2"/>, on a toutefois mentionné qu'un vecteur dont la direction est perpendiculaire à la direction étirée ne changeait pas. La valeur <m>\lambda=1</m> semble donc aussi être une valeur propre. Dans le cas de l'étirement horizontal, on a
-    <me>
+    <md>
     \begin{vmatrix}r-\lambda &amp; 0\\ 0&amp; 1-\lambda \end{vmatrix}=(r-\lambda)(1-\lambda)
-    </me>,
+    </md>,
     qui s'annule bel et bien en <m>\lambda_1=r</m> et <m>\lambda_2=1</m>.
     </p></solution>
     <solution><p>
     Une homothétie étant un étirement dans les deux directions, il semble plausible de considérer que le facteur <m>r</m> sera la seule valeur propre. En effet, on a
-    <me>
+    <md>
     \begin{vmatrix}r-\lambda &amp; 0\\ 0&amp; r-\lambda \end{vmatrix}=(r-\lambda)^2
-    </me>,
+    </md>,
     qui s'annule seulement lorsque <m>\lambda=r</m>.
     </p></solution>
     <solution><p>Il est peut-être difficile de voir quelles seront les valeurs propres en pensant seulement à la permutation des composantes. On peut toutefois remarquer que la permutation dans <m>\mathbb{R}^2</m> est aussi une réflexion de direction <m>\pi/4</m>. On peut probablement conclure que les valeurs propres seront <m>1</m> et <m>-1</m>, comme pour les valeurs propres d'une réflexion selon l'axe des abscisses. En effet,
-    <me>
+    <md>
     \begin{vmatrix}-\lambda &amp; 1\\ 1&amp; 0-\lambda \end{vmatrix}=\lambda^2-1
-    </me>
+    </md>
     s'annule lorsque <m>\lambda_1=-1</m> et <m>\lambda_2=1</m>. Ce sont donc les valeurs propres.</p></solution>
     <solution><p>Pour une projection orthogonale, le vecteur sur lequel on projette demeure inchangé et le vecteur perpendiculaire s'écrase à <m>\vec{0}</m>. On peut donc penser que les valeurs propres seront <m>\lambda_1=1</m> et <m>\lambda_2=0</m>. On a,
     <md>
@@ -304,12 +304,12 @@ show(S.eigenvectors_right())
     <title>Calcul des vecteurs propres de la matrice d'introduction</title>
     <statement>
     <p>On calcule les vecteurs propres de la matrice
-    <me>
+    <md>
     A=\begin{pmatrix}
     10 &amp; 2 \\
 6 &amp; 11
     \end{pmatrix}
-    </me>. On sait que ces vecteurs propres devraient être <m>\vec{u}=(1,2),\vec{v}=(2,-3)</m>, selon la figure <xref ref="fig-vecpropre1"/> .</p>
+    </md>. On sait que ces vecteurs propres devraient être <m>\vec{u}=(1,2),\vec{v}=(2,-3)</m>, selon la figure <xref ref="fig-vecpropre1"/> .</p>
     </statement>
     <solution>
     <p>À l'exemple <xref ref="ex-valpropre1"/>, on a réussi à trouver que les valeurs propres de la matrice sont <m>\lambda_1=7</m> et <m>\lambda_2=14</m>. En caractérisant l'espace propre des matrices <m>A-7I</m> et <m>A-14I</m>, on pourra trouver des vecteurs propres associés à chacune des valeurs propres.</p>
@@ -379,9 +379,9 @@ show(S.eigenvectors_right())
     Les valeurs propres sont les valeurs de <m>\lambda</m> qui annulent ce déterminant, soit <m>\lambda_1=1</m> et <m>\lambda_2=2</m>.
     </p>
     <p>On trouve le premier vecteur propre en regardant l'espace nul de <m>A-I=\begin{pmatrix} 2&amp;1\\ -2&amp;-1 \end{pmatrix}</m>. En effectuant l'opération élémentaire <m>L_2+L_1\to L_2</m> et ensuite l'opération élémentaire <m>L_1/2\to L_1</m>, on obtient la matrice échelonnée réduite
-    <me>
+    <md>
     rref(A-I)=\begin{pmatrix} 1&amp;1/2\\ 0&amp;0 \end{pmatrix}
-    </me>.
+    </md>.
     Celle-ci donne le vecteur propre <m>\vec{u}_1=(-1/2,1)</m>, ou son multiple <m>\vec{v}_1=(-1,2)</m>. Un calcul rapide montre qu'on a bel et bien <m>A\vec{v}_1=\vec{v}_1</m>.</p>
     <p>Pour le second vecteur propre, on procède de manière similaire. On regarde l'espace propre associé à <m>\lambda_2=2</m>. On a alors
     <md>
@@ -389,9 +389,9 @@ show(S.eigenvectors_right())
     <mrow>&amp;\stackrel{L2+2L_1\to L_1}{\sim}\begin{pmatrix}1&amp;1\\ 0&amp;0\end{pmatrix}</mrow>
     </md>.
     Une base de cet espace, donc un vecteur propre, est le vecteur <m>\vec{v}_2=(-1,1)</m>. Encore une fois, un calcul rapide permet d'observer que
-    <me>
+    <md>
     \begin{pmatrix} 3&amp;1\\ -2&amp;0 \end{pmatrix}\begin{pmatrix}-1\\ 1\end{pmatrix}=-\begin{pmatrix}3\\-2 \end{pmatrix}+\begin{pmatrix}1\\0 \end{pmatrix}=\begin{pmatrix}-2\\2\end{pmatrix}=2\begin{pmatrix}-1\\ 1\end{pmatrix}
-    </me>.
+    </md>.
     </p>
     </solution>
     <solution><p>On procède de la même manière. On a
@@ -405,9 +405,9 @@ show(S.eigenvectors_right())
     On ne trouve ici qu'une seule valeur propre égale à <m>\lambda=-2</m>. Pour l'espace propre, on regarde l'espace nul de la matrice 
     <m>B+2I=\begin{pmatrix} 3&amp;-3\\ 3&amp;-3 \end{pmatrix}</m>, dont la forme échelonnée réduite est 
     <m>rref(B+2I)=\begin{pmatrix} 1&amp;-1\\ 0&amp;0 \end{pmatrix}</m>. Un vecteur propre est donc <m>\vec{v}=(1,1)</m>. Encore une fois, un calcul permet de vérifier que 
-    <me>
+    <md>
     \begin{pmatrix} 1&amp;-3\\ 3&amp;-5 \end{pmatrix}\begin{pmatrix} 1\\ 1\end{pmatrix}=\begin{pmatrix}1-3 \\ 3-5 \end{pmatrix}=\begin{pmatrix}-2\\ -2 \end{pmatrix}=-2\begin{pmatrix} 1\\ 1\end{pmatrix}
-    </me>.</p></solution>
+    </md>.</p></solution>
     <solution><p>On calcule le déterminant de la matrice <m>C-\lambda I</m> afin de déterminer les valeurs propres. On a
     <md>
     <mrow>\lvert C-\lambda I\rvert&amp;= \begin{vmatrix} -2-\lambda &amp; 2 &amp; 0 \\ 0 &amp; 2-\lambda &amp; 0 \\ 2 &amp; -1 &amp; -\lambda \end{vmatrix}</mrow>
@@ -575,9 +575,9 @@ show(E.eigenvectors_right())
     </statement>
     <proof>
     <p>Si <m>k=1</m>, il n'y a qu'un seul vecteur propre. Celui-ci étant non nul, il est par défaut indépendant. S'il y a plus de deux vecteurs, on procède par contradiction. On suppose que l'ensemble de ces vecteurs propres est dépendant. On peut alors affirmer qu'il existe un entier <m>p</m> tel que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est un ensemble indépendant, mais que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. Bien entendu, <m>p\neq k</m> puisqu'on suppose que l'ensemble de tous ces vecteurs est dépendant. On cherche donc le premier vecteur qui, combiné aux précédents vecteurs indépendants, rend l'ensemble dépendant. Si <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}</m> est dépendant, il existe une combinaison linéaire des <m>p</m> premiers vecteurs qui donne le vecteur <m>\vec{v}_{p+1}</m> :
-    <mdn><mrow xml:id="eq-vecpropreindep" tag="star">
+    <md><mrow xml:id="eq-vecpropreindep" tag="star">
     a_1\vec{v}_1+a_2\vec{v}_2+\ldots + a_p\vec{v}_p=\vec{v}_{p+1}
-    </mrow></mdn>.
+    </mrow></md>.
     On multiplie les deux côtés de cette équation par <m>A</m>. On obtient alors
     <md>
     <mrow>A(a_1\vec{v}_1+a_2\vec{v}_2+\ldots + a_p\vec{v}_p)&amp;=A\vec{v}_{p+1}</mrow>
@@ -586,17 +586,17 @@ show(E.eigenvectors_right())
     <mrow>a_1\lambda_1\vec{v}_1+a_2\lambda_2\vec{v}_2+\ldots + a_p\lambda_p\vec{v}_p=\lambda_{p+1}\vec{v}_{p+1}</mrow>
     </md>.
     D'un autre côté, on multiplie l'équation <xref ref="eq-vecpropreindep"/> par <m>\lambda_{p+1}</m> pour obtenir
-    <me>
+    <md>
         a_1\lambda_{p+1}\vec{v}_1+a_2\lambda_{p+1}\vec{v}_2+\ldots + a_p\lambda_{p+1}\vec{v}_p=\lambda_{p+1}\vec{v}_{p+1}
-    </me>.
+    </md>.
     On obtient
-    <me>
+    <md>
     a_1\lambda_{p+1}\vec{v}_1+a_2\lambda_{p+1}\vec{v}_2+\ldots + a_p\lambda_{p+1}\vec{v}_p=a_1\lambda_1\vec{v}_1+a_2\lambda_2\vec{v}_2+\ldots + a_p\lambda_p\vec{v}_p
-    </me>
+    </md>
     qui se réécrit sous la forme
-    <me>
+    <md>
     a_1(\lambda_1-\lambda_{p+1})\vec{v}_1+a_2(\lambda_2-\lambda_{p+1})\vec{v}_2+\ldots + a_p(\lambda_p-\lambda_{p+1})\vec{v}_p=\vec{0}
-    </me>.
+    </md>.
     Comme les vecteurs <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> sont linéairement indépendants, il faut que les coefficients de cette combinaison linéaire soient nuls, mais on a également que les valeurs propres sont distinctes. Cela entraine que <m>a_1=a_2=\cdots =a_p=0</m>. Par contre, si cela était vrai, l'équation <xref ref="eq-vecpropreindep"/> impliquerait que <m>\vec{v}_{p+1}=\vec{0}</m>, ce qui est impossible. On ne peut en conséquence trouver une valeur de <m>p</m> telle que l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_p\}</m> est indépendant, mais l'ensemble <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{p+1}\}</m> est dépendant. On conclut que <m>\{\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_k\}</m> est forcément indépendant, ce qui termine la preuve.
     </p>
     </proof>
@@ -631,9 +631,9 @@ show(E.eigenvectors_right())
     <proof><p>Voir l'exercice <xref ref="exo-effetvalpropre"/></p></proof>
     </proposition>
     <p>Il n'était pas question du produit de deux matrices dans la proposition précédente. Qu'en est-il des valeurs propres d'une matrice <m>AB</m>? À première vue, on pourrait penser que si <m>\alpha</m> était une valeur propre de <m>A</m> et <m>\beta</m> une valeur propre de <m>B</m>, alors <m>\alpha \beta</m> serait une valeur propre du produit puisque
-    <me>
+    <md>
     AB\vec{v}=A\beta \vec{v}=\beta A\vec{v}=\beta \alpha \vec{v}
-    </me>,
+    </md>,
     mais il y a un problème avec ce raisonnement. Rien ne garantit que <m>A</m> et <m>B</m> ont les mêmes vecteurs propres. Si c'est toutefois le cas, c'est-à-dire si <m>\vec{v}</m> est un vecteur propre de <m>A</m> associé à la valeur propre <m>\alpha</m> et un vecteur propre de <m>B</m> associé à la valeur propre <m>\beta</m>, alors <m>\vec{v}</m> est un vecteur propre de <m>AB</m> associé à la valeur propre <m> \alpha \beta</m>. En fait, on a même davantage, puisque <m>\vec{v}</m> est aussi un vecteur propre de la matrice <m>BA</m>, aussi associé à la valeur propre <m>\alpha \beta</m>. La question du partage des vecteurs propres entre deux matrices sera étudiée plus spécifiquement à la prochaine section.</p>
     
     <p>Un type de matrice pour lequel il est facile de trouver les valeurs propres est lorsque la matrice est <xref ref="def-mattriang" text="custom">triangulaire</xref>. Dans ce cas, les valeurs propres se trouvent toujours sur la diagonale.</p>
@@ -650,9 +650,9 @@ show(E.eigenvectors_right())
     <statement><p>Soit <m>A,B</m>, deux matrices carrées de format <m>n\times n</m>. Alors <m>A</m> et <m>B</m> ont  <m>n</m> vecteurs propres indépendants identiques si et seulement si <m>AB=BA</m>.</p></statement>
     <proof><p>
     On montre dans un premier temps que si <m>A,B</m> se partagent <m>n</m> vecteurs propres indépendants <m>\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_n</m>, alors <m>AB=BA</m>. Puisqu'on a <m>n</m> vecteurs propres indépendants de <m>\mahtbb{R}^n</m>, ceux-ci forment une base de l'espace. Pour tout vecteur <m>\vec{u}\in \mathbb{R}^n</m>, il existe donc des coefficients tels que
-    <me>
+    <md>
     \vec{u}=a_1\vec{v}_1+a_2\vec{v}_2+\cdots +a_n\vec{v}_n
-    </me>.
+    </md>.
     </p>
     <p>On a alors
     <md><mrow>BA\vec{u}&amp;=BA(a_1\vec{v}_1+a_2\vec{v}_2+\cdots +a_n\vec{v}_n)</mrow>

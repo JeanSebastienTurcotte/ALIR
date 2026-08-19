@@ -202,12 +202,12 @@ L'orientation d'un repère peut être visualisée dans la figure interactive <xr
     <title>Le déterminant d'une matrice</title>
     <statement>
     <p>Soit <m>A</m>, une matrice de taille <m>n\times n</m> et <m>\vec{a}_1,\vec{a}_2,\ldots , \vec{a}_{n}</m>, ses lignes. Le déterminant de <m>A</m> est l'unique scalaire, noté
-<me>
+<md>
 \det(A)=\begin{vmatrix} a_{1\, 1}&amp;a_{1\, 2}&amp;\cdots &amp; a_{1\, n}\\
 a_{2\, 1}&amp;a_{2\, 2}&amp;\cdots &amp; a_{2\, n}\\
 \vdots  &amp; \vdots &amp; \ddots &amp; \vdots \\
 a_{n\, 1}&amp;a_{n\, 2}&amp;\cdots &amp; a_{n\, n}\\ \end{vmatrix}=\det(\vec{a}_{1},\vec{a}_{2},\ldots , \vec{a}_n)=\Delta(\vec{a}_{1},\vec{a}_{2},\ldots , \vec{a}_n)
-</me>,
+</md>,
 qui satisfait les quatre propriétés suivantes:</p>
 <list xml:id="li-detdef">
 <title>Propriétés à satisfaire</title>
@@ -297,9 +297,9 @@ qui satisfait les quatre propriétés suivantes:</p>
     </md>.</p></solution>
     </example>
     <p>Dans les derniers exemples, la matrice échelonnée réduite était toujours l'identité.  Qu'arrive-t-il au déterminant si ce n'est pas le cas? Si, par exemple, on veut le déterminant de la matrice échelonnée réduite
-    <me>
+    <md>
     R= \begin{pmatrix} 1&amp; 0&amp; -2\\ 0&amp; 1&amp;3\\ 0&amp;0&amp;0 \end{pmatrix}
-    </me>,
+    </md>,
     aucune des propriétés <xref ref="li-detdef"/> ne permet de le faire directement. En s'inspirant des résultats de la section <xref ref="sec-det2x2"/>, il est toutefois plausible de penser que ce déterminant vaudra zéro. En effet, on voit dans la matrice la présence d'une ligne nulle, ce qui fait penser à la propriété <xref ref="prop-detcolnulle2x2"/>. On sait aussi qu'une matrice carrée qui ne s'échelonne pas à l'identité ne peut pas être inversible, rappelant ainsi la propriété <xref ref="prop-detinv2x2"/>. On poursuit cette section dans le but de montrer les propriétés équivalentes à celles démontrées dans le cas d'un déterminant <m>2\times 2</m>. Comme
     on n'a pas de formule générale comme c'était le cas précédemment, il faudra quelques résultats supplémentaires.
     </p>
@@ -335,9 +335,9 @@ qui satisfait les quatre propriétés suivantes:</p>
     <li xml:id="li-detvecnul"><p>Si une ligne est nulle, soit <m>\vec{a}_i=\vec{0}</m> pour une certaine valeur de <m>i</m>, alors <m>\det(A)=0</m>.</p></li>
     <li xml:id="li-detinv"><p>La matrice <m>A</m> est inversible si et seulement si <m>\det(A)\neq 0</m> et <m>\det(A^{-1})=\frac{1}{\det(A)}</m>.</p></li>
     <li xml:id="li-detproduit"><p>Le déterminant d'un produit est égal au produit des déterminants, c'est-à-dire si <m>B</m> est une autre matrice <m>n\times n</m>, alors <m>\det(AB)=\det(A)\det(B)</m>.</p></li>
-    <li xml:id="li-detsomme"><p>Si une ligne est écrite comme la somme de deux vecteurs, alors <me>
+    <li xml:id="li-detsomme"><p>Si une ligne est écrite comme la somme de deux vecteurs, alors <md>
     \det(\vec{a}_1,\cdots,\vec{a}_i+\vec{b},\cdots ,\vec{a}_n)=\det(\vec{a}_1,\cdots,\vec{a}_i,\cdots,\vec{a}_n)+\det(\vec{a}_1,\cdots,\vec{b},\cdots,\vec{a}_n)
-    </me>. </p></li>
+    </md>. </p></li>
     <li xml:id="li-dettransposee"><p>Le déterminant de la transposée est égal au déterminant de la matrice originale, c'est-à-dire <m>\det(A^T)=\det(A)</m>.</p></li> 
     </ol>
     </list></statement>
@@ -352,9 +352,9 @@ qui satisfait les quatre propriétés suivantes:</p>
     <xref ref="li-detr"/> pour avoir <m>\det(\vec{a}_1,\cdots,\vec{0},\cdots ,\vec{a}_n)=0\det(\vec{a}_1,\cdots,\vec{0},\cdots ,\vec{a}_n)=0</m>.</p>
     </proof>   
     <proof><p>Si <m>A</m> est inversible, alors <m>A</m> se réduit à la matrice identité par une chaine de matrices élémentaires, soit
-    <me>
+    <md>
     I=E_kE_{k-1}\cdots E_2E_1A
-    </me>.
+    </md>.
     On applique à répétition le fait que le déterminant d'une matrice élémentaire est non nul et le déterminant du produit d'une matrice élémentaire avec une matrice <m>A</m>,
     établi à la proposition <xref ref="prop-detmatelem"/> pour conclure que <m>\det(A)\neq 0</m>.
     </p>
@@ -364,7 +364,7 @@ qui satisfait les quatre propriétés suivantes:</p>
     <proof><p>On suppose que <m>A</m> n'est pas inversible. Alors, selon la proposition <xref ref="prop-inverseproduit"/>, le produit <m>AB</m> n'est pas inversible non plus.
     Dans ce cas, <m>\det(AB)=\det(A)=0</m> ce qui implique à son tour que <m>\det(AB)=\det(A)\det(B)</m>.</p>
     <p>Si <m>A</m> est inversible et puisque <m>I=E_kE_{k-1}\cdots E_2E_1A</m>, on peut écrire <m>A=E_1^{-1}E_{2}^{-1}\cdots E_{k-1}^{-1}E_k^{-1}I=E_1^{-1}E_{2}^{-1}\cdots E_{k-1}^{-1}E_k^{-1}</m>.
-    On applique la propriété <xref ref="prop-detmatelem"/> à répétition pour conclure que <me>\det(A)=\det(E_1^{-1})\det(E_{2}^{-1})\cdots \det(E_{k-1}^{-1})\det(E_k^{-1})</me>.
+    On applique la propriété <xref ref="prop-detmatelem"/> à répétition pour conclure que <md>\det(A)=\det(E_1^{-1})\det(E_{2}^{-1})\cdots \det(E_{k-1}^{-1})\det(E_k^{-1})</md>.
     De l'autre côté, <m>AB=E_1^{-1}E_{2}^{-1}\cdots E_{k-1}^{-1}E_k^{-1}B</m> et par le même argument,
     <md>
     <mrow>\det(AB)&amp;=\det(E_1^{-1}E_{2}^{-1}\cdots E_{k-1}^{-1}E_k^{-1}B)</mrow>
@@ -374,9 +374,9 @@ qui satisfait les quatre propriétés suivantes:</p>
     </proof>
     <proof><p>Cette propriété demande un peu plus de travail et de réflexion. Dans un premier temps, on suppose que <m>\vec{b}</m> est une combinaison linéaire des vecteurs <m>\vec{a}_1,\ldots , \vec{a}_n</m>, c'est-à-dire
     qu'il existe <m>k_1,\ldots , k_n</m> tel que 
-    <mdn><mrow xml:id="eq-vecbcomblin" tag="star">
+    <md><mrow number="yes" xml:id="eq-vecbcomblin" tag="star">
     \vec{b}=k_1\vec{a}_1+\cdots +k_n\vec{a}_n
-    </mrow></mdn>.
+    </mrow></md>.
     On a alors
     <md>
     <mrow>\det(\vec{a}_1,\cdots,\vec{a}_i+\vec{b},\cdots ,\vec{a}_n)&amp;=\det(\vec{a}_1,\cdots,\vec{a}_i+k_1\vec{a}_1+\cdots +\vec{a}_n,\cdots ,\vec{a}_n)</mrow>
@@ -393,7 +393,7 @@ qui satisfait les quatre propriétés suivantes:</p>
     </md>.
     </p>
     <p>On passe maintenant au cas où <m>\vec{b}</m> n'est pas une combinaison linéaire des lignes de la matrice. Ceci signifie que l'équation
-    <me>A^T\vec{x}=\vec{b}</me>
+    <md>A^T\vec{x}=\vec{b}</md>
     ne possède pas de solutions (voir exercice <xref ref="exo-detcomblinettransposee"/>). Ainsi, selon le théorème <xref ref="thm-delamatriceinversev3"/>, la matrice <m>A^T</m> n'est pas inversible et <m>A</m> non plus.
     On conclut avec la propriété <xref ref="li-detinv"/> que <m>\det(A)=0</m>.
     </p>
@@ -466,9 +466,9 @@ qui satisfait les quatre propriétés suivantes:</p>
     <xref ref="li-dettransposee"/>, il suffit de le montrer pour un des deux types.</p>
     <p>Si l'une des entrées sur la diagonale est nulle, alors, en poursuivant les opérations élémentaires pour réduire <m>T</m>, on aura éventuellement une ligne de zéros. Selon la propriété <xref ref="li-detvecnul"/>, le déterminant est égal à zéro. Cela correspond aussi au produit de la diagonale puisqu'un produit contenant un zéro est nul.</p>
     <p>On suppose donc qu'aucune entrée <m>a_{i,i}</m> sur la diagonale est nulle. La matrice
-    <me>
+    <md>
     U_1=E_{\frac{1}{a_{n,n}}L_n}E_{\frac{1}{a_{n-1,n-1}}L_{n-1}}\cdots E_{\frac{1}{a_{2,2}}L_2}E_{\frac{1}{a_{1,1}}L_1}U
-    </me>
+    </md>
     est une matrice triangulaire supérieure qui ne contient que des <m>1</m> sur sa diagonale. On peut poursuivre l'algorithme de Gauss-Jordan pour réduire <m>U_1</m> à l'identité en n'utilisant que l'opération
     <m>rL_i+L_j</m>, qui ne change pas le déterminant. On a donc <m>\det(U_1)=1</m>. Puisque <m>\det(E_{\frac{1}{a_{i,i}}L_i})=\frac{1}{a_{i,i}}</m>, on isole <m>\det(U)</m> dans l'équation
     <md>

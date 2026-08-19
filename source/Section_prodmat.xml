@@ -50,32 +50,32 @@
     <title>Le produit matriciel</title>
     <statement><p>Soit <m>A\in \mathcal{M}_{m\times p}</m> et <m>B\in\mathcal{M}_{p\times n}</m>, deux matrices. La matrice de la composition <m>(T_A\circ T_B)\vec{u}=T_A(T_B(\vec{u}))</m>, notée <m>AB</m>, est la matrice dont la colonne
      <m>j</m> correspond au vecteur <m>A\vec{b}_j</m>, pour <m>j=1,2,\ldots, n</m>. On peut donc écrire
-     <men xml:id="eq-matmatproddef">
+     <md number="yes" xml:id="eq-matmatproddef">
      AB=\begin{pmatrix}
      \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
      A\vec{b}_1 &amp; A\vec{b}_2 &amp;\cdots &amp; A\vec{b}_n \\
      \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
      \end{pmatrix}
-     </men>.</p></statement>
+     </md>.</p></statement>
     </definition>
     <example xml:id="ex-matmatprod1">
     <title>Un produit de deux matrices</title>
     <statement><p>On poursuit l'exemple <xref ref="ex-transfocomp"/> et l'exercice <xref ref="exo-transfocomp-RP"/> pour calculer les matrices des transformations <m>P\circ R_{\frac{\pi}{2}} </m>et <m>R_{\frac{\pi}{2}}\circ P</m>.</p></statement>
     <solution>
     <p>Puisque
-    <me>
+    <md>
     R_{\frac{\pi}{2}}=\begin{pmatrix}
 0&amp;-1\\
 1&amp;0
 \end{pmatrix}
-    </me>
+    </md>
     et 
-    <me>
+    <md>
     P=\begin{pmatrix}
 0&amp;1\\
 1&amp;0
 \end{pmatrix}
-    </me>
+    </md>
     (voir l'exemple <xref ref="ex-mattransfor2"/>), on a
     <md>
     <mrow>PR_{\frac{\pi}{2}}&amp;=\begin{pmatrix}
@@ -107,19 +107,19 @@
     </solution>
     <solution>
     <p>Puisque
-    <me>
+    <md>
     R_{\frac{\pi}{2}}=\begin{pmatrix}
 0&amp;-1\\
 1&amp;0
 \end{pmatrix}
-    </me>
+    </md>
     et 
-    <me>
+    <md>
     P=\begin{pmatrix}
 0&amp;1\\
 1&amp;0
 \end{pmatrix}
-    </me>,
+    </md>,
     (voir l'exemple <xref ref="ex-mattransfor2"/>) on a
     <md>
     <mrow>R_{\frac{\pi}{2}}P&amp;=\begin{pmatrix}
@@ -170,9 +170,9 @@
           </slate>
         <instructions>
           <p>Déplacer le point <m>B</m> afin de voir l'effet de <m>T_2</m> et de <m>T_1(T_2(x,y))</m> sur le vecteur <m>\vec{u}</m>. Dans les champs de texte <m>a,b,c,d</m>, entrer les valeurs pour
-          <me>
+          <md>
           T_1=\begin{pmatrix} a&amp;c\\ b&amp;d \end{pmatrix}
-          </me> et appuyer sur "Vérifier la réponse" pour valider. Si désiré, un nouveau problème peut être généré en cliquant sur "Nouveau problème".</p>
+          </md> et appuyer sur "Vérifier la réponse" pour valider. Si désiré, un nouveau problème peut être généré en cliquant sur "Nouveau problème".</p>
         </instructions>
         </interactive>
     </figure>
@@ -182,13 +182,13 @@
     Le produit de deux matrices a été défini comme la composition de deux transformations linéaires, mais une autre approche offre une perspective intéressante. Soit <m>\vec{u}_1,\vec{u}_2,\ldots ,\vec{u}_n</m> des vecteurs de
     <m>\R^p</m> et soit <m>A</m> une transformation linéaire de <m>\R^p</m> vers <m>\R^m</m> (combien de lignes et combien de colonnes <m>A</m> possède-t-elle?). Pour calculer l'image des vecteurs par <m>A</m>, on peut construire
     une matrice <m>U</m> dont les colonnes sont les vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots, \vec{u}_n</m>. Puisque le produit 
-    <me>
+    <md>
     AU=\begin{pmatrix}
      \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
      A\vec{u}_1 &amp; A\vec{u}_2 &amp;\cdots &amp; A\vec{u}_n \\
      \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
      \end{pmatrix}
-    </me>,
+    </md>,
     chaque colonne du produit représente l'image d'un vecteur par la matrice <m>A</m>. On obtient donc une manière rapide de calculer l'effet d'une transformation linéaire sur plusieurs points.
     </p>
     
@@ -197,9 +197,9 @@
     <proposition xml:id="prop-matmatprod">
     <title>Le produit matriciel, entrée par entrée</title>
     <statement><p>Soit <m>A\in\mathcal{M}_{m\times p}, B\in\mathcal{M}_{p\times n}</m> et  <m>C=AB</m> le produit des deux matrices. Alors l'entrée de la ligne <m>i</m> et de la colonne <m>j</m> de la matrice <m>C</m> est donnée par
-    <men xml:id="eq-matmatprodentree">
+    <md number="yes" xml:id="eq-matmatprodentree">
     c_{i,j}=\vec{a}_i\cdot\vec{b}_j
-    </men>
+    </md>
     où <m>\vec{a}_i</m> est la <em>ligne </em>  <m> i</m> de la matrice <m>A</m> et <m>\vec{b}_j</m> est la <em>colonne </em> <m> j</m> de la matrice <m>B</m>. En plus visuel, on a</p>
   <figure xml:id="fig-matmatprodentree">
   <caption>Le produit matriciel, entrée par entrée</caption>
@@ -241,9 +241,9 @@
     <definition xml:id="def-matpui">
     <title>Les puissances d'une matrice</title>
     <statement><p>Soit <m>A</m>, une matrice carrée. On définit la <m>k</m> ième puissance de <m>A</m> comme étant le produit de <m>A</m> avec elle-même, <m>k</m> fois:
-    <me>
+    <md>
     A^k=\underbrace{AA\cdots A}_{k \text{ fois }}
-    </me>.
+    </md>.
     </p></statement>
     </definition>
     <p>Les puissances de matrices sont utiles dans divers contextes, comme le montre l'exemple suivant. Le chapitre <xref ref="chap-applications"/> contient
@@ -263,13 +263,13 @@ plot(D,layout='circular',vertex_color="blue")
     </image>
     </figure>
     <p>
-    <me>
+    <md>
     A=\begin{pmatrix}
     0&amp;2&amp;1\\
     0&amp;0&amp;1\\
     2&amp;1&amp;0
     \end{pmatrix}
-    </me>
+    </md>
     </p>
     <p>Les puissances <m>k</m> de la matrice <m>A</m> représente le nombre de chemins de "longueur" <m>k</m> pour se rendre de la ville <m>i</m> à la ville <m>j</m> 
     en empruntant <m>k</m> chemins.
@@ -366,28 +366,28 @@ plot(D,layout='circular',vertex_color="blue")
       <proof>
       <p>On pose <m>\vec{e}_k</m>, les colonnes de la matrice identité <m>I_n</m> et <m>\vec{a}_k</m> les colonnes de <m>A</m>. Comme la <m>k</m> ième colonne du produit 
       <m>AI_n</m> est donnée par <m>A\vec{e}_k</m> et que ce produit matrice vecteur correspond à <m>a_k</m>, on a
-      <me>
+      <md>
       AI_n=A
-      </me>.
+      </md>.
       </p>
       <p>De plus, la <m>k</m> ième colonne de <m>I_mA</m> est donnée par <m>I_m\vec{a}_k</m> et ce produit matrice vecteur vaut <m>a_k</m>. On a donc
-      <me>
+      <md>
       I_mA=A
-      </me>.
+      </md>.
       </p>
       </proof>
       <proof>
       <p>On pose <m>\vec{c}_k</m>, la <m>k</m> ième colonne de la matrice <m>C</m>. Selon l'addition et la multiplication matricielle, on a pour la <m>k</m> ième colonne de <m>(A+B)C</m>
-      <me>
+      <md>
       (A+B)\vec{c}_k=A\vec{c}_k+B\vec{c}_k
-      </me>
+      </md>
        et donc, <m>(A+B)C=AC+BC</m>.
       </p>
       <p>De même, si <m>\vec{b}_k</m> représente la <m>k</m> ième colonne de <m>B</m>, on peut déterminer la <m>k</m> ième colonne de <m>A(B+C)</m> en utilisant le fait que
       la <m>k</m> ième colonne de <m>B+C</m> est <m>\vec{b}_k+\vec{c}_k</m> pour avoir
-      <me>
+      <md>
       A(\vec{b}_k+\vec{c}_k)=A\vec{b}_k+A\vec{c}_k
-      </me>.
+      </md>.
       Ainsi, <m>A(B+C)=AB+AC</m>.
       </p>
       </proof>

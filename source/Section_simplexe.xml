@@ -63,9 +63,9 @@ On considère un fermier qui dispose d'une certaine superficie de terrain pour c
 </statement>
 <solution>
 <p>On pose <m>m,s</m> pour représenter les tonnes de maïs et de soja qui seront produites. La fonction à maximiser est
-<me>
+<md>
 f(m,s)=450m+1000s
-</me>,
+</md>,
 qui est sujette aux contraintes <m>5m+15s\leq 200</m> et <m>2m+3s\leq 50</m>, qui constituent les contraintes logiques, ainsi que <m>m\geq 0,s\geq 0</m>, qui constituent les contraintes de non-négativité. On trace la région admissible à la figure suivante.
 </p>
 <figure xml:id="fig-regionadmissible2">
@@ -99,9 +99,9 @@ Le maximum se trouve lorsque l'on produit dix tonnes de maïs et dix tonnes de s
 <solution>
 <p>
 On note par <m>c</m> le nombre de chaises produites et <m>t</m> le nombre de tables produites. La fonction à optimiser est 
-<me>
+<md>
 f(c,t)=50c+100t
-</me>.
+</md>.
 La figure suivante représente la région admissible provenant des contraintes
 <md>
 <mrow>3c+10t&amp;\leq 150</mrow>
@@ -253,9 +253,9 @@ Le cout minimal est donc, à deux décimales près, de <m>52.18</m>$. À ce prix
     </mrow>
 </md>,
 appelées les <em>contraintes d'inégalité</em>, ainsi que les contraintes de non-négativité
-<me>
+<md>
 x_i\geq 0 \text{ pour tout } i=1,\ldots , n
-</me>.</p>
+</md>.</p>
 <p>Si l'objectif est de maximiser la fonction <m>f</m> sous les contraintes, on dit alors que le problème est un problème de <em>programmation linéaire</em> et qu'il est sous forme <em>canonique</em>. La fonction <m>f</m> est appelée la <em>fonction objectif</em>. De manière naturelle, il en découle la réécriture suivante:
 <md>
 <mrow>\text{maximiser } f(\vec{x})=\vec{c}^T\vec{x}=\vec{c}\cdot \vec{x}</mrow>
@@ -268,17 +268,17 @@ Dans cette formulation, il est sous-entendu  qu'une inégalité entre deux vecte
 </statement>
 </definition>
 <p>Cette forme suppose que l'on cherche toujours un maximum de la fonction objectif. Pour résoudre un problème de minimisation sur une fonction <m>g(x)</m>, on peut remplacer par <m>f(x)=-g(x)</m>. Ainsi, lorsque <m>f(\vec{x})</m> atteint son maximum, la fonction <m>g(\vec{x})</m>, elle, atteint son minimum. Également, on peut transformer les contraintes de la forme
-<me>
+<md>
 a_{i\,1}x_1+a_{i\,2}x_2+\cdots +a_{i\,n}x_n\geq b_i 
-</me>
+</md>
 en multipliant par <m>-1</m> pour obtenir
-<me>
+<md>
 -a_{i\,1}x_1-a_{i\,2}x_2-\cdots -a_{i\,n}x_n\leq -b_i 
-</me>.
+</md>.
 Si une contrainte d'égalité était présente, on pourrait la remplacer par deux contraintes d'inégalités. Ainsi,
-<me>
+<md>
 a_{i\,1}x_1+a_{i\,2}x_2+\cdots a_{i\,n}x_n= b_i 
-</me>
+</md>
 deviendrait
 <md>
 <mrow>a_{i\,1}x_1+a_{i\,2}x_2+\cdots a_{i\,n}x_n\leq b_i </mrow>
@@ -291,19 +291,19 @@ deviendrait
 <title>Forme canonique des trois problèmes</title>
 <statement><p>On considère à nouveau les problèmes des exemples <xref ref="ex-simplexe2"/>,<xref ref="ex-simplexe3"/> et <xref ref="ex-simplexe4"/>. On veut écrire la forme canonique de chacun de ces problèmes.</p></statement>
 <solution><p>On pose <m>\vec{c}=(450,1000)</m>,<m>\vec{x}=(m,s)</m>,<m>\vec{b}=(200,50)</m> et 
-<me>
+<md>
 A=\begin{pmatrix}
 5&amp;15\\ 2&amp; 3
 \end{pmatrix}
-</me>.
+</md>.
 En tenant compte des contraintes de non-négativité, le problème est sous forme canonique. Les contraintes, de même que la fonction objectif, n'ont pas eu à être réécrites puisqu'elles étaient déjà sous la bonne forme.
 </p></solution>
 <solution><p>On pose <m>\vec{c}=(50,100)</m>,<m>\vec{x}=(c,t)</m>,<m>\vec{b}=(150,72,45)</m> et 
-<me>
+<md>
 A=\begin{pmatrix}
 3&amp;10\\ 3&amp; 2\\ \frac{3}{2} &amp;\frac{5}{2}
 \end{pmatrix}
-</me>.
+</md>.
 En tenant compte des contraintes de non-négativité, le problème est sous forme canonique. Les contraintes, de même que la fonction objectif, n'ont pas eu à être réécrites puisqu'elles étaient déjà sous la bonne forme.
 </p></solution>
 <solution><p>Cette fois-ci, le problème, sous sa forme initiale, comprend des contraintes de la forme <m>\geq</m> et porte sur la minimisation d'une fonction. On remplace la fonction par <m>f(p,q)=-4p-5q</m>. On peut alors poser <m>\vec{c}=(-4,-5),\vec{x}=(p,q)</m>. On remplace les trois contraintes
@@ -319,14 +319,14 @@ par
 <mrow>-5p-7q&amp;\leq -70</mrow>
 </md>
 qui, avec la contrainte sur le cout <m>4p+5q\leq 100</m>, donne le vecteur <m>\vec{b}=(-28,-30,-70,100)</m> et la matrice
-<me>
+<md>
 A=\begin{pmatrix}
 -3&amp;-2\\ 
 -2&amp; -4\\
 -5&amp;-7\\
 4&amp;5\\
 \end{pmatrix}
-</me>.
+</md>.
 En tenant compte des contraintes de non-négativité, le problème est maintenant sous forme canonique.
 </p></solution>
 </example>
@@ -535,7 +535,7 @@ qui deviennent
 <mrow>x_1+x_2&amp;\leq 10</mrow>
 </md>.
 En ajoutant les variables d'écart, on obtient le système d'équations linéaires représenté par la matrice augmentée
-<men xml:id="eq-simplexesolbase1">
+<md number="yes" xml:id="eq-simplexesolbase1">
 A=\left(
 \begin{array}{rr|rrr|r}
 1&amp;0&amp;1&amp;0&amp;0&amp;8\\
@@ -543,7 +543,7 @@ A=\left(
 1&amp;1&amp;0&amp;0&amp;1&amp;10
 \end{array}
 \right)
-</men>.
+</md>.
 Les deux premières colonnes représentent les variables du problème en soi, les trois suivantes contiennent les valeurs des variables d'écart et la dernière est celle de la partie augmentée du système. En plus de la ligne verticale pour la partie augmentée, une autre ligne verticale a été ajoutée afin de séparer les deux catégories de variables.
 </p>
 <p>Sans même échelonner cette matrice, on peut voir que, si <m>x_1=x_2=0</m> et <m>e_1=8,e_2=5</m> et <m>e_3=10</m>, on a une solution. Comme il y a <m>3</m> variables non nulles, la solution est de base et, puisque toutes les variables sont plus grandes ou égales à <m>0</m>, elle est aussi admissible.</p>
@@ -562,7 +562,7 @@ showResetIcon(true);
 </interactive>
 </figure>
 <p>Dans la matrice <m>A</m> de l'équation <xref ref="eq-simplexesolbase1"/>, on peut voir dans les colonnes <m>3,4</m> et <m>5</m> une matrice identité. En fixant aux variables associées à ces colonnes les valeurs dans la dernière colonne, on a obtenu la première solution présentée plus haut. Si l'on effectue l'opération élémentaire <m>L_3-L_1\to L_3</m> suivie de l'opération élémentaire <m>L_3-L_2\to L_3</m>, on obtient la matrice 
-<men xml:id="eq-simplexesolbase2">
+<md number="yes" xml:id="eq-simplexesolbase2">
 A'=\left(
 \begin{array}{rr|rrr|r}
 1&amp;0&amp;1&amp;0&amp;0&amp;8\\
@@ -570,9 +570,9 @@ A'=\left(
 0&amp;0&amp;-1&amp;-1&amp;1&amp;-3
 \end{array}
 \right)
-</men>. En regardant maintenant les colonnes <m>1,2</m> et <m>5</m>, on trouve à nouveau une matrice identité qui, comme ci-dessus, offre la solution de base <m>x_1=8,x_2=5,e_1=0,e_2=0,e_3=-3</m> obtenues auparavant. Le fait que les solutions de base se trouvent de cette manière donne un sens à l'appellation <lq/>de base<rq/>. En effet, dans le cas des systèmes d'équations linéaires, la définition <xref ref="def-solbase"/> et le reste de cette section montrent que, pour trouver les solutions de base d'un système d'équations linéaires, on peut utiliser la matrice identité qui se trouve à l'intérieur de la forme échelonnée réduite de la matrice du système. Par contre, la solution trouvée ici n'est pas admissible, car elle ne respecte pas la troisième contrainte.</p>
+</md>. En regardant maintenant les colonnes <m>1,2</m> et <m>5</m>, on trouve à nouveau une matrice identité qui, comme ci-dessus, offre la solution de base <m>x_1=8,x_2=5,e_1=0,e_2=0,e_3=-3</m> obtenues auparavant. Le fait que les solutions de base se trouvent de cette manière donne un sens à l'appellation <lq/>de base<rq/>. En effet, dans le cas des systèmes d'équations linéaires, la définition <xref ref="def-solbase"/> et le reste de cette section montrent que, pour trouver les solutions de base d'un système d'équations linéaires, on peut utiliser la matrice identité qui se trouve à l'intérieur de la forme échelonnée réduite de la matrice du système. Par contre, la solution trouvée ici n'est pas admissible, car elle ne respecte pas la troisième contrainte.</p>
 <p>Il est donc possible de trouver les solutions de base (celles qui sont associées au problème d'optimisation) en effectuant des opérations élémentaires sur les lignes afin de changer la position de la matrice identité se trouvant à l'intérieur de la matrice des contraintes. Par exemple, à partir de la matrice <m>A'</m> de l'équation <xref ref="eq-simplexesolbase2"/>, on peut remettre la variable <m>e_2</m> en base et obtenir une solution de base en effectuant d'abord l'opération élémentaire <m>-L_3\to L_3</m>, puis l'opération élémentaire <m>L_2-L_3\to L_2</m>. Ces opérations donnent la matrice
-<me>
+<md>
 A''=\left(
 \begin{array}{rr|rrr|r}
 1&amp;0&amp;1&amp;0&amp;0&amp;8\\
@@ -580,7 +580,7 @@ A''=\left(
 0&amp;0&amp;1&amp;1&amp;-1&amp;3
 \end{array}
 \right)
-</me>,
+</md>,
 offrant cette fois-ci comme solution <m>x_1=8,x_2=2,e_1=0,e_2=3,e_3=0</m>. La figure <xref ref="fig-simplexesolbase"/> permet de constater que cette réponse est la solution optimale trouvée tout au début de la section. L'opération qui consiste à prendre une des variables et de transformer sa colonne à l'identité est appelé le <em>pivotage</em>. Le nom vient du fait que le rôle de la variable ressemble à celui d'un pivot, qui est le seul élément non nul de sa colonne et valant <m>1</m>, sans toutefois être le premier élément non nul de la ligne.
 </p>
 <p>Quelle entrée doit-on choisir pour effectuer le pivotage? En excluant la dernière colonne, il y a potentiellement soixante manières de transformer la matrice pour y faire apparaitre une matrice identité dans trois de ses colonnes. Pour un système à plus d'équations et d'inconnues, le nombre est encore plus élevé. Pour s'assurer de ne pas obtenir des solutions non admissibles, on choisit la ligne de l'équation pour effectuer le pivotage en considérant les deux critères suivants:
@@ -600,7 +600,7 @@ On considère le système
 <mrow>\frac{3}{2}c+\frac{5}{2}t+e_3&amp;= 45</mrow>
 </md>,
 qui provient de l'ajout des variables d'écart aux données du problème <xref ref="ex-simplexe3"/>. La matrice associée est
-<me>
+<md>
 A=\left(
 \begin{array}{rr|rrr|r}
 3&amp; 10&amp; 1&amp; 0&amp; 0&amp; 150\\
@@ -608,7 +608,7 @@ A=\left(
 \frac{3}{2}&amp; \frac{5}{2}&amp;0&amp;0&amp;1 &amp; 45
 \end{array}
 \right)
-</me>.
+</md>.
 Toutes les entrées de la matrice des coefficients sont positives, ce qui signifie que l'on peut pivoter selon n'importe quelle variable. Si l'on veut pivoter selon la variable <m>c</m>, quelle ligne doit-on choisir?</p>
 </statement>
 <solution><p>
@@ -667,11 +667,11 @@ show("Après élimination de la ligne 2",A)
 </solution>
 </example>
 <p>Le choix de la ligne se fait donc à partir de conditions sur les éléments des lignes de la matrice. Qu'en est-il du choix de la colonne? C'est la fonction objectif qui guidera le choix de la variable sur laquelle pivoter. Comme il est décrit dans l'introduction de cette sous-section, on cherche à se déplacer d'une solution de base admissible à une autre en allant dans la direction qui offre la plus grande variation de la fonction objectif. Puisque la fonction est linéaire, les variations dans chacune des directions sont simplement données par la valeur des coefficients qui multiplient les variables. On ajoute une ligne au bas de la matrice contenant les contraintes avec les variables d'écart ainsi qu'une colonne entre la dernière variable d'écart et la colonne représentant la partie augmentée. Dans l'exemple d'introduction, où la fonction à maximiser est <m>f(x_1,x_2)=2x_1+x_2</m>, on crée une nouvelle équation en écrivant 
-<me>
+<md>
 -2x_1-x_2+f=0
-</me>.
+</md>.
 La nouvelle variable <m>f</m> représente la fonction à optimiser. La matrice devient
-<me>
+<md>
 A=\left(
 \begin{array}{rr|rrr|r|r}
 1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;8\\
@@ -681,10 +681,10 @@ A=\left(
 -2&amp;-1&amp;0&amp;0&amp;0&amp;1&amp;0
 \end{array}
 \right)
-</me>.
+</md>.
 </p>
 <p>La colonne à choisir pour pivoter est celle qui a la plus petite valeur négative dans la dernière ligne (négative, car les coefficients ont changé de côté dans l'équation). Si toutes les valeurs sont positives, il n'est plus possible d'améliorer la solution. Dans ce cas, la première variable est celle sur laquelle on pivote et l'on choisit la première ligne, puisque <m>8\leq 10</m>. Lorsque l'on effectue les opérations élémentaires, on considère également la dernière ligne. Après pivotage en utilisant les opérations élémentaires <m>L_3-L_1\to L_3</m> et <m>L_4+2L_1\to L_4</m>, la matrice devient
-<me>
+<md>
 A'=\left(
 \begin{array}{rr|rrr|r|r}
 1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;8\\
@@ -694,11 +694,11 @@ A'=\left(
 0&amp;-1&amp;2&amp;0&amp;0&amp;1&amp;16
 \end{array}
 \right)
-</me>.
+</md>.
 La matrice identité se trouve dans les colonnes un, quatre et cinq, offrant comme solution de base <m>x_1=8,x_2=0,e_1=0,e_2=5,e_3=2</m> et donnant comme valeur <m>16</m> pour la fonction <m>f</m>. Ceci correspond bien à une solution de base admissible, que l'on peut visualiser sur la figure <xref ref="fig-simplexesolbase"/>.
 </p>
 <p>La seule valeur négative de la dernière ligne est dans la deuxième colonne. C'est donc selon <m>x_2</m> que le pivotage se poursuit. La troisième ligne sera choisie étant donné que <m>2\leq 5</m>. Après les opérations élémentaires, on a
-<me>
+<md>
 A''=\left(
 \begin{array}{rr|rrr|r|r}
 1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;8\\
@@ -708,7 +708,7 @@ A''=\left(
 0&amp;0&amp;1&amp;0&amp;1&amp;1&amp;18
 \end{array}
 \right)
-</me>.
+</md>.
 La solution de base correspondant à cette solution est <m>x_1=8,x_2=2,e_1=0,e_2=3,e_3=0</m>, qui donne comme valeur <m>18</m> à la fonction <m>f</m>. Cette solution est bel et bien la solution optimale au problème, car on voit que toutes les valeurs de la dernière ligne de la matrice <m>A''</m>  sont positives. En réécrivant l'équation correspondant à cette dernière ligne, on voit que <m>f=18-e_1-e_3</m> et, comme <m>e_1,e_3</m> sont positives ou nulles, <m>18</m> doit être le maximum.
 </p>
 <definition xml:id="def-matinitsimplexe">
@@ -717,7 +717,7 @@ La solution de base correspondant à cette solution est <m>x_1=8,x_2=2,e_1=0,e_2
 On considère un problème de programmation linéaire à <m>n</m> variables et <m>m</m> contraintes, sous sa forme canonique. On note <m>A</m>, la matrice <m>m\times n</m> des coefficients des contraintes, on note <m>I_3</m>, la matrice identité <m>m\times m</m>, on note <m>\vec{b}\in\mathbb{R}^n</m>, le vecteur des membres de droite et finalement, on note <m>\vec{c}\in \mathbb{R}^n</m>, le vecteur des coefficients de la fonction objectif.
 </p>
 <p>La matrice initiale du simplexe associée au problème de programmation linéaire est la matrice
-<me>
+<md>
 S=\left(\begin{array}{ccc|c|c}
 &amp;\lvert&amp; &amp; \lvert &amp; \lvert \\
 A&amp;\lvert&amp; I&amp; \vec{0} &amp; \vec{b}\\
@@ -726,7 +726,7 @@ A&amp;\lvert&amp; I&amp; \vec{0} &amp; \vec{b}\\
 \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}&amp;&amp;\vec{v}\hspace{0.2cm}\rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm}&amp;1&amp;0
 \end{array}
 \right)
-</me>.
+</md>.
 </p>
 <p>La partie de matrice contenant les matrices <m>A</m> et <m>I</m> est appelé le bloc principal de la matrice <m>S</m>.<fn>Cette appellation est de l'auteur.</fn></p>
 </statement>
@@ -750,14 +750,14 @@ A&amp;\lvert&amp; I&amp; \vec{0} &amp; \vec{b}\\
 <example>
 <title>L'algorithme du simplexe en action</title>
 <statement><p>On considère le problème de la culture de maïs et de soja de <xref ref="ex-simplexe2"/>. La matrice initiale du simplexe est
-<me>
+<md>
 S=\left(\begin{array}{rrrr|r|r}
 5&amp;15&amp;1&amp;0&amp;0&amp;200\\
 2&amp;3&amp;0&amp;1&amp;0&amp;50\\
 \hline
 -450&amp;-1000&amp;0&amp;0&amp;1&amp;0
 \end{array}\right)
-</me>.
+</md>.
 On veut appliquer l'algorithme du simplexe à cette matrice afin de trouver la solution optimale.
 </p></statement>
 <solution><p>
@@ -816,7 +816,7 @@ On lit la solution dans la matrice. La valeur maximale se trouve dans la derniè
 <title>Optimisation de la production de chaises et de tables avec la méthode du simplexe</title>
 <statement>
 <p>On considère à nouveau le problème de l'exemple <xref ref="ex-simplexe3"/>, dont la matrice initiale du simplexe est donnée par
-<me>
+<md>
 S=\left(\begin{array}{rrrrr|r|r}
 3&amp;10&amp;1&amp;0&amp;0&amp;0&amp;150\\
 3&amp;2&amp;0&amp;1&amp;0&amp;0&amp;72\\
@@ -824,7 +824,7 @@ S=\left(\begin{array}{rrrrr|r|r}
 \hline
 -50&amp;-100&amp;0&amp;0&amp;0&amp;1&amp;0
 \end{array}\right)
-</me>.</p>
+</md>.</p>
 <p>On trouve la valeur maximale de la fonction objectif à l'aide de la méthode du simplexe.</p>
 </statement>
 <solution>
@@ -873,22 +873,22 @@ Toutes les entrées de la dernière ligne étant positives, l'algorithme se term
 <title>Problèmes de minimisation</title>
 <p>Pour que l'algorithme du simplexe fonctionne, toutes les entrées de la dernière colonne doivent être positives afin que les variables d'écart puissent fournir une solution admissible, ces variables devant être positives. En présence de valeurs négatives dans la dernière colonne, on effectue le pivotage sur l'une des entrées négatives d'une ligne dont l'élément de la dernière colonne est aussi négatif. Si une telle entrée n'existe pas et que la seule entrée négative de la ligne se trouve dans la dernière colonne, alors le problème ne possède pas de solution (cela signifierait, par exemple, que la somme de variables positives doit être plus petite qu'un nombre négatif).</p>
 <p>À titre d'exemple, on considère le problème de maximisation sous forme canonique suivant. La fonction à maximiser est
-<me>
+<md>
 f(x,y)=-2x-3y
-</me>,
+</md>,
 qui est sujette aux contraintes
 <md>
 <mrow>-x-y&amp;\leq -9</mrow>
 <mrow>x-y&amp;\leq 1</mrow>
 </md>.
 La matrice initiale du simplexe est
-<me>
+<md>
 S=\left(\begin{array}{rrrr|r|r}
 -1&amp;-1&amp;1&amp;0&amp;0&amp;-9\\
 1&amp;-1&amp;0&amp;1&amp;0&amp;1\\
 2&amp;3&amp;0&amp;0&amp;1&amp;0
 \end{array}\right)
-</me>.
+</md>.
 </p>
 <p>Dans un premier temps, on remarque qu'aucune entrée de la dernière ligne n'est négative. Par contre, la matrice possède un élément négatif dans sa dernière colonne, ce qui fait qu'elle n'est pas, en principe, une matrice initiale du simplexe. La solution initiale de cette matrice, donnée par <m>x=y=0, e_1=-9,e_2=1</m> et <m>f=0</m>, n'est même pas admissible, puisque <m>e_1&lt; 0</m>. Afin de pouvoir utiliser l'algorithme du simplexe, on commence par un pivotage sur la première ligne, qui contient l'entrée négative égale à <m>-9</m>. Dans ce cas-ci, on peut pivoter par rapport à n'importe quelle variable, puisque <m>x</m> et <m>y</m> sont tous deux négatifs dans la première ligne. Si l'on choisit de pivoter pour <m>x</m>, la matrice devient
 <md>
@@ -933,7 +933,7 @@ Cette fois, les valeurs des <m>b_i</m> sont toutes positives. Mais comme les coe
 Résolution du problème des nutriments par la méthode du simplexe
 </title>
 <statement><p>On considère à nouveau le problème de la minimisation du cout dans l'optimisation du régime de l'exemple <xref ref="ex-simplexe4"/>. La forme canonique de ce problème a été donnée à l'exemple <xref ref="ex-simplexecanonique"/>. On veut résoudre ce problème à nouveau, mais à l'aide de la méthode du simplexe. La matrice initiale du simplexe est
-<me>
+<md>
 S=\left(\begin{array}{rrrrrr|r|r}
 -3&amp;-2&amp;1&amp;0&amp;0&amp;0&amp;0&amp;-28\\
 -2&amp;-4&amp;0&amp;1&amp;0&amp;0&amp;0&amp;-30\\
@@ -941,7 +941,7 @@ S=\left(\begin{array}{rrrrrr|r|r}
 4&amp;5&amp;0&amp;0&amp;0&amp;1&amp;0&amp;100\\
 4&amp;5&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0
 \end{array}\right)
-</me>.</p></statement>
+</md>.</p></statement>
 <solution><p>
 La section du vecteur <m>\vec{b}</m> contient trois entrées négatives. La ligne de chacune de ces entrées contient plusieurs valeurs négatives. Bien qu'en théorie on peut effectuer le pivotage sur n'importe laquelle de ces valeurs, on a intérêt à en choisir une qui réduira le nombre de calculs subséquents à effectuer. Pour cela, contrairement à ce qui est normalement fait, on choisit l'entrée dont le ratio <m>b_i/a_{i\,j}</m> est le plus <em>grand</em>. Ceci éliminera en une étape de pivotage les négatifs de la section des <m>b_i</m>. Dans la matrice <m>S</m> de cet exemple, c'est l'entrée de la ligne deux et de la colonne un qui produit ce plus grand ratio. Le pivotage donne la nouvelle matrice
 <md>

@@ -32,17 +32,17 @@ plot(G,layout="circular")
     </image>
     </figure>
     <p>Pour chaque page, on associe la valeur de la page en considérant la proportion de liens pointant vers cette page en provenance de chaque sommet. Par exemple, pour la page <m>0</m>, la valeur associée est
-    <me>
+    <md>
     x_0=\frac{1}{2}x_1
-    </me>
+    </md>
     puisque le seul lien pointant vers <m>0</m> provient de <m>1</m> et que cette dernière possède deux liens sortants. La valeur de <m>x_1</m> est
-    <me>
+    <md>
     x_1=\frac{1}{2}x_0+x_2
-    </me>
+    </md>
     et celle de <m>x_2</m> est 
-    <me>
+    <md>
     x_2=\frac{1}{2}x_0+\frac{1}{2}x_1
-    </me>.
+    </md>.
     </p>
     <p>Le vecteur PageRank est le vecteur <m>\vec{v}=(x_0,x_1,x_2)</m>.</p>
     </introduction>
@@ -78,9 +78,9 @@ plot(G,layout="circular")
     </statement></task>
     <task><introduction><p>Dans la réalité, il serait très couteux de calculer le vecteur propre de la matrice de Google, puisque le véritable web contient près de deux-milliards de sites web <fn>En date de 2022</fn>, qui contiennent chacun plusieurs pages. Échelonner une telle matrice est impensable. </p></introduction>
     <task><statement><p>On s'intéresse à la position d'un utilisateur après <m>n</m> clics qui cliquerait sur les liens de manières aléatoires. Par exemple, dans le web hypothétique de la figure <xref ref="fig-PageRank1"/>, avec la page de départ <m>0</m>, si l'on pose <m>\vec{v}_0=(1,0,0)</m>, alors les chances de se retrouver sur les pages <m>0,1,2</m> après un clic sont données par les entrées du vecteur
-    <me>
+    <md>
     \vec{x}_1=A\vec{x}_0
-    </me>. En général, les chances après <m>n</m> clics sont données par
+    </md>. En général, les chances après <m>n</m> clics sont données par
     <md>
     <mrow>A\vec{x}_n&amp;=A\vec{x}_{n-1}</mrow>
     <mrow>&amp;=A(A\vec{x}_{n-2})</mrow>
@@ -127,16 +127,16 @@ plot(G,layout="circular")
     <task><statement><p>Calculer <m>G^{20}</m> et vérifier à nouveau ce qui a été observé à la partie <xref ref="proj-PageRank1"/>.</p></statement></task>
     <task><introduction><p>Une matrice comme celle du web hypothétique de la figure <xref ref="fig-PageRank3"/> est problématique car, à partir d'une certaine puissance, des entrées de la matrice <m>G^n</m> sont toujours nulles et il est impossible de retourner à ces pages. En regardant plus attentivement le graphe, on constate que lorsqu'on entre dans l'une des pages <m>3,4,5</m>, il est impossible d'en ressortir.</p>
     <p>Google contourne ce problème en modifiant légèrement sa matrice <m>G</m>. En fait, il utilise une matrice <m>G^{'}</m> définie à partir de la matrice <m>G</m> et d'une matrice <m>H</m> qui, pour un web à <m>n</m> pages serait égale à
-    <me>H=\begin{pmatrix}
+    <md>H=\begin{pmatrix}
     \frac{1}{n}&amp;\frac{1}{n}&amp;\cdots &amp; \frac{1}{n}\\
     \frac{1}{n}&amp;\frac{1}{n}&amp;\cdots &amp; \frac{1}{n}\\
     \vdots&amp;\vdots&amp;\ddots &amp; \vdots\\
     \frac{1}{n}&amp;\frac{1}{n}&amp;\cdots &amp; \frac{1}{n}
-    \end{pmatrix}</me>. Dans cette matrice, toutes les pages ont la même chance d'être visitées, à partir de n'importe quelle autre page, incluant la page sur laquelle on se trouve déjà. </p><p>
+    \end{pmatrix}</md>. Dans cette matrice, toutes les pages ont la même chance d'être visitées, à partir de n'importe quelle autre page, incluant la page sur laquelle on se trouve déjà. </p><p>
     L'équation pour la matrice <m>G^{'}</m> est 
-    <me>
+    <md>
     G^{'}=pG+(1-p)H
-    </me>
+    </md>
     où <m>p\in [0,1]</m>. La valeur de <m>p</m> utilisée par Google n'est pas connue. Pour la suite, on utilisera <m>p=0.85</m>.</p>
     </introduction>
     <task><statement><p>En prenant à nouveau la situation de la figure <xref ref="fig-PageRank1"/>, déterminer le vecteur propre de la matrice <m>G^{'}</m>. Est-il différent de celui de la matrice <m>G</m>?</p>

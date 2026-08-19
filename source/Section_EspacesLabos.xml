@@ -26,13 +26,13 @@
     </image>
     </figure>
     <p>On considère, dans un premier temps, une version simplifiée du jeu où la grille est de taille <m>3\times 3</m>. On peut représenter une grille de jeu par une matrice où les entrées sont <m>1</m> si la lumière est allumée et <m>0</m> si la lumière est éteinte. La figure <xref ref="fig-lightsout3x3-1"/> illustre un exemple associé à la matrice
-    <men xml:id="eq-lightsoutmatL1">
+    <md number="yes" xml:id="eq-lightsoutmatL1">
     L_1=\begin{pmatrix}
     1&amp;0&amp;1\\
     0&amp;1&amp;0\\
     0&amp;1&amp;0
     \end{pmatrix}
-    </men>.</p>
+    </md>.</p>
     <figure xml:id="fig-lightsout3x3-1">
     <caption>Un exemple <m>3\times 3</m></caption>
     <image source="images/lightsout3x3-1">
@@ -75,14 +75,14 @@
     </sage>
     </introduction>
     <task><statement><p>On peut associer à chaque case une matrice donnant son effet lorsqu'on clique sur la case. L'effet d'un clic revient donc à additionner à une matrice représentant une grille de <lq/>Lights Out<rq/> la matrice du clic, selon les règles de l'addition définies plus haut. Par exemple, un clic sur la case en position <m>(2,1)</m> correspond à la matrice
-    <me>
+    <md>
     C_{2\,1}=\begin{pmatrix}
     1&amp;0&amp;0\\
     1&amp;1&amp;0\\
     1&amp;0&amp;0
     \end{pmatrix}
-    </me>. Son effet sur la grille de la figure <xref ref="fig-lightsout3x3-1"/> peut donc être obtenu en ajoutant à la matrice <m>L_1</m> la matrice <m>C_{2\,2}</m> (suivant les règles d'additions définies plus haut):
-    <me>
+    </md>. Son effet sur la grille de la figure <xref ref="fig-lightsout3x3-1"/> peut donc être obtenu en ajoutant à la matrice <m>L_1</m> la matrice <m>C_{2\,2}</m> (suivant les règles d'additions définies plus haut):
+    <md>
     \begin{pmatrix}
     1&amp;0&amp;1\\
     0&amp;1&amp;0\\
@@ -96,7 +96,7 @@
     1&amp;0&amp;0\\
     1&amp;1&amp;0
     \end{pmatrix}
-    </me>. Le résultat est illustré ci-dessous.</p>
+    </md>. Le résultat est illustré ci-dessous.</p>
     <figure xml:id="fig-lightsout3x3-2">
     <caption>L'exemple <m>3\times 3</m> après un clic</caption>
     <image source="images/lightsout3x3-2">
@@ -128,9 +128,9 @@
     </sage>
     </statement></task>
     <task><statement><p>Vérifier que
-    <men xml:id="eq-lightsoutsol3x3-1">
+    <md number="yes" xml:id="eq-lightsoutsol3x3-1">
     L_1+C_{1\,1}+C_{1\,3}+C_{3\,1}+C_{3\,2}+C_{3\,3}=O
-    </men> et est donc une solution à la grille de la figure <xref ref="fig-lightsout3x3-2"/>.</p>
+    </md> et est donc une solution à la grille de la figure <xref ref="fig-lightsout3x3-2"/>.</p>
     <sage>
     <input>
     
@@ -142,21 +142,21 @@
     </task>
     <task><introduction>
     <p>On s'intéresse maintenant à obtenir une solution pour une configuration de départ spécifique <m>L</m>. On cherche une suite de matrice <m>C_k\in\{C_{1\,1},C_{2\,2},\ldots , C_{3\,3}\} </m> telles que
-    <me>
+    <md>
     L+C_1+C_2+\cdots C_n=O
-    </me>.
+    </md>.
     Puisque chaque matrice est son propre inverse, on peut réécrire l'équation sous la forme
-    <me>
+    <md>
     C_1+C_2+\cdots C_n=L
-    </me>.
+    </md>.
     </p></introduction>
     <task><statement><p>Expliquer pourquoi, dans une solution optimale (nombre minimal de clic), chaque matrice apparait au plus une fois.</p></statement></task>
     <task><statement><p>En vertu de l'exercice précédent, on peut alors dire que pour avoir une solution, il faut que la matrice <m>L</m> soit dans le <m>\vspan</m> des matrices <m>\{C_{1\,1},C_{2\,2},\ldots , C_{3\,3}\}</m>, c'est-à-dire
-    <men xml:id="eq-lightsout3x3">
+    <md number="yes" xml:id="eq-lightsout3x3">
     x_1C_{1\,1}+x_2C_{2\,2}+\ldots + x_9C_{3\,3}=L
-    </men>,
+    </md>,
     avec les <m>x_k\in\{0,1\}</m>. Comme l'espace des matrices de taille <m>3\times 3</m> est de dimension <m>9</m> et qu'une base de cet espace est donnée par les neuf matrices qui ne contiennent qu'une entrée non nulle égale à <m>1</m> (voir l'exemple <xref ref="ex-espacesetdimension"/>), on peut écrire l'équation <xref ref="eq-lightsout3x3"/> sous la forme matricielle
-    <me>
+    <md>
     \begin{pmatrix}
 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 1 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
@@ -168,10 +168,10 @@
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 1 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1
     \end{pmatrix}\begin{pmatrix} x_1\\ x_2\\ x_3\\ x_4\\ x_5\\ x_6 \\ x_7\\ x_8\\ x_9\\ \end{pmatrix}=L_{\text{vec}}
-    </me> où <m>L_{\text{vec}}</m> correspond à l'écriture vectorielle de la matrice <m>L</m> dans la base des matrices ne contenant qu'un seul <m>1</m>. La représentation vectorielle de la matrice <m>L_1</m> l'équation <xref ref="eq-lightsoutmatL1"/> est donnée par <m>L_{1\,\text{vec}}=(1,0,1,0,1,0,0,1,0)</m>. On considère donc que la base ordonnée de cet espace est
-    <me>
+    </md> où <m>L_{\text{vec}}</m> correspond à l'écriture vectorielle de la matrice <m>L</m> dans la base des matrices ne contenant qu'un seul <m>1</m>. La représentation vectorielle de la matrice <m>L_1</m> l'équation <xref ref="eq-lightsoutmatL1"/> est donnée par <m>L_{1\,\text{vec}}=(1,0,1,0,1,0,0,1,0)</m>. On considère donc que la base ordonnée de cet espace est
+    <md>
     \left\langle \begin{pmatrix}1&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;1&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;1\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}\begin{pmatrix}0&amp;0&amp;0\\ 1&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 1&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 1 \\ 0&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 1&amp; 0&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 1&amp; 0\end{pmatrix},\begin{pmatrix}0&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}\right \rangle_{\mathcal{B}}
-    </me>.
+    </md>.
     La première colonne de cette matrice vient donc du fait que 
     <md>
     <mrow>x_1C_{1\, 1}&amp;=x_1\left(\begin{pmatrix}1&amp;0&amp;0\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}+\begin{pmatrix}0&amp;0&amp;1\\ 0&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}+\begin{pmatrix}0&amp;0&amp;0\\ 1&amp; 0&amp; 0 \\ 0&amp; 0&amp; 0\end{pmatrix}\right)</mrow>

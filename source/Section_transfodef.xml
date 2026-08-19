@@ -174,9 +174,9 @@ P
     <title>Les transformations linéaires et les points</title>
     <p>
    Si <m>A,B</m> sont des points et que <m>\vec{v}=\vecl{AB}</m>, alors on note 
-   <me>
+   <md>
    T(\vec{v})=T(\vecl{AB})=\vecl{T(A)T(B)}
-   </me>,
+   </md>,
    où <m>\vecl{T(A)T(B)}</m> doit être vu comme une forme raccourcie du vecteur <m>T(\vecl{OB})-T(\vecl{OA})</m>.
     </p>
     </remark>
@@ -247,13 +247,13 @@ P
      
      <p>Par contre, si le but est de montrer qu'un objet ne satisfait pas une définition contenant des phrases comme <em>pour tout vecteur ou nombre</em>, alors là, il est suffisant de trouver un seul cas qui ne satisfait pas à la définition.</p>
      <p>Par exemple, pour montrer que la norme d'un vecteur n'est pas une transformation linéaire, on aurait pu tout simplement prendre les vecteurs <m>\vec{u}=(1,0),\vec{v}=(0,1)</m> et constater que 
-     <me>
+     <md>
      \norm{\vec{u}+\vec{v}}=\sqrt{2}
-     </me>
+     </md>
      alors que
-     <me>
+     <md>
      \norm{\vec{u}}+\norm{\vec{v}}=1+1=2
-     </me>.</p>
+     </md>.</p>
     </insight>
     <p>Afin de se concentrer sur l'aspect intuitif et de s'appuyer sur la géométrie, on étudie dans un premier temps les transformations linéaires de <m>\R^2</m> vers <m>\R^2</m> et de <m>\R^3</m> vers <m>\R^3</m>.
     Plus tard, on étudiera les transformations linéaires de <m>\R^n</m> vers <m>\R^m</m> (voir le chapitre <xref ref="sec-transfodimsup"/>).</p>
@@ -286,9 +286,9 @@ P
     <mrow>&amp;=I(x_1,y_1)+I(x_2,y_2)</mrow>
     </md>.
     De même,
-    <me>
+    <md>
     I(cx_1,cy_1)=(cx_1,cy_1)=c(x_1,y_1)=cI(x_1,y_1)
-    </me>.
+    </md>.
     </p>
     </solution>
     <solution>
@@ -435,9 +435,9 @@ P
     <theorem xml:id="thm-transfocompo">
     <title>La composition de transformations linéaires</title>
     <statement><p>Soit <m>T_1</m> et <m>T_2</m>, des transformations linéaires telles que l'image de <m>T_2</m> est comprise dans le domaine de <m>T_1</m>. Alors la transformation
-    <me>
+    <md>
     (T_1\circ T_2)(\vec{u})=T_1(T_2(\vec{u}))
-    </me>
+    </md>
     est une transformation linéaire.
     </p></statement>
     <proof>
@@ -539,11 +539,11 @@ P
     <title>La forme matricielle d'une transformation linéaire</title>
     <p>Soit  <m>\vec{u}=(x,y)</m> un vecteur de <m>\R^2</m>. Il est toujours possible de décomposer le vecteur <m>\vec{u}</m> comme une combinaison linéaire des vecteurs
     <m>(1,0)</m> et <m>(0,1)</m>, simplement en écrivant
-    <men xml:id="eq-decstd">
+    <md number="yes"  xml:id="eq-decstd">
     (x,y)=(x,0)+(0,y)=x(1,0)+y(0,1)
-    </men>.
-    En fait, cette décomposition est toujours possible avec <m>(x,y,z)\in \R^3</m>  avec les vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>, car <me>(x,y,z)=x(1,0,0)+y(0,1,0)+z(0,0,1)</me>
-    ou même dans <m>\R^n</m> avec <me>\begin{pmatrix}x_1\\x_2 \\ x_3 \\\vdots \\ x_n\end{pmatrix}=x_1\begin{pmatrix}1\\0\\ 0\\ \vdots \\ 0\end{pmatrix}+x_2\begin{pmatrix}0\\1\\ 0\\ \vdots \\ 0\end{pmatrix}+x_n\begin{pmatrix}0 \\0 \\ \vdots \\ 0 \\ 1\end{pmatrix}</me>.
+    </md>.
+    En fait, cette décomposition est toujours possible avec <m>(x,y,z)\in \R^3</m>  avec les vecteurs <m>(1,0,0),(0,1,0)</m> et <m>(0,0,1)</m>, car <md>(x,y,z)=x(1,0,0)+y(0,1,0)+z(0,0,1)</md>
+    ou même dans <m>\R^n</m> avec <md>\begin{pmatrix}x_1\\x_2 \\ x_3 \\\vdots \\ x_n\end{pmatrix}=x_1\begin{pmatrix}1\\0\\ 0\\ \vdots \\ 0\end{pmatrix}+x_2\begin{pmatrix}0\\1\\ 0\\ \vdots \\ 0\end{pmatrix}+x_n\begin{pmatrix}0 \\0 \\ \vdots \\ 0 \\ 1\end{pmatrix}</md>.
 </p>
 <p>Les vecteurs qui ne contiennent que des zéros sauf pour l'une de leur composante ont une importance particulière, en vertu de cette décomposition. On leur donne un nom et une définition ci-dessous.</p>
 <definition xml:id="def-basecanonique">
@@ -578,9 +578,9 @@ En regardant la dernière ligne, on remarque un vecteur dont chaque composante e
 <p>Puisque <m>\begin{pmatrix}(a,c)\cdot (x,y)\\(b,d)\cdot(x,y)\end{pmatrix}</m> est un vecteur dont chaque composante est un produit scalaire de vecteurs, il ne suffit pas
 de mettre en évidence le vecteur <m>(x,y)</m> pour avoir <m>\begin{pmatrix}(a,c)\cdot \\(b,d)\cdot\end{pmatrix}(x,y)</m> ou encore <m>\begin{pmatrix}(a,c) \\(b,d)\end{pmatrix}\cdot(x,y)</m>.
 Ces deux expressions n'ont pas de sens mathématique. On propose la notation suivante pour la mise en évidence du vecteur <m>(x,y)</m>:
-<men xml:id="eq-matvecprod">
+<md number="yes"  xml:id="eq-matvecprod">
 \begin{pmatrix}(a,c)\cdot (x,y)\\(b,d)\cdot(x,y)\end{pmatrix}=\begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}\vecd{x}{y}
-</men>.
+</md>.
 </p>
 <p>Il convient de rappeler ici que <m>\vecd{a}{b}=T(1,0)</m> et <m>\vecd{c}{d}=T(0,1)</m>, soit l'image par la transformation des vecteurs <m>(1,0)</m> et <m>(0,1)</m>, la base canonique de <m>\mathbb{R}^2</m>.
 L'objet <m>\begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}</m> est appelé la matrice de la transformation linéaire <m>T</m>. Ses colonnes sont donc les images des vecteurs <m>(1,0)</m> et <m>(0,1)</m>.
@@ -597,35 +597,35 @@ Un exemple avec un transfo faite plus tôt, décortiquer la matrice
 <title>Une matrice</title>
 <statement><p>Une matrice est un ensemble de <m>m*n</m> nombres agencés dans un tableau de <m>m</m> lignes et <m>n</m> colonnes. Si <m>A</m> est une matrice, on dénote par
 <m>a_{i\, j}</m> l'élément situé à la ligne <m>i</m> et à la colonne <m>j</m>, de sorte que
-<men xml:id="eq-matindice">
+<md number="yes"  xml:id="eq-matindice">
 A=\begin{pmatrix}
 a_{1\, 1}&amp;a_{1\, 2}&amp;\cdots &amp; a_{1\, n}\\
 a_{2\, 1}&amp;a_{2\, 2}&amp;\cdots &amp; a_{2\, n}\\
 \vdots  &amp; \vdots &amp; \ddots &amp; \vdots \\
 a_{m\, 1}&amp;a_{m\, 2}&amp;\cdots &amp; a_{m\, n}\\
 \end{pmatrix}
-</men >.
+</md >.
 </p>
 <p>Soit <m>\vec{c}_1,\vec{c}_2,\ldots, \vec{c}_n</m> des vecteurs de <m>\R^m</m>. On note parfois la matrice dont les colonnes sont formées des vecteurs 
 <m>\vec{c}_1,\vec{c}_2,\ldots, \vec{c}_n</m> comme étant la matrice
-<men xml:id="eq-matcol">
+<md number="yes"  xml:id="eq-matcol">
 A=\begin{pmatrix}
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
 \vec{c}_1 &amp; \vec{c}_2 &amp; \cdots &amp; \vec{c}_n \\
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert
 \end{pmatrix}
-</men>.
+</md>.
 Ces colonnes sont des vecteurs de <m>\mathbb{R}^m</m> qui correspondent à l'image des <xref ref="def-basecanonique" text="custom">vecteurs de la base canonique</xref> de <m>\mathbb{R}^n</m>.</p>
 <p>De même, si <m>\vec{r}_1,\vec{r}_2,\ldots, \vec{r}_m</m> sont des vecteurs de <m>\R^n</m>, on note la matrice dont les lignes sont formées des vecteurs 
 <m>\vec{r}_1,\vec{r}_2,\ldots, \vec{r}_m</m> comme étant  
-<men xml:id="eq-matligne">
+<md number="yes"  xml:id="eq-matligne">
 A=\begin{pmatrix}
     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
     \vdots &amp; \vdots &amp; \vdots \\
      \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_m &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} 
 \end{pmatrix}
-</men>.</p>
+</md>.</p>
 <p>L'ensemble de toutes les matrices de <m>m</m> lignes et <m>n</m> colonnes est noté <m>\mathcal{M}_{m\times n}</m>. Si <m>m=n</m>, la matrice est dite carrée et l'ensemble des matrices carrées de dimension <m>n</m>, aussi
 dites d'ordre <m>n</m>, est simplement noté <m>\mathcal{M}_n</m>.</p></statement>
 </definition>
@@ -644,18 +644,18 @@ le produit matrice vecteur. En généralisant l'approche qui a mené à l'équat
 \vec{c}_1 &amp; \vec{c}_2 &amp; \cdots &amp; \vec{c}_n \\
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert
 \end{pmatrix}</m>, alors on a
-<men xml:id="eq-matvecprodgen">
+<md number="yes"  xml:id="eq-matvecprodgen">
 A\vec{u}=\begin{pmatrix}
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert \\
 \vec{c}_1 &amp; \vec{c}_2 &amp; \cdots &amp; \vec{c}_n \\
 \lvert &amp; \lvert &amp; \cdots &amp; \lvert
 \end{pmatrix}\begin{pmatrix}u_1\\ u_2\\ \vdots\\ u_n \end{pmatrix}=u_1\vec{c}_1+u_2\vec{c}_2+\cdots +u_n\vec{c}_n
-</men>.
+</md>.
 L'équation <xref ref="eq-matvecprodgen"/> est par le fait même une définition du produit d'une matrice de <m>n</m> colonnes par un vecteur de <m>\R^n</m> d'un point de vue purement algébrique. L'ordre de ces facteurs est important,
 on verra  que l'équation <m>\vec{u}A</m> ne signifie pas nécessairement la même chose, et ne serait définie ici que si <m>m=n</m>.
 </p>
 <p>L'équation <xref ref="eq-matligne"/> permet d'écrire d'écrire la généralisation de l'équation <xref ref="eq-matvecprod"/> ainsi:
-<men xml:id="eq-matvecprodgeneral">A\vec{u}=\begin{pmatrix}
+<md number="yes"  xml:id="eq-matvecprodgeneral">A\vec{u}=\begin{pmatrix}
     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_1 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
     \rule[.5ex]{2.5ex}{0.5pt}\hspace{-0.2cm} &amp; \vec{r}_2 &amp;\hspace{-0.2cm} \rule[.5ex]{2.5ex}{0.5pt} \\
     \vdots &amp; \vdots &amp; \vdots \\
@@ -665,7 +665,7 @@ on verra  que l'équation <m>\vec{u}A</m> ne signifie pas nécessairement la mê
     \vec{r}_2\cdot\vec{u} \\
     \vdots \\
      \vec{r}_m\cdot\vec{u} 
-\end{pmatrix}</men>.
+\end{pmatrix}</md>.
 Ainsi, pour faire un produit matrice vecteur, on peut avoir une vision par les colonnes de la matrice, comme le montre l'équation <xref ref="eq-matvecprodgen"/> et une vision par les lignes, illustrée par l'équation <xref ref="eq-matvecprodgeneral"/>.
 </p>
 <p>À titre de premiers exemples, on détermine la matrice pour chacune des transformations linéaires de la liste <xref ref="liste-transfor2"/>.</p>
@@ -674,69 +674,69 @@ Ainsi, pour faire un produit matrice vecteur, on peut avoir une vision par les c
 <statement><p>Pour chaque transformation linéaire de la liste <xref ref="liste-transfor2"/>, on cherche à déterminer la matrice qui la représente.</p></statement>
 <solution>
 <p>La transformation identité laisse les vecteurs en place. Cela signifie donc que <m>I(1,0)=\vecd{1}{0}</m> et <m>I(0,1)=\vecd{0}{1}</m>. La matrice est donc
-<men xml:id="eq-id2x2">
+<md number="yes"  xml:id="eq-id2x2">
 I=\begin{pmatrix}
 1&amp;0\\
 0&amp;1
 \end{pmatrix}
-</men>.</p>
+</md>.</p>
 </solution>
 <solution>
 <p>Dans une réflexion par rapport à l'axe des abscisses, la première coordonnée reste la même et la seconde change de signe. On a donc <m>S_x(1,0)=\vecd{1}{0}</m> et
 <m>S_x(0,1)=\vecd{0}{-1}</m>. La matrice est donc
-<men xml:id="eq-refx">
+<md number="yes"  xml:id="eq-refx">
 S_x=\begin{pmatrix}
 1&amp;0\\
 0&amp;-1
 \end{pmatrix}
-</men>.</p>
+</md>.</p>
 </solution>
 <solution>
 <p>La rotation de <m>\frac{\pi}{2}</m> dans le sens antihoraire est donnée par la transformation <m>R_{\frac{\pi}{2}}(x,y)=(-y,x)</m>. On a donc
 <m>R_{\frac{\pi}{2}}(1,0)=\vecd{0}{1}</m> et <m>R_{\frac{\pi}{2}}(0,1)=\vecd{-1}{0}</m>. La matrice est donc
-<me>
+<md>
 R_{\frac{\pi}{2}}=\begin{pmatrix}
 0&amp;-1\\
 1&amp;0
 \end{pmatrix}
-</me>.
+</md>.
 </p>
 </solution>
 <solution>
 <p>Un étirement horizontal de facteur <m>r</m> est une transformation linéaire telle que <m>Eh_r(1,0)=\vecd{r}{0}</m> et <m>Eh_r(0,1)=\vecd{0}{1}</m>. La matrice est donc
-<men xml:id="eq-etirementhr2">
+<md number="yes"  xml:id="eq-etirementhr2">
 Eh_r=\begin{pmatrix}
 r&amp;0\\
 0&amp;1
 \end{pmatrix}
-</men>. De même, un étirement vertical de facteur <m>r</m> est représenté par la matrice
-<men xml:id="eq-etirementvr2">
+</md>. De même, un étirement vertical de facteur <m>r</m> est représenté par la matrice
+<md number="yes"  xml:id="eq-etirementvr2">
 Ev_r=\begin{pmatrix}
 1&amp;0\\
 0&amp;r
 \end{pmatrix}
-</men>.
+</md>.
 </p>
 </solution>
 <solution>
 <p>L'homothétie de facteur <m>r</m> est une transformation représentant simultanément un étirement horizontal et un étirement vertical. La matrice est donc
-<men xml:id="eq-homotr2">
+<md number="yes"  xml:id="eq-homotr2">
 H_r=\begin{pmatrix}
 r&amp;0\\
 0&amp;r
 \end{pmatrix}
-</men>.
+</md>.
 </p>
 </solution>
 <solution>
 <p>La permutation est une transformation linéaire qui change l'ordre des composantes d'un vecteur. Dans <m>\R^2</m>, ceci revient à <m>P(1,0)=\vecd{0}{1}</m> et <m>P(0,1)=\vecd{1}{0}</m>.
 La matrice est donc
-<me>
+<md>
 P=\begin{pmatrix}
 0&amp;1\\
 1&amp;0
 \end{pmatrix}
-</me>.
+</md>.
 </p>
 </solution>
 <solution>
@@ -757,12 +757,12 @@ et
 <mrow>&amp;\frac{1}{\norm{\vec{w}}^2}\vecd{w_1w_2}{w_2^2}</mrow>
 </md>.
 La matrice est donc
-<me>
+<md>
 \text{proj}_{\vec{w}}=\frac{1}{\norm{\vec{w}}^2}\begin{pmatrix}
 w_1^2&amp; w_1w_2\\
 w_1w_2&amp; w_2^2
 \end{pmatrix}
-</me>.
+</md>.
 Cette matrice est plus compliquée que les précédentes, mais la section <xref ref="sec-matinverse"/> donnera une autre manière de déterminer la matrice d'une projection
 orthogonale, sans avoir à se rappeler la matrice ci-dessus.
 </p>
@@ -774,9 +774,9 @@ w_1^2&amp; w_1w_2\\
 w_1w_2&amp; w_2^2
 \end{pmatrix}</m>, soit une matrice précédé d'un scalaire devant. On comprend ici que, pour toute matrice <m>A</m> et scalaire <m>r</m>, le terme <m>rA</m> est une 
 matrice dont les entrées sont multipliées par <m>r</m>. Pour le cas <m>2</m> par <m>2</m>, on a 
-<me>
+<md>
 r\begin{pmatrix}a&amp;c \\b&amp;d\end{pmatrix}=\begin{pmatrix}ra&amp;rc \\ rb&amp;rd\end{pmatrix}
-</me>.</p>
+</md>.</p>
 <p> La définition <xref ref="def-matprodscal"/> formalisera cette remarque.</p>
 </remark>
 <p>
@@ -811,12 +811,12 @@ La transformation est donc linéaire. </p>
 <mrow>T(0,0,1)&amp;=(0,-1)</mrow>
 </md>.
 La matrice est alors
-<me>
+<md>
 T=\begin{pmatrix}
 1&amp;1&amp;0 \\
 1&amp; 0&amp;-1
 \end{pmatrix}
-</me>.</p>
+</md>.</p>
 </solution>
 </example>
 <p>Toute transformation linéaire <m>T</m> possède une forme matricielle la représentant. Peut-on affirmer que, pour toute matrice, on a également une transformation linéaire? En partant de la définition du produit d'une matrice par un vecteur,
@@ -874,7 +874,7 @@ Toute matrice correspond donc à une transformation linéaire.
  <solution>
  <p>On considère les vecteurs <m>\vec{c}_1=T_1(1,0,0)=(3,0,1), \vec{c}_2=T_1(0,1,0)=(2,1,0)</m> et <m>\vec{c}_3=T_1(0,0,1)=(2,-1,0)</m>. Si <m>T_1</m> est linéaire, alors elle devrait correspondre à la transformation
  représentée par la matrice 
- <me>
+ <md>
  A_1=\begin{pmatrix}
 \lvert &amp; \lvert  &amp; \lvert \\
 \vec{c}_1 &amp; \vec{c}_2 &amp; \vec{c}_3 \\
@@ -884,7 +884,7 @@ Toute matrice correspond donc à une transformation linéaire.
 0&amp;1&amp;-1\\
 1&amp;0&amp;0
 \end{pmatrix}
- </me>.
+ </md>.
  Cependant, on a
  <md>
  <mrow>
@@ -906,7 +906,7 @@ Toute matrice correspond donc à une transformation linéaire.
  <solution>
  <p>On considère les vecteurs <m>\vec{d_1}=T_2(1,0)=(-1,2)</m> et <m>\vec{d_2}=T_2(0,1)=(1,1)</m>.Si <m>T_2</m> est linéaire, alors elle devrait correspondre à la transformation
  représentée par la matrice 
- <me>
+ <md>
  A_2=\begin{pmatrix}
 \lvert &amp; \lvert   \\
 \vec{d}_1 &amp; \vec{d}_2  \\
@@ -915,7 +915,7 @@ Toute matrice correspond donc à une transformation linéaire.
 -1&amp;1\\
 2&amp;1\\
 \end{pmatrix}
- </me>. En effet, on a
+ </md>. En effet, on a
  <md>
  <mrow>A_2\vecd{x}{y}&amp;=\begin{pmatrix}  
 -1&amp;1\\
@@ -961,12 +961,12 @@ Toute matrice correspond donc à une transformation linéaire.
  de <m>90^{\circ}</m> et que la rotation de <m>\theta</m> ne changera pas ceci, on peut seulement trouver l'image de <m>(1,0)</m> et déterminer l'image de <m>(0,1)</m> en
  prenant le vecteur perpendiculaire à l'image de <m>(1,0)</m>. Selon la figure <xref ref="fig-rotr2"/>, l'image du vecteur <m>(1,0)</m> est
  <m>R_{\theta}(1,0)=(\cos(\theta),\sin(\theta))</m> et donc <m>R_{\theta}(0,1)=(-\sin(\theta),\cos(\theta))</m>. On a alors
- <men xml:id="eq-rotr2">
+ <md number="yes"  xml:id="eq-rotr2">
  R_{\theta}=\begin{pmatrix}
  \cos(\theta) &amp; -\sin(\theta)\\
  \sin(\theta) &amp; \cos(\theta)
  \end{pmatrix}
- </men>.
+ </md>.
  </p>
  </solution>
  </example>
@@ -1090,9 +1090,9 @@ plot(u,color="blue")+plot(A*u,color="red")
      <definition xml:id="def-matsomme">
      <title>Somme de deux matrices</title>
      <statement><p>Soit <m>A,B\in\mathcal{M}_{m\times n}</m> deux matrices. On définit la somme de <m>A</m> et <m>B</m> comme étant la matrice telle que
-     <me>
+     <md>
      (A+B)_{i,j}=(a_{i,j}+b_{i,j})
-     </me>.</p></statement>
+     </md>.</p></statement>
      </definition>
      <example xml:id="ex-matsomme">
      <title>Somme de matrices</title>
@@ -1118,9 +1118,9 @@ plot(u,color="blue")+plot(A*u,color="red")
      Multiplication d'une matrice par un scalaire
      </title>
      <statement><p>Soit <m>A\in \mathcal{m\times n}</m> et <m>k\in \R</m>. La matrice <m>kA</m> est définie comme étant la matrice telle que 
-     <me>
+     <md>
      (kA)_{i,j}=(ka_{i,j})
-     </me>.
+     </md>.
      </p></statement>
      </definition>
      <p>Cette définition a déjà été mentionnée de manière intuitive à la remarque <xref ref="rem-multscalmat"/>.</p>

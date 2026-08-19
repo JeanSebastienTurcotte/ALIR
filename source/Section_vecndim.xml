@@ -15,9 +15,9 @@
         <p>Aller aux <xref ref="exo-vecndim">exercices</xref> de la section.</p>
     <p>Bien que notre conception de la géométrie se limite aux objets dans <m>\R^2</m> ou <m>\R^3</m>, il y a de l'intérêt à considérer les objets de dimension supérieure.
     Dans le <xref ref="chap-SEL"> chapitre</xref>, on s'intéresse à résoudre un ensemble d'équations de la forme
-    <me>
+    <md>
     a_1x_1+a_2x_2+\cdots +a_nx_n=b_1
-    </me>,
+    </md>,
     appelées équations linéaires. Ces équations comportant <m>n</m> variables apparaissent dans plusieurs domaines. On n'a qu'à penser à la quantité sans cesse grandissante
     de données disponibles pour les compagnies, gouvernements, etc. Une approche vectorielle des problèmes liés à l'interprétation de ces données facilite grandement la chose,
     en particulier grâce à la puissance des ordinateurs d'aujourd'hui. Dans cette section, on généralise les concepts du présent chapitre afin de les étendre, lorsque possible,
@@ -36,19 +36,19 @@
     </md>
     sont deux vecteurs, respectivement de <m>\R^4</m> et <m>\R^8</m>.
     L'espace <m>\R^n</m> est donc défini comme l'ensemble des points ou vecteurs de la forme
-    <me>
+    <md>
     \vec{u}=(u_1,u_2,\ldots , u_n)
-    </me>
+    </md>
     où <m>u_1,u_2,\ldots , u_n\in \R</m>.
     Le vecteur nul est toujours noté <m>\vec{0}=(0,0,\cdots , 0)</m> et possède les mêmes propriétés que dans <m>\R^2</m> ou <m>\R^3</m>.</p>
     <p>
     Si deux points <m>A</m> et <m>B</m> de <m>\R^n</m> sont donnés, il est possible de créer le vecteur <m>\vecl{AB}</m> les reliant à l'aide de l'équation vectorielle
-    <me>
+    <md>
     \vecl{AB}=\vecl{OB}-\vecl{OA}=(b_1-a_1,b_2-a_2,\ldots , b_n-a_n)
-    </me>.
+    </md>.
     </p>
     <p>
-    La longueur d'un vecteur est définie comme étant <me>\norm{\vec{u}}=\sqrt{u_1^2+u_2^2+\cdots + u_n^2}</me>. De plus, on définit la multiplication par un scalaire et l'addition 
+    La longueur d'un vecteur est définie comme étant <md>\norm{\vec{u}}=\sqrt{u_1^2+u_2^2+\cdots + u_n^2}</md>. De plus, on définit la multiplication par un scalaire et l'addition 
     vectorielle composante par composante, de sorte que
     <md>
     <mrow> c\vec{u}&amp;=(cu_1,cu_2,\cdots , cu_n)</mrow>
@@ -80,16 +80,16 @@
     </title>
     <p>À la section <xref ref="sec-prodscal"/>, on a obtenu de manière algébrique le produit scalaire de deux vecteurs à la définition <xref ref="def-prodscal"/>. Cette définition
     se généralise donc facilement aux vecteurs à <m>n</m> composantes:
-    <men xml:id="eq-prodscal">
+    <md number="yes" xml:id="eq-prodscal">
     \vec{u}\cdot\vec{v}=u_1v_1+u_2v_2+\cdots+u_nv_n
-    </men>.
+    </md>.
     </p>
     <p>On a également, à partir de la loi des cosinus, obtenu une formule pour l'angle entre deux vecteurs. La notion d'angle entre deux vecteurs de <m>\R^n</m> peut sembler
     inutile sans la géométrie pour l'appuyer, or le concept de vecteurs orthogonaux est primordial dans toutes les dimensions. Comme il est possible d'exprimer le cosinus de
     l'angle entre deux vecteurs d'une manière purement algébrique, on définit pour tout vecteur de <m>\R^n</m> l'unique valeur de <m>\theta\in [0,\pi]</m> telle que
-    <men xml:id="eq-anglevec">
+    <md number="yes" xml:id="eq-anglevec">
     \cos(\theta)=\frac{\vec{u}\cdot\vec{v}}{\norm{\vec{u}}\norm{\vec{v}}}
-    </men>.
+    </md>.
     Deux vecteurs non nuls sont dits orthogonaux si cet angle vaut <m>\frac{\pi}{2}</m> ou <m>90^\circ</m>. Notons encore une fois que le vecteur nul n'est orthogonal à aucun
     vecteur.</p>
     <p>Les propriétés du produit scalaire, notamment celles de la proposition <xref ref="prop-propprodscal"/>, sont aussi valides dans <m>\mathbb{R}^n</m>. Nulle part dans leur démonstration on n'a utilisé le fait que les vecteurs étaient dans <m>\R^2</m> ou <m>\R^3</m> spécifiquement. L'inégalité de Cauchy-Schwarz <xref ref="prop-ineqCS"/> est aussi valide dans <m>\R^n</m>.
@@ -115,9 +115,9 @@
         <mrow>&amp;=-\frac{1}{\sqrt{30}}</mrow>
         </md>.
     En prenant la fonction cosinus inverse, on trouve
-    <me>
+    <md>
     \theta=\arccos\left(-\frac{1}{\sqrt{30}}\right)\approx 1.7544
-    </me>.
+    </md>.
     </p>
     </solution>
     <solution>
@@ -148,23 +148,23 @@
     </p>
     <p>
     Soit <m>\vec{v}</m> un vecteur non nul et <m>A</m> un point de <m>\R^n</m>. Le lieu des points <m>P</m> tels que
-    <me>
+    <md>
     \mathcal{D}: \vecl{OP}=c\vec{v}+\vecl{OA}
-    </me>
+    </md>
     est aussi appelé une droite, en raison de l'aspect unidimensionnel (un seul vecteur). Le vecteur <m>\vec{v}</m> est toujours appelé un vecteur directeur de la droite <m>
     \mathcal{D}</m>. De même, si <m>\vec{u}</m> est un autre vecteur non parallèle au vecteur <m>\vec{v}</m>, alors le lieu des points <m>P</m> décrits par l'équation
-    <me>
+    <md>
     \mathcal{P}:\vecl{OP}=a\vec{u}+b\vec{v}+\vecl{OA}
-    </me>
+    </md>
     est appelé un plan, de vecteurs directeurs <m>\vec{u},\vec{v}</m>.
     </p>
     <p>Dans <m>\R^2</m>, une droite peut être caractérisée par une équation normale, de la forme <m>\vec{n}\cdot\vecl{AP}=0</m>. Cette
     même équation avec des vecteurs de <m>\R^3</m> représente un plan.
     </p>
     <p>Que représente-t-elle dans un espace de dimension <m>n</m>? En la développant, on obtient une équation de la forme
-    <me>
+    <md>
     a_1x_1+a_2x_2+\cdots +a_{n}x_{n}=d
-    </me>,
+    </md>,
     où <m>\vec{n}=(a_1,a_2,\cdots , a_n)</m> est appelé un vecteur normal. On définit le lieu des points satisfaisant une telle équation comme un hyperplan de <m>\R^n</m>.
     On verra plus loin que cet objet est composé de <m>n-1</m> dimensions et peut donc aussi être décrit à partir d'un ensemble de <m>n-1</m> vecteurs possédant 
     une propriété spécifique.
@@ -173,9 +173,9 @@
     <definition xml:id="def-span">
     <statement><p>Soit <m>\vec{u}_1,\vec{u}_2,\ldots, \vec{u}_n</m> un ensemble de vecteurs. On définit l'espace engendré par ces vecteurs, noté <m>\vspan</m>, comme étant l'ensemble des combinaisons
     linéaires des vecteurs <m>\vec{u}_1,\vec{u}_2,\ldots \vec{u}_n</m>:
-    <me>
+    <md>
     \vspan(\vec{u}_1,\vec{u}_2,\ldots, \vec{u}_n)=\{a_1\vec{u}_1+a_2\vec{u}_2+\ldots +a_n\vec{u}_n~|~ a_1,a_2,\ldots, a_n\in\R\}
-    </me>.</p></statement>
+    </md>.</p></statement>
     </definition>
     <p>À noter qu'on ne donne aucune condition sur les vecteurs engendrant l'espace. Certains pourraient être nuls, parallèles à d'autres vecteurs ou  une combinaison linéaire des autres vecteurs. </p>
     <example xml:id="ex-span">
@@ -185,9 +185,9 @@
     </statement>
     <solution>
     <p>En principe, l'espace engendré est constitué de tous les vecteurs de la forme
-    <me>
+    <md>
     \vec{v}=a\vec{u}_1+b\vec{u}_2+c\vec{u}_3+d\vec{u}_4
-    </me>.
+    </md>.
     Il est parfois possible, selon les vecteurs présents, de simplifier l'équation vectorielle et peut-être même de reconnaitre une droite, un plan ou un hyperplan.
     Dans notre cas, on a
     <md>
