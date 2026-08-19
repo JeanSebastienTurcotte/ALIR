@@ -31,10 +31,10 @@ sagecell.makeSagecell({
 </script>
 </head>
 <body class="ignore-math">
-<article class="computation computation-like"><h4 class="heading">
+<article class="computation computation-like"><h2 class="heading">
 <span class="type">Calcul</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sage et l’indépendance linéaire.</span>
-</h4>
-<div class="para">Pour vérifier si un ensemble de vecteurs est linéairement indépendant, il existe plusieurs options. La première consiste à utiliser la <a href="sec-bases.html#def-indlin" class="xref" data-knowl="./knowl/xref/def-indlin.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Définition 5.2.4: Indépendance linéaire">définition</a>. On peut alors résoudre l’équation <span class="process-math">\(c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_k\vec{v}_k=0\)</span> en utilisant les techniques du chapitre <a href="chap-SEL.html" class="internal" title="Chapitre 3: Les systèmes d’équations linéaires">3</a> et valider avec la définition <a href="sec-bases.html#def-indlin" class="xref" data-knowl="./knowl/xref/def-indlin.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Définition 5.2.4: Indépendance linéaire">5.2.4</a>.<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-indlin-2" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+</h2>
+<div class="para">Pour vérifier si un ensemble de vecteurs est linéairement indépendant, il existe plusieurs options. La première consiste à utiliser la <a href="sec-bases.html#def-indlin" class="xref" data-knowl="./knowl/xref/def-indlin.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Définition 5.2.4: Indépendance linéaire">définition</a>. On peut alors résoudre l’équation <span class="process-math">\(c_1\vec{v}_1+c_2\vec{v}_2+\ldots + c_k\vec{v}_k=0\)</span> en utilisant les techniques du chapitre <a href="chap-SEL.html" class="internal" title="Chapitre 3: Les systèmes d’équations linéaires">Chapitre 3</a> et valider avec la définition <a href="sec-bases.html#def-indlin" class="xref" data-knowl="./knowl/xref/def-indlin.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Définition 5.2.4: Indépendance linéaire">Définition 5.2.4</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-indlin-2" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-indlin-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">v1=vector([1,1,-3])
 v2=vector([3,-5,2])
@@ -44,13 +44,13 @@ Aaug=A.augment(b,subdivide=True)
 show(Aaug)
 show(Aaug.rref())
 </script></div>
-<div class="para">On peut aussi utiliser la proposition <a href="sec-bases.html#prop-indeprang" class="xref" data-knowl="./knowl/xref/prop-indeprang.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Proposition 5.2.8: Indépendance linéaire et rang">5.2.8</a> et simplement calculer le rang de la matrice <span class="process-math">\(A\)</span> dans la cellule Sage précédente.<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-indlin-4" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">On peut aussi utiliser la proposition <a href="sec-bases.html#prop-indeprang" class="xref" data-knowl="./knowl/xref/prop-indeprang.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Proposition 5.2.8: Indépendance linéaire et rang">Proposition 5.2.8</a> et simplement calculer le rang de la matrice <span class="process-math">\(A\)</span> dans la cellule Sage précédente.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-indlin-4" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-indlin-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">show(A.rank())
 </script></div>
-<div class="para">Puisque ce rang correspond au nombre de vecteurs, les vecteurs sont linéairement indépendants.<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-indlin-6" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">Puisque ce rang correspond au nombre de vecteurs, les vecteurs sont linéairement indépendants.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-indlin-6" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="para">Une autre manière, un peu plus complexe, consiste à utiliser la commande <code class="code-inline tex2jax_ignore">.linear_dependance</code>. Elle nécessite toutefois la création d’un espace vectoriel sous-jacent, concept qui sera défini dans la prochaine section. On en montre toutefois un exemple et les premières lignes seront clarifiées dans la section suivante.<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-indlin-7" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">Une autre manière, un peu plus complexe, consiste à utiliser la commande <code class="code-inline tex2jax_ignore">.linear_dependance</code>. Elle nécessite toutefois la création d’un espace vectoriel sous-jacent, concept qui sera défini dans la prochaine section. On en montre toutefois un exemple et les premières lignes seront clarifiées dans la section suivante.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-indlin-7" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-indlin-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#On crée l'espace vectoriel
 V=QQ^3
@@ -61,7 +61,7 @@ L=[v1,v2]
 #On vérifie la dépendance
 show(V.linear_dependence(L))
 </script></div>
-<div class="para">Le résultat est un ensemble vide, ce qui signifie qu’il n’y a pas de dépendance linéaire. Afin de comparer avec un exemple où il y aurait dépendance, on ajoute deux vecteurs supplémentaires à la liste L.<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-indlin-9" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">Le résultat est un ensemble vide, ce qui signifie qu’il n’y a pas de dépendance linéaire. Afin de comparer avec un exemple où il y aurait dépendance, on ajoute deux vecteurs supplémentaires à la liste L.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-indlin-9" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-indlin-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">v3=v1+2*v2
 v4=vector([1,-3,2])
@@ -69,9 +69,9 @@ L.append(v3)
 L.append(v4)
 show(V.linear_dependence(L))
 </script></div>
-<div class="para">Le résultat est une possible combinaison linéaire des vecteurs <span class="process-math">\(\vec{v}_1,\vec{v}_2,\vec{v}_3,\vec{v}_4\)</span> donnant le vecteur nul. Dans ce cas-ci, on a <span class="process-math">\(\vec{v}_1+2\vec{v}_2-\vec{v}_3=\vec{0}\text{,}\)</span> puisque <span class="process-math">\(\vec{v}_3=\vec{v}_1+\vec{v}_2\)</span> a été défini ainsi.<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-indlin-11" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">Le résultat est une possible combinaison linéaire des vecteurs <span class="process-math">\(\vec{v}_1,\vec{v}_2,\vec{v}_3,\vec{v}_4\)</span> donnant le vecteur nul. Dans ce cas-ci, on a <span class="process-math">\(\vec{v}_1+2\vec{v}_2-\vec{v}_3=\vec{0}\text{,}\)</span> puisque <span class="process-math">\(\vec{v}_3=\vec{v}_1+\vec{v}_2\)</span> a été défini ainsi.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-indlin-11" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="para">Finalement, on peut utiliser la proposition <a href="sec-bases.html#prop-indepspan" class="xref" data-knowl="./knowl/xref/prop-indepspan.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Proposition 5.2.10: Indépendance linéaire et espace engendré">5.2.10</a>. Les commandes utilisent également des concepts de la section suivante.<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-indlin-12" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">Finalement, on peut utiliser la proposition <a href="sec-bases.html#prop-indepspan" class="xref" data-knowl="./knowl/xref/prop-indepspan.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Proposition 5.2.10: Indépendance linéaire et espace engendré">Proposition 5.2.10</a>. Les commandes utilisent également des concepts de la section suivante.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-indlin-12" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-indlin-13" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#On crée l'espace vectoriel
 V=QQ^3
@@ -90,6 +90,7 @@ show(V.span(L)==V.span(Lv3))
 show(V.span(L)==V.span(Lv4))
 #Comme les span sont différents, les vecteurs sont indépendants.
 </script></div>
-<div class="autopermalink" data-description="Calcul 5.2.11: Sage et l’indépendance linéaire"><a href="#sageex-indlin" title="Copy heading and permalink for Calcul 5.2.11: Sage et l’indépendance linéaire" aria-label="Copy heading and permalink for Calcul 5.2.11: Sage et l’indépendance linéaire">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-bases.html#sageex-indlin">Contexte</a></span>
+<div class="autopermalink" aria-hidden="true" data-description="Calcul 5.2.11: Sage et l’indépendance linéaire"><a tabindex="-1" href="#sageex-indlin" title="Copier le titre et le lien permanent pour Calcul 5.2.11: Sage et l’indépendance linéaire" aria-label="Copier le titre et le lien permanent pour Calcul 5.2.11: Sage et l’indépendance linéaire">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec-bases.html#sageex-indlin">Contexte</a></span>
 </body>
 </html>

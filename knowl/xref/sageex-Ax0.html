@@ -31,14 +31,14 @@ sagecell.makeSagecell({
 </script>
 </head>
 <body class="ignore-math">
-<article class="computation computation-like"><h4 class="heading">
+<article class="computation computation-like"><h2 class="heading">
 <span class="type">Calcul</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">La matrice L et les solutions de base.</span>
-</h4>
+</h2>
 <div class="para logical">
 <div class="para">On souhaite créer une fonction Sage qui retourne les solutions de base d’une matrice en reproduisant l’algorithme <code class="code-inline tex2jax_ignore">[provisional cross-reference: algo-solbase]</code>. Pour cela, on crée d’abord une fonction <code class="code-inline tex2jax_ignore">matL</code> qui va retourner la matrice <span class="process-math">\(L\)</span> associée à la forme échelonnée réduite d’une matrice <span class="process-math">\(A\)</span> quelconque. Voici quelques nouvelles fonctions Sage qui seront utiles et une manière d’ajouter des composantes à un vecteur:</div>
 <ul class="disc" id="sageex-Ax0-2-5">
 <li>
-<div class="para">Les fonctions <code class="code-inline tex2jax_ignore">matrix_from_rows</code> et <code class="code-inline tex2jax_ignore">matrix_from_columns</code> permettent de créer une matrice à partir des lignes ou des colonnes d’une autre matrice.<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-Ax0-2-5-1-1" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">Les fonctions <code class="code-inline tex2jax_ignore">matrix_from_rows</code> et <code class="code-inline tex2jax_ignore">matrix_from_columns</code> permettent de créer une matrice à partir des lignes ou des colonnes d’une autre matrice.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-Ax0-2-5-1-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-Ax0-2-5-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A=random_matrix(QQ,8,6) #Une matrice aléatoire 8x6. L'argument QQ fait en sorte que les entrées seront rationnelles
 show("La matrice A:",A)
@@ -53,10 +53,10 @@ show("La matrice formée à partir des colonnes 5,5,3,5 de la matrice A",A.matri
 #En fait, il existe même une version hybride
 show("La matrice formée à partir de l'intersection des lignes 2,3 et des colonnes 4,5 de la matrice A",A.matrix_from_rows_and_columns([1,2],[3,4]))
 </script></div>
-<div class="autopermalink" data-description="Point"><a href="#sageex-Ax0-2-5-1" title="Copy heading and permalink for Point" aria-label="Copy heading and permalink for Point">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point"><a tabindex="-1" href="#sageex-Ax0-2-5-1" title="Copier le titre et le lien permanent pour Point" aria-label="Copier le titre et le lien permanent pour Point">🔗</a></div>
 </li>
 <li>
-<div class="para">Parfois, on ne sait pas quelles seront les entrées d’un vecteur, ou bien l’on veut construire un vecteur en étape, une entrée à la fois. Pour effectuer cette opération, on utilisera plutôt une liste Sage que l’on convertira en vecteur par la suite. Par exemple, si l’on dispose d’une liste <code class="code-inline tex2jax_ignore">l1=[1,3,4]</code> et d’une autre liste <code class="code-inline tex2jax_ignore">l2=[2,4,6]</code> et qu’on veut créer les vecteurs qui prennent ces valeurs en alternant d’une liste à l’autre, on fera<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-Ax0-2-5-2-1" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">Parfois, on ne sait pas quelles seront les entrées d’un vecteur, ou bien l’on veut construire un vecteur en étape, une entrée à la fois. Pour effectuer cette opération, on utilisera plutôt une liste Sage que l’on convertira en vecteur par la suite. Par exemple, si l’on dispose d’une liste <code class="code-inline tex2jax_ignore">l1=[1,3,4]</code> et d’une autre liste <code class="code-inline tex2jax_ignore">l2=[2,4,6]</code> et qu’on veut créer les vecteurs qui prennent ces valeurs en alternant d’une liste à l’autre, on fera<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-Ax0-2-5-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-Ax0-2-5-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">l1=[1,3,4]
 l2=[0,2,4]
@@ -83,16 +83,16 @@ show("Le vecteur v1=",v1)
 show("Le vecteur v2=",v2)
 show("v1+v2=",v1+v2)
 </script></div>
-<div class="autopermalink" data-description="Point"><a href="#sageex-Ax0-2-5-2" title="Copy heading and permalink for Point" aria-label="Copy heading and permalink for Point">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point"><a tabindex="-1" href="#sageex-Ax0-2-5-2" title="Copier le titre et le lien permanent pour Point" aria-label="Copier le titre et le lien permanent pour Point">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-Ax0-2" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-Ax0-2" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="para">On débute avec la création de la fonction qui retourne la matrice <span class="process-math">\(L\text{.}\)</span> On se pose dans un premier temps la question suivante: est-ce que la matrice <span class="process-math">\(L\)</span> existe toujours? Dans l’algorithme, on élimine les lignes de zéros et l’on ne garde que les colonnes libres. Que faire si toutes les lignes sont nulles ou si toutes les colonnes sont pivots? Dans ces cas, il n’y a pas de matrice <span class="process-math">\(L\text{,}\)</span> mais l’interprétation est différente pour ce qui est des solutions de base. Lorsque toutes les lignes sont nulles, toutes les variables sont libres et l’ensemble solution est donc constitué de tous les vecteurs de l’espace <span class="process-math">\(\R^n\text{.}\)</span> Si, au contraire, toutes les variables sont pivots, alors il n’y a pas de solution de base. La seule solution à <span class="process-math">\(A\vec{x}=\vec{0}\)</span> est le vecteur nul. C’est dans ce deuxième cas qu’il faudra dire à notre fonction qu’il n’y a pas de solution de base.<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-Ax0-3" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">On débute avec la création de la fonction qui retourne la matrice <span class="process-math">\(L\text{.}\)</span> On se pose dans un premier temps la question suivante: est-ce que la matrice <span class="process-math">\(L\)</span> existe toujours? Dans l’algorithme, on élimine les lignes de zéros et l’on ne garde que les colonnes libres. Que faire si toutes les lignes sont nulles ou si toutes les colonnes sont pivots? Dans ces cas, il n’y a pas de matrice <span class="process-math">\(L\text{,}\)</span> mais l’interprétation est différente pour ce qui est des solutions de base. Lorsque toutes les lignes sont nulles, toutes les variables sont libres et l’ensemble solution est donc constitué de tous les vecteurs de l’espace <span class="process-math">\(\R^n\text{.}\)</span> Si, au contraire, toutes les variables sont pivots, alors il n’y a pas de solution de base. La seule solution à <span class="process-math">\(A\vec{x}=\vec{0}\)</span> est le vecteur nul. C’est dans ce deuxième cas qu’il faudra dire à notre fonction qu’il n’y a pas de solution de base.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-Ax0-3" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="para">Pour le cas où la matrice est nulle, selon l’algorithme <code class="code-inline tex2jax_ignore">[provisional cross-reference: algo-solbase]</code>, les solutions spéciales devraient sortir correctement et correspondre aux vecteurs <span class="process-math">\(\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_n\)</span> de l’espace <span class="process-math">\(\R^n\text{.}\)</span><div class="autopermalink" data-description="Paragraphe"><a href="#sageex-Ax0-4" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">Pour le cas où la matrice est nulle, selon l’algorithme <code class="code-inline tex2jax_ignore">[provisional cross-reference: algo-solbase]</code>, les solutions spéciales devraient sortir correctement et correspondre aux vecteurs <span class="process-math">\(\vec{e}_1,\vec{e}_2,\ldots , \vec{e}_n\)</span> de l’espace <span class="process-math">\(\R^n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-Ax0-4" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="para">Pour la matrice <span class="process-math">\(L\text{,}\)</span> on a<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-Ax0-5" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">Pour la matrice <span class="process-math">\(L\text{,}\)</span> on a<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-Ax0-5" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-Ax0-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def matL(A):
     R=A.rref()  #Si la matrice n'est pas ERL, on l'échelonne
@@ -101,13 +101,13 @@ show("v1+v2=",v1+v2)
     L=Rnonnulles.matrix_from_columns(R.nonpivots()) #De la matrice Rnonnulles, on extrait les colonnes non pivots pour former L
     return(L)  #On renvoie la matrice L comme réponse
 </script></div>
-<div class="para">On teste la fonction avec la matrice de l’exemple <code class="code-inline tex2jax_ignore">[provisional cross-reference: ex-sousmatriceIL]</code>:<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-Ax0-7" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">On teste la fonction avec la matrice de l’exemple <code class="code-inline tex2jax_ignore">[provisional cross-reference: ex-sousmatriceIL]</code>:<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-Ax0-7" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-Ax0-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R=matrix([[1,2,0,-2,0,3],[0,0,1,4,0,-1],[0,0,0,0,1,2],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]])
 show("R=",R)
 show("L=",matL(R))
 </script></div>
-<div class="para">On va maintenant créer la fonction <code class="code-inline tex2jax_ignore">solbase(A)</code>, qui, à partir d’une matrice <span class="process-math">\(A\text{,}\)</span> va retourner les solutions de base de l’équation <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span> À l’intérieur de celle-ci, on va utiliser la fonction <code class="code-inline tex2jax_ignore">matL</code> créée ci-dessus.<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-Ax0-9" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">On va maintenant créer la fonction <code class="code-inline tex2jax_ignore">solbase(A)</code>, qui, à partir d’une matrice <span class="process-math">\(A\text{,}\)</span> va retourner les solutions de base de l’équation <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span> À l’intérieur de celle-ci, on va utiliser la fonction <code class="code-inline tex2jax_ignore">matL</code> créée ci-dessus.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-Ax0-9" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-Ax0-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def solbase(A):
     if A.rank()==A.ncols(): #Si toutes les variables sont pivots
@@ -138,10 +138,11 @@ show("L=",matL(R))
             S.append(s) # et on l'ajoute à la liste des solutions de base
         return(S)
 </script></div>
-<div class="para">On teste la fonction avec la matrice de l’exemple <code class="code-inline tex2jax_ignore">[provisional cross-reference: ex-sousmatriceIL]</code>:<div class="autopermalink" data-description="Paragraphe"><a href="#sageex-Ax0-11" title="Copy heading and permalink for Paragraphe" aria-label="Copy heading and permalink for Paragraphe">🔗</a></div>
+<div class="para">On teste la fonction avec la matrice de l’exemple <code class="code-inline tex2jax_ignore">[provisional cross-reference: ex-sousmatriceIL]</code>:<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#sageex-Ax0-11" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div id="sageex-Ax0-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">solbase(R)
 </script></div>
-<div class="autopermalink" data-description="Calcul 3.3.18: La matrice L et les solutions de base"><a href="#sageex-Ax0" title="Copy heading and permalink for Calcul 3.3.18: La matrice L et les solutions de base" aria-label="Copy heading and permalink for Calcul 3.3.18: La matrice L et les solutions de base">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-SELgeo.html#sageex-Ax0">Contexte</a></span>
+<div class="autopermalink" aria-hidden="true" data-description="Calcul 3.3.18: La matrice L et les solutions de base"><a tabindex="-1" href="#sageex-Ax0" title="Copier le titre et le lien permanent pour Calcul 3.3.18: La matrice L et les solutions de base" aria-label="Copier le titre et le lien permanent pour Calcul 3.3.18: La matrice L et les solutions de base">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec-SELgeo.html#sageex-Ax0">Contexte</a></span>
 </body>
 </html>
