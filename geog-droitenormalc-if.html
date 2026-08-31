@@ -12,6 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -87,11 +90,13 @@ ggb_slate__droitenormalc_applet.setCoordSystem(-20, 20,-20,20);
 listeners(ggb_slate__droitenormalc_applet)};
 var ggb_slate__droitenormalc_params = {
 filename:"external/code/geogebra/droitenormalc.ggb",
+playButton: true,
 width:600,
 height:600,
 appletOnLoad:ggb_slate__droitenormalc_onload};
 new Promise((resolve, reject) => {
 var ggb_slate__droitenormalc = new GGBApplet(ggb_slate__droitenormalc_params, true);
+ggb_slate__droitenormalc.setPreviewImage('generated/preview/geog-droitenormalc-preview.png', null, null);
 resolve(ggb_slate__droitenormalc);})
 .then((ggb_slate__droitenormalc) => {
 window.onload = function() { ggb_slate__droitenormalc.inject('slate-droitenormalc-container'); }

@@ -12,6 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -87,11 +90,13 @@ ggb_slate__vecgeo_applet.setCoordSystem(-0.9,0.8,-0.2,0.6);
 listeners(ggb_slate__vecgeo_applet)};
 var ggb_slate__vecgeo_params = {
 filename:"external/code/geogebra/vecgeo.ggb",
+playButton: true,
 width:600,
 height:600,
 appletOnLoad:ggb_slate__vecgeo_onload};
 new Promise((resolve, reject) => {
 var ggb_slate__vecgeo = new GGBApplet(ggb_slate__vecgeo_params, true);
+ggb_slate__vecgeo.setPreviewImage('generated/preview/geog-vecgeo-preview.png', null, null);
 resolve(ggb_slate__vecgeo);})
 .then((ggb_slate__vecgeo) => {
 window.onload = function() { ggb_slate__vecgeo.inject('slate-vecgeo-container'); }

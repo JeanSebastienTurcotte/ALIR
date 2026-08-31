@@ -12,6 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -89,11 +92,13 @@ ggb_slate__probcadre_applet.enableShiftDragZoom(false);
 listeners(ggb_slate__probcadre_applet)};
 var ggb_slate__probcadre_params = {
 filename:"external/code/geogebra/changercadre.ggb",
+playButton: true,
 width:600,
 height:600,
 appletOnLoad:ggb_slate__probcadre_onload};
 new Promise((resolve, reject) => {
 var ggb_slate__probcadre = new GGBApplet(ggb_slate__probcadre_params, true);
+ggb_slate__probcadre.setPreviewImage('generated/preview/geog-probcadre-preview.png', null, null);
 resolve(ggb_slate__probcadre);})
 .then((ggb_slate__probcadre) => {
 window.onload = function() { ggb_slate__probcadre.inject('slate-probcadre-container'); }

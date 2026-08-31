@@ -12,6 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -87,11 +90,13 @@ ggb_slate__lightsout3x3interactive_applet.setCoordSystem(-6,10,-8,8);
 listeners(ggb_slate__lightsout3x3interactive_applet)};
 var ggb_slate__lightsout3x3interactive_params = {
 filename:"external/code/geogebra/LightsOut.ggb",
+playButton: true,
 width:600,
 height:600,
 appletOnLoad:ggb_slate__lightsout3x3interactive_onload};
 new Promise((resolve, reject) => {
 var ggb_slate__lightsout3x3interactive = new GGBApplet(ggb_slate__lightsout3x3interactive_params, true);
+ggb_slate__lightsout3x3interactive.setPreviewImage('generated/preview/geog-lightsout3x3interactive-preview.png', null, null);
 resolve(ggb_slate__lightsout3x3interactive);})
 .then((ggb_slate__lightsout3x3interactive) => {
 window.onload = function() { ggb_slate__lightsout3x3interactive.inject('slate-lightsout3x3interactive-container'); }

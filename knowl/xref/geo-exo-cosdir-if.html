@@ -12,6 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -88,11 +91,13 @@ ggb_geo__exo__cosdir1_applet. showResetIcon(true);
 listeners(ggb_geo__exo__cosdir1_applet)};
 var ggb_geo__exo__cosdir1_params = {
 filename:"external/code/geogebra/exo-cosdir.ggb",
+playButton: true,
 width:600,
 height:600,
 appletOnLoad:ggb_geo__exo__cosdir1_onload};
 new Promise((resolve, reject) => {
 var ggb_geo__exo__cosdir1 = new GGBApplet(ggb_geo__exo__cosdir1_params, true);
+ggb_geo__exo__cosdir1.setPreviewImage('generated/preview/geo-exo-cosdir-preview.png', null, null);
 resolve(ggb_geo__exo__cosdir1);})
 .then((ggb_geo__exo__cosdir1) => {
 window.onload = function() { ggb_geo__exo__cosdir1.inject('geo-exo-cosdir1-container'); }

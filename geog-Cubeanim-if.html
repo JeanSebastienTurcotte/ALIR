@@ -12,6 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -87,11 +90,13 @@ ggb_slate__Cubeanim_applet.applet.setCoordSystem(-3,3,-3,3,-3,3);
 listeners(ggb_slate__Cubeanim_applet)};
 var ggb_slate__Cubeanim_params = {
 filename:"external/code/geogebra/Cubeanim.ggb",
+playButton: true,
 width:900,
 height:900,
 appletOnLoad:ggb_slate__Cubeanim_onload};
 new Promise((resolve, reject) => {
 var ggb_slate__Cubeanim = new GGBApplet(ggb_slate__Cubeanim_params, true);
+ggb_slate__Cubeanim.setPreviewImage('generated/preview/geog-Cubeanim-preview.png', null, null);
 resolve(ggb_slate__Cubeanim);})
 .then((ggb_slate__Cubeanim) => {
 window.onload = function() { ggb_slate__Cubeanim.inject('slate-Cubeanim-container'); }

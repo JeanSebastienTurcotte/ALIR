@@ -12,6 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -87,11 +90,13 @@ ggb_slate__transfor2perm_applet.setCoordSystem(-18, 18,-15,15,);
 listeners(ggb_slate__transfor2perm_applet)};
 var ggb_slate__transfor2perm_params = {
 filename:"external/code/geogebra/transfor2perm.ggb",
+playButton: true,
 width:600,
 height:600,
 appletOnLoad:ggb_slate__transfor2perm_onload};
 new Promise((resolve, reject) => {
 var ggb_slate__transfor2perm = new GGBApplet(ggb_slate__transfor2perm_params, true);
+ggb_slate__transfor2perm.setPreviewImage('generated/preview/geog-transfor2perm-preview.png', null, null);
 resolve(ggb_slate__transfor2perm);})
 .then((ggb_slate__transfor2perm) => {
 window.onload = function() { ggb_slate__transfor2perm.inject('slate-transfor2perm-container'); }

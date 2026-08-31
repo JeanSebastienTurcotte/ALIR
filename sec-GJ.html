@@ -19,6 +19,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -40,7 +43,7 @@ lang: "fr-CA",
 <meta name="twitter:description" content="Intuition et rigueur">
 <meta property="og:description" content="Intuition et rigueur">
 <meta name="twitter:card" content="summary_large_image">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.52.1"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.52.1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -62,15 +65,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.5';
+eBookConfig.runestone_version = '8.2.10';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.18d8728f6d56e11d.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.b388362b5f43738a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
@@ -113,25 +116,25 @@ sagecell.makeSagecell({
 <div class="ptx-readability-options-group">
 <label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
 <option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
-</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="[readability-settings]"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">[readability-settings]</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
-<h2 class="heading">[readability-settings]</h2>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Paramètres de lecture"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Paramètres de lecture</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Paramètres de lecture</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Fermer"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
 <div class="ptx-readability-options-group">
-<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>[readability-line-height]</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>Interligne</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
 </div>
 <div class="ptx-readability-options-group">
-<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>[readability-content-font-size]</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>Taille de police</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
 </div>
 <fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
-<legend>[readability-theme]</legend>
-<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>[readability-theme-system]</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>[readability-theme-light]</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>[readability-theme-dark]</span></label>
+<legend>Thème</legend>
+<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>Système</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>Clair</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>Sombre</span></label>
 </fieldset>
 <fieldset class="ptx-readability-options-group">
-<legend>[readability-assistive-technologies]</legend>
-<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>[readability-expose-permalinks]</span></label>
+<legend>Technologies d'assistance</legend>
+<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Exposer les permaliens</span></label>
 </fieldset>
-<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">[reset-all]</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="intro-SEL.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Préc.</span></a><a class="up-button button" href="chap-SEL.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="sec-SELtheo.html" title="Suivant"><span class="name">Suiv.</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Options par défaut</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="intro-SEL.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Préc.</span></a><a class="up-button button" href="chap-SEL.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="sec-SELtheo.html" title="Suivant"><span class="name">Suiv.</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\require{extpfeil}        
 \newcommand{\Z}{\mathbb{Z}}                
 \newcommand{\R}{\mathbb{R}}
@@ -1361,7 +1364,7 @@ show(E5*E4*E3*E2*E1*Aaugm)
 <div class="para logical" id="li-GJpivdown-1">
 <div class="para">Si <span class="process-math">\(i\)</span> n’est pas encore défini, on pose <span class="process-math">\(i=1\text{.}\)</span> Si <span class="process-math">\(i=m\text{,}\)</span> on saute à l’étape suivante. Sinon, si <span class="process-math">\(i&lt;m\text{,}\)</span> on augmente <span class="process-math">\(i\)</span> de <span class="process-math">\(1\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="li-GJpivdown-1-7">
+<ol class="lower-alpha" style="list-style: ptx-marker-0;" id="li-GJpivdown-1-7">
 <li id="li-GJpivdown-1-7-1">
 <div class="para" id="li-GJpivdown-1-7-1-1">Si possible, échanger la ligne <span class="process-math">\(i\)</span> avec une autre ligne (<span class="process-math">\(j&gt;i\)</span>) de manière à avoir un pivot non nul dans la colonne la plus à gauche possible.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#li-GJpivdown-1-7-1-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
@@ -1445,7 +1448,7 @@ show(E5*E4*E3*E2*E1*Aaugm)
 <div class="para logical" id="ex-GJ-3-2-1-1-1">
 <div class="para">Comme <span class="process-math">\(i\)</span> n’est pas défini, on pose <span class="process-math">\(i=1\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="ex-GJ-3-2-1-1-1-3">
+<ol class="lower-alpha" style="list-style: ptx-marker-0;" id="ex-GJ-3-2-1-1-1-3">
 <li id="ex-GJ-3-2-1-1-1-3-1">
 <div class="para logical" id="ex-GJ-3-2-1-1-1-3-1-1">
 <div class="para">Puisque la première colonne contient des valeurs non nulles, ce sera une colonne pivot. Toutefois, l’entrée de la première colonne dans la ligne <span class="process-math">\(1\)</span> est nulle. Il faut donc permuter deux lignes:</div>
@@ -1515,7 +1518,7 @@ show(E5*E4*E3*E2*E1*Aaugm)
 <div class="para" id="ex-GJ-3-2-1-2-1">On a maintenant <span class="process-math">\(i=2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#ex-GJ-3-2-1-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div class="para logical" id="ex-GJ-3-2-1-2-2">
-<ol class="lower-alpha lower-alpha-level-1" id="ex-GJ-3-2-1-2-2-1">
+<ol class="lower-alpha" style="list-style: ptx-marker-0;" id="ex-GJ-3-2-1-2-2-1">
 <li id="ex-GJ-3-2-1-2-2-1-1">
 <div class="para logical" id="ex-GJ-3-2-1-2-2-1-1-1">
 <div class="para">Les entrées de la seconde colonne à partir de la ligne deux ne sont pas toutes nulles, il y aura donc un pivot dans la colonne deux. En principe, l’algorithme dit de passer à l’étape suivante et de multiplier par <span class="process-math">\(-\frac{1}{7}\text{.}\)</span> On se sert ici de la remarque <a href="sec-GJ.html#rem-GJeff" class="xref" data-knowl="./knowl/xref/rem-GJeff.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Remarque 3.1.27: L’efficacité de l’algorithme">Remarque 3.1.27</a> pour simplifier les calculs, en permutant les lignes deux et trois.</div>
@@ -1567,7 +1570,7 @@ show(E5*E4*E3*E2*E1*Aaugm)
 <div class="para" id="ex-GJ-3-2-1-3-1">On a maintenant <span class="process-math">\(i=3\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#ex-GJ-3-2-1-3-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
 <div class="para logical" id="ex-GJ-3-2-1-3-2">
-<ol class="lower-alpha lower-alpha-level-1" id="ex-GJ-3-2-1-3-2-1">
+<ol class="lower-alpha" style="list-style: ptx-marker-0;" id="ex-GJ-3-2-1-3-2-1">
 <li id="ex-GJ-3-2-1-3-2-1-1">
 <div class="para logical" id="ex-GJ-3-2-1-3-2-1-1-1">
 <div class="para">Il est possible d’avoir un pivot dans la dernière colonne. On met ce pivot égal à <span class="process-math">\(1\text{.}\)</span>
@@ -1605,7 +1608,7 @@ show(E5*E4*E3*E2*E1*Aaugm)
 <li id="ex-GJ-3-2-1-5">
 <div class="para logical" id="ex-GJ-3-2-1-5-1">
 <div class="para">Pour chaque pivot, on veut obtenir des zéros au-dessus de la valeur <span class="process-math">\(1\)</span> qui est pivot. On a trois pivots.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="ex-GJ-3-2-1-5-1-2">
+<ol class="lower-alpha" style="list-style: ptx-marker-0;" id="ex-GJ-3-2-1-5-1-2">
 <li id="ex-GJ-3-2-1-5-1-2-1">
 <div class="para logical" id="ex-GJ-3-2-1-5-1-2-1-1">
 <div class="para">On commence avec le pivot sur la deuxième ligne. On souhaite transformer le <span class="process-math">\(3\)</span> de la ligne un en  <span class="process-math">\(0\)</span> en utilisant la ligne deux.</div>
@@ -2128,18 +2131,18 @@ P=E_{L_i\leftrightarrow L_j}\text{.}
 \end{equation*}
 </div>
 <div class="para">Ensuite, on considère le cas où la matrice <span class="process-math">\(P\)</span> est l’identité et exactement trois lignes ont été permutées, par exemple les lignes <span class="process-math">\(i\text{,}\)</span> <span class="process-math">\(j\)</span> et <span class="process-math">\(k\text{.}\)</span> Seulement deux options sont alors possibles:</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exo-matpermuelem-2-2-9">
+<ol class="decimal" id="exo-matpermuelem-2-2-9">
 <li id="exo-matpermuelem-2-2-9-1">
 <div class="para" id="exo-matpermuelem-2-2-9-1-1">
 <span class="process-math">\(\displaystyle L_i\rightarrow L_j\rightarrow L_k \rightarrow L_i\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-matpermuelem-2-2-9-1-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.3.a"><a tabindex="-1" href="#exo-matpermuelem-2-2-9-1" title="Copier le titre et le lien permanent pour Point 3.1.4.3.a" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.3.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.3.1"><a tabindex="-1" href="#exo-matpermuelem-2-2-9-1" title="Copier le titre et le lien permanent pour Point 3.1.4.3.1" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.3.1">🔗</a></div>
 </li>
 <li id="exo-matpermuelem-2-2-9-2">
 <div class="para" id="exo-matpermuelem-2-2-9-2-1">
 <span class="process-math">\(L_i\rightarrow L_k\rightarrow L_j \rightarrow L_i\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-matpermuelem-2-2-9-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.3.b"><a tabindex="-1" href="#exo-matpermuelem-2-2-9-2" title="Copier le titre et le lien permanent pour Point 3.1.4.3.b" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.3.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.3.2"><a tabindex="-1" href="#exo-matpermuelem-2-2-9-2" title="Copier le titre et le lien permanent pour Point 3.1.4.3.2" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.3.2">🔗</a></div>
 </li>
 </ol>
 <div class="para">On peut effectuer ces permutations triples en deux étapes. Par exemple, pour <span class="process-math">\(P_1\)</span> effectuant <span class="process-math">\(L_i\rightarrow L_j\rightarrow L_k \rightarrow L_i\text{,}\)</span> on peut effectuer <span class="process-math">\(L_i\leftrightarrow L_j\)</span> puis <span class="process-math">\(L_i\leftrightarrow L_k\text{.}\)</span> Remarquer que la seconde permutation permute en réalité les lignes <span class="process-math">\(j\)</span> et <span class="process-math">\(k\)</span> de la matrice initiale, mais que <span class="process-math">\(L_j\)</span> est positionnée à <span class="process-math">\(L_i\text{.}\)</span> Ainsi,</div>
@@ -2343,18 +2346,18 @@ L_8 &amp; \leftrightarrow L_9
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exo-GJ-6-2-4-1">
 <div class="para">On sait que les sudokus résolus ont les trois propriétés suivantes:</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exo-GJ-6-2-4-1-1">
+<ol class="decimal" id="exo-GJ-6-2-4-1-1">
 <li id="exo-GJ-6-2-4-1-1-1">
 <div class="para" id="p-derived-exo-GJ-6-2-4-1-1-1">Chaque ligne contient tous les chiffres de <span class="process-math">\(1\)</span> à <span class="process-math">\(9\)</span> une fois chacun.</div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.5.a"><a tabindex="-1" href="#exo-GJ-6-2-4-1-1-1" title="Copier le titre et le lien permanent pour Point 3.1.4.5.a" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.5.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.5.1"><a tabindex="-1" href="#exo-GJ-6-2-4-1-1-1" title="Copier le titre et le lien permanent pour Point 3.1.4.5.1" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.5.1">🔗</a></div>
 </li>
 <li id="exo-GJ-6-2-4-1-1-2">
 <div class="para" id="p-derived-exo-GJ-6-2-4-1-1-2">Chaque colonne contient tous les chiffres de <span class="process-math">\(1\)</span> à <span class="process-math">\(9\)</span> une fois chacun.</div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.5.b"><a tabindex="-1" href="#exo-GJ-6-2-4-1-1-2" title="Copier le titre et le lien permanent pour Point 3.1.4.5.b" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.5.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.5.2"><a tabindex="-1" href="#exo-GJ-6-2-4-1-1-2" title="Copier le titre et le lien permanent pour Point 3.1.4.5.2" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.5.2">🔗</a></div>
 </li>
 <li id="exo-GJ-6-2-4-1-1-3">
 <div class="para" id="p-derived-exo-GJ-6-2-4-1-1-3">Chaque sous-matrice <span class="process-math">\(3\times 3\)</span> obtenue en divisant la grille en <span class="process-math">\(9\)</span> contient tous les chiffres de <span class="process-math">\(1\)</span> à <span class="process-math">\(9\)</span> une fois chacun.</div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.5.c"><a tabindex="-1" href="#exo-GJ-6-2-4-1-1-3" title="Copier le titre et le lien permanent pour Point 3.1.4.5.c" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.5.c">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.5.3"><a tabindex="-1" href="#exo-GJ-6-2-4-1-1-3" title="Copier le titre et le lien permanent pour Point 3.1.4.5.3" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.5.3">🔗</a></div>
 </li>
 </ol>
 <div class="para">Les première et deuxième propriétés ne seront jamais perdues par la multiplication d’une matrice élémentaire <span class="process-math">\(L_i \leftrightarrow L_j\)</span> puisqu’en interchangeant les lignes, on ne les change pas et les colonnes demeurent entièrement constituées des mêmes chiffres.</div>
@@ -2463,24 +2466,24 @@ S\vec{v}&amp;=\begin{pmatrix}
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exo-mateleminverse-2-1">
 <div class="para">Par la définition <a href="sec-GJ.html#def-matelem" class="xref" data-knowl="./knowl/xref/def-matelem.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Définition 3.1.14: Les matrices élémentaires">Définition 3.1.14</a>, toutes les matrices élémentaires sont le résultat d’une seule opération élémentaire. Ainsi, si l’on démontre la deuxième portion de la proposition, en donnant la matrice inverse de chaque matrice élémentaire, on aura montré la première portion qui dit que les matrices élémentaires sont toutes inversibles. On démontre donc pour chaque matrice élémentaire que son inverse est celui donné dans la proposition <a href="sec-GJ.html#prop-mateleminverse" class="xref" data-knowl="./knowl/xref/prop-mateleminverse.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Proposition 3.1.16">Proposition 3.1.16</a>.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exo-mateleminverse-2-1-3">
+<ol class="decimal" id="exo-mateleminverse-2-1-3">
 <li id="exo-mateleminverse-2-1-3-1">
 <div class="para" id="exo-mateleminverse-2-1-3-1-1">
 <span class="process-math">\(E_{L_i\leftrightarrow L_j}\)</span> est la matrice élémentaire qui permute la ligne <span class="process-math">\(i\)</span> avec la ligne <span class="process-math">\(j\text{,}\)</span> alors pour <em class="emphasis">défaire</em> cette opération, il faut en réalité <em class="emphasis">refaire</em> la même opération. En effet, on considère la matrice <span class="process-math">\(E_{L_i\leftrightarrow L_j}\)</span> décrite, et l’on se questionne à savoir quelle matrice la multipliera pour donner la matrice identité. On réalise que <span class="process-math">\(E_{L_i\leftrightarrow L_j}\)</span> est, par la définition <a href="sec-GJ.html#def-matelem" class="xref" data-knowl="./knowl/xref/def-matelem.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Définition 3.1.14: Les matrices élémentaires">Définition 3.1.14</a>, la matrice identité où l’on a permuté la ligne <span class="process-math">\(i\)</span> et la ligne <span class="process-math">\(j\text{.}\)</span> Il est donc évident que c’est cette même matrice qui, lorsque multipliée avec <span class="process-math">\(E_{L_i\leftrightarrow L_j}\text{,}\)</span> permutra à nouveau la ligne <span class="process-math">\(i\)</span> et la ligne <span class="process-math">\(j\)</span> pour obtenir l’identité. Ainsi, <span class="process-math">\(E_{L_i\leftrightarrow L_j}^{-1}=E_{L_i\leftrightarrow L_j}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-mateleminverse-2-1-3-1-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.6.a"><a tabindex="-1" href="#exo-mateleminverse-2-1-3-1" title="Copier le titre et le lien permanent pour Point 3.1.4.6.a" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.6.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.6.1"><a tabindex="-1" href="#exo-mateleminverse-2-1-3-1" title="Copier le titre et le lien permanent pour Point 3.1.4.6.1" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.6.1">🔗</a></div>
 </li>
 <li id="exo-mateleminverse-2-1-3-2">
 <div class="para" id="exo-mateleminverse-2-1-3-2-1">
 <span class="process-math">\(E_{rL_i}\)</span> est la matrice qui multiplie la ligne <span class="process-math">\(i\)</span> par <span class="process-math">\(r\neq 0\text{,}\)</span> alors, par la définition <a href="sec-GJ.html#def-matelem" class="xref" data-knowl="./knowl/xref/def-matelem.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Définition 3.1.14: Les matrices élémentaires">Définition 3.1.14</a>, c’est la matrice identité où l’on a multiplié la ligne <span class="process-math">\(i\)</span> par <span class="process-math">\(r\neq 0\text{.}\)</span> Afin d’obtenir à nouveau la matrice identité, il faut la multiplier par une matrice qui effectuera l’opération élémentaire suivante: multiplier la ligne <span class="process-math">\(i\)</span> par <span class="process-math">\(\frac{1}{r}\text{.}\)</span> C’est donc, encore par la définition <a href="sec-GJ.html#def-matelem" class="xref" data-knowl="./knowl/xref/def-matelem.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Définition 3.1.14: Les matrices élémentaires">Définition 3.1.14</a>, la matrice identité où l’on a multiplié la ligne <span class="process-math">\(i\)</span> par <span class="process-math">\(\frac{1}{r}\text{.}\)</span> Ainsi, <span class="process-math">\(E_{rL_i}^{-1}=E_{\frac{1}{r}L_i}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-mateleminverse-2-1-3-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.6.b"><a tabindex="-1" href="#exo-mateleminverse-2-1-3-2" title="Copier le titre et le lien permanent pour Point 3.1.4.6.b" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.6.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.6.2"><a tabindex="-1" href="#exo-mateleminverse-2-1-3-2" title="Copier le titre et le lien permanent pour Point 3.1.4.6.2" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.6.2">🔗</a></div>
 </li>
 <li id="exo-mateleminverse-2-1-3-3">
 <div class="para" id="exo-mateleminverse-2-1-3-3-1">
 <span class="process-math">\(E_{L_i+rL_j}\)</span> est la matrice élémentaire qui ajoute à la ligne <span class="process-math">\(i\text{,}\)</span> <span class="process-math">\(r\)</span> fois la ligne <span class="process-math">\(j\text{,}\)</span> on construit alors un raisonnement semblable aux deux précédents pour montrer qu’effectivement <span class="process-math">\(E_{L_i+rL_j}^{-1}=E_{L_i-rL_j}\text{,}\)</span> en se servant de la même définition.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-mateleminverse-2-1-3-3-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.6.c"><a tabindex="-1" href="#exo-mateleminverse-2-1-3-3" title="Copier le titre et le lien permanent pour Point 3.1.4.6.c" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.6.c">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.6.3"><a tabindex="-1" href="#exo-mateleminverse-2-1-3-3" title="Copier le titre et le lien permanent pour Point 3.1.4.6.3" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.6.3">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-mateleminverse-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
@@ -2498,30 +2501,30 @@ S\vec{v}&amp;=\begin{pmatrix}
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exo-opelemperm-2-1">
 <div class="para">Voici une séquence d’opérations élémentaires qui permet d’échanger la ligne <span class="process-math">\(i\)</span> avec la ligne <span class="process-math">\(j\text{,}\)</span> en n’utilisant que l’opération de combinaison linéaire et celle de multiplication par une constante. On fait, dans l’ordre</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exo-opelemperm-2-1-3">
+<ol class="decimal" id="exo-opelemperm-2-1-3">
 <li id="exo-opelemperm-2-1-3-1">
 <div class="para" id="exo-opelemperm-2-1-3-1-1">
 <span class="process-math">\(\displaystyle L_j+L_i\rightarrow L_i\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-opelemperm-2-1-3-1-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.7.a"><a tabindex="-1" href="#exo-opelemperm-2-1-3-1" title="Copier le titre et le lien permanent pour Point 3.1.4.7.a" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.7.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.7.1"><a tabindex="-1" href="#exo-opelemperm-2-1-3-1" title="Copier le titre et le lien permanent pour Point 3.1.4.7.1" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.7.1">🔗</a></div>
 </li>
 <li id="exo-opelemperm-2-1-3-2">
 <div class="para" id="exo-opelemperm-2-1-3-2-1">
 <span class="process-math">\(\displaystyle -L_i+L_j\rightarrow L_j\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-opelemperm-2-1-3-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.7.b"><a tabindex="-1" href="#exo-opelemperm-2-1-3-2" title="Copier le titre et le lien permanent pour Point 3.1.4.7.b" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.7.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.7.2"><a tabindex="-1" href="#exo-opelemperm-2-1-3-2" title="Copier le titre et le lien permanent pour Point 3.1.4.7.2" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.7.2">🔗</a></div>
 </li>
 <li id="exo-opelemperm-2-1-3-3">
 <div class="para" id="exo-opelemperm-2-1-3-3-1">
 <span class="process-math">\(\displaystyle L_j+L_i\rightarrow L_i\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-opelemperm-2-1-3-3-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.7.c"><a tabindex="-1" href="#exo-opelemperm-2-1-3-3" title="Copier le titre et le lien permanent pour Point 3.1.4.7.c" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.7.c">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.7.3"><a tabindex="-1" href="#exo-opelemperm-2-1-3-3" title="Copier le titre et le lien permanent pour Point 3.1.4.7.3" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.7.3">🔗</a></div>
 </li>
 <li id="exo-opelemperm-2-1-3-4">
 <div class="para" id="exo-opelemperm-2-1-3-4-1">
 <span class="process-math">\(-L_j\rightarrow L_j\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-opelemperm-2-1-3-4-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.7.d"><a tabindex="-1" href="#exo-opelemperm-2-1-3-4" title="Copier le titre et le lien permanent pour Point 3.1.4.7.d" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.7.d">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.7.4"><a tabindex="-1" href="#exo-opelemperm-2-1-3-4" title="Copier le titre et le lien permanent pour Point 3.1.4.7.4" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.7.4">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-opelemperm-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
@@ -3548,31 +3551,31 @@ a*(d+kc)-(b+ka)*c=(ad-bc)+kac-kac=ad-bc\neq 0
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exo-sel3x3geo-3-2-2-1">
 <div class="para">Trois plans dans l’espace peuvent être :</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exo-sel3x3geo-3-2-2-1-1">
+<ol class="decimal" id="exo-sel3x3geo-3-2-2-1-1">
 <li id="exo-sel3x3geo-3-2-2-1-1-1">
 <div class="para" id="exo-sel3x3geo-3-2-2-1-1-1-1">tous parallèles distincts<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-1-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.a"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-1" title="Copier le titre et le lien permanent pour Point 3.1.4.17.a" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.1"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-1" title="Copier le titre et le lien permanent pour Point 3.1.4.17.1" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.1">🔗</a></div>
 </li>
 <li id="exo-sel3x3geo-3-2-2-1-1-2">
 <div class="para" id="exo-sel3x3geo-3-2-2-1-1-2-1">deux parallèles distincts et le troisième sécant aux deux<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.b"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-2" title="Copier le titre et le lien permanent pour Point 3.1.4.17.b" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.2"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-2" title="Copier le titre et le lien permanent pour Point 3.1.4.17.2" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.2">🔗</a></div>
 </li>
 <li id="exo-sel3x3geo-3-2-2-1-1-3">
 <div class="para" id="exo-sel3x3geo-3-2-2-1-1-3-1">aucunement parallèles, mais sécants deux à deux<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-3-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.c"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-3" title="Copier le titre et le lien permanent pour Point 3.1.4.17.c" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.c">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.3"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-3" title="Copier le titre et le lien permanent pour Point 3.1.4.17.3" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.3">🔗</a></div>
 </li>
 <li id="exo-sel3x3geo-3-2-2-1-1-4">
 <div class="para" id="exo-sel3x3geo-3-2-2-1-1-4-1">sécants tous les trois sur une droite<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-4-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.d"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-4" title="Copier le titre et le lien permanent pour Point 3.1.4.17.d" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.d">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.4"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-4" title="Copier le titre et le lien permanent pour Point 3.1.4.17.4" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.4">🔗</a></div>
 </li>
 <li id="exo-sel3x3geo-3-2-2-1-1-5">
 <div class="para" id="exo-sel3x3geo-3-2-2-1-1-5-1">sécants tous les trois sur un point.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-5-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.e"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-5" title="Copier le titre et le lien permanent pour Point 3.1.4.17.e" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.e">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.5"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1-1-5" title="Copier le titre et le lien permanent pour Point 3.1.4.17.5" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.5">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-2-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
@@ -3590,31 +3593,31 @@ a*(d+kc)-(b+ka)*c=(ad-bc)+kac-kac=ad-bc\neq 0
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exo-sel3x3geo-3-3-2-1">
 <div class="para">On reprend les différentes situations décrites et on attribue le nombre de solutions :</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exo-sel3x3geo-3-3-2-1-1">
+<ol class="decimal" id="exo-sel3x3geo-3-3-2-1-1">
 <li id="exo-sel3x3geo-3-3-2-1-1-1">
 <div class="para" id="exo-sel3x3geo-3-3-2-1-1-1-1">Tous parallèles distincts: aucune solution.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-1-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.a"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-1" title="Copier le titre et le lien permanent pour Point 3.1.4.17.a" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.1"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-1" title="Copier le titre et le lien permanent pour Point 3.1.4.17.1" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.1">🔗</a></div>
 </li>
 <li id="exo-sel3x3geo-3-3-2-1-1-2">
 <div class="para" id="exo-sel3x3geo-3-3-2-1-1-2-1">Deux parallèles distincts et le troisième sécant aux deux: aucune solution.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.b"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-2" title="Copier le titre et le lien permanent pour Point 3.1.4.17.b" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.2"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-2" title="Copier le titre et le lien permanent pour Point 3.1.4.17.2" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.2">🔗</a></div>
 </li>
 <li id="exo-sel3x3geo-3-3-2-1-1-3">
 <div class="para" id="exo-sel3x3geo-3-3-2-1-1-3-1">Aucunement parallèles, mais sécants deux à deux: aucune solution.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-3-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.c"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-3" title="Copier le titre et le lien permanent pour Point 3.1.4.17.c" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.c">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.3"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-3" title="Copier le titre et le lien permanent pour Point 3.1.4.17.3" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.3">🔗</a></div>
 </li>
 <li id="exo-sel3x3geo-3-3-2-1-1-4">
 <div class="para" id="exo-sel3x3geo-3-3-2-1-1-4-1">Sécants tous les trois sur une droite: infinité de solutions.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-4-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.d"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-4" title="Copier le titre et le lien permanent pour Point 3.1.4.17.d" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.d">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.4"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-4" title="Copier le titre et le lien permanent pour Point 3.1.4.17.4" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.4">🔗</a></div>
 </li>
 <li id="exo-sel3x3geo-3-3-2-1-1-5">
 <div class="para" id="exo-sel3x3geo-3-3-2-1-1-5-1">Sécants tous les trois sur un point: une seule solution.<div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-5-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.e"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-5" title="Copier le titre et le lien permanent pour Point 3.1.4.17.e" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.e">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Point 3.1.4.17.5"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1-1-5" title="Copier le titre et le lien permanent pour Point 3.1.4.17.5" aria-label="Copier le titre et le lien permanent pour Point 3.1.4.17.5">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraphe"><a tabindex="-1" href="#exo-sel3x3geo-3-3-2-1" title="Copier le titre et le lien permanent pour Paragraphe" aria-label="Copier le titre et le lien permanent pour Paragraphe">🔗</a></div>
