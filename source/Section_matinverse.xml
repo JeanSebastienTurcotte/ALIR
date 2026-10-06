@@ -395,7 +395,60 @@ show("Tu2=",T*u2)
     </remark>
     <p>On cherche d'abord à démontrer que si <m>A</m> est une matrice pour laquelle il existe <m>A^{-1}</m> telle que <m>A^{-1}A=I</m>, alors il existe également une matrice <m>B</m> telle que <m>AB=I</m>. En d'autres mots,
     si <m>A</m> possède un inverse selon la définition <xref ref="def-transfoinverseprelim"/> et la remarque <xref ref="rem-invprelim"/>, alors <m>A</m> est aussi l'inverse d'une matrice. </p>
-    <p>Par la suite, on montre que <m>B=A^{-1}</m>.</p>
+    <p>Par la suite, on montre que <m>B=A^{-1}</m>. On aura besoin de deux résultats intermédiare avant de procéder.</p>
+      <lemma xml:id="lem-matinversezero">
+        <title>La préimage de <m>\vec{0}</m></title>
+          <statement>
+          <p>Soit <m>A</m> une matrice possédant un inverse à gauche <m>B</m>. Si <m>A\vec{c}=\vec{0}</m>, alors <m>\vec{c}=\vec{0}</m>.</p>
+          </statement>
+          <proof>
+      <p>On sait que <m>A\vec{0}=\vec{0}</m>, car <m>A</m> est une matrice, donc l'équation <m>A\vec{c}=\vec{0}</m> possède au moins une solution. Or si <m>\vec{c}</m> est un vecteur pour lequel <m>A\vec{c}=\vec{0}</m>, on peut multiplier par <m>B</m> pour avoir 
+              <md>
+          <mrow>BA\vec{c}=B\vec{0}</mrow>
+                  <mrow>I\vec{c}=\vec{0}</mrow>
+                  <mrow>\vec{c}=\vec{0}</mrow>
+          </md>.</p>
+          </proof>
+        </lemma>
+        <lemma xml:id="lem-nplus1vecteursdonnent0">
+        <title>Un ensemble de <m>n+1</m> vecteurs qui donne <m>\vec{0}</m></title>
+        <statement>
+        <p>
+        Soit un ensemble de <m>n+1</m> vecteurs dans <m>\mathbb{R}^n</m>. Alors il est possible d'écrire le vecteur nul comme un combinaison linéaire de ces <m>n+1</m> vecteurs telle que les coefficients de la combinaisons linéaires ne sont pas tous nuls.                
+        </p>
+        </statement>
+            <proof>
+            <p>On fait une preuve par récurrence sur <m>n</m>. </p>
+             <p>Si <m>n=1</m>, on est dans le contexte des nombres réels. Soit <m>v_1,v_2</m> deux nombres réels. Si <m>v_1=0</m>, alors on peut écrire <m>0=1v_1+0v_2</m>. On obtient ainsi une combinaison linéaire où les coefficients ne sont pas tous nuls. Si <m>v_1\neq 0</m>, alors on peut écrire <m>0=\frac{-v_2}{v_1}v_1+1v_2</m>. On obtient aussi une combinaison linéaire où les coefficients ne sont pas tous nuls.   </p>
+                <p>On suppose que le résultat est vrai pour un ensemble de <m>n</m> vecteurs dans <m>\mathbb{R}^{n-1}</m>. On tente de montrer que cela implique que le résultat est vrai pour <m>n+1</m> vecteurs de <m>\mathbb{R}^n</m>.</p>
+<p>Soit <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_{n+1}</m> des vecteurs dans <m>\mathbb{R}^n</m>. On distingue deux cas. 
+                <ol>
+    <li><p>Si les dernières composantes de tous les vecteurs sont nulles, alors les vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_{n}</m> sont comme un ensemble de <m>n</m> vecteurs dans <m>\mathbb{R}^{n-1}</m>. Par l'hypothèse de récurrence, il existe des coefficients pas tous nuls pour lesquels <m>c_1\vec{v}_1+c_2\vec{v}_2+\cdots+ c_n\vec{v}_{n}=\vec{0}</m>. On ajoute <m>c_{n+1}=0</m> et on obtient
+        <md>
+        c_1\vec{v}_1+c_2\vec{v}_2+\cdots+ c_n\vec{v}_{n}+0\vec{v}_{n+1}=\vec{0}
+        </md>, obtenant ainsi une combinaison linéaire donnant le vecteur nul où les coefficients ne sont pas tous nuls. </p></li>
+    <li><p>Si au moins l'un des vecteurs a une dernière composante non nulle alors, quitte à renuméroter les vecteurs au besoin, on suppose que ce vecteur est <m>\vec{v}_{n+1}</m>. On pose maintenant, pour <m>1\leq k\leq n</m>, les vecteurs
+        <md>
+        \vec{w}_k=\vec{v}_k-\frac{\vec{v}_k[-1]}{\vec{v}_{n+1}[-1]}\vec{v}_{n+1}
+        </md>,
+        où <m>\vec{v}_k[-1]</m> est la dernière composante du vecteur <m>\vec{v}_k</m>.
+        </p>
+        <p>Ces <m>n</m> vecteurs ont pour dernière composante la valeur <m>0</m>. L'argument qui précède montre qu'il existe des coefficients pas tous nuls pour lesquels on peut trouver 
+        <md>c_1\vec{w}_1+c_2\vec{w}_2+\cdots+ c_n\vec{w}_{n}=\vec{0}</md>.
+        On  alors
+            <md>
+            <mrow>\vec{0}&amp;=c_1\vec{w}_1+c_2\vec{w}_2+\cdots+ c_n\vec{w}_{n}</mrow>
+            <mrow>&amp;=c_1(\vec{v}_1-\frac{\vec{v}_1[-1]}{\vec{v}_{n+1}[-1]})\vec{v}_{n+1}+c_2(\vec{v}_2-\frac{\vec{v}_2[-1]}{\vec{v}_{n+1}[-1]})\vec{v}_{n+1}+\cdots+ c_n(\vec{v}_n-\frac{\vec{v}_n[-1]}{\vec{v}_{n+1}[-1]})\vec{v}_{n+1}</mrow>
+            <mrow>&amp;=c_1\vec{v}_2+c_2\vec{v}_2+\cdots +c_n\vec{v}_n-(c_1\frac{\vec{v}_1[-1]}{\vec{v}_{n+1}[-1]}+c_2\frac{\vec{v}_2[-1]}{\vec{v}_{n+1}[-1]}+\cdots +c_n\frac{\vec{v}_n[-1]}{\vec{v}_{n+1}[-1]})\vec{v}_{n+1}</mrow>
+            </md>.
+            On a donc une combinaison linéaire des vecteurs <m>\vec{v}_1,\vec{v}_2,\ldots , \vec{v}_{n+1}</m> pour laquelle les coefficients ne sont pas tous nuls et qui donne le vecteur nul.
+        </p>
+        </li>
+    </ol>
+                </p>
+            </proof>
+        </lemma>
+     <p>Enfin, les propositions principales sur l'inverse.</p>
     <proposition xml:id="prop-investsurj">
     <title>Les transformations inversibles atteignent tous les vecteurs de leur image</title>
     <statement>
@@ -403,19 +456,20 @@ show("Tu2=",T*u2)
     Cela signifie que chaque vecteur de <m>\R^n</m> (l'image) est atteint par la transformation d'un  vecteur de <m>\R^n</m> (domaine). De plus, le vecteur <m>\vec{u}</m> est unique. </p>
     </statement>
     <proof>
-    <p>Soit <m>\vec{v}\in \R^n</m>, un vecteur de l'image de <m>A</m>. On cherche <m>\vec{u}</m> tel que <m>A\vec{u}=\vec{v}</m>. Puisque <m>A</m> possède un inverse <m>A^{-1}</m>, on a
-    <md>
-    <mrow>A\vec{u}&amp;=\vec{v}</mrow>
-    <mrow>A^{-1}A\vec{u}&amp;=A^{-1}\vec{v} &amp;&amp; \text{ En multipliant à gauche de chaque côté par } A^{-1}\text{. Le côté droit de l'égalité est bien défini, car l'inverse est une transformation dont le domaine est } \R^n\text{.}</mrow>
-    <mrow>I\vec{u}&amp;=A^{-1}\vec{v} &amp;&amp; \text{ car } A^{-1} \text{ est l'inverse de } A\text{.}</mrow>
-    <mrow>\vec{u}&amp;=A^{-1}\vec{v} &amp;&amp; \text{par }<xref ref="def-matid">définition</xref> \text{ de la transformation identité.}</mrow>
-    </md>.
-    </p>
-    <p>Ainsi, il existe <m>\vec{u}</m> tel que <m>A\vec{u}=\vec{v}</m> et l'on peut explicitement le calculer à l'aide de l'inverse.</p>
-    
-    <p>L'unicité est une conséquence du fait que la matrice inverse est unique, ce qui sera démontré à la proposition <xref ref="prop-inverseunique"/>. Ainsi, si <m>\vec{w}</m> était
-    tel que <m>A\vec{w}=\vec{v}</m>, on aurait aussi <m>\vec{w}=A^{-1}\vec{v}</m>. L'unicité de l'inverse assure que <m>\vec{w}=\vec{u}</m>.</p>
-    </proof>
+        <p>Soit <m>\vec{v}\in \R^n</m>, un vecteur de l'image de <m>A</m>. On cherche <m>\vec{u}</m> tel que <m>A\vec{u}=\vec{v}</m>. </p>
+        <p>On considère les vecteurs <m>\vec{a}_1,\vec{a}_2,\ldots , \vec{a}_n</m> les colonnes de la matrice <m>A</m>. Puisque l'ensemble formé de ces vecteurs et du vecteur <m>\vec{v}</m> contient <m>n+1</m> vecteurs de <m>\mathbb{R}^n</m>, il existe en vertu du <xref ref="lem-nplus1vecteursdonnent0"/>  des coefficients <m>c_0,c_1,c_2,\ldots, c_n</m> pas tous nuls pour lesquels
+        <md xml:id="eq-preimagev" tag="star">
+        c_0\vec{v}+c_1\vec{a}_1+c_2\vec{a}_2+\cdots +c_n\vec{a}_n  =\vec{0} 
+        </md>.
+            Si on suppose que <m>c_0=0</m>, alors cela implique que <m>c_1\vec{a}_1+c_2\vec{a}_2+\cdots +c_n\vec{a}_n=A\vec{c}=\vec{0}</m> (où <m>\vec{c}=(c_1,c_2,\ldots,c_n)</m>), ce qui implique, selon le <xref ref="lem-matinversezero"/>, que le vecteur <m>\vec{c}=\vec{0}</m> et donc, que tous  les coefficients <m>c_i</m> sont nuls. Ceci contredit le <xref ref="lem-nplus1vecteursdonnent0"/>. On peut donc supposer que <m>c_0\neq 0</m> et , en divisant, le prendre égal à <m>1</m>.
+        </p>
+       <p>En isolant <m>\vec{v}</m> dans l'équation <xref ref="eq-preimagev"/>, on trouve
+        <md>
+        \vec{v}=-A\vec{c}    
+        </md>,
+        offrant une solution à l'équation <m>A\vec{u}=\vec{v}</m> où <m>\vec{u}=-\vec{c}</m>.
+        </p>
+        </proof>
     </proposition>
     <proposition xml:id="prop-surjestinv">
     <title>Les transformations atteignant chaque vecteur de leur image sont l'inverse d'une transformation</title>
@@ -426,7 +480,7 @@ show("Tu2=",T*u2)
     <m>\vec{b}_1,\vec{b}_2,\ldots , \vec{b}_n</m> tels que <m>A\vec{b}_k=\vec{e}_k</m> pour chacun des <m>k=1,\ldots , n</m>.</p>
     <p>On pose 
     <md>
-    B=\begin{pmatrix}
+B=\begin{pmatrix}
     \lvert \amp \lvert \amp \cdots \amp \lvert \\
      \vec{b}_1\amp \vec{b}_2\amp \cdots \amp \vec{b}_n \\
     \lvert \amp \lvert \amp \cdots \amp \lvert \\
